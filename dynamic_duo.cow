@@ -1,0 +1,15 @@
+##
+## Tux, sitting on a Hacker Emblem, and a small gnu
+##
+$the_cow = <<EOC;
+   $thoughts    __       ________________
+    $thoughts .'  `.    < Happy Hacking! >
+      |a_a  |    ----------------
+      \\<_)__/      $thoughts
+      /(   )\\       $thoughts  ,= ,-_-. =.
+     |\\`> < /\\        ((_/)o o(\\_))
+     \\_|=='|_/         `-'(. .)`__
+     [0][1][0]             \\_/    )\\
+     [0][0][1]               ||--|| *
+     [1][1][1]
+EOC
