@@ -7,6 +7,7 @@ xset +fp /usr/share/fonts/local/
 
 xset -b     # Turn off the beep in X.
 sh ~/.fehbg # Set the desktop wallpaper.
+conky -dq
 
 case $1 in
   notion) exec notion;;
