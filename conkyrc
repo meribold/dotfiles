@@ -1,31 +1,42 @@
-alignment tr
+alignment top_left
+border_inner_margin 0
+border_outer_margin 0
 border_width 1
 color0 snow
 color1 slate gray
 color2 gray
+default_bar_size 0 5
+default_graph_size 192 32
 double_buffer yes
-draw_borders no
+#draw_borders yes
 draw_graph_borders yes
 #font -*-dina-medium-r-*-*-13-*-*-*-*-*-*-*
-gap_x 4
-gap_y 4
+# echo $((1366-192-4-192-6))
+gap_x 972
+gap_y 2
 own_window no
-#own_window_argb_visual yes
-own_window_transparent yes
-own_window_type desktop
+#own_window_type override
 stippled_borders 8
 times_in_seconds yes
 total_run_times 0
-update_interval 3
+update_interval 2
+use_spacer none
 use_xft yes
-#xftalpha 0.8
 #xftfont Inconsolata:size=8
 xftfont Ubuntu Mono:size=8
 
+# Alternate way to check if BAT1 is being charged:
+# ${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" >= "Charging"}
+
+# Check if BAT1 is discharging or below 95% of its total capacity (or both):
+# ${if_match "${eval ${if_match "${battery_short BAT1}" >= "D"}+$endif${if_match ${battery_percent BAT1} < 95}+${endif}}" >= "+"}
+
+# Check if BAT1 is beign charged or discharging:
+# ${if_match "${eval ${if_match "${battery_short BAT1}" >= "C"}+$endif${if_match "${battery_short BAT1}" >= "D"}+${endif}}" >= "+"}
+
 TEXT
 ${color0}${alignc}${utime %Y-%m-%d %H:%M:%SZ}
-${alignc}${color0}${pre_exec whoami}@${nodename} : Arch GNU/Linux ($kernel)
-${color1}$stippled_hr
+
 ${color2}load average: ${color0}$loadavg${alignr}${color2}CPU times: ${color0}${cpu cpu1}%, ${cpu cpu2}%
 ${color2}${cpugraph cpu1 32,192 696969 fffafa}${offset 4}${cpugraph cpu2 32,192 696969 fffafa}
 ${color2}  PID   %CPU   %MEM     TIME+ COMMAND
@@ -35,11 +46,14 @@ ${color0}${top pid 3} ${top cpu 3} ${top mem 3} ${top time 3} ${top name 3}
 ${color0}${top pid 4} ${top cpu 4} ${top mem 4} ${top time 4} ${top name 4}
 ${color0}${top pid 5} ${top cpu 5} ${top mem 5} ${top time 5} ${top name 5}
 
-${color2}tasks: ${color0}${processes} total, ${running_processes} running${alignr}${color2}up: ${color0}${format_time $uptime "PT\hH\mM"}
-${color1}$stippled_hr
-${color2}mem: ${color0}${memmax} total, ${mem} used : $memperc% ${membar}
-${color2}swap: ${color0}${swapmax} total, ${swap} used : $swapperc% ${swapbar}
-${color1}$stippled_hr
-${color2}downspeed: ${color0}${downspeed eth0}${goto 200}${color2}upspeed: ${color0}${upspeed eth0}
-${color2}${downspeedgraph eth0 32,192 696969 fffafa}${offset 4}${upspeedgraph eth0 32,192 696969 fffafa}
+${color2}tasks: ${color0}${processes} ${color2}total, ${color0}${running_processes} ${color2}running${alignr}up: ${color0}${format_time $uptime "PT\hH\mM"}
+${color2}mem: ${color0}${mem} ($memperc%) ${color2}used ${voffset 1}${color2}${membar}
+${color2}swap: ${color0}${swap} ($swapperc%) ${color2}used ${voffset 1}${color2}${swapbar}${if_match "${eval ${if_match "${battery_short BAT1}" >= "D"}+$endif${if_match ${battery_percent BAT1} < 100}+${endif}}" >= "+"}
 
+${color2}BAT1: ${color0}${battery_percent BAT1}% ${color2} energy remaining ${voffset 1}${battery_bar BAT1}$endif${if_up eth0}
+${color1}$stippled_hr
+${color2}downspeed: ${color0}${downspeed eth0}${goto 1170}${color2}upspeed: ${color0}${upspeed eth0}${alignr}${color2}(eth0)
+${color2}${downspeedgraph eth0 32,192 696969 fffafa}${offset 4}${upspeedgraph eth0 32,192 696969 fffafa}$endif${if_up wlan0}
+${color1}$stippled_hr
+${color2}downspeed: ${color0}${downspeed wlan0}${goto 1170}${color2}upspeed: ${color0}${upspeed wlan0}${alignr}${color2}(wlan0)
+${color2}${downspeedgraph wlan0 32,192 696969 fffafa}${offset 4}${upspeedgraph wlan0 32,192 696969 fffafa}$endif
