@@ -1,17 +1,6 @@
 --
 -- Notion main configuration file
 --
--- This file only includes some settings that are rather frequently altered.
--- The rest of the settings are in cfg_notioncore.lua and individual modules'
--- configuration files (cfg_modulename.lua).
---
--- When any binding and other customisations that you want are minor, it is
--- recommended that you include them in a copy of this file in ~/.notion/.
--- Simply create or copy the relevant settings at the end of this file (from
--- the other files), recalling that a key can be unbound by passing 'nil'
--- (without the quotes) as the callback. For more information, please see
--- the Notion configuration manual available from the Notion Web page.
---
 
 -- Set the META modifier to the Super key.
 META="Mod4+"
@@ -24,7 +13,6 @@ ioncore.set{
     -- Consecutive clicks within 200 ms are considered double clicks.
     dblclick_delay=200,
 }
-
 
 -- Load configuration of the Notion 'core'. Most bindings are here.
 dopath("cfg_notioncore")
@@ -46,11 +34,10 @@ dopath("mod_sp")
 dopath("mod_notionflux")
 dopath("mod_xrandr")
 
-
 dopath("not_min_tabs")
 
-
 defbindings("WMPlex.toplevel", {
+    kpress(META.."L", nil),     -- Unbind lock screen.
     kpress(ALTMETA.."F3", nil),
     kpress(ALTMETA.."F4", nil), -- Unbind querying for host to SSH to.
     kpress(ALTMETA.."F5", nil), -- Unbind querying for file to edit.
@@ -64,14 +51,12 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."R", "mod_query.query_exec(_)"),
 })
 
-
 -- WScreen context bindings; these bindings are available all the time.
 defbindings("WScreen", {
     kpress(META.."Tab", nil),
     bdoc("Go to first region demanding attention or previously active one."),
     kpress(META.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
 })
-
 
 defbindings("WTiling", {
     kpress(META.."Tab", nil),
