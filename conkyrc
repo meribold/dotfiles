@@ -25,14 +25,19 @@ use_xft yes
 #xftfont Inconsolata:size=8
 xftfont Ubuntu Mono:size=8
 
-# Alternate way to check if BAT1 is being charged:
-# ${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" >= "Charging"}
+# Check if BAT1 is being charged (the linebreak is required):
+# ${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" >= "Charging
+# "}
 
-# Check if BAT1 is discharging or below 95% of its total capacity (or both):
-# ${if_match "${eval ${if_match "${battery_short BAT1}" >= "D"}+$endif${if_match ${battery_percent BAT1} < 95}+${endif}}" >= "+"}
+# Check if BAT1 is something other than full (could be unknown status):
+# ${if_match "${battery_short BAT1}" != "F"}
 
-# Check if BAT1 is beign charged or discharging:
-# ${if_match "${eval ${if_match "${battery_short BAT1}" >= "C"}+$endif${if_match "${battery_short BAT1}" >= "D"}+${endif}}" >= "+"}
+# Check if BAT1 is discharging or below 100% of its total capacity (or both):
+# ${if_match "${eval ${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" == "Discharging
+# "}+$endif${if_match ${battery_percent BAT1} < 100}+${endif}}" >= "+"}
+
+# I think the relational operators <, <=, > and >= used in expressions evaluated by if_match perform
+# a lexicographical compare on their operands if those are strings (used in the above snippet).
 
 TEXT
 ${color0}${alignc}${utime %Y-%m-%d %H:%M:%SZ}
@@ -48,7 +53,9 @@ ${color0}${top pid 5} ${top cpu 5} ${top mem 5} ${top time 5} ${top name 5}
 
 ${color2}tasks: ${color0}${processes} ${color2}total, ${color0}${running_processes} ${color2}running${alignr}up: ${color0}${format_time $uptime "PT\hH\mM"}
 ${color2}mem: ${color0}${mem} ($memperc%) ${color2}used ${voffset 1}${color2}${membar}
-${color2}swap: ${color0}${swap} ($swapperc%) ${color2}used ${voffset 1}${color2}${swapbar}${if_match "${eval ${if_match "${battery_short BAT1}" >= "D"}+$endif${if_match ${battery_percent BAT1} < 100}+${endif}}" >= "+"}
+${color2}swap: ${color0}${swap} ($swapperc%) ${color2}used ${voffset 1}${color2}${swapbar}${if_match "${eval ${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" == "Charging
+"}+$endif${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" == "Discharging
+"}+$endif}" >= "+"}
 
 ${color2}BAT1: ${color0}${battery_percent BAT1}% ${color2} energy remaining ${voffset 1}${battery_bar BAT1}$endif${if_up eth0}
 ${color1}$stippled_hr
