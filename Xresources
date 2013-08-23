@@ -15,3 +15,11 @@ xterm*font4: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
 xterm*fontMenu*font5*Label: terminus 14
 xterm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
 
+! Taken from the ArchWiki:
+! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
