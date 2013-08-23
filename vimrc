@@ -183,10 +183,10 @@ imap <4-RightMouse> <Nop>
 "                              mouse.
 " Some sequences of key presses like <LeftMouse>g<LeftMouse> still perform an
 " action when performed quickly   (?_?)
-map  g<LeftMouse>   <Nop>
-imap g<LeftMouse>   <Nop>
-map  g<RightMouse>  <Nop>
-imap g<RightMouse>  <Nop>
+map  g<LeftMouse>  <Nop>
+"imap g<LeftMouse>  <Nop>
+map  g<RightMouse> <Nop>
+"imap g<RightMouse> <Nop>
 
 " See :h scrolling, :h scroll-mouse-wheel and :h xterm-mouse-wheel.
 map  <ScrollWheelUp>      <Nop>
