@@ -32,7 +32,7 @@ de.defstyle("frame-tiled", {
 
 de.defstyle("frame-tiled-alt", {
     based_on = "frame-tiled",
-    bar = "none", -- possible values include "none", "shaped", "inside" and "outside"
+    bar = "none", -- Possible values: "none", "shaped", "inside", "outside".
 })
 
 de.defstyle("frame-floating", {
@@ -52,6 +52,11 @@ de.defstyle("frame-floating", {
     spacing = 0,
 
     bar = "shaped",
+})
+
+de.defstyle("frame-floating-alt", {
+    based_on = "frame-floating",
+    bar = "none",
 })
 
 de.defstyle("frame-transient", {
@@ -74,9 +79,9 @@ de.defstyle("tab", {
 
     highlight_colour = "#000000",
     shadow_colour = "#000000",
-    foreground_colour = "#000000",
-    background_colour = "#600000",
-    padding_colour = "#600000",
+    foreground_colour = "#b0b0b0",
+    background_colour = "#000000",
+    padding_colour = "#606060",
 
     border_style = "elevated",
     border_sides = "tb",
@@ -89,19 +94,19 @@ de.defstyle("tab", {
 
     de.substyle("active-selected", {
         based_on = "tab",
-        foreground_colour = "#b0b0b0",
-        background_colour = "#300000",
-        padding_colour = "#a0a0a0",
+        background_colour = "#600000",
+        padding_colour = "#606060", -- The padding colour goes to black rather
+                                    -- than the inherited gray w/o this. Bug?
     }),
     de.substyle("active-unselected", {
         based_on = "tab",
-        padding_colour = "#a0a0a0",
     }),
     de.substyle("inactive-selected", {
         based_on = "tab",
     }),
     de.substyle("inactive-unselected", {
         based_on = "tab",
+        foreground_colour = "#808080",
     }),
 })
 
@@ -210,4 +215,3 @@ de.defstyle("stdisp-statusbar", {
 })
 
 gr.refresh()
-
