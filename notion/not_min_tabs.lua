@@ -21,6 +21,14 @@
 -- defining adapted "-alt" styles in your "look_something.lua" (usually
 -- "frame-tiled-alt" with the argument "bar = "none"").
 
+-- Uncomment entries you don't want to be handled.
+local excludes = {
+    --tiled = true,
+    --unknown = true,
+    --floating = true,
+    --transient = true,
+}
+
 function hide_tabs(fr)  -- fr must be a WFrame.
     return function()
         fr:set_mode(string.sub(fr:mode(),
@@ -35,9 +43,7 @@ function show_tabs(fr)  -- fr must be a WFrame.
 end
 
 function reconsider_tabs(fr)
-    -- This Should leave us with "tiled" frames, "unknown" frames and their
-    -- respective "-alt" variants.
-    if fr:mode() == "floating" or fr:mode() == "transient" then
+    if excludes[fr:mode()] then
         return
     end
 
