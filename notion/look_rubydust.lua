@@ -8,6 +8,7 @@ de.reset()
 
 de.defstyle("*", {
     font = "-*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*",
+    --font = "-*-dina-medium-r-*-*-13-*-*-*-*-*-*-*",
     text_align = "left",
 })
 
@@ -75,6 +76,8 @@ de.defstyle("frame-unknown-alt", {
 })
 
 de.defstyle("tab", {
+    -- All tab bars use this basic style when (re)starting Notion before their
+    -- frame gets focused initially.
     based_on = "*",
 
     highlight_colour = "#000000",
@@ -103,10 +106,11 @@ de.defstyle("tab", {
     }),
     de.substyle("inactive-selected", {
         based_on = "tab",
+        background_colour = "#200000",
+        padding_colour = "#606060",
     }),
     de.substyle("inactive-unselected", {
         based_on = "tab",
-        foreground_colour = "#808080",
     }),
 })
 
