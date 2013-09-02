@@ -1,7 +1,12 @@
-xterm*background: black
-xterm*foreground: grey
+! https://wiki.archlinux.org/index.php/Xterm
+xterm*termName: xterm-256color
 xterm*metaSendsEscape: true
 xterm*ForceBoxChars: true
+XTerm*locale: true
+xterm*eightBitInput: true
+! https://wiki.archlinux.org/index.php/Xterm#Colors
+xterm*background: black
+xterm*foreground: rgb:c6/c6/c6
 xterm*fontMenu*fontdefault*Label: dina 13
 xterm*font: -*-dina-medium-r-*-*-13-*-*-*-*-*-*-*
 xterm*fontMenu*font1*Label: proggy clean sz
