@@ -1,0 +1,7 @@
+# ~/.inputrc
+
+# http://superuser.com/questions/342455/flashing-window-in-gnu-screen
+set bell-style none
+
+# https://wiki.archlinux.org/index.php/Bashrc#Faster_completion
+set show-all-if-ambiguous on
