@@ -100,8 +100,8 @@ defbindings("WMPlex.toplevel", {
     bdoc("Query for workspace to go to or create a new one."),
     kpress(ALTMETA.."F9", "mod_query.query_workspace(_)"),
 
-    bdoc("Query for a client window to go to."),
-    kpress(META.."G", "mod_query.query_gotoclient(_)"),
+    --bdoc("Query for a client window to go to."),
+    --kpress(META.."G", "mod_query.query_gotoclient(_)"),
 
     bdoc("Display context menu."),
     kpress(META.."M",
@@ -155,6 +155,10 @@ defbindings("WFrame.toplevel", {
     bdoc("Query for a client window to attach."),
     kpress(META.."A", "mod_query.query_attachclient(_)"),
 
+    bdoc("Switch to next/previous object within the frame."),
+    kpress(META.."bracketleft", "WFrame.switch_prev(_)"),
+    kpress(META.."bracketright", "WFrame.switch_next(_)"),
+
     submap(META.."BackSpace", {
         -- Display tab numbers when modifiers are released.
         submap_wait("ioncore.tabnum.show(_)"),
@@ -170,10 +174,6 @@ defbindings("WFrame.toplevel", {
         kpress("8", "WFrame.switch_nth(_, 7)"),
         kpress("9", "WFrame.switch_nth(_, 8)"),
         kpress("0", "WFrame.switch_nth(_, 9)"),
-
-        bdoc("Switch to next/previous object within the frame."),
-        kpress("J", "WFrame.switch_next(_)"),
-        kpress("K", "WFrame.switch_prev(_)"),
 
         bdoc("Move current object within the frame left/right."),
         kpress("comma", "WFrame.dec_index(_, _sub)", "_sub:non-nil"),
