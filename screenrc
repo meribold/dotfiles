@@ -1,0 +1,10 @@
+bind ` select 0
+
+startup_message off
+vbell off
+altscreen on
+
+# See http://aperiodic.net/screen/faq#how_can_screen_use_xterm_s_title_bar.
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+defhstatus "^Et (screen ^E)"
+hardstatus off
