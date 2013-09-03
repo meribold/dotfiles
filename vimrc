@@ -29,7 +29,18 @@ set wildmenu         " Use the enhanced command-line completion menu where
 set wildmode=longest:full,full
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set title        " Let vim set the terminal title.
+set nowrap
+set sidescroll=1
+set listchars+=precedes:<,extends:>
+
+set title " Let vim set the terminal title.
+" If running inside screen, use those escape sequences to name the window (set
+" the title of the VT100 emulated bt screen)
+if &term == "screen"
+  set t_ts=k
+  set t_fs=\
+endif " The settings for those termcap codes are taken from vim.wikia.com [1].
+
 set scrolloff=2  " Always keep 2 lines above and below the cursor.
 set hidden       " Only hide (don't unload) a buffer when abandoned.
 set ruler        " Show the ruler.
@@ -218,3 +229,4 @@ imap <C-ScrollWheelRight> <Nop>
 " matches. Pressing space turns off highlighting and clears any message shown.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
