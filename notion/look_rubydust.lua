@@ -76,14 +76,14 @@ de.defstyle("frame-unknown-alt", {
 })
 
 de.defstyle("tab", {
-    -- All tab bars use this basic style when (re)starting Notion before their
-    -- frame gets focused initially.
+    -- All tab bars use this basic style when (re)starting Notion until their
+    -- frame gets focused at least once.
     based_on = "*",
 
     highlight_colour = "#000000",
     shadow_colour = "#000000",
     foreground_colour = "#b0b0b0",
-    background_colour = "#000000",
+    background_colour = "#200000",
     padding_colour = "#606060",
 
     border_style = "elevated",
@@ -98,19 +98,22 @@ de.defstyle("tab", {
     de.substyle("active-selected", {
         based_on = "tab",
         background_colour = "#600000",
-        padding_colour = "#606060", -- The padding colour goes to black rather
-                                    -- than the inherited gray w/o this. Bug?
+        padding_colour = "#606060", -- The padding color matches the background
+                                    -- rather than the generic value set for
+                                    -- tabs w/o this. Bug?
     }),
     de.substyle("active-unselected", {
         based_on = "tab",
+        background_colour = "#000000",
+        padding_colour = "#606060",
     }),
     de.substyle("inactive-selected", {
         based_on = "tab",
-        background_colour = "#200000",
-        padding_colour = "#606060",
     }),
     de.substyle("inactive-unselected", {
         based_on = "tab",
+        background_colour = "#000000",
+        padding_colour = "#606060",
     }),
 })
 
