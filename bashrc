@@ -37,19 +37,18 @@ case "$TERM" in
       # '\e' should be equivalent to the ANSI escape sequence '\033'. The
       # escaped brackets surrounding these sequences should prevent bash from
       # counting them when determining the cursor position.
-      #
-      # These are the colors we can use:
-      # http://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
       white='\[\e[38;5;231m\]'
-      gray='\[\e[38;5;251m\]' # 0xc6 (198) triplet. X11 Gray is 0xbe.
-      dark_gray='\[\e[38;5;244m\]'
+      # X11 Gray is 0xbe.
+      gray='\[\e[38;5;251m\]' # 0xc6 (198) triplet.
+      dark_gray='\[\e[38;5;246m\]' # 0x94 triplet.
       black='\[\e[38;5;16m\]'
       #bold_black='\[\e[1;30m\]'
-      green='\[\e[38;5;28m\]'
-      on_gray='\[\e[48;5;238m\]'
+      #green='\[\e[38;5;28m\]'
+      on_gray='\[\e[48;5;236m\]' # 0x30 triplet.
       on_black='\[\e[48;5;0m\]'
       bold='\[\e[1m\]'
       reset='\[\e[m\]'
+      # Colors: http://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
 
       PS1=$reset$on_gray'\u'$bold$black'@'$reset$on_gray'\h'
       PS1="$PS1"$dark_gray$on_black' \w '$reset'\$ '$dark_gray
@@ -57,7 +56,7 @@ case "$TERM" in
       PS3=$reset$on_gray'>'$reset' '$dark_gray
       PS3=$reset$on_gray'+'$reset' '$dark_gray
 
-      unset -v white gray dark_gray black bold green on_gray on_black reset
+      unset -v white gray dark_gray black bold on_gray on_black reset
 
       # Reset the color of the output text. Input text is set to a darker gray
       # by the prompts above. This function is set to be called as part of the
