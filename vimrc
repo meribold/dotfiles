@@ -70,9 +70,10 @@ set preserveindent " When changing the indent of the current line, do not
                    " followed by spaces as required; instead preserve as many
                    " existing characters as possible, and only add additional
                    " tabs or spaces as required.
-set autoindent     " The last two settings only seem to work with this enabled;
-set cindent        " using only 'cindent' makes vim use tabs followed by spaces
+"set autoindent    " The last two settings only seem to work with this enabled;
+"set cindent       " using only 'cindent' makes vim use tabs followed by spaces
                    " everywhere.
+filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
