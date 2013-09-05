@@ -64,6 +64,11 @@ de.defstyle("frame-transient", {
     based_on = "frame-floating",
 })
 
+de.defstyle("frame-transient-alt", {
+    based_on = "frame-transient",
+    bar = "none",
+})
+
 -- *scratchws*
 de.defstyle("frame-unknown", {
     based_on = "frame-floating",

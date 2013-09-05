@@ -25,8 +25,8 @@
 local excludes = {
     --tiled = true,
     --unknown = true,
-    --floating = true,
-    --transient = true,
+    floating = true,
+    transient = true,
 }
 
 function hide_tabs(fr)  -- fr must be a WFrame.
