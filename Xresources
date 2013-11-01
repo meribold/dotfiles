@@ -7,12 +7,12 @@ xterm*eightBitInput: true
 ! https://wiki.archlinux.org/index.php/Xterm#Colors
 xterm*background: black
 xterm*foreground: rgb:c6/c6/c6
-xterm*fontMenu*fontdefault*Label: dina 13
-xterm*font: -*-dina-medium-r-*-*-13-*-*-*-*-*-*-*
+xterm*fontMenu*fontdefault*Label: dina 10
+xterm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 xterm*fontMenu*font1*Label: proggy clean sz
 xterm*font1: -*-proggycleansz-*-*-*-*-13-*-*-*-*-*-iso8859-1
-xterm*fontMenu*font2*Label: dina 15
-xterm*font2: -*-dina-medium-r-*-*-15-*-*-*-*-*-*-*
+xterm*fontMenu*font2*Label: dina 12
+xterm*font2: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
 xterm*fontMenu*font3*Label: terminus 12
 xterm*font3: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
 xterm*fontMenu*font4*Label: fixed 13
