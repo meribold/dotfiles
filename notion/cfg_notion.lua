@@ -44,7 +44,7 @@ defbindings("WMPlex.toplevel", {
 
     bdoc("Start dmenu_run.."),
     kpress(META.."R", "mod_query.exec_on_merr(_, 'dmenu_run -b -f "..
-       "-fn \\'-*-dina-medium-r-*-*-13-*-*-*-*-*-*-*\\' "..
+       "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
        "-nb Black "..
        "-sb \\'#600000\\'')"),
     bdoc("Query for command line to execute."),
