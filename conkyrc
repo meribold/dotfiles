@@ -40,10 +40,15 @@ xftfont Ubuntu Mono:size=8
 # a lexicographical compare on their operands if those are strings (used in the above snippet).
 
 TEXT
-${color0}${alignc}${utime %Y-%m-%d %H:%M:%SZ}
 
-${color2}load average: ${color0}$loadavg${alignr}${color2}CPU times: ${color0}${cpu cpu1}%, ${cpu cpu2}%
+${color0}${alignc}${utime %Y-%m-%d %H:%M:%S}${color2}Z
+
+${color0}${cpu cpu1}${color2}% at ${color0}${freq 1}${color2}MHz (cpu0)${goto 1170}${color0}${cpu cpu2}${color2}% at ${color0}${freq 2}${color2}MHz (cpu1)
 ${color2}${cpugraph cpu1 32,192 696969 fffafa}${offset 4}${cpugraph cpu2 32,192 696969 fffafa}
+${color1}$stippled_hr
+${color2}load average: ${color0}${loadavg 1} ${loadavg 2} ${loadavg 3}${alignr}${color2}up: ${color0}${format_time ${uptime} "\h:\m"}
+${color2}tasks: ${color0}${processes} ${color2}total, ${color0}${running_processes} ${color2}running
+
 ${color2}  PID   %CPU   %MEM     TIME+ COMMAND
 ${color0}${top pid 1} ${top cpu 1} ${top mem 1} ${top time 1} ${top name 1}
 ${color0}${top pid 2} ${top cpu 2} ${top mem 2} ${top time 2} ${top name 2}
@@ -51,7 +56,6 @@ ${color0}${top pid 3} ${top cpu 3} ${top mem 3} ${top time 3} ${top name 3}
 ${color0}${top pid 4} ${top cpu 4} ${top mem 4} ${top time 4} ${top name 4}
 ${color0}${top pid 5} ${top cpu 5} ${top mem 5} ${top time 5} ${top name 5}
 
-${color2}tasks: ${color0}${processes} ${color2}total, ${color0}${running_processes} ${color2}running${alignr}up: ${color0}${format_time $uptime "PT\hH\mM"}
 ${color2}mem: ${color0}${mem} ($memperc%) ${color2}used ${voffset 1}${color2}${membar}
 ${color2}swap: ${color0}${swap} ($swapperc%) ${color2}used ${voffset 1}${color2}${swapbar}${if_match "${eval ${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" == "Charging
 "}+$endif${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" == "Discharging
@@ -59,8 +63,8 @@ ${color2}swap: ${color0}${swap} ($swapperc%) ${color2}used ${voffset 1}${color2}
 
 ${color2}BAT1: ${color0}${battery_percent BAT1}% ${color2} energy remaining ${voffset 1}${battery_bar BAT1}$endif${if_up eth0}
 ${color1}$stippled_hr
-${color2}downspeed: ${color0}${downspeed eth0}${goto 1170}${color2}upspeed: ${color0}${upspeed eth0}${alignr}${color2}(eth0)
+${color0}${downspeed eth0}${color2} downspeed${goto 1170}${color0}${upspeed eth0}${color2} upspeed${alignr}(eth0)
 ${color2}${downspeedgraph eth0 32,192 696969 fffafa}${offset 4}${upspeedgraph eth0 32,192 696969 fffafa}$endif${if_up wlan0}
 ${color1}$stippled_hr
-${color2}downspeed: ${color0}${downspeed wlan0}${goto 1170}${color2}upspeed: ${color0}${upspeed wlan0}${alignr}${color2}(wlan0)
+${color0}${downspeed wlan0}${color2} downspeed${goto 1170}${color0}${upspeed wlan0}${color2} upspeed${alignr}(wlan0)
 ${color2}${downspeedgraph wlan0 32,192 696969 fffafa}${offset 4}${upspeedgraph wlan0 32,192 696969 fffafa}$endif
