@@ -7,6 +7,7 @@
 # still required? Why?
 xset +fp /usr/share/fonts/local/
 
+eval $(gpg-agent --daemon) &
 xset -b                         # Turn off the beep in X.
 sh ~/.fehbg &                   # Set the desktop wallpaper.
 [[ $1 != notion ]] && (conky &)
@@ -19,6 +20,8 @@ case $1 in
 # Notion creates a tiling causes Conky to be drawn "behind" any client windows
 # on the active workspace (and only on that workspace) most times.
   awesome) exec awesome;;
+  xmonad) xsetroot -cursor_name left_ptr
+          exec xmonad;;
   *) exec twm;;
 esac
 
