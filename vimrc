@@ -57,11 +57,15 @@ let c_space_errors = 1   " highlight trailing white space and spaces before a
 let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" I like to use tabs for indenting and spaces for alignment (like item 4 from
-" :h 'tabstop').
+" I used to prefer tabs for indenting and spaces for alignment (like item 4 from
+" :h 'tabstop'). That was supposed to allow using different numbers of spaces
+" when displaying a tab.
+" Because different values will still cause different text widths, I prefer not
+" to use any tabs now (item 2 from :h 'tabstop').
 
 set tabstop=3      " A <Tab> counts for 3 spaces.
 set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
+set expandtab
 set copyindent     " Copy the structure of an existing lines indent when
                    " autoindenting a new line; ensures spaces are used for
                    " alignment.
