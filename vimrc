@@ -14,7 +14,7 @@ set showcmd        " Why does this default to off for Unix ONLY?
 set history=40     " Now with two times the normal history!
 set incsearch      " Search while typing the search command and
 set hlsearch       " hightlight matches.
-set relativenumber " Useful when preceding vertical motion commands that support 
+set relativenumber " Useful when preceding vertical motion commands that support
                    " it with a count, e.g. d4j
 
 " Command-line completion (:h cmdline-completion)
@@ -49,7 +49,7 @@ set laststatus=2 " Always show a status line.
 set backspace=indent,eol " In Insert mode, disallow backspacing over the start
                          " of insert.
 
-colorscheme delek
+colorscheme neverness
 set background=dark
 let c_space_errors = 1   " highlight trailing white space and spaces before a
                          " <Tab> when the c.vim syntax file is used (which is
@@ -63,9 +63,11 @@ let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 " Because different values will still cause different text widths, I prefer not
 " to use any tabs now (item 2 from :h 'tabstop').
 
-set tabstop=3      " A <Tab> counts for 3 spaces.
+set tabstop=8      " A <Tab> counts for 8 spaces.
+set softtabstop=3  " Or does it?
 set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
-set expandtab
+set shiftround     " ...
+set expandtab      " ...
 set copyindent     " Copy the structure of an existing lines indent when
                    " autoindenting a new line; ensures spaces are used for
                    " alignment.
@@ -104,7 +106,7 @@ set undofile                " Make undo history persistent.
 set undodir=~/.vim/undo     " Directory has to be created manually!
 
 set showbreak=>\            " There's an escaped trailing space here.
-set colorcolumn=+1          " Highlight one column after 'textwidth'.
+set colorcolumn=+2          " Highlight second column after 'textwidth'.
 
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.
 " See :help keycodes.
