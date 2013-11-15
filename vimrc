@@ -14,8 +14,10 @@ set showcmd        " Why does this default to off for Unix ONLY?
 set history=40     " Now with two times the normal history!
 set incsearch      " Search while typing the search command and
 set hlsearch       " hightlight matches.
+set number         " ...
 set relativenumber " Useful when preceding vertical motion commands that support
                    " it with a count, e.g. d4j
+set numberwidth=3  " ...
 
 " Command-line completion (:h cmdline-completion)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,8 +51,9 @@ set laststatus=2 " Always show a status line.
 set backspace=indent,eol " In Insert mode, disallow backspacing over the start
                          " of insert.
 
-colorscheme neverness
 set background=dark
+"colorscheme neverness
+colorscheme molokai
 let c_space_errors = 1   " highlight trailing white space and spaces before a
                          " <Tab> when the c.vim syntax file is used (which is
                          " apperantly included in 'syntax/cpp.vim'.
