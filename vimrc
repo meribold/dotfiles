@@ -26,7 +26,7 @@ set wildmenu         " Use the enhanced command-line completion menu where
                      " "full" is specified in 'wildmode'.
 
 " When 'wildchar' (Tab) is used first, and more than one match exists, list all
-" matches and complete till longest common string. On consecutive used (or if
+" matches and complete till longest common string. On consecutive uses (or if
 " only one match exists) show the 'wildmenu'.
 set wildmode=longest:full,full
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -51,13 +51,27 @@ set laststatus=2 " Always show a status line.
 set backspace=indent,eol " In Insert mode, disallow backspacing over the start
                          " of insert.
 
-set background=dark
-"colorscheme neverness
-colorscheme molokai
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Color schemes I like: molokai, neverness, lucius.
+" Web links to get those color schemes:
+" molokai at GitHub: https://github.com/tomasr/molokai
+" lucius at vim.org: http://www.vim.org/scripts/script.php?script_id=2536
+
+" Molokai sets 'background' to light for some reason. The issue has been
+" reported here: https://github.com/tomasr/molokai/issues/22
+autocmd ColorScheme * if g:colors_name == 'molokai' | noa set bg=dark | endif
+
+" Use a darker background with the lucius color scheme.
+let g:lucius_contrast_bg='high'
+
 let c_space_errors = 1   " highlight trailing white space and spaces before a
                          " <Tab> when the c.vim syntax file is used (which is
                          " apperantly included in 'syntax/cpp.vim'.
 let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
+
+set background=dark
+colorscheme molokai
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " I used to prefer tabs for indenting and spaces for alignment (like item 4 from
@@ -69,32 +83,51 @@ let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 set tabstop=8      " A <Tab> counts for 8 spaces.
 set softtabstop=3  " Or does it?
 set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
-set shiftround     " ...
-set expandtab      " ...
+set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
+                   " commands.
+set expandtab      " Use CTRL-V<Tab> to insert a real tab.
 set copyindent     " Copy the structure of an existing lines indent when
                    " autoindenting a new line; ensures spaces are used for
                    " alignment.
 set preserveindent " When changing the indent of the current line, do not
                    " replace the existing indent structure by a series of tabs
-                   " followed by spaces as required; instead preserve as many
-                   " existing characters as possible, and only add additional
-                   " tabs or spaces as required.
-"set autoindent    " The last two settings only seem to work with this enabled;
-"set cindent       " using only 'cindent' makes vim use tabs followed by spaces
-                   " everywhere.
+                   " followed by spaces; instead preserve as many existing
+                   " characters as possible, and only add additional tabs or
+                   " spaces as required.
+set autoindent     " The last two settings only seem to work with this enabled.
+
+" http://vim.wikia.com/wiki/Indenting_source_code#File_type_based_indentation
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight trailing whitespace and tabs that aren't at the start of a line.
-" See http://vim.wikia.com/wiki/Highlight_unwanted_spaces and :h :syn-match.
-highlight ExtraWhitespace ctermbg=darkred guibg=darkred
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
-autocmd Syntax * syn match ExtraWhitespace "\s\+$" containedin=ALL
-autocmd Syntax * syn match ExtraWhitespace "[^\t]\zs\t\+" containedin=ALL
+" I used to define an ExtraWhitespace hightlight group instead for unwanted
+" whitespace. Now I'm just using the ColorColumn highlight group instead.
+"highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+
+" Syntax patterns are always interpreted like the 'magic' option is set and like
+" the 'l' flag is not included in 'cpoptions' (backslash in a [] range is not
+" taken literally, but has its normal meaning). See :h syn-pattern.
+
+" Highlight trailing whitespace, except when typing at the end of a line. Taken
+" from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
+autocmd Syntax * if &ft !~ 'help' |
+   \ syn match ColorColumn "\s\+\%#\@<!$" containedin=ALL | endif
+
+" Highlight tabs that aren't at the start of a line.
+autocmd Syntax * if &ft !~ 'help' |
+   \ syn match ColorColumn "[^\t]\zs\t\+" containedin=ALL | endif
+
+" The help for :syn-containedin seems to expain why some tabs aren't highlighted
+" ("Don't forget that keywords never contain another item, thus adding them to
+" "containedin" won't work").
+
+" Relevant help subjects: line-continuation, :autocmd, :syn-match, :hi.
+" Web links: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set visualbell t_vb=        " No bell, no flash
+set visualbell t_vb=        " No bell, no flash.
 
 set maxmem=2000000          " Lots of memory for each buffer.
 set maxmemtot=2000000       " Lots of memory for all buffers together.
@@ -109,7 +142,9 @@ set undofile                " Make undo history persistent.
 set undodir=~/.vim/undo     " Directory has to be created manually!
 
 set showbreak=>\            " There's an escaped trailing space here.
-set colorcolumn=+2          " Highlight second column after 'textwidth'.
+
+" Highlight first column after 'textwidth', except in help files.
+autocmd FileType * if &ft !~ 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.
 " See :help keycodes.
