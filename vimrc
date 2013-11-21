@@ -240,3 +240,5 @@ imap <C-ScrollWheelRight> <Nop>
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
+
+" vim: tw=80
