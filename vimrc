@@ -10,6 +10,9 @@ autocmd!
 "syntax enable
 syntax on
 
+" Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
+set modeline
+
 set showcmd        " Why does this default to off for Unix ONLY?
 set history=40     " Now with two times the normal history!
 set incsearch      " Search while typing the search command and
