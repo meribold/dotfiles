@@ -66,6 +66,12 @@ defwinprop {
     instance = "Mail",
 }
 
+defwinprop {
+    class = "Thunderbird",
+    role = "Msgcompose",
+    instance = "Msgcompose",
+}
+
 -- Chromium
 --
 defwinprop {
