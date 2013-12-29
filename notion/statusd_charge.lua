@@ -11,27 +11,24 @@ local defaults = {
         charge_now = "energy_now",
         status = "status",
     },
-	 charge_low = 256,
+        charge_low = 256,
 }
 
 local settings=table.join(statusd.get_config("charge"), defaults)
 
-local charge_now = nil
-local status = ""
-
 local charge_timer=statusd.create_timer()
 
-local function inform_charge()
+local function inform_charge(charge_now, status)
     if charge_now then
         statusd.inform("charge", charge_now .. " mWh")
     else
         statusd.inform("charge", "sorry...")
     end
 
-	 if status:find("Discharging") then
+    if status and status:find("Discharging") then
         if charge_now <= settings.charge_low then
             statusd.inform("charge_hint", "critical")
-		  else
+        else
             statusd.inform("charge_hint", "important")
         end
     else
@@ -39,10 +36,11 @@ local function inform_charge()
     end
 end
 
-local function update_charge()
-    local files = {charge_now, status,}
+local files = {charge_now, status,}
 
-    files.charge_now = io.open(settings.path .. settings.filenames.charge_now, "r")
+local function update_charge()
+    files.charge_now = io.open(settings.path .. settings.filenames.charge_now,
+        "r")
     files.status = io.open(settings.path .. settings.filenames.status, "r")
 
     if files.charge_now then
@@ -50,19 +48,15 @@ local function update_charge()
         if files.status then
             status = files.status:read("*all")
         end
-    else
-        charge_now = nil
     end
 
     files.charge_now:close()
     files.status:close()
-    inform_charge()
+    inform_charge(charge_now, status)
     charge_timer:set(settings.update_interval, update_charge)
 end
 
-local function init_charge()
-    update_charge()
-end
+update_charge()
 
-init_charge()
+-- vim: tw=80 sw=4
 
