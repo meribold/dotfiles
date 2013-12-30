@@ -4,21 +4,17 @@ OPTIONS=align_status:right, guicolor, popup_dialog
 OPTIONS=petattr:BU
 # # #
 
-# DECgraphics is incompatible with the curses inferface
+# DECgraphics are incompatible with the curses inferface.
 OPTIONS=!IBMgraphics, !DECgraphics
 
 OPTIONS=race:dwarf, color, showexp, time, !autopickup
 NAME=Elanor
 ROLE=valkyrie
-DOGNAME=Jack
-CATNAME=Feral
+DOGNAME=Jacobi
+CATNAME=Leibniz
 OPTIONS=align:lawful, boulder:0
 OPTIONS=runmode:crawl, !splash_screen, standout, lit_corridor
 OPTIONS=pettype:cat, fruit:space brain
 
-!DUNGEON = 0032 9474 9472 218 191 192 217 197 193 194 \
-           180 195 250 254 254 043 043 240 241 250 \
-           176 177 060 062 060 062 095 124 092 035 \
-           244 247 250 247 250 250 035 035 032 035 \
-           247
+# vim: tw=80
 
