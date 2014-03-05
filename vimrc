@@ -1,5 +1,5 @@
 "
-" My .vimrc
+" $MYVIMRC
 "
 " Might not work well on systems much different from mine: the gvim package from
 " the [extra] repository of Arch GNU/Linux; in particular the CLI version
@@ -72,8 +72,15 @@ let c_space_errors = 1   " highlight trailing white space and spaces before a
                          " apperantly included in 'syntax/cpp.vim'.
 let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 
-set background=dark
-colorscheme molokai
+if has("gui_running")
+   let g:solarized_italic=0
+   "silent! colorscheme lucius
+   "silent! colorscheme wombat
+   silent! colorscheme solarized
+else
+   set background=dark
+   silent! colorscheme molokai
+end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,19 +137,28 @@ autocmd Syntax * if &ft !~ 'help' |
 " Web links: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set visualbell t_vb=        " No bell, no flash.
+" No bell, no flash.
+set visualbell t_vb=
 
-set maxmem=2000000          " Lots of memory for each buffer.
-set maxmemtot=2000000       " Lots of memory for all buffers together.
+set maxmem=2000000    " Lots of memory for each buffer.
+set maxmemtot=2000000 " Lots of memory for all buffers together.
 
-set backup                  " Make a persistent backup whenever a writing file
-set backupdir=~/.vim/backup " inside ~/.vim/backup/, potentially overwriting an
-                            " existing backup (even if that file isn't the one
-                            " being backed up; i.e. when different files having
-                            " the same name are edited).
-set dir=~/.vim/swp//        " Directory has to be created manually!
-set undofile                " Make undo history persistent.
-set undodir=~/.vim/undo     " Directory has to be created manually!
+set undofile " Make undo history persistent.
+
+if has("win32") || has("win64")
+   set nobackup
+   set writebackup
+   set undodir^=$TEMP
+elseif has("unix")
+   set dir=~/.vim/swp//        " Directory has to be created manually!
+   set undodir=~/.vim/undo     " Directory has to be created manually!
+   set backup                  " Make a persistent backup whenever a writing
+   set writebackup             " file inside ~/.vim/backup/, potentially
+   set backupdir=~/.vim/backup " overwriting an existing backup (even if that
+                               " file isn't the one being backed up; i.e. when
+                               " different files having the same name are
+                               " edited).
+end
 
 set showbreak=>\            " There's an escaped trailing space here.
 
@@ -279,4 +295,4 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
 
-" vim: tw=80
+" vim: tw=80 sw=3 et
