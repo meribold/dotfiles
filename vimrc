@@ -83,6 +83,9 @@ else
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" http://vim.wikia.com/wiki/Fix_syntax_highlighting
+autocmd BufEnter * :syntax sync fromstart
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " I used to prefer tabs for indenting and spaces for alignment (like item 4 from
 " :h 'tabstop'). That was supposed to allow using different numbers of spaces
