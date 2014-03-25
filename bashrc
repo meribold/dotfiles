@@ -6,14 +6,16 @@
 # http://stackoverflow.com/questions/17191622/why-would-i-not-leave-extglob-enab
 shopt -s extglob
 
+alias ls='ls --color=auto'
+
+export EDITOR=vim
+
 # # #
 # < Stuff concerning Bash's command history >
 # #
 shopt -s histverify
 shopt -u histappend # I fail to see any effect of (un)setting this option. See:
                     # http://superuser.com/questions/136696/bash-history-is-appe
-
-alias ls='ls --color=auto'
 
 export HISTTIMEFORMAT='%F %T  '
 export HISTSIZE=5000
