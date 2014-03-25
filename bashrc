@@ -154,3 +154,5 @@ trap '{ reset_VT100_character_attributes;
 # http://stackoverflow.com/questions/3338030/multiple-bash-traps-for-the-same-si
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_tex
 # t_entry_and_console_output
+
+# vim: tw=80 sw=3

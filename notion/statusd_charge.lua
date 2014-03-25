@@ -61,5 +61,5 @@ end
 
 update_charge()
 
--- vim: tw=80 sw=4
+-- vim: expandtab sw=4 tw=80
 
