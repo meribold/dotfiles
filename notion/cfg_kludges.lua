@@ -116,10 +116,16 @@ defwinprop {
     statusbar = "systray",
 }
 
-defwinprop {
-    class = "Gimp",
-    acrobatic = true,
+defwinprop{
+   class = "Gimp",
+   acrobatic = true,
+   float = true,
 } -- http://sourceforge.net/p/notion/bugs/32/
+
+defwinprop{
+   class = "Gimp",
+   role = "gimp-image-window",
+}
 
 -- Define some additional title shortening rules to use when the full title
 -- doesn't fit in the available space. The first-defined matching rule that
