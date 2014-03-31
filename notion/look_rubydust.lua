@@ -7,8 +7,8 @@ end
 de.reset()
 
 de.defstyle("*", {
-    font = "-*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*",
-    --font = "-*-dina-medium-r-*-*-13-*-*-*-*-*-*-*",
+    --font = "-*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*",
+    font = "-*-dina-medium-r-*-*-11-*-*-*-*-*-*-*",
     text_align = "left",
 })
 
@@ -87,8 +87,8 @@ de.defstyle("tab", {
 
     highlight_colour = "#000000",
     shadow_colour = "#000000",
-    foreground_colour = "#b0b0b0",
-    background_colour = "#200000",
+    foreground_colour = "#808080",
+    background_colour = "#202020",
     padding_colour = "#606060",
 
     border_style = "elevated",
@@ -102,13 +102,15 @@ de.defstyle("tab", {
 
     de.substyle("active-selected", {
         based_on = "tab",
-        background_colour = "#600000",
+        foreground_colour = "#b0b0b0",
+        background_colour = "#202020",
         padding_colour = "#606060", -- The padding color matches the background
                                     -- rather than the generic value set for
                                     -- tabs w/o this. Bug?
     }),
     de.substyle("active-unselected", {
         based_on = "tab",
+        foreground_colour = "#b0b0b0",
         background_colour = "#000000",
         padding_colour = "#606060",
     }),
@@ -227,3 +229,5 @@ de.defstyle("stdisp-statusbar", {
 })
 
 gr.refresh()
+
+-- vim: tw=80 sw=4 et
