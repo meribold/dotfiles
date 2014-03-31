@@ -48,20 +48,20 @@ case "$TERM" in
       #green='\[\e[38;5;28m\]'
       on_light_gray='\[\e[48;5;251m\]' # 0x94 triplet.
       on_gray='\[\e[48;5;236m\]' # 0x30 triplet.
-      on_black='\[\e[48;5;0m\]'
+      #on_black='\[\e[48;5;0m\]'
       bold='\[\e[1m\]'
       reset='\[\e[m\]'
       # Colors: http://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
       #         http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 
-      PS1=$reset$dark_gray$on_black'\n\342\224\214'
+      PS1=$reset$dark_gray'\n\342\224\214'
       PS1="$PS1"$reset$on_gray'[\u'$bold$black'@'$reset$on_gray'\h]'
-      PS1="$PS1"$dark_gray$on_black' \w\n'
+      PS1="$PS1"$reset$dark_gray' \w\n'
       PS1="$PS1"'\342\224\224\342\224\200 '$reset$bold'\$ '$reset$dark_gray
       # If the last command's output didn't end with a newline, add one. I don't
       # know how it works, but it does.
-      # http://www.faultserver.com/q/answers-bash-how-to-know-if-the-last-command
-      # s-output-ends-with-a-newline-or-not-97503.html
+      # http://www.faultserver.com/q/answers-bash-how-to-know-if-the-last-comman
+      # ds-output-ends-with-a-newline-or-not-97503.html
       PS1='$(printf "%$(($(tput cols)-1))s\r")'$PS1
       PS2=$reset$on_gray'>'$reset' '$dark_gray
       PS3=$reset$on_gray'>'$reset' '$dark_gray
