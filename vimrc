@@ -82,16 +82,18 @@ let c_space_errors = 1   " highlight trailing white space and spaces before a
                          " apperantly included in 'syntax/cpp.vim'.
 let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 
+set background=dark
+
 if has("gui_running")
    " If running gVim, remove the menu bar, toolbar, right-hand scrollbar and
    " left-hand scrollbar.
    set guioptions-=e go-=m go-=T go-=r go-=L
+   set guifont=Consolas:h10
    let g:solarized_italic=0
    "silent! colorscheme lucius
    "silent! colorscheme wombat
    silent! colorscheme solarized
 else
-   set background=dark
    silent! colorscheme molokai
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
