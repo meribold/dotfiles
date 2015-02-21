@@ -64,6 +64,9 @@ set laststatus=2 " Always show a status line.
 set backspace=indent,eol " In Insert mode, disallow backspacing over the start
                          " of insert.
 
+" Draw a continuous line to separate vertical splits.
+if has("multi_byte") | :set fillchars=vert:│ | endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color schemes I like: molokai, neverness, lucius.
 " Web links to get those color schemes:
