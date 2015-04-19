@@ -8,7 +8,7 @@ de.reset()
 
 de.defstyle("*", {
     --font = "-*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*",
-    font = "-*-dina-medium-r-*-*-11-*-*-*-*-*-*-*",
+    font = "-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*",
     text_align = "left",
 })
 
@@ -87,9 +87,9 @@ de.defstyle("tab", {
 
     highlight_colour = "#000000",
     shadow_colour = "#000000",
-    foreground_colour = "#808080",
-    background_colour = "#202020",
-    padding_colour = "#606060",
+    foreground_colour = "#909090",
+    background_colour = "#300000",
+    padding_colour = "#303030",
 
     border_style = "elevated",
     border_sides = "tb",
@@ -103,16 +103,17 @@ de.defstyle("tab", {
     de.substyle("active-selected", {
         based_on = "tab",
         foreground_colour = "#b0b0b0",
-        background_colour = "#202020",
+        background_colour = "#300000",
         padding_colour = "#606060", -- The padding color matches the background
                                     -- rather than the generic value set for
-                                    -- tabs w/o this. Bug?
+                                    -- tabs when not explicitly specified here.
+                                    -- Bug?
     }),
     de.substyle("active-unselected", {
         based_on = "tab",
-        foreground_colour = "#b0b0b0",
+        --foreground_colour = "#b0b0b0",
         background_colour = "#000000",
-        padding_colour = "#606060",
+        padding_colour = "#303030",
     }),
     de.substyle("inactive-selected", {
         based_on = "tab",
@@ -120,7 +121,7 @@ de.defstyle("tab", {
     de.substyle("inactive-unselected", {
         based_on = "tab",
         background_colour = "#000000",
-        padding_colour = "#606060",
+        padding_colour = "#303030",
     }),
 })
 
@@ -226,6 +227,14 @@ de.defstyle("stdisp", {
 
 de.defstyle("stdisp-statusbar", {
     bar = "none",
+})
+
+de.defstyle("moveres_display", {
+    -- ...
+})
+
+de.defstyle("actnotify", {
+    based_on = "input-menu",
 })
 
 gr.refresh()

@@ -5,8 +5,8 @@ xterm*ForceBoxChars: true
 XTerm*locale: true
 xterm*eightBitInput: true
 ! https://wiki.archlinux.org/index.php/Xterm#Colors
-! xterm*background: black
-xterm*background: rgb:12/12/12
+xterm*background: black
+!xterm*background: rgb:12/12/12
 xterm*foreground: rgb:c6/c6/c6
 xterm*fontMenu*fontdefault*Label: dina 10
 xterm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
@@ -29,3 +29,6 @@ Xft.hinting:    1
 Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
+
+!Xft.dpi: 96
+Xft.dpi: 135
