@@ -43,10 +43,10 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."R", nil),
 
     bdoc("Start dmenu_run.."),
-    kpress(META.."R", "mod_query.exec_on_merr(_, 'dmenu_run -b -f "..
-       "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
-       "-nb Black "..
-       "-sb \\'#600000\\'')"),
+    kpress(META.."R", "mod_query.exec_on_merr(_, '$(yeganesh -x -- -b -f " ..
+       "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
+       "-nb Black " ..
+       "-sb \\'#600000\\')')"),
     bdoc("Query for command line to execute."),
     kpress(META.."Shift+R", "mod_query.query_exec(_)"),
 })
