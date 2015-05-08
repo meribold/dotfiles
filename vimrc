@@ -17,6 +17,8 @@ set showcmd        " Why does this default to off for Unix ONLY?
 set history=40     " Now with two times the normal history!
 set incsearch      " Search while typing the search command and
 set hlsearch       " hightlight matches.
+set nojoinspaces   " Don't insert two spaces after a '.', '?' and '!' with a
+                   " join command.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8. Taken from stackoverflow.com/questions/5477565
