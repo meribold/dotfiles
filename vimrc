@@ -4,6 +4,9 @@
 " Might not work well on systems much different from mine: the gvim package from
 " the [extra] repository of Arch GNU/Linux; in particular the CLI version
 " running in an xterm.
+"
+" TODO: let's start using two spaces after periods!  See
+" stevelosh.com/blog/2012/10/why-i-two-space/
 
 " See :h autocmd-define
 autocmd!
@@ -19,6 +22,11 @@ set incsearch      " Search while typing the search command and
 set hlsearch       " hightlight matches.
 set nojoinspaces   " Don't insert two spaces after a '.', '?' and '!' with a
                    " join command.
+
+" Taken from github.com/tpope/vim-sensible.
+if v:version > 703 || v:version == 703 && has("patch541")
+   set formatoptions+=j " Delete comment character when joining commented lines
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8. Taken from stackoverflow.com/questions/5477565
