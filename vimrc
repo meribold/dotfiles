@@ -19,6 +19,18 @@ set incsearch      " Search while typing the search command and
 set hlsearch       " hightlight matches.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vim for editing in utf-8. Taken from stackoverflow.com/questions/5477565
+" /how-to-setup-vim-properly-for-editing-in-utf-8.
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8              " better default than latin1
+  setglobal fileencoding=utf-8    " change default file encoding for new files
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the
 " cursor line. Useful when preceding vertical motion commands that support it
 " with a count, e.g. d4j.
