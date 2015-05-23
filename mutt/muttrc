@@ -1,0 +1,42 @@
+# -*-muttrc-*-
+
+# Configure native IMAP support.
+set imap_user=lb.waym@gmail.com
+set folder=imaps://imap.gmail.com/
+set spoolfile=+INBOX
+set imap_check_subscribed # Check all subscribed IMAP folders.
+
+# Configure native SMTP support.
+set realname="Lukas Waymann"
+set from=lb.waym@gmail.com
+set smtp_url=smtps://$imap_user@smtp.gmail.com
+set ssl_force_tls
+
+# Configure GnuPG. From /var/log/pacman.log:
+# [2014-03-23 01:32] [PACMAN] Running 'pacman -S mutt'
+# [2014-03-23 01:32] [ALPM-SCRIPTLET]
+# [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> For GPG support, add the following to your muttrc:
+# [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> source /etc/Muttrc.gpg.dist
+# [2014-03-23 01:32] [ALPM-SCRIPTLET]
+source /etc/Muttrc.gpg.dist
+# "--encrypt-to 0xC4592C12" so I can read my own sent mail. Other than that, the commands are copied
+# from /etc/Muttrc.gpg.dist.
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xC4592C12 -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xC4592C12 -- -r %r -- %f"
+set crypt_autosign # Always attempt to cryptographically sign outgoing messages.
+set pgp_sign_as="C4592C12"
+
+# Get a signature from the message of the day.
+set signature="cat /etc/motd|"
+
+set alias_file="~/.mutt/aliases"
+source $alias_file
+
+# https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML
+set mailcap_path="~/.mutt/mailcap"
+auto_view text/html
+
+# Use the Solarized colorscheme.
+#source ~/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+
+# vim: tw=90
