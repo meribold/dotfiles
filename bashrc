@@ -154,7 +154,7 @@ trap '{ reset_VT100_character_attributes;
 # http://stackoverflow.com/questions/16636007/can-i-change-the-input-color
 # http://stackoverflow.com/questions/9268836/zsh-change-prompt-input-color
 # http://stackoverflow.com/questions/3338030/multiple-bash-traps-for-the-same-si
-# https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_tex
-# t_entry_and_console_output
+# https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_te
+# xt_entry_and_console_output
 
-# vim: tw=80 sw=3
+# vim: tw=80 sts=3 sw=3 et
