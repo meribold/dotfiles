@@ -337,4 +337,4 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
 
-" vim: tw=80 sw=3 et
+" vim: tw=90 sts=3 sw=3 et
