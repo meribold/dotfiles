@@ -19,10 +19,16 @@ set ssl_force_tls
 # [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> source /etc/Muttrc.gpg.dist
 # [2014-03-23 01:32] [ALPM-SCRIPTLET]
 source /etc/Muttrc.gpg.dist
-# "--encrypt-to 0xC4592C12" so I can read my own sent mail. Other than that, the commands are copied
-# from /etc/Muttrc.gpg.dist.
+# We need to change some variables from Muttrc.gpg.dist to also include
+# "--pinentry-mode loopback" and/or "--encrypt-to 0xC4592C12" (so I can read my own sent
+# mail).  Other than that, the commands are the same as in /etc/Muttrc.gpg.dist.
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0 --pinentry-mode loopback? --no-verbose --quiet --batch --output - %f"
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0 --pinentry-mode loopback? --no-verbose --quiet --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0 --pinentry-mode loopback? --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0 --pinentry-mode loopback? --armor --textmode --clearsign %?a?-u %a? %f"
+# Add "--encrypt-to 0xC4592C12" so I can read my own sent mail.  Other than that, the commands
 set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xC4592C12 -- -r %r -- %f"
-set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xC4592C12 -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0 --pinentry-mode loopback? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xC4592C12 -- -r %r -- %f"
 set crypt_autosign # Always attempt to cryptographically sign outgoing messages.
 set pgp_sign_as="C4592C12"
 
@@ -39,4 +45,4 @@ auto_view text/html
 # Use the Solarized colorscheme.
 #source ~/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 
-# vim: tw=90
+# vim: tw=92 sts=3 sw=3 et
