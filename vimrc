@@ -192,14 +192,24 @@ if has("win32") || has("win64")
    set writebackup
    set undodir^=$TEMP
 elseif has("unix")
-   set dir=~/.vim/swp//        " Directory has to be created manually!
-   set undodir=~/.vim/undo     " Directory has to be created manually!
-   set backup                  " Make a persistent backup whenever a writing
-   set writebackup             " file inside ~/.vim/backup/, potentially
-   set backupdir=~/.vim/backup " overwriting an existing backup (even if that
-                               " file isn't the one being backed up; i.e. when
-                               " different files having the same name are
-                               " edited).
+   " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-
+   " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
+   if !isdirectory($HOME . '/.vim/swp')
+      call mkdir($HOME . '/.vim/swp', 'p')
+   endif
+   if !isdirectory($HOME . '/.vim/undo')
+      call mkdir($HOME . '/.vim/undo', 'p')
+   endif
+   if !isdirectory($HOME . '/.vim/backup')
+      call mkdir($HOME . '/.vim/backup', 'p')
+   endif
+   set dir=~/.vim/swp//
+   set undodir=~/.vim/undo
+   set backupdir=~/.vim/backup
+   " Make a persistent backup whenever writing a file inside ~/.vim/backup/,
+   " potentially overwriting an existing backup (even if that file isn't the one
+   set backup      " being backed up; i.e. when different files having the same
+   set writebackup " name are edited).
 end
 
 set showbreak=>\            " There's an escaped trailing space here.
