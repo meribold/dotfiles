@@ -217,6 +217,13 @@ set showbreak=>\            " There's an escaped trailing space here.
 " Highlight first column after 'textwidth', except in help files.
 autocmd FileType * if &ft !~ 'help' | setl cc=+1 | else | setl cc= | endif
 
+" Taken from sensible.vim before
+" github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800
+" happended.  Makes Y consistent with C and D.  See :h Y and :h &.
+nnoremap Y y$
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.
 " See :help keycodes.
 map  <Up>    <Nop>
