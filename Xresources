@@ -6,7 +6,7 @@ XTerm*locale: true
 xterm*eightBitInput: true
 ! https://wiki.archlinux.org/index.php/Xterm#Colors
 xterm*background: black
-!xterm*background: rgb:12/12/12
+! xterm*background: rgb:12/12/12
 xterm*foreground: rgb:c6/c6/c6
 xterm*fontMenu*fontdefault*Label: dina 10
 xterm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
@@ -23,14 +23,14 @@ xterm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
 
 ! Taken from the ArchWiki:
 ! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
-Xft.antialias:  1
-Xft.autohint:   0
-Xft.hinting:    1
-Xft.hintstyle:  hintfull
-Xft.lcdfilter:  lcddefault
-Xft.rgba:       rgb
+Xft.antialias: 1
+Xft.autohint:  0
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
 
-!Xft.dpi: 96
+! Xft.dpi: 96
 Xft.dpi: 135
 
 Xcursor.theme: Vanilla-DMZ-AA
