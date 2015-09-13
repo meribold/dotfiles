@@ -32,3 +32,5 @@ Xft.rgba:       rgb
 
 !Xft.dpi: 96
 Xft.dpi: 135
+
+Xcursor.theme: Vanilla-DMZ-AA
