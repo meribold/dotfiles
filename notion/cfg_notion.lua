@@ -34,6 +34,7 @@ dopath("mod_notionflux")
 dopath("mod_xrandr")
 
 dopath("not_min_tabs")
+dopath("net_client_list.lua")
 
 defbindings("WMPlex.toplevel", {
     kpress(META.."L", nil),     -- Unbind lock screen.
