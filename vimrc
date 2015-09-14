@@ -13,10 +13,10 @@ syntax on
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
 set modeline
 
-set showcmd        " Why does this default to off for Unix ONLY?
-set history=1000   " Vim default: 50.
-set incsearch      " Search while typing the search command and
-set hlsearch       " hightlight matches.
+set showcmd      " Why does this default to off for Unix ONLY?
+set history=1000 " Vim default: 50.
+set incsearch    " Search while typing the search command and...
+set hlsearch     " hightlight matches.
 
 "set autochdir
 
@@ -26,14 +26,14 @@ if v:version > 703 || v:version == 703 && has("patch541")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8. Taken from stackoverflow.com/questions/5477565
-" /how-to-setup-vim-properly-for-editing-in-utf-8.
+" Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
+" 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.
 if has("multi_byte")
   if &termencoding == ""
     let &termencoding = &encoding
   endif
-  set encoding=utf-8              " better default than latin1
-  setglobal fileencoding=utf-8    " change default file encoding for new files
+  set encoding=utf-8           " better default than latin1
+  setglobal fileencoding=utf-8 " change default file encoding for new files
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -99,10 +99,10 @@ autocmd ColorScheme * if g:colors_name == 'molokai' | noa set bg=dark | endif
 " Use a darker background with the lucius color scheme.
 let g:lucius_contrast_bg='high'
 
-let c_space_errors = 1   " highlight trailing white space and spaces before a
-                         " <Tab> when the c.vim syntax file is used (which is
-                         " apperantly included in 'syntax/cpp.vim'.
-let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
+let c_space_errors=1   " highlight trailing white space and spaces before a
+                       " <Tab> when the c.vim syntax file is used (which is
+                       " apparently included in 'syntax/cpp.vim'.
+let c_no_curly_error=1 " Don't highlight {}; inside [] and () as errors.
 
 set background=dark
 
@@ -212,14 +212,15 @@ elseif has("unix")
    set writebackup " name are edited).
 end
 
-set showbreak=>\            " There's an escaped trailing space here.
+" There's an escaped trailing space here.
+set showbreak=>\ 
 
 " Highlight first column after 'textwidth', except in help files.
 autocmd FileType * if &ft !~ 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Taken from sensible.vim before
 " github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800
-" happended.  Makes Y consistent with C and D.  See :h Y and :h &.
+" happened.  Makes Y consistent with C and D.  See :h Y and :h &.
 nnoremap Y y$
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
