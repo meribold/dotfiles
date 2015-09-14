@@ -14,7 +14,7 @@ syntax on
 set modeline
 
 set showcmd        " Why does this default to off for Unix ONLY?
-set history=40     " Now with two times the normal history!
+set history=1000   " Vim default: 50.
 set incsearch      " Search while typing the search command and
 set hlsearch       " hightlight matches.
 
