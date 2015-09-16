@@ -7,8 +7,7 @@
 
 " See :h autocmd-define
 autocmd!
-"syntax enable
-syntax on
+syntax enable
 
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
 set modeline
