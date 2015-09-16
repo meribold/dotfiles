@@ -42,7 +42,7 @@ source $alias_file
 set mailcap_path="~/.mutt/mailcap"
 auto_view text/html
 
-# Use the Solarized colorscheme.
-#source ~/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+# source mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+source vombatidae-mutt/vombatidae.mutt
 
 # vim: tw=92 sts=3 sw=3 et
