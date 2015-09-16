@@ -7,6 +7,152 @@
 
 " See :h autocmd-define
 autocmd!
+
+augroup LightLineColorscheme
+   autocmd!
+augroup END
+
+" comclear
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vundle.  See https://github.com/VundleVim/Vundle.vim for explanations.
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugin 'tpope/vim-sensible'
+
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+
+Plugin 'itchyny/lightline.vim'
+" Plugin 'bling/vim-airline'
+
+" reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_plugin
+Plugin 'tpope/vim-commentary'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'tomtom/tcomment_vim'
+
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
+
+" Automatically close parens, brackets, braces, quotes, etc.  See
+" http://vim.wikia.com/wiki/Automatically_append_closing_characters
+Plugin 'Raimondi/delimitMate'
+" Plugin 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
+" Plugin 'Townk/vim-autoclose'  " Inactive.  Try anyway?
+" Plugin 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
+
+" Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-easytags'
+" Plugin 'szw/vim-tags'
+
+Plugin 'vim-scripts/a.vim'
+" Plugin 'derekwyatt/vim-fswitch'
+
+Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
+
+Plugin 'sjl/gundo.vim'
+
+Plugin 'beloglazov/vim-online-thesaurus'
+Plugin 'szw/vim-dict' " TODO: configure.
+
+Plugin 'tpope/vim-obsession'
+" Plugin 'xolox/vim-session'
+
+" Stuff to maybe try later.  TODO: Snippets.  VimShell?  YankRing.vim?
+" Plugin 'mhinz/vim-startify'
+" Plugin 'bruno-/vim-man'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'majutsushi/tagbar'
+" Plugin 'mileszs/ack.vim'
+" Plugin 'rking/ag.vim'
+" Plugin 'Shougo/neocomplete.vim'
+" Plugin 'tpope/vim-abolish'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'terryma/vim-multiple-cursors'
+
+" Color schemes.
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'itchyny/landscape.vim'
+Plugin 'vim-scripts/wombat256.vim'
+Plugin 'vim-scripts/xoria256.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/Neverness-colour-scheme'
+Plugin 'chriskempson/vim-tomorrow-theme'
+" Plugin 'chriskempson/base16-vim'
+
+call vundle#end()
+filetype plugin indent on
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lightline={}
+
+if has("gui_running")
+   let g:lightline.colorscheme='solarized_dark'
+else
+   let g:lightline.colorscheme='molokai'
+end
+
+" Based on the snippet from :h lightline-problem-13.  Also see
+" https://github.com/itchyny/lightline.vim/issues/9
+augroup LightLineColorscheme
+   autocmd ColorScheme * call s:lightline_update()
+augroup END
+function! s:lightline_update() " Local to this file.
+   if !exists('g:loaded_lightline')
+      return
+   endif
+   " TODO: only list color schemes where the name of the lightline color scheme
+   " differs from one of the matching Vim color scheme.  Use a directory listing
+   " of lightline.vim/autoload/lightline/colorscheme/ for everything else.
+   let colos={
+      \ 'molokai': 'molokai',
+      \ 'wombat256mod': 'wombat',
+      \ 'solarized': 'solarized_dark',
+      \ 'landscape': 'landscape',
+      \ 'jellybeans': 'jellybeans',
+      \ 'Tomorrow-Night': 'Tomorrow_Night',
+      \ }
+   let newColo = 'default'
+   " if exists('g:colors_name') && exists("colos['" . g:colors_name . "']")
+   if exists('g:colors_name') && has_key(colos, g:colors_name)
+      let newColo = colos[g:colors_name]
+   end
+   if g:lightline.colorscheme !=# newColo
+      let g:lightline.colorscheme = newColo
+      call lightline#init()
+      call lightline#colorscheme()
+      call lightline#update()
+      " echom g:lightline.colorscheme
+   endif
+endfunction
+
+let g:gitgutter_signs = 0 " The same as 'let gitgutter_signs = 0' here, I guess?
+
+let delimitMate_expand_cr = 1
+let delimitMate_jump_expansion = 1
+let delimitMate_balance_matchpairs = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
+
+" runtime ftplugin/man.vim " <Leader>K mapping collides with
+                           " vim-online-thesaurus.  :h ft-man-plugin
+
+" Don't scan included files for keyword completion.  Taken from sensible.vim.
+set complete-=i " Keep? See https://github.com/tpope/vim-sensible/issues/51.
+
+" Taken from sensible.vim.  See https://github.com/tpope/vim-sensible/issues/13.
+set viminfo^=!
+
 syntax enable
 
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
@@ -79,18 +225,15 @@ set hidden       " Only hide (don't unload) a buffer when abandoned.
 set ruler        " Show the ruler.
 set laststatus=2 " Always show a status line.
 
-set backspace=indent,eol " In Insert mode, disallow backspacing over the start
-                         " of insert.
+" set backspace=indent,eol " In Insert mode, disallow backspacing over the start
+"                          " of insert.
+set backspace=indent,eol,start " Required by delimitMate for
+                               " delimitMate_expand_cr to work.
 
 " Draw a continuous line to separate vertical splits.
 if has("multi_byte") | :set fillchars=vert:│ | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Color schemes I like: molokai, neverness, lucius.
-" Web links to get those color schemes:
-" molokai at GitHub: https://github.com/tomasr/molokai
-" lucius at vim.org: http://www.vim.org/scripts/script.php?script_id=2536
-
 " Molokai sets 'background' to light for some reason. The issue has been
 " reported here: https://github.com/tomasr/molokai/issues/22
 autocmd ColorScheme * if g:colors_name == 'molokai' | noa set bg=dark | endif
@@ -111,11 +254,14 @@ if has("gui_running")
    set guioptions-=e go-=m go-=T go-=r go-=L
    set guifont=Consolas:h10
    let g:solarized_italic=0
-   "silent! colorscheme lucius
-   "silent! colorscheme wombat
    silent! colorscheme solarized
 else
    silent! colorscheme molokai
+   " exists('g:loaded_lightline') is still false at this point.
+   let g:lightline={
+      \ 'colorscheme': 'molokai',
+   \ }
+   " :h line-continuation, :h dict
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
