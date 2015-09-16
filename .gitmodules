@@ -1,0 +1,6 @@
+[submodule "mutt/vombatidae-mutt"]
+	path = mutt/vombatidae-mutt
+	url = https://github.com/octol/vombatidae-mutt.git
+[submodule "mutt/mutt-colors-solarized"]
+	path = mutt/mutt-colors-solarized
+	url = https://github.com/altercation/mutt-colors-solarized.git
