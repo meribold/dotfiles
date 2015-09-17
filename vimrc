@@ -167,7 +167,7 @@ set hlsearch     " hightlight matches.
 
 " Taken from github.com/tpope/vim-sensible.
 if v:version > 703 || v:version == 703 && has("patch541")
-   set formatoptions+=j " Delete comment character when joining commented lines
+   set formatoptions+=j " Delete comment character when joining commented lines.
 endif
 
 " Taken from sensible.vim.  Search the 'tags' file in the directory of the
@@ -245,7 +245,8 @@ if has("multi_byte") | :set fillchars=vert:│ | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Molokai sets 'background' to light for some reason. The issue has been
 " reported here: https://github.com/tomasr/molokai/issues/22
-autocmd ColorScheme * if g:colors_name == 'molokai' | noa set bg=dark | endif
+autocmd ColorScheme * if exists('g:colors_name') &&
+   \ g:colors_name ==# 'molokai' | noa set bg=dark | endif
 
 " Use a darker background with the lucius color scheme.
 let g:lucius_contrast_bg='high'
@@ -261,10 +262,16 @@ if has("gui_running")
    " If running gVim, remove the menu bar, toolbar, right-hand scrollbar and
    " left-hand scrollbar.
    set guioptions-=e go-=m go-=T go-=r go-=L
-   set guifont=Consolas:h10
+   if has("win32") || has("win64")
+      set guifont=Consolas:h10
+   else
+      set guifont=Ubuntu\ Mono\ 8
+      " set guifont=Source\ Code\ Pro\ 7
+   end
    let g:solarized_italic=0
    silent! colorscheme solarized
 else
+   let g:solarized_termcolors=256
    silent! colorscheme molokai
    " exists('g:loaded_lightline') is still false at this point.
    let g:lightline={
@@ -274,6 +281,7 @@ else
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" XXX: Slow?
 "autocmd BufEnter * if &ft != 'help' | syntax sync fromstart | endif
 autocmd BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
 " To check the active synchronization method use ':sy[ntax] sync'.
@@ -341,6 +349,8 @@ set maxmemtot=2000000 " Lots of memory for all buffers together.
 
 set undofile " Make undo history persistent.
 
+" set viminfo^=%
+
 if has("win32") || has("win64")
    set nobackup
    set writebackup
@@ -369,8 +379,12 @@ end
 " There's an escaped trailing space here.
 set showbreak=>\ 
 
-" Highlight first column after 'textwidth', except in help files.
-autocmd FileType * if &ft !~ 'help' | setl cc=+1 | else | setl cc= | endif
+set shortmess+=I " Don't give the intro message when starting Vim.
+
+" Highlight first column after 'textwidth', except in help files.  TODO: autocmd
+" isn't run when the filetype is empty.
+set cc=+1
+autocmd FileType * if &ft !~# 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Use :W to write the current file with sudo.  Taken from
 " http://stackoverflow.com/a/12870763/1980378 which fixes some of the problems
