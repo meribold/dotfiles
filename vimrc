@@ -372,6 +372,19 @@ set showbreak=>\
 " Highlight first column after 'textwidth', except in help files.
 autocmd FileType * if &ft !~ 'help' | setl cc=+1 | else | setl cc= | endif
 
+" Use :W to write the current file with sudo.  Taken from
+" http://stackoverflow.com/a/12870763/1980378 which fixes some of the problems
+" with ':w !sudo tee >/dev/null %'.  I find using a command mode
+" mapping (like 'cmap w!! ...') to be annoying.  If the command already exists,
+" redefine it.  See :h E174.
+if has('unix')
+   com! W sil exe 'w !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
+end
+" http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-ins
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-tr
+" http://unix.stackexchange.com/questions/11004/becoming-root-from-inside-vim
+" http://vim.wikia.com/wiki/Su-write
+
 " Taken from sensible.vim before
 " github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800
 " happened.  Makes Y consistent with C and D.  See :h Y and :h &.
