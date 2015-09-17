@@ -170,6 +170,15 @@ if v:version > 703 || v:version == 703 && has("patch541")
    set formatoptions+=j " Delete comment character when joining commented lines
 endif
 
+" Taken from sensible.vim.  Search the 'tags' file in the directory of the
+" current file, then the parent directory, then the parent of that, and so on.
+" The leading './' tells Vim to use the directory of the current file rather
+" than Vim's working directory.  The trailing semicolon tells it to recursively
+" search parent directories.  See :h file-searching.
+if has('path_extra')
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
 " 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.
