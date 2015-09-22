@@ -95,7 +95,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline={}
 
-if has("gui_running")
+if has('gui_running')
    let g:lightline.colorscheme='solarized_dark'
 else
    let g:lightline.colorscheme='molokai'
@@ -166,7 +166,7 @@ set hlsearch     " hightlight matches.
 "set autochdir
 
 " Taken from github.com/tpope/vim-sensible.
-if v:version > 703 || v:version == 703 && has("patch541")
+if v:version > 703 || v:version == 703 && has('patch541')
    set formatoptions+=j " Delete comment character when joining commented lines.
 endif
 
@@ -182,8 +182,8 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
 " 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.
-if has("multi_byte")
-  if &termencoding == ""
+if has('multi_byte')
+  if &termencoding == ''
     let &termencoding = &encoding
   endif
   set encoding=utf-8           " better default than latin1
@@ -209,7 +209,7 @@ autocmd WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildignore+=*.o  " Don't consider object files when expanding.
 set wildmenu         " Use the enhanced command-line completion menu where
-                     " "full" is specified in 'wildmode'.
+                     " 'full' is specified in 'wildmode'.
 
 " When 'wildchar' (Tab) is used first, and more than one match exists, list all
 " matches and complete till longest common string. On consecutive uses (or if
@@ -224,7 +224,7 @@ set listchars+=precedes:<,extends:>
 set title " Let vim set the terminal title.
 " If running inside screen, use those escape sequences to name the window (set
 " the title of the VT100 emulated bt screen)
-if &term == "screen"
+if &term == 'screen'
   set t_ts=k
   set t_fs=\
 endif " The settings for those termcap codes are taken from vim.wikia.com [1].
@@ -240,7 +240,7 @@ set backspace=indent,eol,start " Required by delimitMate for
                                " delimitMate_expand_cr to work.
 
 " Draw a continuous line to separate vertical splits.
-if has("multi_byte") | :set fillchars=vert:│ | endif
+if has('multi_byte') | :set fillchars=vert:│ | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Molokai sets 'background' to light for some reason. The issue has been
@@ -258,11 +258,11 @@ let c_no_curly_error=1 " Don't highlight {}; inside [] and () as errors.
 
 set background=dark
 
-if has("gui_running")
+if has('gui_running')
    " If running gVim, remove the menu bar, toolbar, right-hand scrollbar and
    " left-hand scrollbar.
    set guioptions-=e go-=m go-=T go-=r go-=L
-   if has("win32") || has("win64")
+   if has('win32') || has('win64')
       set guifont=Consolas:h10
    else
       set guifont=Ubuntu\ Mono\ 8
@@ -351,11 +351,11 @@ set undofile " Make undo history persistent.
 
 " set viminfo^=%
 
-if has("win32") || has("win64")
+if has('win32') || has('win64')
    set nobackup
    set writebackup
    set undodir^=$TEMP
-elseif has("unix")
+elseif has('unix')
    " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-
    " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
    if !isdirectory($HOME . '/.vim/swp')
