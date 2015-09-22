@@ -351,30 +351,34 @@ set undofile " Make undo history persistent.
 
 " set viminfo^=%
 
-if has('win32') || has('win64')
-   set nobackup
-   set writebackup
-   set undodir^=$TEMP
-elseif has('unix')
-   " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-
-   " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
-   if !isdirectory($HOME . '/.vim/swp')
-      call mkdir($HOME . '/.vim/swp', 'p')
-   endif
-   if !isdirectory($HOME . '/.vim/undo')
-      call mkdir($HOME . '/.vim/undo', 'p')
-   endif
-   if !isdirectory($HOME . '/.vim/backup')
-      call mkdir($HOME . '/.vim/backup', 'p')
-   endif
-   set dir=~/.vim/swp//
-   set undodir=~/.vim/undo
-   set backupdir=~/.vim/backup
-   " Make a persistent backup whenever writing a file inside ~/.vim/backup/,
-   " potentially overwriting an existing backup (even if that file isn't the one
-   set backup      " being backed up; i.e. when different files having the same
-   set writebackup " name are edited).
+" Make a persistent backup whenever writing a file, potentially overwriting an
+" existing backup (even if that file isn't the one being backed up; i.e. when
+" different files having the same name are edited).
+set backup
+set writebackup
+
+if has('unix')
+   let s:vimfiles = $HOME . '/vimfiles'
+elseif has('win32') || has('win64')
+   " Use $HOME or $USERPROFILE?
+   let s:vimfiles = $HOME . '/.vim'
 end
+if exists('s:vimfiles')
+   if !isdirectory(s:vimfiles . '/swp')
+      call mkdir(s:vimfiles . '/swp', 'p')
+   endif
+   if !isdirectory(s:vimfiles . '/undo')
+      call mkdir(s:vimfiles . '/undo', 'p')
+   endif
+   if !isdirectory(s:vimfiles . '/backup')
+      call mkdir(s:vimfiles . '/backup', 'p')
+   endif
+   let &dir = s:vimfiles . '/swp//'
+   let &undodir = s:vimfiles . '/undo'
+   let &backupdir = s:vimfiles . '/backup'
+endif
+" http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doe
+" http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
 
 " There's an escaped trailing space here.
 set showbreak=>\ 
