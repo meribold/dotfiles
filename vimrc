@@ -113,7 +113,7 @@ function! s:lightline_update() " Local to this file.
    " TODO: only list color schemes where the name of the lightline color scheme
    " differs from one of the matching Vim color scheme.  Use a directory listing
    " of lightline.vim/autoload/lightline/colorscheme/ for everything else.
-   let colos={
+   let colos = {
       \ 'molokai': 'molokai',
       \ 'wombat256mod': 'wombat',
       \ 'solarized': 'solarized_dark',
@@ -249,12 +249,12 @@ autocmd ColorScheme * if exists('g:colors_name') &&
    \ g:colors_name ==# 'molokai' | noa set bg=dark | endif
 
 " Use a darker background with the lucius color scheme.
-let g:lucius_contrast_bg='high'
+let g:lucius_contrast_bg = 'high'
 
-let c_space_errors=1   " highlight trailing white space and spaces before a
-                       " <Tab> when the c.vim syntax file is used (which is
-                       " apparently included in 'syntax/cpp.vim'.
-let c_no_curly_error=1 " Don't highlight {}; inside [] and () as errors.
+let c_space_errors = 1   " highlight trailing white space and spaces before a
+                         " <Tab> when the c.vim syntax file is used (which is
+                         " apparently included in 'syntax/cpp.vim'.
+let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 
 set background=dark
 
@@ -268,13 +268,13 @@ if has('gui_running')
       set guifont=Ubuntu\ Mono\ 8
       " set guifont=Source\ Code\ Pro\ 7
    end
-   let g:solarized_italic=0
+   let g:solarized_italic = 0
    silent! colorscheme solarized
 else
-   let g:solarized_termcolors=256
+   let g:solarized_termcolors = 256
    silent! colorscheme molokai
    " exists('g:loaded_lightline') is still false at this point.
-   let g:lightline={
+   let g:lightline = {
       \ 'colorscheme': 'molokai',
    \ }
    " :h line-continuation, :h dict
