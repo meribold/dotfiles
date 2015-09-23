@@ -358,10 +358,10 @@ set backup
 set writebackup
 
 if has('unix')
-   let s:vimfiles = $HOME . '/vimfiles'
+   let s:vimfiles = $HOME . '/.vim'
 elseif has('win32') || has('win64')
    " Use $HOME or $USERPROFILE?
-   let s:vimfiles = $HOME . '/.vim'
+   let s:vimfiles = $HOME . '/vimfiles'
 end
 if exists('s:vimfiles')
    if !isdirectory(s:vimfiles . '/swp')
