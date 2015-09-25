@@ -259,19 +259,7 @@ let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
 
 set background=dark
 
-if has('gui_running')
-   " If running gVim, remove the menu bar, toolbar, right-hand scrollbar and
-   " left-hand scrollbar.
-   set guioptions-=e go-=m go-=T go-=r go-=L
-   if has('win32') || has('win64')
-      set guifont=Consolas:h10
-   else
-      set guifont=Ubuntu\ Mono\ 8
-      " set guifont=Source\ Code\ Pro\ 7
-   end
-   let g:solarized_italic = 0
-   silent! colorscheme solarized
-else
+if !has('gui_running')
    let g:solarized_termcolors = 256
    silent! colorscheme molokai
 end
