@@ -74,7 +74,7 @@ Plugin 'tpope/vim-obsession'
 " Plugin 'terryma/vim-multiple-cursors'
 
 " Color schemes.
-Plugin 'tomasr/molokai'
+Plugin 'meribold/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'itchyny/landscape.vim'
