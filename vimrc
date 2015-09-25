@@ -149,7 +149,7 @@ runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
                            " vim-online-thesaurus.  :h ft-man-plugin
 
 " Don't scan included files for keyword completion.  Taken from sensible.vim.
-set complete-=i " Keep? See https://github.com/tpope/vim-sensible/issues/51.
+set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
 
 " Taken from sensible.vim.  See https://github.com/tpope/vim-sensible/issues/13.
 set viminfo^=!
@@ -194,7 +194,7 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the
-" cursor line. Useful when preceding vertical motion commands that support it
+" cursor line.  Useful when preceding vertical motion commands that support it
 " with a count, e.g. d4j.
 set number
 set relativenumber
@@ -213,7 +213,7 @@ set wildmenu         " Use the enhanced command-line completion menu where
                      " 'full' is specified in 'wildmode'.
 
 " When 'wildchar' (Tab) is used first, and more than one match exists, list all
-" matches and complete till longest common string. On consecutive uses (or if
+" matches and complete till longest common string.  On consecutive uses (or if
 " only one match exists) show the 'wildmenu'.
 set wildmode=longest:full,full
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -244,7 +244,7 @@ set backspace=indent,eol,start " Required by delimitMate for
 if has('multi_byte') | :set fillchars=vert:│ | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Molokai sets 'background' to light for some reason. The issue has been
+" Molokai sets 'background' to light for some reason.  The issue has been
 " reported here: https://github.com/tomasr/molokai/issues/22
 autocmd ColorScheme * if exists('g:colors_name') &&
    \ g:colors_name ==# 'molokai' | noa set bg=dark | endif
@@ -274,7 +274,7 @@ end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " I used to prefer tabs for indenting and spaces for alignment (like item 4 from
-" :h 'tabstop'). That was supposed to allow using different numbers of spaces
+" :h 'tabstop').  That was supposed to allow using different numbers of spaces
 " when displaying a tab.
 " Because different values will still cause different text widths, I prefer not
 " to use any tabs now (item 2 from :h 'tabstop').
@@ -301,15 +301,15 @@ filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " I used to define an ExtraWhitespace hightlight group instead for unwanted
-" whitespace. Now I'm just using the ColorColumn highlight group instead.
+" whitespace.  Now I'm just using the ColorColumn highlight group instead.
 "highlight ExtraWhitespace ctermbg=darkred guibg=darkred
 "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
 
 " Syntax patterns are always interpreted like the 'magic' option is set and like
 " the 'l' flag is not included in 'cpoptions' (backslash in a [] range is not
-" taken literally, but has its normal meaning). See :h syn-pattern.
+" taken literally, but has its normal meaning).  See :h syn-pattern.
 
-" Highlight trailing whitespace, except when typing at the end of a line. Taken
+" Highlight trailing whitespace, except when typing at the end of a line.  Taken
 " from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
 autocmd Syntax * if &ft !~ 'help' |
    \ syn match ColorColumn "\s\+\%#\@<!$" containedin=ALL | endif
@@ -440,8 +440,8 @@ set mouse=a " From :help mouse-using: In an xterm, with the currently active
             " xterm.
 
 " Since the xterm captures mouse clicks while shift or ctrl is pressed I'm not
-" remapping  events like <C-LeftMouse>. Not shure about <M-...> or <A-...>. Also
-" see :help keycodes.
+" remapping  events like <C-LeftMouse>.  Not shure about <M-...> or <A-...>.
+" Also see :help keycodes.
 
 " See :help mouse-using (about using the mouse with a terminal),
 " :help mouse-mode-table to see what these buttons normally do and
@@ -520,7 +520,7 @@ map  <C-ScrollWheelRight> <Nop>
 imap <C-ScrollWheelRight> <Nop>
 
 " This mapping is taken from vim.wikia.com, tip 14: Highlight all search pattern
-" matches. Pressing space turns off highlighting and clears any message shown.
+" matches.  Pressing space turns off highlighting and clears any message shown.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
