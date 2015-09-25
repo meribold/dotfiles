@@ -265,9 +265,10 @@ if !has('gui_running')
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" XXX: Slow?
-"autocmd BufEnter * if &ft != 'help' | syntax sync fromstart | endif
-autocmd BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
+" These autocommands are to slow on my laptop.  TODO: use a mapping to correct
+" syntax highlighting issues when they really occur instead?
+" autocmd BufEnter * if &ft != 'help' | syntax sync fromstart | endif
+" autocmd BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
 " To check the active synchronization method use ':sy[ntax] sync'.
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting
 
