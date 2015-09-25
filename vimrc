@@ -58,7 +58,7 @@ Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 Plugin 'sjl/gundo.vim'
 
 Plugin 'beloglazov/vim-online-thesaurus'
-Plugin 'szw/vim-dict' " TODO: configure.
+Plugin 'szw/vim-dict'
 
 Plugin 'tpope/vim-obsession'
 " Plugin 'xolox/vim-session'
@@ -140,6 +140,14 @@ let g:gitgutter_signs = 0 " The same as 'let gitgutter_signs = 0' here, I guess?
 let delimitMate_expand_cr = 1
 let delimitMate_jump_expansion = 1
 let delimitMate_balance_matchpairs = 1
+
+" :DictShowDb to see what databases are available on the servers used.
+" 'dict.hewgill.com' isn't working at the moment.
+let g:dict_hosts = [
+   \ ['dict.org', ['gcide', 'fd-eng-deu', 'fd-deu-eng', 'foldoc', 'elements',
+      \ 'wn']],
+   \ ['dict.hewgill.com', []],
+\ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
