@@ -8,14 +8,11 @@
 " See :h autocmd-define
 autocmd!
 
-augroup LightLineColorscheme
-   autocmd!
-augroup END
-
 " comclear
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vundle.  See https://github.com/VundleVim/Vundle.vim for explanations.
+" Plugins are loaded after vimrc files (:h initialization).
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -93,23 +90,18 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lightline={}
-
-if has('gui_running')
-   let g:lightline.colorscheme='solarized_dark'
-else
-   let g:lightline.colorscheme='molokai'
-end
+let g:lightline = {
+   \ 'colorscheme': 'default',
+\ }
+" :h line-continuation, :h dict
 
 " Based on the snippet from :h lightline-problem-13.  Also see
 " https://github.com/itchyny/lightline.vim/issues/9
 augroup LightLineColorscheme
+   autocmd!
    autocmd ColorScheme * call s:lightline_update()
 augroup END
 function! s:lightline_update() " Local to this file.
-   if !exists('g:loaded_lightline')
-      return
-   endif
    " TODO: only list color schemes where the name of the lightline color scheme
    " differs from one of the matching Vim color scheme.  Use a directory listing
    " of lightline.vim/autoload/lightline/colorscheme/ for everything else.
@@ -128,10 +120,11 @@ function! s:lightline_update() " Local to this file.
    end
    if g:lightline.colorscheme !=# newColo
       let g:lightline.colorscheme = newColo
-      call lightline#init()
-      call lightline#colorscheme()
-      call lightline#update()
-      " echom g:lightline.colorscheme
+      if exists('g:loaded_lightline')
+         call lightline#init()
+         call lightline#colorscheme()
+         call lightline#update()
+      endif
    endif
 endfunction
 
@@ -281,11 +274,6 @@ if has('gui_running')
 else
    let g:solarized_termcolors = 256
    silent! colorscheme molokai
-   " exists('g:loaded_lightline') is still false at this point.
-   let g:lightline = {
-      \ 'colorscheme': 'molokai',
-   \ }
-   " :h line-continuation, :h dict
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
