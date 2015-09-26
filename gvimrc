@@ -8,7 +8,8 @@
 " Remove the menu bar, toolbar, right-hand scrollbar and left-hand scrollbar.
 set guioptions-=e go-=m go-=T go-=r go-=L
 if has('win32') || has('win64')
-   set guifont=Consolas:h10
+   " set guifont=Consolas:h10
+   set guifont=Source_Code_Pro:h9
    silent! colorscheme solarized
 else
    set guifont=Ubuntu\ Mono\ 8
