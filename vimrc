@@ -54,7 +54,9 @@ Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 Plugin 'sjl/gundo.vim'
 
-Plugin 'beloglazov/vim-online-thesaurus'
+if has('unix')
+   Plugin 'beloglazov/vim-online-thesaurus'
+endif
 Plugin 'szw/vim-dict'
 
 Plugin 'tpope/vim-obsession'
