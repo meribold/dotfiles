@@ -247,7 +247,8 @@ if has('multi_byte') | :set fillchars=vert:│ | endif
 " Molokai sets 'background' to light for some reason.  The issue has been
 " reported here: https://github.com/tomasr/molokai/issues/22
 autocmd ColorScheme * if exists('g:colors_name') &&
-   \ g:colors_name ==# 'molokai' | noa set bg=dark | endif
+   \ (g:colors_name ==# 'molokai' || g:colors_name ==# 'jellybeans') |
+   \ noa set bg=dark | endif
 
 " Use a darker background with the lucius color scheme.
 let g:lucius_contrast_bg = 'high'
@@ -261,7 +262,7 @@ set background=dark
 
 if !has('gui_running')
    let g:solarized_termcolors = 256
-   silent! colorscheme molokai
+   silent! colorscheme jellybeans
 end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
