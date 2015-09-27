@@ -12,4 +12,6 @@ termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 defhstatus "^Et (screen ^E)"
 hardstatus off
 
+maptimeout 0
+
 # vim: tw=90 sts=3 sw=3 et
