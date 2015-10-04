@@ -54,6 +54,9 @@ Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 Plugin 'sjl/gundo.vim'
 
+Plugin 'bruno-/vim-man'
+" Plugin 'lambdalisue/vim-manpager'
+
 if has('unix')
    Plugin 'beloglazov/vim-online-thesaurus'
 endif
@@ -64,7 +67,6 @@ Plugin 'tpope/vim-obsession'
 
 " Stuff to maybe try later.  TODO: Snippets.  VimShell?  YankRing.vim?
 " Plugin 'mhinz/vim-startify'
-" Plugin 'bruno-/vim-man'
 " Plugin 'kien/ctrlp.vim'
 " Plugin 'majutsushi/tagbar'
 " Plugin 'mileszs/ack.vim'
@@ -145,10 +147,41 @@ let g:dict_hosts = [
 \ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K,
+" :h 'keywordprg'.  TODO: K should accept a count that specifies what section
+" man should look in.  Is it possible to directly map K to the command that the
+" man filetype plugin maps <Leader>K to, but then unmap <Leader>K?
 
-" runtime ftplugin/man.vim " <Leader>K mapping collides with
-                           " vim-online-thesaurus.  :h ft-man-plugin
+" I'm using vim-man so a :Man command will already be crated without this.
+" runtime ftplugin/man.vim
+" The <Leader>K mapping from man.vim collides with vim-online-thesaurus.
+" silent! unmap <Leader>K
+
+" XXX: will this always be run AFTER 'keywordprg' was changed?
+function! s:FixK()
+   if &ft ==# 'vim'
+      silent! unmap <buffer> K
+      setl keywordprg=:help
+   elseif &keywordprg ==# ':help'
+      setl keywordprg=man
+   elseif &keywordprg ==# 'man'
+      nmap <buffer> K <Plug>(Man)
+   else
+      silent! unmap <buffer> K
+   endif
+endfunction
+autocmd FileType * call s:FixK()
+autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
+
+" [Help for word under cursor](http://stackoverflow.com/a/15867465/1980378)
+" https://github.com/vim-utils/vim-man
+" http://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
+" http://vim.wikia.com/wiki/View_man_pages_in_Vim
+" http://usevim.com/2012/09/07/vim101-keywordprg/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
 
 " Don't scan included files for keyword completion.  Taken from sensible.vim.
 set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
