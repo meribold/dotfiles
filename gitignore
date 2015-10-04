@@ -1,2 +1,9 @@
 tags
+
+# Vim
 Session.vim
+
+# Emacs
+*~
+\#*\#
+.\#*
