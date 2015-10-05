@@ -416,6 +416,27 @@ endif
 " http://unix.stackexchange.com/questions/11004/becoming-root-from-inside-vim
 " http://vim.wikia.com/wiki/Su-write
 
+" React to <Esc> immediately (unless it were a proper prefix of a mapping which,
+" of course, it isn't).  To be honest, I don't really understand what's going on
+" here.  I realize that terminal emulators send key sequences starting with
+" Escape for (at least) function keys and arrow keys to the running application.
+" Vim will wait for more characters after receiving the Escape character while
+" it's ambiguous whether those keys will make up an escape sequence.  With
+" default settings, Vim will stop waiting after 1000 milliseconds (value of
+" 'timeoutlen', used as key code delay when 'ttimeoutlen' is negative) of not
+" receiving any additional character and handle the key sequence.  This delay
+" seems extremely excessive.  Vim should receive the complete escape sequence
+" resulting from function keys etc. nearly at the same instant.  I'm using 0 for
+" 'ttimeoutlen' since it doesn't seem to break anything.  I guess around 10
+" might be more conservative.  See :h timeout, :h ttimeoutlen, :h timeoutlen,
+" :h ttimeoutlen, :h esckeys
+" http://stackoverflow.com/q/15550100/1980378
+" http://superuser.com/q/161178/449688
+" http://aperiodic.net/phil/archives/Geekery/term-function-keys.html
+if !has('gui_running')
+   set ttimeoutlen=0
+endif
+
 " Taken from sensible.vim before
 " github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800
 " happened.  Makes Y consistent with C and D.  See :h Y and :h &.
