@@ -249,7 +249,7 @@ set wildmenu         " Use the enhanced command-line completion menu where
 set wildmode=longest:full,full
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"set nowrap
+set nowrap
 set sidescroll=1
 set listchars+=precedes:<,extends:>
 
