@@ -99,12 +99,9 @@ let g:lightline = {
 \ }
 " :h line-continuation, :h dict
 
-" Based on the snippet from :h lightline-problem-13.  Also see
-" https://github.com/itchyny/lightline.vim/issues/9
-augroup LightLineColorscheme
-   autocmd!
-   autocmd ColorScheme * call s:lightline_update()
-augroup END
+" Based on the snippet from :h lightline-problem-13.  Also see [Changing
+" colorscheme on the fly](https://github.com/itchyny/lightline.vim/issues/9)
+autocmd ColorScheme * call s:lightline_update()
 function! s:lightline_update() " Local to this file.
    " TODO: only list color schemes where the name of the lightline color scheme
    " differs from one of the matching Vim color scheme.  Use a directory listing
@@ -121,7 +118,7 @@ function! s:lightline_update() " Local to this file.
    " if exists('g:colors_name') && exists("colos['" . g:colors_name . "']")
    if exists('g:colors_name') && has_key(colos, g:colors_name)
       let newColo = colos[g:colors_name]
-   end
+   endif
    if g:lightline.colorscheme !=# newColo
       let g:lightline.colorscheme = newColo
       if exists('g:loaded_lightline')
@@ -149,14 +146,9 @@ let g:dict_hosts = [
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K,
-" :h 'keywordprg'.  TODO: K should accept a count that specifies what section
-" man should look in.  Is it possible to directly map K to the command that the
-" man filetype plugin maps <Leader>K to, but then unmap <Leader>K?
-
-" I'm using vim-man so a :Man command will already be crated without this.
-" runtime ftplugin/man.vim
-" The <Leader>K mapping from man.vim collides with vim-online-thesaurus.
-" silent! unmap <Leader>K
+" :h v_K, :h 'keywordprg'.  TODO: K should accept a count that specifies what
+" section man should look in.  Add a vmap for K that works like the built-in
+" mapping.
 
 " XXX: will this always be run AFTER 'keywordprg' was changed?
 function! s:FixK()
@@ -166,6 +158,7 @@ function! s:FixK()
    elseif &keywordprg ==# ':help'
       setl keywordprg=man
    elseif &keywordprg ==# 'man'
+      " I'm using the vim-man plugin.
       nmap <buffer> K <Plug>(Man)
    else
       silent! unmap <buffer> K
@@ -298,7 +291,7 @@ set background=dark
 if !has('gui_running')
    let g:solarized_termcolors = 256
    silent! colorscheme jellybeans
-end
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " These autocommands are to slow on my laptop.  TODO: use a mapping to correct
@@ -347,11 +340,11 @@ filetype plugin indent on
 
 " Highlight trailing whitespace, except when typing at the end of a line.  Taken
 " from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
-autocmd Syntax * if &ft !~ 'help' |
+autocmd Syntax * if &ft !=# 'help' |
    \ syn match ColorColumn "\s\+\%#\@<!$" containedin=ALL | endif
 
 " Highlight tabs that aren't at the start of a line.
-autocmd Syntax * if &ft !~ 'help' |
+autocmd Syntax * if &ft !=# 'help' |
    \ syn match ColorColumn "[^\t]\zs\t\+" containedin=ALL | endif
 
 " The help for :syn-containedin seems to expain why some tabs aren't highlighted
@@ -383,7 +376,7 @@ if has('unix')
 elseif has('win32') || has('win64')
    " Use $HOME or $USERPROFILE?
    let s:vimfiles = $HOME . '/vimfiles'
-end
+endif
 if exists('s:vimfiles')
    if !isdirectory(s:vimfiles . '/swp')
       call mkdir(s:vimfiles . '/swp', 'p')
@@ -409,7 +402,7 @@ set shortmess+=I " Don't give the intro message when starting Vim.
 " Highlight first column after 'textwidth', except in help files.  TODO: autocmd
 " isn't run when the filetype is empty.
 set cc=+1
-autocmd FileType * if &ft !~# 'help' | setl cc=+1 | else | setl cc= | endif
+autocmd FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Use :W to write the current file with sudo.  Taken from
 " http://stackoverflow.com/a/12870763/1980378 which fixes some of the problems
@@ -418,7 +411,7 @@ autocmd FileType * if &ft !~# 'help' | setl cc=+1 | else | setl cc= | endif
 " redefine it.  See :h E174.
 if has('unix')
    com! W sil exe 'w !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
-end
+endif
 " http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-ins
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-tr
 " http://unix.stackexchange.com/questions/11004/becoming-root-from-inside-vim
