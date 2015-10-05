@@ -54,7 +54,7 @@ Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 Plugin 'sjl/gundo.vim'
 
-Plugin 'bruno-/vim-man'
+Plugin 'meribold/vim-man'
 " Plugin 'lambdalisue/vim-manpager'
 
 if has('unix')
@@ -146,8 +146,7 @@ let g:dict_hosts = [
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K,
-" :h v_K, :h 'keywordprg'.  TODO: K should accept a count that specifies what
-" section man should look in.  Add a vmap for K that works like the built-in
+" :h v_K, :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in
 " mapping.
 
 " XXX: will this always be run AFTER 'keywordprg' was changed?
