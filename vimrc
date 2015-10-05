@@ -396,9 +396,6 @@ endif
 " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doe
 " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
 
-" There's an escaped trailing space here.
-set showbreak=>\ 
-
 set shortmess+=I " Don't give the intro message when starting Vim.
 
 " Highlight first column after 'textwidth', except in help files.  TODO: autocmd
