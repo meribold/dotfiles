@@ -251,7 +251,6 @@ set wildmode=longest:full,full
 
 set nowrap
 set sidescroll=1
-set listchars+=precedes:<,extends:>
 
 set title " Let vim set the terminal title.
 " If running inside screen, use those escape sequences to name the window (set
