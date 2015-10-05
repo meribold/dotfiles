@@ -547,8 +547,14 @@ imap <S-ScrollWheelRight> <Nop>
 map  <C-ScrollWheelRight> <Nop>
 imap <C-ScrollWheelRight> <Nop>
 
-" This mapping is taken from vim.wikia.com, tip 14: Highlight all search pattern
-" matches.  Pressing space turns off highlighting and clears any message shown.
+" Stop 'hlsearch' highlighting and clear any message displayed on the
+" command-line.  Taken from
+" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+" I wanted to map this to <Esc> but that caused weird behaviour which I tried to
+" fix with `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
+" `nnoremap <esc>^[ <esc>^[` (neither worked).
+" http://stackoverflow.com/a/1037182/1980378
+" http://stackoverflow.com/q/11940801/1980378
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
