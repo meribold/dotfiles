@@ -20,4 +20,7 @@ let g:solarized_italic = 0
 " so we need to set it again here.  See :h visualbell.
 set t_vb=
 
+" Don't make the cursor blink!
+set guicursor+=a:blinkoff0
+
 " vim: tw=80 sts=3 sw=3 et
