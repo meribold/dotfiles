@@ -173,6 +173,10 @@ autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
 " http://usevim.com/2012/09/07/vim101-keywordprg/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" [Open help in the current window](http://stackoverflow.com/a/26431632/1980378)
+" :h 'buftype'
+command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
+
 runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
 
 " Don't scan included files for keyword completion.  Taken from sensible.vim.
