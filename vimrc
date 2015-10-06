@@ -283,7 +283,7 @@ autocmd ColorScheme * if exists('g:colors_name') &&
 " Use a darker background with the lucius color scheme.
 let g:lucius_contrast_bg = 'high'
 
-let c_space_errors = 1   " highlight trailing white space and spaces before a
+" let c_space_errors = 1   " highlight trailing white space and spaces before a
                          " <Tab> when the c.vim syntax file is used (which is
                          " apparently included in 'syntax/cpp.vim'.
 let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
@@ -330,31 +330,92 @@ set autoindent     " The last two settings only seem to work with this enabled.
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+if 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" I used to define an ExtraWhitespace hightlight group instead for unwanted
-" whitespace.  Now I'm just using the ColorColumn highlight group instead.
-"highlight ExtraWhitespace ctermbg=darkred guibg=darkred
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred guibg=darkred
+" Highlight trailing whitespace unless it's in the current line and left of the
+" cursor.  Highlight tabs that aren't at the start of a line.  FIXME: breaks
+" when turning syntax highlighting off and on again.  Isn't updated reliably
+" when the cursor is moved; see :h cursor-position.
+autocmd Syntax * if &modifiable && &ft !=# 'help' && &ft !=# 'man'
+   \ | syn match ColorColumn /\s*\%#\@!\s\%#\@!$/ containedin=ALL
+   \ | syn match ColorColumn /[^\t]\zs\t\+/ containedin=ALL
+\ | endif
+
+" Pair of patterns I considered instead of the first one above:
+" Whitespace errors on lines the cursor is not on: /\(\s\%#\@!\)\+$/
+" Unwanted whitespace following the cursor: /\%#\s\zs\s*$/
 
 " Syntax patterns are always interpreted like the 'magic' option is set and like
 " the 'l' flag is not included in 'cpoptions' (backslash in a [] range is not
 " taken literally, but has its normal meaning).  See :h syn-pattern.
 
-" Highlight trailing whitespace, except when typing at the end of a line.  Taken
-" from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
-autocmd Syntax * if &ft !=# 'help' |
-   \ syn match ColorColumn "\s\+\%#\@<!$" containedin=ALL | endif
+" The whitespace error highlighting isn't updated when leaving insert mode
+" (which moves the cursor).
+autocmd InsertLeave * doautocmd CursorMoved
 
-" Highlight tabs that aren't at the start of a line.
-autocmd Syntax * if &ft !=# 'help' |
-   \ syn match ColorColumn "[^\t]\zs\t\+" containedin=ALL | endif
+" Don't break when sourcing.
+doautocmd Syntax
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+endif
 
-" The help for :syn-containedin seems to expain why some tabs aren't highlighted
-" ("Don't forget that keywords never contain another item, thus adding them to
-" "containedin" won't work").
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight trailing whitespace unless it's in the current line, left of the
+" cursor and Vim is in insert mode.  Always highlight tabs that aren't at the
+" start of a line (that's just WRONG).  I'm using the ColorColumn highlight
+" group instead of defining a new one.
 
-" Relevant help subjects: line-continuation, :autocmd, :syn-match, :hi.
-" Web links: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" This is much faster than using `:syntax match`.  Changing the pattern when
+" entering and leaving insert mode also wasn't viable with
+" `:syn clear ColorColumn` and `:syn match` since it caused noticeable delay
+" every time.
+function! s:OnInsertEnter()
+   if exists('w:spaceMatch') | silent! call matchdelete(w:spaceMatch) | endif
+   let w:spaceMatch = matchadd('ColorColumn', '\s\+\%#\@<!$', -1)
+endfunction
+function! s:OnInsertLeave()
+   if exists('w:spaceMatch') | silent! call matchdelete(w:spaceMatch) | endif
+   " Use a cheap pattern that doesn't check the cursor position in normal mode.
+   let w:spaceMatch = matchadd('ColorColumn', '\s\+$', -1)
+endfunction
+function! s:OnBufWinEnter()
+   " if &modifiable && !&readonly
+   if &filetype !=# 'help' && &filetype !=# 'man'
+      call s:OnInsertLeave()
+      if !exists('w:tabMatch')
+         let w:tabMatch = matchadd('ColorColumn', '[^\t]\zs\t\+', -1)
+      endif
+   else
+      if exists('w:spaceMatch')
+         silent! call matchdelete(w:spaceMatch)
+         unlet w:spaceMatch
+      endif
+      if exists('w:tabMatch')
+         silent! call matchdelete(w:tabMatch)
+         unlet w:tabMatch
+      endif
+   endif
+endfunction
+function! s:OnWinEnter()
+   if !exists('w:spaceMatch') || !exists('w:tabMatch')
+      call s:OnBufWinEnter()
+   end
+endfunction
+autocmd InsertEnter * call s:OnInsertEnter()
+autocmd InsertLeave * call s:OnInsertLeave()
+autocmd BufWinEnter * call s:OnBufWinEnter() " Insufficient.  Try :split without
+autocmd WinEnter    * call s:OnWinEnter()    " this.
+autocmd FileType    * call s:OnBufWinEnter()
+
+" Don't break when sourcing again.
+if exists('w:spaceMatch') || exists('w:tabMatch')
+   silent! unlet w:spaceMatch | silent! unlet:w:tabMatch
+   call clearmatches()
+   call s:OnBufWinEnter()
+endif
+
+" Use :echo getmatches() to confirm we don't leak matches.  This snippet should
+" never create more than two.
+" Based on snippets from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " No bell, no flash.
