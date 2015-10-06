@@ -54,7 +54,7 @@ Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 Plugin 'sjl/gundo.vim'
 
-Plugin 'meribold/vim-man'
+Plugin 'vim-utils/vim-man'
 " Plugin 'lambdalisue/vim-manpager'
 
 if has('unix')
