@@ -419,7 +419,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " No bell, no flash.
-set visualbell t_vb=
+set visualbell
+if !has('gui_running')
+   set t_vb=
+endif
 
 set maxmem=2000000    " Lots of memory for each buffer.
 set maxmemtot=2000000 " Lots of memory for all buffers together.
@@ -638,6 +641,9 @@ imap <C-ScrollWheelRight> <Nop>
 " http://stackoverflow.com/a/1037182/1980378
 " http://stackoverflow.com/q/11940801/1980378
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" TODO: nmap something useful to Q.
+nnoremap Q <nop>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
 
