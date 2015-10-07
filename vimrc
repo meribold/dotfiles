@@ -408,7 +408,7 @@ autocmd FileType    * call s:OnBufWinEnter()
 
 " Don't break when sourcing again.
 if exists('w:spaceMatch') || exists('w:tabMatch')
-   silent! unlet w:spaceMatch | silent! unlet:w:tabMatch
+   silent! unlet w:spaceMatch | silent! unlet w:tabMatch
    call clearmatches()
    call s:OnBufWinEnter()
 endif
