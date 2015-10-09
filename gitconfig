@@ -1,0 +1,13 @@
+[user]
+	name = Lukas Waymann
+	email = lb.waym@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+	autocrlf = input
+[merge]
+	tool = vimdiff
+[credential]
+	helper = cache --timeout=10800
+[push]
+	default = simple
