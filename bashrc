@@ -6,6 +6,11 @@
 # http://stackoverflow.com/questions/17191622/why-would-i-not-leave-extglob-enab
 shopt -s extglob
 
+# Disable XON/XOFF flow control.  See stty(1),
+# <http://unix.stackexchange.com/q/12107/115980>,
+# <https://en.wikipedia.org/wiki/Software_flow_control>
+stty -ixon
+
 alias ls='ls --color=auto'
 
 alias vims='vim --servername vim' # "VIM" is the only server name that makes
