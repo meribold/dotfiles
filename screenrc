@@ -1,6 +1,11 @@
 # https://wiki.archlinux.org/index.php/GNU_Screen#Use_256_colors
 term screen-256color
 
+# Set the command character (prefix key) to C-s and the character generating a literal
+# command character to s.
+# http://www.gnu.org/software/screen/manual/screen.html#Command-Character
+escape ^ss
+
 bind ` select 0
 
 startup_message off
