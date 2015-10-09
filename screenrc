@@ -17,6 +17,9 @@ termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 defhstatus "^Et (screen ^E)"
 hardstatus off
 
+# http://wiki.archlinux.org/index.php/GNU_Screen#Use_X_scrolling_mechanism
+termcapinfo xterm* ti@:te@
+
 maptimeout 0
 
 # vim: tw=90 sts=3 sw=3 et
