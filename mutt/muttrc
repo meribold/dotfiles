@@ -39,8 +39,14 @@ set pgp_sign_as="C4592C12"
 # Get a signature from the message of the day.
 set signature="cat /etc/motd|"
 
-set alias_file="~/.mutt/aliases"
-source $alias_file
+# set alias_file="~/.mutt/aliases"
+# source $alias_file
+
+# Copied from http://gitlab.com/goobook/goobook.
+set query_command="goobook query '%s'"
+bind editor <Tab> complete-query
+macro index,pager a "<pipe-message>goobook add<return>" \
+   "add the sender address to Google Contacts"
 
 # https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML
 set mailcap_path="~/.mutt/mailcap"
