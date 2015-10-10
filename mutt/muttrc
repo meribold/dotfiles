@@ -54,6 +54,7 @@ macro index,pager a "<pipe-message>goobook add<return>" \
 # https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML
 set mailcap_path="~/.mutt/mailcap"
 auto_view text/html
+alternative_order text/plain text/html # Prefer viewing plain text if available.
 
 # source dotfiles/mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 source dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
