@@ -1,15 +1,18 @@
-# -*-muttrc-*-
+# My muttrc.  Lots of documentation is in muttrc(5).
 
-# Configure native IMAP support.
+# Configure native IMAP support.  http://dev.mutt.org/trac/wiki/UseCases/Gmail
+# http://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support
 set imap_user=lb.waym@gmail.com
-set folder=imaps://imap.gmail.com/
+set folder=imaps://imap.gmail.com/ # http://dev.mutt.org/trac/wiki/MuttGuide/Folders
 set spoolfile=+INBOX
+set copy=no # Don't save copies of outgoing messages (Gmail already saves them).
+set postponed=+[Gmail]/Drafts # Save drafts remotely.
 set imap_check_subscribed # Check all subscribed IMAP folders.
 
 # Configure native SMTP support.
 set realname="Lukas Waymann"
 set from=lb.waym@gmail.com
-set smtp_url=smtps://$imap_user@smtp.gmail.com
+set smtp_url=smtps://lb.waym@smtp.gmail.com
 set ssl_force_tls
 
 # Default is "us-ascii:iso-8859-1:utf-8".  Really?
