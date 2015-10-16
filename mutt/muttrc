@@ -62,4 +62,4 @@ alternative_order text/plain text/html # Prefer viewing plain text if available.
 # source dotfiles/mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 source dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
 
-# vim: tw=92 sts=3 sw=3 et nowrap
+# vim: tw=90 sts=-1 sw=3 et nowrap

@@ -50,3 +50,5 @@
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
+
+;; vim: tw=90 sts=-1 sw=3 et

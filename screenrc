@@ -22,4 +22,4 @@ termcapinfo xterm* ti@:te@
 
 maptimeout 0
 
-# vim: tw=90 sts=3 sw=3 et
+# vim: tw=90 sts=-1 sw=3 et

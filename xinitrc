@@ -24,4 +24,4 @@ case $1 in
   *) exec twm;;
 esac
 
-# vim: tw=90 sts=2 sw=2 et
+# vim: tw=90 sts=-1 sw=2 et

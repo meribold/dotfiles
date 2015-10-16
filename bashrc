@@ -171,4 +171,4 @@ trap '{ reset_VT100_character_attributes;
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_te
 # xt_entry_and_console_output
 
-# vim: tw=80 sts=3 sw=3 et
+# vim: tw=80 sts=-1 sw=3 et

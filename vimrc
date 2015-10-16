@@ -661,4 +661,4 @@ nnoremap Q <nop>
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
 
-" vim: tw=80 sts=3 sw=3 et
+" vim: tw=80 sts=-1 sw=3 et

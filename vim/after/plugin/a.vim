@@ -3,4 +3,4 @@ iunmap <Leader>ih
 iunmap <Leader>is
 iunmap <Leader>ihn
 
-" vim: tw=80 sts=3 sw=3 et
+" vim: tw=80 sts=-1 sw=3 et

@@ -17,4 +17,3 @@ OPTIONS=runmode:crawl, !splash_screen, standout, lit_corridor
 OPTIONS=pettype:cat, fruit:space brain
 
 # vim: tw=80
-
