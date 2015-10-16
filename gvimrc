@@ -5,8 +5,12 @@
 " preferable to put stuff specific to gVim here (instead of into .vimrc behind
 " has('gui_running') if statements).
 
+" Don't automatically yank all visual selections into the "* register.
+set guioptions-=a
+
 " Remove the menu bar, toolbar, right-hand scrollbar and left-hand scrollbar.
 set guioptions-=e go-=m go-=T go-=r go-=L
+
 if has('win32') || has('win64')
    set guifont=Source_Code_Pro:h9,Consolas:h10
    silent! colorscheme solarized

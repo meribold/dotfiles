@@ -195,6 +195,9 @@ set history=1000 " Vim default: 50.
 set incsearch    " Search while typing the search command and...
 set hlsearch     " hightlight matches.
 
+" Don't automatically yank all visual selections into the "* register.
+set clipboard-=autoselect
+
 "set autochdir
 
 " Taken from github.com/tpope/vim-sensible.
