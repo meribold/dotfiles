@@ -299,6 +299,17 @@ if !has('gui_running')
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Hide the tilde characters Vim displays in front of lines after the EOF.  This
+" is an ugly workaround and breaks at least 'list' and 'showbreak'
+" http://vim.1045645.n5.nabble.com/Removing-tilde-characters-in-front-of-non-existing-lines-td1160167.html
+" http://vim.1045645.n5.nabble.com/Tilde-character-I-d-like-to-get-rid-of-the-quot-quot-character-that-signals-lines-beyond-file-end-td1191192.html
+" http://stackoverflow.com/q/1294790
+" http://stackoverflow.com/q/3725526
+" https://github.com/neovim/neovim/issues/2067
+if !has('gui_running')
+   hi nontext ctermfg=bg cterm=NONE
+endif
+
 " These autocommands are to slow on my laptop.  TODO: use a mapping to correct
 " syntax highlighting issues when they really occur instead?
 " autocmd BufEnter * if &ft != 'help' | syntax sync fromstart | endif

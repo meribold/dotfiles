@@ -20,6 +20,9 @@ else
 end
 let g:solarized_italic = 0
 
+" Search for 'hi nontext' in vimrc for explanations.
+hi nontext guifg=bg gui=NONE
+
 " No bell, no flash.  When the GUI starts, 't_vb' is reset to its default value,
 " so we need to set it again here.  See :h visualbell.
 set t_vb=
