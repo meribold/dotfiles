@@ -319,7 +319,7 @@ endif
 " to use any tabs now (item 2 from :h 'tabstop').
 
 set tabstop=8      " A <Tab> counts for 8 spaces.
-set softtabstop=3  " Or does it?
+set softtabstop=-1 " Or does it?
 set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
 set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
                    " commands.
