@@ -18,20 +18,54 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " VAM?  NeoBundle?  vim-plug?
 
-" Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-dispatch'
+
+Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
+
+" Plugin 'Shougo/unite.vim'
+
+Plugin 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
+" Plugin 'qpkorr/vim-bufkill'
 
 Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'vim-utils/vim-line'
 
-Plugin 'itchyny/lightline.vim'
-" Plugin 'bling/vim-airline'
+Plugin 'tommcdo/vim-exchange'
 
 " http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_
 Plugin 'tpope/vim-commentary'
 " Plugin 'scrooloose/nerdcommenter'
 " Plugin 'tomtom/tcomment_vim'
 
-" Plugin 'tpope/vim-fugitive'
+" Plugin 'easymotion/vim-easymotion'
+" Plugin 'goldfeld/vim-seek'
+" Plugin 'justinmk/vim-sneak'
+
+Plugin 'junegunn/vim-easy-align'
+" Plugin 'godlygeek/tabular'
+
+Plugin 'dhruvasagar/vim-table-mode'
+
+" Plugin 'plasticboy/vim-markdown' " Depends on tabular?
+
+" I'm using [Grip](https://github.com/joeyespo/grip) to preview Markdown files
+" at the moment which actually lets GitHub do the rendering.  The best Vim
+" plugin might be suan/vim-instant-markdown.  JamshedVesuna/vim-markdown-preview
+" is somewhat buggy.  greyblake/vim-preview doesn't seem to do GitHub Flavored
+" Markdown (it uses the redcarpet Gem).  There's also the
+" github-markdown-preview Gem and several Chromium extensions that render
+" Markdown (http://stackoverflow.com/q/9212340/1980378).  TODO:  add a mapping
+" for Grip.
+
+Plugin 'itchyny/lightline.vim'
+" Plugin 'bling/vim-airline'
+
+" Both slow Vim down on my lapotp.
+" Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'Yggdroot/indentLine'
+
+Plugin 'tpope/vim-fugitive'
 " Plugin 'airblade/vim-gitgutter'
 
 " Automatically close parens, brackets, braces, quotes, etc.  See
@@ -40,42 +74,82 @@ Plugin 'Raimondi/delimitMate'
 " Plugin 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
 " Plugin 'Townk/vim-autoclose'  " Inactive.  Try anyway?
 " Plugin 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
+Plugin 'tpope/vim-endwise'
+
+Plugin 'tpope/vim-unimpaired'
 
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-easytags'
 " Plugin 'szw/vim-tags'
+" Plugin 'majutsushi/tagbar'
 
 Plugin 'vim-scripts/a.vim'
 " Plugin 'derekwyatt/vim-fswitch'
 
-Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
-
 Plugin 'sjl/gundo.vim'
+" Plugin 'mbbill/undotree'
 
-Plugin 'vim-utils/vim-man'
+Plugin 'meribold/vim-man'
 " Plugin 'lambdalisue/vim-manpager'
 
 if has('unix')
    Plugin 'beloglazov/vim-online-thesaurus'
 endif
 Plugin 'szw/vim-dict'
+Plugin 'szw/vim-g'
 
 Plugin 'tpope/vim-obsession'
 " Plugin 'xolox/vim-session'
 
-" Stuff to maybe try later.  TODO: Snippets.  VimShell?  YankRing.vim?
-" Plugin 'mhinz/vim-startify'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'majutsushi/tagbar'
-" Plugin 'mileszs/ack.vim'
-" Plugin 'rking/ag.vim'
-" Plugin 'Shougo/neocomplete.vim'
-" Plugin 'tpope/vim-abolish'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+
+" Plugin 'honza/vim-snippets'
+
+" Plugin 'Shougo/neocomplete'
+" Plugin 'Shougo/neosnippet.vim'
+" Plugin 'Shougo/neosnippet-snippets'
+
+" I have vim-youcompleteme-git from the AUR installed.  Upstream is on GitHub at
+" Valloric/YouCompleteMe.  I'm not sure I like it, though, and it slows Vim down
+" noticeably on my laptop.  It's disabled for now.  [How to turn-off a plugin in
+" Vim temporarily?](http://stackoverflow.com/q/601412/1980378) [How do you
+" disable a specific plugin in Vim?]
+" (http://stackoverflow.com/q/2888970/1980378)
+if has('unix')
+   let g:loaded_youcompleteme = 1
+   " Plugin 'rdnetto/YCM-Generator'
+endif
 " Plugin 'scrooloose/syntastic'
+
+Plugin 'tpope/vim-vinegar'
+" Plugin 'scrooloose/nerdtree'
+"
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'szw/vim-ctrlspace'
+Plugin 'Shougo/unite.vim'
+
+Plugin 'vim-utils/vim-husk'
+" Plugin 'tpope/vim-rsi'
+
+" Plugin 'tpope/vim-sleuth'
+" Plugin 'tpope/vim-speeddating'
+
 " Plugin 'terryma/vim-multiple-cursors'
 
-" Color schemes.
+" Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
+" Plugin 'mileszs/ack.vim'
+" Plugin 'rking/ag.vim'
+" Plugin 'tpope/vim-abolish'
+" Plugin 'vim-sexp'
+" Plugin 'vim-signature'
+" Plugin 'vim-better-whitespace'
+" Plugin 'dkprice/vim-easygrep'
+" Plugin 'keith/investigate.vim'
+" Plugin 'kana/vim-textobj-line'
+" Plugin 'ntpeters/vim-better-whitespace'
+" Plugin 'bronson/vim-trailing-whitespace'
+
+" Declare Color schemes.
 Plugin 'meribold/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jonathanfilip/vim-lucius'
@@ -85,6 +159,8 @@ Plugin 'vim-scripts/xoria256.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/Neverness-colour-scheme'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'sjl/badwolf'
 " Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
@@ -92,6 +168,28 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Let Sneak handle f, F, t and T.
+" nmap f <Plug>Sneak_f
+" nmap F <Plug>Sneak_F
+" xmap f <Plug>Sneak_f
+" xmap F <Plug>Sneak_F
+" omap f <Plug>Sneak_f
+" omap F <Plug>Sneak_F
+" nmap t <Plug>Sneak_t
+" nmap T <Plug>Sneak_T
+" xmap t <Plug>Sneak_t
+" xmap T <Plug>Sneak_T
+" omap t <Plug>Sneak_t
+" omap T <Plug>Sneak_T
+
+" vmap <Enter> <Plug>(EasyAlign)
+
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_no_default_key_mappings = 1
+
+" let g:instant_markdown_slow = 1
+" let g:instant_markdown_autostart = 0
+
 let g:lightline = {
    \ 'colorscheme': 'default',
 \ }
@@ -111,7 +209,8 @@ function! s:lightline_update() " Local to this file.
       \ 'landscape': 'landscape',
       \ 'jellybeans': 'jellybeans',
       \ 'Tomorrow-Night': 'Tomorrow_Night',
-      \ }
+      \ 'PaperColor': 'PaperColor_dark',
+   \ }
    let newColo = 'default'
    " if exists('g:colors_name') && exists("colos['" . g:colors_name . "']")
    if exists('g:colors_name') && has_key(colos, g:colors_name)
@@ -127,11 +226,18 @@ function! s:lightline_update() " Local to this file.
    endif
 endfunction
 
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+
 let g:gitgutter_signs = 0 " The same as 'let gitgutter_signs = 0' here, I guess?
 
 let delimitMate_expand_cr = 1
 let delimitMate_jump_expansion = 1
 let delimitMate_balance_matchpairs = 1
+
+" Always render man pages at this width, regardless of the size of the window.
+" https://github.com/vim-utils/vim-man/issues/14
+let g:man_width = 93
 
 " :DictShowDb to see what databases are available on the servers used.
 " 'dict.hewgill.com' isn't working at the moment.
@@ -140,6 +246,31 @@ let g:dict_hosts = [
       \ 'wn']],
    \ ['dict.hewgill.com', []],
 \ ]
+
+" Apparenlty, getting <C-Tab> to work in xterm is [pretty complicated][1] so I
+" should probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to
+" work in a terminal either and remapping escape has its own problems.
+" [1]: http://stackoverflow.com/a/2695818/1980378
+let g:UltiSnipsExpandTrigger = '<C-J>'
+" let g:UltiSnipsExpandTrigger = '<Tab>' " Makes <Tab> laggy.
+" let g:UltiSnipsExpandTrigger = '<C-CR>' " Only works in gVim.
+" let g:UltiSnipsExpandTrigger = 'q'
+let g:UltiSnipsJumpForwardTrigger = '<C-M>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-Z>'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
+" 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.  TODO: should this be
+" closer to the top?  http://superuser.com/q/154491/449688,
+" http://stackoverflow.com/q/2438021/1980378
+if has('multi_byte')
+  if &termencoding == ''
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8           " better default than latin1
+  setglobal fileencoding=utf-8 " change default file encoding for new files
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,24 +344,14 @@ if has('path_extra')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
-" 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.
-if has('multi_byte')
-  if &termencoding == ''
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8           " better default than latin1
-  setglobal fileencoding=utf-8 " change default file encoding for new files
-endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the
 " cursor line.  Useful when preceding vertical motion commands that support it
 " with a count, e.g. d4j.
 set number
-set relativenumber
-set numberwidth=3 " Minimal number of colums to use for the line number.
+set relativenumber " Slows Vim down a lot.  Worth disabling in long files with
+                   " complex syntax highlighting sometimes (unimpaired.vim maps
+                   " this to [or, ]or and cor).  'cursorline' is similar.
+set numberwidth=3  " Minimal number of colums to use for the line number.
 
 " Display relative line numbers (absolute for line cursor is in) in the focused
 " window, and absolute in other windows.
