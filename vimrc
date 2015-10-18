@@ -1,7 +1,6 @@
 " $MYVIMRC
 "
-" TODO: sort everything in some reasonable way and add folds.  What's up with
-" those Stack Exchange links containing my user ID?  Change them.
+" TODO: sort everything in some reasonable way and add folds.
 
 " See :h autocmd-define
 autocmd!
@@ -55,8 +54,7 @@ Plugin 'dhruvasagar/vim-table-mode'
 " is somewhat buggy.  greyblake/vim-preview doesn't seem to do GitHub Flavored
 " Markdown (it uses the redcarpet Gem).  There's also the
 " github-markdown-preview Gem and several Chromium extensions that render
-" Markdown (http://stackoverflow.com/q/9212340/1980378).  TODO:  add a mapping
-" for Grip.
+" Markdown (http://stackoverflow.com/q/9212340).  TODO:  add a mapping for Grip.
 
 Plugin 'itchyny/lightline.vim'
 " Plugin 'bling/vim-airline'
@@ -112,9 +110,8 @@ Plugin 'SirVer/ultisnips'
 " I have vim-youcompleteme-git from the AUR installed.  Upstream is on GitHub at
 " Valloric/YouCompleteMe.  I'm not sure I like it, though, and it slows Vim down
 " noticeably on my laptop.  It's disabled for now.  [How to turn-off a plugin in
-" Vim temporarily?](http://stackoverflow.com/q/601412/1980378) [How do you
-" disable a specific plugin in Vim?]
-" (http://stackoverflow.com/q/2888970/1980378)
+" Vim temporarily?](http://stackoverflow.com/q/601412) [How do you disable a
+" specific plugin in Vim?] (http://stackoverflow.com/q/2888970)
 if has('unix')
    let g:loaded_youcompleteme = 1
    " Plugin 'rdnetto/YCM-Generator'
@@ -250,7 +247,7 @@ let g:dict_hosts = [
 " Apparenlty, getting <C-Tab> to work in xterm is [pretty complicated][1] so I
 " should probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to
 " work in a terminal either and remapping escape has its own problems.
-" [1]: http://stackoverflow.com/a/2695818/1980378
+" [1]: http://stackoverflow.com/a/2695818
 let g:UltiSnipsExpandTrigger = '<C-J>'
 " let g:UltiSnipsExpandTrigger = '<Tab>' " Makes <Tab> laggy.
 " let g:UltiSnipsExpandTrigger = '<C-CR>' " Only works in gVim.
@@ -263,7 +260,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-Z>'
 " Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
 " 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.  TODO: should this be
 " closer to the top?  http://superuser.com/q/154491/449688,
-" http://stackoverflow.com/q/2438021/1980378
+" http://stackoverflow.com/q/2438021
 if has('multi_byte')
   if &termencoding == ''
     let &termencoding = &encoding
@@ -295,14 +292,14 @@ endfunction
 autocmd FileType * call s:FixK()
 autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
 
-" [Help for word under cursor](http://stackoverflow.com/a/15867465/1980378)
+" [Help for word under cursor](http://stackoverflow.com/a/15867465)
 " https://github.com/vim-utils/vim-man
 " http://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
 " http://vim.wikia.com/wiki/View_man_pages_in_Vim
 " http://usevim.com/2012/09/07/vim101-keywordprg/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" [Open help in the current window](http://stackoverflow.com/a/26431632/1980378)
+" [Open help in the current window](http://stackoverflow.com/a/26431632)
 " :h 'buftype'
 command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
 
@@ -571,10 +568,10 @@ set cc=+1
 autocmd FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Use :W to write the current file with sudo.  Taken from
-" http://stackoverflow.com/a/12870763/1980378 which fixes some of the problems
-" with ':w !sudo tee >/dev/null %'.  I find using a command mode
-" mapping (like 'cmap w!! ...') to be annoying.  If the command already exists,
-" redefine it.  See :h E174.
+" http://stackoverflow.com/a/12870763 which fixes some of the problems with
+" ':w !sudo tee >/dev/null %'.  I find using a command mode mapping (like
+" 'cmap w!! ...') to be annoying.  If the command already exists, redefine it.
+" See :h E174.
 if has('unix')
    com! W sil exe 'w !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
 endif
@@ -597,7 +594,7 @@ endif
 " 'ttimeoutlen' since it doesn't seem to break anything.  I guess around 10
 " might be more conservative.  See :h timeout, :h ttimeoutlen, :h timeoutlen,
 " :h ttimeoutlen, :h esckeys
-" http://stackoverflow.com/q/15550100/1980378
+" http://stackoverflow.com/q/15550100
 " http://superuser.com/q/161178/449688
 " http://aperiodic.net/phil/archives/Geekery/term-function-keys.html
 if !has('gui_running')
@@ -741,8 +738,8 @@ imap <C-ScrollWheelRight> <Nop>
 " I wanted to map this to <Esc> but that caused weird behaviour which I tried to
 " fix with `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
 " `nnoremap <esc>^[ <esc>^[` (neither worked).
-" http://stackoverflow.com/a/1037182/1980378
-" http://stackoverflow.com/q/11940801/1980378
+" http://stackoverflow.com/a/1037182
+" http://stackoverflow.com/q/11940801
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's
