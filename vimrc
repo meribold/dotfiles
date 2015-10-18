@@ -1,9 +1,7 @@
-"
 " $MYVIMRC
 "
-" Might not work well on systems much different from mine: the gvim package from
-" the [extra] repository of Arch GNU/Linux; in particular the CLI version
-" running in an xterm.
+" TODO: sort everything in some reasonable way and add folds.  What's up with
+" those Stack Exchange links containing my user ID?  Change them.
 
 " See :h autocmd-define
 autocmd!
@@ -18,7 +16,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim' " VAM?  NeoBundle?  vim-plug?
 
 " Plugin 'tpope/vim-sensible'
 
@@ -28,7 +26,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'itchyny/lightline.vim'
 " Plugin 'bling/vim-airline'
 
-" reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_plugin
+" http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_
 Plugin 'tpope/vim-commentary'
 " Plugin 'scrooloose/nerdcommenter'
 " Plugin 'tomtom/tcomment_vim'
@@ -268,10 +266,8 @@ set hidden       " Only hide (don't unload) a buffer when abandoned.
 set ruler        " Show the ruler.
 set laststatus=2 " Always show a status line.
 
-" set backspace=indent,eol " In Insert mode, disallow backspacing over the start
-"                          " of insert.
-set backspace=indent,eol,start " Required by delimitMate for
-                               " delimitMate_expand_cr to work.
+" Required by delimitMate for delimitMate_expand_cr to work.
+set backspace=indent,eol,start
 
 " Draw a continuous line to separate vertical splits.
 if has('multi_byte') | :set fillchars=vert:│ | endif
@@ -286,10 +282,8 @@ autocmd ColorScheme * if exists('g:colors_name') &&
 " Use a darker background with the lucius color scheme.
 let g:lucius_contrast_bg = 'high'
 
-" let c_space_errors = 1   " highlight trailing white space and spaces before a
-                         " <Tab> when the c.vim syntax file is used (which is
-                         " apparently included in 'syntax/cpp.vim'.
-let c_no_curly_error = 1 " Don't highlight {}; inside [] and () as errors.
+" For C++ and C: don't highlight {}; inside [] and () as errors.
+let c_no_curly_error = 1
 
 set background=dark
 
@@ -344,39 +338,12 @@ set autoindent     " The last two settings only seem to work with this enabled.
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight trailing whitespace unless it's in the current line and left of the
-" cursor.  Highlight tabs that aren't at the start of a line.  FIXME: breaks
-" when turning syntax highlighting off and on again.  Isn't updated reliably
-" when the cursor is moved; see :h cursor-position.
-autocmd Syntax * if &modifiable && &ft !=# 'help' && &ft !=# 'man'
-   \ | syn match ColorColumn /\s*\%#\@!\s\%#\@!$/ containedin=ALL
-   \ | syn match ColorColumn /[^\t]\zs\t\+/ containedin=ALL
-\ | endif
-
-" Pair of patterns I considered instead of the first one above:
-" Whitespace errors on lines the cursor is not on: /\(\s\%#\@!\)\+$/
-" Unwanted whitespace following the cursor: /\%#\s\zs\s*$/
-
-" Syntax patterns are always interpreted like the 'magic' option is set and like
-" the 'l' flag is not included in 'cpoptions' (backslash in a [] range is not
-" taken literally, but has its normal meaning).  See :h syn-pattern.
-
-" The whitespace error highlighting isn't updated when leaving insert mode
-" (which moves the cursor).
-autocmd InsertLeave * doautocmd CursorMoved
-
-" Don't break when sourcing.
-doautocmd Syntax
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight trailing whitespace unless it's in the current line, left of the
 " cursor and Vim is in insert mode.  Always highlight tabs that aren't at the
 " start of a line (that's just WRONG).  I'm using the ColorColumn highlight
-" group instead of defining a new one.
+" group instead of defining a new one.  TODO: disable for commit messages and
+" netrw?
 
 " This is much faster than using `:syntax match`.  Changing the pattern when
 " entering and leaving insert mode also wasn't viable with
@@ -385,6 +352,7 @@ endif
 function! s:OnInsertEnter()
    if exists('w:spaceMatch') | silent! call matchdelete(w:spaceMatch) | endif
    let w:spaceMatch = matchadd('ColorColumn', '\s\+\%#\@<!$', -1)
+   " TODO: is there a potentially faster pattern?
 endfunction
 function! s:OnInsertLeave()
    if exists('w:spaceMatch') | silent! call matchdelete(w:spaceMatch) | endif
