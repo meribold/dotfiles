@@ -624,8 +624,14 @@ imap <C-ScrollWheelRight> <Nop>
 " http://stackoverflow.com/q/11940801/1980378
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" TODO: nmap something useful to Q.
-nnoremap Q <nop>
+" nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's
+" mappings instead now.
+" nnorem <CR> o<Esc>
+
+" Repeat the last used macro.  TODO: is this worth mapping Q to?
+nnoremap Q @@
+
+" TODO: map something to <Tab>?
 
 " 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
 
