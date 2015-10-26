@@ -1,0 +1,89 @@
+global !p
+me = "Lukas Waymann"
+def geehrtes(s):
+   if s == "Frau":
+      return "geehrte"
+   elif s == "Herr":
+      return "geehrter"
+   else:
+      return "geehrtes"
+def mfg():
+   return "Mit freundlichen Grüßen\n" + me # No comma in german.
+def sincerely_yours():
+   return "Sincerely yours,\n" + me # Use a comma in english.
+def kind_regards():
+   return "Kind regards,\n" + me
+def best_regards():
+   return "Best regards,\n" + me
+endglobal
+
+snippet mfg "" b
+`!p snip.rv = mfg()`
+endsnippet
+
+snippet sincerely "" b
+`!p snip.rv = sincerely_yours()`
+endsnippet
+
+snippet kregards "" b
+`!p snip.rv = kind_regards()`
+endsnippet
+
+snippet bregards "" b
+`!p snip.rv = best_regards()`
+endsnippet
+
+snippet hallo "" b
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr} ${2:Zorin},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = mfg()`
+endsnippet
+
+snippet hallodr "" b
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr} Dr. ${2:Frankenstein},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = mfg()`
+endsnippet
+
+snippet halloprof
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr} Professor ${2:Metz},
+
+${0:dieser Satz wird kleingeschrieben.}
+
+`!p snip.rv = mfg()`
+endsnippet
+
+# Should a colon or a comma be used after the salutation?
+snippet hello "" b
+Dear ${1:Mr.} ${2:Scaramanga},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = sincerely_yours()`
+endsnippet
+
+snippet hellodr "" b
+Dear Dr. ${1:No},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = sincerely_yours()`
+endsnippet
+
+snippet helloprof "" b
+Dear Professor ${1:Moriarty},
+
+${0:This sentence should start with a capital letter.}
+
+`!p snip.rv = sincerely_yours()`
+endsnippet
+
+snippet creed
+There is no system but GNU, and Linux is one of its kernels.$0
+endsnippet
+
+# vim: tw=90 sts=-1 sw=3 et
