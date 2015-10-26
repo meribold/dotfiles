@@ -4,3 +4,18 @@
 [submodule "mutt/mutt-colors-solarized"]
 	path = mutt/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
+[submodule "AUR/dict-gcide"]
+	path = AUR/dict-gcide
+	url = https://aur.archlinux.org/dict-gcide.git
+[submodule "AUR/dict-freedict-deu-eng"]
+	path = AUR/dict-freedict-deu-eng
+	url = https://aur.archlinux.org/dict-freedict-deu-eng.git
+[submodule "AUR/dict-freedict-eng-deu"]
+	path = AUR/dict-freedict-eng-deu
+	url = https://aur.archlinux.org/dict-freedict-eng-deu.git
+[submodule "AUR/dict-foldoc"]
+	path = AUR/dict-foldoc
+	url = https://aur.archlinux.org/dict-foldoc.git
+[submodule "AUR/dict-wn"]
+	path = AUR/dict-wn
+	url = https://aur.archlinux.org/dict-wn.git

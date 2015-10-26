@@ -236,12 +236,10 @@ let delimitMate_balance_matchpairs = 1
 " https://github.com/vim-utils/vim-man/issues/14
 let g:man_width = 93
 
-" :DictShowDb to see what databases are available on the servers used.
-" 'dict.hewgill.com' isn't working at the moment.
+" Use local DICT daemon for speed.  These are all databases I have installed.
+" They are listed explicitly to change the order ['*'] would use.
 let g:dict_hosts = [
-   \ ['dict.org', ['gcide', 'fd-eng-deu', 'fd-deu-eng', 'foldoc', 'elements',
-      \ 'wn']],
-   \ ['dict.hewgill.com', []],
+   \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
 \ ]
 
 " Apparenlty, getting <C-Tab> to work in xterm is [pretty complicated][1] so I
