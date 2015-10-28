@@ -343,15 +343,15 @@ endif
 " cursor line.  Useful when preceding vertical motion commands that support it
 " with a count, e.g. d4j.
 set number
-set relativenumber " Slows Vim down a lot.  Worth disabling in long files with
+" set relativenumber " Slows Vim down a lot.  Worth disabling in long files with
                    " complex syntax highlighting sometimes (unimpaired.vim maps
                    " this to [or, ]or and cor).  'cursorline' is similar.
 set numberwidth=3  " Minimal number of colums to use for the line number.
 
 " Display relative line numbers (absolute for line cursor is in) in the focused
 " window, and absolute in other windows.
-autocmd WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
-autocmd WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
+" autocmd WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
+" autocmd WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Command-line completion (:h cmdline-completion)
