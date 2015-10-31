@@ -1,69 +1,72 @@
 global !p
-me = "Lukas Waymann"
 def geehrtes(s):
-   if s == "Frau":
-      return "geehrte"
-   elif s == "Herr":
+   if "Herr".startswith(s):
       return "geehrter"
    else:
-      return "geehrtes"
-def mfg():
-   return "Mit freundlichen Grüßen\n" + me # No comma in german.
-def sincerely_yours():
-   return "Sincerely yours,\n" + me # Use a comma in english.
-def kind_regards():
-   return "Kind regards,\n" + me
-def best_regards():
-   return "Best regards,\n" + me
+      return "geehrte"
+def frau(s):
+   if not s:
+      return ""
+   elif "Frau".startswith(s):
+      return "Frau"[len(s):]
+   elif "Herr".startswith(s):
+      return "Herr"[len(s):]
+   else:
+      return ""
+me              = "Lukas Waymann"
+mfg             = "Mit freundlichen Grüßen\n" + me # No comma here in german.
+sincerely_yours = "Sincerely yours,\n"        + me # Use a comma in english.
+kind_regards    = "Kind regards,\n"           + me
+best_regards    = "Best regards,\n"           + me
 endglobal
 
 snippet mfg "" b
-`!p snip.rv = mfg()`
+`!p snip.rv = mfg`
 endsnippet
 
 snippet sincerely "" b
-`!p snip.rv = sincerely_yours()`
+`!p snip.rv = sincerely_yours`
 endsnippet
 
 snippet kregards "" b
-`!p snip.rv = kind_regards()`
+`!p snip.rv = kind_regards`
 endsnippet
 
 snippet bregards "" b
-`!p snip.rv = best_regards()`
+`!p snip.rv = best_regards`
 endsnippet
 
 snippet hallo "" b
-Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr} ${2:Zorin},
+Sehr `!p snip.rv = geehrtes(t[1] or t[2])` ${1:Herr}`!p snip.rv = frau(t[1])``!p snip.rv = t[1] and " " or ""`${2:`!p snip.rv = t[1] and "Zorin" or "Damen und Herren"`},
 
 ${0:dieser Satz wird kleingeschrieben.}
 
-`!p snip.rv = mfg()`
+`!p snip.rv = mfg`
 endsnippet
 
 snippet hallodr "" b
-Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr} Dr. ${2:Frankenstein},
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr}`!p snip.rv = frau(t[1])` Dr. ${2:Frankenstein},
 
 ${0:dieser Satz wird kleingeschrieben.}
 
-`!p snip.rv = mfg()`
+`!p snip.rv = mfg`
 endsnippet
 
 snippet halloprof
-Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr} Professor ${2:Metz},
+Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr}`!p snip.rv = frau(t[1])` Professor ${2:Metz},
 
 ${0:dieser Satz wird kleingeschrieben.}
 
-`!p snip.rv = mfg()`
+`!p snip.rv = mfg`
 endsnippet
 
 # Should a colon or a comma be used after the salutation?
 snippet hello "" b
-Dear ${1:Mr.} ${2:Scaramanga},
+Dear ${1:Mr.}`!p snip.rv = t[1] and " " or ""`${2:`!p snip.rv = t[1] and "Scaramanga" or "Sir or Madam"`},
 
 ${0:This sentence should start with a capital letter.}
 
-`!p snip.rv = sincerely_yours()`
+`!p snip.rv = sincerely_yours`
 endsnippet
 
 snippet hellodr "" b
@@ -71,7 +74,7 @@ Dear Dr. ${1:No},
 
 ${0:This sentence should start with a capital letter.}
 
-`!p snip.rv = sincerely_yours()`
+`!p snip.rv = sincerely_yours`
 endsnippet
 
 snippet helloprof "" b
@@ -79,7 +82,7 @@ Dear Professor ${1:Moriarty},
 
 ${0:This sentence should start with a capital letter.}
 
-`!p snip.rv = sincerely_yours()`
+`!p snip.rv = sincerely_yours`
 endsnippet
 
 snippet creed
