@@ -247,11 +247,14 @@ let g:dict_hosts = [
 " work in a terminal either and remapping escape has its own problems.
 " [1]: http://stackoverflow.com/a/2695818
 let g:UltiSnipsExpandTrigger = '<C-J>'
-" let g:UltiSnipsExpandTrigger = '<Tab>' " Makes <Tab> laggy.
+" let g:UltiSnipsExpandTrigger = '<Tab>'  " Makes <Tab> laggy.
 " let g:UltiSnipsExpandTrigger = '<C-CR>' " Only works in gVim.
 " let g:UltiSnipsExpandTrigger = 'q'
-let g:UltiSnipsJumpForwardTrigger = '<C-M>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-Z>'
+let g:UltiSnipsJumpForwardTrigger = '<C-L>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
+" These key combinations are more or less available and could also be used:
+" i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J,
+" i_CTRL-_ (this seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
