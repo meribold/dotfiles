@@ -1,15 +1,15 @@
 " $MYVIMRC
 "
-" TODO: sort everything in some reasonable way and add folds.
+" TODO: sort everything in some reasonable way and add folds.  set noshowmode?
 
 " See :h autocmd-define
 autocmd!
 
 " comclear
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vundle.  See https://github.com/VundleVim/Vundle.vim for explanations.
-" Plugins are loaded after vimrc files (:h initialization).
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vundle.  See https://github.com/VundleVim/Vundle.vim for explanations.  Plugins
+" are loaded after vimrc files (:h initialization).
 if !has('nvim')
    set nocompatible
 endif
@@ -50,13 +50,12 @@ Plugin 'dhruvasagar/vim-table-mode'
 
 " Plugin 'plasticboy/vim-markdown' " Depends on tabular?
 
-" I'm using [Grip](https://github.com/joeyespo/grip) to preview Markdown files
-" at the moment which actually lets GitHub do the rendering.  The best Vim
-" plugin might be suan/vim-instant-markdown.  JamshedVesuna/vim-markdown-preview
-" is somewhat buggy.  greyblake/vim-preview doesn't seem to do GitHub Flavored
-" Markdown (it uses the redcarpet Gem).  There's also the
-" github-markdown-preview Gem and several Chromium extensions that render
-" Markdown (http://stackoverflow.com/q/9212340).  TODO:  add a mapping for Grip.
+" I'm using [Grip](https://github.com/joeyespo/grip) to preview Markdown files at the
+" moment which actually lets GitHub do the rendering.  The best Vim plugin might be
+" suan/vim-instant-markdown.  JamshedVesuna/vim-markdown-preview is somewhat buggy.
+" greyblake/vim-preview doesn't seem to do GitHub Flavored Markdown (it uses the redcarpet
+" Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
+" render Markdown (http://stackoverflow.com/q/9212340).  TODO:  add a mapping for Grip?
 
 Plugin 'itchyny/lightline.vim'
 " Plugin 'bling/vim-airline'
@@ -111,9 +110,9 @@ Plugin 'SirVer/ultisnips'
 
 " I have vim-youcompleteme-git from the AUR installed.  Upstream is on GitHub at
 " Valloric/YouCompleteMe.  I'm not sure I like it, though, and it slows Vim down
-" noticeably on my laptop.  It's disabled for now.  [How to turn-off a plugin in
-" Vim temporarily?](http://stackoverflow.com/q/601412) [How do you disable a
-" specific plugin in Vim?] (http://stackoverflow.com/q/2888970)
+" noticeably on my laptop.  It's disabled for now.  [How to turn-off a plugin in Vim
+" temporarily?](http://stackoverflow.com/q/601412) [How do you disable a specific plugin
+" in Vim?] (http://stackoverflow.com/q/2888970)
 if has('unix')
    let g:loaded_youcompleteme = 1
    " Plugin 'rdnetto/YCM-Generator'
@@ -160,13 +159,14 @@ Plugin 'vim-scripts/Neverness-colour-scheme'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'sjl/badwolf'
+" Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 " Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Let Sneak handle f, F, t and T.
 " nmap f <Plug>Sneak_f
 " nmap F <Plug>Sneak_F
@@ -194,13 +194,13 @@ let g:lightline = {
 \ }
 " :h line-continuation, :h dict
 
-" Based on the snippet from :h lightline-problem-13.  Also see [Changing
-" colorscheme on the fly](https://github.com/itchyny/lightline.vim/issues/9)
+" Based on the snippet from :h lightline-problem-13.  Also see [Changing colorscheme on
+" the fly](https://github.com/itchyny/lightline.vim/issues/9)
 autocmd ColorScheme * call s:lightline_update()
 function! s:lightline_update() " Local to this file.
-   " TODO: only list color schemes where the name of the lightline color scheme
-   " differs from one of the matching Vim color scheme.  Use a directory listing
-   " of lightline.vim/autoload/lightline/colorscheme/ for everything else.
+   " TODO: only list color schemes where the name of the lightline color scheme differs
+   " from one of the matching Vim color scheme.  Use a directory listing of
+   " lightline.vim/autoload/lightline/colorscheme/ for everything else.
    let colos = {
       \ 'molokai': 'molokai',
       \ 'wombat256mod': 'wombat',
@@ -238,15 +238,15 @@ let delimitMate_balance_matchpairs = 1
 " https://github.com/vim-utils/vim-man/issues/14
 let g:man_width = 93
 
-" Use local DICT daemon for speed.  These are all databases I have installed.
-" They are listed explicitly to change the order ['*'] would use.
+" Use local DICT daemon for speed.  These are all databases I have installed.  They are
+" listed explicitly to change the order ['*'] would use.
 let g:dict_hosts = [
    \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
 \ ]
 
-" Apparenlty, getting <C-Tab> to work in xterm is [pretty complicated][1] so I
-" should probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to
-" work in a terminal either and remapping escape has its own problems.
+" Apparenlty, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
+" probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to work in a terminal
+" either and remapping escape has its own problems.
 " [1]: http://stackoverflow.com/a/2695818
 let g:UltiSnipsExpandTrigger = '<C-J>'
 " let g:UltiSnipsExpandTrigger = '<Tab>'  " Makes <Tab> laggy.
@@ -255,28 +255,30 @@ let g:UltiSnipsExpandTrigger = '<C-J>'
 let g:UltiSnipsJumpForwardTrigger = '<C-L>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 " These key combinations are more or less available and could also be used:
-" i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J,
-" i_CTRL-_ (this seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J, i_CTRL-_ (this
+" seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8.  Taken from stackoverflow.com/questions/
-" 5477565/how-to-setup-vim-properly-for-editing-in-utf-8.  TODO: should this be
-" closer to the top?  http://superuser.com/q/154491/449688,
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vim for editing in utf-8.  TODO: should this be closer to the top?
+" http://stackoverflow.com/q/5477565
+" http://superuser.com/q/154491
 " http://stackoverflow.com/q/2438021
 if has('multi_byte')
-  if &termencoding == ''
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8           " better default than latin1
-  setglobal fileencoding=utf-8 " change default file encoding for new files
+   if &termencoding == ''
+      let &termencoding = &encoding
+   endif
+   if !has('nvim')
+      " Better default than latin1.  Can't be changed after startup so we use silent!.
+      silent! set encoding=utf-8
+   endif
+   setglobal fileencoding=utf-8 " change default file encoding for new files
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K,
-" :h v_K, :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in
-" mapping.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
+" :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
 
 " XXX: will this always be run AFTER 'keywordprg' was changed?
 function! s:FixK()
@@ -300,7 +302,7 @@ autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
 " http://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
 " http://vim.wikia.com/wiki/View_man_pages_in_Vim
 " http://usevim.com/2012/09/07/vim101-keywordprg/
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " [Open help in the current window](http://stackoverflow.com/a/26431632)
 " :h 'buftype'
@@ -334,53 +336,53 @@ if v:version > 703 || v:version == 703 && has('patch541')
    set formatoptions+=j " Delete comment character when joining commented lines.
 endif
 
-" Taken from sensible.vim.  Search the 'tags' file in the directory of the
-" current file, then the parent directory, then the parent of that, and so on.
-" The leading './' tells Vim to use the directory of the current file rather
-" than Vim's working directory.  The trailing semicolon tells it to recursively
-" search parent directories.  See :h file-searching.
+" Taken from sensible.vim.  Search the 'tags' file in the directory of the current file,
+" then the parent directory, then the parent of that, and so on.  The leading './' tells
+" Vim to use the directory of the current file rather than Vim's working directory.  The
+" trailing semicolon tells it to recursively search parent directories.  See
+" :h file-searching.
 if has('path_extra')
   setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Display relative line numbers, but the absolute line number in front of the
-" cursor line.  Useful when preceding vertical motion commands that support it
-" with a count, e.g. d4j.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Display relative line numbers, but the absolute line number in front of the cursor line.
+" Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
 set number
-" set relativenumber " Slows Vim down a lot.  Worth disabling in long files with
-                   " complex syntax highlighting sometimes (unimpaired.vim maps
-                   " this to [or, ]or and cor).  'cursorline' is similar.
+" set relativenumber " Slows Vim down a lot.  Worth disabling in long files with complex
+                   " syntax highlighting sometimes (unimpaired.vim maps this to [or, ]or
+                   " and cor).  'cursorline' is similar.
 set numberwidth=3  " Minimal number of colums to use for the line number.
 
-" Display relative line numbers (absolute for line cursor is in) in the focused
-" window, and absolute in other windows.
+" Display relative line numbers (absolute for line cursor is in) in the focused window,
+" and absolute in other windows.
 " autocmd WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
 " autocmd WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Command-line completion (:h cmdline-completion)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildignore+=*.o  " Don't consider object files when expanding.
-set wildmenu         " Use the enhanced command-line completion menu where
-                     " 'full' is specified in 'wildmode'.
+set wildmenu         " Use the enhanced command-line completion menu where 'full' is
+                     " specified in 'wildmode'.
 
 " When 'wildchar' (Tab) is used first, and more than one match exists, list all
 " matches and complete till longest common string.  On consecutive uses (or if
 " only one match exists) show the 'wildmenu'.
 set wildmode=longest:full,full
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nowrap
 set sidescroll=1
 
 set title " Let vim set the terminal title.
-" If running inside screen, use those escape sequences to name the window (set
-" the title of the VT100 emulated bt screen)
+" If running inside screen, use those escape sequences to name the window (set the title
+" of the VT100 emulated bt screen)
 if &term == 'screen' && !has('nvim')
   set t_ts=k
   set t_fs=\
-endif " The settings for those termcap codes are taken from vim.wikia.com [1].
+endif " The settings for those termcap codes are taken from vim.wikia.com.
+" http://vim.wikia.com/wiki/Automatically_set_screen_title
 
 set scrolloff=2  " Always keep 2 lines above and below the cursor.
 set hidden       " Only hide (don't unload) a buffer when abandoned.
@@ -393,7 +395,7 @@ set backspace=indent,eol,start
 " Draw a continuous line to separate vertical splits.
 if has('multi_byte') | :set fillchars=vert:│ | endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Molokai sets 'background' to light for some reason.  The issue has been
 " reported here: https://github.com/tomasr/molokai/issues/22
 autocmd ColorScheme * if exists('g:colors_name') &&
@@ -412,21 +414,21 @@ if !has('gui_running')
    let g:solarized_termcolors = 256
    silent! colorscheme jellybeans
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" These autocommands are to slow on my laptop.  TODO: use a mapping to correct
-" syntax highlighting issues when they really occur instead?
+" These autocommands are to slow on my laptop.  TODO: use a mapping to correct syntax
+" highlighting issues when they really occur instead?
 " autocmd BufEnter * if &ft != 'help' | syntax sync fromstart | endif
 " autocmd BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
 " To check the active synchronization method use ':sy[ntax] sync'.
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " I used to prefer tabs for indenting and spaces for alignment (like item 4 from
-" :h 'tabstop').  That was supposed to allow using different numbers of spaces
-" when displaying a tab.
-" Because different values will still cause different text widths, I prefer not
-" to use any tabs now (item 2 from :h 'tabstop').
+" :h 'tabstop').  That was supposed to allow using different numbers of spaces when
+" displaying a tab.
+" Because different values will still cause different text widths, I prefer not to use any
+" tabs now (item 2 from :h 'tabstop').
 
 set tabstop=8      " A <Tab> counts for 8 spaces.
 set softtabstop=-1 " Or does it?
@@ -434,31 +436,27 @@ set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
 set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
                    " commands.
 set expandtab      " Use CTRL-V<Tab> to insert a real tab.
-set copyindent     " Copy the structure of an existing lines indent when
-                   " autoindenting a new line; ensures spaces are used for
-                   " alignment.
-set preserveindent " When changing the indent of the current line, do not
-                   " replace the existing indent structure by a series of tabs
-                   " followed by spaces; instead preserve as many existing
-                   " characters as possible, and only add additional tabs or
-                   " spaces as required.
+set copyindent     " Copy the structure of an existing line's indent when autoindenting
+                   " a new line; ensures spaces are used for alignment.
+set preserveindent " When changing the indent of the current line, do not replace the
+                   " existing indent structure by a series of tabs followed by spaces;
+                   " instead preserve as many existing characters as possible, and only
+                   " add additional tabs or spaces as required.
 set autoindent     " The last two settings only seem to work with this enabled.
 
 " http://vim.wikia.com/wiki/Indenting_source_code#File_type_based_indentation
 filetype plugin indent on
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight trailing whitespace unless it's in the current line, left of the
-" cursor and Vim is in insert mode.  Always highlight tabs that aren't at the
-" start of a line (that's just WRONG).  I'm using the ColorColumn highlight
-" group instead of defining a new one.  TODO: disable for commit messages and
-" netrw?
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight trailing whitespace unless it's in the current line, left of the cursor and
+" Vim is in insert mode.  Always highlight tabs that aren't at the start of a line (TODO:
+" disable if tabstop is 8?).  I'm using the ColorColumn highlight group instead of
+" defining a new one.  TODO: disable for commit messages and netrw?
 
-" This is much faster than using `:syntax match`.  Changing the pattern when
-" entering and leaving insert mode also wasn't viable with
-" `:syn clear ColorColumn` and `:syn match` since it caused noticeable delay
-" every time.
+" This is much faster than using `:syntax match`.  Changing the pattern when entering and
+" leaving insert mode also wasn't viable with `:syn clear ColorColumn` and `:syn match`
+" since it caused noticeable delay every time.
 function! s:OnInsertEnter()
    if exists('w:spaceMatch') | silent! call matchdelete(w:spaceMatch) | endif
    let w:spaceMatch = matchadd('ColorColumn', '\s\+\%#\@<!$', -1)
@@ -505,10 +503,10 @@ if exists('w:spaceMatch') || exists('w:tabMatch')
    call s:OnBufWinEnter()
 endif
 
-" Use :echo getmatches() to confirm we don't leak matches.  This snippet should
-" never create more than two.
+" Use :echo getmatches() to confirm we don't leak matches.  This snippet should never
+" create more than two.
 " Based on snippets from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " No bell, no flash.
 if has('patch793')
@@ -527,9 +525,9 @@ set undofile " Make undo history persistent.
 
 " set viminfo^=%
 
-" Make a persistent backup whenever writing a file, potentially overwriting an
-" existing backup (even if that file isn't the one being backed up; i.e. when
-" different files having the same name are edited).
+" Make a persistent backup whenever writing a file, potentially overwriting an existing
+" backup (even if that file isn't the one being backed up; i.e. when different files
+" having the same name are edited).
 set backup
 set writebackup
 
@@ -553,53 +551,50 @@ if exists('s:vimfiles')
    let &undodir = s:vimfiles . '/undo'
    let &backupdir = s:vimfiles . '/backup'
 endif
-" http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doe
+" http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-
 " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
 
 set shortmess+=I " Don't give the intro message when starting Vim.
 
-" Highlight first column after 'textwidth', except in help files.  TODO: autocmd
-" isn't run when the filetype is empty.
+" Highlight first column after 'textwidth', except in help files.  TODO: autocmd isn't run
+" when the filetype is empty.
 set cc=+1
 autocmd FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Use :W to write the current file with sudo.  Taken from
 " http://stackoverflow.com/a/12870763 which fixes some of the problems with
-" ':w !sudo tee >/dev/null %'.  I find using a command mode mapping (like
-" 'cmap w!! ...') to be annoying.  If the command already exists, redefine it.
-" See :h E174.
+" ':w !sudo tee >/dev/null %'.  I find using a command mode mapping (like 'cmap w!! ...')
+" to be annoying.  If the command already exists, redefine it.  See :h E174.
 if has('unix')
    com! W sil exe 'w !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
 endif
-" http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-ins
-" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-tr
+" http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-inside-of-vi
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 " http://unix.stackexchange.com/questions/11004/becoming-root-from-inside-vim
 " http://vim.wikia.com/wiki/Su-write
 
-" React to <Esc> immediately (unless it were a proper prefix of a mapping which,
-" of course, it isn't).  To be honest, I don't really understand what's going on
-" here.  I realize that terminal emulators send key sequences starting with
-" Escape for (at least) function keys and arrow keys to the running application.
-" Vim will wait for more characters after receiving the Escape character while
-" it's ambiguous whether those keys will make up an escape sequence.  With
-" default settings, Vim will stop waiting after 1000 milliseconds (value of
-" 'timeoutlen', used as key code delay when 'ttimeoutlen' is negative) of not
-" receiving any additional character and handle the key sequence.  This delay
-" seems extremely excessive.  Vim should receive the complete escape sequence
+" React to <Esc> immediately (unless it were a proper prefix of a mapping which, of
+" course, it isn't).  To be honest, I don't really understand what's going on here.  I
+" realize that terminal emulators send key sequences starting with Escape for (at least)
+" function keys and arrow keys to the running application.  Vim will wait for more
+" characters after receiving the Escape character while it's ambiguous whether those keys
+" will make up an escape sequence.  With default settings, Vim will stop waiting after
+" 1000 milliseconds (value of 'timeoutlen', used as key code delay when 'ttimeoutlen' is
+" negative) of not receiving any additional character and handle the key sequence.  This
+" delay seems extremely excessive.  Vim should receive the complete escape sequence
 " resulting from function keys etc. nearly at the same instant.  I'm using 0 for
-" 'ttimeoutlen' since it doesn't seem to break anything.  I guess around 10
-" might be more conservative.  See :h timeout, :h ttimeoutlen, :h timeoutlen,
-" :h ttimeoutlen, :h esckeys
+" 'ttimeoutlen' since it doesn't seem to break anything.  I guess around 10 might be more
+" conservative.  See :h timeout, :h ttimeoutlen, :h timeoutlen, :h ttimeoutlen, :h esckeys
 " http://stackoverflow.com/q/15550100
-" http://superuser.com/q/161178/449688
+" http://superuser.com/q/161178
 " http://aperiodic.net/phil/archives/Geekery/term-function-keys.html
 if !has('gui_running')
    set ttimeoutlen=0
 endif
 
 " Taken from sensible.vim before
-" github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800
-" happened.  Makes Y consistent with C and D.  See :h Y and :h &.
+" github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800 happened.
+" Makes Y consistent with C and D.  See :h Y and :h &.
 nnoremap Y y$
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
@@ -638,23 +633,22 @@ imap <kPageUp>   <Nop>
 map  <kPageDown> <Nop>
 imap <kPageDown> <Nop>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" I'd go with just having the mouse be disabled, however, I don't like the xterm
-" e.g. handle middle clicks and send the X PRIMARY selection to Vim which, in
-" normal mode, would execute the string as if typed in directly.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" I'd go with just having the mouse be disabled, however, I don't like the xterm e.g.
+" handle middle clicks and send the X PRIMARY selection to Vim which, in normal mode,
+" would execute the string as if typed in directly.
 
-set mouse=a " From :help mouse-using: In an xterm, with the currently active
-            " mode included in the 'mouse' option, normal mouse clicks are used
-            " by Vim, mouse clicks with the shift or ctrl key pressed go to the
-            " xterm.
+set mouse=a " From :help mouse-using: In an xterm, with the currently active mode included
+            " in the 'mouse' option, normal mouse clicks are used by Vim, mouse clicks
+            " with the shift or ctrl key pressed go to the xterm.
 
-" Since the xterm captures mouse clicks while shift or ctrl is pressed I'm not
-" remapping  events like <C-LeftMouse>.  Not shure about <M-...> or <A-...>.
-" Also see :help keycodes.
+" Since the xterm captures mouse clicks while shift or ctrl is pressed I'm not remapping
+" events like <C-LeftMouse>.  Not shure about <M-...> or <A-...>.  Also see
+" :help keycodes.
 
-" See :help mouse-using (about using the mouse with a terminal),
-" :help mouse-mode-table to see what these buttons normally do and
-" :help <MiddleDrag> for a list of codes for mouse clicks.
+" See :help mouse-using (about using the mouse with a terminal), :help mouse-mode-table to
+" see what these buttons normally do and :help <MiddleDrag> for a list of codes for mouse
+" clicks.
 map  <LeftMouse>    <Nop>
 imap <LeftMouse>    <Nop>
 map  <LeftDrag>     <Nop>
@@ -670,8 +664,7 @@ imap <4-LeftMouse>  <Nop>
 
 map  <MiddleMouse>   <Nop>
 imap <MiddleMouse>   <Nop>
-" The default for <MiddleDrag> and <MiddleRelease> event already is no
-" operation.
+" The default for the <MiddleDrag> and <MiddleRelease> events already is <Nop>.
 map  <2-MiddleMouse> <Nop>
 imap <2-MiddleMouse> <Nop>
 map  <3-MiddleMouse> <Nop>
@@ -692,11 +685,10 @@ imap <3-RightMouse> <Nop>
 map  <4-RightMouse> <Nop>
 imap <4-RightMouse> <Nop>
 
-" From :help xterm-copy-paste: Mouse commands requiring the CTRL modifier can be
-"                              simulated by typing the 'g' key before using the
-"                              mouse.
-" Some sequences of key presses like <LeftMouse>g<LeftMouse> still perform an
-" action when performed quickly   (?_?)
+" From :help xterm-copy-paste: Mouse commands requiring the CTRL modifier can be simulated
+"                              by typing the 'g' key before using the mouse.
+" Some sequences of key presses like <LeftMouse>g<LeftMouse> still perform an action when
+" performed quickly   (?_?)
 map  g<LeftMouse>  <Nop>
 "imap g<LeftMouse>  <Nop>
 map  g<RightMouse> <Nop>
@@ -728,18 +720,17 @@ imap <S-ScrollWheelRight> <Nop>
 map  <C-ScrollWheelRight> <Nop>
 imap <C-ScrollWheelRight> <Nop>
 
-" Stop 'hlsearch' highlighting and clear any message displayed on the
-" command-line.  Taken from
-" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-" I wanted to map this to <Esc> but that caused weird behaviour which I tried to
-" fix with `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
+" Stop 'hlsearch' highlighting and clear any message displayed on the command-line.  Taken
+" from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+" I wanted to map this to <Esc> but that caused weird behaviour which I tried to fix with
+" `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
 " `nnoremap <esc>^[ <esc>^[` (neither worked).
 " http://stackoverflow.com/a/1037182
 " http://stackoverflow.com/q/11940801
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's
-" mappings instead now.
+" nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
+" instead now.
 " nnorem <CR> o<Esc>
 
 " Repeat the last used macro.  TODO: is this worth mapping Q to?
@@ -747,6 +738,4 @@ nnoremap Q @@
 
 " TODO: map something to <Tab>?
 
-" 1. http://vim.wikia.com/wiki/Automatically_set_screen_title
-
-" vim: tw=80 sts=-1 sw=3 et
+" vim: tw=90 sts=-1 sw=3 et
