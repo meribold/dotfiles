@@ -10,7 +10,9 @@ autocmd!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vundle.  See https://github.com/VundleVim/Vundle.vim for explanations.
 " Plugins are loaded after vimrc files (:h initialization).
-set nocompatible
+if !has('nvim')
+   set nocompatible
+endif
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -375,7 +377,7 @@ set sidescroll=1
 set title " Let vim set the terminal title.
 " If running inside screen, use those escape sequences to name the window (set
 " the title of the VT100 emulated bt screen)
-if &term == 'screen'
+if &term == 'screen' && !has('nvim')
   set t_ts=k
   set t_fs=\
 endif " The settings for those termcap codes are taken from vim.wikia.com [1].
@@ -520,9 +522,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " No bell, no flash.
-set visualbell
-if !has('gui_running')
-   set t_vb=
+if has('patch793')
+   set belloff=all
+else
+   set visualbell
+   if !has('nvim')
+      set t_vb=
+   endif
 endif
 
 set maxmem=2000000    " Lots of memory for each buffer.

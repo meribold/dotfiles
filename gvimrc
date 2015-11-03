@@ -3,7 +3,7 @@
 "
 " This is also sourced when starting the GUI later with :gui.  That makes it
 " preferable to put stuff specific to gVim here (instead of into .vimrc behind
-" has('gui_running') if statements).
+" has('gui_running') if statements).  Neovim doesn't use this file.
 
 " Don't automatically yank all visual selections into the "* register.
 set guioptions-=a
