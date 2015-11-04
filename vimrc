@@ -82,8 +82,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/a.vim'
 " Plug 'derekwyatt/vim-fswitch'
 
-Plug 'sjl/gundo.vim'
-" Plug 'mbbill/undotree'
+" Plug 'simnalamburt/vim-mundo'
+Plug 'mbbill/undotree'
 
 Plug 'meribold/vim-man'
 " Plug 'lambdalisue/vim-manpager'
