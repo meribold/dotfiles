@@ -20,8 +20,6 @@ Plug 'tpope/vim-dispatch'
 
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
-" Plug 'Shougo/unite.vim'
-
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
 
