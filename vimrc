@@ -265,8 +265,8 @@ if has('multi_byte')
       let &termencoding = &encoding
    endif
    if !has('nvim')
-      " Better default than latin1.  Can't be changed after startup so we use silent!.
-      silent! set encoding=utf-8
+      " Better default than latin1.  Can't be changed after startup.
+      if has('vim_starting') | set encoding=utf-8 | endif
    endif
    setglobal fileencoding=utf-8 " change default file encoding for new files
 endif
