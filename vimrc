@@ -316,6 +316,8 @@ set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
 " Taken from sensible.vim.  See https://github.com/tpope/vim-sensible/issues/13.
 set viminfo^=!
 
+set lazyredraw " https://github.com/tpope/vim-sensible/issues/78
+
 syntax enable
 
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
