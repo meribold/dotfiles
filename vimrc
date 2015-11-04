@@ -7,48 +7,45 @@ autocmd!
 
 " comclear
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vundle.  See https://github.com/VundleVim/Vundle.vim for explanations.  Plugins
-" are loaded after vimrc files (:h initialization).
 if !has('nvim')
    set nocompatible
 endif
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim' " VAM?  NeoBundle?  vim-plug?
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup vim-plug (https://github.com/junegunn/vim-plug).  Plugins are loaded after
+" vimrc files (:h initialization).
+call plug#begin('~/.vim/plugged')
 
-Plugin 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
-Plugin 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
+Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
-" Plugin 'Shougo/unite.vim'
+" Plug 'Shougo/unite.vim'
 
-Plugin 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
-" Plugin 'qpkorr/vim-bufkill'
+Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
+" Plug 'qpkorr/vim-bufkill'
 
-Plugin 'tpope/vim-surround'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'vim-utils/vim-line'
+Plug 'tpope/vim-surround'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'vim-utils/vim-line'
 
-Plugin 'tommcdo/vim-exchange'
+Plug 'tommcdo/vim-exchange'
 
 " http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_
-Plugin 'tpope/vim-commentary'
-" Plugin 'scrooloose/nerdcommenter'
-" Plugin 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
+" Plug 'scrooloose/nerdcommenter'
+" Plug 'tomtom/tcomment_vim'
 
-" Plugin 'easymotion/vim-easymotion'
-" Plugin 'goldfeld/vim-seek'
-" Plugin 'justinmk/vim-sneak'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'goldfeld/vim-seek'
+" Plug 'justinmk/vim-sneak'
 
-Plugin 'junegunn/vim-easy-align'
-" Plugin 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
+" Plug 'godlygeek/tabular'
 
-Plugin 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode'
 
-" Plugin 'plasticboy/vim-markdown' " Depends on tabular?
+" Plug 'plasticboy/vim-markdown' " Depends on tabular?
 
 " I'm using [Grip](https://github.com/joeyespo/grip) to preview Markdown files at the
 " moment which actually lets GitHub do the rendering.  The best Vim plugin might be
@@ -57,56 +54,56 @@ Plugin 'dhruvasagar/vim-table-mode'
 " Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
 " render Markdown (http://stackoverflow.com/q/9212340).  TODO:  add a mapping for Grip?
 
-Plugin 'itchyny/lightline.vim'
-" Plugin 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
+" Plug 'bling/vim-airline'
 
 " Both slow Vim down on my lapotp.
-" Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'Yggdroot/indentLine'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'Yggdroot/indentLine'
 
-Plugin 'tpope/vim-fugitive'
-" Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
 
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
-Plugin 'Raimondi/delimitMate'
-" Plugin 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
-" Plugin 'Townk/vim-autoclose'  " Inactive.  Try anyway?
-" Plugin 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
-Plugin 'tpope/vim-endwise'
+Plug 'Raimondi/delimitMate'
+" Plug 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
+" Plug 'Townk/vim-autoclose'  " Inactive.  Try anyway?
+" Plug 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
+Plug 'tpope/vim-endwise'
 
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
-" Plugin 'xolox/vim-misc'
-" Plugin 'xolox/vim-easytags'
-" Plugin 'szw/vim-tags'
-" Plugin 'majutsushi/tagbar'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
+" Plug 'szw/vim-tags'
+" Plug 'majutsushi/tagbar'
 
-Plugin 'vim-scripts/a.vim'
-" Plugin 'derekwyatt/vim-fswitch'
+Plug 'vim-scripts/a.vim'
+" Plug 'derekwyatt/vim-fswitch'
 
-Plugin 'sjl/gundo.vim'
-" Plugin 'mbbill/undotree'
+Plug 'sjl/gundo.vim'
+" Plug 'mbbill/undotree'
 
-Plugin 'meribold/vim-man'
-" Plugin 'lambdalisue/vim-manpager'
+Plug 'meribold/vim-man'
+" Plug 'lambdalisue/vim-manpager'
 
 if has('unix')
-   Plugin 'beloglazov/vim-online-thesaurus'
+   Plug 'beloglazov/vim-online-thesaurus'
 endif
-Plugin 'szw/vim-dict'
-Plugin 'szw/vim-g'
+Plug 'szw/vim-dict'
+Plug 'szw/vim-g'
 
-Plugin 'tpope/vim-obsession'
-" Plugin 'xolox/vim-session'
+Plug 'tpope/vim-obsession'
+" Plug 'xolox/vim-session'
 
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
-" Plugin 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
-" Plugin 'Shougo/neocomplete'
-" Plugin 'Shougo/neosnippet.vim'
-" Plugin 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neocomplete'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 
 " I have vim-youcompleteme-git from the AUR installed.  Upstream is on GitHub at
 " Valloric/YouCompleteMe.  I'm not sure I like it, though, and it slows Vim down
@@ -115,55 +112,54 @@ Plugin 'SirVer/ultisnips'
 " in Vim?] (http://stackoverflow.com/q/2888970)
 if has('unix')
    let g:loaded_youcompleteme = 1
-   " Plugin 'rdnetto/YCM-Generator'
+   " Plug 'rdnetto/YCM-Generator'
 endif
-" Plugin 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
-Plugin 'tpope/vim-vinegar'
-" Plugin 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
+" Plug 'scrooloose/nerdtree'
 "
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'szw/vim-ctrlspace'
-Plugin 'Shougo/unite.vim'
+" Plug 'kien/ctrlp.vim'
+" Plug 'szw/vim-ctrlspace'
+Plug 'Shougo/unite.vim'
 
-Plugin 'vim-utils/vim-husk'
-" Plugin 'tpope/vim-rsi'
+Plug 'vim-utils/vim-husk'
+" Plug 'tpope/vim-rsi'
 
-" Plugin 'tpope/vim-sleuth'
-" Plugin 'tpope/vim-speeddating'
+" Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-speeddating'
 
-" Plugin 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 " Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
-" Plugin 'mileszs/ack.vim'
-" Plugin 'rking/ag.vim'
-" Plugin 'tpope/vim-abolish'
-" Plugin 'vim-sexp'
-" Plugin 'vim-signature'
-" Plugin 'vim-better-whitespace'
-" Plugin 'dkprice/vim-easygrep'
-" Plugin 'keith/investigate.vim'
-" Plugin 'kana/vim-textobj-line'
-" Plugin 'ntpeters/vim-better-whitespace'
-" Plugin 'bronson/vim-trailing-whitespace'
+" Plug 'mileszs/ack.vim'
+" Plug 'rking/ag.vim'
+" Plug 'tpope/vim-abolish'
+" Plug 'vim-sexp'
+" Plug 'vim-signature'
+" Plug 'vim-better-whitespace'
+" Plug 'dkprice/vim-easygrep'
+" Plug 'keith/investigate.vim'
+" Plug 'kana/vim-textobj-line'
+" Plug 'ntpeters/vim-better-whitespace'
+" Plug 'bronson/vim-trailing-whitespace'
 
 " Declare Color schemes.
-Plugin 'meribold/molokai'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'itchyny/landscape.vim'
-Plugin 'vim-scripts/wombat256.vim'
-Plugin 'vim-scripts/xoria256.vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'vim-scripts/Neverness-colour-scheme'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'sjl/badwolf'
-" Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-" Plugin 'chriskempson/base16-vim'
+Plug 'meribold/molokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'itchyny/landscape.vim'
+Plug 'vim-scripts/wombat256.vim'
+Plug 'vim-scripts/xoria256.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/Neverness-colour-scheme'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'sjl/badwolf'
+" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+" Plug 'chriskempson/base16-vim'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
