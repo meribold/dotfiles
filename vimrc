@@ -258,6 +258,19 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 " These key combinations are more or less available and could also be used:
 " i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J, i_CTRL-_ (this
 " seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
+
+let g:goyo_height = '100%'
+function! GoyoToggle()
+   if !exists('#goyo')
+      " Set the window width based on the local 'textwidth' instead of g:goyo_width.  Add
+      " 1 so Vim doesn't scroll horizontally when the cursor is behind the last character
+      " in a full line.
+      exe ":Goyo" . (&textwidth + 1)
+   else
+     Goyo
+  endif
+endfunction
+nnoremap Q :call GoyoToggle()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -735,9 +748,6 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
 " instead now.
 " nnorem <CR> o<Esc>
-
-" Repeat the last used macro.  TODO: is this worth mapping Q to?
-nnoremap Q @@
 
 " TODO: map something to <Tab>?
 
