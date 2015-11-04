@@ -131,6 +131,11 @@ Plug 'vim-utils/vim-husk'
 
 " Plug 'terryma/vim-multiple-cursors'
 
+Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
+" Plug 'junegunn/limelight.vim', { 'on':  'Limelight' }
+" autocmd! User GoyoEnter Limelight
+" autocmd! User GoyoLeave Limelight!
+
 " Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
 " Plug 'mileszs/ack.vim'
 " Plug 'rking/ag.vim'
