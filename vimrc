@@ -400,10 +400,11 @@ if &term == 'screen' && !has('nvim')
 endif " The settings for those termcap codes are taken from vim.wikia.com.
 " http://vim.wikia.com/wiki/Automatically_set_screen_title
 
-set scrolloff=2  " Always keep 2 lines above and below the cursor.
-set hidden       " Only hide (don't unload) a buffer when abandoned.
-set ruler        " Show the ruler.
-set laststatus=2 " Always show a status line.
+set scrolloff=2   " Always keep 2 lines above and below the cursor.
+set hidden        " Only hide (don't unload) a buffer when abandoned.
+set ruler         " Show the ruler.
+set laststatus=2  " Always show a status line.
+set showtabline=0 " Never display tab labels.
 
 " Required by delimitMate for delimitMate_expand_cr to work.
 set backspace=indent,eol,start
