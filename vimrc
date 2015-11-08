@@ -393,7 +393,7 @@ set sidescroll=1
 
 set title " Let vim set the terminal title.
 " If running inside screen, use those escape sequences to name the window (set the title
-" of the VT100 emulated bt screen)
+" of the VT100 emulated by screen)
 if &term == 'screen' && !has('nvim')
   set t_ts=k
   set t_fs=\
