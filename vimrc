@@ -130,6 +130,7 @@ Plug 'vim-utils/vim-husk'
 " Plug 'terryma/vim-multiple-cursors'
 
 Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
+Plug 'reedes/vim-pencil'
 " Plug 'junegunn/limelight.vim', { 'on':  'Limelight' }
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
@@ -159,6 +160,7 @@ Plug 'vim-scripts/Neverness-colour-scheme'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sjl/badwolf'
+Plug 'junegunn/seoul256.vim'
 " Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 " Plug 'chriskempson/base16-vim'
 
