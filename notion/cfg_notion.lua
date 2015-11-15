@@ -48,6 +48,11 @@ defbindings("WMPlex.toplevel", {
        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
        "-nb Black " ..
        "-sb \\'#600000\\')')"),
+    bdoc("Start passmenu."),
+    kpress(META.."P", "mod_query.exec_on_merr(_, '$(passmenu --type -b -f " ..
+       "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
+       "-nb Black " ..
+       "-sb \\'#000060\\')')"),
     bdoc("Query for command line to execute."),
     kpress(META.."Shift+R", "mod_query.query_exec(_)"),
 })
