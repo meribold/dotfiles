@@ -43,7 +43,7 @@ defbindings("WMPlex.toplevel", {
     kpress(ALTMETA.."F6", nil), -- Unbind querying for file to view.
     kpress(META.."R", nil),
 
-    bdoc("Start dmenu_run.."),
+    bdoc("Start dmenu_run."),
     kpress(META.."R", "mod_query.exec_on_merr(_, '$(yeganesh -x -- -b -f " ..
        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
        "-nb Black " ..
