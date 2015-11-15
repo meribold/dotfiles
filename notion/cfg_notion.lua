@@ -45,14 +45,14 @@ defbindings("WMPlex.toplevel", {
 
     bdoc("Start dmenu_run."),
     kpress(META.."R", "mod_query.exec_on_merr(_, '$(yeganesh -x -- -b -f " ..
-       "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
-       "-nb Black " ..
-       "-sb \\'#600000\\')')"),
+        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
+        "-nb Black " ..
+        "-sb \\'#600000\\')')"),
     bdoc("Start passmenu."),
     kpress(META.."P", "mod_query.exec_on_merr(_, '$(passmenu --type -b -f " ..
-       "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
-       "-nb Black " ..
-       "-sb \\'#000060\\')')"),
+        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
+        "-nb Black " ..
+        "-sb \\'#000060\\')')"),
     bdoc("Query for command line to execute."),
     kpress(META.."Shift+R", "mod_query.query_exec(_)"),
 })
@@ -62,3 +62,5 @@ defbindings("WScreen", {
     bdoc("Go to first region demanding attention or previously active one."),
     kpress(META.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
 })
+
+-- vim: tw=80 sts=-1 sw=4 et
