@@ -42,6 +42,9 @@ set pgp_sign_as="C4592C12"
 # Get a signature from the message of the day.
 set signature="cat /etc/motd|"
 
+set abort_nosubject=no
+set abort_unmodified=no
+
 # set alias_file="~/.mutt/aliases"
 # source $alias_file
 
