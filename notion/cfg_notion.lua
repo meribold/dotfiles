@@ -2,11 +2,9 @@
 -- Notion main configuration file
 --
 
--- Set the META modifier to the Super key.
-META="Mod4+"
+META="Mod4+" -- Use super as the default modifier key.
 
--- Use xterm as the terminal emulator.
-XTERM="xterm"
+XTERM="xterm" -- Use xterm as the terminal emulator.
 
 ioncore.set{
     -- Consecutive clicks within 200 ms are considered double clicks.
@@ -22,7 +20,7 @@ dopath("cfg_kludges")
 -- Define some layouts.
 dopath("cfg_layouts")
 
--- Load some modules. Bindings and other configuration specific to modules are
+-- Load some modules.  Bindings and other configuration specific to modules are
 -- in the files cfg_modulename.lua.
 dopath("mod_query")
 dopath("mod_menu")
@@ -54,8 +52,6 @@ defbindings("WMPlex.toplevel", {
         "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
         "-nb Black " ..
         "-sb \\'#000060\\')')"),
-    bdoc("Query for command line to execute."),
-    kpress(META.."Shift+R", "mod_query.query_exec(_)"),
 })
 
 -- WScreen context bindings; these bindings are available all the time.
