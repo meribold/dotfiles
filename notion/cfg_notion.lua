@@ -53,10 +53,10 @@ defbindings("WMPlex.toplevel", {
         "-sb \\'#006000\\'')"),
     bdoc("Start passmenu."),
     kpress(META.."P", "mod_query.exec_on_merr(_, " ..
-        "'$(env PINENTRY_USER_DATA=gtk passmenu --type -b -f " ..
+        "'env PINENTRY_USER_DATA=gtk passmenu --type -b -f " ..
         "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
         "-nb Black " ..
-        "-sb \\'#000060\\')')"),
+        "-sb \\'#000060\\'')"),
 })
 
 -- WScreen context bindings; these bindings are available all the time.
