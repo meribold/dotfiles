@@ -46,6 +46,11 @@ defbindings("WMPlex.toplevel", {
         "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
         "-nb Black " ..
         "-sb \\'#600000\\')')"),
+    bdoc("Start clipmenu."),
+    kpress(META.."Y", "mod_query.exec_on_merr(_, 'clipmenu -b -f " ..
+        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
+        "-nb Black " ..
+        "-sb \\'#006000\\'')"),
     bdoc("Start passmenu."),
     kpress(META.."P", "mod_query.exec_on_merr(_, " ..
         "'$(env PINENTRY_USER_DATA=gtk passmenu --type -b -f " ..
