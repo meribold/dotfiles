@@ -20,6 +20,9 @@ alias vimrt='vim --remote-tab'    # use "--servername".
 export VISUAL=nvim
 export EDITOR=nvim
 
+# Makes wiki-search-html from the arch-wiki-light package work.
+export wiki_browser=chromium
+
 # Make RubyGems available (http://guides.rubygems.org/faqs/#user-install).
 if which ruby >/dev/null && which gem >/dev/null; then
    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
