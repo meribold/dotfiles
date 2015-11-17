@@ -17,6 +17,7 @@ alias vims='vim --servername vim' # "VIM" is the only server name that makes
 alias vimr='vim --remote'         # "vim --remote" etc. work without having to
 alias vimrt='vim --remote-tab'    # use "--servername".
 
+export VISUAL=nvim
 export EDITOR=nvim
 
 # Make RubyGems available (http://guides.rubygems.org/faqs/#user-install).
