@@ -1,9 +1,6 @@
---
--- Notion main configuration file
---
+-- Main Notion configuration file
 
-META="Mod4+" -- Use super as the default modifier key.
-
+META ="Mod4+" -- Use super as the default modifier key.
 XTERM="xterm" -- Use xterm as the terminal emulator.
 
 ioncore.set{
@@ -11,7 +8,7 @@ ioncore.set{
     dblclick_delay=200,
 }
 
--- Load configuration of the Notion 'core'. Most bindings are here.
+-- Load configuration of the Notion 'core'.  Most keybindings are there.
 dopath("cfg_notioncore")
 
 -- Load some kludges to make apps behave better.
@@ -32,7 +29,7 @@ dopath("mod_notionflux")
 dopath("mod_xrandr")
 
 dopath("hide_tabs")
-dopath("net_client_list.lua")
+dopath("net_client_list")
 
 defbindings("WMPlex.toplevel", {
     kpress(META.."L", nil),     -- Unbind lock screen.
@@ -42,20 +39,20 @@ defbindings("WMPlex.toplevel", {
     kpress(META.."R", nil),
 
     bdoc("Start dmenu_run."),
-    kpress(META.."R", "mod_query.exec_on_merr(_, '$(yeganesh -x -- -b -f " ..
-        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
-        "-nb Black " ..
+    kpress(META.."R", "mod_query.exec_on_merr(_, '$(yeganesh -x -- -b -f "..
+        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
+        "-nb Black "..
         "-sb \\'#600000\\')')"),
     bdoc("Start clipmenu."),
-    kpress(META.."Y", "mod_query.exec_on_merr(_, 'clipmenu -b -f " ..
-        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
-        "-nb Black " ..
+    kpress(META.."Y", "mod_query.exec_on_merr(_, 'clipmenu -b -f "..
+        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
+        "-nb Black "..
         "-sb \\'#006000\\'')"),
     bdoc("Start passmenu."),
-    kpress(META.."P", "mod_query.exec_on_merr(_, " ..
-        "'env PINENTRY_USER_DATA=gtk passmenu --type -b -f " ..
-        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' " ..
-        "-nb Black " ..
+    kpress(META.."P", "mod_query.exec_on_merr(_, "..
+        "'env PINENTRY_USER_DATA=gtk passmenu --type -b -f "..
+        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
+        "-nb Black "..
         "-sb \\'#000060\\'')"),
 })
 
