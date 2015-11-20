@@ -19,3 +19,6 @@
 [submodule "AUR/dict-wn"]
 	path = AUR/dict-wn
 	url = https://aur.archlinux.org/dict-wn.git
+[submodule "notion/hide-tabs"]
+	path = notion/hide-tabs
+	url = https://github.com/meribold/notion-hide-tabs.git
