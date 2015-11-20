@@ -17,6 +17,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
