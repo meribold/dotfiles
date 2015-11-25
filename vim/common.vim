@@ -499,7 +499,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set visualbell
-if has('patch793')
+if exists('&belloff')
    set belloff=all
 endif
 
