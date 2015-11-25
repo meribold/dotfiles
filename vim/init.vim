@@ -1,4 +1,4 @@
-source ~/.vimrc
+source ~/.config/nvim/common.vim
 
 " Hide the tilde characters Vim displays in front of lines after the EOF.
 " https://github.com/neovim/neovim/issues/2067
