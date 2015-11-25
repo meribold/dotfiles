@@ -265,7 +265,7 @@ function! GoyoToggle()
       exe ":Goyo" . (&textwidth + 1)
    else
      Goyo
-  endif
+   endif
 endfunction
 nnoremap Q :call GoyoToggle()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -338,7 +338,7 @@ endif
 " trailing semicolon tells it to recursively search parent directories.  See
 " :h file-searching.
 if has('path_extra')
-  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+   setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
