@@ -7,10 +7,6 @@ autocmd!
 
 " comclear
 
-if !has('nvim')
-   set nocompatible
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup vim-plug (https://github.com/junegunn/vim-plug).  Plugins are loaded after
 " vimrc files (:h initialization).
@@ -275,23 +271,6 @@ nnoremap Q :call GoyoToggle()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8.  TODO: should this be closer to the top?
-" http://stackoverflow.com/q/5477565
-" http://superuser.com/q/154491
-" http://stackoverflow.com/q/2438021
-if has('multi_byte')
-   if &termencoding == ''
-      let &termencoding = &encoding
-   endif
-   if !has('nvim')
-      " Better default than latin1.  Can't be changed after startup.
-      if has('vim_starting') | set encoding=utf-8 | endif
-   endif
-   setglobal fileencoding=utf-8 " change default file encoding for new files
-endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
 " :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
 
@@ -393,13 +372,6 @@ set nowrap
 set sidescroll=1
 
 set title " Let vim set the terminal title.
-" If running inside screen, use those escape sequences to name the window (set the title
-" of the VT100 emulated by screen)
-if &term == 'screen' && !has('nvim')
-  set t_ts=k
-  set t_fs=\
-endif " The settings for those termcap codes are taken from vim.wikia.com.
-" http://vim.wikia.com/wiki/Automatically_set_screen_title
 
 set scrolloff=2   " Always keep 2 lines above and below the cursor.
 set hidden        " Only hide (don't unload) a buffer when abandoned.
@@ -526,14 +498,9 @@ endif
 " Based on snippets from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" No bell, no flash.
+set visualbell
 if has('patch793')
    set belloff=all
-else
-   set visualbell
-   if !has('nvim')
-      set t_vb=
-   endif
 endif
 
 set maxmem=2000000    " Lots of memory for each buffer.

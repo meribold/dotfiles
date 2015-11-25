@@ -1,1 +1,30 @@
+set nocompatible
+
 source ~/.vim/common.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup Vim for editing in utf-8.  TODO: should this be done before sourcint common.vim?
+" http://stackoverflow.com/q/5477565
+" http://superuser.com/q/154491
+" http://stackoverflow.com/q/2438021
+if has('multi_byte')
+   " Better default than latin1.  Can't be changed after startup.
+   if has('vim_starting') | set encoding=utf-8 | endif
+   if &termencoding == ''
+      let &termencoding = &encoding
+   endif
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" If running inside screen, use these escape sequences to name the window (set the title
+" of the VT100 emulated by screen)
+if &term =~# 'screen'
+   set t_ts=k
+   set t_fs=\
+endif " The settings for those termcap codes are taken from
+" http://vim.wikia.com/wiki/Automatically_set_screen_title.
+
+" No bell, no flash.
+set t_vb=
+
+" vim: tw=90 sts=-1 sw=3 et
