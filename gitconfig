@@ -2,11 +2,11 @@
 	name = Lukas Waymann
 	email = lb.waym@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 	autocrlf = input
 [merge]
-	tool = vimdiff
+	tool = nvim -d
 [credential]
 	helper = cache --timeout=10800
 [push]
