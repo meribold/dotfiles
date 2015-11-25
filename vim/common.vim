@@ -1,4 +1,4 @@
-" $MYVIMRC
+" Shared initialization commands.  Sourced from both init.vim (Neovim) and vimrc (Vim).
 "
 " TODO: sort everything in some reasonable way and add folds.  set noshowmode?
 
