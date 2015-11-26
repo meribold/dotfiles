@@ -1,6 +1,6 @@
 " Shared initialization commands.  Sourced from both init.vim (Neovim) and vimrc (Vim).
 "
-" TODO: sort everything in some reasonable way and add folds.  set noshowmode?
+" TODO: sort everything in some reasonable way and add folds.
 
 " See :h autocmd-define
 autocmd!
@@ -263,8 +263,12 @@ function! GoyoToggle()
       " 1 so Vim doesn't scroll horizontally when the cursor is behind the last character
       " in a full line.
       exe ":Goyo" . (&textwidth + 1)
+      set showmode
    else
      Goyo
+     if exists('g:loaded_lightline')
+        set noshowmode
+     endif
    endif
 endfunction
 nnoremap Q :call GoyoToggle()<CR>
