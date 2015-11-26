@@ -1,7 +1,17 @@
 priority -60
 
-snippet modeline
-vim: tw=90 sts=-1 sw=3 et
+global !p
+def modeline():
+   options = "tw=90 sts=-1 sw=3 et"
+   commentstring = vim.eval("&commentstring")
+   if vim.eval("&ft") and commentstring:
+      return commentstring.replace("%s", " vim: %s " % options).strip()
+   else:
+      return "vim: " + options
+endglobal
+
+snippet modeline "Vim modeline" b
+`!p snip.rv = modeline()`
 endsnippet
 
 snippet today
