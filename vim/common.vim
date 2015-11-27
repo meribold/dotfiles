@@ -165,6 +165,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Adjust commentstring for C++ so commentary.vim uses C++-style comments.
+autocmd FileType cpp setlocal commentstring=//%s
+
 " Let Sneak handle f, F, t and T.
 " nmap f <Plug>Sneak_f
 " nmap F <Plug>Sneak_F
