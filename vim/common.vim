@@ -466,7 +466,7 @@ function! s:OnInsertLeave()
 endfunction
 function! s:OnBufWinEnter()
    " if &modifiable && !&readonly
-   if &filetype !=# 'help' && &filetype !=# 'man'
+   if &filetype !=# 'help' && &filetype !=# 'man' && &filetype !=# 'unite'
       call s:OnInsertLeave()
       if !exists('w:tabMatch')
          let w:tabMatch = matchadd('ColorColumn', '[^\t]\zs\t\+', -1)
