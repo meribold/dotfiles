@@ -11,6 +11,8 @@
   [Powerline](https://github.com/powerline/powerline),
   [fzf](https://github.com/junegunn/fzf),
   [vim-pasta](https://github.com/sickill/vim-pasta).
+* Mutt asks for my GnuPG passphrase when gpg-agent doesn't need it.  Just hitting `return`
+  works when the passphrase is already cached, but how would I know.
 
 [1]: https://wiki.archlinux.org/index.php/Mutt#Viewing_URLs_.26_opening_your_favorite_web_browser
 [2]: http://superuser.com/q/333862
