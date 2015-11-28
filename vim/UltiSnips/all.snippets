@@ -5,7 +5,7 @@ def modeline():
    options = "tw=90 sts=-1 sw=3 et"
    commentstring = vim.eval("&commentstring")
    if vim.eval("&ft") and commentstring:
-      return commentstring.replace("%s", " vim: %s " % options).strip()
+      return re.sub(" ?%s ?", " vim: %s " % options, commentstring).strip()
    else:
       return "vim: " + options
 endglobal
