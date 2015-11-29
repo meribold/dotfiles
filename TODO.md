@@ -1,6 +1,7 @@
+##### Vim
 * Sort stuff in `vim/common.vim` and add folds.
-* Use `urlview` or one of the [alternatives](http://www.memoryhole.net/~kyle/extract_url/)
-  to allow [following][1] [URLs][2] [from][3] [Mutt][4].
+* Use [par](http://vimcasts.org/episodes/formatting-text-with-par/) for automatic
+  paragraph formatting?
 * Try these Vim plugins:
   [Vimwiki](https://github.com/vimwiki/vimwiki),
   [vim-markdown-folding](https://github.com/nelstrom/vim-markdown-folding),
@@ -11,6 +12,10 @@
   [Powerline](https://github.com/powerline/powerline),
   [fzf](https://github.com/junegunn/fzf),
   [vim-pasta](https://github.com/sickill/vim-pasta).
+
+##### Mutt
+* Use `urlview` or one of the [alternatives](http://www.memoryhole.net/~kyle/extract_url/)
+  to allow [following][1] [URLs][2] [from][3] [Mutt][4].
 * Mutt asks for my GnuPG passphrase when gpg-agent doesn't need it.  Just hitting `return`
   works when the passphrase is already cached, but how would I know.
 
