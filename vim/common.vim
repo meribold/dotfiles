@@ -261,10 +261,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 let g:goyo_height = '100%'
 function! GoyoToggle()
    if !exists('#goyo')
-      " Set the window width based on the local 'textwidth' instead of g:goyo_width.  Add
-      " 1 so Vim doesn't scroll horizontally when the cursor is behind the last character
-      " in a full line.
-      exe ":Goyo" . (&textwidth + 1)
+      " Set the window width based on the local 'textwidth' (unless it's 0) instead of
+      " g:goyo_width.  Add 1 so Vim doesn't scroll horizontally when the cursor is behind
+      " the last character in a full line.
+      exe ":Goyo" . (&textwidth ? &textwidth + 1 : '')
       set showmode
    else
      Goyo
