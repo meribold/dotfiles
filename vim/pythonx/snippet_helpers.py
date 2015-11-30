@@ -12,7 +12,7 @@ modeline_options = OrderedDict([("tw", "=90"), ("ts", None), ("sts", "=-1"), ("s
 def modeline(overrides = {}):
     options = []
     for k, v in modeline_options.items():
-        setting = overrides[k] if k in overrides else  v
+        setting = overrides[k] if k in overrides else v
         if setting is None:
             continue
         elif not setting:
