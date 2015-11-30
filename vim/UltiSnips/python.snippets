@@ -1,6 +1,14 @@
 priority -50
 
+global !p
+from snippet_helpers import *
+endglobal
+
 snippet #! "Shebang" b
 #!/usr/bin/env python
 $0
+endsnippet
+
+snippet modeline "Vim modeline" b
+`!p snip.rv = modeline({"sw": "=4"})`
 endsnippet
