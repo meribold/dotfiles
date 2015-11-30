@@ -1,5 +1,9 @@
 priority -50
 
-snippet modeline
-# vim: tw=90 ts=8 sts=-1 sw=3 noet
+global !p
+from snippet_helpers import *
+endglobal
+
+snippet modeline "Vim modeline" b
+`!p snip.rv = modeline({"ts": "=8", "et": False})`
 endsnippet
