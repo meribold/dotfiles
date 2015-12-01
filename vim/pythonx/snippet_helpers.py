@@ -24,7 +24,12 @@ def modeline(overrides = {}):
     options = " ".join(options)
     commentstring = vim.eval("&commentstring")
     if vim.eval("&ft") and commentstring:
-        return re.sub(" ?%s ?", " vim: %s " % options, commentstring).strip()
+        if re.search("%s.*\S", commentstring): # We are using block comments: i.e., there
+            # are delimiters indicating the beginning and the end of the comment (like
+            # C-style comments).  Only the second modeline form allows this.
+            return re.sub(" ?%s ?", " vim: set %s: " % options, commentstring).strip()
+        else: # Use the first modeline form.
+            return re.sub(" ?%s ?", " vim: %s " % options, commentstring).strip()
     else:
         return "vim: " + options
 
