@@ -5,4 +5,4 @@ Mostly Vim, [Notion][1], Mutt and Bash stuff.  Some of it is specific to [Arch][
 [1]: http://notion.sf.net/
 [2]: https://www.archlinux.org/
 
-<!--- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
