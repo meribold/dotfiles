@@ -1,0 +1,9 @@
+priority -50
+
+global !p
+from snippet_helpers import *
+endglobal
+
+snippet modeline "Vim modeline" b
+`!p snip.rv = modeline({"sw": "=4"})`
+endsnippet
