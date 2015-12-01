@@ -7,7 +7,7 @@ import vim
 
 # All options that might be used in modelines should be listed here.
 modeline_options = OrderedDict([("tw", "=90"), ("ts", None), ("sts", "=-1"), ("sw", "=3"),
-                                ("et", True)])
+                                ("et", True), ("spell", None)])
 
 def modeline(overrides = {}):
     options = []
