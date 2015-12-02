@@ -1,5 +1,5 @@
 # curses interface options
-OPTIONS=windowtype:curses, !cursesgraphics
+OPTIONS=windowtype:curses, cursesgraphics
 OPTIONS=align_status:right, guicolor, popup_dialog
 OPTIONS=petattr:BU
 # # #
