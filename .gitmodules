@@ -46,3 +46,6 @@
 [submodule "AUR/proggyfonts"]
 	path = AUR/proggyfonts
 	url = https://aur.archlinux.org/proggyfonts.git
+[submodule "AUR/urlview"]
+	path = AUR/urlview
+	url = https://aur.archlinux.org/urlview.git
