@@ -15,6 +15,12 @@ set imap_check_subscribed # Check all subscribed IMAP folders.
 macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" \
    "\"delete\" the current entry (move it to [Gmail]/Trash)"
 
+macro index gi "<change-folder>=INBOX<enter>" "open inbox"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
+macro index gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
+macro index ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
+
 # Configure native SMTP support.
 set realname="Lukas Waymann"
 set from=lb.waym@gmail.com
