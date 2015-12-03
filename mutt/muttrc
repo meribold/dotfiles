@@ -9,6 +9,12 @@ set copy=no # Don't save copies of outgoing messages (Gmail already saves them).
 set postponed=+[Gmail]/Drafts # Save drafts remotely.
 set imap_check_subscribed # Check all subscribed IMAP folders.
 
+# Mail is only removed from [Gmail]/Inbox (and kept everywhere else, I think) when using
+# Mutt's normal delete action with Gmail (called "Archive" in the Gmail web app).  This
+# macro seems to work.
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" \
+   "\"delete\" the current entry (move it to [Gmail]/Trash)"
+
 # Configure native SMTP support.
 set realname="Lukas Waymann"
 set from=lb.waym@gmail.com
