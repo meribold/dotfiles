@@ -10,7 +10,6 @@
   [vim-quicklink](https://github.com/christoomey/vim-quicklink),
   [Projectionist](https://github.com/tpope/vim-projectionist),
   [Powerline](https://github.com/powerline/powerline),
-  [fzf](https://github.com/junegunn/fzf),
   [vim-pasta](https://github.com/sickill/vim-pasta).
 
 ##### Mutt

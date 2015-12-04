@@ -111,10 +111,16 @@ endif
 
 Plug 'tpope/vim-vinegar'
 " Plug 'scrooloose/nerdtree'
-"
+
 " Plug 'kien/ctrlp.vim'
+" Plug 'wincent/command-t'
 " Plug 'szw/vim-ctrlspace'
 Plug 'Shougo/unite.vim'
+" I'm using the fzf package build from the AUR, so I removed the install command from the
+" next line (which is copied from https://github.com/junegunn/fzf#install-as-vim-plugin).
+" TODO: don't I really just need to curl the .vim file?
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'vim-utils/vim-husk'
 " Plug 'tpope/vim-rsi'
