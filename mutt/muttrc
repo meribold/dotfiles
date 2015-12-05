@@ -9,18 +9,6 @@ set copy=no # Don't save copies of outgoing messages (Gmail already saves them).
 set postponed=+[Gmail]/Drafts # Save drafts remotely.
 set imap_check_subscribed # Check all subscribed IMAP folders.
 
-# Mail is only removed from [Gmail]/Inbox (and kept everywhere else, I think) when using
-# Mutt's normal delete action with Gmail (called "Archive" in the Gmail web app).  This
-# macro seems to work.
-macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" \
-   "\"delete\" the current entry (move it to [Gmail]/Trash)"
-
-macro index gi "<change-folder>=INBOX<enter>" "open inbox"
-macro index gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
-macro index gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
-macro index ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
-
 # Configure native SMTP support.
 set realname="Lukas Waymann"
 set from=lb.waym@gmail.com
@@ -63,8 +51,6 @@ set abort_unmodified=no
 # Copied from http://gitlab.com/goobook/goobook.
 set query_command="goobook query '%s'"
 bind editor <Tab> complete-query
-macro index,pager a "<pipe-message>goobook add<return>" \
-   "add the sender address to Google Contacts"
 
 # https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML
 set mailcap_path="~/.mutt/mailcap"
@@ -72,9 +58,49 @@ auto_view text/html
 auto_view application/pdf
 alternative_order text/plain text/html # Prefer viewing plain text if available.
 
-# macro attach V "<pipe-entry>cat >~/.mutt/mail.html && chromium ~/.mutt/mail.html<enter>"
-
 # source ~/dotfiles/mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 source ~/dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
 
-# vim: tw=90 sts=-1 sw=3 et nowrap
+# Key Bindings {{{1
+# Vim-ish {{{2
+bind index gg first-entry
+bind index G last-entry
+bind index,pager  half-up
+bind index,pager  half-down
+bind pager j next-line
+bind pager k previous-line
+bind pager g top
+bind pager G bottom
+
+# Gmail-esque {{{2
+bind index,pager c mail
+bind index o display-message
+bind pager u exit
+bind pager e exit
+macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
+   "\"archive\" the current entry (move it to [Gmail]/All Mail)"
+bind index x tag-entry
+bind pager x tag-message
+bind index,pager s flag-message
+bind index,pager a group-reply
+macro index gi "<change-folder>=INBOX<enter>" "open inbox"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
+macro index gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
+macro index ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
+
+# Other (mostly similar to Mutt's defaults) {{{2
+bind index O edit
+bind pager <Space> half-down
+bind pager - half-up
+# Mail is only removed from [Gmail]/Inbox (and kept everywhere else, I think) when using
+# Mutt's normal delete action with Gmail (called "Archive" in the Gmail web app).  This
+# macro seems to work.  TODO: undelete.
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" \
+   "\"delete\" the current entry (move it to [Gmail]/Trash)"
+macro index,pager gc "<pipe-message>goobook add<return>" \
+   "add the sender address to Google Contacts"
+# macro attach V "<pipe-entry>cat >~/.mutt/mail.html && chromium ~/.mutt/mail.html<enter>"
+# }}}1
+
+# vim: tw=90 sts=-1 sw=3 et nowrap fdm=marker
