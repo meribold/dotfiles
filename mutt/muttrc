@@ -19,6 +19,17 @@ set ssl_force_tls
 # http://wiki.archlinux.org/index.php/Mutt#E-mail_character_encoding
 set send_charset="utf-8"
 
+# Empty by default.  This fixes most messages without character encoding indication that I
+# get (Mutt assumes "us-ascii" when assumed_charset is empty).
+set assumed_charset="cp1252"
+# Character set alias: treat iso-8859-1 as an alias for cp1252.
+charset-hook ^iso-8859-1$ cp1252
+# Background: US-ASCII is basically 8-bit nowadays, so misinterpreting actual ASCII as
+# some ASCII-based encoding should be fine.  CP-1252 (or windows-1252) is Microsoft's
+# bastardized version of ISO-8859-1 (latin1).  Apparently mislabeling CP-1252 encoded text
+# as ISO-8859-1 is so ubiquitous that most programs assume it deliberately and HTML5
+# requires that documents advertised as ISO-8859-1 are parsed as CP-1252.  Computers suck.
+
 # Configure GnuPG. From /var/log/pacman.log:
 # [2014-03-23 01:32] [PACMAN] Running 'pacman -S mutt'
 # [2014-03-23 01:32] [ALPM-SCRIPTLET]
