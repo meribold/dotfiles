@@ -30,7 +30,9 @@ charset-hook ^iso-8859-1$ cp1252
 # as ISO-8859-1 is so ubiquitous that most programs assume it deliberately and HTML5
 # requires that documents advertised as ISO-8859-1 are parsed as CP-1252.  Computers suck.
 
-# Configure GnuPG. From /var/log/pacman.log:
+# Configure GnuPG.
+set pgp_show_unusable=no
+# From /var/log/pacman.log:
 # [2014-03-23 01:32] [PACMAN] Running 'pacman -S mutt'
 # [2014-03-23 01:32] [ALPM-SCRIPTLET]
 # [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> For GPG support, add the following to your muttrc:
