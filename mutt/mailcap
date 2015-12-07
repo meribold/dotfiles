@@ -1,6 +1,5 @@
 text/html; chromium %s; test=test -n "$DISPLAY"; needsterminal
-# text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
 
 image/*; feh -B black --scale-down %s; test=test -n "$DISPLAY"
 # image/*; sxiv -b %s; test=test -n "$DISPLAY"
