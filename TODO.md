@@ -12,8 +12,6 @@
   [Powerline](https://github.com/powerline/powerline),
   [vim-pasta](https://github.com/sickill/vim-pasta).
 
-##### Mutt
-* Mutt asks for my GnuPG passphrase when gpg-agent doesn't need it.  Just hitting `return`
-  works when the passphrase is already cached, but how would I know.
+<!-- ##### Mutt -->
 
 <!-- vim: set tw=90 sts=-1 sw=4 et: -->
