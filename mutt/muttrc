@@ -31,6 +31,7 @@ charset-hook ^iso-8859-1$ cp1252
 # requires that documents advertised as ISO-8859-1 are parsed as CP-1252.  Computers suck.
 
 # Configure GnuPG.
+set pgp_auto_decode
 set pgp_show_unusable=no
 # From /var/log/pacman.log:
 # [2014-03-23 01:32] [PACMAN] Running 'pacman -S mutt'
