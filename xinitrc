@@ -14,7 +14,9 @@ sh ~/.fehbg & # Set the desktop wallpaper.
 case $1 in
    # The only way I found to start Conky without any issues (that I'm aware of right now)
    # when using Notion (I have 'own_window no' in my .conkyrc):
-   notion) (sleep 0.1; conky) & exec notion;;
+   notion) [[ -f ~/dotfiles/notion/Xmodmap ]] && xmodmap ~/dotfiles/notion/Xmodmap
+           (sleep 0.1; conky) &
+           exec notion;;
    # When starting Conky immediately it's not drawn anywhere visible.  Waiting until
    # Notion creates a tiling causes Conky to be drawn "behind" any client windows on the
    # active workspace (and only on that workspace) most times.
