@@ -1,7 +1,7 @@
 #!/bin/sh
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[[ -f ~/.Xmodmap ]] && /usr/bin/xmodmap ~/.Xmodmap
+[[ -f ~/.Xmodmap ]] && /usr/bin/xmodmap ~/dotfiles/Xmodmap
 
 # Some fonts from the official repositories are installed here.  TODO: is this still
 # required?  Why?
