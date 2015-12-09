@@ -80,6 +80,11 @@ alternative_order text/plain text/html # Prefer viewing plain text if available.
 source ~/dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
 
 # Key Bindings {{{1
+# Unbind some keys {{{2
+bind generic z noop
+bind generic Z noop
+bind index,pager d noop
+
 # Vim-ish {{{2
 bind index gg first-entry
 bind index G last-entry
@@ -87,37 +92,53 @@ bind index,pager  half-up
 bind index,pager  half-down
 bind pager j next-line
 bind pager k previous-line
-bind pager g top
+bind pager gg top
 bind pager G bottom
+bind index zb current-bottom
+bind index zz current-middle
+bind index zt current-top
 
 # Gmail-esque {{{2
 bind index,pager c mail
 bind index o display-message
-bind pager u exit
-bind pager e exit
+bind pager,attach,browser u exit
+bind index u sync-mailbox
 macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
    "\"archive\" the current entry (move it to [Gmail]/All Mail)"
 bind index x tag-entry
 bind pager x tag-message
 bind index,pager s flag-message
 bind index,pager a group-reply
-macro index gi "<change-folder>=INBOX<enter>" "open inbox"
-macro index gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
-macro index gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
-macro index ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
-
-# Other (mostly similar to Mutt's defaults) {{{2
-bind index O edit
-bind pager <Space> half-down
-bind pager - half-up
 # Mail is only removed from [Gmail]/Inbox (and kept everywhere else, I think) when using
 # Mutt's normal delete action with Gmail (called "Archive" in the Gmail web app).  This
 # macro seems to work.  TODO: undelete.
-macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" \
+macro index,pager \# "<save-message>=[Gmail]/Trash<enter><enter>" \
    "\"delete\" the current entry (move it to [Gmail]/Trash)"
-macro index,pager gc "<pipe-message>goobook add<return>" \
+bind index,pager v save-message
+# macro index,pager v "<save-message>?<toggle-mailboxes>" ""
+bind index I toggle-new
+bind index U toggle-new
+bind pager U mark-as-new
+macro index,pager gi "<change-folder>=INBOX<enter>" "open inbox"
+macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
+macro index,pager gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
+macro index,pager ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
+macro index,pager gc "<shell-escape>chromium https://contacts.google.com<return>" \
+   "open Google Contacts in Chromium"
+
+# Mutt-y (similar to Mutt's defaults) {{{2
+bind index L bottom-page # Provided by default in "generic" context but overridden.  M and
+                         # H are Vim-ish by default as well.
+bind pager <Space> half-down
+bind pager - half-up
+bind browser S unsubscribe
+
+# Other {{{2
+bind index,pager O edit
+macro index,pager go "<pipe-message>goobook add<return>" \
    "add the sender address to Google Contacts"
+macro index,pager i "<copy-message>=INBOX<enter><enter>" "Copy the current entry to INBOX"
 # macro attach V "<pipe-entry>cat >~/.mutt/mail.html && chromium ~/.mutt/mail.html<enter>"
 # }}}1
 
