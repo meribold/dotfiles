@@ -169,4 +169,6 @@ trap '{ reset_VT100_character_attributes; show_command_in_title; } 2> /dev/null'
 # http://stackoverflow.com/q/3338030
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
 
+[[ -f /etc/profile.d/fzf.bash ]] && source /etc/profile.d/fzf.bash
+
 # vim: tw=90 sts=-1 sw=3 et
