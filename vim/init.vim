@@ -8,4 +8,11 @@ function! s:hide_tildes()
 endfunction
 call s:hide_tildes()
 
+" Do something with Alt.  Maybe just having some normal mode commands in insert mode would
+" be cool.
+inoremap <M-h> <Left>
+inoremap <M-j> <Down>
+inoremap <M-k> <Up>
+inoremap <M-l> <Right>
+
 " vim: tw=90 sts=-1 sw=3 et
