@@ -102,7 +102,7 @@ bind index zt current-top
 bind index,pager c mail
 bind index o display-message
 bind pager,attach,browser u exit
-bind index u sync-mailbox
+bind index u imap-fetch-mail
 macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
    "\"archive\" the current entry (move it to [Gmail]/All Mail)"
 bind index x tag-entry
@@ -133,6 +133,7 @@ bind index L bottom-page # Provided by default in "generic" context but overridd
 bind pager <Space> half-down
 bind pager - half-up
 bind browser S unsubscribe
+bind index,pager V view-attachments
 
 # Other {{{2
 bind index,pager O edit
