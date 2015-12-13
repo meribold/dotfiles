@@ -49,3 +49,6 @@
 [submodule "AUR/urlview"]
 	path = AUR/urlview
 	url = https://aur.archlinux.org/urlview.git
+[submodule "AUR/i3-gaps-git"]
+	path = AUR/i3-gaps-git
+	url = https://aur.archlinux.org/i3-gaps-git.git
