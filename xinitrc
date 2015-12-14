@@ -23,6 +23,7 @@ case $1 in
    awesome) exec awesome;;
    xmonad) xsetroot -cursor_name left_ptr
            exec xmonad;;
+   i3) exec i3;;
    *) exec twm;;
 esac
 
