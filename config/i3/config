@@ -1,0 +1,143 @@
+# i3 config file
+#
+# See http://i3wm.org/docs/userguide.html and https://github.com/Airblader/i3 (i3-gaps).
+
+# Use the Super key as the default modifier.
+set $mod Mod4
+
+# Font used for window titles.
+font pango:monospace 7
+
+# Floating windows can be dragged and resized with the mouse while holding $mod.
+floating_modifier $mod
+
+# Start a terminal.
+bindsym $mod+e exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Kill focused window.
+bindsym $mod+q kill
+bindsym $mod+c kill
+
+# Run yeganesh (dmenu wrapper).
+bindsym $mod+r exec "$(yeganesh -x -- -b -f -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb Black -sb '#600000')"
+
+# Run clipmenu.
+bindsym $mod+y exec "clipmenu -b -f -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb Black -sb '#006000'"
+
+# Run passmenu.
+bindsym $mod+p exec "env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb Black -sb '#000060'"
+
+# Change focus.
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window.
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# A vertical split in Vim is a horizontal split in i3.  I'm using vimish key bindings.
+bindsym $mod+s split v
+bindsym $mod+v split h
+
+# Fullscreen the focused container.
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split).
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# Toggle between tiling and floating.
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling and floating windows.
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent container.
+bindsym $mod+a focus parent
+
+# Focus the child container.
+bindsym $mod+d focus child
+
+# Make the currently focused window a scratchpad.
+bindsym $mod+Shift+grave move scratchpad
+
+# Show the first scratchpad window.
+bindsym $mod+grave scratchpad show
+
+# Switch workspace.
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move the focused container to another workspace.
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Reload the configuration file.
+bindsym $mod+Shift+c reload
+# Restart i3 inplace (preserves layout and session, can be used to upgrade i3).
+bindsym $mod+Shift+r restart
+# Exit i3.
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
+
+# These bindings trigger when entering resize mode.
+mode "resize" {
+   bindsym h resize shrink width 10 px or 10 ppt
+   bindsym j resize grow height 10 px or 10 ppt
+   bindsym k resize shrink height 10 px or 10 ppt
+   bindsym l resize grow width 10 px or 10 ppt
+   # Back to normal: Enter or Escape.
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
+}
+
+# Resize mode.
+bindsym $mod+w mode "resize"
+
+# Lock all input until the password is supplied, leaving windows visible.
+bindsym $mod+Shift+x exec "xtrlock"
+
+# No borders.
+for_window [class="^.*"] border none
+
+# Hide borders adjacent to screen edges.  Would be redundant.
+# hide_edge_borders both
+
+# i3-gaps configuration {{{1
+
+# 11 is a magic number.  Increasing it by one reduces the number of columns, that fit into
+# an xterm using exactly half of my screen width, by one.  This is only what works for my
+# screen width and font, of course.  My next magic number is 23.
+gaps inner 11
+
+# -10 is the magic number that, when used with the previous magic number, exactly
+# eliminates all gaps at the edges of my screen.  Why not -11?  No idea.
+gaps outer -10
+
+# Disable all gaps whenever there's only one container on the current workspace.  This
+# should be redundant, though.
+smart_gaps on
+# }}}1
+
+# vim: tw=90 sts=-1 sw=3 et fdm=marker
