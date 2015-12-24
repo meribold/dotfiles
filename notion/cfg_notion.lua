@@ -40,18 +40,18 @@ defbindings("WMPlex.toplevel", {
 
     bdoc("Start dmenu_run."),
     kpress(META.."R", "mod_query.exec_on_merr(_, '$(yeganesh -x -- -b -f "..
-        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
+        "-fn \\'Dina-5:style=regular\\' "..
         "-nb Black "..
         "-sb \\'#600000\\')')"),
     bdoc("Start clipmenu."),
     kpress(META.."Y", "mod_query.exec_on_merr(_, 'clipmenu -b -f "..
-        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
+        "-fn \\'Dina-5:style=regular\\' "..
         "-nb Black "..
         "-sb \\'#006000\\'')"),
     bdoc("Start passmenu."),
     kpress(META.."P", "mod_query.exec_on_merr(_, "..
         "'env PINENTRY_USER_DATA=gtk passmenu --type -b -f "..
-        "-fn \\'-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*\\' "..
+        "-fn \\'Dina-5:style=regular\\' "..
         "-nb Black "..
         "-sb \\'#000060\\'')"),
 })

@@ -20,13 +20,13 @@ bindsym $mod+q kill
 bindsym $mod+c kill
 
 # Run yeganesh (dmenu wrapper).
-bindsym $mod+r exec "$(yeganesh -x -- -b -f -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb Black -sb '#600000')"
+bindsym $mod+r exec "$(yeganesh -x -- -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#600000')"
 
 # Run clipmenu.
-bindsym $mod+y exec "clipmenu -b -f -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb Black -sb '#006000'"
+bindsym $mod+y exec "clipmenu -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#006000'"
 
 # Run passmenu.
-bindsym $mod+p exec "env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb Black -sb '#000060'"
+bindsym $mod+p exec "env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#000060'"
 
 # Change focus.
 bindsym $mod+h focus left
