@@ -1,5 +1,10 @@
-gtk-icon-theme-name = "Tango"
-gtk-theme-name = "Clearlooks"
+# I tested these icon themes.  Tango (the default, I think); Tangerine (Ubuntu's twist on
+# Tango); Faenza; Faience (based on Faenza); Adwaita (ugly).
+gtk-icon-theme-name = "Faience"
+# I tested these themes.  Raleigh: default theme, awful; Clearlooks: ugly tooltip
+# background; Adwaita, GTK+ 3 default theme; Numix: makes Chromium nice and dark without
+# installing an extension; Arc.
+gtk-theme-name = "Numix"
 gtk-font-name = "Ubuntu 7"
 
 # Change the background color used to pad the gVim window.  The default is white
@@ -7,6 +12,8 @@ gtk-font-name = "Ubuntu 7"
 # Probably because gVim gives some size hints that are ignored.  Originally from
 # https://bbs.archlinux.org/viewtopic.php?pid=786106#p786106.
 style "gVimFix" {
-  bg[NORMAL] = "#000000"
+   bg[NORMAL] = "#000000"
 }
 widget "vim-main-window.*GtkForm" style "gVimFix"
+
+# vim: tw=90 sts=-1 sw=3 et cms=#%s
