@@ -37,8 +37,14 @@ fi
 # < Stuff concerning Bash's command history >
 # #
 shopt -s histverify
-shopt -u histappend # I fail to see any effect of (un)setting this option.  See:
-                    # http://superuser.com/q/136696
+
+# Append new history lines from each Bash session to $HISTFILE when the shell exits,
+# rather than overwriting the file with the history list.  When histappend is unset,
+# running several instances of Bash at the same time will result in the ``new'' history
+# lines of all but the last instance that exits to be lost.  Having histappend unset also
+# may pose an additional risk of losing (part of) the history if something goes wrong
+# while overwriting the file.  See bash(1) and http://unix.stackexchange.com/a/6509.
+shopt -s histappend
 
 export HISTTIMEFORMAT='%F %T  '
 export HISTSIZE=5000
