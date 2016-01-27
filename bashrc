@@ -47,12 +47,12 @@ shopt -s histverify
 shopt -s histappend
 
 export HISTTIMEFORMAT='%F %T  '
-export HISTSIZE=5000
+export HISTSIZE=10000
 
 # "The maximum number of lines contained in the history file" - bash(1).  As
 # $HISTTIMEFORMAT is used, timestamps are written to separate lines for each command and
 # no more than ($HISTFILESIZE / 2) commands are saved.
-export HISTFILESIZE=10000
+export HISTFILESIZE=20000
 # http://askubuntu.com/q/15926
 export HISTCONTROL=ignoreboth:erasedups
 
