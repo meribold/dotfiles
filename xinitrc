@@ -9,13 +9,13 @@ xset +fp /usr/share/fonts/local/
 
 xset -b # Turn off the beep in X.
 # Set the desktop wallpaper, wait until feh returns, then start conky.
-{ sh ~/.fehbg; [[ $1 != notion ]] && conky; } &
+{ ~/.fehbg; [[ $1 != notion ]] && conky; } &
 
 case $1 in
    # The only way I found to start Conky without any issues (that I'm aware of right now)
    # when using Notion (I have 'own_window no' in my .conkyrc):
    notion) [[ -f ~/dotfiles/notion/Xmodmap ]] && xmodmap ~/dotfiles/notion/Xmodmap
-           (sleep 0.1; conky) &
+           { sleep .1; conky; } &
            exec notion;;
    # When starting Conky immediately it's not drawn anywhere visible.  Waiting until
    # Notion creates a tiling causes Conky to be drawn "behind" any client windows on the
