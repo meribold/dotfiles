@@ -8,8 +8,8 @@
 xset +fp /usr/share/fonts/local/
 
 xset -b # Turn off the beep in X.
-sh ~/.fehbg & # Set the desktop wallpaper.
-[[ $1 != notion ]] && (conky &)
+# Set the desktop wallpaper, wait until feh returns, then start conky.
+{ sh ~/.fehbg; [[ $1 != notion ]] && conky; } &
 
 case $1 in
    # The only way I found to start Conky without any issues (that I'm aware of right now)
