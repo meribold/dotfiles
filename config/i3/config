@@ -12,21 +12,21 @@ font pango:Ubuntu Mono 0
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+e exec i3-sensible-terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+e exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # Kill focused window.
 bindsym $mod+q kill
 bindsym $mod+c kill
 
 # Run yeganesh (dmenu wrapper).
-bindsym $mod+r exec "$(yeganesh -x -- -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#600000')"
+bindsym $mod+r exec --no-startup-id "$(yeganesh -x -- -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#600000')"
 
 # Run clipmenu.
-bindsym $mod+y exec "clipmenu -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#006000'"
+bindsym $mod+y exec --no-startup-id "clipmenu -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#006000'"
 
 # Run passmenu.
-bindsym $mod+p exec "env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#000060'"
+bindsym $mod+p exec --no-startup-id "env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#000060'"
 
 # Change focus.
 bindsym $mod+h focus left
@@ -116,7 +116,7 @@ mode "resize" {
 bindsym $mod+w mode "resize"
 
 # Lock all input until the password is supplied, leaving windows visible.
-bindsym $mod+Shift+x exec "xtrlock"
+bindsym $mod+Shift+x exec --no-startup-id "xtrlock"
 
 # No borders.
 for_window [class="^.*"] border none
