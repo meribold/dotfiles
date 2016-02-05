@@ -118,11 +118,14 @@ bindsym $mod+w mode "resize"
 # Lock all input until the password is supplied, leaving windows visible.
 bindsym $mod+Shift+x exec --no-startup-id "xtrlock"
 
-# No borders.
-for_window [class="^.*"] border none
+# No borders...
+new_window none
+# ...except for floating windows.  The dream is dead.
+new_float pixel 1
 
-# Hide borders adjacent to screen edges.  Would be redundant.
-# hide_edge_borders both
+# Hide borders adjacent to screen edges.  Redundant.
+hide_edge_borders both
+
 
 # i3-gaps configuration {{{1
 
