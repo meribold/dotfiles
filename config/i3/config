@@ -126,6 +126,15 @@ new_float pixel 1
 # Hide borders adjacent to screen edges.  Redundant.
 hide_edge_borders both
 
+# Colors {{{1
+
+# Class                 Border  Backgr. Text    Indicator
+client.focused          #000000 #285577 #285577 #2e9ef4
+client.focused_inactive #000000 #5f676a #5f676a #484e50
+client.unfocused        #000000 #222222 #222222 #292d2e
+client.urgent           #000000 #900000 #900000 #900000
+client.placeholder      #000000 #0c0c0c #0c0c0c #000000
+client.background       #000000
 
 # i3-gaps configuration {{{1
 
