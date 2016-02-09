@@ -152,4 +152,9 @@ gaps outer -10
 smart_gaps on
 # }}}1
 
+exec --no-startup-id "i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'"
+exec --no-startup-id "xterm -e 'screen -x || screen'"
+exec --no-startup-id "i3-msg 'append_layout ~/.config/i3/workspace-2.json; move workspace 2'"
+exec --no-startup-id "xterm -e 'screen -x'"
+
 # vim: tw=90 sts=-1 sw=3 et fdm=marker

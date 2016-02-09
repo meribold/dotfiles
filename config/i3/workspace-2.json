@@ -1,0 +1,20 @@
+{
+   "border": "none",
+   "current_border_width": 0,
+   "floating": "auto_off",
+   "geometry": {
+      "height": 768,
+      "width": 1366,
+      "x": 0,
+      "y": 0
+   },
+   "percent": 1,
+   "swallows": [
+      {
+         "class": "^XTerm$",
+         "instance": "^xterm$"
+      }
+   ],
+   "type": "con"
+}
+// vim: sts=-1 sw=3 et
