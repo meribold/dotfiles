@@ -368,14 +368,19 @@ set numberwidth=3  " Minimal number of colums to use for the line number.
 
 " Command-line completion (:h cmdline-completion)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildignore+=*.o  " Don't consider object files when expanding.
-set wildmenu         " Use the enhanced command-line completion menu where 'full' is
-                     " specified in 'wildmode'.
-
+set wildmenu " Use the enhanced command-line completion menu where 'full' is
+             " specified in 'wildmode'.
 " When 'wildchar' (Tab) is used first, and more than one match exists, list all matches
 " and complete till longest common string.  On consecutive uses (or if only one match
 " exists) show the 'wildmenu'.
 set wildmode=longest:full,full
+
+" Patterns to ignore when expanding wildcards:
+set wildignore+=.hg/,.git/,.svn/                     " version control stuff
+set wildignore+=*.aux,*.out,*.toc                    " LaTeX auxiliary files
+set wildignore+=_minted-*/                           " minted cache directory
+set wildignore+=*.o                                  " object files
+set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.pdf,*.png " more binary files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nowrap
