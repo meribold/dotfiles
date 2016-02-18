@@ -561,7 +561,6 @@ set shortmess+=I " Don't give the intro message when starting Vim.
 set cc=+1
 autocmd FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
 
-" TODO: eunuch.vim screws with this.  Fix.
 " Use :W to write the current file with sudo.  Taken from
 " http://stackoverflow.com/a/12870763 which fixes some of the problems with
 " ':w !sudo tee >/dev/null %'.  I find using a command mode mapping (like 'cmap w!! ...')
