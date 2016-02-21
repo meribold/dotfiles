@@ -12,8 +12,8 @@ font pango:Ubuntu Mono 0
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+e exec --no-startup-id i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+e exec --no-startup-id xterm
+bindsym $mod+Return exec --no-startup-id xterm
 
 # Kill focused window.
 bindsym $mod+q kill
