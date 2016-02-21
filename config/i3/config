@@ -34,6 +34,8 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+bindsym $mod+t sticky toggle
+
 # Move focused window.
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
