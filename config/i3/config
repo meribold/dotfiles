@@ -129,9 +129,9 @@ hide_edge_borders both
 # Colors {{{1
 
 # Class                 Border  Backgr. Text    Indicator
-client.focused          #000000 #285577 #285577 #2e9ef4
-client.focused_inactive #000000 #5f676a #5f676a #484e50
-client.unfocused        #000000 #222222 #222222 #292d2e
+client.focused          #000000 #c0c0c0 #c0c0c0 #2e9ef4
+client.focused_inactive #000000 #808080 #808080 #484e50
+client.unfocused        #000000 #303030 #303030 #292d2e
 client.urgent           #000000 #900000 #900000 #900000
 client.placeholder      #000000 #0c0c0c #0c0c0c #000000
 client.background       #000000
