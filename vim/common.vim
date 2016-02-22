@@ -45,7 +45,7 @@ Plug 'dhruvasagar/vim-table-mode'
 " suan/vim-instant-markdown.  JamshedVesuna/vim-markdown-preview is somewhat buggy.
 " greyblake/vim-preview doesn't seem to do GitHub Flavored Markdown (it uses the redcarpet
 " Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
-" render Markdown (http://stackoverflow.com/q/9212340).  TODO:  add a mapping for Grip?
+" render Markdown (http://stackoverflow.com/q/9212340).  TODO: add a mapping for Grip?
 
 Plug 'itchyny/lightline.vim'
 " Plug 'bling/vim-airline'
@@ -203,7 +203,7 @@ let g:lightline = {
 autocmd ColorScheme * call s:lightline_update()
 function! s:lightline_update() " Local to this file.
    " TODO: only list color schemes where the name of the lightline color scheme differs
-   " from one of the matching Vim color scheme.  Use a directory listing of
+   " from the one of the matching Vim color scheme.  Use a directory listing of
    " lightline.vim/autoload/lightline/colorscheme/ for everything else.
    let colos = {
       \ 'molokai': 'molokai',
