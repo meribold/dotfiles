@@ -248,7 +248,7 @@ let g:dict_hosts = [
    \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
 \ ]
 
-" Apparenlty, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
+" Apparently, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
 " probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to work in a terminal
 " either and remapping escape has its own problems.
 " [1]: http://stackoverflow.com/a/2695818
