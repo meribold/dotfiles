@@ -417,6 +417,7 @@ set background=dark
 
 if !has('gui_running')
    let g:solarized_termcolors = 256
+   let g:jellybeans_use_term_background_color = 1
    silent! colorscheme jellybeans
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
