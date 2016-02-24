@@ -19,6 +19,7 @@ alias vimrt='vim --remote-tab'    # "--servername".
 
 export VISUAL=nvim
 export EDITOR=nvim
+export BROWSER=chromium
 
 export GPG_TTY=$(tty)
 # The GNU Privacy Guard Manual suggest setting and exporting GPG_TTY like this.
@@ -26,7 +27,7 @@ export GPG_TTY=$(tty)
 # https://www.gnupg.org/documentation/manuals/gnupg/Common-Problems.html
 
 # Makes wiki-search-html from the arch-wiki-light package work.
-export wiki_browser=chromium
+export wiki_browser=$BROWSER
 
 # Make RubyGems available (http://guides.rubygems.org/faqs/#user-install).
 if which ruby >/dev/null && which gem >/dev/null; then
