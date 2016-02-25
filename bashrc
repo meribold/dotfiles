@@ -58,7 +58,7 @@ export HISTFILESIZE=20000
 export HISTCONTROL=ignoreboth:erasedups
 
 # The pattern used accounts for the space appended when using tab completion.
-export HISTIGNORE='@(clear|exit|history|ls|pwd)?( )'
+export HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg)?( )'
 
 # # #
 # < Set Bash's PS1, -2, -3 and -4 prompts >
