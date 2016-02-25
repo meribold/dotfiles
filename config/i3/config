@@ -23,10 +23,10 @@ bindsym $mod+c kill
 bindsym $mod+r exec --no-startup-id "$(yeganesh -x -- -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#600000')"
 
 # Run clipmenu.
-bindsym $mod+y exec --no-startup-id "clipmenu -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#006000'"
+bindsym $mod+y exec --no-startup-id clipmenu -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#006000'
 
 # Run passmenu.
-bindsym $mod+p exec --no-startup-id "env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#000060'"
+bindsym $mod+p exec --no-startup-id env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn 'Dina-5:style=regular' -nb Black -sb '#000060'
 
 # Change focus.
 bindsym $mod+h focus left
