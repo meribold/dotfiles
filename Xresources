@@ -13,7 +13,6 @@
 ! https://wiki.archlinux.org/index.php/Xterm
 XTerm*termName:        xterm-256color
 XTerm*locale:          true
-XTerm*metaSendsEscape: true
 XTerm*saveLines:       4096
 
 ! http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html
