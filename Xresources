@@ -1,25 +1,66 @@
+! xterm configuration {{{1
+
+! XTerm is a wonderful terminal.  It is, in my experience, the only terminal that combines
+! a proper VT220 engine with a UI that's actually nice.  It's such a shame it comes with
+! such horrible default settings.
+!    -- Paul "LeoNerd" Evans (http://www.leonerd.org.uk/hacks/hints/xterm-sensible.html)
+
+! Abandon All Hope, Ye Who Enter Here.
+!    -- xterm README
+
+! The default resource class is `XTerm`.
+
 ! https://wiki.archlinux.org/index.php/Xterm
-xterm*termName: xterm-256color
-xterm*metaSendsEscape: true
-xterm*ForceBoxChars: true
-XTerm*locale: true
-xterm*eightBitInput: true
+XTerm*termName:        xterm-256color
+XTerm*locale:          true
+XTerm*metaSendsEscape: true
+XTerm*saveLines:       4096
+
+! http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html
+XTerm*utf8:            1
+XTerm*eightBitInput:   false
+XTerm*eightBitControl: false
+XTerm*eightBitOutput:  true
+
+! Assume the font does not contain line-drawing characters, and draw them directly (see
+! xterm(1)).  This seems to be required for the Dina font.
+XTerm*ForceBoxChars: true
+
 ! https://wiki.archlinux.org/index.php/Xterm#Colors
-xterm*background: black
-! xterm*background: rgb:12/12/12
-xterm*foreground: rgb:c6/c6/c6
-xterm*fontMenu*fontdefault*Label: dina 10
-xterm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
-xterm*fontMenu*font1*Label: proggy clean sz
-xterm*font1: -*-proggycleansz-*-*-*-*-13-*-*-*-*-*-iso8859-1
-xterm*fontMenu*font2*Label: dina 12
-xterm*font2: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-xterm*fontMenu*font3*Label: terminus 12
-xterm*font3: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
-xterm*fontMenu*font4*Label: fixed 13
-xterm*font4: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
-xterm*fontMenu*font5*Label: terminus 14
-xterm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+XTerm*background: black
+XTerm*foreground: rgb:c6/c6/c6
+
+! Use Ubuntu Mono 7 as the TrueType font...
+XTerm*faceName: Ubuntu Mono
+XTerm*faceSize: 7
+! ...but stick with a bitmap font for now.
+XTerm*renderFont: false
+! Different sizes can be selected from the fontMenu when TrueType fonts are enabled (but
+! the labels for bitmap fonts continue to be used, so those make no sense).  Switching to
+! TrueType fonts at runtime can be done from the fontMenu as well.
+XTerm*faceSize1: 8
+XTerm*faceSize2: 9
+XTerm*faceSize3: 10
+XTerm*faceSize4: 11
+XTerm*faceSize5: 12
+XTerm*faceSize6: 13
+
+XTerm*fontMenu*fontdefault*Label: dina 10
+XTerm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+XTerm*fontMenu*font1*Label: dina 12
+XTerm*font1: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+XTerm*fontMenu*font2*Label: dina 13
+XTerm*font2: -*-dina-medium-r-*-*-13-*-*-*-*-*-iso8859-1
+XTerm*fontMenu*font3*Label: proggy clean sz 13
+XTerm*font3: -*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*
+XTerm*fontMenu*font4*Label: terminus 12
+XTerm*font4: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
+XTerm*fontMenu*font5*Label: terminus 14
+XTerm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+XTerm*fontMenu*font6*Label: fixed 13
+XTerm*font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
+
+! Other stuff {{{1
 
 ! Taken from the ArchWiki:
 ! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
@@ -35,3 +76,7 @@ Xft.dpi: 135
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
+
+! }}}1
+
+! vim: tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
