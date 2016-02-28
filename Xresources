@@ -25,6 +25,13 @@ XTerm*eightBitOutput:  true
 ! xterm(1)).  This seems to be required for the Dina font.
 XTerm*ForceBoxChars: true
 
+! These resources seem to do exactly the same on my system and are added to get the actual
+! border width.  xterm(1) suggests that borderWidth is probably a legacy resource.
+! Setting both to 0 looks strange sometimes but is one of the points that give me an extra
+! row in terminals using the full screen height.  Neither resource defaults to 0.
+XTerm*borderWidth:    0
+XTerm*internalBorder: 0
+
 ! https://wiki.archlinux.org/index.php/Xterm#Colors
 XTerm*background: black
 XTerm*foreground: rgb:c6/c6/c6

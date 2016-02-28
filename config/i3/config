@@ -140,14 +140,14 @@ client.background       #000000
 
 # i3-gaps configuration {{{1
 
-# 11 is a magic number.  Increasing it by one reduces the number of columns, that fit into
+# 23 is a magic number.  Increasing it by one reduces the number of columns, that fit into
 # an xterm using exactly half of my screen width, by one.  This is only what works for my
-# screen width and font, of course.  My next magic number is 23.
-gaps inner 11
+# screen width and font, of course.  My previous magic number is 9.
+gaps inner 23
 
-# -10 is the magic number that, when used with the previous magic number, exactly
-# eliminates all gaps at the edges of my screen.  Why not -11?  No idea.
-gaps outer -10
+# -22 is the magic number that, when used with the previous magic number, exactly
+# eliminates all gaps at the edges of my screen.  Why not -23?  No idea.
+gaps outer -22
 
 # Disable all gaps whenever there's only one container on the current workspace.  This
 # should be redundant, though.
