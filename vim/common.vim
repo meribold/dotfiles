@@ -730,6 +730,11 @@ imap <C-ScrollWheelRight> <Nop>
 " http://stackoverflow.com/q/11940801
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+
 " nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
 " instead now.
 " nnorem <CR> o<Esc>
