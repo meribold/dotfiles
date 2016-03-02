@@ -21,6 +21,15 @@ XTerm*eightBitInput:   false
 XTerm*eightBitControl: false
 XTerm*eightBitOutput:  true
 
+! Make xterm send ASCII DEL (0x7F) for the backspace key instead of ASCII BS (0x08).
+! Sending 0x08 apparently is a [de facto standard][1] but is not the default on my system.
+! There are also the backarrowKeyIsErase and ptyInitialErase resources; look them up in
+! xterm(1) if you want to be confused.  Note: make sure there are [accordingly modified
+! terminfo files][2].
+! [1]: https://github.com/neovim/neovim/issues/2048#issuecomment-78539223
+! [2]: https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
+XTerm*backarrowKey: false
+
 ! Assume the font does not contain line-drawing characters, and draw them directly (see
 ! xterm(1)).  This seems to be required for the Dina font.
 XTerm*ForceBoxChars: true
