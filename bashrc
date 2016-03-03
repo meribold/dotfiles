@@ -27,7 +27,7 @@ alias vimrt='vim --remote-tab'    # "--servername".
 
 export VISUAL=nvim
 export EDITOR=nvim
-export BROWSER=chromium
+export BROWSER=firefox
 
 export GPG_TTY=$(tty)
 # The GNU Privacy Guard Manual suggest setting and exporting GPG_TTY like this.

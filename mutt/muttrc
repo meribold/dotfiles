@@ -124,8 +124,8 @@ macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Star
 macro index,pager gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
 macro index,pager ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
-macro index,pager gc "<shell-escape>chromium https://contacts.google.com<return>" \
-   "open Google Contacts in Chromium"
+macro index,pager gc "<shell-escape>firefox https://contacts.google.com<return>" \
+   "open Google Contacts in Firefox"
 
 # Mutt-y (similar to Mutt's defaults) {{{2
 bind index L bottom-page # Provided by default in "generic" context but overridden.  M and
@@ -140,7 +140,7 @@ bind index,pager O edit
 macro index,pager go "<pipe-message>goobook add<return>" \
    "add the sender address to Google Contacts"
 macro index,pager i "<copy-message>=INBOX<enter><enter>" "Copy the current entry to INBOX"
-# macro attach V "<pipe-entry>cat >~/.mutt/mail.html && chromium ~/.mutt/mail.html<enter>"
+# macro attach V "<pipe-entry>cat >~/.mutt/mail.html && firefox ~/.mutt/mail.html<enter>"
 # }}}1
 
 # vim: tw=90 sts=-1 sw=3 et nowrap fdm=marker
