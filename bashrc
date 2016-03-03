@@ -11,6 +11,14 @@ shopt -s extglob
 # https://en.wikipedia.org/wiki/Software_flow_control.
 stty -ixon
 
+# Horrible hacks are happening here.
+if [[ "$TERM" == screen* ]]; then
+   # Fix Control+H in xterms that are immediately (on startup) attached to a screen
+   # session started in detached mode.  Control+H erases all characters before the cursor
+   # instead of just one without this.
+   stty kill 
+fi
+
 alias ls='ls --color=auto'
 
 alias vims='vim --servername vim' # "VIM" is the only server name that makes
