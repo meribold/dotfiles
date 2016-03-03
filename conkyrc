@@ -13,7 +13,7 @@ draw_graph_borders yes
 #font -*-dina-medium-r-*-*-13-*-*-*-*-*-*-*
 # echo $((1366-192-4-192-6))
 gap_x 972
-gap_y 2
+gap_y 296
 own_window no
 #own_window_type override
 stippled_borders 8
@@ -43,9 +43,8 @@ TEXT
 
 ${color0}${alignc}${utime %Y-%m-%d %H:%M:%S}${color2}Z
 
-${color0}${cpu cpu1}${color2}% at ${color0}${freq 1}${color2}MHz (cpu0)${goto 1170}${color0}${cpu cpu2}${color2}% at ${color0}${freq 2}${color2}MHz (cpu1)
+${color0}${cpu cpu1}${color2}% at ${color0}${freq 1}${color2}MHz${goto 1170}${color0}${cpu cpu2}${color2}% at ${color0}${freq 2}${color2}MHz
 ${color2}${cpugraph cpu1 32,192 696969 fffafa}${offset 4}${cpugraph cpu2 32,192 696969 fffafa}
-${color1}$stippled_hr
 ${color2}load average: ${color0}${loadavg 1} ${loadavg 2} ${loadavg 3}${alignr}${color2}up: ${color0}${format_time ${uptime} "\h:\m"}
 ${color2}tasks: ${color0}${processes} ${color2}total, ${color0}${running_processes} ${color2}running
 
@@ -61,10 +60,12 @@ ${color2}swap: ${color0}${swap} ($swapperc%) ${color2}used ${voffset 1}${color2}
 "}+$endif${if_match "${head /sys/class/power_supply/BAT1/status 1 5}" == "Discharging
 "}+$endif}" >= "+"}
 
-${color2}BAT1: ${color0}${battery_percent BAT1}% ${color2} energy remaining ${voffset 1}${battery_bar BAT1}$endif${if_up eth0}
-${color1}$stippled_hr
+${color2}BAT1: ${color0}${battery_percent BAT1}% ${color2}energy ${voffset 1}${battery_bar BAT1}$endif${if_up eth0}
+# ${color1}$stippled_hr
+
 ${color0}${downspeed eth0}${color2} downspeed${goto 1170}${color0}${upspeed eth0}${color2} upspeed${alignr}(eth0)
 ${color2}${downspeedgraph eth0 32,192 696969 fffafa}${offset 4}${upspeedgraph eth0 32,192 696969 fffafa}$endif${if_up wlan0}
-${color1}$stippled_hr
+# ${color1}$stippled_hr
+
 ${color0}${downspeed wlan0}${color2} downspeed${goto 1170}${color0}${upspeed wlan0}${color2} upspeed${alignr}(wlan0)
 ${color2}${downspeedgraph wlan0 32,192 696969 fffafa}${offset 4}${upspeedgraph wlan0 32,192 696969 fffafa}$endif
