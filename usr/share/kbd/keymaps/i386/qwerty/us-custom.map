@@ -1,0 +1,4 @@
+# us-custom.map
+include "us.map"
+
+keycode 58 = Escape
