@@ -25,6 +25,9 @@ alias vims='vim --servername vim' # "VIM" is the only server name that makes
 alias vimr='vim --remote'         # "vim --remote" etc. work without having to use
 alias vimrt='vim --remote-tab'    # "--servername".
 
+alias g='dict -d eng-deu'
+alias e='dict -d deu-eng'
+
 export VISUAL=nvim
 export EDITOR=nvim
 export BROWSER=firefox
