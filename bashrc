@@ -125,8 +125,8 @@ esac # Web links: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # #
 case "$TERM" in
    xterm*) # It's an xterm.
-      substring='printf "\033]0;%s@%s %s\007" "${USER}" '
-      PROMPT_COMMAND="$substring"'"${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+      PROMPT_COMMAND='printf "\033]0;%s@%s %s\007" "${USER}" '
+      PROMPT_COMMAND="$PROMPT_COMMAND"'"${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
       # http://stackoverflow.com/q/7316107
 
       # Default $PROMPT_COMMAND seems to be: printf "\033]0;%s@%s:%s\007" "${USER}"
@@ -178,7 +178,7 @@ esac # More web links:
 # "If a sigspec is DEBUG, the command arg is executed after every simple command, for
 # command, case command, select command, every arithmetic for command, and before the
 # first command executes in a shell function." - bash(1)
-trap '{ reset_VT100_character_attributes; show_command_in_title; } 2> /dev/null' DEBUG
+trap '{ reset_VT100_character_attributes; show_command_in_title; } 2>/dev/null' DEBUG
 # I don't care if these commands weren't defined: redirect to /dev/null.
 # Web links:
 # http://linux.die.net/Bash-Beginners-Guide/sect_12_02.html.
@@ -187,6 +187,6 @@ trap '{ reset_VT100_character_attributes; show_command_in_title; } 2> /dev/null'
 # http://stackoverflow.com/q/3338030
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
 
-[[ -f /etc/profile.d/fzf.bash ]] && source /etc/profile.d/fzf.bash
+[[ -f /etc/profile.d/fzf.bash ]] && . /etc/profile.d/fzf.bash
 
 # vim: tw=90 sts=-1 sw=3 et
