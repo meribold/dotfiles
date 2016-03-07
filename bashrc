@@ -94,16 +94,16 @@ case "$TERM" in
       # Colors: http://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
       #         http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 
-      PS1=$reset$dark_gray'\n\342\224\214'
-      PS1="$PS1"$reset$on_gray'[\u'$bold$black'@'$reset$on_gray'\h]'
-      PS1="$PS1"$reset$dark_gray' \w\n'
-      PS1="$PS1"'\342\224\224\342\224\200 '$reset$bold'\$ '$reset$dark_gray
+      PS1="$reset$dark_gray"'\n\342\224\214'
+      PS1+="$reset$on_gray"'[\u'"$bold${black}@$reset$on_gray"'\h]'
+      PS1+="$reset$dark_gray"' \w\n'
+      PS1+='\342\224\224\342\224\200 '"$reset$bold"'\$ '"$reset$dark_gray"
       # If the last command's output didn't end with a newline, add one.  I don't know how
       # it works, but it does.  From http://serverfault.com/q/97503.
-      PS1='$(printf "%$(($(tput cols)-1))s\r")'$PS1
-      PS2=$reset$on_gray'>'$reset' '$dark_gray
-      PS3=$reset$on_gray'>'$reset' '$dark_gray
-      PS3=$reset$on_gray'+'$reset' '$dark_gray
+      PS1='$(printf "%$(($(tput cols)-1))s\r")'"$PS1"
+      PS2="$reset${on_gray}>$reset $dark_gray"
+      PS3="$reset${on_gray}>$reset $dark_gray"
+      PS3="$reset${on_gray}+$reset $dark_gray"
 
       unset -v white gray dark_gray black bold on_light_gray on_gray on_black reset
 
@@ -116,7 +116,7 @@ case "$TERM" in
       ;;
    *) # Could be 'linux', i.e. a virtual console...
       PS1='\n\342\224\214[\u@\h] \w\n\342\224\224\342\224\200 \$ '
-      PS1='$(printf "%$(($(tput cols)-1))s\r")'$PS1
+      PS1='$(printf "%$(($(tput cols)-1))s\r")'"$PS1"
       ;;
 esac # Web links: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 
@@ -125,8 +125,8 @@ esac # Web links: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # #
 case "$TERM" in
    xterm*) # It's an xterm.
-      PROMPT_COMMAND='printf "\033]0;%s@%s %s\007" "${USER}" '
-      PROMPT_COMMAND+='"${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+      PROMPT_COMMAND='printf "\033]0;%s@%s %s\007" "$USER" "${HOSTNAME%%.*}" '
+      PROMPT_COMMAND+='"${PWD/#$HOME/~}"'
       # http://stackoverflow.com/q/7316107
 
       # Default $PROMPT_COMMAND seems to be: printf "\033]0;%s@%s:%s\007" "${USER}"
@@ -141,7 +141,7 @@ case "$TERM" in
                # terminal, so don't output them.
                ;;
             *)
-               printf "\033]0;%s@%s: %s\007" "${USER}" "${HOSTNAME%%.*}" "${BASH_COMMAND}"
+               printf "\033]0;%s@%s: %s\007" "$USER" "${HOSTNAME%%.*}" "$BASH_COMMAND"
                ;;
          esac
       }
@@ -152,7 +152,7 @@ case "$TERM" in
       # about the running command in the title:
       # PS1='\[\033k\033\\\][\u@\h \W]\$ '
       # ...but this is nicer:
-      PROMPT_COMMAND='printf "\033k%s@%s %s\033\\" "${USER}" "${HOSTNAME%%.*}" '
+      PROMPT_COMMAND='printf "\033k%s@%s %s\033\\" "$USER" "${HOSTNAME%%.*}" '
       PROMPT_COMMAND+='"${PWD/#$HOME/~}"'
       show_command_in_title()
       {
@@ -160,7 +160,7 @@ case "$TERM" in
             *\033]0*)
                ;;
             *)
-               printf "\033k%s@%s: %s\033\\" "${USER}" "${HOSTNAME%%.*}" "${BASH_COMMAND}"
+               printf "\033k%s@%s: %s\033\\" "$USER" "${HOSTNAME%%.*}" "$BASH_COMMAND"
                ;;
          esac
       }
