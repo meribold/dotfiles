@@ -58,18 +58,18 @@ shopt -s histverify
 # while overwriting the file.  See bash(1) and http://unix.stackexchange.com/a/6509.
 shopt -s histappend
 
-export HISTTIMEFORMAT='%F %T  '
-export HISTSIZE=10000
+HISTTIMEFORMAT='%F %T  '
+HISTSIZE=10000
 
 # "The maximum number of lines contained in the history file" - bash(1).  As
 # $HISTTIMEFORMAT is used, timestamps are written to separate lines for each command and
 # no more than ($HISTFILESIZE / 2) commands are saved.
-export HISTFILESIZE=20000
+HISTFILESIZE=20000
 # http://askubuntu.com/q/15926
-export HISTCONTROL=ignoreboth:erasedups
+HISTCONTROL=ignoreboth:erasedups
 
 # The pattern used accounts for the space appended when using tab completion.
-export HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg)?( )'
+HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg)?( )'
 
 # # #
 # < Set Bash's PS1, -2, -3 and -4 prompts >
