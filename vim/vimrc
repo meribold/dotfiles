@@ -3,7 +3,7 @@ set nocompatible
 source ~/.vim/common.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8.  TODO: should this be done before sourcint common.vim?
+" Setup Vim for editing in utf-8.  TODO: should this be done before sourcing common.vim?
 " http://stackoverflow.com/q/5477565
 " http://superuser.com/q/154491
 " http://stackoverflow.com/q/2438021
