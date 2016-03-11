@@ -534,7 +534,7 @@ set writebackup
 
 if has('unix')
    let s:vimfiles = $HOME . '/.vim'
-elseif has('win32') || has('win64')
+elseif has('win32')
    " Use $HOME or $USERPROFILE?
    let s:vimfiles = $HOME . '/vimfiles'
 endif
