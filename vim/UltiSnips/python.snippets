@@ -9,6 +9,8 @@ snippet #! "Shebang" b
 $0
 endsnippet
 
+# I usually use my normal setting for 'textwidth' and don't limit lines to a width of 79
+# characters like PEP 8 suggests, so this snippet doesn't override 'tw'.
 snippet modeline "Vim modeline" b
 `!p snip.rv = modeline({"sw": "=4"})`
 endsnippet
