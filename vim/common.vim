@@ -308,6 +308,12 @@ autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
 " http://usevim.com/2012/09/07/vim101-keywordprg/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use Unix-style line endings for new buffers and files on Windows too.
+if has('win32')
+   set fileformat=unix
+   set fileformats=unix,dos
+endif
+
 " [Open help in the current window](http://stackoverflow.com/a/26431632)
 " :h 'buftype'
 command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
