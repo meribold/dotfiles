@@ -2,6 +2,8 @@
 
 [[ $- != *i* ]] && return # If not running interactively, don't do anything.
 
+[[ -f /etc/profile.d/fzf.bash ]] && . /etc/profile.d/fzf.bash
+
 # http://mywiki.wooledge.org/glob
 # http://stackoverflow.com/q/17191622
 shopt -s extglob
@@ -161,14 +163,14 @@ esac # More web links:
 # command, case command, select command, every arithmetic for command, and before the
 # first command executes in a shell function." - bash(1)
 trap '{ reset_VT100_character_attributes; show_command_in_title; } 2>/dev/null' DEBUG
-# I don't care if these commands weren't defined: redirect to /dev/null.
+# I don't care if these commands weren't defined: redirect to /dev/null.  This should be
+# the last command in ~/.bashrc.  If there are more, the terminal title will be changed
+# for each one, increasing the startup time.
 # Web links:
 # http://linux.die.net/Bash-Beginners-Guide/sect_12_02.html.
 # http://stackoverflow.com/q/16636007
 # http://stackoverflow.com/q/9268836
 # http://stackoverflow.com/q/3338030
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
-
-[[ -f /etc/profile.d/fzf.bash ]] && . /etc/profile.d/fzf.bash
 
 # vim: tw=90 sts=-1 sw=3 et
