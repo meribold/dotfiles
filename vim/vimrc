@@ -1,6 +1,10 @@
 set nocompatible
 
-source ~/.vim/common.vim
+if has('unix')
+   source ~/.vim/common.vim
+elseif has('win32')
+   source ~/vimfiles/common.vim
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8.  TODO: should this be done before sourcing common.vim?
