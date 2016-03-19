@@ -18,6 +18,7 @@ Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
 
+Plug 'wellle/targets.vim'
 Plug 'tpope/vim-surround'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
