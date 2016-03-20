@@ -20,14 +20,14 @@ Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 
 Plug 'wellle/visual-split.vim'
 
-Plug 'wellle/targets.vim'
-Plug 'tpope/vim-surround'
+" New or modified text objects and operators.
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'vim-utils/vim-line'
-
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-surround'
+Plug 'vim-utils/vim-line'
+Plug 'wellle/targets.vim'
 
-" http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_
+" http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_plugin_and
 Plug 'tpope/vim-commentary'
 " Plug 'scrooloose/nerdcommenter'
 " Plug 'tomtom/tcomment_vim'
@@ -138,6 +138,7 @@ Plug 'reedes/vim-pencil'
 " autocmd! User GoyoLeave Limelight!
 
 " Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
+" Plug 'kana/vim-textobj-user'
 " Plug 'mileszs/ack.vim'
 " Plug 'rking/ag.vim'
 " Plug 'tpope/vim-abolish'
@@ -150,7 +151,7 @@ Plug 'reedes/vim-pencil'
 " Plug 'ntpeters/vim-better-whitespace'
 " Plug 'bronson/vim-trailing-whitespace'
 
-" Declare Color schemes.
+" Color schemes.
 Plug 'meribold/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'jonathanfilip/vim-lucius'
@@ -170,7 +171,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Adjust commentstring for C++ so commentary.vim uses C++-style comments.
+" Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
+" `:h ftplugin-overrule`.
 autocmd FileType cpp setlocal commentstring=//%s
 autocmd FileType markdown setlocal commentstring=<!--%s-->
 
