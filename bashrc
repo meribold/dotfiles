@@ -19,6 +19,13 @@ if [[ "$TERM" == screen* ]]; then
    # session started in detached mode.  Control+H erases all characters before the cursor
    # instead of just one without this.
    stty kill 
+   # Fix Control+H in those xterms again.  GNU Readline's key bindings are different in
+   # them for some reason: in particular, Control+H (C-h in Emacs-style notation) is bound
+   # to `unix-line-discard` instead of `backward-delete-char`.  That means it kills all
+   # text from the cursor to the beginning of the line instead of acting like backspace.
+   # I swear it was working without this before...  maybe some upgrade broke stuff again.
+   # See `help bind`, readline(3) and `info readline`.
+   bind '\C-h: backward-delete-char'
 fi
 
 alias ls='ls --color=auto'
