@@ -18,7 +18,7 @@ fi
 # always work because either xterm may attach first (`screen -r` won't attach to a session
 # that is already attached somewhere else).  Contrary to what the screen(1) man page says,
 # `screen -x` still works when the screen session is detached.
-xterm -e 'stty -ixon && screen -x' &
-xterm -e 'stty -ixon && screen -x' &
+xterm -e 'stty -ixon && exec screen -x' &
+xterm -e 'stty -ixon && exec screen -x' &
 
 # vim: tw=90 sts=-1 sw=3 et
