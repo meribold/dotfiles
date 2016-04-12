@@ -23,6 +23,7 @@ Plug 'wellle/visual-split.vim'
 " New or modified text objects and operators.
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
@@ -36,7 +37,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'goldfeld/vim-seek'
 " Plug 'justinmk/vim-sneak'
 
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 " Plug 'godlygeek/tabular'
 
 Plug 'dhruvasagar/vim-table-mode'
@@ -63,6 +64,7 @@ Plug 'tpope/vim-fugitive'
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
 Plug 'Raimondi/delimitMate'
+" Plug 'rstacruz/vim-closer'
 " Plug 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
 " Plug 'Townk/vim-autoclose'  " Inactive.  Try anyway?
 " Plug 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
@@ -79,7 +81,7 @@ Plug 'vim-scripts/a.vim'
 " Plug 'derekwyatt/vim-fswitch'
 
 " Plug 'simnalamburt/vim-mundo'
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 Plug 'meribold/vim-man'
 " Plug 'lambdalisue/vim-manpager'
@@ -93,7 +95,10 @@ Plug 'szw/vim-g'
 Plug 'tpope/vim-obsession'
 " Plug 'xolox/vim-session'
 
+" Snippet engine using Python.  Doesn't define any snippets by itself; they are in
+" honza/vim-snippets.  TODO: check that we have Python.
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Plug 'Shougo/neocomplete'
 " Plug 'Shougo/neosnippet.vim'
@@ -110,8 +115,8 @@ if has('unix')
 endif
 " Plug 'scrooloose/syntastic'
 
-Plug 'tpope/vim-vinegar'
-" Plug 'scrooloose/nerdtree'
+Plug 'justinmk/vim-dirvish'
+" Plug 'tpope/vim-vinegar'
 
 " Plug 'kien/ctrlp.vim'
 " Plug 'wincent/command-t'
@@ -138,18 +143,20 @@ Plug 'reedes/vim-pencil'
 " autocmd! User GoyoLeave Limelight!
 
 " Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
+" Plug 'benekastah/neomake'
+" Plug 'bronson/vim-trailing-whitespace'
+" Plug 'dkprice/vim-easygrep'
+" Plug 'junegunn/vim-journal/'
+" Plug 'kana/vim-textobj-line'
 " Plug 'kana/vim-textobj-user'
+" Plug 'keith/investigate.vim'
 " Plug 'mileszs/ack.vim'
+" Plug 'ntpeters/vim-better-whitespace'
 " Plug 'rking/ag.vim'
-" Plug 'tpope/vim-abolish'
+" Plug 'vim-better-whitespace'
 " Plug 'vim-sexp'
 " Plug 'vim-signature'
-" Plug 'vim-better-whitespace'
-" Plug 'dkprice/vim-easygrep'
-" Plug 'keith/investigate.vim'
-" Plug 'kana/vim-textobj-line'
-" Plug 'ntpeters/vim-better-whitespace'
-" Plug 'bronson/vim-trailing-whitespace'
+" Plug 'vimwiki/vimwiki'
 
 " Color schemes.
 Plug 'meribold/molokai'
