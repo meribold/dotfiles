@@ -1,4 +1,11 @@
-priority -60
+# The suggested priority for these (user-defined, file-type-agnostic) snippets when also
+# using [vim-snippets](http://github.com/honza/vim-snippets) is (about) -55 because the
+# all.snippets file vim-snippets ships uses a priority of -60 while its other snippets all
+# (I think) use -50 or something slightly higher.
+# This means snippets from vim-snippet's all.snippets may get overridden by the ones below
+# which in turn may get overriden by snippets for specific file types from vim-snippets.
+# See http://github.com/honza/vim-snippets/commit/929aceebb70359d2e1f05056dcf50abe75ac54f.
+priority -55
 
 global !p
 from snippet_helpers import *
