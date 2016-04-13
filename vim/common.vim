@@ -98,7 +98,7 @@ Plug 'tpope/vim-obsession'
 " Snippet engine using Python.  Doesn't define any snippets by itself; they are in
 " honza/vim-snippets.  TODO: check that we have Python.
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Plug 'Shougo/neocomplete'
 " Plug 'Shougo/neosnippet.vim'
