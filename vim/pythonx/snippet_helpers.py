@@ -33,4 +33,8 @@ def modeline(overrides = {}):
     else:
         return "vim: " + options
 
+# Vim checks the last 5 lines of files for modelines (by default) and will confuse some of
+# the code above for modelines and throw E518 when starting to edit this file.  Luckily,
+# this comment puts those lines out of that range.
+
 # vim: tw=90 sts=-1 sw=4 et
