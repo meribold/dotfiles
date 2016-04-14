@@ -177,6 +177,10 @@ Plug 'junegunn/seoul256.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+map <Space> <Nop>
+let mapleader = ' '
+let maplocalleader = '\\'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
 " `:h ftplugin-overrule`.
@@ -747,12 +751,28 @@ imap <C-ScrollWheelRight> <Nop>
 " `nnoremap <esc>^[ <esc>^[` (neither worked).
 " http://stackoverflow.com/a/1037182
 " http://stackoverflow.com/q/11940801
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
+
+" nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
+" command-line (idea from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches).
+" Remapping <CR> is complicated because care needs to be taken not to break its normal
+" function in the command-line window or the quickfix window.
+" See https://www.reddit.com/r/vim/comments/47ivpz, http://stackoverflow.com/a/16360104,
+" :h :map-local and :h :map-silent.
+function! s:RemapEnter()
+   if empty(&buftype) || expand(&buftype) ==# 'help'
+      nnoremap <buffer> <silent> <CR> :noh<Bar>:echo<CR>
+   else
+      silent! nunmap <buffer> <CR>
+   end
+endf
+" autocmd BufReadPost * call s:RemapEnter()
+autocmd BufEnter * call s:RemapEnter()
 
 " nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
 " instead now.
