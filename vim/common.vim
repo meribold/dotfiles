@@ -5,9 +5,10 @@ autocmd!
 
 " comclear
 
+" vim-plug section {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup vim-plug (https://github.com/junegunn/vim-plug).  Plugins are loaded after
-" vimrc files (:h initialization).
+" Setup vim-plug (https://github.com/junegunn/vim-plug).  Plugins are loaded after vimrc
+" files (:h initialization).
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-dispatch'
@@ -178,10 +179,7 @@ Plug 'junegunn/seoul256.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <Space> <Nop>
-let mapleader = ' '
-let maplocalleader = '\\'
-
+" Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
 " `:h ftplugin-overrule`.
@@ -325,47 +323,32 @@ autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
 " http://usevim.com/2012/09/07/vim101-keywordprg/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use Unix-style line endings for new buffers and files on Windows too.
-if has('win32')
-   set fileformat=unix
-   set fileformats=unix,dos
-endif
+" Basic settings {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Stuff taken from sensible.vim {{{2
 
-" [Open help in the current window](http://stackoverflow.com/a/26431632)
-" :h 'buftype'
-command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
+" Most (all?) of this is probably redundant for Neovim.  TODO: move it into vim/vimrc?
+" There probably also are more settings scattered around this file that belong in this
+" section.
 
-runtime! macros/matchit.vim " Load matchit.vim.  Copied from sensible.vim.
+runtime! macros/matchit.vim " Load matchit.vim.
 
-" Don't scan included files for keyword completion.  Taken from sensible.vim.
-set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
-
-" Taken from sensible.vim.  See https://github.com/tpope/vim-sensible/issues/13.
-set viminfo^=!
-
-set lazyredraw " https://github.com/tpope/vim-sensible/issues/78
+" http://vim.wikia.com/wiki/Indenting_source_code#File_type_based_indentation
+filetype plugin indent on
 
 syntax enable
 
-" Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
-set modeline
+" Don't scan included files for keyword completion.
+set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
 
-set showcmd      " Why does this default to off for Unix ONLY?
-set history=1000 " Vim default: 50.
-set incsearch    " Search while typing the search command and...
-set hlsearch     " hightlight matches.
+" See https://github.com/tpope/vim-sensible/issues/13.
+set viminfo^=!
 
-" Don't automatically yank all visual selections into the "* register.
-set clipboard-=autoselect
-
-"set autochdir
-
-" Taken from github.com/tpope/vim-sensible.
 if v:version > 703 || v:version == 703 && has('patch541')
    set formatoptions+=j " Delete comment character when joining commented lines.
 endif
 
-" Taken from sensible.vim.  Search the 'tags' file in the directory of the current file,
+" Search the 'tags' file in the directory of the current file,
 " then the parent directory, then the parent of that, and so on.  The leading './' tells
 " Vim to use the directory of the current file rather than Vim's working directory.  The
 " trailing semicolon tells it to recursively search parent directories.  See
@@ -374,11 +357,48 @@ if has('path_extra')
    setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
+" }}}2
+" Stuff that used to be part of sensible.vim {{{2
+
+" See https://github.com/tpope/vim-sensible/issues/78.
+" Removed by https://github.com/tpope/vim-sensible/commit/9e91be7e0fb42949831fe3161ef5833.
+set lazyredraw
+
+" Makes Y consistent with C and D.  See :h Y and :h &.
+" Removed by https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1f.
+nnoremap Y y$
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
+" }}}2
+map <Space> <Nop>
+let mapleader = ' '
+let maplocalleader = '\\'
+
+" Use Unix-style line endings for new buffers and files on Windows too.
+if has('win32')
+   set fileformat=unix
+   set fileformats=unix,dos
+endif
+
+" Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
+set modeline
+
+set showcmd      " Why does this default to off for Unix ONLY?
+set history=1000 " Vim default: 50.  TODO: move this to vimrc (Neovim's default is 10000).
+set incsearch    " Search while typing the search command and...
+set hlsearch     " hightlight matches.
+
+" Don't automatically yank all visual selections into the "* register.
+set clipboard-=autoselect
+
+"set autochdir
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the cursor line.
 " Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
 set number
-" set relativenumber " Slows Vim down a lot.  Worth disabling in long files with complex
+set relativenumber " Slows Vim down a lot.  Worth disabling in long files with complex
                    " syntax highlighting sometimes (unimpaired.vim maps this to [or, ]or
                    " and cor).  'cursorline' is similar.
 set numberwidth=3  " Minimal number of colums to use for the line number.
@@ -387,12 +407,14 @@ set numberwidth=3  " Minimal number of colums to use for the line number.
 " and absolute in other windows.
 " autocmd WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
 " autocmd WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
+
+set norelativenumber " It's just to slow on my laptop...
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Command-line completion (:h cmdline-completion)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildmenu " Use the enhanced command-line completion menu where 'full' is
-             " specified in 'wildmode'.
+set wildmenu " Use the enhanced command-line completion menu where 'full' is specified in
+             " 'wildmode'.
 " When 'wildchar' (Tab) is used first, and more than one match exists, list all matches
 " and complete till longest common string.  On consecutive uses (or if only one match
 " exists) show the 'wildmenu'.
@@ -417,15 +439,66 @@ set ruler         " Show the ruler.
 set laststatus=2  " Always show a status line.
 set showtabline=0 " Never display tab labels.
 
-" Required by delimitMate for delimitMate_expand_cr to work.
+" Required by delimitMate for delimitMate_expand_cr to work.  TODO: move this to vimrc:
+" this already is the Neovim default.
 set backspace=indent,eol,start
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" I used to prefer tabs for indenting and spaces for alignment (like item 4 from
+" :h 'tabstop').  That was supposed to allow using different numbers of spaces when
+" displaying a tab.
+" Because different values will still cause different text widths, I prefer not to use any
+" tabs now (item 2 from :h 'tabstop').
+
+set tabstop=8      " A <Tab> counts for 8 spaces.
+set softtabstop=-1 " Or does it?
+set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
+set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
+                   " commands.
+set expandtab      " Use CTRL-V<Tab> to insert a real tab.
+set copyindent     " Copy the structure of an existing line's indent when autoindenting
+                   " a new line; ensures spaces are used for alignment.
+set preserveindent " When changing the indent of the current line, do not replace the
+                   " existing indent structure by a series of tabs followed by spaces;
+                   " instead preserve as many existing characters as possible, and only
+                   " add additional tabs or spaces as required.
+set autoindent     " The last two settings only seem to work with this enabled.
+set breakindent    " Continue lines at their indentation level when wrapping.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set visualbell
+if exists('&belloff')
+   set belloff=all
+endif
+
+set maxmem=2000000    " Lots of memory for each buffer.
+set maxmemtot=2000000 " Lots of memory for all buffers together.
+
+set undofile " Make undo history persistent.
+
+" TODO: what was the idea with this?
+" set viminfo^=%
+
+set shortmess+=I " Don't give the intro message when starting Vim.
+
+" Make a persistent backup whenever writing a file, potentially overwriting an existing
+" backup (even if that file isn't the one being backed up; i.e., when different files
+" having the same name are edited).
+set backup
+set writebackup
+
+" Not-so-basic settings {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Draw a continuous line to separate vertical splits.
 if has('multi_byte') | :set fillchars=vert:│ | endif
 
+" [Open help in the current window](http://stackoverflow.com/a/26431632)
+" :h 'buftype'
+command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Molokai sets 'background' to light for some reason.  The issue has been
-" reported here: https://github.com/tomasr/molokai/issues/22
+" Molokai sets 'background' to light for some reason.  The issue has been reported here:
+" https://github.com/tomasr/molokai/issues/22.
 autocmd ColorScheme * if exists('g:colors_name') &&
    \ (g:colors_name ==# 'molokai' || g:colors_name ==# 'jellybeans') |
    \ noa set bg=dark | endif
@@ -451,32 +524,6 @@ endif
 " autocmd BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
 " To check the active synchronization method use ':sy[ntax] sync'.
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" I used to prefer tabs for indenting and spaces for alignment (like item 4 from
-" :h 'tabstop').  That was supposed to allow using different numbers of spaces when
-" displaying a tab.
-" Because different values will still cause different text widths, I prefer not to use any
-" tabs now (item 2 from :h 'tabstop').
-
-set tabstop=8      " A <Tab> counts for 8 spaces.
-set softtabstop=-1 " Or does it?
-set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
-set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
-                   " commands.
-set expandtab      " Use CTRL-V<Tab> to insert a real tab.
-set copyindent     " Copy the structure of an existing line's indent when autoindenting
-                   " a new line; ensures spaces are used for alignment.
-set preserveindent " When changing the indent of the current line, do not replace the
-                   " existing indent structure by a series of tabs followed by spaces;
-                   " instead preserve as many existing characters as possible, and only
-                   " add additional tabs or spaces as required.
-set autoindent     " The last two settings only seem to work with this enabled.
-set breakindent    " Continue lines at their indentation level when wrapping.
-
-" http://vim.wikia.com/wiki/Indenting_source_code#File_type_based_indentation
-filetype plugin indent on
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight trailing whitespace unless it's in the current line, left of the cursor and
@@ -538,24 +585,7 @@ endif
 " Based on snippets from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set visualbell
-if exists('&belloff')
-   set belloff=all
-endif
-
-set maxmem=2000000    " Lots of memory for each buffer.
-set maxmemtot=2000000 " Lots of memory for all buffers together.
-
-set undofile " Make undo history persistent.
-
-" set viminfo^=%
-
-" Make a persistent backup whenever writing a file, potentially overwriting an existing
-" backup (even if that file isn't the one being backed up; i.e. when different files
-" having the same name are edited).
-set backup
-set writebackup
-
+" TODO: explain.
 if has('unix')
    let s:vimfiles = $HOME . '/.vim'
 elseif has('win32')
@@ -578,8 +608,6 @@ if exists('s:vimfiles')
 endif
 " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-
 " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
-
-set shortmess+=I " Don't give the intro message when starting Vim.
 
 " Highlight first column after 'textwidth', except in help files.  TODO: autocmd isn't run
 " when the filetype is empty.
@@ -617,18 +645,50 @@ if !has('gui_running')
    set ttimeoutlen=0
 endif
 
-" Taken from sensible.vim before
-" github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800 happened.
-" Makes Y consistent with C and D.  See :h Y and :h &.
-nnoremap Y y$
-nnoremap & :&&<CR>
-xnoremap & :&&<CR>
+" Mappings {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 
 " nnoremap U :UndotreeToggle<CR>
 nnoremap U :Windows<CR>
 
-" Disable the arrow and Page Up/Down keys in all modes except Command-line mode.
-" See :help keycodes.
+" Stop 'hlsearch' highlighting and clear any message displayed on the command-line.  Taken
+" from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+" I wanted to map this to <Esc> but that caused weird behaviour which I tried to fix with
+" `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
+" `nnoremap <esc>^[ <esc>^[` (neither worked).
+" http://stackoverflow.com/a/1037182
+" http://stackoverflow.com/q/11940801
+" nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
+" command-line (idea from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches).
+" Remapping <CR> is complicated because care needs to be taken not to break its normal
+" function in the command-line window or the quickfix window.
+" See https://www.reddit.com/r/vim/comments/47ivpz, http://stackoverflow.com/a/16360104,
+" :h :map-local and :h :map-silent.
+function! s:RemapEnter()
+   if empty(&buftype) || expand(&buftype) ==# 'help'
+      nnoremap <buffer> <silent> <CR> :noh<Bar>:echo<CR>
+   else
+      silent! nunmap <buffer> <CR>
+   end
+endf
+" autocmd BufReadPost * call s:RemapEnter()
+autocmd BufEnter * call s:RemapEnter()
+
+" nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
+" instead now.
+" nnorem <CR> o<Esc>
+
+" TODO: map something to <Tab>?
+
+" Disable the arrow and Page Up/Down keys in all modes except Command-line mode.  See
+" :help keycodes.
 map  <Up>    <Nop>
 imap <Up>    <Nop>
 map  <Down>  <Nop>
@@ -748,40 +808,5 @@ imap <S-ScrollWheelRight> <Nop>
 map  <C-ScrollWheelRight> <Nop>
 imap <C-ScrollWheelRight> <Nop>
 
-" Stop 'hlsearch' highlighting and clear any message displayed on the command-line.  Taken
-" from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-" I wanted to map this to <Esc> but that caused weird behaviour which I tried to fix with
-" `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
-" `nnoremap <esc>^[ <esc>^[` (neither worked).
-" http://stackoverflow.com/a/1037182
-" http://stackoverflow.com/q/11940801
-" nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-
-" nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
-" command-line (idea from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches).
-" Remapping <CR> is complicated because care needs to be taken not to break its normal
-" function in the command-line window or the quickfix window.
-" See https://www.reddit.com/r/vim/comments/47ivpz, http://stackoverflow.com/a/16360104,
-" :h :map-local and :h :map-silent.
-function! s:RemapEnter()
-   if empty(&buftype) || expand(&buftype) ==# 'help'
-      nnoremap <buffer> <silent> <CR> :noh<Bar>:echo<CR>
-   else
-      silent! nunmap <buffer> <CR>
-   end
-endf
-" autocmd BufReadPost * call s:RemapEnter()
-autocmd BufEnter * call s:RemapEnter()
-
-" nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
-" instead now.
-" nnorem <CR> o<Esc>
-
-" TODO: map something to <Tab>?
-
-" vim: tw=90 sts=-1 sw=3 et
+" }}}1
+" vim: tw=90 sts=-1 sw=3 et fdm=marker
