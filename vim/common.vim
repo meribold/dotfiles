@@ -623,6 +623,9 @@ nnoremap Y y$
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
+" nnoremap U :UndotreeToggle<CR>
+nnoremap U :Windows<CR>
+
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.
 " See :help keycodes.
 map  <Up>    <Nop>
