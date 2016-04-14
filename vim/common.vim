@@ -333,11 +333,6 @@ autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
 
 runtime! macros/matchit.vim " Load matchit.vim.
 
-" http://vim.wikia.com/wiki/Indenting_source_code#File_type_based_indentation
-filetype plugin indent on
-
-syntax enable
-
 " Don't scan included files for keyword completion.
 set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
 
