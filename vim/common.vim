@@ -648,6 +648,8 @@ endif
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" TODO: map something to <Tab>?
+
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
@@ -680,12 +682,6 @@ function! s:RemapEnter()
 endf
 " autocmd BufReadPost * call s:RemapEnter()
 autocmd BufEnter * call s:RemapEnter()
-
-" nremapping <CR> breaks the command-line window.  I'm using unimpaired.vim's mappings
-" instead now.
-" nnorem <CR> o<Esc>
-
-" TODO: map something to <Tab>?
 
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.  See
 " :help keycodes.
