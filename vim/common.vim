@@ -11,7 +11,9 @@ autocmd!
 " files (:h initialization).
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-dispatch'
+Plug 'benekastah/neomake'
+" Plug 'tpope/vim-dispatch'
+
 Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
@@ -144,7 +146,6 @@ Plug 'reedes/vim-pencil'
 " autocmd! User GoyoLeave Limelight!
 
 " Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
-" Plug 'benekastah/neomake'
 " Plug 'bronson/vim-trailing-whitespace'
 " Plug 'dkprice/vim-easygrep'
 " Plug 'jamessan/vim-gnupg'
