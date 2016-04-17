@@ -667,22 +667,41 @@ nnoremap U :Windows<CR>
 " http://stackoverflow.com/q/11940801
 " nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" Remap <CR> {{{2
 " nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
 " command-line (idea from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches).
 " Remapping <CR> is complicated because care needs to be taken not to break its normal
-" function in the command-line window or the quickfix window.
+" function in the command-line window or the quickfix windows (:copen, :lopen).  Fugitive
+" also uses <CR> in some of its windows but this doesn't seem to override that mapping (I
+" guess fugitive's mapping is added later).
 " See https://www.reddit.com/r/vim/comments/47ivpz, http://stackoverflow.com/a/16360104,
 " :h :map-local and :h :map-silent.
 function! s:RemapEnter()
-   if empty(&buftype) || expand(&buftype) ==# 'help'
+   if empty(&buftype) || &buftype ==# 'help'
       nnoremap <buffer> <silent> <CR> :noh<Bar>:echo<CR>
    else
       silent! nunmap <buffer> <CR>
    end
 endf
-" autocmd BufReadPost * call s:RemapEnter()
-autocmd BufEnter * call s:RemapEnter()
+" autocmd BufEnter * call s:RemapEnter()
+" All autocommand events seem to have some shortcomings when used to remap <CR>:
+" *   BufReadPost isn't used for buffers without a file (try :new).
+" *   Using BufEnter breaks the quickfix windows when entering them with :copen or :lopen.
+"     because &buftype is still empty at that point.  It's also run needlessly often.
+" *   BufNew is also run too early, I think.
+" *   I don't understand when exactly BufAdd is triggered but I think it's also run too
+"     early.
+" *   Using BufNewFile in addition to BufReadPost still doesn't work for :new (but does
+"     for `:e foo` when foo doesn't exist).
+" I think using BufEnter, BufReadPost and BufNewFile might work (BufEnter is executed for
+" :new and running s:RemapEnter() on the other events seems to unbreak the quickfix
+" windows).
+" Either way, using the <expr> special argument seems like a much better approach that
+" avoids this mess.  See :h <expr> and :h expression-syntax.
+nnoremap <silent> <expr> <CR> empty(&buftype) \|\| &buftype ==# 'help' ?
+                              \ ':noh<Bar>echo<CR>' : '<CR>'
 
+" }}}2
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.  See
 " :help keycodes.
 map  <Up>    <Nop>
