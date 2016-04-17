@@ -67,7 +67,7 @@ HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg)?( )'
 # < Set Bash's PS1, -2, -3 and -4 prompts >
 # #
 case "$TERM" in
-   xterm-256color|screen*)
+   xterm-256color|xterm-termite|screen*)
       # '\e' should be equivalent to the ANSI escape sequence '\033'.  The escaped
       # brackets surrounding these sequences should prevent Bash from counting them when
       # determining the cursor position.
