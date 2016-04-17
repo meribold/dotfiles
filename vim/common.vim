@@ -134,7 +134,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-utils/vim-husk'
 " Plug 'tpope/vim-rsi'
 
-" Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 
 " Plug 'terryma/vim-multiple-cursors'
@@ -160,6 +159,7 @@ Plug 'reedes/vim-pencil'
 " Plug 'rking/ag.vim'
 " Plug 'tpope/vim-projectionist'
 " Plug 'tpope/vim-scriptease'
+" Plug 'tpope/vim-sleuth'
 " Plug 'vim-better-whitespace'
 " Plug 'vim-sexp'
 " Plug 'vim-signature'
@@ -702,6 +702,7 @@ nnoremap <silent> <expr> <CR> empty(&buftype) \|\| &buftype ==# 'help' ?
                               \ ':noh<Bar>echo<CR>' : '<CR>'
 
 " }}}2
+" Disable some built-in mappings {{{2
 " Disable the arrow and Page Up/Down keys in all modes except Command-line mode.  See
 " :help keycodes.
 map  <Up>    <Nop>
