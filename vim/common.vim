@@ -658,12 +658,16 @@ nnoremap <C-L> <C-W>l
 " Mappings for commands from junegunn's fzf.vim plugin.
 nnoremap <silent> U :Windows<CR>
 nnoremap <silent> <Leader>l :Buffers<CR>
+nnoremap <silent> <Leader>L :History<CR>
 nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>A :Ag <C-R><C-A><CR>
-nnoremap <silent> <Leader>h :History:<CR>
+nnoremap <silent> <Leader>: :History:<CR>
+nnoremap <silent> <Leader>/ :History/<CR>
 
 nnoremap <silent> <Leader>m :Neomake<CR>
 nnoremap <silent> <Leader>M :Neomake!<CR>
+
+nnoremap <silent> <Leader>u :update<CR>
 
 " Stop 'hlsearch' highlighting and clear any message displayed on the command-line.  Taken
 " from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
