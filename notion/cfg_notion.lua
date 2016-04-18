@@ -17,8 +17,8 @@ dopath("cfg_kludges")
 -- Define some layouts.
 dopath("cfg_layouts")
 
--- Load some modules.  Bindings and other configuration specific to modules are
--- in the files cfg_modulename.lua.
+-- Load some modules.  Bindings and other configuration specific to modules are in the
+-- files cfg_modulename.lua.
 dopath("mod_query")
 dopath("mod_menu")
 dopath("mod_tiling")
@@ -62,4 +62,4 @@ defbindings("WScreen", {
     kpress(META.."Tab", "mod_menu.grabmenu(_, _sub, 'focuslist')"),
 })
 
--- vim: tw=80 sts=-1 sw=4 et
+-- vim: tw=90 sts=-1 sw=4 et

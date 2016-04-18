@@ -4,8 +4,8 @@
 
 -- WScreen context bindings; these bindings are available all the time.
 defbindings("WScreen", {
-    bdoc("Switch to n:th object (workspace, full screen client window) " ..
-         "within current screen."),
+    bdoc("Switch to n:th object (workspace, full screen client window) within current " ..
+         "screen."),
     kpress(META.."1", "WScreen.switch_nth(_, 0)"),
     kpress(META.."2", "WScreen.switch_nth(_, 1)"),
     kpress(META.."3", "WScreen.switch_nth(_, 2)"),
@@ -37,11 +37,10 @@ defbindings("WScreen", {
     bdoc("Display the window list menu."),
     mpress("Button2", "mod_menu.pmenu(_, _sub, 'windowlist')"),
 
-    -- '_chld' used here stands to for an actual child window that may not
-    -- be managed by the screen itself, unlike '_sub', that is likely to be
-    -- the managing group of that window. The right/left directions are
-    -- used instead of next/prev, because they work better in conjunction
-    -- with tilings.
+    -- '_chld' used here stands to for an actual child window that may not be managed by
+    -- the screen itself, unlike '_sub', that is likely to be the managing group of that
+    -- window. The right/left directions are used instead of next/prev, because they work
+    -- better in conjunction with tilings.
     bdoc("Forward-circulate focus."),
     kpress(META.."L", "ioncore.goto_next(_chld, 'right')", "_chld:non-nil"),
     bdoc("Backward-circulate focus."),
@@ -75,8 +74,8 @@ defbindings("WGroupCW", {
     kpress_wait(META.."F", "WGroup.set_fullscreen(_, 'toggle')"),
 })
 
--- WMPlex context bindings. These bindings work in frames and on screens. The
--- innermost of such contexts/objects always gets to handle the key press.
+-- WMPlex context bindings.  These bindings work in frames and on screens.  The innermost
+-- of such contexts/objects always gets to handle the key press.
 defbindings("WMPlex", {
     bdoc("Close current object."),
     kpress_wait(META.."C", "WRegion.rqclose_propagate(_, _sub)"),
@@ -109,16 +108,15 @@ defbindings("WMPlex.toplevel", {
 
     submap(META.."BackSpace", {
         bdoc("Detach (float) or reattach an object to its previous location."),
-        -- By using _chld instead of _sub, we can detach/reattach queries
-        -- attached to a group. The detach code checks if the parameter (_chld)
-        -- is a group 'bottom' and detaches the whole group in that case.
+        -- By using _chld instead of _sub, we can detach/reattach queries attached to a
+        -- group.  The detach code checks if the parameter (_chld) is a group 'bottom' and
+        -- detaches the whole group in that case.
         kpress("D", "ioncore.detach(_chld, 'toggle')", "_chld:non-nil"),
     }),
 })
 
--- WFrame context bindings. These bindings are common to all types of frames.
--- Some additional frame bindings are found in some modules' configuration
--- files.
+-- WFrame context bindings.  These bindings are common to all types of frames.  Some
+-- additional frame bindings are found in some modules' configuration files.
 defbindings("WFrame", {
     bdoc("Display context menu."),
     mpress("Button3", "mod_menu.pmenu(_, _sub, 'ctxmenu')"),
@@ -141,7 +139,7 @@ defbindings("WFrame", {
     mdrag("Button1@tab", "WFrame.p_tabdrag(_)"),
     mdrag("Button2@tab", "WFrame.p_tabdrag(_)"),
 
-	 --[[
+      --[[
     submap(META.."BackSpace", {
         bdoc("Maximize the frame horizontally/vertically."),
         kpress("H", "WFrame.maximize_horiz(_)"),
@@ -205,9 +203,9 @@ defbindings("WFrame.floating", {
     mdrag("Button1@tab", "WFrame.p_move(_)"),
 })
 
--- WMoveresMode context bindings. These bindings are available keyboard
--- move/resize mode. The mode is activated on frames with the command
--- begin_kbresize (bound to META.."W" above).
+-- WMoveresMode context bindings. These bindings are available keyboard move/resize mode.
+-- The mode is activated on frames with the command begin_kbresize (bound to META.."W"
+-- above).
 defbindings("WMoveresMode", {
     bdoc("Cancel the resize mode."),
     kpress("AnyModifier+Escape","WMoveresMode.cancel(_)"),
@@ -216,7 +214,7 @@ defbindings("WMoveresMode", {
     bdoc("End the resize mode."),
     kpress("AnyModifier+Return","WMoveresMode.finish(_)"),
 
-	 --[[
+    --[[
     bdoc("Grow in specified direction."),
     kpress("H", "WMoveresMode.resize(_, 1, 0, 0, 0)"),
     kpress("L", "WMoveresMode.resize(_, 0, 1, 0, 0)"),
@@ -237,13 +235,13 @@ defbindings("WMoveresMode", {
     --]]
 
     bdoc("Move in specified direction."),
-    kpress("H", "WMoveresMode.resize(_,  1,  0,  0,  0);"..
+    kpress("H", "WMoveresMode.resize(_,  1,  0,  0,  0);" ..
                 "WMoveresMode.resize(_,  0, -1,  0,  0)"),
-    kpress("L", "WMoveresMode.resize(_, -1,  0,  0,  0);"..
+    kpress("L", "WMoveresMode.resize(_, -1,  0,  0,  0);" ..
                 "WMoveresMode.resize(_,  0,  1,  0,  0)"),
-    kpress("K", "WMoveresMode.resize(_,  0,  0,  1,  0);"..
+    kpress("K", "WMoveresMode.resize(_,  0,  0,  1,  0);" ..
                 "WMoveresMode.resize(_,  0,  0,  0, -1)"),
-    kpress("J", "WMoveresMode.resize(_,  0,  0,  0,  1);"..
+    kpress("J", "WMoveresMode.resize(_,  0,  0,  0,  1);" ..
                 "WMoveresMode.resize(_,  0,  0, -1,  0)"),
 })
 
@@ -273,9 +271,9 @@ defmenu("sessionmenu", {
 
 -- Context menu (frame actions etc.).
 defctxmenu("WFrame", "Frame", {
-    -- Note: this propagates the close to any subwindows; it does not destroy
-    -- the frame itself, unless empty. An entry to destroy tiled frames is
-    -- configured in cfg_tiling.lua.
+    -- Note: this propagates the close to any subwindows; it does not destroy the frame
+    -- itself, unless empty.  An entry to destroy tiled frames is configured in
+    -- cfg_tiling.lua.
     menuentry("Close",         "WRegion.rqclose_propagate(_, _sub)"),
 
     -- Low-priority entries
@@ -301,3 +299,5 @@ defctxmenu("WGroupWS", "Workspace", {
 defctxmenu("WClientWin", "Client window", {
     menuentry("Kill",    "WClientWin.kill(_)"),
 })
+
+-- vim: tw=90 sts=-1 sw=4 et

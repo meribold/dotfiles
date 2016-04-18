@@ -1,4 +1,4 @@
--- ion statusbar module configuration file
+-- Notion statusbar module configuration file
 
 local ws_broken = {false, false, false, false, false, false, false, false, false, false}
 local sb_dead, sb, workspace = true, nil, 1
@@ -48,7 +48,7 @@ local function fix_ws(n)
     if not ws_broken[workspace] and not sb_dead then
         ws_broken[workspace] = true
     elseif ws_broken[n] and sb_dead then
-        mod_statusbar.create{}:rqclose(true)    -- creates then kills the statusbar
+        mod_statusbar.create{}:rqclose(true) -- creates then kills the statusbar
 	ws_broken[n] = false
     end
 end
@@ -72,7 +72,8 @@ function switch_next_save(mplex)
 end
 
 defbindings("WScreen", {
-    bdoc("Switch to n:th object (workspace, full screen client window) within current screen."),
+    bdoc("Switch to n:th object (workspace, full screen client window) within current " ..
+         "screen."),
     kpress(META .. "1", "switch_nth_save(_, 0)"),
     kpress(META .. "2", "switch_nth_save(_, 1)"),
     kpress(META .. "3", "switch_nth_save(_, 2)"),
@@ -111,20 +112,20 @@ sb = nil
 --local floatsb
 
 --floatsb=ioncore.find_screen_id(0):attach_new{
---    type="WStatusBar", 
---    unnumbered=true, 
---    sizepolicy='southeast', 
---    template='%date | %load_1min %load_5min %load_15min | %charge', 
---    passive=true, 
+--    type="WStatusBar",
+--    unnumbered=true,
+--    sizepolicy='southeast',
+--    template='%date | %load_1min %load_5min %load_15min | %charge',
+--    passive=true,
 --    level=2
 --}
 
 --function test()
---	ioncore.find_screen_id(0):set_hidden(floatsb, 'toggle')
+--    ioncore.find_screen_id(0):set_hidden(floatsb, 'toggle')
 --end
 
 --ioncore.defbindings("WScreen", {
---	kpress(ALTMETA.."F7", "test()")
+--    kpress(ALTMETA.."F7", "test()")
 --})
 
 --function test()
@@ -134,7 +135,7 @@ sb = nil
 --end
 
 mod_statusbar.launch_statusd {
-    date = { 
+    date = {
         date_format = '%H:%M %Z',
     },
 
@@ -145,3 +146,4 @@ mod_statusbar.launch_statusd {
     },
 }
 
+-- vim: tw=90 sts=-1 sw=4 et

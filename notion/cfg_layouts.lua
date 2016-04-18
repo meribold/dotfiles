@@ -112,4 +112,4 @@ ioncore.deflayout("ChromiumLayout", {
     },
 })
 
--- vim: tw=80
+-- vim: tw=90 sts=-1 sw=4 et

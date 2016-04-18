@@ -65,3 +65,5 @@ defctxmenu("WFrame.floating", "Floating frame", {
     append=true,
     menuentry("New tiling", "mod_tiling.mkbottom(_)"),
 })
+
+-- vim: tw=90 sts=-1 sw=4 et

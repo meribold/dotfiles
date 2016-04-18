@@ -81,8 +81,8 @@ de.defstyle("frame-unknown-alt", {
 })
 
 de.defstyle("tab", {
-    -- All tab bars use this basic style when (re)starting Notion until their
-    -- frame gets focused at least once.
+    -- All tab bars use this basic style when (re)starting Notion until their frame gets
+    -- focused at least once.
     based_on = "*",
 
     highlight_colour = "#000000",
@@ -104,10 +104,9 @@ de.defstyle("tab", {
         based_on = "tab",
         foreground_colour = "#b0b0b0",
         background_colour = "#300000",
-        padding_colour = "#606060", -- The padding color matches the background
-                                    -- rather than the generic value set for
-                                    -- tabs when not explicitly specified here.
-                                    -- Bug?
+        padding_colour = "#606060", -- The padding color matches the background rather
+                                    -- than the generic value set for tabs when not
+                                    -- explicitly specified here.  Bug?
     }),
     de.substyle("active-unselected", {
         based_on = "tab",
@@ -239,4 +238,4 @@ de.defstyle("actnotify", {
 
 gr.refresh()
 
--- vim: tw=80 sw=4 et
+-- vim: tw=90 sts=-1 sw=3 et

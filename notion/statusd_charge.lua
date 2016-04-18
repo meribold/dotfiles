@@ -2,7 +2,7 @@
 --
 -- Tiny script for the notion statusbar for displaying battery charge.
 --
--- Place this at ~/.notion/ or /etc/notion/.
+-- Place this in ~/.notion/ or /etc/notion/.
 
 local defaults = {
     update_interval = 10000, -- ms
@@ -11,7 +11,7 @@ local defaults = {
         charge_now = "energy_now",
         status = "status",
     },
-        charge_low = 256,
+    charge_low = 256,
 }
 
 local settings=table.join(statusd.get_config("charge"), defaults)
@@ -42,8 +42,7 @@ local function update_charge()
     files.charge_now = nil
     files.status = nil
 
-    files.charge_now = io.open(settings.path .. settings.filenames.charge_now,
-        "r")
+    files.charge_now = io.open(settings.path .. settings.filenames.charge_now, "r")
     files.status = io.open(settings.path .. settings.filenames.status, "r")
 
     if files.charge_now then
@@ -61,5 +60,4 @@ end
 
 update_charge()
 
--- vim: expandtab sw=4 tw=80
-
+-- vim: tw=90 sts=-1 sw=4 et
