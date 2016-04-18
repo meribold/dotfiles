@@ -186,6 +186,9 @@ call plug#end()
 
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neomake_echo_current_error = 0
+let g:neomake_place_signs = 0
+
 " Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
 " `:h ftplugin-overrule`.
 autocmd FileType cpp setlocal commentstring=//%s
