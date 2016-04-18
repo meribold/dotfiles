@@ -3,8 +3,6 @@
 " See :h autocmd-define
 autocmd!
 
-" comclear
-
 " vim-plug section {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup vim-plug (https://github.com/junegunn/vim-plug).  Plugins are loaded after vimrc
@@ -671,15 +669,6 @@ nnoremap <silent> <Leader>m :Neomake<CR>
 nnoremap <silent> <Leader>M :Neomake!<CR>
 
 nnoremap <silent> <Leader>u :update<CR>
-
-" Stop 'hlsearch' highlighting and clear any message displayed on the command-line.  Taken
-" from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-" I wanted to map this to <Esc> but that caused weird behaviour which I tried to fix with
-" `autocmd TermResponse * nnoremap <Esc> :noh<Return><Esc>` and
-" `nnoremap <esc>^[ <esc>^[` (neither worked).
-" http://stackoverflow.com/a/1037182
-" http://stackoverflow.com/q/11940801
-" nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Remap <CR> {{{2
 " nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
