@@ -55,3 +55,6 @@
 [submodule "AUR/neofetch-git"]
 	path = AUR/neofetch-git
 	url = https://aur.archlinux.org/neofetch-git.git
+[submodule "AUR/asciinema"]
+	path = AUR/asciinema
+	url = https://aur.archlinux.org/asciinema.git
