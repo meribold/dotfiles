@@ -189,7 +189,7 @@ case "$TERM" in
       show_command_in_title() # Show the currently running command in the terminal title.
       {
          case "$BASH_COMMAND" in
-            *\033]0*)
+            *033]0*)
                # The command is trying to set the title bar as well; this is most likely
                # the execution of $PROMPT_COMMAND.  In any case nested escapes confuse the
                # terminal, so don't output them.
@@ -211,7 +211,7 @@ case "$TERM" in
       show_command_in_title()
       {
          case "$BASH_COMMAND" in
-            *\033]0*)
+            *033]0*)
                ;;
             *)
                printf "\033k%s@%s: %s\033\\" "$USER" "${HOSTNAME%%.*}" "$BASH_COMMAND"
