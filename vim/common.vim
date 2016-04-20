@@ -87,6 +87,8 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'meribold/vim-man'
 " Plug 'lambdalisue/vim-manpager'
 
+Plug 'skorokithakis/pastery.vim'
+
 if has('unix')
    Plug 'beloglazov/vim-online-thesaurus'
 endif
