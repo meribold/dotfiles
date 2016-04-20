@@ -1,4 +1,5 @@
 ##### Vim
+*   Add some kind of installation script.
 *   Use [par](http://vimcasts.org/episodes/formatting-text-with-par/) for automatic
     paragraph formatting?
 *   Try these Vim plugins:

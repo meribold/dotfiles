@@ -30,12 +30,74 @@ fi
 
 alias ls='ls --color=auto'
 
+alias v='$VISUAL'
+alias d='dict'
+
+alias gds='git diff --staged'
+
+alias starwars='telnet towel.blinkenlights.nl'
+
 alias vims='vim --servername vim' # "VIM" is the only server name that makes
 alias vimr='vim --remote'         # "vim --remote" etc. work without having to use
 alias vimrt='vim --remote-tab'    # "--servername".
 
-alias g='dict -d eng-deu'
-alias e='dict -d deu-eng'
+# Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
+# like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
+g() {
+   if [[ $# -gt 0 ]]; then
+      git "$@"
+   else
+      git status -s
+   fi
+}
+
+# Translate a word from English to German and vice versa.  I don't know how to invoke
+# `dict` specifying more than one database to search (exception: searching all available
+# databases is no problem), so this functions runs `dict` twice: once for "eng-deu" and
+# once for "deu-eng".  Then, the output is processed to make it look like a normal
+# invocation of `dict` in all cases.
+t() {
+   local output status other_output other_status
+   output=$(dict -d eng-deu -- "$1" 2>&1)
+   status=$?
+   other_output=$(dict -d deu-eng -- "$1" 2>&1)
+   other_status=$?
+   # See http://mywiki.wooledge.org/BashFAQ/002.
+   if [[ $status -eq 0 && $other_status -eq 0 ]]; then
+      # Both commands succeeded (should happen for `t kindergarten`, for example).
+      # Merge the "definition found" lines.
+      declare -i definition_count # Using `declare` also renders variables local.
+      definition_count=${output%% *}
+      definition_count+=${other_output%% *}
+      echo "$definition_count definitions ${output#* * }"
+      # See http://wiki.bash-hackers.org/syntax/pe.
+      # Remove the top line.
+      echo "$other_output" | tail -n +2
+   elif [[ $status -eq 0 ]]; then
+      # Only the first lookup succeeded.
+      echo "$output"
+   elif [[ $other_status -eq 0 ]]; then
+      # Only the second lookup succeeded.
+      echo "$other_output"
+   else
+      # SNAFU.
+      if [[ $other_output = *'perhaps you mean'* ]]; then
+         echo "$other_output" | head -n 1
+      else
+         echo "$output" | head -n 1
+      fi
+      echo "$output" | tail -n +2
+      echo "$other_output" | tail -n +2
+   fi
+   # Tests passed: `t curious`, `t du`, `t la`, `t treee`, `t lassso`, `t kindergarten`,
+   # `t haus`, `t nun`.
+}
+
+# Idea from https://www.reddit.com/r/bash/comments/4cqbnh.
+weather() {
+   # http://superuser.com/q/173209/curl-how-to-suppress-strange-output-when-redirecting
+   curl --silent --fail --show-error "wttr.in/${1:-}" | head -n -3
+}
 
 # # #
 # < Stuff concerning Bash's command history >
