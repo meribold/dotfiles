@@ -376,7 +376,7 @@ xnoremap & :&&<CR>
 " }}}2
 map <Space> <Nop>
 let mapleader = ' '
-let maplocalleader = '\\'
+let maplocalleader = '\'
 
 " Use Unix-style line endings for new buffers and files on Windows too.
 if has('win32')
