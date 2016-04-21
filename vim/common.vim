@@ -10,7 +10,7 @@ autocmd!
 call plug#begin('~/.vim/plugged')
 
 Plug 'benekastah/neomake'
-" Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
 Plug 'tpope/vim-eunuch'
 
