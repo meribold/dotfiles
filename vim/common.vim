@@ -144,27 +144,6 @@ Plug 'reedes/vim-pencil'
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
 
-" Stuff to maybe try later.  vimproc?  VimShell?  YankRing.vim?
-" Plug 'bronson/vim-trailing-whitespace'
-" Plug 'dkprice/vim-easygrep'
-" Plug 'jamessan/vim-gnupg'
-" Plug 'junegunn/vim-journal/'
-" Plug 'kana/vim-textobj-line'
-" Plug 'kana/vim-textobj-user'
-" Plug 'keith/investigate.vim'
-" Plug 'lervag/vimtex'
-" Plug 'machakann/vim-swap'
-" Plug 'mileszs/ack.vim'
-" Plug 'ntpeters/vim-better-whitespace'
-" Plug 'rking/ag.vim'
-" Plug 'tpope/vim-projectionist'
-" Plug 'tpope/vim-scriptease'
-" Plug 'tpope/vim-sleuth'
-" Plug 'vim-better-whitespace'
-" Plug 'vim-sexp'
-" Plug 'vim-signature'
-" Plug 'vimwiki/vimwiki'
-
 " Color schemes.
 Plug 'meribold/molokai'
 Plug 'altercation/vim-colors-solarized'
