@@ -18,6 +18,7 @@
     *   [vim-journal](https://github.com/junegunn/vim-journal)
     *   [vim-markdown-folding](https://github.com/nelstrom/vim-markdown-folding)
     *   [vim-pasta](https://github.com/sickill/vim-pasta)
+    *   [vim-protodef](https://github.com/derekwyatt/vim-protodef)
     *   [vim-quicklink](https://github.com/christoomey/vim-quicklink)
     *   [vim-sexp](https://github.com/guns/vim-sexp)
     *   [vim-signature](https://github.com/kshenoy/vim-signature)
