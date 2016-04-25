@@ -98,6 +98,9 @@ Plug 'szw/vim-g'
 Plug 'tpope/vim-obsession'
 " Plug 'xolox/vim-session'
 
+" Automatically adjusts 'shiftwidth' and 'expandtab' heuristically.
+Plug 'tpope/vim-sleuth'
+
 " Snippet engine using Python.  Doesn't define any snippets by itself; they are in
 " honza/vim-snippets.  TODO: check that we have Python.
 Plug 'SirVer/ultisnips'

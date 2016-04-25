@@ -11,7 +11,6 @@
     *   [ag.vim](https://github.com/rking/ag.vim)
     *   [investigate.vim](https://github.com/keith/investigate.vim)
     *   [scriptease.vim](https://github.com/tpope/vim-scriptease)
-    *   [sleuth.vim](https://github.com/tpope/vim-sleuth)
     *   [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
     *   [vim-easygrep](https://github.com/dkprice/vim-easygrep)
     *   [vim-gnupg](https://github.com/jamessan/vim-gnupg)
