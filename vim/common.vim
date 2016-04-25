@@ -640,6 +640,9 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
+nnoremap <silent> <Leader>c :Gcommit<CR>
+nnoremap <silent> <Leader>C :Gcommit --amend<CR>
+
 " Mappings for commands from junegunn's fzf.vim plugin.
 nnoremap <silent> U :Windows<CR>
 nnoremap <silent> <Leader>f :Files<CR>
@@ -650,11 +653,18 @@ nnoremap <silent> <Leader>A :Ag <C-R><C-A><CR>
 nnoremap <silent> <Leader>: :History:<CR>
 nnoremap <silent> <Leader>/ :History/<CR>
 nnoremap <silent> <Leader>s :Snippets<CR>
+" nnoremap <silent> <Leader>c :Commits<CR>
+" nnoremap <silent> <Leader>C :BCommits<CR>
 
 nnoremap <silent> <Leader>m :Neomake<CR>
 nnoremap <silent> <Leader>M :Neomake!<CR>
 
+" Mappings for pastery.vim commands.
+nnoremap <silent> <Leader>p :PasteFile<CR>
+vnoremap <silent> <Leader>p :PasteCode<CR>
+
 nnoremap <silent> <Leader>u :update<CR>
+nnoremap <silent> <Leader>U :Gwrite<CR>
 
 " Remap <CR> {{{2
 " nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
