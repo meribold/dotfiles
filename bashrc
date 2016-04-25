@@ -41,6 +41,13 @@ alias vims='vim --servername vim' # "VIM" is the only server name that makes
 alias vimr='vim --remote'         # "vim --remote" etc. work without having to use
 alias vimrt='vim --remote-tab'    # "--servername".
 
+# `alert` alias for use with long-running commands.  For example, `sleep 10; alert` will
+# send a desktop notification after `sleep 10` is done (if a notification daemon like
+# "Notify OSD" or "dunst" is running).  Adapted from Ubuntu's .bashrc.  See
+# notify-send(1).
+alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" \
+   "$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
 g() {
