@@ -1,6 +1,6 @@
 [user]
 	name = Lukas Waymann
-	email = lb.waym@gmail.com
+	email = meribold@gmail.com
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
@@ -11,3 +11,5 @@
 	helper = cache --timeout=10800
 [push]
 	default = simple
+[alias]
+	amend = commit --amend
