@@ -7,11 +7,11 @@
 }
 
 p, li, a {
-  color: #adadad;
+  color: #dfdfdf;
 }
 
 body {
-  background-color: #151515;
+  background-color: #121212;
 }
 
 .container {
@@ -28,8 +28,8 @@ body {
 .container p {
   padding-left: 4px;
   text-align: left;
-  color: #fad07a;
-  border-bottom: 1px solid #902020;
+  color: #ffdf87;
+  border-bottom: 1px solid #d75f5f;
 }
 
 .list {
@@ -51,7 +51,7 @@ a {
 
 a:hover {
   color: #ffffff;
-  background: #902020;
+  background: #d75f5f;
 }
 
 /* vim: set tw=90 sts=-1 sw=2 et: */
