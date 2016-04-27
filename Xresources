@@ -1,4 +1,4 @@
-! xterm configuration {{{1
+! XTerm configuration {{{1
 
 ! XTerm is a wonderful terminal.  It is, in my experience, the only terminal that combines
 ! a proper VT220 engine with a UI that's actually nice.  It's such a shame it comes with
