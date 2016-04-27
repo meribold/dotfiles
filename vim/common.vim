@@ -12,8 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-dispatch'
 
-Plug 'tpope/vim-eunuch'
-
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
@@ -59,6 +57,8 @@ Plug 'itchyny/lightline.vim'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'Yggdroot/indentLine'
 
+Plug 'tpope/vim-eunuch'
+
 Plug 'tpope/vim-fugitive'
 " Plug 'airblade/vim-gitgutter'
 
@@ -102,9 +102,9 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-sleuth'
 
 " Snippet engine using Python.  Doesn't define any snippets by itself; they are in
-" honza/vim-snippets.  TODO: check that we have Python.
+" honza/vim-snippets (but I'm only using my own snippets at the moment).  TODO: check that
+" we have Python.
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 
 " Plug 'Shougo/neocomplete'
 " Plug 'Shougo/neosnippet.vim'
