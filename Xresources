@@ -41,10 +41,6 @@ XTerm*ForceBoxChars: true
 XTerm*borderWidth:    0
 XTerm*internalBorder: 0
 
-! https://wiki.archlinux.org/index.php/Xterm#Colors
-XTerm*background: black
-XTerm*foreground: rgb:c6/c6/c6
-
 ! Use Ubuntu Mono 7 as the TrueType font...
 XTerm*faceName: Ubuntu Mono
 XTerm*faceSize: 7
@@ -74,6 +70,60 @@ XTerm*fontMenu*font5*Label: terminus 14
 XTerm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
 XTerm*fontMenu*font6*Label: fixed 13
 XTerm*font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
+
+! XTerm colors {{{1
+
+! Most of these colors are used by the [jellybeans] Vim color scheme for key highlighting
+! groups (if Vim is running inside a 256-color terminal; the colors used for gVim differ).
+! The color numbers can be listed with the `:highlight` command from Vim (while jellybeans
+! is the active color scheme).  I then used [this chart][2] to get the RGB triplets.
+! [1]: https://github.com/nanotech/jellybeans.vim
+! [2]: https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
+! [3]: https://wiki.archlinux.org/index.php/Xterm#Colors
+! [4]: http://terminal.sexy
+
+! Color 188; used by jellybeans for the "Normal" highlighting group (`:hi Normal`).
+XTerm*.foreground:  #dfdfdf
+! Completely black terminal background.  This differs from jellybeans.vim.
+XTerm*.background:  #000000
+XTerm*.cursorColor: #dfdfdf
+
+! Black.
+XTerm*.color0:      #000000
+! Grey (color 244); used by jellybeans for the "Comment" highlighting group.
+XTerm*.color8:      #808080
+
+! Red (color 167); "Constant" highlighting group
+XTerm*.color1:      #d75f5f
+XTerm*.color9:      #d75f5f
+
+! Red (color 88); "ErrorMsg" highlighting group
+! XTerm*.color1:      #870000
+! XTerm*.color9:      #870000
+
+! Green (color 107); "String" highlighting group
+XTerm*.color2:      #87af5f
+XTerm*.color10:     #87af5f
+
+! Yellow (color 222); "Function" highlighting group
+XTerm*.color3:      #ffdf87
+XTerm*.color11:     #ffdf87
+
+! Blue (color 103); "Statement" highlighting group
+XTerm*.color4:      #8787af
+XTerm*.color12:     #8787af
+
+! Magenta (color 162); "rubyRegexp" highlighting group
+XTerm*.color5:      #d70087
+XTerm*.color13:     #d70087
+
+! Cyan (color 110); "Structure" highlighting group
+XTerm*.color6:      #87afd7
+XTerm*.color14:     #87afd7
+
+! White (color 188); "Normal" highlighting group
+XTerm*.color7:      #dfdfdf
+XTerm*.color15:     #ffffff
 
 ! Other stuff {{{1
 
