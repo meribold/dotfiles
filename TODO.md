@@ -10,6 +10,8 @@
     *   [ack.vim](https://github.com/mileszs/ack.vim)
     *   [ag.vim](https://github.com/rking/ag.vim)
     *   [investigate.vim](https://github.com/keith/investigate.vim)
+    *   [neoterm](https://github.com/kassio/neoterm)
+    *   [nvr](https://github.com/mhinz/neovim-remote) (not actually a Vim plugin)
     *   [scriptease.vim](https://github.com/tpope/vim-scriptease)
     *   [vim-autoformat](https://github.com/Chiel92/vim-autoformat)
     *   [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
