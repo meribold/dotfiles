@@ -1,0 +1,5 @@
+@-moz-document url-prefix(about:blank) {
+  * { background-color: #121212; }
+}
+
+/* vim: set tw=90 sts=-1 sw=2 et: */
