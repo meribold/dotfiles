@@ -106,6 +106,19 @@ weather() {
    curl --silent --fail --show-error "wttr.in/${1:-}" | head -n -3
 }
 
+# Print the remaining amount of energy stored in the battery identified by `BAT1`.  This
+# is what works on my ThinkPad X121e and is probably not portable to other laptops without
+# changes.
+bat() {
+   now=$(</sys/class/power_supply/BAT1/energy_now)
+   full=$(</sys/class/power_supply/BAT1/energy_full)
+   # http://mywiki.wooledge.org/ArithmeticExpression
+   percent=$((100 * now / full))
+   now=$(bc <<< "scale=1; $now / 1000000")
+   full=$(bc <<< "scale=1; $full / 1000000")
+   echo "$now Wh / $full Wh (${percent}%)"
+}
+
 # # #
 # < Stuff concerning Bash's command history >
 # #
