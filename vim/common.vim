@@ -640,10 +640,23 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
+" Fix the syntax highlighting.  See `:h :syn-sync-first` and
+" http://vim.wikia.com/wiki/Fix_syntax_highlighting.
+nnoremap <silent> <Leader>s :sy sync fromstart<CR>
+
+" Mappings for visual-split.vim.  The default mappings from visual-split.vim also work in
+" normal mode (they operate on a text object).  TODO: these mappings should have normal
+" mode equivalents as well (just nmapping doesn't work).  See
+" https://github.com/wellle/visual-split.vim/blob/master/plugin/visual-split.vim
+xnoremap <silent> <C-W>j :VSSplitBelow<CR>
+xnoremap <silent> <C-W>k :VSSplitAbove<CR>
+
 nnoremap <silent> <Leader>c :Gcommit<CR>
 nnoremap <silent> <Leader>C :Gcommit --amend<CR>
 
-" Mappings for commands from junegunn's fzf.vim plugin.
+" Mappings for commands from junegunn's fzf.vim plugin.  Most commands support CTRL-T,
+" CTRL-X, and CTRL-V key mappings to open in a new tab, a new split, or a new vertical
+" split respectively.
 nnoremap <silent> U :Windows<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>l :Buffers<CR>
@@ -652,12 +665,18 @@ nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>A :Ag <C-R><C-A><CR>
 nnoremap <silent> <Leader>: :History:<CR>
 nnoremap <silent> <Leader>/ :History/<CR>
-nnoremap <silent> <Leader>s :Snippets<CR>
+nnoremap <silent> <Leader><Leader> :Snippets<CR>
 " nnoremap <silent> <Leader>c :Commits<CR>
 " nnoremap <silent> <Leader>C :BCommits<CR>
 
 nnoremap <silent> <Leader>m :Neomake<CR>
 nnoremap <silent> <Leader>M :Neomake!<CR>
+
+" Remove mappings from a.vim.  TODO: add a mapping using <LocalLeader> that's only active
+" for C and C++ files?
+silent! nunmap <Leader>ih
+silent! nunmap <Leader>is
+silent! nunmap <Leader>ihn
 
 " Mappings for pastery.vim commands.
 nnoremap <silent> <Leader>p :PasteFile<CR>
