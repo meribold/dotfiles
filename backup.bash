@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Shell script to create incremental backups with rsync.  The shebang specifies Bash
+# because this script relies on brace expansion (http://stackoverflow.com/q/10376206).
+# I've used information from rsync(1) and these ArchWiki pages and guides:
+# https://wiki.archlinux.org/index.php/Backup_programs
+# https://wiki.archlinux.org/index.php/Rsync#Snapshot_backup
+# https://wiki.archlinux.org/index.php/Full_system_backup_with_rsync
+# http://www.ibm.com/developerworks/aix/library/au-spunix_rsync/index.html#backup
+# http://www.sanitarium.net/golug/rsync_backups_2010.html
+
+# Use a timestamp in the ISO 8601 basic date and time format.  The precision is reduced to
+# minutes.  The time is given in UTC (Coordinated Universal Time), which is indicated by
+# adding a trailing Z to the timestamp.  See http://programmers.stackexchange.com/q/61683.
+date=$(date --utc "+%Y%m%dT%H%MZ")
+
+dest=/home/casi/sdb1/backup/rsync
+
+# Options used:
+# --archive: recurse and preserve almost everything
+# --hard-links: preserve hard links (not enabled by --archive)
+# --acls: update destination ACLs to be the same as source ACLs
+# --xattrs: update destination extended attributes to be the same as source ones
+# --info=progress2: output statistics based on the whole transfer
+# --human-readable: more readable numbers
+# --exclude: don't copy files matching these patterns
+# --link-dest: hard link to unchanged files here (make incremental backups)
+rsync --archive --hard-links --acls --xattrs --info=progress2 --human-readable \
+   --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/casi/sdb1/*"} \
+   --link-dest="$dest"/last \
+   /* "$dest/$date/"
+
+# Check that rsync was successful (http://askubuntu.com/q/29370).
+if [[ $? -eq 0 ]]; then
+   # The -f flag tells ln to remove the old link, -T makes it treat `last` as a normal
+   # file.  Just -f is not enough because without -T, ln will create a link *inside*
+   # `last` to the backup we just created.
+   (cd "$dest" && ln -sfv -T "$date" last)
+fi
+
+# vim: tw=90 sts=-1 sw=3 et
