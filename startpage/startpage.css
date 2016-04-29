@@ -18,7 +18,8 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  width: 85%;
+  width: 100%;
+  max-width: 1152;
   top: 50%;
   transform: translate(0, -50%);
   margin: auto;
@@ -34,7 +35,8 @@ body {
 
 .list {
   display: inline-block;
-  width: 18%;
+  width: 18.12%;
+  min-width: 208px;
   margin: 16px 8px 16px 8px;
   vertical-align: text-top;
 }
