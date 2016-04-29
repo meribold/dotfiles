@@ -7,6 +7,11 @@ gtk-icon-theme-name = "Faience"
 gtk-theme-name = "Numix"
 gtk-font-name = "Ubuntu 7"
 
+# Use Readline-like keybindings in text fields (of GTK+ 2 programs).  I don't think this
+# covers a lot of them but it does give me Ctrl+U in Firefox and `pinentry-gtk-2`.  See
+# http://kb.mozillazine.org/Emacs_Keybindings_%28Firefox%29.
+gtk-key-theme-name = "Emacs"
+
 # Change the background color used to pad the gVim window.  The default is white
 # and this can cause white borders at the bottom and right edges of the window.
 # Probably because gVim gives some size hints that are ignored.  Originally from
