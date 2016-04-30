@@ -61,3 +61,6 @@
 [submodule "AUR/cli-visualizer"]
 	path = AUR/cli-visualizer
 	url = https://aur.archlinux.org/cli-visualizer.git
+[submodule "AUR/j4-dmenu-desktop"]
+	path = AUR/j4-dmenu-desktop
+	url = https://aur.archlinux.org/j4-dmenu-desktop.git
