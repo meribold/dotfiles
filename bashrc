@@ -119,6 +119,17 @@ bat() {
    echo "$now Wh / $full Wh (${percent}%)"
 }
 
+# Select a file with fzf and open it with xdg-open.  If only one file matches "$1", bypass
+# fzf (`--select-1`).  Exit fzf immediately if there's no match (`--exit-0).  Adapted from
+# the snippets at https://github.com/junegunn/fzf/wiki/Examples.  xdg-open is ran in the
+# background and all its file descriptors are redirected do /dev/null.  See
+# https://felixmilea.com/2014/12/running-bash-commands-background-properly,
+# http://superuser.com/a/178592 and https://gist.github.com/dualbus/9275406.
+o() {
+   local file=$(fzf --query="$1" --select-1 --exit-0)
+   [[ -n $file ]] && { xdg-open "$file" &>/dev/null <&1 & disown; }
+}
+
 # # #
 # < Stuff concerning Bash's command history >
 # #
