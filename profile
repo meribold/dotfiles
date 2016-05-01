@@ -15,4 +15,9 @@ if which ruby >/dev/null && which gem >/dev/null; then
    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
+# Set PATH to include ~/bin if it exists.
+if [ -d "$HOME/bin" ]; then
+   PATH="$HOME/bin:$PATH"
+fi
+
 # vim: tw=90 sts=-1 sw=3 et ft=sh
