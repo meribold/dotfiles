@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Run a command in the background ("disown silently").  See
+# https://felixmilea.com/2014/12/running-bash-commands-background-properly.
+
+if test -t 1; then
+   exec 1>/dev/null
+fi
+
+if test -t 2; then
+   exec 2>/dev/null
+fi
+
+"$@" &
+
+# vim: tw=90 sts=-1 sw=3 et
