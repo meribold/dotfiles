@@ -2,10 +2,10 @@ export VISUAL=nvim
 export EDITOR=nvim
 export BROWSER=firefox
 
-export GPG_TTY=$(tty)
 # The GNU Privacy Guard Manual suggest setting and exporting GPG_TTY like this.
 # https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 # https://www.gnupg.org/documentation/manuals/gnupg/Common-Problems.html
+export GPG_TTY=$(tty)
 
 # Makes wiki-search-html from the arch-wiki-light package work.
 export wiki_browser=$BROWSER
@@ -15,7 +15,7 @@ if which ruby >/dev/null && which gem >/dev/null; then
    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-# Set PATH to include ~/bin if it exists.
+# Set PATH to include ~/bin if it exists.  See http://askubuntu.com/a/402410.
 if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"
 fi
