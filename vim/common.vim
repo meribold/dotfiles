@@ -599,17 +599,11 @@ endif
 set cc=+1
 autocmd FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
 
-" Use :W to write the current file with sudo.  Taken from
-" http://stackoverflow.com/a/12870763 which fixes some of the problems with
-" ':w !sudo tee >/dev/null %'.  I find using a command mode mapping (like 'cmap w!! ...')
-" to be annoying.  If the command already exists, redefine it.  See :h E174.
+" Alias for the :SudoWrite command from [eunuch.vim](https://github.com/tpope/vim-eunuch):
+" use :W to write the current file with sudo.
 if has('unix')
-   com! W sil exe 'w !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
+   command! -bar W :SudoWrite
 endif
-" http://stackoverflow.com/questions/1005/getting-root-permissions-on-a-file-inside-of-vi
-" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
-" http://unix.stackexchange.com/questions/11004/becoming-root-from-inside-vim
-" http://vim.wikia.com/wiki/Su-write
 
 " React to <Esc> immediately (unless it were a proper prefix of a mapping which, of
 " course, it isn't).  To be honest, I don't really understand what's going on here.  I
