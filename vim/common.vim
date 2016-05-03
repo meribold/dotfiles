@@ -710,7 +710,7 @@ endf
 " windows).
 " Either way, using the <expr> special argument seems like a much better approach that
 " avoids this mess.  See :h <expr> and :h expression-syntax.
-nnoremap <silent> <expr> <CR> empty(&buftype) \|\| &buftype ==# 'help' ?
+nnoremap <silent> <expr> <CR> empty(&buftype) \|\| &bt ==# 'help' \|\| &ft ==# 'man' ?
                               \ ':noh<Bar>echo<CR>' : '<CR>'
 
 " }}}2
