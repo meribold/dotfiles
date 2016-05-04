@@ -20,4 +20,9 @@ tabbrowser toolbarbutton[class^="scrollbutton"],
   padding: 1px !important;
 }
 
+/* Hide the close button on all tabs.  Taken from https://userstyles.org/styles/100916. */
+.tab-close-button {
+  display: none;
+}
+
 /* vim: set tw=90 sts=-1 sw=2 et: */
