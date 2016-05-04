@@ -1,0 +1,30 @@
+[options]
+font = Ubuntu Mono 7
+dynamic_title = true
+audible_bell = false
+urgent_on_bell = true
+
+[colors]
+foreground = #dfdfdf
+foreground_bold = #dfdfdf
+background = #000000
+cursor = #dfdfdf
+
+color0  = #000000
+color8  = #808080
+color1  = #d75f5f
+color9  = #d75f5f
+color2  = #87af5f
+color10 = #87af5f
+color3  = #ffdf87
+color11 = #ffdf87
+color4  = #8787af
+color12 = #8787af
+color5  = #d70087
+color13 = #d70087
+color6  = #87afd7
+color14 = #87afd7
+color7  = #dfdfdf
+color15 = #ffffff
+
+# vim: tw=90 sts=-1 sw=3 et ft=dosini cms=#%s
