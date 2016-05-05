@@ -1,0 +1,13 @@
+# See https://github.com/dpayne/cli-visualizer/blob/master/README.md and
+# /usr/share/doc/cli-visualizer/config.
+
+audio.sources=mpd
+
+colors.scheme=jellybeans
+
+# visualizer.spectrum.character=|
+visualizer.spectrum.smoothing.mode=none
+# visualizer.spectrum.falloff.mode=top
+visualizer.spectrum.bar.spacing=1
+
+# vim: tw=90 sts=-1 sw=3 et ft=config
