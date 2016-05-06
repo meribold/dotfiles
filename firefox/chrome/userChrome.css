@@ -25,4 +25,9 @@ tabbrowser toolbarbutton[class^="scrollbutton"],
   display: none;
 }
 
+/* Hide the window control buttons added in full-screen mode (minimize, maximize, close). */
+#window-controls {
+  display: none !important;
+}
+
 /* vim: set tw=90 sts=-1 sw=2 et: */
