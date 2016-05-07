@@ -20,10 +20,23 @@ body {
   right: 0;
   width: 100%;
   max-width: 1118px;
-  top: 50%;
-  transform: translate(0, -50%);
   margin: 0 auto 0 auto;
   text-align: center;
+}
+
+/* Center everything vertically unless the viewport is pretty small.  Basically, the
+ * method used for centering stuff vertically fails if the thing being centered is too
+ * high to fit into the viewport.  If that is the case, the absolute value of the
+ * translation applied by the transform property will be bigger than the one applied by
+ * the top property (which depends on the height of the viewport).  The content is moved
+ * up more than it was moved down and some of it becomes inaccessible.  This method of
+ * disabling vertical centering when the viewport is small only is a pretty ugly
+ * workaround, of course. */
+@media only screen and (min-width: 893px) and (min-height: 382.8px) {
+  .container {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }
 
 .container p {
