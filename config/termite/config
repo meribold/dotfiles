@@ -1,5 +1,6 @@
 [options]
-font = Ubuntu Mono 7
+# font = Ubuntu Mono 7
+font = Dina 5
 dynamic_title = true
 audible_bell = false
 urgent_on_bell = true
