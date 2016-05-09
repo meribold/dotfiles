@@ -31,7 +31,6 @@ fi
 alias ls='ls --color=auto'
 
 alias v='$VISUAL'
-alias d='dict'
 
 alias gds='git diff --staged'
 
@@ -57,6 +56,8 @@ g() {
       git status -s
    fi
 }
+
+d() { dict "$@" |& less; }
 
 # Translate a word from English to German and vice versa.  I don't know how to invoke
 # `dict` specifying more than one database to search (exception: searching all available
