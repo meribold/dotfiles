@@ -626,8 +626,9 @@ endif
 
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" TODO: map something to <Tab>?
+" Use Shift+Tab to toggle folds.  We can't remap Tab without modifiers because it's the
+" same as Control+I.  Terminals suck...
+nnoremap <S-Tab> za
 
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
