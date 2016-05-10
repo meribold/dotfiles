@@ -414,7 +414,7 @@ set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.pdf,*.png " more binary files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nowrap
-set sidescroll=1
+set sidescroll=1 " Scroll horizontally smoothly (one column at a time) instead of jumping.
 
 set title " Let vim set the terminal title.
 
@@ -627,7 +627,8 @@ endif
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use Shift+Tab to toggle folds.  We can't remap Tab without modifiers because it's the
-" same as Control+I.  Terminals suck...
+" same as Control+I.  Terminals suck... TODO: I'm not sure this mapping is useful, it's
+" not really more convenient than za.
 nnoremap <S-Tab> za
 
 nnoremap <C-H> <C-W>h
