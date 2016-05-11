@@ -626,16 +626,19 @@ endif
 
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" <Tab> and <C-I> perform the same command and we can't remap <Tab> (with no modifiers)
-" individually because terminals send the same key code for <Tab> and <C-I>.  Using <C-I>
-" is usually more convenient than <Tab> for their default action because it is mostly used
-" along with <C-O>, so the Control key already needs to be pressed.  That makes the Tab
-" key pretty much useless.  I think it's nicer to use a mapping that makes <Tab> useful
-" and <C-I> mostly useless instead, and mapping some other key combination to <C-I>'s
-" action.  This is taken from junegunn's vim configuration (except that he maps <Tab> to
-" <C-W>w):
-nnoremap <C-p> <C-i>
-nnoremap <Tab> za
+" By default, <Tab> and <C-I> perform the same command in Vim.  Remap <Tab> to toggle
+" folds without overriding <C-I> (it still goes forward in the jump list).  This is
+" accomplished by configuring xterm to send ÿ (just a random replacement character I
+" chose) when <C-I> is pressed, so we can distinguish <Tab> and <C-I>.  The reason this
+" has to be so awful is that we can't just remap <Tab> individually because terminals
+" normally send the same byte for <Tab> and <C-I>.
+if !has('gui_running')
+   nnoremap ÿ <C-I>
+   nnoremap <Tab> za
+else
+   " TODO?  I think this isn't straightforward in gvim either and I don't care too much
+   " right now.
+endif
 
 " Use Shift+Tab to toggle folds recursively.
 nnoremap <S-Tab> zA
