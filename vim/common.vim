@@ -626,10 +626,19 @@ endif
 
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use Shift+Tab to toggle folds.  We can't remap Tab without modifiers because it's the
-" same as Control+I.  Terminals suck... TODO: I'm not sure this mapping is useful, it's
-" not really more convenient than za.
-nnoremap <S-Tab> za
+" <Tab> and <C-I> perform the same command and we can't remap <Tab> (with no modifiers)
+" individually because terminals send the same key code for <Tab> and <C-I>.  Using <C-I>
+" is usually more convenient than <Tab> for their default action because it is mostly used
+" along with <C-O>, so the Control key already needs to be pressed.  That makes the Tab
+" key pretty much useless.  I think it's nicer to use a mapping that makes <Tab> useful
+" and <C-I> mostly useless instead, and mapping some other key combination to <C-I>'s
+" action.  This is taken from junegunn's vim configuration (except that he maps <Tab> to
+" <C-W>w):
+nnoremap <C-p> <C-i>
+nnoremap <Tab> za
+
+" Use Shift+Tab to toggle folds recursively.
+nnoremap <S-Tab> zA
 
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
