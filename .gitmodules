@@ -67,3 +67,6 @@
 [submodule "AUR/clipmenu"]
 	path = AUR/clipmenu
 	url = https://aur.archlinux.org/clipmenu.git
+[submodule "AUR/cower"]
+	path = AUR/cower
+	url = https://aur.archlinux.org/cower.git
