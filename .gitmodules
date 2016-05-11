@@ -22,9 +22,6 @@
 [submodule "notion/hide-tabs"]
 	path = notion/hide-tabs
 	url = https://github.com/meribold/notion-hide-tabs.git
-[submodule "AUR/fzf"]
-	path = AUR/fzf
-	url = https://aur.archlinux.org/fzf.git
 [submodule "AUR/thinkfan"]
 	path = AUR/thinkfan
 	url = https://aur.archlinux.org/thinkfan.git
