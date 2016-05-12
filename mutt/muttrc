@@ -77,7 +77,46 @@ auto_view application/pdf
 alternative_order text/plain text/html # Prefer viewing plain text if available.
 
 # source ~/dotfiles/mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
-source ~/dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
+# source ~/dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
+
+# Color Scheme {{{1
+# Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) in
+# 256-color terminals.  See file:///usr/share/doc/mutt/manual.html#color and
+# https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg.
+
+color attachment yellow  color233
+color error      red     color233
+color hdrdefault color8  color233 # Default color of the message header in the pager.
+color indicator  color15 red
+color markers    red     color233 # The + at the beginning of wrapped lines in the pager.
+color message    white   color233
+color normal     white   color233
+color prompt     white   color233
+color quoted     color8  color233
+color quoted1    color8  color233
+color quoted2    color8  color233
+color quoted3    color8  color233
+color quoted4    color8  color233
+color quoted5    color8  color233
+color quoted6    color8  color233
+color quoted7    color8  color233
+color quoted8    color8  color233
+color quoted9    color8  color233
+color search     default magenta
+color signature  color8  color233
+color status     black   blue
+color tilde      default color233 # Used to pad blank lines in the pager.
+color tree       default color233
+
+# Regexp patterns for the message header.
+color header     magenta color233 ^From
+color header     magenta color233 ^Subject
+
+# Regexp patterns for the index.
+color index      red     color233 ~F # Flagged
+color index      green   color233 ~N # New
+color index      yellow  color233 ~T # Tagged
+color index      color8  color233 ~D # Deleted
 
 # Key Bindings {{{1
 # Unbind some keys {{{2
