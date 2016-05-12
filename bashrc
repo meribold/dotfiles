@@ -28,7 +28,17 @@ if [[ "$TERM" == screen* ]]; then
    bind '\C-h: backward-delete-char'
 fi
 
-alias ls='ls --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+# Aliases for ls.
+alias ls='ls -F --color=auto'
+alias  l='ls'
+alias la='ls -A'
+alias ll='ls -Al'
 
 alias v='$VISUAL'
 
