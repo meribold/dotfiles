@@ -44,8 +44,8 @@ alias vimrt='vim --remote-tab'    # "--servername".
 # send a desktop notification after `sleep 10` is done (if a notification daemon like
 # "Notify OSD" or "dunst" is running).  Adapted from Ubuntu's .bashrc.  See
 # notify-send(1).
-alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" \
-   "$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
+'"$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
@@ -127,7 +127,8 @@ bat() {
 # https://felixmilea.com/2014/12/running-bash-commands-background-properly,
 # http://superuser.com/a/178592 and https://gist.github.com/dualbus/9275406.
 o() {
-   local file=$(fzf --query="$1" --select-1 --exit-0)
+   local file
+   file=$(fzf --query="$1" --select-1 --exit-0)
    [[ -n $file ]] && { xdg-open "$file" &>/dev/null <&1 & disown; }
 }
 
