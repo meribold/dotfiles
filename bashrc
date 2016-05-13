@@ -11,8 +11,16 @@
 # If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
 
+# Clear PROMPT_COMMAND.  It's set from /etc/bash.bashrc on Arch Linux.
+unset PROMPT_COMMAND
+
 # Load fzf(1) key bindings (https://github.com/junegunn/fzf).
 [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+
+# Source z.sh (https://github.com/rupa/z); z(1) jumps to frecent directories and it's
+# faster than autojump (I haven't tried fasd, which is similar too).  This appends a
+# command to PROMPT_COMMAND that's terminated with a semicolon.
+[[ -f /usr/lib/z.sh ]] && . /usr/lib/z.sh
 
 # http://mywiki.wooledge.org/glob
 # http://stackoverflow.com/q/17191622
@@ -241,12 +249,19 @@ esac # Web links: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # Rules for setting the terminal title {{{1
 case "$TERM" in
    xterm*) # It's an xterm.
-      PROMPT_COMMAND='printf "\033]0;%s@%s %s\007" "$USER" "${HOSTNAME%%.*}" '
-      PROMPT_COMMAND+='"${PWD/#$HOME/~}"'
+      # Try to remove a semicolon from the end of PROMPT_COMMAND.  Then append '; ' unless
+      # PROMPT_COMMAND is unset or empty.  See http://wiki.bash-hackers.org/syntax/pe.
+      PROMPT_COMMAND="${PROMPT_COMMAND%;}"
+      PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }"
+      # We can safely append new commands to PROMPT_COMMAND now.
+      PROMPT_COMMAND+='printf "\033]0;%s@%s %s\007" "$USER" "${HOSTNAME%%.*}"'
+      PROMPT_COMMAND+=' "${PWD/#$HOME/\~}"'
       # http://stackoverflow.com/q/7316107
 
-      # Default $PROMPT_COMMAND seems to be: printf "\033]0;%s@%s:%s\007" "${USER}"
-      # "${HOSTNAME%%.*}" "${PWD/#$HOME/~}".
+      # On Arch Linux and for most terminals, /etc/bash.bashrc sets PROMPT_COMMAND to:
+      #    printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"
+      # I'm unsetting PROMPT_COMMAND at the top of this file, but we could just keep it
+      # (TODO?)
 
       show_command_in_title() # Show the currently running command in the terminal title.
       {
@@ -262,14 +277,17 @@ case "$TERM" in
          esac
       }
       ;;
+
    screen*) # It's a GNU Screen terminal.  I get 'screen.linux' when running screen from
             # inside a virtual console.
       # We could do this (http://aperiodic.net/screen/title_examples) to get information
       # about the running command in the title:
-      # PS1='\[\033k\033\\\][\u@\h \W]\$ '
+      #    PS1='\[\033k\033\\\][\u@\h \W]\$ '
       # ...but this is nicer:
-      PROMPT_COMMAND='printf "\033k%s@%s %s\033\\" "$USER" "${HOSTNAME%%.*}" '
-      PROMPT_COMMAND+='"${PWD/#$HOME/~}"'
+      PROMPT_COMMAND="${PROMPT_COMMAND%;}"
+      PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }"
+      PROMPT_COMMAND+='printf "\033k%s@%s %s\033\\" "$USER" "${HOSTNAME%%.*}"'
+      PROMPT_COMMAND+=' "${PWD/#$HOME/\~}"'
       show_command_in_title()
       {
          case "$BASH_COMMAND" in

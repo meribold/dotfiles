@@ -67,3 +67,6 @@
 [submodule "AUR/cower"]
 	path = AUR/cower
 	url = https://aur.archlinux.org/cower.git
+[submodule "AUR/z-git"]
+	path = AUR/z-git
+	url = https://aur.archlinux.org/z-git.git
