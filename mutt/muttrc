@@ -109,8 +109,8 @@ color tilde      default color233 # Used to pad blank lines in the pager.
 color tree       default color233
 
 # Regexp patterns for the message header.
-color header     magenta color233 ^From
-color header     magenta color233 ^Subject
+color header     red     color233 ^From
+color header     red     color233 ^Subject
 
 # Regexp patterns for the index.
 color index      red     color233 ~F # Flagged
