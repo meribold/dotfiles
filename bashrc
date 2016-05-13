@@ -1,8 +1,18 @@
-# ~/.bashrc for my Arch Linux GNU setup.
+# ~/.bashrc for Arch Linux and Ubuntu
 
-[[ $- != *i* ]] && return # If not running interactively, don't do anything.
+# This file is sourced by login shells and interactive non-login shells.  On at least
+# Debian and Arch Linux, Bash is compiled with the `-DSYS_BASHRC="/etc/bash.bashrc"`
+# option, which makes it source /etc/bash.bashrc first for interactive non-login shells.
+# See https://wiki.archlinux.org/index.php/Bash#Configuration_files and
+# http://unix.stackexchange.com/q/187369.
 
-[[ -f /etc/profile.d/fzf.bash ]] && . /etc/profile.d/fzf.bash
+# FIXME: ShellCheck warnings.
+
+# If not running interactively, don't do anything.
+[[ $- != *i* ]] && return
+
+# Load fzf(1) key bindings (https://github.com/junegunn/fzf).
+[[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
 
 # http://mywiki.wooledge.org/glob
 # http://stackoverflow.com/q/17191622
@@ -12,6 +22,11 @@ shopt -s extglob
 # http://unix.stackexchange.com/q/12107/115980 and
 # https://en.wikipedia.org/wiki/Software_flow_control.
 stty -ixon
+
+# Send ASCII DEL (0x7F) for the backspace key instead of ASCII BS (0x08).  This is some
+# sort of de-facto standard and xterm doesn't follow it by default on my system.  Update:
+# I'm fixing it from Xresources instead of here now.
+# stty erase 
 
 # Horrible hacks are happening here.
 if [[ "$TERM" == screen* ]]; then
@@ -28,6 +43,7 @@ if [[ "$TERM" == screen* ]]; then
    bind '\C-h: backward-delete-char'
 fi
 
+# Aliases and functions for interactive use {{{1
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -142,9 +158,7 @@ o() {
    [[ -n $file ]] && { xdg-open "$file" &>/dev/null <&1 & disown; }
 }
 
-# # #
-# < Stuff concerning Bash's command history >
-# #
+# Stuff concerning Bash's command history {{{1
 shopt -s histverify
 
 # Append new history lines from each Bash session to $HISTFILE when the shell exits,
@@ -168,22 +182,20 @@ HISTCONTROL=ignoreboth:erasedups
 # The pattern used accounts for the space appended when using tab completion.
 HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg|g)?( )'
 
-# # #
-# < Set Bash's PS1, -2, -3 and -4 prompts >
-# #
+# Set Bash's PS1, -2, -3 and -4 prompts {{{1
 case "$TERM" in
    xterm-256color|xterm-termite|screen*)
       # '\e' should be equivalent to the ANSI escape sequence '\033'.  The escaped
       # brackets surrounding these sequences should prevent Bash from counting them when
       # determining the cursor position.
-      white='\[\e[38;5;231m\]'
+      # white='\[\e[38;5;231m\]'
       # X11 Gray is 0xbe.
-      gray='\[\e[38;5;251m\]' # 0xc6 (198) triplet.
+      # gray='\[\e[38;5;251m\]' # 0xc6 (198) triplet.
       dark_gray='\[\e[38;5;246m\]' # 0x94 triplet.
       black='\[\e[38;5;16m\]'
       #bold_black='\[\e[1;30m\]'
       #green='\[\e[38;5;28m\]'
-      on_light_gray='\[\e[48;5;251m\]' # 0x94 triplet.
+      # on_light_gray='\[\e[48;5;251m\]' # 0x94 triplet.
       on_gray='\[\e[48;5;236m\]' # 0x30 triplet.
       #on_black='\[\e[48;5;0m\]'
       bold='\[\e[1m\]'
@@ -217,9 +229,7 @@ case "$TERM" in
       ;;
 esac # Web links: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 
-# # #
-# < Rules for setting the terminal title >
-# #
+# Rules for setting the terminal title {{{1
 case "$TERM" in
    xterm*) # It's an xterm.
       PROMPT_COMMAND='printf "\033]0;%s@%s %s\007" "$USER" "${HOSTNAME%%.*}" '
@@ -263,7 +273,7 @@ case "$TERM" in
       }
       ;;
    *)
-      # It's something else.  TODO: what to do?
+      # It's something else.
       ;;
 esac # More web links:
 # http://mg.pov.lt/blog/bash-prompt.html
@@ -285,4 +295,4 @@ trap '{ reset_VT100_character_attributes; show_command_in_title; } 2>/dev/null' 
 # http://stackoverflow.com/q/3338030
 # https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
 
-# vim: tw=90 sts=-1 sw=3 et
+# vim: tw=90 sts=-1 sw=3 et fdm=marker
