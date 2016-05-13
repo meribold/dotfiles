@@ -51,10 +51,19 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 # Aliases for ls.
-alias ls='ls -F --color=auto'
-alias  l='ls'
-alias la='ls -A'
-alias ll='ls -Al'
+alias ls='ls --color=auto'
+alias  l='ls -F'
+alias la='ls -FA'
+alias ll='ls -lh'
+
+# List subdirectories (http://stackoverflow.com/a/171938).
+alias lsd='ls -d */'
+
+# Aliases for humans.
+alias df='df -h'
+alias free='free -h'
+
+alias info='info --vi-keys'
 
 alias v='$VISUAL'
 
