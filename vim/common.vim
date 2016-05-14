@@ -648,6 +648,12 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
+" Always go forward with n and backward with N.  Remove the cognitive dissonance after
+" forgetting whether the last search was done with '/' or '?'.  See
+" http://stackoverflow.com/q/18523150 and http://vi.stackexchange.com/q/2365.
+noremap <expr> n 'Nn'[v:searchforward]
+noremap <expr> N 'nN'[v:searchforward]
+
 " Fix the syntax highlighting.  See `:h :syn-sync-first` and
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting.
 nnoremap <silent> <Leader>s :sy sync fromstart<CR>
