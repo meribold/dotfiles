@@ -227,9 +227,9 @@ case "$TERM" in
       # If the last command's output didn't end with a newline, add one.  I don't know how
       # it works, but it does.  From http://serverfault.com/q/97503.
       PS1='$(printf "%$(($(tput cols)-1))s\r")'"$PS1"
-      PS2="$reset${on_gray}>$reset $dark_gray"
-      PS3="$reset${on_gray}>$reset $dark_gray"
-      PS3="$reset${on_gray}+$reset $dark_gray"
+      PS2="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}> $reset$dark_gray"
+      PS3="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}> $reset$dark_gray"
+      PS4="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}+ $reset$dark_gray"
 
       unset -v white gray dark_gray black bold on_light_gray on_gray on_black reset
 
