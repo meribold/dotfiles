@@ -199,7 +199,7 @@ HISTCONTROL=ignoreboth:erasedups
 # The pattern used accounts for the space appended when using tab completion.
 HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg|g)?( )'
 
-# Set Bash's PS1, -2, -3 and -4 prompts {{{1
+# Set Bash's PS1 and PS2 prompts {{{1
 case "$TERM" in
    xterm-256color|xterm-termite|screen*)
       # '\e' should be equivalent to the ANSI escape sequence '\033'.  The escaped
@@ -228,8 +228,6 @@ case "$TERM" in
       # it works, but it does.  From http://serverfault.com/q/97503.
       PS1='$(printf "%$(($(tput cols)-1))s\r")'"$PS1"
       PS2="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}> $reset$dark_gray"
-      PS3="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}> $reset$dark_gray"
-      PS4="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}+ $reset$dark_gray"
 
       unset -v white gray dark_gray black bold on_light_gray on_gray on_black reset
 
