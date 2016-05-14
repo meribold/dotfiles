@@ -643,6 +643,7 @@ endif
 " Use Shift+Tab to toggle folds recursively.
 nnoremap <S-Tab> zA
 
+" Switch windows more easily.
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
