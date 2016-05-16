@@ -124,6 +124,8 @@ endif
 Plug 'justinmk/vim-dirvish'
 " Plug 'tpope/vim-vinegar'
 
+Plug 'thinca/vim-visualstar'
+
 " Plug 'kien/ctrlp.vim'
 " Plug 'wincent/command-t'
 " Plug 'szw/vim-ctrlspace'
