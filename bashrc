@@ -26,6 +26,10 @@ unset PROMPT_COMMAND
 # http://stackoverflow.com/q/17191622
 shopt -s extglob
 
+# Perform history expansion on the current line and insert a space, with space.  See
+# bash(1).  For example, typing !!<Space> will replace the !! with the previous command.
+bind Space:magic-space
+
 # Disable XON/XOFF flow control.  See stty(1),
 # http://unix.stackexchange.com/q/12107/115980 and
 # https://en.wikipedia.org/wiki/Software_flow_control.
