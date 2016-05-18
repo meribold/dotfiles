@@ -94,6 +94,9 @@ alias vimrt='vim --remote-tab'    # "--servername".
 alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 '"$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Get the system's public IP address.  Taken from http://unix.stackexchange.com/a/81699.
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
 g() {
