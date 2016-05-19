@@ -22,6 +22,9 @@ unset PROMPT_COMMAND
 # command to PROMPT_COMMAND that's terminated with a semicolon.
 [[ -f /usr/lib/z.sh ]] && . /usr/lib/z.sh
 
+# I use j for z.
+unalias z
+
 # http://mywiki.wooledge.org/glob
 # http://stackoverflow.com/q/17191622
 shopt -s extglob
@@ -70,6 +73,14 @@ alias ll='ls -lh'
 
 # List subdirectories (http://stackoverflow.com/a/171938).
 alias lsd='ls -d */'
+
+# Jump into the most 'frecent' directory matching all arguments.  Normally like z(1) but
+# when used without arguments, use fzf to select a directory.  Adapted from
+# https://github.com/junegunn/fzf/wiki/Examples#z.
+j() {
+   [[ $# -gt 0 ]] && _z "$*" && return
+   cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
+}
 
 # Aliases for humans.
 alias df='df -h'
