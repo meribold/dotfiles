@@ -82,6 +82,16 @@ j() {
    cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
 }
 
+# Select a song from the current MPD playlist with fzf and start playing it.  If only one
+# song matches "$*", bypass fzf.  Based on
+# https://github.com/junegunn/fzf/wiki/Examples#mpd.
+p() {
+   local song_position
+   song_position=$(mpc -f "%position%: %artist% - %title%" playlist | \
+      fzf --query="$*" --select-1 --exit-0 | sed -n 's/^\([0-9]\+\):.*/\1/p') || return 1
+   [[ -n $song_position ]] && mpc -q play "$song_position"
+}
+
 # Aliases for humans.
 alias df='df -h'
 alias free='free -h'
