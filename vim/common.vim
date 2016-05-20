@@ -60,7 +60,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
@@ -239,7 +239,9 @@ endfunction
 " let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 
-let g:gitgutter_signs = 0 " The same as 'let gitgutter_signs = 0' here, I guess?
+let g:gitgutter_enabled = 0  " Turn vim-gitgutter off by default.
+let g:gitgutter_realtime = 0 " Don't trigger sign updates when not typing.
+let g:gitgutter_eager = 0    " Update signs less often; mostly just when writing a buffer.
 
 let delimitMate_expand_cr = 1
 let delimitMate_jump_expansion = 1
@@ -656,6 +658,8 @@ nnoremap <C-L> <C-W>l
 " http://stackoverflow.com/q/18523150 and http://vi.stackexchange.com/q/2365.
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
+
+nnoremap <silent> <Leader>g :GitGutterToggle<CR>
 
 " Fix the syntax highlighting.  See `:h :syn-sync-first` and
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting.
