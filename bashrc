@@ -83,13 +83,27 @@ j() {
 }
 
 # Select a song from the current MPD playlist with fzf and start playing it.  If only one
-# song matches "$*", bypass fzf.  Based on
-# https://github.com/junegunn/fzf/wiki/Examples#mpd.
+# matches "$*", bypass fzf.  Based on https://github.com/junegunn/fzf/wiki/Examples#mpd
+# but this version shows the next song to be played first.
 p() {
-   local song_position
-   song_position=$(mpc -f "%position%: %artist% - %title%" playlist | \
-      fzf --query="$*" --select-1 --exit-0 | sed -n 's/^\([0-9]\+\):.*/\1/p') || return 1
-   [[ -n $song_position ]] && mpc -q play "$song_position"
+   local playlist
+   local length
+   local current_song
+   local new_song
+   playlist=$(mpc -f '%position% %artist% - %title%' playlist) || return 1
+   # If the current MPD playlist is empty, return.
+   [[ $playlist ]] || return 1
+   length=$(wc -l <<< "$playlist") || return 1
+   current_song=$(mpc -f "%position%" current) || return 1
+   current_song=${current_song:-0}
+   new_song=$(awk -v l="$length" '{$1 = ($1 - 1 + l - '"$current_song"') % l; print}' \
+                 <<< "$playlist" \
+            | sort -k1 -V \
+            | awk -v l="$length" '{$1 = ($1 + '"$current_song"') % l + 1":"; print}' \
+            | fzf --query="$*" --select-1 --exit-0 \
+            | sed -n 's/^\([0-9]\+\):.*/\1/p')
+   [[ $? -ne 0 ]] && return 1
+   [[ -n $new_song ]] && mpc -q play "$new_song"
 }
 
 # Aliases for humans.
