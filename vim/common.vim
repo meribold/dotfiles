@@ -112,9 +112,9 @@ Plug 'SirVer/ultisnips'
 
 " I have vim-youcompleteme-git from the AUR installed.  Upstream is on GitHub at
 " Valloric/YouCompleteMe.  I'm not sure I like it, though, and it slows Vim down
-" noticeably on my laptop.  It's disabled for now.  [How to turn-off a plugin in Vim
-" temporarily?](http://stackoverflow.com/q/601412) [How do you disable a specific plugin
-" in Vim?] (http://stackoverflow.com/q/2888970)
+" noticeably on my laptop.  It's disabled for now.  See [How to turn-off a plugin in Vim
+" temporarily?](http://stackoverflow.com/q/601412) and [How do you disable a specific
+" plugin in Vim?](http://stackoverflow.com/q/2888970).
 if has('unix')
    let g:loaded_youcompleteme = 1
    " Plug 'rdnetto/YCM-Generator'

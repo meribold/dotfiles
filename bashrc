@@ -339,6 +339,7 @@ case "$TERM" in
          esac
       }
       ;;
+
    *)
       # It's something else.
       ;;

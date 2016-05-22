@@ -7,13 +7,11 @@ tabbrowser tabpanels {
  * [1]: https://wiki.archlinux.org/index.php/Firefox_tweaks#Hiding_various_tab_buttons
  * [2]: https://userstyles.org/styles/59499 */
 tabbrowser toolbarbutton[class^="scrollbutton"] .toolbarbutton-icon,
-#TabsToolbar toolbarbutton[class^="scrollbutton"] .toolbarbutton-icon
-{
+#TabsToolbar toolbarbutton[class^="scrollbutton"] .toolbarbutton-icon {
   display: none;
 }
 tabbrowser toolbarbutton[class^="scrollbutton"],
-#TabsToolbar toolbarbutton[class^="scrollbutton"]
-{
+#TabsToolbar toolbarbutton[class^="scrollbutton"] {
   margin: 0px !important;
   padding: 1px !important;
 }
