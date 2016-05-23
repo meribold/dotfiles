@@ -653,6 +653,11 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
+" Split windows more easily: `_` splits horizontally and `|` splits vertically.  Taken
+" from justinmk's comment at http://www.reddit.com/comments/4jyw8o//d3ayzox.
+nnoremap <silent> <expr> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
+nnoremap <silent> <expr> _  !v:count ? "<C-W>s<C-W><Down>"  : '_'
+
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
 " http://stackoverflow.com/q/18523150 and http://vi.stackexchange.com/q/2365.
