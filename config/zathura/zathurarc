@@ -1,0 +1,47 @@
+set font "Ubuntu Mono 7"
+set guioptions ""
+set statusbar-h-padding 8
+set statusbar-v-padding 4
+set page-padding 1
+set statusbar-home-tilde true
+set selection-notification false
+# set synctex-editor-command
+
+# Colors {{{1
+set completion-bg "#121212"
+set completion-fg "#dfdfdf"
+set completion-group-bg "#ff0000"
+set completion-group-fg "#00ff00"
+set completion-highlight-bg "#d75f5f"
+set completion-highlight-fg "#000000"
+set default-bg "#121212"
+set default-fg "#dfdfdf"
+set inputbar-bg "#000000"
+set inputbar-fg "#dfdfdf"
+set notification-bg "#000000"
+set notification-fg "#dfdfdf"
+set notification-error-bg "#000000"
+set notification-error-fg "#d75f5f"
+set notification-warning-bg "#000000"
+set notification-warning-fg "#ffdf87"
+set tabbar-bg "#121212"
+set tabbar-fg "#dfdfdf"
+set tabbar-focus-bg "#121212"
+set tabbar-focus-fg "#d75f5f"
+set statusbar-bg "#121212"
+set statusbar-fg "#dfdfdf"
+set highlight-color "#ffdf87"
+set highlight-active-color "#d75f5f"
+# set highlight-transparency 0.5
+set recolor-darkcolor "#dfdfdf"
+set recolor-lightcolor "#121212"
+set render-loading false
+set render-loading-bg "#121212"
+set render-loading-fg "#dfdfdf"
+# set index-bg "#121212"
+# set index-fg "#00ffff"
+# set index-active-bg "#121212"
+# set index-active-fg "#dfdfdf"
+
+# }}}1
+# vim: tw=90 sts=-1 sw=3 et ft=config cms=#%s fdm=marker
