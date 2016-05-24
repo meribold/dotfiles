@@ -26,6 +26,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
+Plug 'kana/vim-textobj-user' " Required for vim-textobj-entire
+Plug 'kana/vim-textobj-entire'
 
 " http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_plugin_and
 Plug 'tpope/vim-commentary'

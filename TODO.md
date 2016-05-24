@@ -31,7 +31,6 @@
     *   [vim-sort-motion](https://github.com/christoomey/vim-sort-motion)
     *   [vim-swap](https://github.com/machakann/vim-swap)
     *   [vim-textobj-line](https://github.com/kana/vim-textobj-line)
-    *   [vim-textobj-user](https://github.com/kana/vim-textobj-user)
     *   [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
     *   [vimproc](https://github.com/Shougo/vimproc.vim)
     *   [vimtex](https://github.com/lervag/vimtex)
