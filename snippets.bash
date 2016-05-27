@@ -21,3 +21,4 @@ sudo dhcpcd -B wlan0
 sudo mount /dev/sdb1 ~/sdb1
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
+youtube-dl -o - 'XAAp_luluo0' | mplayer -cache 8192 -
