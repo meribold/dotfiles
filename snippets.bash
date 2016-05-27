@@ -13,8 +13,11 @@ gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#
 i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
 makepkg -sri
 mpc clear && mpc ls | mpc add
+pacman -Qeq --foreign > ~/packages-foreign.txt
+pacman -Qeq --native > ~/packages-native.txt
 rsync -r -h --info=progress2 SRC DEST
 strfile ~/dotfiles/cookies
 sudo dhcpcd -B wlan0
 sudo mount /dev/sdb1 ~/sdb1
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
+watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
