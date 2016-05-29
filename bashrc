@@ -20,10 +20,10 @@ unset PROMPT_COMMAND
 # Source z.sh (https://github.com/rupa/z); z(1) jumps to frecent directories and it's
 # faster than autojump (I haven't tried fasd, which is similar too).  This appends a
 # command to PROMPT_COMMAND that's terminated with a semicolon.
-[[ -f /usr/lib/z.sh ]] && . /usr/lib/z.sh
-
-# I use j for z.
-unalias z
+if [[ -f /usr/lib/z.sh ]]; then
+   . /usr/lib/z.sh
+   unalias z # I use j for z.
+fi
 
 # http://mywiki.wooledge.org/glob
 # http://stackoverflow.com/q/17191622
