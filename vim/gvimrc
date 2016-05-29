@@ -1,9 +1,9 @@
 "
 " $MGYVIMRC
 "
-" This is also sourced when starting the GUI later with :gui.  That makes it
-" preferable to put stuff specific to gVim here (instead of into .vimrc behind
-" has('gui_running') if statements).  Neovim doesn't use this file.
+" This is also sourced when starting the GUI later with :gui.  That makes it preferable to
+" put stuff specific to gVim here (instead of into .vimrc behind has('gui_running') if
+" statements).  Neovim doesn't use this file.
 
 " Don't automatically yank all visual selections into the "* register.
 set guioptions-=a
@@ -23,8 +23,8 @@ let g:solarized_italic = 0
 " Search for 'hi nontext' in vimrc for explanations.
 hi nontext guifg=bg gui=NONE
 
-" No bell, no flash.  When the GUI starts, 't_vb' is reset to its default value,
-" so we need to set it again here.  See :h visualbell.
+" No bell, no flash.  When the GUI starts, 't_vb' is reset to its default value, so we
+" need to set it again here.  See :h visualbell.
 set t_vb=
 
 " Don't make the cursor blink!
