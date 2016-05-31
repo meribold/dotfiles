@@ -1,5 +1,9 @@
 " Shared initialization commands.  Sourced from both init.vim (Neovim) and vimrc (Vim).
 
+" Vim comes with some bundled plugins in various subdirectories of $VIMRUNTIME.  Those in
+" plugin/ are enabled by default but there are some more in pack/dist/opt/ and macros/
+" that are not.  TODO: take a look if any should be dis- or enabled.
+
 " Remove all autocommands for the 'vimrc' group.  It is currently the only autocommand
 " group I'm defining in my initialization files and all their autocommands use it.  I was
 " using the default unnamed group before and just ran `autocmd!` without setting the group
@@ -76,6 +80,8 @@ Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
 Plug 'Raimondi/delimitMate'
+" Plug 'ervandew/matchem'
+" Plug 'cohama/lexima.vim'
 " Plug 'rstacruz/vim-closer'
 " Plug 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
 " Plug 'Townk/vim-autoclose'  " Inactive.  Try anyway?
@@ -181,6 +187,15 @@ call plug#end()
 
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable netrw by [pretending it's already loaded][1].  This seemed like a good idea to
+" improve startup time since [dirvish.vim][2] [doesn't depend on netrw][3], but netrw
+" defines the gx mapping so I'll at least have to add a replacement for that mapping
+" first.
+" [1]: http://stackoverflow.com/a/21687112
+" [2]: http://github.com/justinmk/vim-dirvish
+" [3]: http://www.reddit.com/comments/4l00pj//d3j7a8j
+" let loaded_netrwPlugin = 1
+
 let g:neomake_echo_current_error = 0
 let g:neomake_place_signs = 0
 
@@ -677,7 +692,8 @@ nnoremap <silent> <expr> _  !v:count ? "<C-W>s<C-W><Down>"  : '_'
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
-" http://stackoverflow.com/q/18523150 and http://vi.stackexchange.com/q/2365.
+" http://stackoverflow.com/q/18523150 and http://vi.stackexchange.com/q/2365.  :noremap
+" adds the mapping for normal, visual, select and operator-pending mode.
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
 
