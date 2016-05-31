@@ -1,7 +1,16 @@
 " Shared initialization commands.  Sourced from both init.vim (Neovim) and vimrc (Vim).
 
-" See :h autocmd-define
-autocmd!
+" Remove all autocommands for the 'vimrc' group.  It is currently the only autocommand
+" group I'm defining in my initialization files and all their autocommands use it.  I was
+" using the default unnamed group before and just ran `autocmd!` without setting the group
+" (using the default group implicitly).  This was causing issues as some of the bundled
+" VimL files also use the default group so sourcing this file again after startup would
+" kill their autocommands as well (e.g., syntax highlighting did stop being enabled
+" automatically in new buffers).  I think the default autocommand group should be reserved
+" for users.
+augroup vimrc
+   autocmd!
+augroup END
 
 " vim-plug section {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,8 +186,8 @@ let g:neomake_place_signs = 0
 
 " Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
 " `:h ftplugin-overrule`.
-autocmd FileType cpp setlocal commentstring=//%s
-autocmd FileType markdown setlocal commentstring=<!--%s-->
+autocmd vimrc FileType cpp setlocal commentstring=//%s
+autocmd vimrc FileType markdown setlocal commentstring=<!--%s-->
 
 " Let Sneak handle f, F, t and T.
 " nmap f <Plug>Sneak_f
@@ -209,7 +218,7 @@ let g:lightline = {
 
 " Based on the snippet from :h lightline-problem-13.  Also see [Changing colorscheme on
 " the fly](https://github.com/itchyny/lightline.vim/issues/9)
-autocmd ColorScheme * call s:lightline_update()
+autocmd vimrc ColorScheme * call s:lightline_update()
 function! s:lightline_update() " Local to this file.
    " TODO: only list color schemes where the name of the lightline color scheme differs
    " from the one of the matching Vim color scheme.  Use a directory listing of
@@ -308,8 +317,8 @@ function! s:FixK()
       silent! unmap <buffer> K
    endif
 endfunction
-autocmd FileType * call s:FixK()
-autocmd BufWinEnter * if empty(&ft) | call s:FixK() | endif
+autocmd vimrc FileType * call s:FixK()
+autocmd vimrc BufWinEnter * if empty(&ft) | call s:FixK() | endif
 
 " [Help for word under cursor](http://stackoverflow.com/a/15867465)
 " https://github.com/vim-utils/vim-man
@@ -395,8 +404,8 @@ set numberwidth=3  " Minimal number of colums to use for the line number.
 
 " Display relative line numbers (absolute for line cursor is in) in the focused window,
 " and absolute in other windows.
-" autocmd WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
-" autocmd WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
+" autocmd vimrc WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
+" autocmd vimrc WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
 
 set norelativenumber " It's just to slow on my laptop...
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -489,7 +498,7 @@ command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Molokai sets 'background' to light for some reason.  The issue has been reported here:
 " https://github.com/tomasr/molokai/issues/22.
-autocmd ColorScheme * if exists('g:colors_name') &&
+autocmd vimrc ColorScheme * if exists('g:colors_name') &&
    \ (g:colors_name ==# 'molokai' || g:colors_name ==# 'jellybeans') |
    \ noa set bg=dark | endif
 
@@ -510,8 +519,8 @@ endif
 
 " These autocommands are to slow on my laptop.  TODO: use a mapping to correct syntax
 " highlighting issues when they really occur instead?
-" autocmd BufEnter * if &ft != 'help' | syntax sync fromstart | endif
-" autocmd BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
+" autocmd vimrc BufEnter * if &ft != 'help' | syntax sync fromstart | endif
+" autocmd vimrc BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
 " To check the active synchronization method use ':sy[ntax] sync'.
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting
 
@@ -557,11 +566,11 @@ function! s:OnWinEnter()
       call s:OnBufWinEnter()
    end
 endfunction
-autocmd InsertEnter * call s:OnInsertEnter()
-autocmd InsertLeave * call s:OnInsertLeave()
-autocmd BufWinEnter * call s:OnBufWinEnter() " Insufficient.  Try :split without
-autocmd WinEnter    * call s:OnWinEnter()    " this.
-autocmd FileType    * call s:OnBufWinEnter()
+autocmd vimrc InsertEnter * call s:OnInsertEnter()
+autocmd vimrc InsertLeave * call s:OnInsertLeave()
+autocmd vimrc BufWinEnter * call s:OnBufWinEnter() " Insufficient.  Try :split without
+autocmd vimrc WinEnter    * call s:OnWinEnter()    " this.
+autocmd vimrc FileType    * call s:OnBufWinEnter()
 
 " Don't break when sourcing again.
 if exists('w:spaceMatch') || exists('w:tabMatch')
@@ -602,7 +611,7 @@ endif
 " Highlight first column after 'textwidth', except in help files.  TODO: autocmd isn't run
 " when the filetype is empty.
 set cc=+1
-autocmd FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
+autocmd vimrc FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
 
 " Alias for the :SudoWrite command from [eunuch.vim](https://github.com/tpope/vim-eunuch):
 " use :W to write the current file with sudo.
@@ -736,7 +745,7 @@ function! s:RemapEnter()
       silent! nunmap <buffer> <CR>
    end
 endf
-" autocmd BufEnter * call s:RemapEnter()
+" autocmd vimrc BufEnter * call s:RemapEnter()
 " All autocommand events seem to have some shortcomings when used to remap <CR>:
 " *   BufReadPost isn't used for buffers without a file (try :new).
 " *   Using BufEnter breaks the quickfix windows when entering them with :copen or :lopen.
