@@ -269,6 +269,7 @@ let g:gitgutter_enabled = 0  " Turn vim-gitgutter off by default.
 let g:gitgutter_realtime = 0 " Don't trigger sign updates when not typing.
 let g:gitgutter_eager = 0    " Update signs less often; mostly just when writing a buffer.
 
+let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 let delimitMate_balance_matchpairs = 1
 
