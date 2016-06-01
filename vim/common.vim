@@ -104,13 +104,15 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'meribold/vim-man'
 " Plug 'lambdalisue/vim-manpager'
 
-Plug 'skorokithakis/pastery.vim'
+" FIXME: pastery.vim increases Vim's startup time by half a second when not using
+" on-demand loading.
+Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
 
 if has('unix')
    Plug 'beloglazov/vim-online-thesaurus'
 endif
 Plug 'szw/vim-dict'
-Plug 'szw/vim-g'
+" Plug 'szw/vim-g'
 
 Plug 'tpope/vim-obsession'
 " Plug 'xolox/vim-session'
