@@ -4,4 +4,96 @@ extends c
 # Override C snippets.
 priority 1
 
+global !p
+def to_upper_camel_case(s):
+   # https://en.wikipedia.org/wiki/CamelCase
+   return "".join(list(map(lambda s: s[0].upper() + s[1:], snip.basename.split("_"))))
+def class_name():
+   return snip.basename and to_upper_camel_case(snip.basename) or "Foo"
+endglobal
+
+snippet class "minimal class definition" b
+class ${1:`!p snip.rv = class_name()`}
+{
+	public:
+
+	${2:// ...}
+
+	private:
+
+	${0:// ...}
+};
+endsnippet
+
+snippet "class (.+)" "minimal class definition" br
+class `!p snip.rv = match.group(1)`
+{
+	public:
+
+	${1:// ...}
+
+	private:
+
+	${0:// ...}
+};
+endsnippet
+
+snippet struct "struct definition" b
+struct ${1:`!p snip.rv = class_name()`}
+{
+	${0:// ...}
+};
+endsnippet
+
+snippet "struct (.+)" "struct definition" br
+struct `!p snip.rv = match.group(1)`
+{
+	${0:// ...}
+};
+endsnippet
+
+# https://en.wikipedia.org/wiki/Rule_of_three_%28C%2B%2B_programming%29
+# https://en.wikipedia.org/wiki/Special_member_functions
+snippet ro5 "rule of five class" b
+class ${1:`!p snip.rv = class_name()`}
+{
+	public:
+
+	${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/}&);
+	${1/(\w+).*/$1/}(${1/(\w+).*/$1/}&&) noexcept;
+	~${1/(\w+).*/$1/}() noexcept;
+
+	${1/(\w+).*/$1/}& operator=(const ${1/(\w+).*/$1/}&);
+	${1/(\w+).*/$1/}& operator=(${1/(\w+).*/$1/}&&) noexcept;
+
+	private:
+
+	${0:// ...}
+};
+endsnippet
+
+snippet operator<< "stream insertion operator declaration" b
+friend std::ostream& operator<<(std::ostream&, const ${0:`!p snip.rv = class_name()`}&);
+endsnippet
+
+# ${1/\w+\s*/\l$0/} expands to the value of group $1 with the first letter transformed to
+# lower case.  See :h UltiSnips-replacement-string and :h UltiSnips-demos.
+snippet operator<<{ "stream insertion operator definition" b
+std::ostream& operator<<(std::ostream& oS, const ${1:`!p snip.rv = class_name()`}& ${2:${1/\w+\s*/\l$0/}}) {
+	${0:// ...}
+	return oS;
+}
+endsnippet
+
+snippet operator>> "stream extraction operator declaration" b
+friend std::istream& operator>>(std::istream&, ${0:`!p snip.rv = class_name()`}&);
+endsnippet
+
+snippet operator>>{ "stream extraction operator definition" b
+std::istream& operator>>(std::istream& iS, ${1:`!p snip.rv = class_name()`}& ${2:${1/\w+\s*/\l$0/}}) {
+	${0:// ...}
+	return iS;
+}
+endsnippet
+
 # vim: tw=90 ts=3 sts=-1 sw=0 noet
