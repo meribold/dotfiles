@@ -12,7 +12,7 @@ def class_name():
    return snip.basename and to_upper_camel_case(snip.basename) or "Foo"
 endglobal
 
-snippet class "minimal class definition" b
+snippet class "minimal class definition" bm
 class ${1:`!p snip.rv = class_name()`}
 {
 	public:
@@ -25,7 +25,7 @@ class ${1:`!p snip.rv = class_name()`}
 };
 endsnippet
 
-snippet "class (.+)" "minimal class definition" br
+snippet "class (.+)" "minimal class definition" brm
 class `!p snip.rv = match.group(1)`
 {
 	public:
@@ -54,7 +54,7 @@ endsnippet
 
 # https://en.wikipedia.org/wiki/Rule_of_three_%28C%2B%2B_programming%29
 # https://en.wikipedia.org/wiki/Special_member_functions
-snippet ro5 "rule of five class" b
+snippet ro5 "rule of five class" bm
 class ${1:`!p snip.rv = class_name()`}
 {
 	public:
