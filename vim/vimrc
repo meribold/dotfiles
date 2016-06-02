@@ -21,7 +21,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " If running inside screen, use these escape sequences to name the window (set the title
-" of the VT100 emulated by screen)
+" of the VT100 emulated by screen).
 if &term =~# 'screen'
    set t_ts=k
    set t_fs=\
