@@ -757,15 +757,19 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " guess fugitive's mapping is added later).
 " See https://www.reddit.com/r/vim/comments/47ivpz, http://stackoverflow.com/a/16360104,
 " :h :map-local and :h :map-silent.
-function! s:RemapEnter()
-   if empty(&buftype) || &buftype ==# 'help'
-      nnoremap <buffer> <silent> <CR> :noh<Bar>:echo<CR>
-   else
-      silent! nunmap <buffer> <CR>
-   end
-endf
-" autocmd vimrc BufEnter * call s:RemapEnter()
-" All autocommand events seem to have some shortcomings when used to remap <CR>:
+"
+" I was using this:
+"
+"    function! s:RemapEnter()
+"       if empty(&buftype) || &buftype ==# 'help'
+"          nnoremap <buffer> <silent> <CR> :noh<Bar>:echo<CR>
+"       else
+"          silent! nunmap <buffer> <CR>
+"       end
+"    endf
+"    autocmd vimrc BufEnter * call s:RemapEnter()
+"
+" However, all autocommand events seem to have some shortcomings when used to remap <CR>:
 " *   BufReadPost isn't used for buffers without a file (try :new).
 " *   Using BufEnter breaks the quickfix windows when entering them with :copen or :lopen.
 "     because &buftype is still empty at that point.  It's also run needlessly often.
@@ -779,7 +783,7 @@ endf
 " windows).
 " Either way, using the <expr> special argument seems like a much better approach that
 " avoids this mess.  See :h <expr> and :h expression-syntax.
-nnoremap <silent> <expr> <CR> empty(&buftype) \|\| &bt ==# 'help' \|\| &ft ==# 'man' ?
+nnoremap <silent> <expr> <CR> empty(&bt) \|\| &bt ==# 'help' \|\| &ft ==# 'man' ?
                               \ ':noh<Bar>echo<CR>' : '<CR>'
 
 " }}}1
