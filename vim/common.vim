@@ -481,7 +481,8 @@ set preserveindent " When changing the indent of the current line, do not replac
                    " add additional tabs or spaces as required.
 set autoindent     " The last two settings only seem to work with this enabled.
 
-if exists('&breakindent')
+set linebreak             " Wrap lines at characters in 'breakat', not at the last
+if exists('&breakindent') " character that fits on the screen.
    set breakindent        " Continue lines at their indentation level when wrapping.
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
