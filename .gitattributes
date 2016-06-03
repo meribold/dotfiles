@@ -1,0 +1,1 @@
+mutt/per-recipient-rules filter=git-crypt diff=git-crypt
