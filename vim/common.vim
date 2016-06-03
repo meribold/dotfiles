@@ -105,12 +105,14 @@ Plug 'meribold/vim-man'
 
 " FIXME: pastery.vim increases Vim's startup time by half a second when not using
 " on-demand loading.
-Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
+if has('unix')
+   Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
+endif
 
 if has('unix')
    Plug 'beloglazov/vim-online-thesaurus'
+   Plug 'szw/vim-dict'
 endif
-Plug 'szw/vim-dict'
 " Plug 'szw/vim-g'
 
 Plug 'tpope/vim-obsession'
@@ -122,7 +124,9 @@ Plug 'tpope/vim-sleuth'
 " Snippet engine using Python.  Doesn't define any snippets by itself; they are in
 " honza/vim-snippets (but I'm only using my own snippets at the moment).  TODO: check that
 " we have Python.
-Plug 'SirVer/ultisnips'
+if has('unix')
+   Plug 'SirVer/ultisnips'
+endif
 
 " Plug 'Shougo/neocomplete'
 " Plug 'Shougo/neosnippet.vim'
@@ -151,8 +155,10 @@ Plug 'Shougo/unite.vim'
 " I'm using the fzf package build from the AUR, so I removed the install command from the
 " next line (which is copied from https://github.com/junegunn/fzf#install-as-vim-plugin).
 " TODO: don't I really just need to curl the .vim file?
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
-Plug 'junegunn/fzf.vim'
+if has('unix')
+   Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+   Plug 'junegunn/fzf.vim'
+endif
 
 Plug 'vim-utils/vim-husk'
 " Plug 'tpope/vim-rsi'
