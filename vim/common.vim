@@ -791,9 +791,10 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " :new and running s:RemapEnter() on the other events seems to unbreak the quickfix
 " windows).
 " Either way, using the <expr> special argument seems like a much better approach that
-" avoids this mess.  See :h <expr> and :h expression-syntax.  TODO: 'thesaurus' filetype.
+" avoids this mess.  See :h <expr> and :h expression-syntax.
 function! OnEnter()
-   if empty(&buftype) || &buftype ==# 'help' || &filetype ==# 'man'
+   let filetypes = [ 'man', 'thesaurus' ]
+   if empty(&buftype) || &buftype ==# 'help' || index(filetypes, &filetype) != -1
       return ':noh | echo'
    else
       return ''
