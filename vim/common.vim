@@ -768,7 +768,7 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 "       else
 "          silent! nunmap <buffer> <CR>
 "       end
-"    endf
+"    endfunction
 "    autocmd vimrc_common BufEnter * call s:RemapEnter()
 "
 " However, all autocommand events seem to have some shortcomings when used to remap <CR>:
