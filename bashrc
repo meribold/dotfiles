@@ -309,6 +309,7 @@ case "$TERM" in
       # I'm unsetting PROMPT_COMMAND at the top of this file, but we could just keep it
       # (TODO?)
 
+      # TODO: explain this better.  Isn't this redundant?
       show_command_in_title() # Show the currently running command in the terminal title.
       {
          case "$BASH_COMMAND" in
