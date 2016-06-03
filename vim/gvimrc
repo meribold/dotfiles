@@ -5,6 +5,11 @@
 " put stuff specific to gVim here (instead of into .vimrc behind has('gui_running') if
 " statements).  Neovim doesn't use this file.
 
+" Remove all autocommands for the 'vimrc_gvimrc' group.
+augroup vimrc_gvimrc
+   autocmd!
+augroup END
+
 " Don't automatically yank all visual selections into the "* register.
 set guioptions-=a
 
@@ -15,6 +20,8 @@ set guioptions-=e go-=m go-=T go-=r go-=L
 if has('win32')
    set guifont=Consolas:h10,Source_Code_Pro:h9
    silent! colorscheme jellybeans
+   " Maximize Vim's window on startup.  See :h win16-maximixed.
+   autocmd vimrc_gvimrc GUIEnter * simalt ~x
 else
    set guifont=Ubuntu\ Mono\ 7,Source\ Code\ Pro\ Medium\ 6
    silent! colorscheme jellybeans
