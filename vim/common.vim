@@ -487,7 +487,6 @@ if exists('&breakindent') " character that fits on the screen.
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set visualbell
 if exists('&belloff')
    set belloff=all
 endif
