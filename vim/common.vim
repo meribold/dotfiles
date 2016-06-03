@@ -792,12 +792,17 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " windows).
 " Either way, using the <expr> special argument seems like a much better approach that
 " avoids this mess.  See :h <expr> and :h expression-syntax.  TODO: 'thesaurus' filetype.
-nnoremap <silent> <expr> <CR> empty(&bt) \|\| &bt ==# 'help' \|\| &ft ==# 'man' ?
-                              \ ':noh<Bar>echo<CR>' : '<CR>'
+function! OnEnter()
+   if empty(&buftype) || &buftype ==# 'help' || &filetype ==# 'man'
+      return ':noh | echo'
+   else
+      return ''
+   end
+endfunction
+nnoremap <silent> <expr> <CR> OnEnter()
 " This works around E481 caused by :noh not accepting a range (just try :noh in visual
 " mode).  TODO: it feels pretty inelegant, though.
-xnoremap <silent> <expr> <CR> empty(&bt) \|\| &bt ==# 'help' \|\| &ft ==# 'man' ?
-                              \ ':<C-U>noh<Bar>echo<CR>gv' : '<CR>'
+xnoremap <silent> <expr> <CR> '<Esc>' . OnEnter() . 'gv'
 
 " }}}1
 " vim: tw=90 sts=-1 sw=3 et fdm=marker
