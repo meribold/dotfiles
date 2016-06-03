@@ -352,6 +352,13 @@ autocmd vimrc_common BufWinEnter * if empty(&ft) | call s:FixK() | endif
 " There probably also are more settings scattered around this file that belong in this
 " section.
 
+" Running `syntax enable` should be redundant for both Neovim and Vim.  It's the [default
+" in Neovim][1] and redundant for Vim as well because [vim-plug does it][2].
+" [1]: https://github.com/neovim/neovim/issues/2676
+" [2]: https://github.com/junegunn/vim-plug/wiki/faq
+
+" TODO: plugins are loaded after personal vimrc files; should this command therefore be at
+" the very end of this file or in a different file inside an after/ subdirectory?
 runtime! macros/matchit.vim " Load matchit.vim.
 
 " Don't scan included files for keyword completion.
@@ -784,7 +791,7 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " :new and running s:RemapEnter() on the other events seems to unbreak the quickfix
 " windows).
 " Either way, using the <expr> special argument seems like a much better approach that
-" avoids this mess.  See :h <expr> and :h expression-syntax.
+" avoids this mess.  See :h <expr> and :h expression-syntax.  TODO: 'thesaurus' filetype.
 nnoremap <silent> <expr> <CR> empty(&bt) \|\| &bt ==# 'help' \|\| &ft ==# 'man' ?
                               \ ':noh<Bar>echo<CR>' : '<CR>'
 " This works around E481 caused by :noh not accepting a range (just try :noh in visual
