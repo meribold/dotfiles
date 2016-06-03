@@ -13,8 +13,8 @@ set guioptions-=a
 set guioptions-=e go-=m go-=T go-=r go-=L
 
 if has('win32')
-   set guifont=Source_Code_Pro:h9,Consolas:h10
-   silent! colorscheme solarized
+   set guifont=Consolas:h10,Source_Code_Pro:h9
+   silent! colorscheme jellybeans
 else
    set guifont=Ubuntu\ Mono\ 7,Source\ Code\ Pro\ Medium\ 6
    silent! colorscheme jellybeans
