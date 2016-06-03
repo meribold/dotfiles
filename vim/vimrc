@@ -1,13 +1,7 @@
 set nocompatible
 
-if has('unix')
-   source ~/.vim/common.vim
-elseif has('win32')
-   source ~/vimfiles/common.vim
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8.  TODO: should this be done before sourcing common.vim?
+" Setup Vim for editing in utf-8.
 " http://stackoverflow.com/q/5477565
 " http://superuser.com/q/154491
 " http://stackoverflow.com/q/2438021
@@ -19,6 +13,12 @@ if has('multi_byte')
    endif
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('unix')
+   source ~/.vim/common.vim
+elseif has('win32')
+   source ~/vimfiles/common.vim
+endif
 
 " If running inside screen, use these escape sequences to name the window (set the title
 " of the VT100 emulated by screen).
