@@ -1,8 +1,13 @@
+" Remove all autocommands for the 'vimrc_init' group.
+augroup vimrc_init
+   autocmd!
+augroup END
+
 source ~/.config/nvim/common.vim
 
 " Hide the tilde characters Vim displays in front of lines after the EOF.
 " https://github.com/neovim/neovim/issues/2067
-autocmd vimrc ColorScheme * call s:hide_tildes()
+autocmd vimrc_init ColorScheme * call s:hide_tildes()
 function! s:hide_tildes()
    hi EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 endfunction
