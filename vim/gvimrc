@@ -8,7 +8,8 @@
 " Don't automatically yank all visual selections into the "* register.
 set guioptions-=a
 
-" Remove the menu bar, toolbar, right-hand scrollbar and left-hand scrollbar.
+" Disable GUI tab buttons and remove the menu bar, toolbar, right-hand scrollbar and
+" left-hand scrollbar.
 set guioptions-=e go-=m go-=T go-=r go-=L
 
 if has('win32')
