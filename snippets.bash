@@ -1,4 +1,4 @@
-cat /proc/acpi/ibm/{thermal,fan} | head -n -3
+cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
 cower -u
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgurbash "$f"; rm "$f"'
@@ -21,7 +21,10 @@ strfile ~/dotfiles/cookies
 sudo dhcpcd -B wlan0
 sudo iw dev wlan0 scan | less
 sudo mount /dev/sdb1 ~/sdb1
+sudo systemctl poweroff
+sudo systemctl suspend
 sudo umount ~/sdb1
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
+xrandr --output LVDS --auto
 youtube-dl -o - 'XAAp_luluo0' | mplayer -cache 8192 -
