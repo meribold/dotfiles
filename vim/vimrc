@@ -14,6 +14,9 @@ if has('multi_byte')
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Enable use of the mouse all modes.
+set mouse=a
+
 if has('unix')
    source ~/.vim/common.vim
 elseif has('win32')
