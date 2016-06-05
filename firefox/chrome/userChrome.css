@@ -1,3 +1,9 @@
+/* Apparently, this @namespace rule isn't currently required but may be in the future.
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=390011
+ * https://groups.google.com/forum/#!topic/mozilla.support.firefox/VGy9ELUZRYw
+ * http://kb.mozillazine.org/UserChrome.css */
+@namespace url('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul');
+
 tabbrowser tabpanels {
   background-color: #121212 !important;
 }
