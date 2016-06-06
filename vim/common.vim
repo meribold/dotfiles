@@ -310,7 +310,7 @@ function! GoyoToggle()
       " Set the window width based on the local 'textwidth' (unless it's 0) instead of
       " g:goyo_width.  Add 1 so Vim doesn't scroll horizontally when the cursor is behind
       " the last character in a full line.
-      exe ":Goyo" . (&textwidth ? &textwidth + 1 : '')
+      exe ':Goyo' . (&textwidth ? &textwidth + 1 : '')
       set showmode
    else
      Goyo
@@ -705,8 +705,8 @@ nnoremap <C-N> g,zv
 
 " Split windows more easily: `_` splits horizontally and `|` splits vertically.  Taken
 " from justinmk's comment at http://www.reddit.com/comments/4jyw8o//d3ayzox.
-nnoremap <silent> <expr> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
-nnoremap <silent> <expr> _  !v:count ? "<C-W>s<C-W><Down>"  : '_'
+nnoremap <silent> <expr> \| !v:count ? '<C-W>v<C-W><Right>' : '\|'
+nnoremap <silent> <expr> _  !v:count ? '<C-W>s<C-W><Down>'  : '_'
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
