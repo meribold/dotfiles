@@ -40,6 +40,9 @@ Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user' " Required for vim-textobj-entire
 Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-operator-user'
+Plug 'Chiel92/vim-autoformat'
+Plug 'rhysd/vim-clang-format' " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
 
 " http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_plugin_and
 Plug 'tpope/vim-commentary'
@@ -714,6 +717,17 @@ nnoremap <silent> <expr> _  !v:count ? '<C-W>s<C-W><Down>'  : '_'
 " adds the mapping for normal, visual, select and operator-pending mode.
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
+
+" Operator mappings for vim-autoformat using vim-operator-user.  They don't work when
+" using nnoremap and xnoremap.
+nmap <Leader>q <Plug>(operator-autoformat)
+xmap <Leader>q <Plug>(operator-autoformat)
+call operator#user#define_ex_command('autoformat', 'Autoformat')
+
+" Alternative mappings using vim-clang-format.  TODO: remove?
+autocmd vimrc_common FileType c,cpp,objc
+   \ nmap <buffer> <LocalLeader>q <Plug>(operator-clang-format) |
+   \ xmap <buffer> <LocalLeader>q <Plug>(operator-clang-format)
 
 nnoremap <silent> <Leader>g :GitGutterToggle<CR>
 
