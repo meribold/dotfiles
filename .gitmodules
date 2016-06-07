@@ -73,3 +73,6 @@
 [submodule "AUR/git-crypt"]
 	path = AUR/git-crypt
 	url = https://aur.archlinux.org/git-crypt.git
+[submodule "AUR/imgurbash"]
+	path = AUR/imgurbash
+	url = https://aur.archlinux.org/imgurbash.git
