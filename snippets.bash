@@ -9,6 +9,7 @@ git log --oneline --decorate --graph
 git pull --recurse-submodules && git submodule update
 git submodule foreach git clean -dfx # remove all untracked files of all submodules
 git submodule foreach git pull
+git submodule update # doesn't change what commits are recorded in the superproject
 gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
 iw dev wlan0 link
