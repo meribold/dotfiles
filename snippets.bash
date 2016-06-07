@@ -1,7 +1,7 @@
 cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
 cower -u
-f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgurbash "$f"; rm "$f"'
+f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 fortune ~/dotfiles/cookies | cowsay -f ~/dotfiles/dynamic_duo.cow | lolcat
 git clean -dfx && git checkout -- .
