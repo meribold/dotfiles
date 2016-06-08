@@ -51,6 +51,7 @@ Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'easymotion/vim-easymotion'
 " Plug 'goldfeld/vim-seek'
 " Plug 'justinmk/vim-sneak'
+Plug 'rhysd/clever-f.vim'
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 " Plug 'godlygeek/tabular'
