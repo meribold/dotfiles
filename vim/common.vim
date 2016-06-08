@@ -21,33 +21,32 @@ augroup END
 " files (:h initialization).
 call plug#begin('~/.vim/plugged')
 
-Plug 'benekastah/neomake'
-Plug 'tpope/vim-dispatch'
-
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
-Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
-" Plug 'qpkorr/vim-bufkill'
-
-Plug 'wellle/visual-split.vim'
-
-" New or modified text objects and operators.
+" New text objects and improvements to existing ones. {{{2
+Plug 'kana/vim-textobj-user' " Required for vim-textobj-entire.
+Plug 'kana/vim-textobj-entire'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'vim-utils/vim-line'
+Plug 'wellle/targets.vim'
+
+" }}}2
+" New operators. {{{2
+Plug 'kana/vim-operator-user'
+Plug 'Chiel92/vim-autoformat'
+Plug 'rhysd/vim-clang-format'  " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
-Plug 'vim-utils/vim-line'
-Plug 'wellle/targets.vim'
-Plug 'kana/vim-textobj-user' " Required for vim-textobj-entire
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-operator-user'
-Plug 'Chiel92/vim-autoformat'
-Plug 'rhysd/vim-clang-format' " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
+Plug 'wellle/visual-split.vim'
+Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
+" }}}2
 
-" http://reddit.com/r/vim/comments/26mszm/what_is_everyones_favorite_commenting_plugin_and
-Plug 'tpope/vim-commentary'
-" Plug 'scrooloose/nerdcommenter'
-" Plug 'tomtom/tcomment_vim'
+Plug 'benekastah/neomake'
+Plug 'tpope/vim-dispatch'
+
+Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
+" Plug 'qpkorr/vim-bufkill'
 
 " Plug 'easymotion/vim-easymotion'
 " Plug 'goldfeld/vim-seek'
