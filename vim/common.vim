@@ -149,6 +149,8 @@ endif
 Plug 'justinmk/vim-dirvish'
 " Plug 'tpope/vim-vinegar'
 
+Plug 'sickill/vim-pasta'
+
 Plug 'thinca/vim-visualstar'
 
 " Plug 'kien/ctrlp.vim'
