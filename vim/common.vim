@@ -92,9 +92,17 @@ Plug 'tpope/vim-endwise'
 
 Plug 'tpope/vim-unimpaired'
 
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
-" Plug 'szw/vim-tags'
+" Automated management of tag files.  I chose [Gutentags][1] semi-randomly: it has some
+" cool features like incremental tags generation but [there][2] [are][3] [many][4]
+" [similar][5] [plugins][6], neither of which I tried.
+" [1]: https://github.com/ludovicchabant/vim-gutentags
+" [2]: https://github.com/basilgor/vim-autotags
+" [3]: https://github.com/soramugi/auto-ctags.vim
+" [4]: https://github.com/craigemery/vim-autotag
+" [5]: https://github.com/szw/vim-tags
+" [6]: https://github.com/xolox/vim-easytags
+Plug 'ludovicchabant/vim-gutentags'
+
 " Plug 'majutsushi/tagbar'
 
 Plug 'vim-scripts/a.vim'
