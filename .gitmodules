@@ -76,3 +76,6 @@
 [submodule "AUR/imgurbash"]
 	path = AUR/imgurbash
 	url = https://aur.archlinux.org/imgurbash.git
+[submodule "AUR/universal-ctags-git"]
+	path = AUR/universal-ctags-git
+	url = https://aur.archlinux.org/universal-ctags-git.git
