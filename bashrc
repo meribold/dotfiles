@@ -14,8 +14,18 @@
 # Clear PROMPT_COMMAND.  It's set from /etc/bash.bashrc on Arch Linux.
 unset PROMPT_COMMAND
 
-# Load fzf(1) key bindings (https://github.com/junegunn/fzf).
-[[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+# Set up fzf(1) (https://github.com/junegunn/fzf).  First, check if an `fzf` command
+# already exists (see http://stackoverflow.com/a/677212).
+if hash fzf 2>/dev/null; then
+   # It does.  It should be from the fzf package on Arch.  Try to load fzf's Bash key
+   # bindings with the path used by Arch's package.  We don't need to do anything else.
+   [[ -f /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+else
+   # It doesn't.  Maybe fzf was installed manually.  When doing so, one would typically
+   # clone the upstream Git repository into `~/.fzf` and run its install script.  That
+   # creates the `~/.fzf.bash` file with initialization commands: try to source it.
+   [[ -f ~/.fzf.bash ]] && . ~/.fzf.bash
+fi
 
 # Source z.sh (https://github.com/rupa/z); z(1) jumps to frecent directories and it's
 # faster than autojump (I haven't tried fasd, which is similar too).  This appends a
