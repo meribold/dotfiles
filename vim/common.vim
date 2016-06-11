@@ -181,7 +181,7 @@ Plug 'tpope/vim-speeddating'
 " Plug 'terryma/vim-multiple-cursors'
 
 Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
-Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-pencil'
 " Plug 'junegunn/limelight.vim', { 'on':  'Limelight' }
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
