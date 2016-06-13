@@ -15,6 +15,7 @@ gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#
 i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
 iw dev wlan0 link
 makepkg -sri
+mbsync gmail && notmuch new
 mpc clear && mpc ls | mpc add
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
