@@ -84,6 +84,19 @@ alias ll='ls -lh'
 # List subdirectories (http://stackoverflow.com/a/171938).
 alias lsd='ls -d */'
 
+# Create a new directory and change into it.  Conceptually like `mkdir -p "$1" && cd "$1"`
+# but handles many subtle edge cases.  Taken from http://unix.stackexchange.com/a/9124.
+mkcd() {
+   case "$1" in
+      */..|*/../) cd -- "$1";; # Doesn't make sense unless the directory already exists.
+      /*/../*) (cd "${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd -- "$1";;
+      /*) mkdir -p "$1" && cd "$1";;
+      */../*) (cd "./${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd "./$1";;
+      ../*) (cd .. && mkdir -p "${1#.}") && cd "$1";;
+      *) mkdir -p "./$1" && cd "./$1";;
+   esac
+}
+
 # Jump into the most 'frecent' directory matching all arguments.  Normally like z(1) but
 # when used without arguments, use fzf to select a directory.  Adapted from
 # https://github.com/junegunn/fzf/wiki/Examples#z.
