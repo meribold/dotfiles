@@ -3,6 +3,10 @@ set guioptions ""
 set statusbar-h-padding 8
 set statusbar-v-padding 4
 set page-padding 1
+# When displaying two pages side by side, display the first page of the document in the
+# first (left) column.  I.e., don't leave the left column blank when displaying the first
+# page (as with the default value of 1:2).
+set first-page-column 1:1
 set statusbar-home-tilde true
 set selection-notification false
 # set synctex-editor-command
