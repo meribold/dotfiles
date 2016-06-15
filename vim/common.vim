@@ -218,14 +218,32 @@ call plug#end()
 " let loaded_netrwPlugin = 1
 
 " vim-autoformat {{{2
-" vim-autoformat tries to invoke `clang-format` with arguments matching some of Vim's
-" options (like 'textwidth', 'expandtab', and 'shiftwidth'; check the value of
-" g:formatdef_clangformat) UNLESS it finds a `.clang-format` or `_clang-format` file.
-" TODO: always prefer using Vim's 'tw', 'sw' and 'et' options.
-" https://github.com/Chiel92/vim-autoformat#default-formatprograms
-" http://clang.llvm.org/docs/ClangFormat.html
-" http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+" vim-autoformat invokes `clang-format` with arguments matching some of Vim's options
+" (like 'textwidth', 'expandtab', and 'shiftwidth'; see the value of
+" g:formatdef_clangformat) UNLESS it finds a `.clang-format` or `_clang-format` file.  See
+" https://github.com/Chiel92/vim-autoformat#default-formatprograms.
+" TODO: always prefer using Vim's 'textwidth', 'expandtab' and 'shiftwidth' options.  I
+" was hoping this may be possible by passing `-style=file` to clang-format and then using
+" the `-style` argument again for some overrides.  Looks like it won't be that easy.
 
+" Modify some of the [style options][1] vim-autoformat passes to [clang-format][2] when no
+" `.clang-format` or `_clang-format` configuration file is found.  The value assigned to
+" s:configfile_def is the same as in vim-autoformat's [defaults.vim][3].
+let s:configfile_def   = "'clang-format -lines=' . a:firstline . ':' . a:lastline . "
+ \ . "' --assume-filename=\"' . expand('%:p') . '\" -style=file'"
+" This is slighly modified from [defaults.vim][3].
+let s:noconfigfile_def = "'clang-format -lines=' . a:firstline . ':' . a:lastline . "
+ \ . "' --assume-filename=\"' . expand('%:p') . '\" -style=\"{"
+ \ . "BasedOnStyle: Google, AccessModifierOffset: -1, ' . "
+ \ . "(&textwidth ? 'ColumnLimit: ' . &textwidth . ', ' : '') . "
+ \ . "(&expandtab ? 'UseTab: Never, IndentWidth: ' . shiftwidth() : 'UseTab: Always') . "
+ \ . "'}\"'"
+" Copied from [defaults.vim][3] again, except for formatting.
+let g:formatdef_clangformat = 'g:ClangFormatConfigFileExists() ? ('
+ \ . s:configfile_def . ') : (' . s:noconfigfile_def . ')'
+" [1]: http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+" [2]: http://clang.llvm.org/docs/ClangFormat.html
+" [3]: https://github.com/Chiel92/vim-autoformat/blob/master/plugin/defaults.vim#L69
 " neomake {{{2
 let g:neomake_echo_current_error = 0
 let g:neomake_place_signs = 0
