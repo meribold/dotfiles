@@ -40,8 +40,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'wellle/visual-split.vim'
 Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
-" }}}2
 
+" }}}2
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-dispatch'
 
@@ -207,6 +207,7 @@ call plug#end()
 
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" netrw {{{2
 " Disable netrw by [pretending it's already loaded][1].  This seemed like a good idea to
 " improve startup time since [dirvish.vim][2] [doesn't depend on netrw][3], but netrw
 " defines the gx mapping so I'll at least have to add a replacement for that mapping
@@ -216,14 +217,26 @@ call plug#end()
 " [3]: http://www.reddit.com/comments/4l00pj//d3j7a8j
 " let loaded_netrwPlugin = 1
 
+" vim-autoformat {{{2
+" vim-autoformat tries to invoke `clang-format` with arguments matching some of Vim's
+" options (like 'textwidth', 'expandtab', and 'shiftwidth'; check the value of
+" g:formatdef_clangformat) UNLESS it finds a `.clang-format` or `_clang-format` file.
+" TODO: always prefer using Vim's 'tw', 'sw' and 'et' options.
+" https://github.com/Chiel92/vim-autoformat#default-formatprograms
+" http://clang.llvm.org/docs/ClangFormat.html
+" http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+" neomake {{{2
 let g:neomake_echo_current_error = 0
 let g:neomake_place_signs = 0
 
+" commentary.vim {{{2
 " Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
 " `:h ftplugin-overrule`.
 autocmd vimrc_common FileType cpp setlocal commentstring=//%s
 autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
+" }}}2
 " Let Sneak handle f, F, t and T.
 " nmap f <Plug>Sneak_f
 " nmap F <Plug>Sneak_F
