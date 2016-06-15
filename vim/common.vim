@@ -236,7 +236,7 @@ let g:neomake_place_signs = 0
 autocmd vimrc_common FileType cpp setlocal commentstring=//%s
 autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
-" }}}2
+" vim-sneak {{{2
 " Let Sneak handle f, F, t and T.
 " nmap f <Plug>Sneak_f
 " nmap F <Plug>Sneak_F
@@ -251,21 +251,24 @@ autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 " omap t <Plug>Sneak_t
 " omap T <Plug>Sneak_T
 
+" vim-easy-align {{{2
 " vmap <Enter> <Plug>(EasyAlign)
 
+" }}}2
 " let g:vim_markdown_folding_disabled = 1
 " let g:vim_markdown_no_default_key_mappings = 1
 
 " let g:instant_markdown_slow = 1
 " let g:instant_markdown_autostart = 0
 
+" lightline.vim {{{2
 let g:lightline = {
    \ 'colorscheme': 'default',
 \ }
 " :h line-continuation, :h dict
 
-" Based on the snippet from :h lightline-problem-13.  Also see [Changing colorscheme on
-" the fly](https://github.com/itchyny/lightline.vim/issues/9)
+" Based on the snippet from :h lightline-problem-13.  Also see issue #9 on Github:
+" ["Changing colorscheme on the fly"](https://github.com/itchyny/lightline.vim/issues/9).
 autocmd vimrc_common ColorScheme * call s:lightline_update()
 function! s:lightline_update() " Local to this file.
    " TODO: only list color schemes where the name of the lightline color scheme differs
@@ -295,27 +298,33 @@ function! s:lightline_update() " Local to this file.
    endif
 endfunction
 
+" }}}2
 " let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 
+" vim-gitgutter {{{2
 let g:gitgutter_enabled = 0  " Turn vim-gitgutter off by default.
 let g:gitgutter_realtime = 0 " Don't trigger sign updates when not typing.
 let g:gitgutter_eager = 0    " Update signs less often; mostly just when writing a buffer.
 
+" delimitMate {{{2
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 let delimitMate_balance_matchpairs = 1
 
-" Always render man pages at this width, regardless of the size of the window.
-" https://github.com/vim-utils/vim-man/issues/14
+" vim-man {{{2
+" Always render man pages at this width, regardless of the size of the window.  See
+" https://github.com/vim-utils/vim-man/issues/14.
 let g:man_width = 93
 
+" vim-dict {{{2
 " Use local DICT daemon for speed.  These are all databases I have installed.  They are
 " listed explicitly to change the order ['*'] would use.
 let g:dict_hosts = [
    \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
 \ ]
 
+" ultisnips {{{2
 " Apparently, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
 " probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to work in a terminal
 " either and remapping escape has its own problems.
@@ -330,6 +339,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 " i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J, i_CTRL-_ (this
 " seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
 
+" goyo.vim {{{2
 let g:goyo_height = '100%'
 function! GoyoToggle()
    if !exists('#goyo')
@@ -346,8 +356,8 @@ function! GoyoToggle()
    endif
 endfunction
 nnoremap <silent> Q :call GoyoToggle()<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" }}}2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
 " :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
