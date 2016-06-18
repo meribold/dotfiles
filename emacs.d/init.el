@@ -24,6 +24,15 @@
 (require 'linum-relative)
 (add-hook 'prog-mode-hook 'linum-mode)
 
+;; https://github.com/slime/slime
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
+
+;; https://github.com/emacs-helm/helm
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(helm-mode 1)
+
 ;; http://emacswiki.org/emacs/SetFonts
 ;; M-x describe-font
 (set-face-attribute 'default nil :family "Ubuntu Mono" :foundry "DAMA"
