@@ -45,6 +45,17 @@ Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
 Plug 'benekastah/neomake'
 Plug 'tpope/vim-dispatch'
 
+" Send the current paragraph to a REPL with <C-C><C-C>.  Haskell code is [adapted][1] to
+" the syntax ghci expects.  I think all of these plugins are similar:
+" *  [vim-quickrun](https://github.com/thinca/vim-quickrun)
+" *  [slimv](https://github.com/kovisoft/slimv)
+" *  [slimux](https://github.com/epeli/slimux)
+" *  [neoterm](https://github.com/kassio/neoterm) (for Neovim only)
+" Also see [this discussion][2].
+Plug 'jpalardy/vim-slime'
+" [1]: https://github.com/jpalardy/vim-slime/tree/master/ftplugin/haskell
+" [2]: https://www.reddit.com/comments/4o97kn
+
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
 
