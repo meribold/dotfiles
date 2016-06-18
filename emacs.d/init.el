@@ -25,7 +25,7 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; https://github.com/slime/slime
-(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
 ;; https://github.com/emacs-helm/helm
