@@ -4,7 +4,7 @@ text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; name
 image/*; feh -B black --scale-down %s; test=test -n "$DISPLAY"
 # image/*; sxiv -b %s; test=test -n "$DISPLAY"
 
-# This doesn't behave like the commands for HTML.  Both m and <Enter> start `mupdf` when
+# This doesn't behave like the commands for HTML.  Both m and <Enter> start `zathura` when
 # used from the attachments menu.  I thought <Enter> would use `pdftotext`.
-application/pdf; mupdf %s; test=test -n "$DISPLAY"
+application/pdf; zathura %s; test=test -n "$DISPLAY"
 application/pdf; pdftotext %s -; copiousoutput;
