@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# FIXME: don't use bashisms or change the shebang to explicitly use Bash (are there any
+# potential issues with that?).
+
+# TODO: consider sourcing the scripts in /etc/X11/xinit/xinitrc.d/ like
+# /etc/X11/xinit/xinitrc does.
+
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 [[ -f ~/dotfiles/Xmodmap ]] && xmodmap ~/dotfiles/Xmodmap
 
