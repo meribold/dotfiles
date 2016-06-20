@@ -40,7 +40,18 @@ set pgp_show_unusable=no
 # [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> For GPG support, add the following to your muttrc:
 # [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> source /etc/Muttrc.gpg.dist
 # [2014-03-23 01:32] [ALPM-SCRIPTLET]
-source /etc/Muttrc.gpg.dist
+# Use command substitution to source the first available GnuPG configuration file and
+# don't complain if there isn't one.  I think Bash-specific functionality cannot be used
+# here (Bash is probably invoked as sh).  See https://dev.mutt.org/trac/wiki/ConfigTricks.
+# TODO: this appears to be redundant on at least Ubuntu.  Mutt always reads /etc/Muttrc
+# (before ~/.mutt/muttrc) which sources /etc/Muttrc.d/gpg.rc (and all other .rc files in
+# /etc/Muttrc.d).  See https://dev.mutt.org/doc/manual.html#configuration-files.
+source `for file in /etc/Muttrc.gpg.dist /etc/Muttrc.d/gpg.rc /dev/null; do \
+           if [ -f "$file" ] || [ "$file" = /dev/null ]; then \
+              echo "$file"; \
+              break; \
+           fi \
+        done`
 # We need to change some variables from Muttrc.gpg.dist to also include
 # "--pinentry-mode loopback" and/or "--encrypt-to 0xC4592C12" (so I can read my own sent
 # mail).  Other than that, the commands are the same as in /etc/Muttrc.gpg.dist.
