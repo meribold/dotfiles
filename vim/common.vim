@@ -21,6 +21,11 @@ augroup END
 " files (:h initialization).
 call plug#begin('~/.vim/plugged')
 
+" I use dirvish.vim and open-browser.vim to replace netrw.  Unlike tpope's vinegar.vim,
+" dirvish.vim doesn't depend on netrw.
+Plug 'justinmk/vim-dirvish'
+Plug 'tyru/open-browser.vim'
+
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 " New text objects and improvements to existing ones. {{{2
@@ -165,9 +170,6 @@ if has('unix')
 endif
 " Plug 'scrooloose/syntastic'
 
-Plug 'justinmk/vim-dirvish'
-" Plug 'tpope/vim-vinegar'
-
 Plug 'sickill/vim-pasta'
 
 Plug 'thinca/vim-visualstar'
@@ -218,15 +220,24 @@ call plug#end()
 
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" netrw {{{2
-" Disable netrw by [pretending it's already loaded][1].  This seemed like a good idea to
-" improve startup time since [dirvish.vim][2] [doesn't depend on netrw][3], but netrw
-" defines the gx mapping so I'll at least have to add a replacement for that mapping
-" first.
+" netrw, vim-dirvish, open-browser.vim {{{2
+" Disable netrw by [pretending it's already loaded][1].  I use [dirvish.vim][2], which
+" [doesn't depend on netrw][3], and [open-browser.vim][4] (to replace netrw's gx mapping)
+" instead.
 " [1]: http://stackoverflow.com/a/21687112
 " [2]: http://github.com/justinmk/vim-dirvish
 " [3]: http://www.reddit.com/comments/4l00pj//d3j7a8j
-" let loaded_netrwPlugin = 1
+" [4]: http://github.com/tyru/open-browser.vim
+let loaded_netrwPlugin = 1
+
+" Use gx to open the URL the cursor is on.  If the cursor doesn't appear to be on a URL,
+" do a web search for the word it's on instead.
+nmap gx <Plug>(openbrowser-smart-search)
+" Ditto for visual mode.
+xmap gx <Plug>(openbrowser-smart-search)
+
+" Search with DuckDuckGo by default.
+let g:openbrowser_default_search = 'duckduckgo'
 
 " vim-autoformat {{{2
 " vim-autoformat invokes `clang-format` with arguments matching some of Vim's options
