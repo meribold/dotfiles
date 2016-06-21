@@ -79,3 +79,6 @@
 [submodule "AUR/universal-ctags-git"]
 	path = AUR/universal-ctags-git
 	url = https://aur.archlinux.org/universal-ctags-git.git
+[submodule "AUR/profile-cleaner"]
+	path = AUR/profile-cleaner
+	url = https://aur.archlinux.org/profile-cleaner.git
