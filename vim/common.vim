@@ -798,7 +798,7 @@ xmap <Leader>q <Plug>(operator-autoformat)
 call operator#user#define_ex_command('autoformat', 'Autoformat')
 
 " Format the entire buffer.
-nnoremap <Leader>Q :Autoformat<CR>
+nnoremap <silent> <Leader>Q :Autoformat<CR>
 
 " Alternative mappings using vim-clang-format.  TODO: remove?
 autocmd vimrc_common FileType c,cpp,objc
