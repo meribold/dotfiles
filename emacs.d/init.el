@@ -23,15 +23,21 @@
 (global-evil-surround-mode 1)
 (require 'linum-relative)
 (add-hook 'prog-mode-hook 'linum-mode)
-
-;; https://github.com/slime/slime
-(setq inferior-lisp-program "sbcl")
-(setq slime-contribs '(slime-fancy))
+(require 'evil-magit)
+(require 'evil-org)
 
 ;; https://github.com/emacs-helm/helm
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (helm-mode 1)
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
+(require 'ox-reveal)
+
+;; https://github.com/slime/slime
+(setq inferior-lisp-program "sbcl")
+(setq slime-contribs '(slime-fancy))
 
 ;; http://emacswiki.org/emacs/SetFonts
 ;; M-x describe-font
