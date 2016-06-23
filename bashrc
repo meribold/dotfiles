@@ -262,7 +262,24 @@ bat() {
 # http://superuser.com/a/178592 and https://gist.github.com/dualbus/9275406.
 o() {
    local file
-   file=$(fzf --query="$1" --select-1 --exit-0)
+   if [[ -f $1 ]]; then
+      file=$1
+   else
+      local query
+      local path
+      if [[ -d "$1" ]]; then
+         # Remove a trailing / from $1 (if it ends in one), then append /.
+         path=${1/%\/}/
+      else
+         # Remove the longest possible string ending with / from the beginning of $1 (see
+         # http://wiki.bash-hackers.org/syntax/pe#common_use).
+         query=${1##*/}
+         # Consider everything up to and including the last / (or nothing if there is
+         # none) to be the path to search.
+         path=${1%$query}
+      fi
+      file=$path$(cd -- "$path" && fzf --query="$query" --select-1 --exit-0) || return
+   fi
    [[ -n $file ]] && { xdg-open "$file" &>/dev/null <&1 & disown; }
 }
 
