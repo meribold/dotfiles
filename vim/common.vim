@@ -31,6 +31,7 @@ Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 " New text objects and improvements to existing ones. {{{2
 Plug 'kana/vim-textobj-user' " Required for vim-textobj-entire.
 Plug 'kana/vim-textobj-entire'
+Plug 'coderifous/textobj-word-column.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
