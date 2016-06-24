@@ -747,6 +747,24 @@ if !has('gui_running')
    set ttimeoutlen=0
 endif
 
+" If we have ag(1), use it to :grep.  I copied this from [here][1].  It's almost the same
+" as a snippet from [this post][2] by Romain Lafourcade (that version also adds new :Grep
+" and :LGrep commands).  Also see these [two][3] [posts][4].
+" TODO: there are [lots][5] [of][6] [related][7] [plugins][8]; do they provide significant
+" improvements?
+" [1]: https://www.vi-improved.org/recommendations/
+" [2]: https://www.reddit.com/comments/4gjbqn/d2iatu9
+" [3]: http://codeinthehole.com/writing/using-the-silver-searcher-with-vim/
+" [4]: https://robots.thoughtbot.com/faster-grepping-in-vim
+" [5]: https://github.com/rking/ag.vim
+" [6]: https://github.com/mileszs/ack.vim
+" [7]: https://github.com/mhinz/vim-grepper
+" [8]: https://github.com/Chun-Yang/vim-action-ag
+if executable('ag')
+   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+   set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " By default, <Tab> and <C-I> perform the same command in Vim.  Remap <Tab> to toggle
