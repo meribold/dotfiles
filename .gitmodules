@@ -82,3 +82,6 @@
 [submodule "AUR/profile-cleaner"]
 	path = AUR/profile-cleaner
 	url = https://aur.archlinux.org/profile-cleaner.git
+[submodule "emacs.d/emacs-vim-modeline"]
+	path = emacs.d/emacs-vim-modeline
+	url = https://github.com/cinsk/emacs-vim-modeline

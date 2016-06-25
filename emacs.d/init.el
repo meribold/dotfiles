@@ -27,6 +27,13 @@
 (require 'evil-magit)
 (require 'evil-org)
 
+;; Make Emacs aware of Vim modelines.  I think [the package][1] isn't available on MELPA,
+;; Marmalade or GNU ELPA, so I'm using a Git submodule and installing it manually.
+;; [1]: https://github.com/cinsk/emacs-vim-modeline
+(add-to-list 'load-path "~/.emacs.d/emacs-vim-modeline/")
+(require 'vim-modeline)
+(add-to-list 'find-file-hook 'vim-modeline/do)
+
 ;; https://github.com/emacs-helm/helm
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
