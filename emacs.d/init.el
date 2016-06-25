@@ -6,6 +6,7 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 (setq undo-tree-auto-save-history t)
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 (evil-commentary-mode 1)
