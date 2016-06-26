@@ -94,7 +94,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
+Plug 'airblade/vim-gitgutter', { 'on': ['GitGutterToggle', 'GitGutterEnable'] }
 
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
@@ -828,7 +828,18 @@ autocmd vimrc_common FileType c,cpp,objc
    \ nmap <buffer> <LocalLeader>q <Plug>(operator-clang-format) |
    \ xmap <buffer> <LocalLeader>q <Plug>(operator-clang-format)
 
-nnoremap <silent> <Leader>g :GitGutterToggle<CR>
+function! s:UpdateOrEnableGitGutter()
+   if !g:gitgutter_enabled
+      " Some of vim-gitgutter's commands don't work after :GitGutterEnable when not also
+      " running :GitGutter (e.g. :GitGutterStageHunk).
+      return ':GitGutterEnable | GitGutter'
+   else
+      return ':GitGutter'
+   end
+endfunction
+nnoremap <silent> <expr> <Leader>g <SID>UpdateOrEnableGitGutter() . '<CR>'
+nnoremap <silent> <Leader>G :GitGutterDisable<CR>
+nnoremap <silent> cog :GitGutterToggle<CR>
 
 " Fix the syntax highlighting.  See `:h :syn-sync-first` and
 " http://vim.wikia.com/wiki/Fix_syntax_highlighting.
