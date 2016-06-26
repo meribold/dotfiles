@@ -382,7 +382,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 
 " goyo.vim {{{2
 let g:goyo_height = '100%'
-function! GoyoToggle()
+function! s:GoyoToggle()
    if !exists('#goyo')
       " Set the window width based on the local 'textwidth' (unless it's 0) instead of
       " g:goyo_width.  Add 1 so Vim doesn't scroll horizontally when the cursor is behind
@@ -396,7 +396,7 @@ function! GoyoToggle()
      endif
    endif
 endfunction
-nnoremap <silent> Q :call GoyoToggle()<CR>
+nnoremap <silent> Q :call <SID>GoyoToggle()<CR>
 
 " }}}2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -911,7 +911,7 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " windows).
 " Either way, using the <expr> special argument seems like a much better approach that
 " avoids this mess.  See :h <expr> and :h expression-syntax.
-function! OnEnter()
+function! s:OnEnter()
    let filetypes = [ 'man', 'thesaurus' ]
    if empty(&buftype) || &buftype ==# 'help' || index(filetypes, &filetype) != -1
       return ':noh | echo'
@@ -919,10 +919,10 @@ function! OnEnter()
       return ''
    end
 endfunction
-nnoremap <silent> <expr> <CR> OnEnter()
+nnoremap <silent> <expr> <CR> <SID>OnEnter()
 " This works around E481 caused by :noh not accepting a range (just try :noh in visual
 " mode).  TODO: it feels pretty inelegant, though.
-xnoremap <silent> <expr> <CR> '<Esc>' . OnEnter() . 'gv'
+xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
 
 " }}}1
 " vim: tw=90 sts=-1 sw=3 et fdm=marker
