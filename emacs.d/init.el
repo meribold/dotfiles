@@ -1,3 +1,24 @@
+;; http://emacswiki.org/emacs/SetFonts
+;; M-x describe-font
+(set-face-attribute 'default nil :family "Ubuntu Mono" :foundry "DAMA"
+ :slant 'normal :weight 'normal :height 70 :width 'normal)
+;; (set-face-attribute 'default nil :family "Source Code Pro" :foundry
+;;  "ADBO" :slant 'normal :weight 'semi-bold :height 60 :width 'normal)
+;; ;; (set-face-attribute 'default nil :family "Inconsolatazi4" :foundry
+;;   "PfEd" :slant 'normal :weight 'normal :height 80 :width 'normal)
+
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
+(blink-cursor-mode 0)
+
+(column-number-mode 1)
+(display-battery-mode 1)
+
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
+
 (require 'package)
 (push '("marmalade" . "http://marmalade-repo.org/packages/") package-archives)
 (push '("melpa" . "http://melpa.milkbox.net/packages/") package-archives)
@@ -27,6 +48,9 @@
 (require 'evil-magit)
 (require 'evil-org)
 
+(load-theme 'monokai t)
+;; (load-theme 'zenburn t)
+
 ;; Make Emacs aware of Vim modelines.  I think [the package][1] isn't available on MELPA,
 ;; Marmalade or GNU ELPA, so I'm using a Git submodule and installing it manually.
 ;; [1]: https://github.com/cinsk/emacs-vim-modeline
@@ -47,31 +71,7 @@
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
-;; http://emacswiki.org/emacs/SetFonts
-;; M-x describe-font
-(set-face-attribute 'default nil :family "Ubuntu Mono" :foundry "DAMA"
- :slant 'normal :weight 'normal :height 70 :width 'normal)
-;; (set-face-attribute 'default nil :family "Source Code Pro" :foundry
-;;  "ADBO" :slant 'normal :weight 'semi-bold :height 60 :width 'normal)
-;; ;; (set-face-attribute 'default nil :family "Inconsolatazi4" :foundry
-;;   "PfEd" :slant 'normal :weight 'normal :height 80 :width 'normal)
-
-(load-theme 'monokai t)
-;; (load-theme 'zenburn t)
-
-(setq show-paren-delay 0)
-(show-paren-mode 1)
-
-(blink-cursor-mode 0)
-
-(column-number-mode 1)
-(display-battery-mode 1)
-
 (require 'saveplace)
 (setq-default save-place 1)
-
-(menu-bar-mode 0)
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
 
 ;; vim: tw=90 sts=-1 sw=3 et
