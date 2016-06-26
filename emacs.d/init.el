@@ -24,6 +24,7 @@
 (push '("melpa" . "http://melpa.milkbox.net/packages/") package-archives)
 (package-initialize)
 
+;; Evil stuff.
 (require 'undo-tree)
 (global-undo-tree-mode)
 (setq undo-tree-auto-save-history t)
@@ -65,6 +66,9 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; [Org-Reveal][1]: exports Org documents to [reveal.js][2] presentations.
+;; [1]: https://github.com/yjwen/org-reveal
+;; [2]: https://github.com/hakimel/reveal.js
 (require 'ox-reveal)
 
 ;; https://github.com/slime/slime
