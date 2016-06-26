@@ -10,13 +10,14 @@ git pull --recurse-submodules && git submodule update
 git submodule foreach git clean -dfx # remove all untracked files of all submodules
 git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
-git submodule update --remote --merge # merge upstream submodule changes
+git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
 gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
 iw dev wlan0 link
 makepkg -sri
 mbsync gmail && notmuch new
 mpc clear && mpc ls | mpc add
+mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
 rsync -r -h --info=progress2 SRC DEST
