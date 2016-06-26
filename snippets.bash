@@ -1,3 +1,4 @@
+amixer set Master mute
 cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
 cower -u
@@ -13,6 +14,7 @@ git submodule update # doesn't change what commits are recorded in the superproj
 git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
 gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
+ip addr show
 iw dev wlan0 link
 makepkg -sri
 mbsync gmail && notmuch new
