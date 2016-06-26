@@ -29,9 +29,10 @@ Plug 'tyru/open-browser.vim'
 Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
 
 " New text objects and improvements to existing ones. {{{2
-Plug 'kana/vim-textobj-user' " Required for vim-textobj-entire.
-Plug 'kana/vim-textobj-entire'
 Plug 'coderifous/textobj-word-column.vim'
+Plug 'gilligan/textobj-gitgutter'         " Requires vim-textobj-user and vim-gitgutter.
+Plug 'kana/vim-textobj-entire'            " Requires vim-textobj-user.
+Plug 'kana/vim-textobj-user'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
