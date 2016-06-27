@@ -75,6 +75,15 @@
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
+(require 'powerline)
+(setq powerline-default-separator 'wave)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(spaceline-helm-mode)
+;; Color the mode (status) line's indicator based on the current Vim mode (different
+;; colors for normal mode, insert mode, ...).
+(setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+
 (require 'saveplace)
 (setq-default save-place 1)
 
