@@ -17,6 +17,9 @@ xset -b # Turn off the beep in X.
 # Set the desktop wallpaper, wait until feh returns, then start conky.
 { ~/.fehbg; [[ $1 != notion ]] && conky; } &
 
+# Make the multimedia keys do stuff using XBindKeys(1).  Reads ~/.xbindkeysrc.
+xbindkeys
+
 case $1 in
    # The only way I found to start Conky without any issues (that I'm aware of right now)
    # when using Notion (I have 'own_window no' in my .conkyrc):
