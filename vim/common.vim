@@ -71,8 +71,16 @@ Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'justinmk/vim-sneak'
 Plug 'rhysd/clever-f.vim'
 
+" There are two alternatives to [EasyAlign][1] I know of: [Tabular][2] and [Lion.vim][3].
+" Tabular is the oldest.  I think it doesn't provide an operator.  Lion.vim is much
+" simpler than EasyAlign (its help file has less than 100 lines compared to EasyAlign's
+" almost 1000) but EasyAlign tends to automagically do the 'right thing' in many common
+" cases (like ignoring comments).  Also see [this reddit post][4] about EasyAlign.
+" [1]: https://github.com/junegunn/vim-easy-align
+" [2]: https://github.com/godlygeek/tabular
+" [3]: https://github.com/tommcdo/vim-lion
+" [4]: https://www.reddit.com/comments/2lsr8d
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-" Plug 'godlygeek/tabular'
 
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -292,9 +300,6 @@ autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 " xmap T <Plug>Sneak_T
 " omap t <Plug>Sneak_t
 " omap T <Plug>Sneak_T
-
-" vim-easy-align {{{2
-" vmap <Enter> <Plug>(EasyAlign)
 
 " }}}2
 " let g:vim_markdown_folding_disabled = 1
@@ -828,6 +833,12 @@ nnoremap <silent> <Leader>Q :Autoformat<CR>
 autocmd vimrc_common FileType c,cpp,objc
    \ nmap <buffer> <LocalLeader>q <Plug>(operator-clang-format) |
    \ xmap <buffer> <LocalLeader>q <Plug>(operator-clang-format)
+
+" vim-easy-align {{{2
+" Operator starting interactive EasyAlign.  Normal and visual mode.
+nmap gl <Plug>(EasyAlign)
+xmap gl <Plug>(EasyAlign)
+" }}}2
 
 function! s:UpdateOrEnableGitGutter()
    if !g:gitgutter_enabled
