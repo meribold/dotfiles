@@ -49,7 +49,8 @@
 (require 'evil-magit)
 (require 'evil-org)
 
-(load-theme 'monokai t)
+(load-theme 'ujelly t)
+;; (load-theme 'monokai t)
 ;; (load-theme 'zenburn t)
 
 ;; Make Emacs aware of Vim modelines.  I think [the package][1] isn't available on MELPA,
