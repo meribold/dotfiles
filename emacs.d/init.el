@@ -19,6 +19,12 @@
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
 
+;; Don't open the *About GNU Emacs* buffer (C-h C-a) on startup.
+(setq inhibit-startup-screen t)
+
+;; Save the session (desktop) when Emacs exits and restore it on startup.
+(desktop-save-mode 1)
+
 (require 'package)
 (push '("marmalade" . "http://marmalade-repo.org/packages/") package-archives)
 (push '("melpa" . "http://melpa.milkbox.net/packages/") package-archives)
