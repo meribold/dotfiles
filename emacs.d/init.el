@@ -91,6 +91,15 @@
 ;; Color the mode (status) line's indicator based on the current Vim mode (different
 ;; colors for normal mode, insert mode, ...).
 (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+;; Disable some spaceline segments.
+(setq spaceline-buffer-size-p nil)
+(setq spaceline-version-control-p nil)
+;; Hide some minor mode displays (lighters) from the mode line.
+(require 'diminish)
+(diminish 'evil-commentary-mode)
+(diminish 'evil-snipe-local-mode)
+(diminish 'helm-mode)
+(diminish 'undo-tree-mode)
 
 (require 'saveplace)
 (setq-default save-place 1)
