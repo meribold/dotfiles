@@ -83,7 +83,8 @@
 (setq slime-contribs '(slime-fancy))
 
 (require 'powerline)
-(setq powerline-default-separator 'wave)
+;; Don't use fancy mode line separators; saves surprisingly much space.
+(setq powerline-default-separator nil)
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
 (spaceline-helm-mode)
