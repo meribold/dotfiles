@@ -6,13 +6,13 @@
 # [2]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys
 # [3]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys_in_Xorg
 
-"amixer set Master toggle"
+"amixer -q set Master toggle"
    XF86AudioMute
 
-"amixer set PCM playback 2dB-"
+"amixer -q set PCM playback 2dB-"
    XF86AudioLowerVolume
 
-"amixer set PCM playback 2dB+"
+"amixer -q set PCM playback 2dB+"
    XF86AudioRaiseVolume
 
 "mpc next"
