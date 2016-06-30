@@ -22,6 +22,16 @@
 ;; Don't open the *About GNU Emacs* buffer (C-h C-a) on startup.
 (setq inhibit-startup-screen t)
 
+;; Disable echoing this message on startup: "For information about GNU Emacs and the GNU
+;; system, type C-h C-a".  Emacs tries to prevent us from doing this in a portable way by
+;; forcing us to pass our user name.  It's not even possible to disable it the intended
+;; way from files other than .emacs and .emacs.d/init.el (I was going to use host-specific
+;; files to deal with having different user names on different machines).  This [code from
+;; Yann Hodique's blog][1] bypasses these shenanigans.
+;; [1]: http://yann.hodique.info/blog/rant-obfuscation-in-emacs/
+(put 'inhibit-startup-echo-area-message 'saved-value
+   (setq inhibit-startup-echo-area-message (user-login-name)))
+
 ;; Don't display an initial message in the *scratch* buffer.
 (setq initial-scratch-message nil)
 
