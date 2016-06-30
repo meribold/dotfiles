@@ -1,11 +1,3 @@
-;; http://emacswiki.org/emacs/SetFonts
-;; M-x describe-font
-(set-face-attribute 'default nil :family "Ubuntu Mono" :foundry "DAMA"
- :slant 'normal :weight 'normal :height 70 :width 'normal)
-;; (set-face-attribute 'default nil :family "Source Code Pro" :foundry
-;;  "ADBO" :slant 'normal :weight 'semi-bold :height 60 :width 'normal)
-;; ;; (set-face-attribute 'default nil :family "Inconsolatazi4" :foundry
-;;   "PfEd" :slant 'normal :weight 'normal :height 80 :width 'normal)
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
@@ -37,6 +29,12 @@
 
 ;; Save the session (desktop) when Emacs exits and restore it on startup.
 (desktop-save-mode 1)
+
+;; Load host-specific Lisp files.  The third argument tells `load` not to report an error
+;; if a file doesn't exist.  I only create symlinks for files I want to load on each
+;; machine.
+(load (expand-file-name "elanor.el" user-emacs-directory) t)
+(load (expand-file-name "goldberry.el" user-emacs-directory) t)
 
 (require 'package)
 (push '("marmalade" . "http://marmalade-repo.org/packages/") package-archives)
