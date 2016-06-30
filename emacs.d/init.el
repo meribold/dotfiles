@@ -22,6 +22,9 @@
 ;; Don't open the *About GNU Emacs* buffer (C-h C-a) on startup.
 (setq inhibit-startup-screen t)
 
+;; Don't display an initial message in the *scratch* buffer.
+(setq initial-scratch-message nil)
+
 ;; Save the session (desktop) when Emacs exits and restore it on startup.
 (desktop-save-mode 1)
 
