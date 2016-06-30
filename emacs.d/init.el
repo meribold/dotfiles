@@ -6,7 +6,6 @@
 (blink-cursor-mode 0)
 
 (column-number-mode 1)
-(display-battery-mode 1)
 
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
