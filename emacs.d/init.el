@@ -30,6 +30,17 @@
 ;; Save the session (desktop) when Emacs exits and restore it on startup.
 (desktop-save-mode 1)
 
+;; While Bailey Ling makes some makes some [good points][1] against changing
+;; `gc-cons-threshold`, garbage collection always causes noticeable lag on my laptop.
+;; Even with the tiny default value of 800 kB.  With that default threshold, it also
+;; happens all the time: every second or so when scrolling (FIXME: is this really a
+;; weakness of Emacs, or caused by my config?).  Since lag seems unavoidable, the best
+;; thing to do is to make it less frequent.  Increase the threshold to 100 MB and also
+;; enable the notification messages.
+;; [1]: http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
+(setq garbage-collection-messages t)
+(setq gc-cons-threshold 100000000)
+
 ;; Load host-specific Lisp files.  The third argument tells `load` not to report an error
 ;; if a file doesn't exist.  I only create symlinks for files I want to load on each
 ;; machine.
