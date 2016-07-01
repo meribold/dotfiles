@@ -26,20 +26,20 @@ call plug#begin('~/.vim/plugged')
 Plug 'justinmk/vim-dirvish'
 Plug 'tyru/open-browser.vim'
 
-Plug 'tpope/vim-repeat' " Used for surround.vim and commentary.vim.
+" Auxiliary plugins {{{2
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-textobj-user'
+Plug 'tpope/vim-repeat'       " Used by surround.vim, commentary.vim, unimpaired.vim, ...
 
-" New text objects and improvements to existing ones. {{{2
+" New or improved text objects {{{2
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'gilligan/textobj-gitgutter'         " Requires vim-textobj-user and vim-gitgutter.
 Plug 'kana/vim-textobj-entire'            " Requires vim-textobj-user.
-Plug 'kana/vim-textobj-user'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
 
-" }}}2
-" New operators. {{{2
-Plug 'kana/vim-operator-user'
+" New operators {{{2
 Plug 'Chiel92/vim-autoformat'
 Plug 'rhysd/vim-clang-format'  " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
 Plug 'tommcdo/vim-exchange'
@@ -96,7 +96,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'itchyny/lightline.vim'
 " Plug 'bling/vim-airline'
 
-" Both slow Vim down on my lapotp.
+" Both slow Vim down way too much on my lapotp.
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'Yggdroot/indentLine'
 
@@ -159,9 +159,8 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-sleuth'
 
 " Snippet engine using Python.  Doesn't define any snippets by itself; they are in
-" honza/vim-snippets (but I'm only using my own snippets at the moment).  TODO: check that
-" we have Python.
-if has('unix')
+" honza/vim-snippets (but I'm only using my own snippets at the moment).
+if has('python') || has('python3') " TODO: is this what we should check?
    Plug 'SirVer/ultisnips'
 endif
 
@@ -188,11 +187,14 @@ Plug 'thinca/vim-visualstar'
 " Plug 'wincent/command-t'
 " Plug 'szw/vim-ctrlspace'
 Plug 'Shougo/unite.vim'
-" I'm using the fzf package build from the AUR, so I removed the install command from the
-" next line (which is copied from https://github.com/junegunn/fzf#install-as-vim-plugin).
-" TODO: don't I really just need to curl the .vim file?
-if has('unix')
-   Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+
+" I'm using the fzf package from Arch's community repository, but that doesn't include the
+" `fzf.vim` file.  Adding fzf as a Vim plugin here only serves to get that file, so none
+" of the options to the Plug command suggested [here][1] are used.  TODO: find a way to
+" only sync the .vim file?
+" [1]: https://github.com/junegunn/fzf#install-as-vim-plugin
+if executable('fzf')
+   Plug 'junegunn/fzf'
    Plug 'junegunn/fzf.vim'
 endif
 
@@ -209,22 +211,23 @@ Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
 
-" Color schemes.
-Plug 'meribold/molokai'
-Plug 'altercation/vim-colors-solarized'
-Plug 'jonathanfilip/vim-lucius'
-Plug 'itchyny/landscape.vim'
-Plug 'vim-scripts/wombat256.vim'
-Plug 'vim-scripts/xoria256.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'vim-scripts/Neverness-colour-scheme'
-Plug 'chriskempson/vim-tomorrow-theme'
+" Color schemes {{{2
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'sjl/badwolf'
-Plug 'junegunn/seoul256.vim'
-" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'itchyny/landscape.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/wombat256.vim'
 " Plug 'chriskempson/base16-vim'
+" Plug 'jonathanfilip/vim-lucius'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'meribold/molokai'
+" Plug 'sjl/badwolf'
+" Plug 'vim-scripts/Neverness-colour-scheme'
+" Plug 'vim-scripts/xoria256.vim'
+" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
+" }}}2
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -318,7 +321,7 @@ let g:lightline = {
 " ["Changing colorscheme on the fly"](https://github.com/itchyny/lightline.vim/issues/9).
 autocmd vimrc_common ColorScheme * call s:lightline_update()
 function! s:lightline_update() " Local to this file.
-   " TODO: only list color schemes where the name of the lightline color scheme differs
+   " FIXME: only list color schemes where the name of the lightline color scheme differs
    " from the one of the matching Vim color scheme.  Use a directory listing of
    " lightline.vim/autoload/lightline/colorscheme/ for everything else.
    let colos = {
