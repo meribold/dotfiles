@@ -132,9 +132,6 @@ Plug 'dhruvasagar/vim-table-mode'
 " Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
 " render Markdown (http://stackoverflow.com/q/9212340).  TODO: add a mapping for Grip?
 
-Plug 'itchyny/lightline.vim'
-" Plug 'bling/vim-airline'
-
 " Both slow Vim down way too much on my lapotp.
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'Yggdroot/indentLine'
@@ -209,6 +206,9 @@ Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
 " Plug 'junegunn/limelight.vim', { 'on':  'Limelight' }
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
+
+Plug 'itchyny/lightline.vim'
+" Plug 'bling/vim-airline'
 
 " Color schemes {{{2
 Plug 'NLKNguyen/papercolor-theme'
@@ -304,9 +304,11 @@ autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 " omap T <Plug>Sneak_T
 
 " }}}2
+" vim-markdown {{{2
 " let g:vim_markdown_folding_disabled = 1
 " let g:vim_markdown_no_default_key_mappings = 1
 
+" vim-instant-markdown {{{2
 " let g:instant_markdown_slow = 1
 " let g:instant_markdown_autostart = 0
 
@@ -348,6 +350,7 @@ function! s:lightline_update() " Local to this file.
 endfunction
 
 " }}}2
+" vim-indent-guides {{{2
 " let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 
