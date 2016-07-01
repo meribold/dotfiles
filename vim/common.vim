@@ -731,10 +731,10 @@ endif
 " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-
 " http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
 
-" Highlight first column after 'textwidth', except in help files.  TODO: autocmd isn't run
-" when the filetype is empty.
-set cc=+1
-autocmd vimrc_common FileType * if &ft !=# 'help' | setl cc=+1 | else | setl cc= | endif
+" Use the 'colorcolumn' option to highlight the first column after 'textwidth' in the
+" focused window, but only if the buffer is 'modifiable' and 'noreadonly'.
+autocmd vimrc_common WinEnter * if &ma && !&ro | setl cc=+1 | endif
+autocmd vimrc_common WinLeave * setl cc=
 
 " Alias for the :SudoWrite command from [eunuch.vim](https://github.com/tpope/vim-eunuch):
 " use :W to write the current file with sudo.
