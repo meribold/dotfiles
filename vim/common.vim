@@ -252,6 +252,12 @@ xmap gx <Plug>(openbrowser-smart-search)
 let g:openbrowser_default_search = 'duckduckgo'
 
 " vim-autoformat {{{2
+" When no formatprg exists for a filetype, do nothing.  Don't indent, retab, and remove
+" trailing whitespace.
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
 " vim-autoformat invokes `clang-format` with arguments matching some of Vim's options
 " (like 'textwidth', 'expandtab', and 'shiftwidth'; see the value of
 " g:formatdef_clangformat) UNLESS it finds a `.clang-format` or `_clang-format` file.  See
