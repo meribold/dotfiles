@@ -515,7 +515,12 @@ set number
 set relativenumber " Slows Vim down a lot.  Worth disabling in long files with complex
                    " syntax highlighting sometimes (unimpaired.vim maps this to [or, ]or
                    " and cor).  'cursorline' is similar.
-set numberwidth=3  " Minimal number of colums to use for the line number.
+set numberwidth=4  " Minimal number of columns to use for line numbers.  The value
+                   " accounts for one space that is always added between the line numbers
+                   " and the text.  4 means that the width has to be increased in buffers
+                   " with 1000 or more lines.  Bigger values can look nicer when
+                   " 'colorcolumn' is used, because the highlighted columns of horizontal
+                   " splits are more likely to line up.
 
 " Display relative line numbers (absolute for line cursor is in) in the focused window,
 " and absolute in other windows.
