@@ -474,9 +474,13 @@ endif
 " }}}2
 " Stuff that used to be part of sensible.vim {{{2
 
-" See https://github.com/tpope/vim-sensible/issues/78.
-" Removed by https://github.com/tpope/vim-sensible/commit/9e91be7e0fb42949831fe3161ef5833.
-set lazyredraw
+" Enabling 'lazyredraw' causes slight visual glitches sometimes.  It [made][1] [it's][2]
+" [way][3] into sensible.vim, but [was removed][4] again.
+" [1]: https://github.com/tpope/vim-sensible/issues/78
+" [2]: https://github.com/tpope/vim-sensible/pull/89
+" [3]: https://github.com/tpope/vim-sensible/commit/2fb074e
+" [4]: https://github.com/tpope/vim-sensible/commit/9e91be7
+set nolazyredraw " This currently is the default.
 
 " Makes Y consistent with C and D.  See :h Y and :h &.
 " Removed by https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1f.
