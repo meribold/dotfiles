@@ -48,9 +48,20 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/visual-split.vim'
 Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
 
-" }}}2
-Plug 'benekastah/neomake'
+" External tool integration {{{2
 Plug 'tpope/vim-dispatch'
+Plug 'benekastah/neomake'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter', { 'on': ['GitGutterToggle', 'GitGutterEnable'] }
+Plug 'meribold/vim-man'
+" Plug 'lambdalisue/vim-manpager'
+
+if has('unix')
+   Plug 'beloglazov/vim-online-thesaurus'
+   Plug 'szw/vim-dict'
+endif
+" Plug 'szw/vim-g'
 
 " Send the current paragraph to a REPL with <C-C><C-C>.  Haskell code is [adapted][1] to
 " the syntax ghci expects.  I think all of these plugins are similar:
@@ -62,6 +73,34 @@ Plug 'tpope/vim-dispatch'
 Plug 'jpalardy/vim-slime'
 " [1]: https://github.com/jpalardy/vim-slime/tree/master/ftplugin/haskell
 " [2]: https://www.reddit.com/comments/4o97kn
+
+" Automated management of tag files.  I chose [Gutentags][1] semi-randomly: it has some
+" cool features like incremental tags generation but [there][2] [are][3] [many][4]
+" [similar][5] [plugins][6], neither of which I tried.
+" [1]: https://github.com/ludovicchabant/vim-gutentags
+" [2]: https://github.com/basilgor/vim-autotags
+" [3]: https://github.com/soramugi/auto-ctags.vim
+" [4]: https://github.com/craigemery/vim-autotag
+" [5]: https://github.com/szw/vim-tags
+" [6]: https://github.com/xolox/vim-easytags
+Plug 'ludovicchabant/vim-gutentags'
+
+" FIXME: pastery.vim increases Vim's startup time by half a second when not using
+" on-demand loading.
+if has('unix')
+   Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
+endif
+
+" I'm using the fzf package from Arch's community repository, but that doesn't include the
+" `fzf.vim` file.  Adding fzf as a Vim plugin here only serves to get that file, so none
+" of the options to the Plug command suggested [here][1] are used.  TODO: find a way to
+" only sync the .vim file?
+" [1]: https://github.com/junegunn/fzf#install-as-vim-plugin
+if executable('fzf')
+   Plug 'junegunn/fzf'
+   Plug 'junegunn/fzf.vim'
+endif
+" }}}2
 
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
@@ -100,11 +139,6 @@ Plug 'itchyny/lightline.vim'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'Yggdroot/indentLine'
 
-Plug 'tpope/vim-eunuch'
-
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter', { 'on': ['GitGutterToggle', 'GitGutterEnable'] }
-
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
 Plug 'Raimondi/delimitMate'
@@ -118,17 +152,6 @@ Plug 'tpope/vim-endwise'
 
 Plug 'tpope/vim-unimpaired'
 
-" Automated management of tag files.  I chose [Gutentags][1] semi-randomly: it has some
-" cool features like incremental tags generation but [there][2] [are][3] [many][4]
-" [similar][5] [plugins][6], neither of which I tried.
-" [1]: https://github.com/ludovicchabant/vim-gutentags
-" [2]: https://github.com/basilgor/vim-autotags
-" [3]: https://github.com/soramugi/auto-ctags.vim
-" [4]: https://github.com/craigemery/vim-autotag
-" [5]: https://github.com/szw/vim-tags
-" [6]: https://github.com/xolox/vim-easytags
-Plug 'ludovicchabant/vim-gutentags'
-
 " Plug 'majutsushi/tagbar'
 
 Plug 'vim-scripts/a.vim'
@@ -136,21 +159,6 @@ Plug 'vim-scripts/a.vim'
 
 " Plug 'simnalamburt/vim-mundo'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
-Plug 'meribold/vim-man'
-" Plug 'lambdalisue/vim-manpager'
-
-" FIXME: pastery.vim increases Vim's startup time by half a second when not using
-" on-demand loading.
-if has('unix')
-   Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
-endif
-
-if has('unix')
-   Plug 'beloglazov/vim-online-thesaurus'
-   Plug 'szw/vim-dict'
-endif
-" Plug 'szw/vim-g'
 
 Plug 'tpope/vim-obsession'
 " Plug 'xolox/vim-session'
@@ -188,15 +196,6 @@ Plug 'thinca/vim-visualstar'
 " Plug 'szw/vim-ctrlspace'
 Plug 'Shougo/unite.vim'
 
-" I'm using the fzf package from Arch's community repository, but that doesn't include the
-" `fzf.vim` file.  Adding fzf as a Vim plugin here only serves to get that file, so none
-" of the options to the Plug command suggested [here][1] are used.  TODO: find a way to
-" only sync the .vim file?
-" [1]: https://github.com/junegunn/fzf#install-as-vim-plugin
-if executable('fzf')
-   Plug 'junegunn/fzf'
-   Plug 'junegunn/fzf.vim'
-endif
 
 Plug 'vim-utils/vim-husk'
 " Plug 'tpope/vim-rsi'
