@@ -409,35 +409,6 @@ function! s:GoyoToggle()
 endfunction
 nnoremap <silent> Q :call <SID>GoyoToggle()<CR>
 
-" }}}2
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
-" :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
-
-" XXX: will this always be run AFTER 'keywordprg' was changed?
-function! s:FixK()
-   if &ft ==# 'vim'
-      silent! unmap <buffer> K
-      setl keywordprg=:help
-   elseif &keywordprg ==# ':help'
-      setl keywordprg=man
-   elseif &keywordprg ==# 'man'
-      " I'm using the vim-man plugin.
-      nmap <buffer> K <Plug>(Man)
-   else
-      silent! unmap <buffer> K
-   endif
-endfunction
-autocmd vimrc_common FileType * call s:FixK()
-autocmd vimrc_common BufWinEnter * if empty(&ft) | call s:FixK() | endif
-
-" [Help for word under cursor](http://stackoverflow.com/a/15867465)
-" https://github.com/vim-utils/vim-man
-" http://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
-" http://vim.wikia.com/wiki/View_man_pages_in_Vim
-" http://usevim.com/2012/09/07/vim101-keywordprg/
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Basic settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff taken from sensible.vim {{{2
@@ -785,6 +756,34 @@ if executable('ag')
    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
    set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
+" :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
+
+" XXX: will this always be run AFTER 'keywordprg' was changed?
+function! s:FixK()
+   if &ft ==# 'vim'
+      silent! unmap <buffer> K
+      setl keywordprg=:help
+   elseif &keywordprg ==# ':help'
+      setl keywordprg=man
+   elseif &keywordprg ==# 'man'
+      " I'm using the vim-man plugin.
+      nmap <buffer> K <Plug>(Man)
+   else
+      silent! unmap <buffer> K
+   endif
+endfunction
+autocmd vimrc_common FileType * call s:FixK()
+autocmd vimrc_common BufWinEnter * if empty(&ft) | call s:FixK() | endif
+
+" [Help for word under cursor](http://stackoverflow.com/a/15867465)
+" https://github.com/vim-utils/vim-man
+" http://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
+" http://vim.wikia.com/wiki/View_man_pages_in_Vim
+" http://usevim.com/2012/09/07/vim101-keywordprg/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Mappings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
