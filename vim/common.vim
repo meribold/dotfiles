@@ -31,13 +31,18 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'       " Used by surround.vim, commentary.vim, unimpaired.vim, ...
 
-" New or improved text objects {{{2
+" New or improved motions and text objects {{{2
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'gilligan/textobj-gitgutter'         " Requires vim-textobj-user and vim-gitgutter.
 Plug 'kana/vim-textobj-entire'            " Requires vim-textobj-user.
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
 Plug 'wellle/targets.vim'
+
+" Plug 'easymotion/vim-easymotion'
+" Plug 'goldfeld/vim-seek'
+" Plug 'justinmk/vim-sneak'
+Plug 'rhysd/clever-f.vim'
 
 " New operators {{{2
 Plug 'Chiel92/vim-autoformat'
@@ -47,6 +52,17 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'wellle/visual-split.vim'
 Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
+
+" There are two alternatives to [EasyAlign][1] I know of: [Tabular][2] and [Lion.vim][3].
+" Tabular is the oldest.  I think it doesn't provide an operator.  Lion.vim is much
+" simpler than EasyAlign (its help file has less than 100 lines compared to EasyAlign's
+" almost 1000) but EasyAlign tends to automagically do the 'right thing' in many common
+" cases (like ignoring comments).  Also see [this reddit post][4] about EasyAlign.
+" [1]: https://github.com/junegunn/vim-easy-align
+" [2]: https://github.com/godlygeek/tabular
+" [3]: https://github.com/tommcdo/vim-lion
+" [4]: https://www.reddit.com/comments/2lsr8d
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " External tool integration {{{2
 Plug 'tpope/vim-dispatch'
@@ -104,22 +120,6 @@ endif
 
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
-
-" Plug 'easymotion/vim-easymotion'
-" Plug 'goldfeld/vim-seek'
-" Plug 'justinmk/vim-sneak'
-Plug 'rhysd/clever-f.vim'
-
-" There are two alternatives to [EasyAlign][1] I know of: [Tabular][2] and [Lion.vim][3].
-" Tabular is the oldest.  I think it doesn't provide an operator.  Lion.vim is much
-" simpler than EasyAlign (its help file has less than 100 lines compared to EasyAlign's
-" almost 1000) but EasyAlign tends to automagically do the 'right thing' in many common
-" cases (like ignoring comments).  Also see [this reddit post][4] about EasyAlign.
-" [1]: https://github.com/junegunn/vim-easy-align
-" [2]: https://github.com/godlygeek/tabular
-" [3]: https://github.com/tommcdo/vim-lion
-" [4]: https://www.reddit.com/comments/2lsr8d
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 Plug 'dhruvasagar/vim-table-mode'
 
