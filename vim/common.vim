@@ -99,7 +99,9 @@ Plug 'jpalardy/vim-slime'
 " [4]: https://github.com/craigemery/vim-autotag
 " [5]: https://github.com/szw/vim-tags
 " [6]: https://github.com/xolox/vim-easytags
-Plug 'ludovicchabant/vim-gutentags'
+if executable('ctags')
+   Plug 'ludovicchabant/vim-gutentags'
+end
 
 " FIXME: pastery.vim increases Vim's startup time by half a second when not using
 " on-demand loading.
