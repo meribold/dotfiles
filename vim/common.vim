@@ -193,6 +193,8 @@ Plug 'thinca/vim-visualstar'
 " Plug 'szw/vim-ctrlspace'
 Plug 'Shougo/unite.vim'
 
+" TODO: use fzf for this?
+Plug 'kopischke/unite-spell-suggest'
 
 Plug 'vim-utils/vim-husk'
 " Plug 'tpope/vim-rsi'
@@ -396,6 +398,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 " These key combinations are more or less available and could also be used:
 " i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J, i_CTRL-_ (this
 " seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
+
+" unite.vim {{{2
+" Replace the built-in z= mapping with a less obtrusive interface based on unite.vim.
+nnoremap z= :Unite spell_suggest<CR>
 
 " goyo.vim {{{2
 let g:goyo_height = '100%'
