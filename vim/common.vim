@@ -807,8 +807,19 @@ else
    " right now.
 endif
 
-" Use Shift+Tab to toggle folds recursively.
-nnoremap <S-Tab> zA
+" Cycle the 'foldlevel' ('fdl').  Kind of like Org-mode's org-shifttab.
+function! s:CycleFoldlevel()
+   " Remember the current 'foldlevel'.
+   let foldlevel = &foldlevel
+   " Open more folds (mnemonic: [r]educe folding).  That is, add v:count1 to 'foldlevel'.
+   norm zr
+   if foldlevel == &foldlevel
+      " Nothing happened, there were no more folds to open.  Close all folds (mnemonic:
+      " fold [M]ore).
+      norm zM
+   endif
+endfunction
+nnoremap <silent> <S-Tab> :call <SID>CycleFoldlevel()<CR>
 
 " Switch windows more easily.
 nnoremap <C-H> <C-W>h
