@@ -21,6 +21,7 @@ augroup END
 " files (:h initialization).
 call plug#begin('~/.vim/plugged')
 
+" Replacements for bundled plugins {{{2
 " I use dirvish.vim and open-browser.vim to replace netrw.  Unlike tpope's vinegar.vim,
 " dirvish.vim doesn't depend on netrw.
 Plug 'justinmk/vim-dirvish'
@@ -118,10 +119,17 @@ if executable('fzf')
    Plug 'junegunn/fzf'
    Plug 'junegunn/fzf.vim'
 endif
-" }}}2
 
+" Improvements of existing functionality {{{2
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
+" Plug 'xolox/vim-session'
+Plug 'thinca/vim-visualstar'
+Plug 'tpope/vim-speeddating'
+
+" Ungrouped (TODO) {{{2
 
 Plug 'dhruvasagar/vim-table-mode'
 
@@ -149,8 +157,6 @@ Plug 'Raimondi/delimitMate'
 " Plug 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
 Plug 'tpope/vim-endwise'
 
-Plug 'tpope/vim-unimpaired'
-
 " Plug 'majutsushi/tagbar'
 
 Plug 'vim-scripts/a.vim'
@@ -158,9 +164,6 @@ Plug 'vim-scripts/a.vim'
 
 " Plug 'simnalamburt/vim-mundo'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
-Plug 'tpope/vim-obsession'
-" Plug 'xolox/vim-session'
 
 " Automatically adjusts 'shiftwidth' and 'expandtab' heuristically.
 Plug 'tpope/vim-sleuth'
@@ -188,8 +191,6 @@ endif
 
 Plug 'sickill/vim-pasta'
 
-Plug 'thinca/vim-visualstar'
-
 " Plug 'kien/ctrlp.vim'
 " Plug 'wincent/command-t'
 " Plug 'szw/vim-ctrlspace'
@@ -200,8 +201,6 @@ Plug 'kopischke/unite-spell-suggest'
 
 Plug 'vim-utils/vim-husk'
 " Plug 'tpope/vim-rsi'
-
-Plug 'tpope/vim-speeddating'
 
 " Plug 'terryma/vim-multiple-cursors'
 
