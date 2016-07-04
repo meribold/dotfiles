@@ -38,6 +38,7 @@ Plug 'gilligan/textobj-gitgutter'         " Requires vim-textobj-user and vim-gi
 Plug 'kana/vim-textobj-entire'            " Requires vim-textobj-user.
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
+Plug 'vim-utils/vim-vertical-move'
 Plug 'wellle/targets.vim'
 
 " Plug 'easymotion/vim-easymotion'
