@@ -220,6 +220,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'itchyny/landscape.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'meribold/jellyjam.vim'
 Plug 'vim-scripts/wombat256.vim'
 " Plug 'chriskempson/base16-vim'
 " Plug 'jonathanfilip/vim-lucius'
@@ -341,6 +342,7 @@ function! s:lightline_update() " Local to this file.
       \ 'solarized': 'solarized_dark',
       \ 'landscape': 'landscape',
       \ 'jellybeans': 'jellybeans',
+      \ 'jellyjam': 'jellyjam',
       \ 'Tomorrow-Night': 'Tomorrow_Night',
       \ 'PaperColor': 'PaperColor_dark',
    \ }
@@ -627,8 +629,10 @@ set background=dark
 
 if !has('gui_running')
    let g:solarized_termcolors = 256
+   " TODO: explain this.
    let g:jellybeans_use_term_background_color = 1
-   silent! colorscheme jellybeans
+   let g:jellyjam_use_term_background_color = 1
+   silent! colorscheme jellyjam
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
