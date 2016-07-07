@@ -35,6 +35,7 @@ Plug 'tpope/vim-repeat'       " Used by surround.vim, commentary.vim, unimpaired
 " New or improved motions and text objects {{{2
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'gilligan/textobj-gitgutter'         " Requires vim-textobj-user and vim-gitgutter.
+Plug 'glts/vim-textobj-comment'           " Requires vim-textobj-user.
 Plug 'kana/vim-textobj-entire'            " Requires vim-textobj-user.
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
@@ -255,6 +256,18 @@ xmap gx <Plug>(openbrowser-smart-search)
 
 " Search with DuckDuckGo by default.
 let g:openbrowser_default_search = 'duckduckgo'
+
+" textobj-word-column.vim {{{2
+" Skip the plugin's default mappings: they conflict with those of vim-textobj-comment.
+let g:skip_default_textobj_word_column_mappings = 1
+xnoremap <silent> ab :<C-U>call TextObjWordBasedColumn('aw')<CR>
+xnoremap <silent> aB :<C-U>call TextObjWordBasedColumn('aW')<CR>
+xnoremap <silent> ib :<C-U>call TextObjWordBasedColumn('iw')<CR>
+xnoremap <silent> iB :<C-U>call TextObjWordBasedColumn('iW')<CR>
+onoremap <silent> ab :call TextObjWordBasedColumn('aw')<CR>
+onoremap <silent> aB :call TextObjWordBasedColumn('aW')<CR>
+onoremap <silent> ib :call TextObjWordBasedColumn('iw')<CR>
+onoremap <silent> iB :call TextObjWordBasedColumn('iW')<CR>
 
 " vim-autoformat {{{2
 " When no formatprg exists for a filetype, do nothing.  Don't indent, retab, and remove
