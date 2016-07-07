@@ -850,10 +850,16 @@ nnoremap <C-Q> <C-W>c
 nnoremap <C-P> g;zv
 nnoremap <C-N> g,zv
 
-" Split windows more easily: `_` splits horizontally and `|` splits vertically.  Taken
-" from justinmk's comment at http://www.reddit.com/comments/4jyw8o//d3ayzox.
-nnoremap <silent> <expr> \| !v:count ? '<C-W>v<C-W><Right>' : '\|'
-nnoremap <silent> <expr> _  !v:count ? '<C-W>s<C-W><Down>'  : '_'
+" More convenient mappings for maximizing the width or height of the current window.  They
+" fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
+" can still be used with a count -- I don't really do that, though, but I don't really use
+" | or _ either).  Based on the mappings from [this comment by justinmk][1].
+" [1]: http://www.reddit.com/comments/4jyw8o//d3ayzox
+nnoremap <expr> \| !v:count ? '<C-W>\|' : '\|'
+nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
+" I find myself using <C-W>= regrettably much; hitting + is faster.  TODO: maybe I
+" shouldn't remap both + and <CR>?
+nnoremap + <C-W>=
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
