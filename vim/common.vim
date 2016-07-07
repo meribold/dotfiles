@@ -731,6 +731,8 @@ endif
 " focused window, but only if the buffer is 'modifiable' and 'noreadonly'.
 autocmd vimrc_common WinEnter * if &ma && !&ro | setl cc=+1 | endif
 autocmd vimrc_common WinLeave * setl cc=
+" WinEnter isn't triggered when loading a new buffer into the current window.
+autocmd vimrc_common BufWinEnter * if &ma && !&ro | setl cc=+1 | endif
 
 " Alias for the :SudoWrite command from [eunuch.vim](https://github.com/tpope/vim-eunuch):
 " use :W to write the current file with sudo.
