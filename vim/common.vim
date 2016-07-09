@@ -848,11 +848,9 @@ function! s:CycleFoldlevel()
 endfunction
 nnoremap <silent> <S-Tab> :call <SID>CycleFoldlevel()<CR>
 
-" Switch windows more easily.
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
+" Switch windows more easily.  TODO: map <C-H> and <C-L> to something.
+nnoremap <C-J> <C-W>w
+nnoremap <C-K> <C-W>W
 
 " Control+Q just does the same as Control+V by default; use it to close windows.  TODO:
 " map it to something useful in insert mode as well.
