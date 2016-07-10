@@ -52,10 +52,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'rhysd/vim-clang-format'  " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-surround'
-Plug 'wellle/visual-split.vim'
 Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
 Plug 'tpope/vim-scriptease'    " Adds `g!`: evaluate VimL and substitute the result.
+Plug 'tpope/vim-surround'
+Plug 'wellle/visual-split.vim'
 
 " There are two alternatives to [EasyAlign][1] I know of: [Tabular][2] and [Lion.vim][3].
 " Tabular is the oldest.  I think it doesn't provide an operator.  Lion.vim is much
@@ -123,9 +123,11 @@ if executable('fzf')
    Plug 'junegunn/fzf.vim'
 endif
 
+
 " Improvements of existing functionality {{{2
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
 " Plug 'qpkorr/vim-bufkill'
+Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 " Plug 'xolox/vim-session'
@@ -191,8 +193,6 @@ if has('unix')
    " Plug 'rdnetto/YCM-Generator'
 endif
 " Plug 'scrooloose/syntastic'
-
-Plug 'sickill/vim-pasta'
 
 " Plug 'kien/ctrlp.vim'
 " Plug 'wincent/command-t'
