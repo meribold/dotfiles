@@ -55,6 +55,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'wellle/visual-split.vim'
 Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
+Plug 'tpope/vim-scriptease'    " Adds `g!`: evaluate VimL and substitute the result.
 
 " There are two alternatives to [EasyAlign][1] I know of: [Tabular][2] and [Lion.vim][3].
 " Tabular is the oldest.  I think it doesn't provide an operator.  Lion.vim is much
