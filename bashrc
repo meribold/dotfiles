@@ -178,7 +178,7 @@ alias vimrt='vim --remote-tab'    # "--servername".
 alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 '"$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Get the system's public IP address.  Taken from http://unix.stackexchange.com/a/81699.
+# Get the system's public IP address (taken from http://unix.stackexchange.com/a/81699).
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Get the default gateway's (router's) IP address (from http://serverfault.com/q/31170).
