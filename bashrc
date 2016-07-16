@@ -178,6 +178,10 @@ alias vimrt='vim --remote-tab'    # "--servername".
 alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 '"$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Get the system's local IP address (from http://stackoverflow.com/a/25851186 -- also see
+# http://askubuntu.com/a/604691).
+alias localip='ip route get 1 | head -1 | cut -d " " -f8'
+
 # Get the system's public IP address (taken from http://unix.stackexchange.com/a/81699).
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
