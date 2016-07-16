@@ -181,6 +181,9 @@ alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 # Get the system's public IP address.  Taken from http://unix.stackexchange.com/a/81699.
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
+# Get the default gateway's (router's) IP address (from http://serverfault.com/q/31170).
+alias gatewayip="ip route | awk '/^def/{print \$3}'"
+
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
 g() {
