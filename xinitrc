@@ -15,7 +15,8 @@ xset +fp /usr/share/fonts/local/
 
 xset -b # Turn off the beep in X.
 # Set the desktop wallpaper, wait until feh returns, then start conky.
-{ ~/.fehbg; [[ $1 != notion ]] && conky; } &
+# { ~/.fehbg; [[ $1 != notion ]] && conky; } &
+~/.fehbg &
 
 # Make the multimedia keys do stuff using XBindKeys(1).  Reads ~/.xbindkeysrc.
 xbindkeys
