@@ -44,7 +44,7 @@ shopt -s extglob
 bind Space:magic-space
 
 # Disable XON/XOFF flow control.  See stty(1),
-# http://unix.stackexchange.com/q/12107/115980 and
+# http://unix.stackexchange.com/q/12107 and
 # https://en.wikipedia.org/wiki/Software_flow_control.
 stty -ixon
 
