@@ -180,13 +180,32 @@ alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 
 # Get the system's local IP address (from http://stackoverflow.com/a/25851186 -- also see
 # http://askubuntu.com/a/604691).
-alias localip='ip route get 1 | head -1 | cut -d " " -f8'
+alias lanip='ip route get 1 | head -1 | cut -d " " -f8'
 
-# Get the system's public IP address (taken from http://unix.stackexchange.com/a/81699).
-alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
+# Get the system's public IP address (based on [these][1] [threads][2] and [this
+# script][3]).  The first method should be the fastest but [doesn't work in some
+# networks][4].  TODO: automatically fall back to the HTTP method if the one using DNS
+# doesn't work?
+# [1]: http://unix.stackexchange.com/q/22615
+# [2]: http://askubuntu.com/q/95910
+# [3]: https://github.com/rsp/scripts/blob/master/externalip.md#externalip
+# [4]: http://unix.stackexchange.com/q/22615#comment411014_81699
+wanip() {
+   case "$1" in
+      ''|d?(ns)) dig @resolver1.opendns.com myip.opendns.com +short;;
+      h?(ttp)) wget http://ipinfo.io/ip -qO -;;
+      *) echo Bad argument >&2 && return 1;;
+   esac
+}
 
 # Get the default gateway's (router's) IP address (from http://serverfault.com/q/31170).
 alias gatewayip="ip route | awk '/^def/{print \$3}'"
+
+alias localip=lanip
+alias internalip=lanip
+alias globalip=wanip
+alias externalip=wanip
+alias gateip=gatewayip
 
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
