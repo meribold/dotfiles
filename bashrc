@@ -129,7 +129,7 @@ j() {
 # Control+I (xterm is configured to send ÿ when Control+I is pressed, so it can be
 # distinguished from Tab).  I just copied and adapted the code used in
 # /usr/share/fzf/key-bindings.bash to set up the Control+R readline key binding.
-bind '"ÿ": " \C-e\C-u$(fzf < ~/dotfiles/snippets.bash)\e\C-e\e^\er"'
+bind '"ÿ": " \C-e\C-u $(fzf < ~/dotfiles/snippets.bash)\e\C-e\e^\er"'
 
 # Select a song from the current MPD playlist with fzf and start playing it.  If only one
 # matches "$*", bypass fzf.  Based on https://github.com/junegunn/fzf/wiki/Examples#mpd
