@@ -5,9 +5,12 @@ from collections import OrderedDict
 
 import vim
 
+me = "Lukas Waymann"
+
 # All options that might be used in modelines should be listed here.
 modeline_options = OrderedDict([("tw", "=90"), ("ts", None), ("sts", "=-1"), ("sw", "=3"),
-                                ("et", True), ("spell", None)])
+                                ("et", True), ("spell", None), ("spelllang", None),
+                                ("fdm", None)])
 
 def modeline(overrides = {}):
     options = []

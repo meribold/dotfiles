@@ -1,7 +1,44 @@
+global !p
+from snippet_helpers import *
+endglobal
+
 snippet "\\?b(egin)?" "begin{} ... end{}" br
 \begin{${1:equation*}}
 	${0:${VISUAL}}
 \end{$1}
+endsnippet
+
+snippet scrartcl "KOMA-Script article skeleton for use with pdfTeX" b
+% Preamble {{{1
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc} % Assume this file is encoded in UTF-8.
+\usepackage[T1]{fontenc}    % Don't fake umlauts etc.
+\usepackage{lmodern}        % Use the lmodern font (http://tex.stackexchange.com/a/65103).
+\usepackage{microtype}      % Better microtypography (http://www.ctan.org/pkg/microtype)
+\usepackage{comment}        % Comment out sections of text.
+\usepackage{mathtools}      % Improved facilities for typesetting mathematical formulae
+\usepackage{minted}         % Source code listings with improved syntax highlighting
+
+% Top matter {{{1
+\title{${1:I Summon Entropy}}
+\author{`!p snip.rv = me`}
+
+% Body {{{1
+\begin{document}
+\maketitle
+
+% \begin{abstract}
+% A brief introduction.
+% \end{abstract}
+
+% \tableofcontents
+
+\section{${2:Introduction}}
+${0:This is the first section.  Füße.  Résumé.}
+\end{document}
+
+`!p snip.rv = modeline({"fdm": "=marker"})`
 endsnippet
 
 # vim: tw=90 ts=3 sts=-1 sw=0 noet
