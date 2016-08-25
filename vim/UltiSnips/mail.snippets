@@ -44,6 +44,7 @@ snippet br "" b
 `!p snip.rv = best_regards`
 endsnippet
 
+post_expand "vim.command('set spelllang=de')"
 snippet hallo "" b
 Sehr `!p snip.rv = geehrtes(t[1] or t[2])` ${1:Herr}`!p snip.rv = frau(t[1])``!p snip.rv = t[1] and " " or ""`${2:`!p snip.rv = t[1] and "Zorin" or "Damen und Herren"`},
 
@@ -52,6 +53,7 @@ ${0:dieser Satz wird kleingeschrieben.}
 `!p snip.rv = mfg`
 endsnippet
 
+post_expand "vim.command('set spelllang=de')"
 snippet hallodr "" b
 Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr}`!p snip.rv = frau(t[1])` Dr. ${2:Frankenstein},
 
@@ -60,6 +62,7 @@ ${0:dieser Satz wird kleingeschrieben.}
 `!p snip.rv = mfg`
 endsnippet
 
+post_expand "vim.command('set spelllang=de')"
 snippet halloprof
 Sehr `!p snip.rv = geehrtes(t[1])` ${1:Herr}`!p snip.rv = frau(t[1])` Professor ${2:Metz},
 
@@ -69,6 +72,7 @@ ${0:dieser Satz wird kleingeschrieben.}
 endsnippet
 
 # Should a colon or a comma be used after the salutation?
+post_expand "vim.command('set spelllang=en')"
 snippet hello "" b
 Dear ${1:Mr.}`!p snip.rv = t[1] and " " or ""`${2:`!p snip.rv = t[1] and "Scaramanga" or "Sir or Madam"`},
 
@@ -77,6 +81,7 @@ ${0:This sentence should start with a capital letter.}
 `!p snip.rv = sincerely_yours`
 endsnippet
 
+post_expand "vim.command('set spelllang=en')"
 snippet hellodr "" b
 Dear Dr. ${1:No},
 
@@ -85,6 +90,7 @@ ${0:This sentence should start with a capital letter.}
 `!p snip.rv = sincerely_yours`
 endsnippet
 
+post_expand "vim.command('set spelllang=en')"
 snippet helloprof "" b
 Dear Professor ${1:Moriarty},
 
