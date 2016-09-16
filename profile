@@ -1,6 +1,6 @@
 export VISUAL=nvim
 export EDITOR=nvim
-export BROWSER=firefox
+export BROWSER=firefox-developer
 
 # The GNU Privacy Guard Manual suggest setting and exporting GPG_TTY like this.
 # https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
