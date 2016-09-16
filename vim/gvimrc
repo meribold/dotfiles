@@ -19,12 +19,12 @@ set guioptions-=e go-=m go-=T go-=r go-=L
 
 if has('win32')
    set guifont=Consolas:h10,Source_Code_Pro:h9
-   silent! colorscheme jellybeans
+   silent! colorscheme jellyjam
    " Maximize Vim's window on startup.  See :h win16-maximixed.
    autocmd vimrc_gvimrc GUIEnter * simalt ~x
 else
    set guifont=Ubuntu\ Mono\ 7,Source\ Code\ Pro\ Medium\ 6
-   silent! colorscheme jellybeans
+   silent! colorscheme jellyjam
 end
 let g:solarized_italic = 0
 
