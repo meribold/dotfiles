@@ -1,0 +1,77 @@
+{
+  "layout": "splitv",
+  "type": "con",
+  "nodes": [
+    {
+      "layout": "splith",
+      "percent": 0.3,
+      "type": "con",
+      "nodes": [
+        {
+          "percent": 0.6,
+          "swallows": [{ "class": "^XTerm$" }],
+          "type": "con"
+        },
+        {
+          "percent": 0.4,
+          "swallows": [{ "class": "^XTerm$" }],
+          "type": "con"
+        }
+      ]
+    },
+    {
+      "layout": "splith",
+      "percent": 0.7,
+      "type": "con",
+      "nodes": [
+        {
+          "layout": "splitv",
+          "percent": 0.5,
+          "type": "con",
+          "nodes": [
+            {
+              "percent": 0.4,
+              "swallows": [{ "class": "^XTerm$" }],
+              "type": "con"
+            },
+            {
+              "percent": 0.6,
+              "swallows": [{ "class": "^XTerm$" }],
+              "type": "con"
+            }
+          ]
+        },
+        {
+          "layout": "splitv",
+          "percent": 0.5,
+          "type": "con",
+          "nodes": [
+            {
+              "layout": "splitv",
+              "percent": 0.6,
+              "type": "con",
+              "nodes": [
+                {
+                  "percent": 0.5,
+                  "swallows": [{ "class": "^XTerm$" }],
+                  "type": "con"
+                },
+                {
+                  "percent": 0.5,
+                  "swallows": [{ "class": "^XTerm$" }],
+                  "type": "con"
+                }
+              ]
+            },
+            {
+              "percent": 0.4,
+              "swallows": [{ "class": "^XTerm$" }],
+              "type": "con"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+// vim: sts=-1 sw=2 et

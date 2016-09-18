@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Create an i3 workspace with 7 placeholder windows that swallow xterms.
+i3-msg -q 'append_layout ~/.config/i3/wifi-debug-workspace.json'
+
+xterm -e 'stty -ixon && exec screen -x -p 0' &
+sleep .1
+xterm -e 'stty -ixon && exec screen -x -p 1' &
+sleep .1
+xterm -e 'watch -n 1 iw dev wlan0 link' &
+sleep .1
+xterm &
+sleep .1
+xterm -e 'watch -d -n 1 ip address show dev wlan0' &
+sleep .1
+xterm -e 'watch -d -n 1 route -n' &
+sleep .1
+xterm -e 'while true; do ping -c 8 google.com && sleep 30 && clear || sleep 1; done' &
+
+# vim: tw=90 sts=-1 sw=3 et
