@@ -16,9 +16,10 @@ git submodule update # doesn't change what commits are recorded in the superproj
 git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
 gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
-ip address show dev eth0
 ip address show dev wlan0
+ip route show dev wlan0
 iw dev wlan0 link
+latexmk -pdf -shell-escape
 makepkg -sri
 mbsync gmail && notmuch new
 mount ~/sdb1 # mount known USB drive as normal user
@@ -26,12 +27,14 @@ mpc clear && mpc ls | mpc add
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
+reflector -a 1 -f 10 -n 5 -p http --sort score | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
 rsync -r -h --info=progress2 SRC DEST
 strfile ~/dotfiles/cookies
 sudo dhcpcd -B wlan0
 sudo ip link set wlan0 up
 sudo iw dev wlan0 scan | less
 sudo mount /dev/sdb1 ~/sdb1
+sudo pacman -Syu
 sudo systemctl poweroff
 sudo systemctl suspend
 sudo umount ~/sdb1
