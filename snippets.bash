@@ -19,6 +19,7 @@ i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
 ip address show dev wlan0
 ip route show dev wlan0
 iw dev wlan0 link
+jpm run -b /usr/bin/firefox-developer # test Firefox add-on
 latexmk -pdf -shell-escape
 makepkg -sri
 mbsync gmail && notmuch new
