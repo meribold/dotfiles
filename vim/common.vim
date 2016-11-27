@@ -107,8 +107,8 @@ if executable('ctags')
    Plug 'ludovicchabant/vim-gutentags'
 end
 
-" FIXME: pastery.vim increases Vim's startup time by half a second when not using
-" on-demand loading.
+" The startup time of pastery.vim is unusually long: use on-demand loading.  TODO:
+" investigate why it's long (see https://github.com/skorokithakis/pastery.vim/issues/2).
 if has('unix')
    Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
 endif
