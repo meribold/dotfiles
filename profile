@@ -25,6 +25,10 @@ if which ruby >/dev/null && which gem >/dev/null; then
    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
+# Make `jpm` available.
+# https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installing_jpm_locally
+PATH="$HOME/node_modules/.bin/:$PATH"
+
 # Set PATH to include ~/bin if it exists.  See http://askubuntu.com/a/402410.
 if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"
