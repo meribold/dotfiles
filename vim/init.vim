@@ -5,6 +5,10 @@ augroup END
 
 source ~/.config/nvim/common.vim
 
+if exists('&inccommand')
+   set inccommand=nosplit
+endif
+
 " Hide the tilde characters Vim displays in front of lines after the EOF.
 " https://github.com/neovim/neovim/issues/2067
 autocmd vimrc_init ColorScheme * call s:hide_tildes()
