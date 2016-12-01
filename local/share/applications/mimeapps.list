@@ -1,0 +1,22 @@
+[Added Associations]
+application/opensearchdescription+xml=firefox-developer.desktop
+audio/x-mpegurl=vlc.desktop
+
+[Default Applications]
+application/pdf=firefox-developer.desktop;zathura.desktop
+application/x-extension-htm=firefox-developer.desktop
+application/x-extension-html=firefox-developer.desktop
+application/x-extension-shtml=firefox-developer.desktop
+application/x-extension-xht=firefox-developer.desktop
+application/x-extension-xhtml=firefox-developer.desktop
+application/x-pdf=firefox-developer.desktop;zathura.desktop
+application/xhtml+xml=firefox-developer.desktop
+document/unknown=emacs.desktop;gvim.desktop
+image/png=feh.desktop
+text/html=firefox-developer.desktop
+text/markdown=emacs.desktop;gvim.desktop
+text/x-log=emacs.desktop;gvim.desktop
+x-scheme-handler/chrome=firefox-developer.desktop
+x-scheme-handler/ftp=firefox-developer.desktop
+x-scheme-handler/http=firefox-developer.desktop
+x-scheme-handler/https=firefox-developer.desktop
