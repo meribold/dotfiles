@@ -9,6 +9,7 @@
 
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
+(horizontal-scroll-bar-mode 0)
 (tool-bar-mode 0)
 
 ;; Don't open the *About GNU Emacs* buffer (C-h C-a) on startup.
@@ -40,6 +41,10 @@
 ;; [1]: http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 (setq garbage-collection-messages t)
 (setq gc-cons-threshold 100000000)
+
+;; Set the name by which to invoke Firefox; in effect, use Firefox Developer Edition as
+;; the default browser.
+(setq browse-url-firefox-program "firefox-developer")
 
 ;; Load host-specific Lisp files.  The third argument tells `load` not to report an error
 ;; if a file doesn't exist.  I only create symlinks for files I want to load on each
