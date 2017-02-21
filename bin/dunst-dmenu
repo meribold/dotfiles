@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Wrapper script that filters empty lines from stdin before invoking dmenu(1).  I use this
+# to work around what seems to be a bug in dunst(1).  Dunst can use (a variant of) dmenu
+# to let the user select from URLs extracted from displayed notifications.  The users
+# selection is opened in a browser.  On my system, the input for dmenu contains empty
+# lines in addition to the desired URLs.  Dmenu displays both.  I tried to put this
+# pipeline directly into my dunstrc but didn't get it to work.  TODO: [report][1] the bug.
+#
+# [1]: https://github.com/dunst-project/dunst/issues
+
+sed '/^$/d' |
+dmenu -b -f -l 3 -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#ffdf87' \
+      -sf '#000000'
+# rofi -dmenu -p '' -auto-select
+
+# vim: tw=90 sts=-1 sw=3 et

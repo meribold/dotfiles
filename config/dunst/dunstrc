@@ -1,0 +1,119 @@
+# For the most part, this is just a copy of /usr/share/dunst/dunstrc.  All the options are
+# also explained in detail there.
+
+[global]
+    font = Ubuntu Mono 10
+
+    # Allow a small subset of html markup instead of stripping those tags from the
+    # message.
+    allow_markup = yes
+
+    # The default.
+    # format = "<b>%s</b>\n%b"
+
+    # Don't sort messages by urgency.
+    sort = no
+
+    # Show how many messages are currently hidden.
+    indicate_hidden = yes
+
+    # Text alignment.
+    alignment = left
+
+    # Show a message's age if it's older than 60 seconds.
+    show_age_threshold = 60
+
+    # Split notifications into multiple lines if they don't fit.
+    word_wrap = yes
+
+    # The message window has a width of 320 pixels, can display a maximum of 40 messages
+    # (theoretically, they wouldn't fit), and is positioned 36 pixels to the left and
+    # bottom from the top-right screen corner.
+    geometry = "320x40-36+36"
+
+    # Don't shrink the message window.
+    shrink = no
+
+    # Don't remove messages if the user is idle (no mouse or keyboard input) for longer
+    # than 120 seconds.
+    idle_threshold = 120
+
+    # Display notifications on monitor 0.
+    monitor = 0
+
+    # Always display notification on monitor 0.  Don't react to what monitor has mouse or
+    # keyboard focus.
+    follow = none
+
+    # Notifications popped up from history should be sticky and not timeout as they
+    # normally do.
+    sticky_history = yes
+
+    # Maximum amount of notifications kept in history.
+    history_length = 40
+
+    # Don't display the "(U)" prefix before messages with URLs.
+    show_indicators = no
+
+    # Draw a line of 2 pixels height between two notifications.
+    separator_height = 2
+
+    # Vertical padding between text and separator.
+    padding = 8
+
+    # Horizontal padding.
+    horizontal_padding = 8
+
+    # Use the same color for the separator as for the frame.
+    separator_color = frame
+
+    # Command for executing (a variant of) dmenu.
+    dmenu = dunst-dmenu
+
+    # Browser for opening URLs in context menu.
+    browser = firefox-developer --new-tab
+
+[frame]
+    width = 2
+    # Background color from jellybeans.vim: color 233 in terminals, #151515 in gVim; see
+    # :hi Normal.
+    # color = "#121212"
+    color = "#000000"
+
+[shortcuts]
+    # Xev might be helpful to find names of keys.  FIXME: use super as the modifier key
+    # (should be mod4 but isn't working).
+
+    # Close one notification.
+    close = ctrl+space
+
+    # Close all notifications.
+    close_all = ctrl+shift+space
+
+    # Redisplay the last notification.
+    history = ctrl+grave
+
+    # Open dmenu with URLs filtered from all displayed notifications.
+    context = ctrl+shift+period
+
+[urgency_low]
+    # Blue from jellybeans.vim: color 103 in terminals, #8197bf in gVim; see
+    # :hi Statement.
+    background = "#8787af"
+    foreground = "#ffffff"
+    timeout = 20
+
+[urgency_normal]
+    # Green from jellybeans.vim: color 107 in terminals, #99ad6a in gVim; see :hi String.
+    background = "#87af5f"
+    foreground = "#ffffff"
+    timeout = 20
+
+[urgency_critical]
+    # Red from jellybeans.vim: color 167 in terminals, #cf6a4c in gVim; see :hi Constant.
+    # background = "#902020"
+    background = "#d75f5f"
+    foreground = "#ffffff"
+    timeout = 0
+
+# vim: tw=90 sts=-1 sw=4 et ft=cfg cms=#%s
