@@ -85,3 +85,9 @@
 [submodule "AUR/firefox-developer"]
 	path = AUR/firefox-developer
 	url = https://aur.archlinux.org/firefox-developer.git
+[submodule "AUR/libmatthew-unix-java"]
+	path = AUR/libmatthew-unix-java
+	url = https://aur.archlinux.org/libmatthew-unix-java.git
+[submodule "AUR/signal-cli"]
+	path = AUR/signal-cli
+	url = https://aur.archlinux.org/signal-cli.git
