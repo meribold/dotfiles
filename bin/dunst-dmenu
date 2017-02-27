@@ -10,7 +10,7 @@
 # [1]: https://github.com/dunst-project/dunst/issues
 
 sed '/^$/d' |
-dmenu -b -f -l 3 -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#ffdf87' \
+dmenu -b -f -l 8 -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#ffdf87' \
       -sf '#000000'
 # rofi -dmenu -p '' -auto-select
 
