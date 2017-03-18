@@ -94,3 +94,6 @@
 [submodule "signal-cli.bash"]
 	path = signal-cli.bash
 	url = https://github.com/meribold/signal-cli.bash.git
+[submodule "AUR/neomutt"]
+	path = AUR/neomutt
+	url = https://aur.archlinux.org/neomutt.git
