@@ -89,12 +89,15 @@ auto_view text/html
 auto_view application/pdf
 alternative_order text/plain text/html # Prefer viewing plain text if available.
 
-# Customize the information displayed in the message index.  For the most part, this
-# currently is a copy of the default string.  Only the format used for the date and time
-# of messages is changed: it's based on ISO 8601, the time is included, and the date and
-# time is converted to the local time zone.
-# See http://www.mutt.org/doc/manual/#index-format, printf(3) and strftime(3).
-set index_format="%4C %Z %[%F %H:%M] %-15.15L (%?l?%4l&%4c?) %s"
+# Customize the message [index format][].  Use the [folder-hook][] command and the
+# [cond-date patch][] to keep it concise.  The formats used for date and time are
+# derivative of [ISO 8601][].  See printf(3) and strftime(3).
+# [index format]: http://www.mutt.org/doc/manual/#index-format
+# [folder-hook]: http://www.mutt.org/doc/manual/#folder-hook
+# [cond-date patch]: http://www.mutt.org/doc/manual/#folder-hook
+# ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
+folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40a  %s  %> %4c'"
+folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40t  %s  %> %4c'"
 
 # source ~/dotfiles/mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 # source ~/dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
