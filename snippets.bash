@@ -1,12 +1,14 @@
 amixer set Master mute
 cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
+checkupdates & cower -u & wait
 cower -u
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 firefox-developer --new-tab $(gatewayip) # Try to open a router's web interface
 fortune ~/dotfiles/cookies | cowsay -f ~/dotfiles/dynamic_duo.cow | lolcat
 git clean -dfx && git checkout -- .
+git commit -m 'Update commits recorded by submodules'
 git log --oneline --decorate --graph
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
@@ -26,9 +28,12 @@ mbsync gmail && notmuch new
 mount ~/sdb1 # mount known USB drive as normal user
 mpc clear && mpc ls | mpc add
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
+neofetch --uptime_shorthand tiny --image ascii --prompt-height 2 && read
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
+pacman -Qtdq # list (real) orphan packages
 reflector -a 1 -f 10 -n 5 -p http --sort score | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
+rofi -modi drun,run -matching fuzzy -show
 rsync -r -h --info=progress2 SRC DEST
 strfile ~/dotfiles/cookies
 sudo dhcpcd -B wlan0
@@ -42,5 +47,7 @@ sudo umount ~/sdb1
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 umount ~/sdb1
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
+xprop
 xrandr --output LVDS --auto
+xwininfo
 youtube-dl -o - 'XAAp_luluo0' | mplayer -cache 8192 -
