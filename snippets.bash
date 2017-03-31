@@ -1,3 +1,4 @@
+PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
 cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
@@ -23,7 +24,6 @@ ip route show dev wlan0
 iw dev wlan0 link
 jpm run -b /usr/bin/firefox-developer # test Firefox add-on
 latexmk -pdf -shell-escape
-makepkg -sri
 mbsync gmail && notmuch new
 mount ~/sdb1 # mount known USB drive as normal user
 mpc clear && mpc ls | mpc add
