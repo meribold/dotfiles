@@ -2,7 +2,6 @@ PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
 cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
-checkupdates & cower -u & wait
 cower -u
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
@@ -51,3 +50,4 @@ xprop
 xrandr --output LVDS --auto
 xwininfo
 youtube-dl -o - 'XAAp_luluo0' | mplayer -cache 8192 -
+{ checkupdates & cower -u; } | less -FX # check for updates to native and foreign (AUR) packages
