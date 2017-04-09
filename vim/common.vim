@@ -291,9 +291,11 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 " }}}2
-map <Space> <Nop>
+" Use <Space> as <Leader> and <BS> as <LocalLeader>.
 let mapleader = ' '
 let maplocalleader = '\'
+" Make sure <Space> doesn't do anything by itself.
+map <Space> <Nop>
 
 " Use Unix-style line endings for new buffers and files on Windows too.
 if has('win32')
