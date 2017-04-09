@@ -136,7 +136,7 @@ Plug 'tpope/vim-speeddating'
 
 " Ungrouped (TODO) {{{2
 
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
 " Plug 'plasticboy/vim-markdown' " Depends on tabular?
 
@@ -562,6 +562,12 @@ endfunction
 let g:gitgutter_enabled = 0  " Turn vim-gitgutter off by default.
 let g:gitgutter_realtime = 0 " Don't trigger sign updates when not typing.
 let g:gitgutter_eager = 0    " Update signs less often; mostly just when writing a buffer.
+
+" vim-table-mode {{{2
+" Allow starting vim-table-mode with `<Leader>tm` in addition to `:TableModeToggle`.  This
+" mapping is only required because I use vim-plug's on-demand loading for vim-table-mode
+" (there's an equivalent vim-table-mode default mapping).
+nnoremap <silent> <Leader>tm :TableModeToggle<CR>
 
 " delimitMate {{{2
 let delimitMate_expand_space = 1
