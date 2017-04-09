@@ -145,7 +145,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " suan/vim-instant-markdown.  JamshedVesuna/vim-markdown-preview is somewhat buggy.
 " greyblake/vim-preview doesn't seem to do GitHub Flavored Markdown (it uses the redcarpet
 " Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
-" render Markdown (http://stackoverflow.com/q/9212340).  TODO: add a mapping for Grip?
+" render Markdown (http://stackoverflow.com/q/9212340).
 
 " Both slow Vim down way too much on my laptop.
 " Plug 'nathanaelkane/vim-indent-guides'
