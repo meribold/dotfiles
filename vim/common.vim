@@ -237,6 +237,184 @@ Plug 'vim-scripts/wombat256.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Basic settings {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Stuff taken from sensible.vim {{{2
+
+" Most (all?) of this is probably redundant for Neovim.  TODO: move it into vim/vimrc?
+" There probably also are more settings scattered around this file that belong in this
+" section.
+
+" Running `syntax enable` should be redundant for both Neovim and Vim.  It's the [default
+" in Neovim][1] and redundant for Vim as well because [vim-plug does it][2].
+" [1]: https://github.com/neovim/neovim/issues/2676
+" [2]: https://github.com/junegunn/vim-plug/wiki/faq
+
+" TODO: plugins are loaded after personal vimrc files; should this command therefore be at
+" the very end of this file or in a different file inside an after/ subdirectory?
+runtime! macros/matchit.vim " Load matchit.vim.
+
+" Don't scan included files for keyword completion.
+set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
+
+" See https://github.com/tpope/vim-sensible/issues/13.
+set viminfo^=!
+
+if v:version > 703 || v:version == 703 && has('patch541')
+   set formatoptions+=j " Delete comment character when joining commented lines.
+endif
+
+" Search the 'tags' file in the directory of the current file,
+" then the parent directory, then the parent of that, and so on.  The leading './' tells
+" Vim to use the directory of the current file rather than Vim's working directory.  The
+" trailing semicolon tells it to recursively search parent directories.  See
+" :h file-searching.
+if has('path_extra')
+   setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+
+" }}}2
+" Stuff that used to be part of sensible.vim {{{2
+
+" Enabling 'lazyredraw' causes slight visual glitches sometimes.  It [made][1] [it's][2]
+" [way][3] into sensible.vim, but [was removed][4] again.
+" [1]: https://github.com/tpope/vim-sensible/issues/78
+" [2]: https://github.com/tpope/vim-sensible/pull/89
+" [3]: https://github.com/tpope/vim-sensible/commit/2fb074e
+" [4]: https://github.com/tpope/vim-sensible/commit/9e91be7
+set nolazyredraw " This currently is the default.
+
+" Makes Y consistent with C and D.  See :h Y and :h &.
+" Removed by https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1f.
+nnoremap Y y$
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
+" }}}2
+map <Space> <Nop>
+let mapleader = ' '
+let maplocalleader = '\'
+
+" Use Unix-style line endings for new buffers and files on Windows too.
+if has('win32')
+   set fileformat=unix
+   set fileformats=unix,dos
+endif
+
+" Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
+set modeline
+
+set showcmd      " Why does this default to off for Unix ONLY?
+set history=1000 " Vim default: 50.  TODO: move this to vimrc (Neovim's default is 10000).
+set incsearch    " Search while typing the search command and...
+set hlsearch     " hightlight matches.
+
+" Don't automatically yank all visual selections into the "* register.
+set clipboard-=autoselect
+
+"set autochdir
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Display relative line numbers, but the absolute line number in front of the cursor line.
+" Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
+set number
+set relativenumber " Slows Vim down a lot.  Worth disabling in long files with complex
+                   " syntax highlighting sometimes (unimpaired.vim maps this to [or, ]or
+                   " and cor).  'cursorline' is similar.
+set numberwidth=4  " Minimal number of columns to use for line numbers.  The value
+                   " accounts for one space that is always added between the line numbers
+                   " and the text.  4 means that the width has to be increased in buffers
+                   " with 1000 or more lines.  Bigger values can look nicer when
+                   " 'colorcolumn' is used, because the highlighted columns of horizontal
+                   " splits are more likely to line up.
+
+" Display relative line numbers (absolute for line cursor is in) in the focused window,
+" and absolute in other windows.
+" autocmd vimrc_common WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
+" autocmd vimrc_common WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
+
+set norelativenumber " It's just to slow on my laptop...
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Command-line completion (:h cmdline-completion)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu " Use the enhanced command-line completion menu where 'full' is specified in
+             " 'wildmode'.
+" When 'wildchar' (Tab) is used first, and more than one match exists, list all matches
+" and complete till longest common string.  On consecutive uses (or if only one match
+" exists) show the 'wildmenu'.
+set wildmode=longest:full,full
+
+" Patterns to ignore when expanding wildcards:
+set wildignore+=.hg/,.git/,.svn/                     " version control stuff
+set wildignore+=*.aux,*.out,*.toc                    " LaTeX auxiliary files
+set wildignore+=_minted-*/                           " minted cache directory
+set wildignore+=*.o                                  " object files
+set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.pdf,*.png " more binary files
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nowrap
+set sidescroll=1 " Scroll horizontally smoothly (one column at a time) instead of jumping.
+
+set title " Let vim set the terminal title.
+
+set scrolloff=2   " Always keep 2 lines above and below the cursor.
+set hidden        " Only hide (don't unload) a buffer when abandoned.
+set ruler         " Show the ruler.
+set laststatus=2  " Always show a status line.
+set showtabline=0 " Never display tab labels.
+
+" Required by delimitMate for delimitMate_expand_cr to work.  TODO: move this to vimrc:
+" this already is the Neovim default.
+set backspace=indent,eol,start
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" I used to prefer tabs for indenting and spaces for alignment (like item 4 from
+" :h 'tabstop').  That was supposed to allow using different numbers of spaces when
+" displaying a tab.
+" Because different values will still cause different text widths, I prefer not to use any
+" tabs now (item 2 from :h 'tabstop').
+
+set tabstop=8      " A <Tab> counts for 8 spaces.
+set softtabstop=-1 " Or does it?
+set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
+set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
+                   " commands.
+set expandtab      " Use CTRL-V<Tab> to insert a real tab.
+set copyindent     " Copy the structure of an existing line's indent when autoindenting
+                   " a new line; ensures spaces are used for alignment.
+set preserveindent " When changing the indent of the current line, do not replace the
+                   " existing indent structure by a series of tabs followed by spaces;
+                   " instead preserve as many existing characters as possible, and only
+                   " add additional tabs or spaces as required.
+set autoindent     " The last two settings only seem to work with this enabled.
+
+set linebreak             " Wrap lines at characters in 'breakat', not at the last
+if exists('&breakindent') " character that fits on the screen.
+   set breakindent        " Continue lines at their indentation level when wrapping.
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if exists('&belloff')
+   set belloff=all
+endif
+
+set maxmem=2000000    " Lots of memory for each buffer.
+set maxmemtot=2000000 " Lots of memory for all buffers together.
+
+set undofile " Make undo history persistent.
+
+" TODO: what was the idea with this?
+" set viminfo^=%
+
+set shortmess+=I " Don't give the intro message when starting Vim.
+
+" Make a persistent backup whenever writing a file, potentially overwriting an existing
+" backup (even if that file isn't the one being backed up; i.e., when different files
+" having the same name are edited).
+set backup
+set writebackup
+
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw, vim-dirvish, open-browser.vim {{{2
@@ -438,184 +616,6 @@ function! s:GoyoToggle()
    endif
 endfunction
 nnoremap <silent> Q :call <SID>GoyoToggle()<CR>
-
-" Basic settings {{{1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Stuff taken from sensible.vim {{{2
-
-" Most (all?) of this is probably redundant for Neovim.  TODO: move it into vim/vimrc?
-" There probably also are more settings scattered around this file that belong in this
-" section.
-
-" Running `syntax enable` should be redundant for both Neovim and Vim.  It's the [default
-" in Neovim][1] and redundant for Vim as well because [vim-plug does it][2].
-" [1]: https://github.com/neovim/neovim/issues/2676
-" [2]: https://github.com/junegunn/vim-plug/wiki/faq
-
-" TODO: plugins are loaded after personal vimrc files; should this command therefore be at
-" the very end of this file or in a different file inside an after/ subdirectory?
-runtime! macros/matchit.vim " Load matchit.vim.
-
-" Don't scan included files for keyword completion.
-set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
-
-" See https://github.com/tpope/vim-sensible/issues/13.
-set viminfo^=!
-
-if v:version > 703 || v:version == 703 && has('patch541')
-   set formatoptions+=j " Delete comment character when joining commented lines.
-endif
-
-" Search the 'tags' file in the directory of the current file,
-" then the parent directory, then the parent of that, and so on.  The leading './' tells
-" Vim to use the directory of the current file rather than Vim's working directory.  The
-" trailing semicolon tells it to recursively search parent directories.  See
-" :h file-searching.
-if has('path_extra')
-   setglobal tags-=./tags tags-=./tags; tags^=./tags;
-endif
-
-" }}}2
-" Stuff that used to be part of sensible.vim {{{2
-
-" Enabling 'lazyredraw' causes slight visual glitches sometimes.  It [made][1] [it's][2]
-" [way][3] into sensible.vim, but [was removed][4] again.
-" [1]: https://github.com/tpope/vim-sensible/issues/78
-" [2]: https://github.com/tpope/vim-sensible/pull/89
-" [3]: https://github.com/tpope/vim-sensible/commit/2fb074e
-" [4]: https://github.com/tpope/vim-sensible/commit/9e91be7
-set nolazyredraw " This currently is the default.
-
-" Makes Y consistent with C and D.  See :h Y and :h &.
-" Removed by https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1f.
-nnoremap Y y$
-nnoremap & :&&<CR>
-xnoremap & :&&<CR>
-
-" }}}2
-map <Space> <Nop>
-let mapleader = ' '
-let maplocalleader = '\'
-
-" Use Unix-style line endings for new buffers and files on Windows too.
-if has('win32')
-   set fileformat=unix
-   set fileformats=unix,dos
-endif
-
-" Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
-set modeline
-
-set showcmd      " Why does this default to off for Unix ONLY?
-set history=1000 " Vim default: 50.  TODO: move this to vimrc (Neovim's default is 10000).
-set incsearch    " Search while typing the search command and...
-set hlsearch     " hightlight matches.
-
-" Don't automatically yank all visual selections into the "* register.
-set clipboard-=autoselect
-
-"set autochdir
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Display relative line numbers, but the absolute line number in front of the cursor line.
-" Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
-set number
-set relativenumber " Slows Vim down a lot.  Worth disabling in long files with complex
-                   " syntax highlighting sometimes (unimpaired.vim maps this to [or, ]or
-                   " and cor).  'cursorline' is similar.
-set numberwidth=4  " Minimal number of columns to use for line numbers.  The value
-                   " accounts for one space that is always added between the line numbers
-                   " and the text.  4 means that the width has to be increased in buffers
-                   " with 1000 or more lines.  Bigger values can look nicer when
-                   " 'colorcolumn' is used, because the highlighted columns of horizontal
-                   " splits are more likely to line up.
-
-" Display relative line numbers (absolute for line cursor is in) in the focused window,
-" and absolute in other windows.
-" autocmd vimrc_common WinEnter,FocusGained * if &nu == 1 | setl rnu | endif
-" autocmd vimrc_common WinLeave,FocusLost * if &nu == 1 | setl nornu | endif
-
-set norelativenumber " It's just to slow on my laptop...
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Command-line completion (:h cmdline-completion)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildmenu " Use the enhanced command-line completion menu where 'full' is specified in
-             " 'wildmode'.
-" When 'wildchar' (Tab) is used first, and more than one match exists, list all matches
-" and complete till longest common string.  On consecutive uses (or if only one match
-" exists) show the 'wildmenu'.
-set wildmode=longest:full,full
-
-" Patterns to ignore when expanding wildcards:
-set wildignore+=.hg/,.git/,.svn/                     " version control stuff
-set wildignore+=*.aux,*.out,*.toc                    " LaTeX auxiliary files
-set wildignore+=_minted-*/                           " minted cache directory
-set wildignore+=*.o                                  " object files
-set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.pdf,*.png " more binary files
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set nowrap
-set sidescroll=1 " Scroll horizontally smoothly (one column at a time) instead of jumping.
-
-set title " Let vim set the terminal title.
-
-set scrolloff=2   " Always keep 2 lines above and below the cursor.
-set hidden        " Only hide (don't unload) a buffer when abandoned.
-set ruler         " Show the ruler.
-set laststatus=2  " Always show a status line.
-set showtabline=0 " Never display tab labels.
-
-" Required by delimitMate for delimitMate_expand_cr to work.  TODO: move this to vimrc:
-" this already is the Neovim default.
-set backspace=indent,eol,start
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" I used to prefer tabs for indenting and spaces for alignment (like item 4 from
-" :h 'tabstop').  That was supposed to allow using different numbers of spaces when
-" displaying a tab.
-" Because different values will still cause different text widths, I prefer not to use any
-" tabs now (item 2 from :h 'tabstop').
-
-set tabstop=8      " A <Tab> counts for 8 spaces.
-set softtabstop=-1 " Or does it?
-set shiftwidth=3   " Use 3 spaces for each step of (auto)indent.
-set shiftround     " Round indent to multiple of 'shiftwidth' when using < and >
-                   " commands.
-set expandtab      " Use CTRL-V<Tab> to insert a real tab.
-set copyindent     " Copy the structure of an existing line's indent when autoindenting
-                   " a new line; ensures spaces are used for alignment.
-set preserveindent " When changing the indent of the current line, do not replace the
-                   " existing indent structure by a series of tabs followed by spaces;
-                   " instead preserve as many existing characters as possible, and only
-                   " add additional tabs or spaces as required.
-set autoindent     " The last two settings only seem to work with this enabled.
-
-set linebreak             " Wrap lines at characters in 'breakat', not at the last
-if exists('&breakindent') " character that fits on the screen.
-   set breakindent        " Continue lines at their indentation level when wrapping.
-endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if exists('&belloff')
-   set belloff=all
-endif
-
-set maxmem=2000000    " Lots of memory for each buffer.
-set maxmemtot=2000000 " Lots of memory for all buffers together.
-
-set undofile " Make undo history persistent.
-
-" TODO: what was the idea with this?
-" set viminfo^=%
-
-set shortmess+=I " Don't give the intro message when starting Vim.
-
-" Make a persistent backup whenever writing a file, potentially overwriting an existing
-" backup (even if that file isn't the one being backed up; i.e., when different files
-" having the same name are edited).
-set backup
-set writebackup
 
 " Not-so-basic settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
