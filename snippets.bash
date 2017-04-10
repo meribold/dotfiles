@@ -25,10 +25,10 @@ jpm run -b /usr/bin/firefox-developer # test Firefox add-on
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
 mount ~/sdb1 # mount known USB drive as normal user
-mount ~/sdb1 && git pull usb && umount ~/sdb1 # pull from my USB drive
-mount ~/sdb1 && git push usb && umount ~/sdb1 # push to my USB drive
-mount ~/sdb1 && pass git pull && umount ~/sdb1 # pull ~/.password-store
-mount ~/sdb1 && pass git push && umount ~/sdb1 # push to ~/.password-store
+mount ~/sdb1 && { git pull usb; umount ~/sdb1; } # pull from my USB drive
+mount ~/sdb1 && { git push usb; umount ~/sdb1; } # push to my USB drive
+mount ~/sdb1 && { pass git pull; umount ~/sdb1; } # pull ~/.password-store
+mount ~/sdb1 && { pass git push; umount ~/sdb1; } # push to ~/.password-store
 mpc clear && mpc ls | mpc add
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 neofetch --uptime_shorthand tiny --image ascii --prompt-height 2 && read
