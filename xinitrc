@@ -34,6 +34,9 @@ case $1 in
    xmonad) xsetroot -cursor_name left_ptr
            exec xmonad;;
    i3) exec i3;;
+   # I didn't realize this was possible.  Not very useful for Firefox but [maybe for
+   # graphical games](https://wiki.archlinux.org/index.php/Xinitrc).
+   firefox) exec firefox-developer;;
    *) exec twm;;
 esac
 
