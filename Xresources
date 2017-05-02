@@ -1,25 +1,98 @@
-! XTerm configuration {{{1
+! [X resources](https://en.wikipedia.org/wiki/X_resources)
+!
+! X resources are key-value pairs used for program configuration mediated by the X Window
+! System.  They are manipulated by xrdb(1).  Newer programs usually don't use this
+! configuration mechanism.
+!
+! Values are assigned to keys such as `XTerm.termName`.  (capitalization matters!).
+! Generally, the keys consist of a bunch of alphanumeric strings separated by dots (.)
+! where the first string is a *class* or *instance* name of an application:
+!
+!    The first element in a resource specification is either a "class" or an "instance".
+!    A class consists of ALL the invocations of a particular program.  An instance is a
+!    process which is given a particular name.
+!       -- http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907291
+!
+! A fully specified resource may look like this:
+!    application.widget.widget.attribute: value
+!
+! Everything to the left of the colon is the key.  The space between the colon and the
+! value seems to be optional.
+!
+! Class names typically start with a capital letter.  For example, "XTerm" is the default
+! resource class for xterms.  The default instance name for xterms is "xterm" (is this
+! based on the name of the executable?).
+!
+! Whether a class name or instance name is used doesn't seem to matter much.  X resource
+! snippets on the web mostly use one or the other randomly without providing any
+! reasoning.
+!
+! While, for example with xterm, both the class name and the instance name can be
+! overridden (with the `-class` and `-name` command-line options), I don't think this is
+! at all commonly done.
+!
+! Class names may be intended to be more general.  I will always use class names in this
+! file for consistency.
+!
+! The last string of a key is the *resource name* or *attribute*.  In between can be any
+! number of strings referred to as *components* or *widgets*, whose names and relations
+! are (probably) defined by the program to be configured.  For example, two widget names
+! used by xterm are "vt100" and "tek4014" (class names: "VT100" and "Tek4014").
+!
+! The keys are actually patterns (sometimes called resource patterns) as two wildcard
+! characters can appear anywhere but at the end:
+! 1. `*` matches any number of components, including the class or instance name, so this
+!    is valid: `*background: black`.
+! 2. `?` matches a single component.  The dots still have to be specified.  It seems to be
+!    less commonly used than `*`.
+!
+! Other informative links: <https://wiki.archlinux.org/index.php/X_resources>,
+! <https://stuff.mit.edu/afs/sipb/project/doc/ixresources/xres.html>.
 
+! Use Dina as the [X Toolkit Intrinsics] default font.  This affects for example xterm and
+! xmgrace.
+! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
+XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+
+! XTerm configuration {{{1
+!
+! Abandon All Hope, Ye Who Enter Here.
+!    -- XTerm README (http://invisible-island.net/xterm/xterm.html#download)
+!
 ! XTerm is a wonderful terminal.  It is, in my experience, the only terminal that combines
 ! a proper VT220 engine with a UI that's actually nice.  It's such a shame it comes with
 ! such horrible default settings.
 !    -- Paul "LeoNerd" Evans (http://www.leonerd.org.uk/hacks/hints/xterm-sensible.html)
+!
+! The [xterm FAQ] advocates that, "[as] a stylistic convention, the capitalized form is
+! 'XTerm', which corresponds to the X resource class name."
+!
+! XTerm has a bunch of *widgets* that have their own subresources:
+!
+!    If your xterm is configured to support the "toolbar", then those patterns need an
+!    extra level for the form-widget which holds the toolbar and vt100 widget.  A wildcard
+!    between the top-level "XTerm" and the "vt100" widget makes the resource settings work
+!    for either, e.g., "XTerm*vt100.NAME".
+!       -- xterm(1)
+!
+! I'm specifying resources for the "vt100" widget using its class name "VT100".
+!
+! [xterm FAQ]: http://invisible-island.net/xterm/xterm.faq.html
 
-! Abandon All Hope, Ye Who Enter Here.
-!    -- XTerm README
+! Specify that the TERM environment variable should be "xterm-256color".
+XTerm.termName: xterm-256color
 
-! The default resource class is `XTerm`.
+! Taken from <https://wiki.archlinux.org/index.php/Xterm>:
+! This will "enable UTF-8 mode" (xterm(1)).
+XTerm*VT100.locale:    true
+XTerm*VT100.saveLines: 4096
 
-! https://wiki.archlinux.org/index.php/Xterm
-XTerm*termName:        xterm-256color
-XTerm*locale:          true
-XTerm*saveLines:       4096
-
-! http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html
-XTerm*utf8:            1
-XTerm*eightBitInput:   false
-XTerm*eightBitControl: false
-XTerm*eightBitOutput:  true
+! See <http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.  The values for `utf8`,
+! `eightBitControl`, and `eightBitOutput` should be the defaults already.
+XTerm*VT100.utf8:            1
+XTerm*VT100.eightBitInput:   false
+XTerm*VT100.eightBitControl: false
+XTerm*VT100.eightBitOutput:  true
 
 ! Make xterm send ASCII DEL (0x7F) for the backspace key instead of ASCII BS (0x08).
 ! Sending 0x08 apparently is a [de facto standard][1] but is not the default on my system.
@@ -28,42 +101,43 @@ XTerm*eightBitOutput:  true
 ! terminfo files][2].
 ! [1]: https://github.com/neovim/neovim/issues/2048#issuecomment-78539223
 ! [2]: https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
-XTerm*backarrowKey: false
+XTerm*VT100.backarrowKey: false
 
 ! XTerm sends the same byte for the Tab key and Control+I, so they cannot be mapped to
 ! different actions in (e.g.) Vim.  To work around this, make xterm send ÿ for Control+I
 ! instead (ÿ is just a random character that I don't enter directly; it's also part of
 ! latin1 in addition to Unicode in case that makes it less likely that this breaks with
-! some setups).  See http://stackoverflow.com/q/2686766 and xterm(1).
-XTerm.VT100.translations: #override \
+! some setups).  See <http://stackoverflow.com/q/2686766> and xterm(1).
+XTerm*VT100.translations: #override \
 Ctrl <Key>I: string(ÿ)
 
 ! Assume the font does not contain line-drawing characters, and draw them directly (see
 ! xterm(1)).  This seems to be required for the Dina font.
-XTerm*forceBoxChars: true
+XTerm*VT100.forceBoxChars: true
 
 ! These resources seem to do exactly the same on my system and are added to get the actual
 ! border width.  xterm(1) suggests that borderWidth is probably a legacy resource.
 ! Setting both to 0 looks strange sometimes but is one of the points that give me an extra
 ! row in terminals using the full screen height.  Neither resource defaults to 0.
-XTerm*borderWidth:    0
-XTerm*internalBorder: 0
+XTerm.borderWidth:          0
+XTerm*VT100.internalBorder: 0
 
 ! Use Ubuntu Mono 7 as the TrueType font...
-XTerm*faceName: Ubuntu Mono
-XTerm*faceSize: 7
+XTerm*VT100.faceName: Ubuntu Mono
+XTerm*VT100.faceSize: 7
 ! ...but stick with a bitmap font for now.
-XTerm*renderFont: false
+XTerm*VT100.renderFont: false
 ! Different sizes can be selected from the fontMenu when TrueType fonts are enabled (but
 ! the labels for bitmap fonts continue to be used, so those make no sense).  Switching to
 ! TrueType fonts at runtime can be done from the fontMenu as well.
-XTerm*faceSize1: 8
-XTerm*faceSize2: 9
-XTerm*faceSize3: 10
-XTerm*faceSize4: 11
-XTerm*faceSize5: 12
-XTerm*faceSize6: 13
+XTerm*VT100.faceSize1: 8
+XTerm*VT100.faceSize2: 9
+XTerm*VT100.faceSize3: 10
+XTerm*VT100.faceSize4: 11
+XTerm*VT100.faceSize5: 12
+XTerm*VT100.faceSize6: 13
 
+! See <http://invisible-island.net/xterm/manpage/xterm.html#VT100-Widget-Resources:font>.
 XTerm*fontMenu*fontdefault*Label: dina 10
 XTerm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 XTerm*fontMenu*font1*Label: dina 12
@@ -79,7 +153,19 @@ XTerm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
 XTerm*fontMenu*font6*Label: fixed 13
 XTerm*font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
 
-! XTerm colors {{{1
+! Style the menus {{{2
+! Specify resources for the "mainMenu" and "fontMenu", which both have the "SimpleMenu"
+! class.  See <http://invisible-island.net/xterm/manpage/xterm.html#h3-Menu-Resources>,
+! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#smebsb_resources>, and
+! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#Common_Resources>.
+XTerm.SimpleMenu.background:   #000000
+XTerm.SimpleMenu.?.foreground: #dfdfdf
+XTerm.SimpleMenu.borderColor:  #dfdfdf
+XTerm.SimpleMenu.borderWidth:  1
+XTerm.SimpleMenu.leftMargin:   4
+XTerm.SimpleMenu.rightMargin:  4
+
+! XTerm colors {{{2
 
 ! Most of these colors are used by the [jellybeans] Vim color scheme for key highlighting
 ! groups (if Vim is running inside a 256-color terminal; the colors used for gVim differ).
@@ -91,47 +177,47 @@ XTerm*font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
 ! [4]: http://terminal.sexy
 
 ! Color 188; used by jellybeans for the "Normal" highlighting group (`:hi Normal`).
-XTerm*.foreground:  #dfdfdf
+XTerm*VT100.foreground:  #dfdfdf
 ! Completely black terminal background.  This differs from jellybeans.vim.
-XTerm*.background:  #000000
-XTerm*.cursorColor: #dfdfdf
+XTerm*VT100.background:  #000000
+XTerm*VT100.cursorColor: #dfdfdf
 
 ! Black.
-XTerm*.color0:      #000000
+XTerm*VT100.color0:      #000000
 ! Grey (color 244); used by jellybeans for the "Comment" highlighting group.
-XTerm*.color8:      #808080
+XTerm*VT100.color8:      #808080
 
 ! Red (color 167); "Constant" highlighting group
-XTerm*.color1:      #d75f5f
-XTerm*.color9:      #d75f5f
+XTerm*VT100.color1:      #d75f5f
+XTerm*VT100.color9:      #d75f5f
 
 ! Red (color 88); "ErrorMsg" highlighting group
-! XTerm*.color1:      #870000
-! XTerm*.color9:      #870000
+! XTerm*VT100.color1:      #870000
+! XTerm*VT100.color9:      #870000
 
 ! Green (color 107); "String" highlighting group
-XTerm*.color2:      #87af5f
-XTerm*.color10:     #87af5f
+XTerm*VT100.color2:      #87af5f
+XTerm*VT100.color10:     #87af5f
 
 ! Yellow (color 222); "Function" highlighting group
-XTerm*.color3:      #ffdf87
-XTerm*.color11:     #ffdf87
+XTerm*VT100.color3:      #ffdf87
+XTerm*VT100.color11:     #ffdf87
 
 ! Blue (color 103); "Statement" highlighting group
-XTerm*.color4:      #8787af
-XTerm*.color12:     #8787af
+XTerm*VT100.color4:      #8787af
+XTerm*VT100.color12:     #8787af
 
 ! Magenta (color 162); "rubyRegexp" highlighting group
-XTerm*.color5:      #d70087
-XTerm*.color13:     #d70087
+XTerm*VT100.color5:      #d70087
+XTerm*VT100.color13:     #d70087
 
 ! Cyan (color 110); "Structure" highlighting group
-XTerm*.color6:      #87afd7
-XTerm*.color14:     #87afd7
+XTerm*VT100.color6:      #87afd7
+XTerm*VT100.color14:     #87afd7
 
 ! White (color 188); "Normal" highlighting group
-XTerm*.color7:      #dfdfdf
-XTerm*.color15:     #ffffff
+XTerm*VT100.color7:      #dfdfdf
+XTerm*VT100.color15:     #ffffff
 
 ! Other stuff {{{1
 
@@ -144,7 +230,6 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 
-! Xft.dpi: 96
 Xft.dpi: 135
 
 Xcursor.theme: Vanilla-DMZ-AA
