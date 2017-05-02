@@ -99,9 +99,6 @@ alternative_order text/plain text/html # Prefer viewing plain text if available.
 folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40a  %s  %> %4c'"
 folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40t  %s  %> %4c'"
 
-# source ~/dotfiles/mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
-# source ~/dotfiles/mutt/vombatidae-mutt/vombatidae.mutt
-
 # Color Scheme {{{1
 # Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) in
 # 256-color terminals.  See file:///usr/share/doc/mutt/manual.html#color and
