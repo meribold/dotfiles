@@ -1,7 +1,7 @@
 ! [X resources](https://en.wikipedia.org/wiki/X_resources)
 !
 ! X resources are key-value pairs used for program configuration mediated by the X Window
-! System.  They are manipulated by xrdb(1).  Newer programs usually don't use this
+! System.  They are manipulated by xrdb(1).  Newer programs usually do not use this
 ! configuration mechanism.
 !
 ! Values are assigned to keys such as `XTerm.termName`.  (capitalization matters!).
@@ -23,12 +23,12 @@
 ! resource class for xterms.  The default instance name for xterms is "xterm" (is this
 ! based on the name of the executable?).
 !
-! Whether a class name or instance name is used doesn't seem to matter much.  X resource
+! Whether a class name or instance name is used does not seem to matter much.  X resource
 ! snippets on the web mostly use one or the other randomly without providing any
 ! reasoning.
 !
 ! While, for example with xterm, both the class name and the instance name can be
-! overridden (with the `-class` and `-name` command-line options), I don't think this is
+! overridden (with the `-class` and `-name` command-line options), I don not think this is
 ! at all commonly done.
 !
 ! Class names may be intended to be more general.  I will always use class names in this
@@ -64,8 +64,9 @@ XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 ! such horrible default settings.
 !    -- Paul "LeoNerd" Evans (http://www.leonerd.org.uk/hacks/hints/xterm-sensible.html)
 !
-! The [xterm FAQ] advocates that, "[as] a stylistic convention, the capitalized form is
-! 'XTerm', which corresponds to the X resource class name."
+! The [xterm FAQ] advocates:
+!    As a stylistic convention, the capitalized form is 'XTerm', which corresponds to the
+!    X resource class name.
 !
 ! XTerm has a bunch of *widgets* that have their own subresources:
 !
@@ -75,7 +76,7 @@ XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 !    for either, e.g., "XTerm*vt100.NAME".
 !       -- xterm(1)
 !
-! I'm specifying resources for the "vt100" widget using its class name "VT100".
+! I am specifying resources for the "vt100" widget using its class name "VT100".
 !
 ! [xterm FAQ]: http://invisible-island.net/xterm/xterm.faq.html
 
