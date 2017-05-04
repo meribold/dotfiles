@@ -52,7 +52,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'rhysd/vim-clang-format'  " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'    " See https://www.reddit.com/comments/26mszm.
+Plug 'tpope/vim-commentary'    " See <https://redd.it/26mszm>.
 Plug 'tpope/vim-scriptease'    " Adds `g!`: evaluate VimL and substitute the result.
 Plug 'tpope/vim-surround'
 Plug 'wellle/visual-split.vim'
@@ -65,7 +65,7 @@ Plug 'wellle/visual-split.vim'
 " [1]: https://github.com/junegunn/vim-easy-align
 " [2]: https://github.com/godlygeek/tabular
 " [3]: https://github.com/tommcdo/vim-lion
-" [4]: https://www.reddit.com/comments/2lsr8d
+" [4]: https://redd.it/2lsr8d
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " External tool integration {{{2
@@ -92,7 +92,7 @@ endif
 " Also see [this discussion][2].
 Plug 'jpalardy/vim-slime'
 " [1]: https://github.com/jpalardy/vim-slime/tree/master/ftplugin/haskell
-" [2]: https://www.reddit.com/comments/4o97kn
+" [2]: https://redd.it/4o97kn
 
 " Automated management of tag files.  I chose [Gutentags][1] semi-randomly: it has some
 " cool features like incremental tags generation but [there][2] [are][3] [many][4]
@@ -255,9 +255,9 @@ call plug#end()
 runtime! macros/matchit.vim " Load matchit.vim.
 
 " Don't scan included files for keyword completion.
-set complete-=i " Keep?  See https://github.com/tpope/vim-sensible/issues/51.
+set complete-=i " Keep?  See <https://github.com/tpope/vim-sensible/issues/51>.
 
-" See https://github.com/tpope/vim-sensible/issues/13.
+" See <https://github.com/tpope/vim-sensible/issues/13>.
 set viminfo^=!
 
 if v:version > 703 || v:version == 703 && has('patch541')
@@ -284,8 +284,8 @@ endif
 " [4]: https://github.com/tpope/vim-sensible/commit/9e91be7
 set nolazyredraw " This currently is the default.
 
-" Makes Y consistent with C and D.  See :h Y and :h &.
-" Removed by https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1f.
+" Makes Y consistent with C and D.  See :h Y and :h &.  Removed by
+" <https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800>.
 nnoremap Y y$
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
@@ -425,7 +425,7 @@ set writebackup
 " instead.
 " [1]: http://stackoverflow.com/a/21687112
 " [2]: http://github.com/justinmk/vim-dirvish
-" [3]: http://www.reddit.com/comments/4l00pj//d3j7a8j
+" [3]: http://reddit.com/comments/4l00pj//d3j7a8j
 " [4]: http://github.com/tyru/open-browser.vim
 let loaded_netrwPlugin = 1
 
@@ -460,7 +460,7 @@ let g:autoformat_remove_trailing_spaces = 0
 " vim-autoformat invokes `clang-format` with arguments matching some of Vim's options
 " (like 'textwidth', 'expandtab', and 'shiftwidth'; see the value of
 " g:formatdef_clangformat) UNLESS it finds a `.clang-format` or `_clang-format` file.  See
-" https://github.com/Chiel92/vim-autoformat#default-formatprograms.
+" <https://github.com/Chiel92/vim-autoformat#default-formatprograms>.
 " TODO: always prefer using Vim's 'textwidth', 'expandtab' and 'shiftwidth' options.  I
 " was hoping this may be possible by passing `-style=file` to clang-format and then using
 " the `-style` argument again for some overrides.  Looks like it won't be that easy.
@@ -578,7 +578,7 @@ let delimitMate_balance_matchpairs = 1
 
 " vim-man {{{2
 " Always render man pages at this width, regardless of the size of the window.  See
-" https://github.com/vim-utils/vim-man/issues/14.
+" <https://github.com/vim-utils/vim-man/issues/14>.
 let g:man_width = 93
 
 " vim-dict {{{2
@@ -636,7 +636,7 @@ command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Molokai sets 'background' to light for some reason.  The issue has been reported here:
-" https://github.com/tomasr/molokai/issues/22.
+" <https://github.com/tomasr/molokai/issues/22>.
 autocmd vimrc_common ColorScheme * if exists('g:colors_name') &&
    \ (g:colors_name ==# 'molokai' || g:colors_name ==# 'jellybeans') |
    \ noa set bg=dark | endif
@@ -722,7 +722,7 @@ endif
 
 " Use :echo getmatches() to confirm we don't leak matches.  This snippet should never
 " create more than two.
-" Based on snippets from http://vim.wikia.com/wiki/Highlight_unwanted_spaces.
+" Based on snippets from <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " TODO: explain.
@@ -787,7 +787,7 @@ endif
 " TODO: there are [lots][5] [of][6] [related][7] [plugins][8]; do they provide significant
 " improvements?
 " [1]: https://www.vi-improved.org/recommendations/
-" [2]: https://www.reddit.com/comments/4gjbqn/d2iatu9
+" [2]: https://reddit.com/comments/4gjbqn//d2iatu9
 " [3]: http://codeinthehole.com/writing/using-the-silver-searcher-with-vim/
 " [4]: https://robots.thoughtbot.com/faster-grepping-in-vim
 " [5]: https://github.com/rking/ag.vim
@@ -876,7 +876,7 @@ nnoremap <C-N> g,zv
 " fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
 " can still be used with a count -- I don't really do that, though, but I don't really use
 " | or _ either).  Based on the mappings from [this comment by justinmk][1].
-" [1]: http://www.reddit.com/comments/4jyw8o//d3ayzox
+" [1]: http://reddit.com/comments/4jyw8o//d3ayzox
 nnoremap <expr> \| !v:count ? '<C-W>\|' : '\|'
 nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
 " I find myself using <C-W>= regrettably much; hitting + is faster.  TODO: maybe I
@@ -885,8 +885,8 @@ nnoremap + <C-W>=
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
-" http://stackoverflow.com/q/18523150 and http://vi.stackexchange.com/q/2365.  :noremap
-" adds the mapping for normal, visual, select and operator-pending mode.
+" <http://stackoverflow.com/q/18523150> and <http://vi.stackexchange.com/q/2365>.
+" :noremap adds the mapping for normal, visual, select and operator-pending mode.
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
 
@@ -924,13 +924,13 @@ nnoremap <silent> <Leader>G :GitGutterDisable<CR>
 nnoremap <silent> cog :GitGutterToggle<CR>
 
 " Fix the syntax highlighting.  See `:h :syn-sync-first` and
-" http://vim.wikia.com/wiki/Fix_syntax_highlighting.
+" <http://vim.wikia.com/wiki/Fix_syntax_highlighting>.
 nnoremap <silent> <Leader>s :sy sync fromstart<CR>
 
 " Mappings for visual-split.vim.  The default mappings from visual-split.vim also work in
 " normal mode (they operate on a text object).  TODO: these mappings should have normal
 " mode equivalents as well (just nmapping doesn't work).  See
-" https://github.com/wellle/visual-split.vim/blob/master/plugin/visual-split.vim
+" <https://github.com/wellle/visual-split.vim/blob/master/plugin/visual-split.vim>.
 xnoremap <silent> <C-W>j :VSSplitBelow<CR>
 xnoremap <silent> <C-W>k :VSSplitAbove<CR>
 
@@ -976,8 +976,8 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " function in the command-line window or the quickfix windows (:copen, :lopen).  Fugitive
 " also uses <CR> in some of its windows but this doesn't seem to override that mapping (I
 " guess fugitive's mapping is added later).
-" See https://www.reddit.com/r/vim/comments/47ivpz, http://stackoverflow.com/a/16360104,
-" :h :map-local and :h :map-silent.
+" See <https://redd.it/47ivpz>, <http://stackoverflow.com/a/16360104>, :h :map-local and
+" :h :map-silent.
 "
 " I was using this:
 "
