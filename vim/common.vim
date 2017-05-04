@@ -843,6 +843,12 @@ else
    " right now.
 endif
 
+" Use . (`:h .`) in visual mode to repeat the last change for each selected line (see
+" `:h :normal-range`).  This often doesn't work as expected.  Try repeating `dd`.  The
+" mapping doesn't override anything though, so it's probably still worth keeping.  Picked
+" up from <https://reddit.com/comments/3y2mgt//cya0x04>.
+vnoremap . :norm .<CR>
+
 " Cycle the 'foldlevel' ('fdl').  Kind of like Org-mode's org-shifttab.
 function! s:CycleFoldlevel()
    " Remember the current 'foldlevel'.
