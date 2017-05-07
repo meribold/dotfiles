@@ -145,7 +145,7 @@ $(dirs):
 $(links): | $$(dir $$@)
 	@# Assert that $| is a directory.
 	@[[ -d '$|' ]]
-	ln -s '$(patsubst $(HOME)/.%,$(HOME)/dotfiles/%,$@)' '$|'
+	ln -s '$(patsubst $(HOME)/.%,$(CURDIR)/%,$@)' '$|'
 
 # Create ".add.spl" files from a corresponding ".add" prerequisite.  These are regular
 # prerequisites (not order-only): if the ".add" file is newer than the target, the target
