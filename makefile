@@ -147,9 +147,12 @@ $(links): | $$(dir $$@)
 	@[[ -d '$|' ]]
 	ln -s '$(patsubst $(HOME)/.%,$(CURDIR)/%,$@)' '$|'
 
-# Create ".add.spl" files from a corresponding ".add" prerequisite.  These are regular
+# Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
 # prerequisites (not order-only): if the ".add" file is newer than the target, the target
 # must be rebuilt.
+# A ".add" file is a word list.  Vim updates these when using the `zg` and `zw` mappings
+# etc. but doesn't read them directly.  Instead, the associated binary ".add.spl" files
+# are used.
 $(add_spl_files): $$(patsubst %.spl,%,$$@)
 	vim -u NONE -es '+mkspell! $<' +q
 
