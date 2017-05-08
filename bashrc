@@ -11,6 +11,14 @@
 # If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
 
+# The GNU Privacy Guard Manual and gpg-agent(1) suggest setting and exporting GPG_TTY like
+# this [1][2].  It tells gpg-agent the file name of the terminal connected to stdin, which
+# is used by `pinentry-curses` (though [2] also recommends having GPG_TTY set for the
+# GUI-based `pinentry` programs).  See tty(1).
+# [1]: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+# [2]: https://www.gnupg.org/documentation/manuals/gnupg/Common-Problems.html
+export GPG_TTY=$(tty)
+
 # Clear PROMPT_COMMAND.  It's set from /etc/bash.bashrc on Arch Linux.
 unset PROMPT_COMMAND
 

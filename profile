@@ -2,11 +2,6 @@ export VISUAL=nvim
 export EDITOR=nvim
 export BROWSER=firefox-developer
 
-# The GNU Privacy Guard Manual suggest setting and exporting GPG_TTY like this.
-# https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
-# https://www.gnupg.org/documentation/manuals/gnupg/Common-Problems.html
-export GPG_TTY=$(tty)
-
 # Export an environment variable for executing the pgpewrap program bundled with Mutt.
 # See http://stackoverflow.com/a/677212.
 if command -v pgpewrap >/dev/null 2>&1; then
