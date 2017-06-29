@@ -94,3 +94,27 @@
 [submodule "AUR/unclutter-xfixes-git"]
 	path = AUR/unclutter-xfixes-git
 	url = https://aur.archlinux.org/unclutter-xfixes-git.git
+[submodule "AUR/fonts-meta-base"]
+	path = AUR/fonts-meta-base
+	url = https://aur.archlinux.org/fonts-meta-base.git
+[submodule "AUR/fonts-meta-extended-lt"]
+	path = AUR/fonts-meta-extended-lt
+	url = https://aur.archlinux.org/fonts-meta-extended-lt.git
+[submodule "AUR/ttf-courier-prime"]
+	path = AUR/ttf-courier-prime
+	url = https://aur.archlinux.org/ttf-courier-prime.git
+[submodule "AUR/ttf-heuristica"]
+	path = AUR/ttf-heuristica
+	url = https://aur.archlinux.org/ttf-heuristica.git
+[submodule "AUR/ttf-caladea"]
+	path = AUR/ttf-caladea
+	url = https://aur.archlinux.org/ttf-caladea.git
+[submodule "AUR/ttf-impallari-cantora"]
+	path = AUR/ttf-impallari-cantora
+	url = https://aur.archlinux.org/ttf-impallari-cantora.git
+[submodule "AUR/ttf-carlito"]
+	path = AUR/ttf-carlito
+	url = https://aur.archlinux.org/ttf-carlito.git
+[submodule "AUR/ttf-google-fonts-git"]
+	path = AUR/ttf-google-fonts-git
+	url = https://aur.archlinux.org/ttf-google-fonts-git.git
