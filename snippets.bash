@@ -31,7 +31,7 @@ mount ~/sdb1 && { pass git pull; umount ~/sdb1; } # pull to ~/.password-store
 mount ~/sdb1 && { pass git push; umount ~/sdb1; } # push ~/.password-store
 mpc clear && mpc ls | mpc add
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
-neofetch --uptime_shorthand tiny --image ascii --prompt-height 2 && read
+clear && neofetch --uptime_shorthand tiny --ascii && read
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
 pacman -Qtdq # list (real) orphan packages
