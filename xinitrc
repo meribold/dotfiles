@@ -21,6 +21,9 @@ xset -b # Turn off the beep in X.
 # Make the multimedia keys do stuff using XBindKeys(1).  Reads ~/.xbindkeysrc.
 xbindkeys
 
+# Auto-hide the mouse cursor.  See <https://github.com/Airblader/unclutter-xfixes>.
+unclutter --fork
+
 case $1 in
    # The only way I found to start Conky without any issues (that I'm aware of right now)
    # when using Notion (I have 'own_window no' in my .conkyrc):
