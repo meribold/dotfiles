@@ -91,3 +91,6 @@
 [submodule "AUR/neomutt"]
 	path = AUR/neomutt
 	url = https://aur.archlinux.org/neomutt.git
+[submodule "AUR/unclutter-xfixes-git"]
+	path = AUR/unclutter-xfixes-git
+	url = https://aur.archlinux.org/unclutter-xfixes-git.git
