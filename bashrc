@@ -188,7 +188,7 @@ alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 
 # Get the system's local IP address (from http://stackoverflow.com/a/25851186 -- also see
 # http://askubuntu.com/a/604691).
-alias lanip='ip route get 1 | head -1 | cut -d " " -f8'
+alias lanip='ip route get 1 | head -1 | cut -d " " -f7'
 
 # Get the system's public IP address (based on [these][1] [threads][2] and [this
 # script][3]).  The first method should be the fastest but [doesn't work in some
