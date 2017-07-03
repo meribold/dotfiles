@@ -133,11 +133,20 @@ j() {
    cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
 }
 
-# Select a line from snippets.bash with fzf and paste the selection to stdin with
-# Control+I (xterm is configured to send ÿ when Control+I is pressed, so it can be
-# distinguished from Tab).  I just copied and adapted the code used in
-# /usr/share/fzf/key-bindings.bash to set up the Control+R readline key binding.
-bind '"ÿ": " \C-e\C-u$(fzf < ~/dotfiles/snippets.bash)\e\C-e\e^\er"'
+# Select a line from snippets.bash with fzf and paste the selection to stdin.  This code
+# is copied and adapted from the `__fzf_history__` function in
+# /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
+# <https://www.archlinux.org/packages/community/x86_64/fzf/>).
+__fzf_snippets__() {
+   FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. \
+      --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m" $(__fzfcmd) \
+      < ~/dotfiles/snippets.bash
+}
+
+# Invoke __fzf_snippets__ with Control+I (xterm is configured to send ÿ when Control+I is
+# pressed, so it can be distinguished from Tab).  I just copied and adapted the code used
+# in /usr/share/fzf/key-bindings.bash to set up the Control+R readline key binding.
+bind '"ÿ": " \C-e\C-u$(__fzf_snippets__)\e\C-e\e^\er"'
 
 # Select a song from the current MPD playlist with fzf and start playing it.  If only one
 # matches "$*", bypass fzf.  Based on https://github.com/junegunn/fzf/wiki/Examples#mpd
