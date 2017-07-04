@@ -145,12 +145,14 @@ bind generic Z noop
 bind index,pager d noop
 
 # Vim-ish {{{2
+bind index g noop
 bind index gg first-entry
 bind index G last-entry
 bind index,pager  half-up
 bind index,pager  half-down
 bind pager j next-line
 bind pager k previous-line
+bind pager g noop
 bind pager gg top
 bind pager G bottom
 bind index zb current-bottom
