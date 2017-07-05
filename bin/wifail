@@ -3,6 +3,8 @@
 # Create an i3 workspace with 7 placeholder windows that swallow xterms.
 i3-msg -q 'append_layout ~/.config/i3/wifi-debug-workspace.json'
 
+# XTerm's `-e` option seems to prepend `bash -c` to its argument (when necessary?); i.e.,
+# it starts a non-interactive shell.
 xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' &
 sleep .1
 xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
