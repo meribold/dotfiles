@@ -15,7 +15,6 @@ fi
 if ! screen -S fullscreen -ls; then
    screen -d -m -S fullscreen
    while ! screen -S fullscreen -ls; do sleep .1; done
-   screen -S fullscreen -X screen
 fi
 
 # Start a new xterm and attach to the screen session.  The xterm will be swallowed by a
