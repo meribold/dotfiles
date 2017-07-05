@@ -138,8 +138,8 @@ j() {
 # /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
 # <https://www.archlinux.org/packages/community/x86_64/fzf/>).
 __fzf_snippets__() {
-   FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --no-sort" \
-      $(__fzfcmd) < ~/dotfiles/snippets.bash
+   FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
+      < ~/dotfiles/snippets.bash
 }
 
 # Invoke __fzf_snippets__ with Control+I (xterm is configured to send ÿ when Control+I is
