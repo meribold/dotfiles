@@ -3,9 +3,9 @@
 # Create an i3 workspace with 7 placeholder windows that swallow xterms.
 i3-msg -q 'append_layout ~/.config/i3/wifi-debug-workspace.json'
 
-xterm -e 'stty -ixon && exec screen -x -p 0' &
+xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' &
 sleep .1
-xterm -e 'stty -ixon && exec screen -x -p 1' &
+xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
 sleep .1
 xterm -e 'watch -n 1 iw dev wlan0 link' &
 sleep .1
