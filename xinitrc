@@ -36,6 +36,8 @@ xbindkeys
 unclutter --fork
 
 case $1 in
+   # The default is i3: start it when $1 is empty.
+   i3 | '') exec i3;;
    # The only way I found to start Conky without any issues (that I'm aware of right now)
    # when using Notion (I have 'own_window no' in my .conkyrc):
    notion) [[ -f ~/dotfiles/notion/Xmodmap ]] && xmodmap ~/dotfiles/notion/Xmodmap
@@ -44,14 +46,13 @@ case $1 in
    # When starting Conky immediately it's not drawn anywhere visible.  Waiting until
    # Notion creates a tiling causes Conky to be drawn "behind" any client windows on the
    # active workspace (and only on that workspace) most times.
-   awesome) exec awesome;;
    xmonad) xsetroot -cursor_name left_ptr
            exec xmonad;;
-   i3) exec i3;;
    # I didn't realize this was possible.  Not very useful for Firefox but [maybe for
    # graphical games](https://wiki.archlinux.org/index.php/Xinitrc).
    firefox) exec firefox-developer;;
-   *) exec twm;;
+   # Try to start whatever $1 is.
+   *) exec "$1";;
 esac
 
 # vim: tw=90 sts=-1 sw=3 et
