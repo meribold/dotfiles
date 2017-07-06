@@ -35,7 +35,7 @@ sleep .3
 # Set the window height to 29 lines (the height of the xterm; I think it's assumed to be
 # 24 otherwise).  Then, send ^L to the input buffer of window 1 (using screen's `stuff`
 # command) to clear the terminal screen.  All this does is make sure the prompt is at the
-# top and not somewhere in the middle.  See http://stackoverflow.com/a/25978564.
+# top and not somewhere in the middle.  See <http://stackoverflow.com/a/25978564>.
 screen -S scratchpad -p 1 -X height -w 29
 screen -S scratchpad -p 1 -X stuff '^L'
 
