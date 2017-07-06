@@ -1,7 +1,4 @@
-#!/bin/sh
-
-# FIXME: don't use bashisms or change the shebang to explicitly use Bash (are there any
-# potential issues with that?).
+#!/bin/bash
 
 # *If* inside a screen session, detach and logout ("power detach").  This prevents
 # sidestepping whatever mechanism is used to lock the X session and gaining unauthorized
@@ -13,7 +10,7 @@
 # I'm aware someone with physical access can still compromise security in other ways
 # [1][2], but making that a little more difficult is still useful (security isn't binary).
 #
-[ "$STY" ] && screen -X pow_detach
+[[ $STY ]] && screen -X pow_detach
 # [1]: https://superuser.com/q/323144#comment348412_323144
 # [2]: https://unix.stackexchange.com/q/40720#comment55641_40720
 
