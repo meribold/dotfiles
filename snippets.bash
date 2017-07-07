@@ -53,7 +53,8 @@ sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 umount ~/sdb1
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
 xprop
-xrandr --output LVDS --auto
+xrandr --output VGA-0 --auto --output HDMI-0 --auto # enable connected and disable disconnected external monitors
+xrandr --output VGA-0 --off --output HDMI-0 --off # disable external monitors
 xwininfo
 youtube-dl -o - 'XAAp_luluo0' | mplayer -cache 8192 -
 { checkupdates & cower -u; } | less -FX # check for updates to native and foreign (AUR) packages
