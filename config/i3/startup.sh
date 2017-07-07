@@ -9,8 +9,6 @@ if ! screen -S scratchpad -ls; then
    # There's no screen session named "scratchpad"; create one.
    screen -S scratchpad -d -m
    while ! screen -S scratchpad -ls; do sleep .1; done
-   # Create some new windows inside the screen session.
-   screen -S scratchpad -X screen
 fi
 if ! screen -S fullscreen -ls; then
    screen -d -m -S fullscreen
@@ -33,15 +31,10 @@ xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
 sleep .3
 
 # Set the window height to 29 lines (the height of the xterm; I think it's assumed to be
-# 24 otherwise).  Then, send ^L to the input buffer of window 1 (using screen's `stuff`
+# 24 otherwise).  Then, send ^L to the input buffer of window 0 (using screen's `stuff`
 # command) to clear the terminal screen.  All this does is make sure the prompt is at the
-# top and not somewhere in the middle.  See <http://stackoverflow.com/a/25978564>.
-screen -S scratchpad -p 1 -X height -w 29
-screen -S scratchpad -p 1 -X stuff '^L'
-
-# Select window 0 and repeat the process; it doesn't seem to work when the window isn't
-# selected.
-screen -S scratchpad -X select 0
+# top and not somewhere in the middle.  See <http://stackoverflow.com/a/25978564>.  FIXME:
+# don't do this when we attached to an existing screen session.
 screen -S scratchpad -p 0 -X height -w 29
 screen -S scratchpad -p 0 -X stuff '^L'
 
