@@ -118,3 +118,6 @@
 [submodule "AUR/ttf-google-fonts-git"]
 	path = AUR/ttf-google-fonts-git
 	url = https://aur.archlinux.org/ttf-google-fonts-git.git
+[submodule "AUR/lostfiles"]
+	path = AUR/lostfiles
+	url = https://aur.archlinux.org/lostfiles.git
