@@ -347,7 +347,7 @@ HISTFILESIZE=20000
 HISTCONTROL=ignoreboth:erasedups
 
 # The pattern used accounts for the space appended when using tab completion.
-HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg|g)?( )'
+HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg|g)?( ):s *'
 
 # Set Bash's PS1 and PS2 prompts {{{1
 case "$TERM" in
