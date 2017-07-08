@@ -24,6 +24,11 @@ fi
 # https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installing_jpm_locally
 PATH="$HOME/node_modules/.bin/:$PATH"
 
+# Make executables installed with `pip install --user ...`, which drops them into
+# `~/.local/bin/`, available.  See
+# <https://docs.python.org/3/install/index.html#alternate-installation-the-user-scheme>.
+PATH="$HOME/.local/bin/:$PATH"
+
 # Set PATH to include ~/bin if it exists.  See http://askubuntu.com/a/402410.
 if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"
