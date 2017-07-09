@@ -35,6 +35,9 @@ xbindkeys
 # Auto-hide the mouse cursor.  See <https://github.com/Airblader/unclutter-xfixes>.
 unclutter --fork
 
+# Start the dunst(1) notification daemon.
+dunst &
+
 case $1 in
    # The default is i3: start it when $1 is empty.
    i3 | '') exec i3;;
