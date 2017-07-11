@@ -24,4 +24,9 @@
 "mpc prev"
    XF86AudioPrev
 
+# Switch to or start Mutt (only switches the screen session's active window but doesn't
+# try to focus the terminal that screen is attached to; TODO?).
+"pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select mutt || screen -S fullscreen -X screen mutt"
+   Mod4 + m
+
 # vim: tw=90 sts=-1 sw=3 et ft=conf
