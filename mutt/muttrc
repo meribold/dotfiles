@@ -3,6 +3,8 @@
 # Configure native IMAP support.  http://dev.mutt.org/trac/wiki/UseCases/Gmail
 # http://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support
 set imap_user=lb.waym@gmail.com
+# Call pass(1) to get the account's password.
+set imap_pass=`pass show google/lb.waym 2>/dev/null`
 set folder=imaps://imap.gmail.com/ # http://dev.mutt.org/trac/wiki/MuttGuide/Folders
 set spoolfile=+INBOX
 set copy=no # Don't save copies of outgoing messages (Gmail already saves them).
