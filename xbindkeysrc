@@ -33,4 +33,13 @@
 "pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select mutt || { screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t mutt bash -ic mutt; screen -S fullscreen -X defdynamictitle on; }; }"
    Mod4 + m
 
+# Switch to or start Irssi.  This is basically like the Mutt keybinding but simpler
+# because no shell is started.
+"pgrep -u $(id -u) -x irssi && screen -S fullscreen -X select irssi || screen -S fullscreen -X screen irssi"
+   Mod4 + i
+
+# Switch to or start Neovim.
+"pgrep -u $(id -u) -x nvim && screen -S fullscreen -X select nvim || screen -S fullscreen -X screen nvim -S"
+   Mod4 + n
+
 # vim: tw=90 sts=-1 sw=3 et ft=conf
