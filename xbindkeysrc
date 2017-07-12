@@ -30,7 +30,7 @@
 # which eventually results in `pinentry-curses` being used to create the dialog asking for
 # the PIN to unlock my GPG key.  This dialog creation seems to fail when there is no shell
 # or a non-interactive shell.
-"pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select mutt || screen -S fullscreen -X screen bash -ic mutt"
+"pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select mutt || { screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t mutt bash -ic mutt; screen -S fullscreen -X defdynamictitle on; }; }"
    Mod4 + m
 
 # vim: tw=90 sts=-1 sw=3 et ft=conf
