@@ -651,8 +651,6 @@ set background=dark
 
 if !has('gui_running')
    let g:solarized_termcolors = 256
-   " TODO: explain this.
-   let g:jellyjam_use_term_background_color = 1
    silent! colorscheme jellyjam
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
