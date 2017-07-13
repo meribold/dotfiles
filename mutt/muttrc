@@ -97,7 +97,7 @@ alternative_order text/plain text/html # Prefer viewing plain text if available.
 # [index format]: http://www.mutt.org/doc/manual/#index-format
 # [folder-hook]: http://www.mutt.org/doc/manual/#folder-hook
 # [cond-date patch]: http://www.mutt.org/doc/manual/#folder-hook
-# ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
+# [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
 folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40a  %s  %> %4c'"
 folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40t  %s  %> %4c'"
 
