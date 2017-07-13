@@ -102,10 +102,13 @@ folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>
 folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40t  %s  %> %4c'"
 
 # Color Scheme {{{1
-# Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) in
-# 256-color terminals.  See file:///usr/share/doc/mutt/manual.html#color and
-# https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg.
+# Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) and
+# [jellyjam.vim](https://github.com/meribold/jellyjam.vim) in 256-color terminals.
+# `color0` to `color15` are those defined in `Xresources`.  `color16` to `color255` should
+# be these: <https://commons.wikimedia.org/wiki/File:Xterm_256color_chart.svg>.  See
+# <file:///usr/share/doc/mutt/manual.html#color>.
 
+#     <object>   <fg>    <bg>
 color attachment yellow  color0
 color error      red     color0
 color hdrdefault color8  color0 # Default color of the message header in the pager.
