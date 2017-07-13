@@ -106,39 +106,39 @@ folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %
 # 256-color terminals.  See file:///usr/share/doc/mutt/manual.html#color and
 # https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg.
 
-color attachment yellow  color233
-color error      red     color233
-color hdrdefault color8  color233 # Default color of the message header in the pager.
+color attachment yellow  color0
+color error      red     color0
+color hdrdefault color8  color0 # Default color of the message header in the pager.
 color indicator  color15 red
-color markers    red     color233 # The + at the beginning of wrapped lines in the pager.
-color message    white   color233
-color normal     white   color233
-color prompt     white   color233
-color quoted     color8  color233
-color quoted1    color8  color233
-color quoted2    color8  color233
-color quoted3    color8  color233
-color quoted4    color8  color233
-color quoted5    color8  color233
-color quoted6    color8  color233
-color quoted7    color8  color233
-color quoted8    color8  color233
-color quoted9    color8  color233
+color markers    red     color0 # The + at the beginning of wrapped lines in the pager.
+color message    white   color0
+color normal     white   color0
+color prompt     white   color0
+color quoted     color8  color0
+color quoted1    color8  color0
+color quoted2    color8  color0
+color quoted3    color8  color0
+color quoted4    color8  color0
+color quoted5    color8  color0
+color quoted6    color8  color0
+color quoted7    color8  color0
+color quoted8    color8  color0
+color quoted9    color8  color0
 color search     default magenta
-color signature  color8  color233
+color signature  color8  color0
 color status     black   blue
-color tilde      default color233 # Used to pad blank lines in the pager.
-color tree       default color233
+color tilde      default color0 # Used to pad blank lines in the pager.
+color tree       default color0
 
 # Regexp patterns for the message header.
-color header     red     color233 ^From
-color header     red     color233 ^Subject
+color header     red     color0 ^From
+color header     red     color0 ^Subject
 
 # Regexp patterns for the index.
-color index      red     color233 ~F # Flagged
-color index      green   color233 ~N # New
-color index      yellow  color233 ~T # Tagged
-color index      color8  color233 ~D # Deleted
+color index      red     color0 ~F # Flagged
+color index      green   color0 ~N # New
+color index      yellow  color0 ~T # Tagged
+color index      color8  color0 ~D # Deleted
 
 # Key Bindings {{{1
 # Unbind some keys {{{2
