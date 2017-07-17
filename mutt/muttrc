@@ -107,6 +107,10 @@ folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %
 # the mailbox, prints "1 messages".
 set status_format="%f%?V?/%V? [%?M?%M/?%m messages%?n?, %n new?%?o?, %o old?%?d?, %d deleted?%?F?, %F flagged?%?t?, %t tagged?%?p?, %p postponed?] %> %P"
 
+# Customize the status line shown when reading a message (the status line for the pager).
+# See <https://dev.mutt.org/doc/manual.html#pager-format>.
+set pager_format="%s%*   %P"
+
 # Color Scheme {{{1
 # Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) and
 # [jellyjam.vim](https://github.com/meribold/jellyjam.vim) in 256-color terminals.
