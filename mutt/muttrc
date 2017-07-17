@@ -98,8 +98,8 @@ alternative_order text/plain text/html # Prefer viewing plain text if available.
 # [folder-hook]: http://www.mutt.org/doc/manual/#folder-hook
 # [cond-date patch]: http://www.mutt.org/doc/manual/#folder-hook
 # [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
-folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40.40a  %s  %* %4c'"
-folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40.40t  %s  %* %4c'"
+folder-hook . "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40.40a  %s%*   %4c'"
+folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %a %d]>&%[   %m-%d]>&%[%y-%m-%d]>  %-40.40t  %s%*   %4c'"
 
 # Customize the status line at the bottom.  The format string reduces the amount of
 # information compared to the default and doesn't use hyphens for padding.  See
