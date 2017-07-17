@@ -105,7 +105,7 @@ folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %
 # information compared to the default and doesn't use hyphens for padding.  See
 # <http://www.mutt.org/doc/manual/#status-format>.  FIXME: if there's only one message in
 # the mailbox, prints "1 messages".
-set status_format="%f [%?M?%M/?%m messages%?n?, %n new?%?o?, %o old?%?d?, %d deleted?%?F?, %F flagged?%?t?, %t tagged?%?p?, %p postponed?] %> %P"
+set status_format="%f%?V?/%V? [%?M?%M/?%m messages%?n?, %n new?%?o?, %o old?%?d?, %d deleted?%?F?, %F flagged?%?t?, %t tagged?%?p?, %p postponed?] %> %P"
 
 # Color Scheme {{{1
 # Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) and
