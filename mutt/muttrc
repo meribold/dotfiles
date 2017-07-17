@@ -111,6 +111,10 @@ set status_format="%f%?V?/%V? [%?M?%M/?%m messages%?n?, %n new?%?o?, %o old?%?d?
 # See <https://dev.mutt.org/doc/manual.html#pager-format>.
 set pager_format="%s%*   %P"
 
+# Hide the line showing a few key bindings that's normally at the top of the window.  See
+# <http://www.mutt.org/doc/manual/#help>.
+set nohelp
+
 # Color Scheme {{{1
 # Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) and
 # [jellyjam.vim](https://github.com/meribold/jellyjam.vim) in 256-color terminals.
