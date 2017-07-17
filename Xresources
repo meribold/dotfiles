@@ -1,4 +1,4 @@
-! [X resources](https://en.wikipedia.org/wiki/X_resources)
+! [X resources](https://en.wikipedia.org/wiki/X_resources) {{{1
 !
 ! X resources are key-value pairs used for program configuration mediated by the X Window
 ! System.  They are manipulated by xrdb(1).  Newer programs usually do not use this
