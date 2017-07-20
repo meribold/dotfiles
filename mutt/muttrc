@@ -37,6 +37,14 @@ charset-hook ^iso-8859-1$ cp1252
 set sidebar_visible = yes
 set sidebar_width   = 24
 
+# Taken from <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.  Sort by
+# [threads](http://www.mutt.org/doc/manual/#threads), displaying them as a tree structure.
+# Sort entire threads (and messages that aren't part of a thread) in relation to each
+# other by the date the thread's most recent message was received (or the date the message
+# was received).  Recent threads and messages go to the top.
+set sort=threads
+set sort_aux=reverse-last-date-received
+
 # Configure GnuPG.
 set pgp_use_gpg_agent
 set pgp_auto_decode
