@@ -225,6 +225,13 @@ macro index,pager go "<pipe-message>goobook add<return>" \
    "add the sender address to Google Contacts"
 macro index,pager i "<copy-message>=INBOX<enter><enter>" "Copy the current entry to INBOX"
 # macro attach V "<pipe-entry>cat >~/.mutt/mail.html && firefox ~/.mutt/mail.html<enter>"
+
+# Control the sidebar with the arrow keys.  Based on
+# <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.
+bind index,pager <Down>  sidebar-next
+bind index,pager <Up>    sidebar-prev
+bind index,pager <Right> sidebar-open
+bind index,pager <Left>  sidebar-toggle-visible
 # }}}1
 
 # vim: tw=90 sts=-1 sw=3 et nowrap fdm=marker
