@@ -32,6 +32,11 @@ charset-hook ^iso-8859-1$ cp1252
 # as ISO-8859-1 is so ubiquitous that most programs assume it deliberately and HTML5
 # requires that documents advertised as ISO-8859-1 are parsed as CP-1252.  Computers suck.
 
+# Enable and configure the [sidebar](http://www.mutt.org/doc/manual/#sidebar).  See
+# <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.
+set sidebar_visible = yes
+set sidebar_width   = 24
+
 # Configure GnuPG.
 set pgp_use_gpg_agent
 set pgp_auto_decode
