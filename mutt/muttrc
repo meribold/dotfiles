@@ -39,8 +39,8 @@ charset-hook ^iso-8859-1$ cp1252
 
 # Enable and configure the [sidebar](http://www.mutt.org/doc/manual/#sidebar).  See
 # <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.
-set sidebar_visible = yes
-set sidebar_width   = 24
+set sidebar_visible=yes
+set sidebar_width=24
 
 # Taken from <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.  Sort by
 # [threads](http://www.mutt.org/doc/manual/#threads), displaying them as a tree structure.
