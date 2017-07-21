@@ -38,11 +38,11 @@
 
 # Switch to or start Irssi.  This is basically like the Mutt keybinding but simpler
 # because no shell is started.
-"pgrep -u $(id -u) -x irssi && screen -S fullscreen -X select irssi || screen -S fullscreen -X screen irssi"
+"pgrep -u $(id -u) -x irssi && screen -S fullscreen -X select irssi || screen -S fullscreen -X screen irssi && i3-msg workspace 2"
    Mod4 + i
 
 # Switch to or start Neovim.
-"pgrep -u $(id -u) -x nvim && screen -S fullscreen -X select nvim || screen -S fullscreen -X screen nvim -S"
+"pgrep -u $(id -u) -x nvim && screen -S fullscreen -X select nvim || screen -S fullscreen -X screen nvim -S && i3-msg workspace 2"
    Mod4 + n
 
 # vim: tw=90 sts=-1 sw=3 et ft=conf
