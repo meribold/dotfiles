@@ -25,13 +25,15 @@
 "mpc prev"
    XF86AudioPrev
 
-# Switch to or start Mutt (only switches the screen session's active window but doesn't
-# try to focus the terminal that screen is attached to; TODO?).  We need to start it in an
-# interactive shell (`bash -ic ...`) because Mutt gets my password by invoking `pass`,
-# which eventually results in `pinentry-curses` being used to create the dialog asking for
-# the PIN to unlock my GPG key.  This dialog creation seems to fail when there is no shell
-# or a non-interactive shell.
-"pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select mutt || { screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t mutt bash -ic mutt; screen -S fullscreen -X defdynamictitle on; }; }"
+# Switch to or start Mutt (switches the screen session's active window and, if the window
+# manager is i3, focuses workspace 2).  We need to start Mutt in an interactive shell
+# (`bash -ic ...`) because it gets my password by invoking `pass`, which eventually
+# results in `pinentry-curses` being used to create the dialog asking for the PIN to
+# unlock my GPG key.  This dialog creation seems to fail when there is no shell or a
+# non-interactive shell.  TODO: do something smarter than jumping to workspace 2 to focus
+# the terminal?  See <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>
+# and <https://i3wm.org/docs/userguide.html#vim_like_marks>.
+"pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select mutt || { screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t mutt bash -ic mutt; screen -S fullscreen -X defdynamictitle on; }; } && i3-msg workspace 2"
    Mod4 + m
 
 # Switch to or start Irssi.  This is basically like the Mutt keybinding but simpler
