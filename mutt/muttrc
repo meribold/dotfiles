@@ -15,6 +15,11 @@ set imap_check_subscribed # Check all subscribed IMAP folders.
 set realname="Lukas Waymann"
 set from=lb.waym@gmail.com
 set smtp_url=smtps://lb.waym@smtp.gmail.com
+# Call pass(1) to get the account's password again.  This time to use it for sending mail
+# via SMTP.  The GPG key will be unlocked now because we already used pass to set
+# `imap_pass`.  When not setting `smtp_pass`, Mutt prompts for the password when first
+# sending mail.  See <http://mutt.org/doc/manual/#imap-pass>.
+set smtp_pass=`pass show google/lb.waym 2>/dev/null`
 set ssl_force_tls
 
 # Default is "us-ascii:iso-8859-1:utf-8".  Really?
