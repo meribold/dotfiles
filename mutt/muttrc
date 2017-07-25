@@ -54,19 +54,34 @@ set sort_aux=reverse-last-date-received
 set pgp_use_gpg_agent
 set pgp_auto_decode
 set pgp_show_unusable=no
+# Use command substitution to source the first available GnuPG configuration file and
+# don't complain if there is none.  The first and third files are installed by the
+# official [Mutt package][1] of Arch Linux and are identical as of 2017-07-25.  [This
+# NeoMutt package][2] from the AUR only includes the latter file (but it's effectively
+# identical to the two from Mutt as of 2017-07-25).  On Ubuntu, we have
+# `/etc/Muttrc.d/gpg.rc`.  Also see [3] and [4].
+#
+# XXX: I think Bash-specific functionality cannot be used here (Bash is probably invoked
+# as sh).
+#
+# TODO: all this appears to be redundant on Ubuntu.  Mutt always reads `/etc/Muttrc`
+# (before `~/.mutt/muttrc`) which sources `/etc/Muttrc.d/gpg.rc` (and all other `.rc`
+# files in `/etc/Muttrc.d`).  See [5].
+#
 # From /var/log/pacman.log:
 # [2014-03-23 01:32] [PACMAN] Running 'pacman -S mutt'
 # [2014-03-23 01:32] [ALPM-SCRIPTLET]
 # [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> For GPG support, add the following to your muttrc:
 # [2014-03-23 01:32] [ALPM-SCRIPTLET] ==> source /etc/Muttrc.gpg.dist
 # [2014-03-23 01:32] [ALPM-SCRIPTLET]
-# Use command substitution to source the first available GnuPG configuration file and
-# don't complain if there isn't one.  I think Bash-specific functionality cannot be used
-# here (Bash is probably invoked as sh).  See https://dev.mutt.org/trac/wiki/ConfigTricks.
-# TODO: this appears to be redundant on at least Ubuntu.  Mutt always reads /etc/Muttrc
-# (before ~/.mutt/muttrc) which sources /etc/Muttrc.d/gpg.rc (and all other .rc files in
-# /etc/Muttrc.d).  See https://dev.mutt.org/doc/manual.html#configuration-files.
-source `for file in /etc/Muttrc.gpg.dist /etc/Muttrc.d/gpg.rc /dev/null; do \
+#
+# [1]: https://www.archlinux.org/packages/extra/x86_64/mutt/files/
+# [2]: https://aur.archlinux.org/packages/neomutt
+# [3]: https://wiki.archlinux.org/index.php/Mutt#Encrypt_and_sign_mail_.28GnuPG.29
+# [4]: https://dev.mutt.org/trac/wiki/ConfigTricks
+# [5]: https://dev.mutt.org/doc/manual.html#configuration-files
+source `for file in /etc/Muttrc.gpg.dist /etc/Muttrc.d/gpg.rc \
+                    /usr/share/doc/mutt/samples/gpg.rc /dev/null; do \
            if [ -f "$file" ] || [ "$file" = /dev/null ]; then \
               echo "$file"; \
               break; \
