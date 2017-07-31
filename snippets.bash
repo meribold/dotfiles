@@ -42,8 +42,8 @@ strfile ~/dotfiles/cookies
 sudo dhcpcd -B wlan0
 sudo ip link set wlan0 up
 sudo iw dev wlan0 scan | less
-sudo journalctl -fu dhcpcd@wlan0 --no-tail -b -o cat
-sudo journalctl -fu wpa_supplicant@wlan0 --no-tail -b -o cat
+journalctl -fu dhcpcd@wlan0 --no-tail -b -o cat
+journalctl -fu wpa_supplicant@wlan0 --no-tail -b -o cat
 sudo mount /dev/sdb1 ~/sdb1
 sudo pacman -Syu
 sudo systemctl poweroff
