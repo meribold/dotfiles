@@ -121,3 +121,6 @@
 [submodule "AUR/lostfiles"]
 	path = AUR/lostfiles
 	url = https://aur.archlinux.org/lostfiles.git
+[submodule "AUR/translate-shell"]
+	path = AUR/translate-shell
+	url = https://aur.archlinux.org/translate-shell.git
