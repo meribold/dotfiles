@@ -43,9 +43,9 @@
 [submodule "AUR/i3-gaps-git"]
 	path = AUR/i3-gaps-git
 	url = https://aur.archlinux.org/i3-gaps-git.git
-[submodule "AUR/neofetch-git"]
-	path = AUR/neofetch-git
-	url = https://aur.archlinux.org/neofetch-git.git
+[submodule "AUR/neofetch"]
+	path = AUR/neofetch
+	url = https://aur.archlinux.org/neofetch.git
 [submodule "AUR/cli-visualizer"]
 	path = AUR/cli-visualizer
 	url = https://aur.archlinux.org/cli-visualizer.git
