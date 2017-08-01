@@ -17,7 +17,7 @@ while read; do
    if [[ ${mpd_status[1]} == \[playing\]* ]]; then
       # See `notify-send -?`.
       notify-send --expire-time=2000 -u low -a mpd \
-         "<small>MPD: now playing</small>\n${mpd_status[0]}"
+         $'<small>MPD: now playing</small>\n'"${mpd_status[0]}"
    fi
 done
 
