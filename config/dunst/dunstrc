@@ -1,12 +1,14 @@
 # For the most part, this is just a copy of /usr/share/dunst/dunstrc.  All the options are
-# also explained in detail there.
+# also explained in detail there.  The [dunstrc on GitHub][1] might be more up-to-date.
+#
+# [1]: https://github.com/dunst-project/dunst/blob/master/dunstrc
 
 [global]
     font = Ubuntu Mono 7
 
-    # Allow a small subset of html markup instead of stripping those tags from the
-    # message.
-    allow_markup = yes
+    # Allow a small subset of html markup tags message.  For a complete reference see
+    # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
+    markup = full
 
     # The default.
     # format = "<b>%s</b>\n%b"
@@ -73,12 +75,12 @@
     # Browser for opening URLs in context menu.
     browser = firefox-developer --new-tab
 
-[frame]
-    width = 2
+    frame_width = 2
+
     # Background color from jellybeans.vim: color 233 in terminals, #151515 in gVim; see
     # :hi Normal.
     # color = "#121212"
-    color = "#000000"
+    frame_color = "#000000"
 
 [shortcuts]
     # Xev might be helpful to find names of keys.  FIXME: use super as the modifier key
