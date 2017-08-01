@@ -2,7 +2,7 @@
 # also explained in detail there.
 
 [global]
-    font = Ubuntu Mono 10
+    font = Ubuntu Mono 7
 
     # Allow a small subset of html markup instead of stripping those tags from the
     # message.
