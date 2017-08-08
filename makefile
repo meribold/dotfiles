@@ -30,11 +30,12 @@ links :=
 # Define a variable containing all link targets used when building the `vim` goal.
 # Generally, the directory structure is mirrored and only files are linked, but these
 # directories are linked directly: `vim/after`, `vim/ftplugin`, `vim/UltiSnips`.
-vim_link_targets := $(shell find vim -regex 'vim/after\|vim/ftplugin\|vim/UltiSnips' \
+vim_link_targets := $(shell find home/vim -regex \
+                                 'home/vim/after\|home/vim/ftplugin\|home/vim/UltiSnips' \
                                  -prune -o -type f -o -type l)
 # Transform the list of link targets to paths of links that should be created when
 # building the `vim` goal.
-vim_links := $(addprefix $(HOME)/.,$(vim_link_targets))
+vim_links := $(patsubst home/%,$(HOME)/.%,$(vim_link_targets))
 
 links += $(vim_links)
 dirs  += $(sort $(dir $(links))) # `sort` removes duplicates.
@@ -48,7 +49,7 @@ else
    # Find (encrypted) prerequisite ".add" spell files (e.g. `en.utf-8.add`) and transform
    # the list of file paths to obtain the respective targets (".add.spl" files).  See
    # `:h spell` in Vim.
-   add_spl_files := $(patsubst %,$(HOME)/.%.spl,$(wildcard vim/spell/*.add))
+   add_spl_files := $(patsubst home/%,$(HOME)/.%.spl,$(wildcard home/vim/spell/*.add))
 endif
 
 # See <https://github.com/junegunn/vim-plug#installation>.
@@ -61,7 +62,7 @@ vim: $(vim_links) $(add_spl_files) $(HOME)/.vim/autoload/plug.vim \
    $(addprefix $(HOME)/.vim/spell/de.utf-8.,spl sug)
 	@# Install plugins with vim-plug.  See
 	@# <https://github.com/junegunn/dotfiles/blob/master/install-vim>.
-	vim -u vim/vimrc +PlugInstall +qa
+	vim -u home/vim/vimrc +PlugInstall +qa
 
 nvim: vim $(HOME)/.config/nvim \
    $(foreach ll,en de,$(addprefix $(HOME)/.config/nvim/spell/$(ll).utf-8.,spl sug))
@@ -145,7 +146,7 @@ $(dirs):
 $(links): | $$(dir $$@)
 	@# Assert that $| is a directory.
 	@[[ -d '$|' ]]
-	ln -s '$(patsubst $(HOME)/.%,$(CURDIR)/%,$@)' '$|'
+	ln -s '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$|'
 
 # Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
 # prerequisites (not order-only): if the ".add" file is newer than the target, the target

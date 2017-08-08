@@ -14,7 +14,7 @@
 	path = AUR/dict-wn
 	url = https://aur.archlinux.org/dict-wn.git
 [submodule "notion/hide-tabs"]
-	path = notion/hide-tabs
+	path = home/notion/hide-tabs
 	url = https://github.com/meribold/notion-hide-tabs.git
 [submodule "AUR/thinkfan"]
 	path = AUR/thinkfan
@@ -74,7 +74,7 @@
 	path = AUR/profile-cleaner
 	url = https://aur.archlinux.org/profile-cleaner.git
 [submodule "emacs.d/emacs-vim-modeline"]
-	path = emacs.d/emacs-vim-modeline
+	path = home/emacs.d/emacs-vim-modeline
 	url = https://github.com/cinsk/emacs-vim-modeline
 [submodule "AUR/firefox-developer"]
 	path = AUR/firefox-developer
