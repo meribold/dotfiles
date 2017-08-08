@@ -4,7 +4,7 @@ Mostly Vim, [Notion][1], [i3-gaps][2], Mutt and Bash stuff.  Some of it is speci
 [Arch][3].
 
 To get tab completion for `g` working, link to `./g-completion.bash` from
-`/usr/share/bash_completion/completions/g`:
+`/usr/share/bash-completion/completions/g`:
 
     ln -s ~/dotfiles/g-completion.bash /usr/share/bash-completion/completions/g
 
