@@ -6,7 +6,7 @@ cower -u
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 firefox-developer --new-tab $(gatewayip) # Try to open a router's web interface
-fortune cookies | cowsay -f dynamic-duo | lolcat
+fortune meribold | cowsay -f dynamic-duo | lolcat
 git clean -dfx && git checkout -- .
 git commit -m 'Update commits recorded by submodules'
 git log --oneline --decorate --graph
@@ -38,7 +38,7 @@ pacman -Qtdq # list (real) orphan packages
 reflector -a 1 -f 10 -n 5 -p http --sort score | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
 rofi -modi drun,run -matching fuzzy -show
 rsync -r -h --info=progress2 SRC DEST
-sudo strfile ~/dotfiles/root/usr/local/share/fortune/cookies /usr/local/share/fortune/cookies.dat
+sudo strfile ~/dotfiles/root/usr/local/share/fortune/meribold /usr/local/share/fortune/meribold.dat
 sudo dhcpcd -B wlan0
 sudo ip link set wlan0 up
 sudo iw dev wlan0 scan | less
