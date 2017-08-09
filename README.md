@@ -1,3 +1,5 @@
+![](/../media/screenshot.png?raw=true "Screenshot showing Vim, Conky, and vis")
+
 # meribold's dotfiles
 
 Mostly Vim, [Notion][1], [i3-gaps][2], Mutt and Bash stuff.  Some of it is specific to
