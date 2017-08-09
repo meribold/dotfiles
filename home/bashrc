@@ -139,7 +139,7 @@ j() {
 # <https://www.archlinux.org/packages/community/x86_64/fzf/>).
 __fzf_snippets__() {
    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
-      < ~/dotfiles/snippets.bash
+      < ~/dotfiles/misc/snippets.bash
 }
 
 # Invoke __fzf_snippets__ with Control+I (xterm is configured to send ÿ when Control+I is
