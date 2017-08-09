@@ -18,7 +18,7 @@
 # /etc/X11/xinit/xinitrc does.
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[[ -f ~/dotfiles/misc/Xmodmap ]] && xmodmap ~/dotfiles/misc/Xmodmap
+[[ -f ~/dotfiles/misc/xmodmaprc ]] && xmodmap ~/dotfiles/misc/xmodmaprc
 
 # Some fonts from the official repositories are installed here.  TODO: is this still
 # required?  Why?
@@ -47,8 +47,8 @@ case $1 in
    i3 | '') exec i3;;
    # The only way I found to start Conky without any issues (that I'm aware of right now)
    # when using Notion (I have 'own_window no' in my .conkyrc):
-   notion) [[ -f ~/dotfiles/misc/notion/Xmodmap ]] &&
-              xmodmap ~/dotfiles/misc/notion/Xmodmap
+   notion) [[ -f ~/dotfiles/misc/notion/xmodmaprc ]] &&
+              xmodmap ~/dotfiles/misc/notion/xmodmaprc
            { sleep .1; conky; } &
            exec notion;;
    # When starting Conky immediately it's not drawn anywhere visible.  Waiting until
