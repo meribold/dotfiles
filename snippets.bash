@@ -6,7 +6,7 @@ cower -u
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 firefox-developer --new-tab $(gatewayip) # Try to open a router's web interface
-fortune ~/dotfiles/cookies | cowsay -f dynamic_duo | lolcat
+fortune ~/dotfiles/cookies | cowsay -f dynamic-duo | lolcat
 git clean -dfx && git checkout -- .
 git commit -m 'Update commits recorded by submodules'
 git log --oneline --decorate --graph
