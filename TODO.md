@@ -1,6 +1,8 @@
-*   Add some kind of installation script.
+#### Installation
+*   Extend `makefile` to set up symlinks for all files that should have them.
+*   Add a phony target for each program for which configuration is included.
 
-##### Vim
+#### Vim
 *   Use [par](http://vimcasts.org/episodes/formatting-text-with-par/) for automatic
     paragraph formatting?
 *   Try these Vim plugins:
@@ -10,22 +12,17 @@
     *   [Vimwiki](https://github.com/vimwiki/vimwiki)
     *   [ack.vim](https://github.com/mileszs/ack.vim)
     *   [ag.vim](https://github.com/rking/ag.vim)
-    *   [clever-f.vim](https://github.com/rhysd/clever-f.vim)
     *   [deoplete](https://github.com/Shougo/deoplete.nvim)
     *   [investigate.vim](https://github.com/keith/investigate.vim)
     *   [libclang-vim](https://github.com/libclang-vim/libclang-vim)
     *   [neocomplete](https://github.com/Shougo/neocomplete.vim)
     *   [neoterm](https://github.com/kassio/neoterm)
     *   [nvr](https://github.com/mhinz/neovim-remote) (not actually a Vim plugin)
-    *   [scriptease.vim](https://github.com/tpope/vim-scriptease)
-    *   [vim-autoformat](https://github.com/Chiel92/vim-autoformat)
     *   [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
-    *   [vim-clang-format](https://github.com/rhysd/vim-clang-format)
     *   [vim-easygrep](https://github.com/dkprice/vim-easygrep)
     *   [vim-gnupg](https://github.com/jamessan/vim-gnupg)
     *   [vim-journal](https://github.com/junegunn/vim-journal)
     *   [vim-markdown-folding](https://github.com/nelstrom/vim-markdown-folding)
-    *   [vim-pasta](https://github.com/sickill/vim-pasta)
     *   [vim-protodef](https://github.com/derekwyatt/vim-protodef)
     *   [vim-quicklink](https://github.com/christoomey/vim-quicklink)
     *   [vim-sexp](https://github.com/guns/vim-sexp)
@@ -39,6 +36,6 @@
     *   [vimtex](https://github.com/lervag/vimtex)
     *   [yankring.vim](https://github.com/vim-scripts/YankRing.vim)
 
-<!-- ##### Mutt -->
+<!-- #### Mutt -->
 
 <!-- vim: set tw=90 sts=-1 sw=4 et: -->
