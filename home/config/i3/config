@@ -154,7 +154,7 @@ gaps outer -22
 smart_gaps on
 # }}}1
 
-exec --no-startup-id ~/dotfiles/config/i3/startup.sh
+exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
 
 # Always start Firefox on workspace 1 so I can switch to another workspace while waiting
 # for it to start.  See <http://i3wm.org/docs/userguide.html#assign_workspace>.
