@@ -107,8 +107,8 @@ set signature="cat /etc/motd|"
 set abort_nosubject=no
 set abort_unmodified=no
 
-# set alias_file="~/.mutt/aliases"
-# source $alias_file
+set alias_file="~/.mutt/aliases"
+source $alias_file
 
 # Cache message headers here.  This takes very little space and makes opening large
 # folders much faster.  See http://www.mutt.org/doc/devel/manual.html#header-caching.
