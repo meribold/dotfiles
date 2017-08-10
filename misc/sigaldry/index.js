@@ -4,7 +4,7 @@
 // https://github.com/TigerKid001/Blink/blob/master/data/js/NewTabSetter.js
 (function() {
    /* Get the URL to the start page.  This method is obviously bad:
-   const newTabPage = 'file:///home/casi/dotfiles/startpage/index.html';
+   const newTabPage = 'file:///home/casi/dotfiles/misc/startpage/index.html';
     * This one works but the whole page needs to be packaged with the add-on inside the
     * `data` subdirectory:
    const self = require('sdk/self');
@@ -15,7 +15,8 @@
    const {join} = require('sdk/io/file');
    // const home = system.env.HOME;
    const home = system.pathFor('Home');
-   const newTabPage = url.fromFilename(join(home, 'dotfiles', 'startpage', 'index.html'));
+   const newTabPage = url.fromFilename(join(home, 'dotfiles', 'misc', 'startpage',
+      'index.html'));
    // console.log(newTabPage);
 
    // TODO: just use the home page that can be set in the Firefox preferences as the new

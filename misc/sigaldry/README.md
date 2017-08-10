@@ -2,7 +2,7 @@
 
 Personal add-on for Firefox customizations that aren't possible with just `about:config`,
 `userChrome.css`, etc. and that I couldn't find a nice existing add-on for.
-*   Changes the new tab page to [startpage/index.html](/startpage/index.html).
+*   Changes the new tab page to [misc/startpage/index.html](/misc/startpage/index.html).
 *   Makes Firefox keep the address bar empty for that page.
 
 ### Installation

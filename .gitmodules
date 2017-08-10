@@ -1,126 +1,126 @@
 [submodule "AUR/dict-gcide"]
-	path = AUR/dict-gcide
+	path = misc/AUR/dict-gcide
 	url = https://aur.archlinux.org/dict-gcide.git
 [submodule "AUR/dict-freedict-deu-eng"]
-	path = AUR/dict-freedict-deu-eng
+	path = misc/AUR/dict-freedict-deu-eng
 	url = https://aur.archlinux.org/dict-freedict-deu-eng.git
 [submodule "AUR/dict-freedict-eng-deu"]
-	path = AUR/dict-freedict-eng-deu
+	path = misc/AUR/dict-freedict-eng-deu
 	url = https://aur.archlinux.org/dict-freedict-eng-deu.git
 [submodule "AUR/dict-foldoc"]
-	path = AUR/dict-foldoc
+	path = misc/AUR/dict-foldoc
 	url = https://aur.archlinux.org/dict-foldoc.git
 [submodule "AUR/dict-wn"]
-	path = AUR/dict-wn
+	path = misc/AUR/dict-wn
 	url = https://aur.archlinux.org/dict-wn.git
 [submodule "notion/hide-tabs"]
 	path = home/notion/hide-tabs
 	url = https://github.com/meribold/notion-hide-tabs.git
 [submodule "AUR/thinkfan"]
-	path = AUR/thinkfan
+	path = misc/AUR/thinkfan
 	url = https://aur.archlinux.org/thinkfan.git
 [submodule "AUR/tor-browser-en"]
-	path = AUR/tor-browser-en
+	path = misc/AUR/tor-browser-en
 	url = https://aur.archlinux.org/tor-browser-en.git
 [submodule "AUR/goobook-git"]
-	path = AUR/goobook-git
+	path = misc/AUR/goobook-git
 	url = https://aur.archlinux.org/goobook-git.git
 [submodule "AUR/yeganesh-cabal"]
-	path = AUR/yeganesh-cabal
+	path = misc/AUR/yeganesh-cabal
 	url = https://aur.archlinux.org/yeganesh-cabal.git
 [submodule "AUR/nethack-nao"]
-	path = AUR/nethack-nao
+	path = misc/AUR/nethack-nao
 	url = https://aur.archlinux.org/nethack-nao.git
 [submodule "AUR/conky-lua"]
-	path = AUR/conky-lua
+	path = misc/AUR/conky-lua
 	url = https://aur.archlinux.org/conky-lua.git
 [submodule "AUR/proggyfonts"]
-	path = AUR/proggyfonts
+	path = misc/AUR/proggyfonts
 	url = https://aur.archlinux.org/proggyfonts.git
 [submodule "AUR/urlview"]
-	path = AUR/urlview
+	path = misc/AUR/urlview
 	url = https://aur.archlinux.org/urlview.git
 [submodule "AUR/i3-gaps-git"]
-	path = AUR/i3-gaps-git
+	path = misc/AUR/i3-gaps-git
 	url = https://aur.archlinux.org/i3-gaps-git.git
 [submodule "AUR/neofetch"]
-	path = AUR/neofetch
+	path = misc/AUR/neofetch
 	url = https://aur.archlinux.org/neofetch.git
 [submodule "AUR/cli-visualizer"]
-	path = AUR/cli-visualizer
+	path = misc/AUR/cli-visualizer
 	url = https://aur.archlinux.org/cli-visualizer.git
 [submodule "AUR/j4-dmenu-desktop"]
-	path = AUR/j4-dmenu-desktop
+	path = misc/AUR/j4-dmenu-desktop
 	url = https://aur.archlinux.org/j4-dmenu-desktop.git
 [submodule "AUR/clipmenu"]
-	path = AUR/clipmenu
+	path = misc/AUR/clipmenu
 	url = https://aur.archlinux.org/clipmenu.git
 [submodule "AUR/cower"]
-	path = AUR/cower
+	path = misc/AUR/cower
 	url = https://aur.archlinux.org/cower.git
 [submodule "AUR/z-git"]
-	path = AUR/z-git
+	path = misc/AUR/z-git
 	url = https://aur.archlinux.org/z-git.git
 [submodule "AUR/git-crypt"]
-	path = AUR/git-crypt
+	path = misc/AUR/git-crypt
 	url = https://aur.archlinux.org/git-crypt.git
 [submodule "AUR/imgurbash"]
-	path = AUR/imgurbash
+	path = misc/AUR/imgurbash
 	url = https://aur.archlinux.org/imgurbash.git
 [submodule "AUR/universal-ctags-git"]
-	path = AUR/universal-ctags-git
+	path = misc/AUR/universal-ctags-git
 	url = https://aur.archlinux.org/universal-ctags-git.git
 [submodule "AUR/profile-cleaner"]
-	path = AUR/profile-cleaner
+	path = misc/AUR/profile-cleaner
 	url = https://aur.archlinux.org/profile-cleaner.git
 [submodule "emacs.d/emacs-vim-modeline"]
 	path = home/emacs.d/emacs-vim-modeline
 	url = https://github.com/cinsk/emacs-vim-modeline
 [submodule "AUR/firefox-developer"]
-	path = AUR/firefox-developer
+	path = misc/AUR/firefox-developer
 	url = https://aur.archlinux.org/firefox-developer.git
 [submodule "AUR/libmatthew-unix-java"]
-	path = AUR/libmatthew-unix-java
+	path = misc/AUR/libmatthew-unix-java
 	url = https://aur.archlinux.org/libmatthew-unix-java.git
 [submodule "AUR/signal-cli"]
-	path = AUR/signal-cli
+	path = misc/AUR/signal-cli
 	url = https://aur.archlinux.org/signal-cli.git
 [submodule "signal-cli.bash"]
-	path = signal-cli.bash
+	path = misc/signal-cli.bash
 	url = https://github.com/meribold/signal-cli.bash.git
 [submodule "AUR/neomutt"]
-	path = AUR/neomutt
+	path = misc/AUR/neomutt
 	url = https://aur.archlinux.org/neomutt.git
 [submodule "AUR/unclutter-xfixes-git"]
-	path = AUR/unclutter-xfixes-git
+	path = misc/AUR/unclutter-xfixes-git
 	url = https://aur.archlinux.org/unclutter-xfixes-git.git
 [submodule "AUR/fonts-meta-base"]
-	path = AUR/fonts-meta-base
+	path = misc/AUR/fonts-meta-base
 	url = https://aur.archlinux.org/fonts-meta-base.git
 [submodule "AUR/fonts-meta-extended-lt"]
-	path = AUR/fonts-meta-extended-lt
+	path = misc/AUR/fonts-meta-extended-lt
 	url = https://aur.archlinux.org/fonts-meta-extended-lt.git
 [submodule "AUR/ttf-courier-prime"]
-	path = AUR/ttf-courier-prime
+	path = misc/AUR/ttf-courier-prime
 	url = https://aur.archlinux.org/ttf-courier-prime.git
 [submodule "AUR/ttf-heuristica"]
-	path = AUR/ttf-heuristica
+	path = misc/AUR/ttf-heuristica
 	url = https://aur.archlinux.org/ttf-heuristica.git
 [submodule "AUR/ttf-caladea"]
-	path = AUR/ttf-caladea
+	path = misc/AUR/ttf-caladea
 	url = https://aur.archlinux.org/ttf-caladea.git
 [submodule "AUR/ttf-impallari-cantora"]
-	path = AUR/ttf-impallari-cantora
+	path = misc/AUR/ttf-impallari-cantora
 	url = https://aur.archlinux.org/ttf-impallari-cantora.git
 [submodule "AUR/ttf-carlito"]
-	path = AUR/ttf-carlito
+	path = misc/AUR/ttf-carlito
 	url = https://aur.archlinux.org/ttf-carlito.git
 [submodule "AUR/ttf-google-fonts-git"]
-	path = AUR/ttf-google-fonts-git
+	path = misc/AUR/ttf-google-fonts-git
 	url = https://aur.archlinux.org/ttf-google-fonts-git.git
 [submodule "AUR/lostfiles"]
-	path = AUR/lostfiles
+	path = misc/AUR/lostfiles
 	url = https://aur.archlinux.org/lostfiles.git
 [submodule "AUR/translate-shell"]
-	path = AUR/translate-shell
+	path = misc/AUR/translate-shell
 	url = https://aur.archlinux.org/translate-shell.git
