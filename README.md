@@ -4,6 +4,8 @@
 [NeoMutt][]), Bash, [and][conky/] [more][dunst/] [programs][screen/][...][xresources] some
 [scripts][bin/], Bash [functions and aliases][bashrc], [keybindings][xbindkeysrc], ...
 
+[Click here for more screenshots](https://imgur.com/a/1bnaT).
+
 ## Project Structure
 
 The repository is split into three main directories: [`home/`](home/), [`root/`](root/),
