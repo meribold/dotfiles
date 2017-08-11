@@ -169,8 +169,9 @@ $(dirs):
 .SECONDEXPANSION:
 
 # Link files.  Each target has the directory it should be created in as an order-only
-# prerequisite.
+# prerequisite.  If a conflicting file exists and it's a symbolic link, remove it.
 $(links): | $$(dir $$@)
+	@[[ -L '$@' ]] && { PS4=; set -x; rm '$@'; } || :
 	ln -sT '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$@'
 
 # Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
