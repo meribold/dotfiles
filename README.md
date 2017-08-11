@@ -32,16 +32,26 @@ it installed) and you can try out the configuration for specific programs:
 
 *   Clone this repository to `~/dotfiles`.
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
-    names.  **Don't** install all configuration, some of it is not portable,  **always**
-    specify targets when running `make`.
-    The makefile doesn't replace most conflicting files, they need to be removed (and
-    backed up) manually first.
+    names.  The makefile doesn't replace most conflicting files, they should be removed or
+    moved manually first.
+
     ```bash
     mv ~/.vim ~/.vim.backup
     make vim
     ```
-*   The currently implemented targets are: `vim`, `nvim`, `git`, `screen`, `mutt`, and
+
+    >   **Don't** install all configuration, some of it is not portable,  **always**
+    >   specify targets when running `make`.
+
+    The currently implemented targets are: `vim`, `nvim`, `git`, `screen`, `mutt`, and
     `conky`.
+
+Make may consider targets to be up to date because of existing files that conflict with
+the links it should create.  The `-B` flag (e.g. `make -B vim`) forces remaking of all
+considered targets.  This only results in the removal of conflicting **symlinks**, but not
+regular files.
+
+Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execute.
 
 [vim/]: home/vim/
 [neovim]: https://neovim.io
