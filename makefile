@@ -171,8 +171,6 @@ $(dirs):
 # Link files.  Each target has the directory it should be created in as an order-only
 # prerequisite.
 $(links): | $$(dir $$@)
-	@# Assert that $| is a directory.
-	@[[ -d '$|' ]]
 	ln -sT '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$@'
 
 # Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
