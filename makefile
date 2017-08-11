@@ -134,6 +134,33 @@ $(HOME)/.config/nvim/spell/%.utf-8.spl $(HOME)/.config/nvim/spell/%.utf-8.sug:
 	nvim -u NORC --cmd 'set rtp=$$VIMRUNTIME' \
 	     +'set rtp+=~/.config/nvim spelllang=$* spell' +q <<< y
 
+# FIXME: DRY.  This is too manual.  Write a function or something.  It could take the
+# program name and a list of link names or link targets as arguments.
+git_links := $(addprefix $(HOME)/,.gitconfig .gitignore)
+links += $(git_links)
+.PHONY: git
+git: $(git_links)
+all: git
+
+screen_links := $(HOME)/.screenrc
+links += $(screen_links)
+.PHONY: screen
+screen: $(screen_links)
+all: screen
+
+mutt_link_targets := $(wildcard home/mutt/*) home/urlview
+mutt_links := $(patsubst home/%,$(HOME)/.%,$(mutt_link_targets))
+links += $(mutt_links)
+.PHONY: mutt
+mutt: $(mutt_links)
+all: mutt
+
+conky_links := $(HOME)/.config/conky
+links += $(conky_links)
+.PHONY: conky
+conky: $(conky_links)
+all: conky
+
 # Create directories.
 $(dirs):
 	mkdir -p '$@'
@@ -146,7 +173,7 @@ $(dirs):
 $(links): | $$(dir $$@)
 	@# Assert that $| is a directory.
 	@[[ -d '$|' ]]
-	ln -s '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$|'
+	ln -sT '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$@'
 
 # Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
 # prerequisites (not order-only): if the ".add" file is newer than the target, the target

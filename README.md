@@ -40,7 +40,8 @@ it installed) and you can try out the configuration for specific programs:
     mv ~/.vim ~/.vim.backup
     make vim
     ```
-*   **Only the `vim` and `nivm` targets are implemented so far.**
+*   The currently implemented targets are: `vim`, `nvim`, `git`, `screen`, `mutt`, and
+    `conky`.
 
 [vim/]: home/vim/
 [neovim]: https://neovim.io
