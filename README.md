@@ -23,12 +23,13 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 
 ## Installation
 
-You probably shouldn't blindly use these (or anyone's) dotfiles: my setup is personal,
-opinionated, and sometimes my own information is hard-coded.  Some configuration is not
-portable and specific to [Arch][] or my ThinkPad.
+>   You probably shouldn't blindly use these (or anyone's) dotfiles: my setup is personal,
+>   opinionated, and sometimes my own information is hard-coded.  Some configuration is
+>   not portable and specific to [Arch][] or my ThinkPad.  That being said...
 
-That being said, the installation is based on [GNU Make][make] (you probably already have
-it installed) and you can try out the configuration for specific programs:
+The installation is based on [GNU Make][make] (you most likely have it) and you can
+specifically try out the configuration for individual programs without creating any other
+links.
 
 *   Clone this repository to `~/dotfiles`.
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
@@ -48,7 +49,7 @@ it installed) and you can try out the configuration for specific programs:
 
 Make may consider targets to be up to date because of existing files that conflict with
 the links it should create.  The `-B` flag (e.g. `make -B vim`) forces remaking of all
-considered targets.  This only results in the removal of conflicting **symlinks**, but not
+considered targets.  This only results in the removal of conflicting symlinks, but not
 regular files.
 
 Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execute.
