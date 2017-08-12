@@ -66,6 +66,13 @@
     # Horizontal padding.
     horizontal_padding = 8
 
+    # For notifications specifying an icon name or path, show the icon at the left of the
+    # notification window.  By default, icons are disabled.
+    icon_position = left
+
+    # Scale icons down so the larger axis has 64 pixels.  Scaling is disabled by default.
+    max_icon_size = 64
+
     # Use the same color for the separator as for the frame.
     separator_color = frame
 
