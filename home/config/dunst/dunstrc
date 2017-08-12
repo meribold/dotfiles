@@ -125,4 +125,14 @@
     foreground = "#ffffff"
     timeout = 0
 
+# The following sections' names aren't used by Dunst internally.  Dunst assumes such
+# sections to specify a *rule*.  Rules can be used to filter notifications, override
+# attributes, or run scripts.
+
+# Don't keep notifications from my `~/bin/mpd-notify` script in the history.  They just
+# add noise when recalling notifications.
+[mpd-notify]
+    appname = mpd
+    history_ignore = yes
+
 # vim: tw=90 sts=-1 sw=4 et ft=cfg cms=#%s
