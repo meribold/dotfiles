@@ -7,14 +7,36 @@
 	autocrlf = input
 [merge]
 	tool = nvim -d
-[credential]
-	helper = cache --timeout=10800
 [push]
 	default = simple
 [alias]
 	amend = commit --amend
 	c = commit
+[credential]
+	; Temporarily store passwords in memory.  Set before the helper that invokes
+	; `pass` so Git will consult the `credential-cache` helper first.  The shell
+	; snippet using `pass` won't be invoked with the "get" operation if this helper
+	; succeeds (`pass` takes a second to run on my laptop).  See
+	; git-credential-cache(1).
+	helper = cache --timeout=10800
 [credential "https://github.com"]
 	username = meribold
+	; Ad hoc shell snippet credential helper for GitHub using [pass][1].  If $1
+	; (the operation to perform) is "get", obtain the GitHub password from `pass`
+	; (possibly causing gpg-agent to request the passphrase for unlocking the private
+	; key) and print a key-value pair with the password.  Otherwise, if the operation
+	; is "store" or "erase", do nothing successfully: "[i]f [the helper] does not
+	; support the requested operation (e.g., a read-only store), it should silently
+	; ignore the request" [2].  Add `echo $1 >&2` to see what operations are
+	; requested.
+	;
+	; See gitcredentials(7), git-credential(1), [2], and git-config(1).
+	;
+	; [1]: https://www.passwordstore.org
+	; [2]: https://kernel.org/pub/software/scm/git/docs/technical/api-credentials.html
+	helper = !"f() { \
+	             [[ $1 != get ]] && return 0; \
+	             printf 'password='; pass show github/meribold; \
+	           }; f"
 
 ; vim: ft=gitconfig tw=90 sts=-1 sw=0 ts=8 noet
