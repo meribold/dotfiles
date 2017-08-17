@@ -15,3 +15,5 @@
 	amend = commit --amend
 [credential "https://github.com"]
 	username = meribold
+
+; vim: ft=gitconfig tw=90 sts=-1 sw=0 ts=8 noet
