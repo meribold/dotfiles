@@ -13,3 +13,5 @@
 	default = simple
 [alias]
 	amend = commit --amend
+[credential "https://github.com"]
+	username = meribold
