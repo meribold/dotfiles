@@ -29,9 +29,9 @@ PATH="$HOME/node_modules/.bin/:$PATH"
 # <https://docs.python.org/3/install/index.html#alternate-installation-the-user-scheme>.
 PATH="$HOME/.local/bin/:$PATH"
 
-# Set PATH to include ~/bin if it exists.  See http://askubuntu.com/a/402410.
-if [ -d "$HOME/bin" ]; then
-   PATH="$HOME/bin:$PATH"
+# Set PATH to include ~/.bin if it exists.  See <https://askubuntu.com/a/402410>.
+if [ -d "$HOME/.bin" ]; then
+   PATH="$HOME/.bin:$PATH"
 fi
 
 # Support conveniently adding cowfiles in the `/usr/local/share/cows/` directory, so they

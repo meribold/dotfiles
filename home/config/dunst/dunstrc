@@ -129,7 +129,7 @@
 # sections to specify a *rule*.  Rules can be used to filter notifications, override
 # attributes, or run scripts.
 
-# Don't keep notifications from my `~/bin/mpd-notify` script in the history.  They just
+# Don't keep notifications from my `~/.bin/mpd-notify` script in the history.  They just
 # add noise when recalling notifications.
 [mpd-notify]
     appname = mpd

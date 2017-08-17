@@ -38,7 +38,6 @@ vim_link_targets := $(shell find home/vim -regex \
 vim_links := $(patsubst home/%,$(HOME)/.%,$(vim_link_targets))
 
 links += $(vim_links)
-dirs  += $(sort $(dir $(links))) # `sort` removes duplicates.
 
 # Check if $(GIT_CRYPT) exists.  See <http://stackoverflow.com/a/677212>.  `command -v`
 # prints something iff the command is available.  Thus, if the output is empty,
@@ -142,6 +141,14 @@ links += $(git_links)
 git: $(git_links)
 all: git
 
+bash_link_targets := $(addprefix home/,bash_logout bash_profile bashrc profile) \
+                     $(wildcard home/bin/*)
+bash_links := $(patsubst home/%,$(HOME)/.%,$(bash_link_targets))
+links += $(bash_links)
+.PHONY: bash
+bash: $(bash_links)
+all: bash
+
 screen_links := $(HOME)/.screenrc
 links += $(screen_links)
 .PHONY: screen
@@ -160,6 +167,8 @@ links += $(conky_links)
 .PHONY: conky
 conky: $(conky_links)
 all: conky
+
+dirs += $(sort $(dir $(links))) # `sort` removes duplicates.
 
 # Create directories.
 $(dirs):
