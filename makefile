@@ -178,10 +178,12 @@ $(dirs):
 .SECONDEXPANSION:
 
 # Link files.  Each target has the directory it should be created in as an order-only
-# prerequisite.  If a conflicting file exists and it's a symbolic link, remove it.
+# prerequisite.  Before linking, assert that either no conflicting file exists or the
+# conflicting file is a symlink.  Pass the `-f` flag to `ln` to overwrite conflicting
+# files.
 $(links): | $$(dir $$@)
-	@[[ -L '$@' ]] && { PS4=; set -x; rm '$@'; } || :
-	ln -sT '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$@'
+	@[[ ! -e '$@' || -L '$@' ]] || { echo 'Error: $@ exists' >&2 && false; }
+	ln -sfT '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$@'
 
 # Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
 # prerequisites (not order-only): if the ".add" file is newer than the target, the target
