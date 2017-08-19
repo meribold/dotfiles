@@ -168,7 +168,18 @@ links += $(conky_links)
 conky: $(conky_links)
 all: conky
 
-dirs += $(sort $(dir $(links))) # `sort` removes duplicates.
+gpg_links := $(HOME)/.gnupg/gpg-agent.conf
+links += $(gpg_links)
+.PHONY: gpg
+gpg: $(gpg_links) /usr/bin/pinentry
+all: gpg
+
+# Find regular files (`f`) and symlinks (`l`) below `root/` and print their paths with
+# 'root/' removed (`%P`).  These are the paths outside of $HOME where links should be
+# created.
+root_links := $(addprefix /,$(shell find root/ \( -type f -o -type l \) -printf '%P\n'))
+
+dirs += $(sort $(dir $(links) $(root_links))) # `sort` removes duplicates.
 
 # Create directories.
 $(dirs):
@@ -184,6 +195,11 @@ $(dirs):
 $(links): | $$(dir $$@)
 	@[[ ! -e '$@' || -L '$@' ]] || { echo 'Error: $@ exists' >&2 && false; }
 	ln -sfT '$(patsubst $(HOME)/.%,$(CURDIR)/home/%,$@)' '$@'
+
+# Create links that aren't below $HOME.  Mostly analogous to the recipe above.
+$(root_links): | $$(dir $$@)
+	@[[ ! -e '$@' || -L '$@' ]] || { echo 'Error: $@ exists' >&2 && false; }
+	sudo ln -sfT '$(CURDIR)/root$@' '$@'
 
 # Create ".add.spl" files from corresponding ".add" prerequisites.  These are regular
 # prerequisites (not order-only): if the ".add" file is newer than the target, the target
