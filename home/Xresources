@@ -95,6 +95,10 @@ XTerm*VT100.eightBitInput:   false
 XTerm*VT100.eightBitControl: false
 XTerm*VT100.eightBitOutput:  true
 
+! XLFD bitmap font for CJK and other double-width characters.  See
+! <https://bbs.archlinux.org/viewtopic.php?id=154512>.
+XTerm*VT100.wideFont: -misc-fixed-medium-r-normal-ja-*-*-*-*-*-*-iso10646-1
+
 ! Make xterm send ASCII DEL (0x7F) for the backspace key instead of ASCII BS (0x08).
 ! Sending 0x08 apparently is a [de facto standard][1] but is not the default on my system.
 ! There are also the backarrowKeyIsErase and ptyInitialErase resources; look them up in
@@ -137,6 +141,18 @@ XTerm*VT100.faceSize3: 10
 XTerm*VT100.faceSize4: 11
 XTerm*VT100.faceSize5: 12
 XTerm*VT100.faceSize6: 13
+! TrueType fallback font for CJK and other double-width characters from the [Noto Sans
+! CJK][1] font family.  "Noto Sans CJK is a rebadged version of Source Han Sans, a
+! typeface developed by Adobe and Google" [2].  It looks better than "Droid Sans Fallback"
+! or "Droid Sans Japanese" (suggested [here][3]), which it replaced as "the default
+! fallback font for [...] Android" [4].  Also see [5].
+! [1]: https://www.archlinux.org/packages/extra/any/noto-fonts-cjk/
+! [2]: https://en.wikipedia.org/wiki/Noto_fonts
+! [3]: https://bbs.archlinux.org/viewtopic.php?id=154512
+!      "Unicode support in xterm - Arch Linux Forums"
+! [4]: https://en.wikipedia.org/wiki/Droid_fonts
+! [5]: https://wiki.archlinux.org/index.php/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
+XTerm*VT100.faceNameDoublesize: Noto Sans Mono CJK TC
 
 ! See <http://invisible-island.net/xterm/manpage/xterm.html#VT100-Widget-Resources:font>.
 XTerm*fontMenu*fontdefault*Label: dina 10
