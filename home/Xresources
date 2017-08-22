@@ -220,6 +220,19 @@ XTerm*VT100.color14:     #87afd7
 XTerm*VT100.color7:      #dfdfdf
 XTerm*VT100.color15:     #ffffff
 
+! URxvt configuration {{{1
+!
+! The urxvt options [are] mostly a subset of xterm's.
+!    -- urxvt(1)
+
+URxvt.scrollBar: false
+URxvt.saveLines: 0
+URxvt.internalBorder: 0
+URxvt.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+
+URxvt.foreground: #dfdfdf
+URxvt.background: #000000
+
 ! Other stuff {{{1
 
 ! Taken from the ArchWiki:
