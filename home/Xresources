@@ -108,13 +108,22 @@ XTerm*VT100.wideFont: -misc-fixed-medium-r-normal-ja-*-*-*-*-*-*-iso10646-1
 ! [2]: https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
 XTerm*VT100.backarrowKey: false
 
-! XTerm sends the same byte for the Tab key and Control+I, so they cannot be mapped to
-! different actions in (e.g.) Vim.  To work around this, make xterm send ÿ for Control+I
-! instead (ÿ is just a random character that I don't enter directly; it's also part of
-! latin1 in addition to Unicode in case that makes it less likely that this breaks with
-! some setups).  See <http://stackoverflow.com/q/2686766> and xterm(1).
+! Translations (key bindings / mappings).
+! 1.  XTerm sends the same byte for the Tab key and Control+I, so they cannot be mapped to
+!     different actions in (e.g.) Vim.  To work around this, make xterm send ÿ for
+!     Control+I instead (ÿ is just a random character that I don't enter directly; it's
+!     also part of latin1 in addition to Unicode in case that makes it less likely that
+!     this breaks with some setups).  See <http://stackoverflow.com/q/2686766> and
+!     xterm(1).
+! 2.  Use Control+Shift+C and Control+Shift+V to copy and paste to and from the
+!     `CLIPBOARD` selection, like in GNOME Terminal and [termite][1].  See [2] and [3].
+! [1]: https://github.com/thestinger/termite
+! [2]: https://wiki.archlinux.org/index.php/Xterm#PRIMARY_and_CLIPBOARD
+! [3]: https://unix.stackexchange.com/q/225062
 XTerm*VT100.translations: #override \
-Ctrl <Key>I: string(ÿ)
+Ctrl <Key>I: string(ÿ) \n\
+Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
 ! Assume the font does not contain line-drawing characters, and draw them directly (see
 ! xterm(1)).  This seems to be required for the Dina font.
