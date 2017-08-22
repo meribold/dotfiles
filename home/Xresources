@@ -95,6 +95,12 @@ XTerm*VT100.eightBitInput:   false
 XTerm*VT100.eightBitControl: false
 XTerm*VT100.eightBitOutput:  true
 
+! Do not use "UTF-8 fonts specified via resource patterns such as '*vt100.utf8Fonts.font',
+! use "normal (ISO-8859-1) fonts via patterns such as '*vt100.font'" [1].  FIXME: this
+! does not seem to work and I have to unset '*utf8Fonts.font' etc.
+! [1]: https://invisible-island.net/xterm/manpage/xterm.html#VT100-Widget-Resources:utf8Fonts
+XTerm*VT100.utf8Fonts: false
+
 ! XLFD bitmap font for CJK and other double-width characters.  See
 ! <https://bbs.archlinux.org/viewtopic.php?id=154512>.
 XTerm*VT100.wideFont: -misc-fixed-medium-r-normal-ja-*-*-*-*-*-*-iso10646-1
@@ -166,21 +172,30 @@ XTerm*VT100.faceSize6: 13
 ! [5]: https://wiki.archlinux.org/index.php/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
 XTerm*VT100.faceNameDoublesize: Noto Sans Mono CJK TC
 
-! See <http://invisible-island.net/xterm/manpage/xterm.html#VT100-Widget-Resources:font>.
-XTerm*fontMenu*fontdefault*Label: dina 10
-XTerm*font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
-XTerm*fontMenu*font1*Label: dina 12
-XTerm*font1: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-XTerm*fontMenu*font2*Label: dina 13
-XTerm*font2: -*-dina-medium-r-*-*-13-*-*-*-*-*-iso8859-1
-XTerm*fontMenu*font3*Label: proggy clean sz 13
-XTerm*font3: -*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*
-XTerm*fontMenu*font4*Label: terminus 12
-XTerm*font4: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
-XTerm*fontMenu*font5*Label: terminus 14
-XTerm*font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-XTerm*fontMenu*font6*Label: fixed 13
-XTerm*font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
+XTerm*fontMenu.fontdefault.Label: dina 10
+XTerm*VT100.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+XTerm*fontMenu.font1.Label: dina 12
+XTerm*VT100.font1: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+XTerm*fontMenu.font2.Label: dina 13
+XTerm*VT100.font2: -*-dina-medium-r-*-*-13-*-*-*-*-*-iso8859-1
+XTerm*fontMenu.font3.Label: proggy clean sz 13
+XTerm*VT100.font3: -*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*
+XTerm*fontMenu.font4.Label: terminus 12
+XTerm*VT100.font4: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
+XTerm*fontMenu.font5.Label: terminus 14
+XTerm*VT100.font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+XTerm*fontMenu.font6.Label: fixed 13
+XTerm*VT100.font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
+
+! Unset the resources for specifying UTF-8 fonts to force xterm to use the ISO-8859-1
+! fonts.  FIXME: the "utf8Fonts" resource should take care of this.
+XTerm*VT100.utf8Fonts.font:
+XTerm*VT100.utf8Fonts.font1:
+XTerm*VT100.utf8Fonts.font2:
+XTerm*VT100.utf8Fonts.font3:
+XTerm*VT100.utf8Fonts.font4:
+XTerm*VT100.utf8Fonts.font5:
+XTerm*VT100.utf8Fonts.font6:
 
 ! Style the menus {{{2
 ! Specify resources for the "mainMenu" and "fontMenu", which both have the "SimpleMenu"
