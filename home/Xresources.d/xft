@@ -1,0 +1,14 @@
+! X FreeType interface library configuration
+
+! Taken from the ArchWiki:
+! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
+Xft.antialias: 1
+Xft.autohint:  0
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
+
+Xft.dpi: 135
+
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker

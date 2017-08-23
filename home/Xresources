@@ -54,23 +54,13 @@
 ! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
 XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 
-! Taken from the ArchWiki:
-! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
-Xft.antialias: 1
-Xft.autohint:  0
-Xft.hinting:   1
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcddefault
-Xft.rgba:      rgb
-
-Xft.dpi: 135
-
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
 
 ! Include X resource files dedicated to specific programs or topics.  This uses a C
 ! preprocessor.  See <https://wiki.archlinux.org/index.php/x_resources#Include_files> and
 ! <https://reddit.com/r/unixporn/wiki/organizing_xresources>.
+#include ".Xresources.d/xft"
 #include ".Xresources.d/colors"
 #include ".Xresources.d/xterm"
 #include ".Xresources.d/urxvt"
