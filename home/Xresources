@@ -54,6 +54,54 @@
 ! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
 XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 
+! Colors {{{1
+!
+! Most of these colors are used by the [jellybeans] Vim color scheme for key highlighting
+! groups (if Vim is running inside a 256-color terminal; the colors used for gVim differ).
+! The color numbers can be listed with the `:highlight` command from Vim (while jellybeans
+! is the active color scheme).  I then used [this chart][2] to get the RGB triplets.
+! [1]: https://github.com/nanotech/jellybeans.vim
+! [2]: https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
+! [3]: https://wiki.archlinux.org/index.php/Xterm#Colors
+! [4]: http://terminal.sexy
+
+! Black.
+*color0:  #000000
+! Grey (color 244); used by jellybeans for the "Comment" highlighting group.
+*color8:  #808080
+
+! Red (color 167); "Constant" highlighting group
+*color1:  #d75f5f
+*color9:  #d75f5f
+
+! Red (color 88); "ErrorMsg" highlighting group
+! *color1:  #870000
+! *color9:  #870000
+
+! Green (color 107); "String" highlighting group
+*color2:  #87af5f
+*color10: #87af5f
+
+! Yellow (color 222); "Function" highlighting group
+*color3:  #ffdf87
+*color11: #ffdf87
+
+! Blue (color 103); "Statement" highlighting group
+*color4:  #8787af
+*color12: #8787af
+
+! Magenta (color 162); "rubyRegexp" highlighting group
+*color5:  #d70087
+*color13: #d70087
+
+! Cyan (color 110); "Structure" highlighting group
+*color6:  #87afd7
+*color14: #87afd7
+
+! White (color 188); "Normal" highlighting group
+*color7:  #dfdfdf
+*color15: #ffffff
+
 ! XTerm configuration {{{1
 !
 ! Abandon All Hope, Ye Who Enter Here.
@@ -211,57 +259,11 @@ XTerm.SimpleMenu.rightMargin:  4
 
 ! XTerm colors {{{2
 
-! Most of these colors are used by the [jellybeans] Vim color scheme for key highlighting
-! groups (if Vim is running inside a 256-color terminal; the colors used for gVim differ).
-! The color numbers can be listed with the `:highlight` command from Vim (while jellybeans
-! is the active color scheme).  I then used [this chart][2] to get the RGB triplets.
-! [1]: https://github.com/nanotech/jellybeans.vim
-! [2]: https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
-! [3]: https://wiki.archlinux.org/index.php/Xterm#Colors
-! [4]: http://terminal.sexy
-
 ! Color 188; used by jellybeans for the "Normal" highlighting group (`:hi Normal`).
 XTerm*VT100.foreground:  #dfdfdf
 ! Completely black terminal background.  This differs from jellybeans.vim.
 XTerm*VT100.background:  #000000
 XTerm*VT100.cursorColor: #dfdfdf
-
-! Black.
-XTerm*VT100.color0:      #000000
-! Grey (color 244); used by jellybeans for the "Comment" highlighting group.
-XTerm*VT100.color8:      #808080
-
-! Red (color 167); "Constant" highlighting group
-XTerm*VT100.color1:      #d75f5f
-XTerm*VT100.color9:      #d75f5f
-
-! Red (color 88); "ErrorMsg" highlighting group
-! XTerm*VT100.color1:      #870000
-! XTerm*VT100.color9:      #870000
-
-! Green (color 107); "String" highlighting group
-XTerm*VT100.color2:      #87af5f
-XTerm*VT100.color10:     #87af5f
-
-! Yellow (color 222); "Function" highlighting group
-XTerm*VT100.color3:      #ffdf87
-XTerm*VT100.color11:     #ffdf87
-
-! Blue (color 103); "Statement" highlighting group
-XTerm*VT100.color4:      #8787af
-XTerm*VT100.color12:     #8787af
-
-! Magenta (color 162); "rubyRegexp" highlighting group
-XTerm*VT100.color5:      #d70087
-XTerm*VT100.color13:     #d70087
-
-! Cyan (color 110); "Structure" highlighting group
-XTerm*VT100.color6:      #87afd7
-XTerm*VT100.color14:     #87afd7
-
-! White (color 188); "Normal" highlighting group
-XTerm*VT100.color7:      #dfdfdf
-XTerm*VT100.color15:     #ffffff
 
 ! URxvt configuration {{{1
 !
