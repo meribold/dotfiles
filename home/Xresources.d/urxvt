@@ -1,0 +1,14 @@
+! URxvt configuration
+!
+! The urxvt options [are] mostly a subset of xterm's.
+!    -- urxvt(1)
+
+URxvt.scrollBar: false
+URxvt.saveLines: 0
+URxvt.internalBorder: 0
+URxvt.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+
+URxvt.foreground: #dfdfdf
+URxvt.background: #000000
+
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker

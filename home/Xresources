@@ -1,4 +1,4 @@
-! [X resources](https://en.wikipedia.org/wiki/X_resources) {{{1
+! [X resources](https://en.wikipedia.org/wiki/X_resources)
 !
 ! X resources are key-value pairs used for program configuration mediated by the X Window
 ! System.  They are manipulated by xrdb(1).  Newer programs usually do not use this
@@ -54,232 +54,6 @@
 ! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
 XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 
-! Colors {{{1
-!
-! Most of these colors are used by the [jellybeans] Vim color scheme for key highlighting
-! groups (if Vim is running inside a 256-color terminal; the colors used for gVim differ).
-! The color numbers can be listed with the `:highlight` command from Vim (while jellybeans
-! is the active color scheme).  I then used [this chart][2] to get the RGB triplets.
-! [1]: https://github.com/nanotech/jellybeans.vim
-! [2]: https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
-! [3]: https://wiki.archlinux.org/index.php/Xterm#Colors
-! [4]: http://terminal.sexy
-
-! Black.
-*color0:  #000000
-! Grey (color 244); used by jellybeans for the "Comment" highlighting group.
-*color8:  #808080
-
-! Red (color 167); "Constant" highlighting group
-*color1:  #d75f5f
-*color9:  #d75f5f
-
-! Red (color 88); "ErrorMsg" highlighting group
-! *color1:  #870000
-! *color9:  #870000
-
-! Green (color 107); "String" highlighting group
-*color2:  #87af5f
-*color10: #87af5f
-
-! Yellow (color 222); "Function" highlighting group
-*color3:  #ffdf87
-*color11: #ffdf87
-
-! Blue (color 103); "Statement" highlighting group
-*color4:  #8787af
-*color12: #8787af
-
-! Magenta (color 162); "rubyRegexp" highlighting group
-*color5:  #d70087
-*color13: #d70087
-
-! Cyan (color 110); "Structure" highlighting group
-*color6:  #87afd7
-*color14: #87afd7
-
-! White (color 188); "Normal" highlighting group
-*color7:  #dfdfdf
-*color15: #ffffff
-
-! XTerm configuration {{{1
-!
-! Abandon All Hope, Ye Who Enter Here.
-!    -- XTerm README (http://invisible-island.net/xterm/xterm.html#download)
-!
-! XTerm is a wonderful terminal.  It is, in my experience, the only terminal that combines
-! a proper VT220 engine with a UI that's actually nice.  It's such a shame it comes with
-! such horrible default settings.
-!    -- Paul "LeoNerd" Evans (http://www.leonerd.org.uk/hacks/hints/xterm-sensible.html)
-!
-! The [xterm FAQ] advocates:
-!    As a stylistic convention, the capitalized form is 'XTerm', which corresponds to the
-!    X resource class name.
-!
-! XTerm has a bunch of *widgets* that have their own subresources:
-!
-!    If your xterm is configured to support the "toolbar", then those patterns need an
-!    extra level for the form-widget which holds the toolbar and vt100 widget.  A wildcard
-!    between the top-level "XTerm" and the "vt100" widget makes the resource settings work
-!    for either, e.g., "XTerm*vt100.NAME".
-!       -- xterm(1)
-!
-! I am specifying resources for the "vt100" widget using its class name "VT100".
-!
-! [xterm FAQ]: http://invisible-island.net/xterm/xterm.faq.html
-
-! Specify that the TERM environment variable should be "xterm-256color".
-XTerm.termName: xterm-256color
-
-! Taken from <https://wiki.archlinux.org/index.php/Xterm>:
-! This will "enable UTF-8 mode" (xterm(1)).
-XTerm*VT100.locale:    true
-XTerm*VT100.saveLines: 4096
-
-! See <http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.  The values for `utf8`,
-! `eightBitControl`, and `eightBitOutput` should be the defaults already.
-XTerm*VT100.utf8:            1
-XTerm*VT100.eightBitInput:   false
-XTerm*VT100.eightBitControl: false
-XTerm*VT100.eightBitOutput:  true
-
-! Do not use "UTF-8 fonts specified via resource patterns such as '*vt100.utf8Fonts.font',
-! use "normal (ISO-8859-1) fonts via patterns such as '*vt100.font'" [1].  FIXME: this
-! does not seem to work and I have to unset '*utf8Fonts.font' etc.
-! [1]: https://invisible-island.net/xterm/manpage/xterm.html#VT100-Widget-Resources:utf8Fonts
-XTerm*VT100.utf8Fonts: false
-
-! XLFD bitmap font for CJK and other double-width characters.  See
-! <https://bbs.archlinux.org/viewtopic.php?id=154512>.
-XTerm*VT100.wideFont: -misc-fixed-medium-r-normal-ja-*-*-*-*-*-*-iso10646-1
-
-! Make xterm send ASCII DEL (0x7F) for the backspace key instead of ASCII BS (0x08).
-! Sending 0x08 apparently is a [de facto standard][1] but is not the default on my system.
-! There are also the backarrowKeyIsErase and ptyInitialErase resources; look them up in
-! xterm(1) if you want to be confused.  Note: make sure there are [accordingly modified
-! terminfo files][2].
-! [1]: https://github.com/neovim/neovim/issues/2048#issuecomment-78539223
-! [2]: https://github.com/neovim/neovim/issues/2048#issuecomment-78045837
-XTerm*VT100.backarrowKey: false
-
-! Translations (key bindings / mappings).
-! 1.  XTerm sends the same byte for the Tab key and Control+I, so they cannot be mapped to
-!     different actions in (e.g.) Vim.  To work around this, make xterm send ÿ for
-!     Control+I instead (ÿ is just a random character that I don't enter directly; it's
-!     also part of latin1 in addition to Unicode in case that makes it less likely that
-!     this breaks with some setups).  See <http://stackoverflow.com/q/2686766> and
-!     xterm(1).
-! 2.  Use Control+Shift+C and Control+Shift+V to copy and paste to and from the
-!     `CLIPBOARD` selection, like in GNOME Terminal and [termite][1].  See [2] and [3].
-! [1]: https://github.com/thestinger/termite
-! [2]: https://wiki.archlinux.org/index.php/Xterm#PRIMARY_and_CLIPBOARD
-! [3]: https://unix.stackexchange.com/q/225062
-XTerm*VT100.translations: #override \
-Ctrl <Key>I: string(ÿ) \n\
-Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
-Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
-
-! Disable the Alt+Return keybinding for toggling fullscreen mode; it's the window
-! manager's job to provide one.
-XTerm.fullscreen: never
-! Assume the font does not contain line-drawing characters, and draw them directly (see
-! xterm(1)).  This seems to be required for the Dina font.
-XTerm*VT100.forceBoxChars: true
-
-! These resources seem to do exactly the same on my system and are added to get the actual
-! border width.  xterm(1) suggests that borderWidth is probably a legacy resource.
-! Setting both to 0 looks strange sometimes but is one of the points that give me an extra
-! row in terminals using the full screen height.  Neither resource defaults to 0.
-XTerm.borderWidth:          0
-XTerm*VT100.internalBorder: 0
-
-! Use Ubuntu Mono 7 as the TrueType font...
-XTerm*VT100.faceName: Ubuntu Mono
-XTerm*VT100.faceSize: 7
-! ...but stick with a bitmap font for now.
-XTerm*VT100.renderFont: false
-! Different sizes can be selected from the fontMenu when TrueType fonts are enabled (but
-! the labels for bitmap fonts continue to be used, so those make no sense).  Switching to
-! TrueType fonts at runtime can be done from the fontMenu as well.
-XTerm*VT100.faceSize1: 8
-XTerm*VT100.faceSize2: 9
-XTerm*VT100.faceSize3: 10
-XTerm*VT100.faceSize4: 11
-XTerm*VT100.faceSize5: 12
-XTerm*VT100.faceSize6: 13
-! TrueType fallback font for CJK and other double-width characters from the [Noto Sans
-! CJK][1] font family.  "Noto Sans CJK is a rebadged version of Source Han Sans, a
-! typeface developed by Adobe and Google" [2].  It looks better than "Droid Sans Fallback"
-! or "Droid Sans Japanese" (suggested [here][3]), which it replaced as "the default
-! fallback font for [...] Android" [4].  Also see [5].
-! [1]: https://www.archlinux.org/packages/extra/any/noto-fonts-cjk/
-! [2]: https://en.wikipedia.org/wiki/Noto_fonts
-! [3]: https://bbs.archlinux.org/viewtopic.php?id=154512
-!      "Unicode support in xterm - Arch Linux Forums"
-! [4]: https://en.wikipedia.org/wiki/Droid_fonts
-! [5]: https://wiki.archlinux.org/index.php/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
-XTerm*VT100.faceNameDoublesize: Noto Sans Mono CJK TC
-
-XTerm*fontMenu.fontdefault.Label: dina 10
-XTerm*VT100.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
-XTerm*fontMenu.font1.Label: dina 12
-XTerm*VT100.font1: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-XTerm*fontMenu.font2.Label: dina 13
-XTerm*VT100.font2: -*-dina-medium-r-*-*-13-*-*-*-*-*-iso8859-1
-XTerm*fontMenu.font3.Label: proggy clean sz 13
-XTerm*VT100.font3: -*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*
-XTerm*fontMenu.font4.Label: terminus 12
-XTerm*VT100.font4: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
-XTerm*fontMenu.font5.Label: terminus 14
-XTerm*VT100.font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-XTerm*fontMenu.font6.Label: fixed 13
-XTerm*VT100.font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
-
-! Unset the resources for specifying UTF-8 fonts to force xterm to use the ISO-8859-1
-! fonts.  FIXME: the "utf8Fonts" resource should take care of this.
-XTerm*VT100.utf8Fonts.font:
-XTerm*VT100.utf8Fonts.font1:
-XTerm*VT100.utf8Fonts.font2:
-XTerm*VT100.utf8Fonts.font3:
-XTerm*VT100.utf8Fonts.font4:
-XTerm*VT100.utf8Fonts.font5:
-XTerm*VT100.utf8Fonts.font6:
-
-! Style the menus {{{2
-! Specify resources for the "mainMenu" and "fontMenu", which both have the "SimpleMenu"
-! class.  See <http://invisible-island.net/xterm/manpage/xterm.html#h3-Menu-Resources>,
-! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#smebsb_resources>, and
-! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#Common_Resources>.
-XTerm.SimpleMenu.background:   #000000
-XTerm.SimpleMenu.?.foreground: #dfdfdf
-XTerm.SimpleMenu.borderColor:  #dfdfdf
-XTerm.SimpleMenu.borderWidth:  1
-XTerm.SimpleMenu.leftMargin:   4
-XTerm.SimpleMenu.rightMargin:  4
-
-! XTerm colors {{{2
-
-! Color 188; used by jellybeans for the "Normal" highlighting group (`:hi Normal`).
-XTerm*VT100.foreground:  #dfdfdf
-! Completely black terminal background.  This differs from jellybeans.vim.
-XTerm*VT100.background:  #000000
-XTerm*VT100.cursorColor: #dfdfdf
-
-! URxvt configuration {{{1
-!
-! The urxvt options [are] mostly a subset of xterm's.
-!    -- urxvt(1)
-
-URxvt.scrollBar: false
-URxvt.saveLines: 0
-URxvt.internalBorder: 0
-URxvt.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
-
-URxvt.foreground: #dfdfdf
-URxvt.background: #000000
-
-! Other stuff {{{1
-
 ! Taken from the ArchWiki:
 ! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
 Xft.antialias: 1
@@ -293,6 +67,13 @@ Xft.dpi: 135
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
+
+! Include X resource files dedicated to specific programs or topics.  This uses a C
+! preprocessor.  See <https://wiki.archlinux.org/index.php/x_resources#Include_files> and
+! <https://reddit.com/r/unixporn/wiki/organizing_xresources>.
+#include ".Xresources.d/colors"
+#include ".Xresources.d/xterm"
+#include ".Xresources.d/urxvt"
 
 ! }}}1
 
