@@ -3,7 +3,4 @@
 ! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
 XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 
-Xcursor.theme: Vanilla-DMZ-AA
-Xcursor.size: 16
-
 ! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s

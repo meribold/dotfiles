@@ -1,0 +1,5 @@
+! Set the cursor theme (https://wiki.archlinux.org/index.php/Cursor_themes#X_resources).
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 16
+
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s
