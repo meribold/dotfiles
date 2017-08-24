@@ -7,9 +7,10 @@ Newer programs usually don't use this configuration mechanism.
 [xrdb(1)]: https://linux.die.net/man/1/xrdb
 [xinitrc]: ../xinitrc
 
-Values are assigned to keys such as `XTerm.termName` (capitalization matters!).
-Generally, the keys consist of a bunch of alphanumeric strings separated by dots (`.`)
-where the first string is a *class* or *instance* name of an application:
+Values are assigned to keys such as `XTerm.termName` (**capitalization matters:** `XTerm`
+and `xterm` will work, but not `Xterm`).  Generally, the keys consist of a bunch of
+alphanumeric strings separated by dots (`.`) where the first string is a *class* or
+*instance* name of an application:
 
 >   The first element in a resource specification is either a "class" or an "instance".  A
 >   class consists of ALL the invocations of a particular program.  An instance is a
