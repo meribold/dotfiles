@@ -54,8 +54,12 @@ Other informative links:
 
 *   [X resources ArchWiki page][2]
 *   [Inessential X Resources for Techno-Dweebs][3]
+*   Gilles' and Thomas Dickey's answers to [this question on unix.stackexchange.com][4]
+<!-- *   ["Inessential X Resources for Techno-Dweebs" at stuff.mit.edu][3] -->
 
 [2]: https://wiki.archlinux.org/index.php/X_resources
 [3]: https://stuff.mit.edu/afs/sipb/project/doc/ixresources/xres.html
+[4]: https://unix.stackexchange.com/q/216723
+     "“Xterm” or “xterm” in configuration file"
 
 <!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
