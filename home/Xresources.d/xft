@@ -1,7 +1,8 @@
 ! X FreeType interface library configuration
 
-! Taken from the ArchWiki:
-! archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
+Xft.dpi: 135
+
+! Taken from the [ArchWiki][1].
 Xft.antialias: 1
 Xft.autohint:  0
 Xft.hinting:   1
@@ -9,6 +10,6 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 
-Xft.dpi: 135
+! [1]: https://wiki.archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
 
 ! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
