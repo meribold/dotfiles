@@ -6,4 +6,4 @@ XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
 
-! vim: tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
