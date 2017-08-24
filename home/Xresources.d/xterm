@@ -141,7 +141,6 @@ XTerm*VT100.utf8Fonts.font4:
 XTerm*VT100.utf8Fonts.font5:
 XTerm*VT100.utf8Fonts.font6:
 
-! Style the menus {{{1
 ! Specify resources for the "mainMenu" and "fontMenu", which both have the "SimpleMenu"
 ! class.  See <http://invisible-island.net/xterm/manpage/xterm.html#h3-Menu-Resources>,
 ! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#smebsb_resources>, and
@@ -153,14 +152,10 @@ XTerm.SimpleMenu.borderWidth:  1
 XTerm.SimpleMenu.leftMargin:   4
 XTerm.SimpleMenu.rightMargin:  4
 
-! XTerm colors {{{1
-
 ! Color 188; used by jellybeans for the "Normal" highlighting group (`:hi Normal`).
 XTerm*VT100.foreground:  #dfdfdf
 ! Completely black terminal background.  This differs from jellybeans.vim.
 XTerm*VT100.background:  #000000
 XTerm*VT100.cursorColor: #dfdfdf
-
-! }}}1
 
 ! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
