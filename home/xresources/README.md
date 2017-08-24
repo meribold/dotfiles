@@ -1,10 +1,11 @@
 # [X resources](https://en.wikipedia.org/wiki/X_resources)
 
 X resources are key-value pairs used for program configuration mediated by the X Window
-System.  They are manipulated by [`xrdb(1)`][xrdb(1)].  Newer programs usually don't use
-this configuration mechanism.
+System.  They are manipulated by [`xrdb(1)`][xrdb(1)] (used in my [`xinitrc`][xinitrc]).
+Newer programs usually don't use this configuration mechanism.
 
 [xrdb(1)]: https://linux.die.net/man/1/xrdb
+[xinitrc]: ../xinitrc
 
 Values are assigned to keys such as `XTerm.termName` (capitalization matters!).
 Generally, the keys consist of a bunch of alphanumeric strings separated by dots (`.`)
