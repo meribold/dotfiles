@@ -17,9 +17,9 @@
 # TODO: consider sourcing the scripts in /etc/X11/xinit/xinitrc.d/ like
 # /etc/X11/xinit/xinitrc does.
 
-# Merge X resource files below `~/.Xresources.d/`.
-if [[ -d ~/.Xresources.d ]]; then
-   for f in ~/.Xresources.d/*; do
+# Merge X resource files below `~/.xresources/`.
+if [[ -d ~/.xresources ]]; then
+   for f in ~/.xresources/*; do
       [[ -f $f ]] && xrdb -merge "$f"
    done
 fi
