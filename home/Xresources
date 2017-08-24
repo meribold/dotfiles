@@ -10,14 +10,4 @@ XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
 
-! Include X resource files dedicated to specific programs or topics.  This uses a C
-! preprocessor.  See <https://wiki.archlinux.org/index.php/x_resources#Include_files> and
-! <https://reddit.com/r/unixporn/wiki/organizing_xresources>.
-#include ".Xresources.d/xft"
-#include ".Xresources.d/colors"
-#include ".Xresources.d/xterm"
-#include ".Xresources.d/urxvt"
-
-! }}}1
-
 ! vim: tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
