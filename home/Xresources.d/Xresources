@@ -1,7 +1,3 @@
-! [X resources](https://en.wikipedia.org/wiki/X_resources)
-!
-! See `Xresources.d/README.md`.
-
 ! Use Dina as the [X Toolkit Intrinsics] default font.  This affects for example xterm and
 ! xmgrace.
 ! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
