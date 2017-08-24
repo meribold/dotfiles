@@ -8,7 +8,7 @@ Newer programs usually don't use this configuration mechanism.
 [xinitrc]: ../xinitrc
 
 Values are assigned to keys such as `XTerm.termName` (**capitalization matters:** `XTerm`
-and `xterm` will work, but not `Xterm`).  Generally, the keys consist of a bunch of
+and `xterm` will work, but **not** `Xterm`).  Generally, the keys consist of a bunch of
 alphanumeric strings separated by dots (`.`) where the first string is a *class* or
 *instance* name of an application:
 
@@ -27,10 +27,10 @@ Everything to the left of the colon is the key.  The space between the colon and
 value seems to be optional.
 
 Class names typically start with a capital letter.  For example, `XTerm` is the default
-resource class for xterms.  The default instance name for xterms is `xterm`<!-- (is this
-based on the name of the executable?) -->.  While  xterm allows overriding both the class
-name and the instance name (with the `-class` and `-name` command-line options), I don't
-think this is at all commonly done (for xterm or any program).
+resource class for xterms.  The default instance name for xterms is `xterm` (the name of
+the executable: renaming changes it).  While  xterm allows overriding both the class name
+and the instance name (with the `-class` and `-name` command-line options), I don't think
+this is at all commonly done (for xterm or any program).
 
 Whether a class name or instance name is used does not seem to matter much.  X resource
 snippets on the web mostly use one or the other randomly without providing any reasoning.
@@ -50,7 +50,7 @@ is valid: `*background: black`.
 `?` matches a single component.  The dots still have to be specified.  It seems to be
 less commonly used than `*`.
 
-Other informative links:
+Further informative links:
 
 *   [X resources ArchWiki page][2]
 *   [Inessential X Resources for Techno-Dweebs][3]
