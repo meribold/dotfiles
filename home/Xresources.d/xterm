@@ -158,4 +158,4 @@ XTerm*VT100.foreground:  #dfdfdf
 XTerm*VT100.background:  #000000
 XTerm*VT100.cursorColor: #dfdfdf
 
-! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s

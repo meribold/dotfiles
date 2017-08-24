@@ -12,4 +12,4 @@ Xft.rgba:      rgb
 
 ! [1]: https://wiki.archlinux.org/index.php/Font_Configuration#Applications_without_fontconfig_support
 
-! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s fdm=marker
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s
