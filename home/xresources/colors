@@ -1,4 +1,4 @@
-! Colors
+! ANSI colors
 !
 ! Most of these colors are used by the [jellybeans] Vim color scheme for key highlighting
 ! groups (if Vim is running inside a 256-color terminal; the colors used for gVim differ).
