@@ -155,6 +155,12 @@ links += $(screen_links)
 screen: $(screen_links)
 all: screen
 
+xterm_links := $(addprefix $(HOME)/.xresources/,xt xterm colors)
+links += $(xterm_links)
+.PHONY: xterm
+xterm: $(xterm_links)
+all: xterm
+
 mutt_link_targets := $(wildcard home/mutt/*) home/urlview
 mutt_links := $(patsubst home/%,$(HOME)/.%,$(mutt_link_targets))
 links += $(mutt_links)
