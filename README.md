@@ -62,7 +62,7 @@ Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execut
 [conky/]: home/config/conky/
 [dunst/]: home/config/dunst/
 [screen/]: home/screenrc
-[xresources]: home/Xresources
+[xresources]: home/xresources
 [bin/]: home/bin/
 [bashrc]: home/bashrc
 [xbindkeysrc]: home/xbindkeysrc
