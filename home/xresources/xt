@@ -1,6 +1,6 @@
-! Use Dina as the [X Toolkit Intrinsics] default font.  This affects for example xterm and
-! xmgrace.
-! [X Toolkit Intrinsics]: https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics
+! [X Toolkit Intrinsics(https://en.wikipedia.org/wiki/X_Toolkit_Intrinsics) configuration
+
+! Use Dina as the X Toolkit Intrinsics default font.  This affects e.g. xterm and xmgrace.
 XtDefaultFont: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
 
 ! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s
