@@ -61,5 +61,7 @@ Further informative links:
 [3]: https://stuff.mit.edu/afs/sipb/project/doc/ixresources/xres.html
 [4]: https://unix.stackexchange.com/q/216723
      "“Xterm” or “xterm” in configuration file"
+[5]: https://superuser.com/q/243914
+     ".Xresources or .Xdefaults?"
 
 <!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
