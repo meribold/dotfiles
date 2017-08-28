@@ -11,7 +11,7 @@ set -o nounset
 [ "$#" -ne 2 ] && { echo "$0: wrong number of parameters" >&2; exit 1; }
 original="$1" target="$2"
 if [ -d "$target" ]; then
-   target="$target/${original##*/}"
+   target="${target%/}/${original##*/}"
 fi
 mv -- "$original" "$target" || exit 1
 case "$original" in
