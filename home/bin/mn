@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Move (`mv`) a file and then link (`ln`) to the new location from the old one.  Taken
+# from Gilles' answer [here][1].
+#
+# [1]: https://unix.stackexchange.com/a/228166 "Move a file and replace it by a symlink"
+
+original="$1" target="$2"
+if [ -d "$target" ]; then
+   target="$target/${original##*/}"
+fi
+mv -- "$original" "$target"
+case "$original" in
+   */*)
+      case "$target" in
+         /*) :;;
+         *) target="$(cd -- "$(dirname -- "$target")" && pwd)/${target##*/}"
+      esac
+esac
+ln -s -- "$target" "$original"
+
+# vim: tw=90 sts=-1 sw=3 et
