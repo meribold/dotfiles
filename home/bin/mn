@@ -1,15 +1,19 @@
 #!/bin/sh
 
-# Move (`mv`) a file and then link (`ln`) to the new location from the old one.  Taken
-# from Gilles' answer [here][1].
+# Move (`mv`) a file and then link (`ln`) to the new location from the old one.  Based on
+# Gilles' answer [here][1].
 #
 # [1]: https://unix.stackexchange.com/a/228166 "Move a file and replace it by a symlink"
 
+# See <http://mywiki.wooledge.org/BashFAQ/112>.
+set -o nounset
+
+[ "$#" -ne 2 ] && { echo "$0: wrong number of parameters" >&2; exit 1; }
 original="$1" target="$2"
 if [ -d "$target" ]; then
    target="$target/${original##*/}"
 fi
-mv -- "$original" "$target"
+mv -- "$original" "$target" || exit 1
 case "$original" in
    */*)
       case "$target" in
