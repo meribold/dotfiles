@@ -1,0 +1,68 @@
+! [Rofi][1] Configuration
+!
+! "To get a template config file run: rofi -dump-xresources".
+!    -- rofi(1), "CONFIGURATION" section
+!
+! [1]: https://github.com/DaveDavenport/rofi
+
+rofi.dpi: 135
+
+! TODO: modify the "$TERMINAL" environment variable?
+rofi.terminal: xterm
+
+! Reduce the height of the window based on the number of items.  See
+! <https://github.com/DaveDavenport/rofi/releases/tag/1.3.0>.  Off by default (i.e.
+! `fixed-num-lines` is true).
+rofi.fixed-num-lines: false
+! The maximum number of item rows that will be shown (default: 15).
+rofi.lines: 23
+
+! Width of the window in characters (the minus switches from specifying a percentage of
+! the screen's width to specifying a count of characters; default: 50).
+rofi.width: -80
+
+! Move the window up a little.  When `fixed-num-lines` is `false`, the top of the window
+! is vertically centered on the screen (with the default `yoffset` of 0).  The value of
+! -86 results in space equal to the height of one row (19 pixels with my other settings)
+! below the bottom of the screen and the Rofi window (when all 23 lines are shown).
+rofi.yoffset: -86
+
+! Specify a font.  The font used affects the startup time of Rofi considerably.  Dina
+! gives the best result of the fonts below which seems logical as it's the only bitmap
+! font.  Switching between vector fonts still has a considerable effect, though.  Ubuntu
+! Mono gives the worst results.
+rofi.font: Dina 5.81
+! rofi.font: Ubuntu Mono 7
+! rofi.font: Source Code Pro Medium 6
+! rofi.font: Source Code Pro 6
+! rofi.font: Mono 7
+
+! Border width (default: 1)
+rofi.bw: 1
+! Inner margin of the window (default: 5)
+rofi.padding: 4
+! Spacing between rows (default: 2)
+rofi.line-margin: 2
+! Padding within rows (default: 1)
+rofi.line-padding: 2
+! Draw a solid line between the text entry and the items (default: dash).
+rofi.separator-style: solid
+! Width of the scrollbar in pixels (default: 8)
+rofi.scrollbar-width: 4
+
+! Color theme.  See rofi(1), <https://davedavenport.github.io/rofi/p11-Generator.html>,
+! and <https://davedavenport.github.io/rofi/p05-Themes.html>.
+!                  bg,      border,  separator
+rofi.color-window: #000000, #c0c0c0, #8787af
+!                  bg,      fg,      alt bg,  hi bg,   hi fg
+rofi.color-normal: #000000, #dfdfdf, #060606, #121212, #dfdfdf
+rofi.color-urgent: #000000, #d75f5f, #060606, #121212, #d75f5f
+rofi.color-active: #000000, #8787af, #060606, #121212, #8787af
+
+! Key binding modifications.  Behave more like [Readline][2].
+rofi.kb-clear-line:
+rofi.kb-remove-word-back: Control+w
+
+! [2]: https://en.wikipedia.org/wiki/GNU_Readline
+
+! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s
