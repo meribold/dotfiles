@@ -45,4 +45,22 @@
 "pgrep -u $(id -u) -x nvim && screen -S fullscreen -X select nvim || screen -S fullscreen -X screen nvim -S && i3-msg workspace 2"
    Mod4 + n
 
+# List [desktop entry files][1] using `j4-dmenu-desktop` and Rofi and launch the selected
+# program.  Rofi can do this by itself (`rofi -modi drun -show`) but I use
+# `j4-dmenu-desktop` to parse the desktop files for two reasons:
+#
+# * Rofi's matching algorithm goes *out of whack* otherwise, especially when using fuzzy
+#   matching: while I type "firefox", the highest ranked match is "Signal Private
+#   Messenger" until I type the "x".  Using the `-disable-history` flag doesn't fix this.
+#   TODO: what's going on here?
+# * `j4-dmenu-desktop` allows customizing the format used to list desktop entry files -- I
+#   don't think Rofi's built-in `drun` mode can do that.
+#
+# Unlike `i3-dmenu-desktop(1)`, both Rofi's `drun` mode and `j4-dmenu-desktop` are fast,
+# though (see <https://github.com/enkore/j4-dmenu-desktop#how-much-faster-is-it>).
+#
+# [1]: https://wiki.archlinux.org/index.php/Desktop_entries
+"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -color-window "#000000, #c0c0c0, #d75f5f"'"
+   Mod4 + u
+
 # vim: tw=90 sts=-1 sw=3 et ft=conf
