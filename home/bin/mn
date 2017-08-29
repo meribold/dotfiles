@@ -14,13 +14,13 @@ if [ -d "$target" ]; then
    target="${target%/}/${original##*/}"
 fi
 mv -- "$original" "$target" || exit 1
-case "$original" in
+case "${original%/}" in
    */*)
       case "$target" in
          /*) :;;
          *) target="$(cd -- "$(dirname -- "$target")" && pwd)/${target##*/}"
       esac
 esac
-ln -s -- "$target" "$original"
+ln -s -- "$target" "${original%/}"
 
 # vim: tw=90 sts=-1 sw=3 et
