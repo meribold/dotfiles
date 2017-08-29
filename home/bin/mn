@@ -9,18 +9,26 @@
 set -o nounset
 
 [ "$#" -ne 2 ] && { echo "$0: wrong number of parameters" >&2; exit 1; }
+
 original="$1" target="$2"
 if [ -d "$target" ]; then
+   # When $2 is a directory, make sure `ln` will create a link to the moved file's new
+   # location inside that directory, not to the directory itself.
    target="${target%/}/${original##*/}"
 fi
-mv -- "$original" "$target" || exit 1
+mv -- "$original" "$target" || exit $?
 case "${original%/}" in
-   */*)
+   */*) # If the link may be created outside of the current directory...
       case "$target" in
-         /*) :;;
-         *) target="$(cd -- "$(dirname -- "$target")" && pwd)/${target##*/}"
+         /*)
+            : ;;
+         *) # ...and the target path is not absolute, rewrite it to be absolute.
+            target="$(cd -- "$(dirname -- "$target")" && pwd)/${target##*/}"
       esac
+   # If the link will be in the current directory and "$target" is a relative path, that
+   # relative path can be used as the link target directly since it is relative to the
+   # link's location.
 esac
-ln -s -- "$target" "${original%/}"
+ln -sT -- "$target" "${original%/}"
 
 # vim: tw=90 sts=-1 sw=3 et
