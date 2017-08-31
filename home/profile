@@ -15,6 +15,14 @@ fi
 # Makes wiki-search-html from the arch-wiki-light package work.
 export wiki_browser=$BROWSER
 
+# Make [SDL][1] use ALSA as the audio driver (see [2]).  Without this, DOSBox can't play
+# sound at the same time as (e.g.) MPD.  TODO: use PulseAudio instead?  Firefox can't use
+# ALSA directly since [version 52][3].
+# [1]: https://libsdl.org
+# [2]: https://wiki.libsdl.org/FAQUsingSDL#How_do_I_choose_a_specific_audio_driver.3F
+# [3]: https://mozilla.org/en-US/firefox/52.0/releasenotes/
+export SDL_AUDIODRIVER=alsa
+
 # Make RubyGems available (http://guides.rubygems.org/faqs/#user-install).
 if which ruby >/dev/null && which gem >/dev/null; then
    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
