@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Jill of the Jungle
+Exec=dosbox -conf ~/.dosbox/jill.conf
+Icon=dosbox
+StartupNotify=false
+Categories=Game;AdventureGame;ActionGame;Emulator;
