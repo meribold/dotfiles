@@ -3,7 +3,7 @@
 # See [Xbindkeys][1], [Extra keyboard keys][1] and [Extra keyboard keys in Xorg][2] in the
 # ArchWiki.  `xbindkeys --defaults` prints a default configuration file.
 #
-# [1]: https://wiki.archlinux.org/index.php/Xbindkeys;
+# [1]: https://wiki.archlinux.org/index.php/Xbindkeys
 # [2]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys
 # [3]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys_in_Xorg
 
