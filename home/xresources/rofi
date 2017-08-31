@@ -15,17 +15,14 @@ rofi.terminal: xterm
 ! `fixed-num-lines` is true).
 rofi.fixed-num-lines: false
 ! The maximum number of item rows that will be shown (default: 15).
-rofi.lines: 23
+rofi.lines: 13
 
 ! Width of the window in characters (the minus switches from specifying a percentage of
 ! the screen's width to specifying a count of characters; default: 50).
 rofi.width: -80
 
-! Move the window up a little.  When `fixed-num-lines` is `false`, the top of the window
-! is vertically centered on the screen (with the default `yoffset` of 0).  The value of
-! -86 results in space equal to the height of one row (19 pixels with my other settings)
-! below the bottom of the screen and the Rofi window (when all 23 lines are shown).
-rofi.yoffset: -86
+! Vertically center the separator line.
+rofi.yoffset: -8
 
 ! Specify a font.  The font used affects the startup time of Rofi considerably.  Dina
 ! gives the best result of the fonts below which seems logical as it's the only bitmap
