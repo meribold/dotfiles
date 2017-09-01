@@ -2,6 +2,7 @@ PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
 cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
+clear && neofetch --uptime_shorthand tiny --ascii && read
 cower -u
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
@@ -21,6 +22,8 @@ i3-msg 'append_layout ~/.config/i3/scratchpad.json; move scratchpad'
 ip address show dev wlan0
 ip route show dev wlan0
 iw dev wlan0 link
+journalctl -fu dhcpcd@wlan0 --no-tail -b -o cat
+journalctl -fu wpa_supplicant@wlan0 --no-tail -b -o cat
 jpm run -b /usr/bin/firefox-developer # test Firefox add-on
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
@@ -31,7 +34,6 @@ mount ~/sdb1 && { pass git pull; umount ~/sdb1; } # pull to ~/.password-store
 mount ~/sdb1 && { pass git push; umount ~/sdb1; } # push ~/.password-store
 mpc clear && mpc ls | mpc add
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
-clear && neofetch --uptime_shorthand tiny --ascii && read
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
 pacman -Qtdq # list (real) orphan packages
@@ -41,8 +43,6 @@ rsync -r -h --info=progress2 SRC DEST
 sudo dhcpcd -B wlan0
 sudo ip link set wlan0 up
 sudo iw dev wlan0 scan | less
-journalctl -fu dhcpcd@wlan0 --no-tail -b -o cat
-journalctl -fu wpa_supplicant@wlan0 --no-tail -b -o cat
 sudo mount /dev/sdb1 ~/sdb1
 sudo pacman -Syu
 sudo systemctl poweroff
