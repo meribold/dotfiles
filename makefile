@@ -180,6 +180,15 @@ links += $(gpg_links)
 gpg: $(gpg_links) /usr/bin/pinentry
 all: gpg
 
+fortune_link_targets := $(wildcard root/usr/local/share/fortune/*)
+fortune_links := $(patsubst root/%,/%,$(fortune_link_targets))
+.PHONY: fortunes
+fortunes: $(fortune_links) $(addsuffix .dat,$(fortune_links))
+
+# Create the access tables fortune(6) requires for cookie files.  Also see strfile(1).
+$(addsuffix .dat,$(fortune_links)): %.dat: %
+	sudo strfile -s '$<'
+
 # Find regular files (`f`) and symlinks (`l`) below `root/` and print their paths with
 # 'root/' removed (`%P`).  These are the paths outside of $HOME where links should be
 # created.

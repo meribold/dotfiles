@@ -38,7 +38,6 @@ pacman -Qtdq # list (real) orphan packages
 reflector -a 1 -f 10 -n 5 -p http --sort score | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
 rofi -modi drun,run -matching fuzzy -show
 rsync -r -h --info=progress2 SRC DEST
-sudo strfile ~/dotfiles/root/usr/local/share/fortune/meribold /usr/local/share/fortune/meribold.dat
 sudo dhcpcd -B wlan0
 sudo ip link set wlan0 up
 sudo iw dev wlan0 scan | less
