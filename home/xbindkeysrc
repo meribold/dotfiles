@@ -25,6 +25,10 @@
 "mpc prev"
    XF86AudioPrev
 
+# Take a screenshot using maim(1).
+"f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
+   Print
+
 # Switch to or start Mutt (switches the screen session's active window and, if the window
 # manager is i3, focuses workspace 2).  We need to start Mutt in an interactive shell
 # (`bash -ic ...`) because it gets my password by invoking `pass`, which eventually
