@@ -36,7 +36,7 @@
 	; [2]: https://kernel.org/pub/software/scm/git/docs/technical/api-credentials.html
 	helper = !"f() { \
 	             [[ $1 != get ]] && return 0; \
-	             printf 'password='; pass show github/meribold; \
+	             printf 'password='; pass show github | head -1; \
 	           }; f"
 
 ; vim: ft=gitconfig tw=90 sts=-1 sw=0 ts=8 noet
