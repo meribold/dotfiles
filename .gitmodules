@@ -124,3 +124,6 @@
 [submodule "AUR/translate-shell"]
 	path = misc/AUR/translate-shell
 	url = https://aur.archlinux.org/translate-shell.git
+[submodule "misc/muccadoro"]
+	path = misc/muccadoro
+	url = https://github.com/meribold/muccadoro.git
