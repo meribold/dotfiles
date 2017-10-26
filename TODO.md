@@ -38,4 +38,7 @@
 
 <!-- #### Mutt -->
 
+#### Other
+*   Create a desktop entry file for the [`wifail`](/home/bin/wifail) script.
+
 <!-- vim: set tw=90 sts=-1 sw=4 et: -->
