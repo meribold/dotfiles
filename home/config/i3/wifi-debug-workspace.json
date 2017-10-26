@@ -9,12 +9,12 @@
       "nodes": [
         {
           "percent": 0.6,
-          "swallows": [{ "class": "^XTerm$" }],
+          "swallows": [{ "title": "^wpa_supplicant$" }],
           "type": "con"
         },
         {
           "percent": 0.4,
-          "swallows": [{ "class": "^XTerm$" }],
+          "swallows": [{ "title": "^dhcpcd$" }],
           "type": "con"
         }
       ]
@@ -31,7 +31,7 @@
           "nodes": [
             {
               "percent": 0.4,
-              "swallows": [{ "class": "^XTerm$" }],
+              "swallows": [{ "title": "^iw dev wlan0 link$" }],
               "type": "con"
             },
             {
@@ -53,19 +53,19 @@
               "nodes": [
                 {
                   "percent": 0.5,
-                  "swallows": [{ "class": "^XTerm$" }],
+                  "swallows": [{ "title": "^ip address show dev wlan0$" }],
                   "type": "con"
                 },
                 {
                   "percent": 0.5,
-                  "swallows": [{ "class": "^XTerm$" }],
+                  "swallows": [{ "title": "^route$" }],
                   "type": "con"
                 }
               ]
             },
             {
               "percent": 0.4,
-              "swallows": [{ "class": "^XTerm$" }],
+              "swallows": [{ "title": "^ping google.com$" }],
               "type": "con"
             }
           ]

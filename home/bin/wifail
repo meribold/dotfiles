@@ -8,19 +8,13 @@ i3-msg -q 'append_layout ~/.config/i3/wifi-debug-workspace.json'
 
 # Show the output of wpa_supplicant and dhcpcd from the current boot as if they were
 # running in the foreground.  See journalctl(1).
-xterm -e 'journalctl -fu wpa_supplicant@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
-sleep .1
-xterm -e 'journalctl -fu dhcpcd@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
-sleep .1
+xterm -title wpa_supplicant -e 'journalctl -fu wpa_supplicant@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
+xterm -title dhcpcd -e 'journalctl -fu dhcpcd@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
 
-xterm -e 'watch -n 1 iw dev wlan0 link' &
-sleep .1
+xterm -title 'iw dev wlan0 link' -e 'watch -n 1 iw dev wlan0 link' &
 xterm &
-sleep .1
-xterm -e 'watch -d -n 1 ip address show dev wlan0' &
-sleep .1
-xterm -e 'watch -d -n 1 route -n' &
-sleep .1
-xterm -e 'while true; do ping -c 8 google.com && sleep 30 && clear || sleep 1; done' &
+xterm -title 'ip address show dev wlan0' -e 'watch -d -n 1 ip address show dev wlan0' &
+xterm -title route -e 'watch -d -n 1 route -n' &
+xterm -title 'ping google.com' -e 'while true; do ping -c 8 google.com && sleep 30 && clear || sleep 1; done' &
 
 # vim: tw=90 sts=-1 sw=3 et
