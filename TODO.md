@@ -38,7 +38,8 @@
 
 <!-- #### Mutt -->
 
-#### Other
+#### Uncategorized
 *   Create a desktop entry file for the [`wifail`](/home/bin/wifail) script.
+*   Remove the configuration files for Notion?
 
 <!-- vim: set tw=90 sts=-1 sw=4 et: -->
