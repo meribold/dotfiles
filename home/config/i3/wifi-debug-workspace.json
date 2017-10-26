@@ -36,7 +36,7 @@
             },
             {
               "percent": 0.6,
-              "swallows": [{ "class": "^XTerm$" }],
+              "swallows": [{ "title": "^ping gateway$" }],
               "type": "con"
             }
           ]
