@@ -8,9 +8,9 @@ i3-msg -q 'append_layout ~/.config/i3/wifi-debug-workspace.json'
 
 # Show the output of wpa_supplicant and dhcpcd from the current boot as if they were
 # running in the foreground.  See journalctl(1).
-xterm -e 'journalctl -fu wpa_supplicant@wlan0 --no-tail -b -o cat' &
+xterm -e 'journalctl -fu wpa_supplicant@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
 sleep .1
-xterm -e 'journalctl -fu dhcpcd@wlan0 --no-tail -b -o cat' &
+xterm -e 'journalctl -fu dhcpcd@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
 sleep .1
 
 xterm -e 'watch -n 1 iw dev wlan0 link' &
