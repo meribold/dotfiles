@@ -118,11 +118,22 @@ set header_cache=~/.mutt/cache/headers/
 set query_command="goobook query '%s'"
 bind editor <Tab> complete-query
 
-# https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML
+# Based on <https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML>.  TODO: add a keyboard
+# macro like the one in the ArchWiki article but for viewing HTML attachments with Lynx?
 set mailcap_path="~/.mutt/mailcap"
+# When a message contains both plain text and HTML, prefer viewing plain text.
+alternative_order text/plain text/html
+# When an HTML attachment doesn't have a plain text alternative, use Lynx (which is
+# defined as a MIME viewer for HTML in my mailcap file) to automatically convert the HTML
+# to text and display the text in the pager.  See [1].  Note: most HTML mail I get
+# contains an alternative plain text attachment, but this is often less readable than the
+# result of rendering the HTML attachment with Lynx would be.  TODO: it may therefore be
+# preferable to drop the `alternative_order` command.
+# [1]: https://dev.mutt.org/doc/manual.html#auto-view
 auto_view text/html
+# Display text representations of any attached PDFs in the pager using `pdftotext`
+# (specified in the mailcap file).
 auto_view application/pdf
-alternative_order text/plain text/html # Prefer viewing plain text if available.
 
 # Customize the message [index format][].  Use the [folder-hook][] command and the
 # [cond-date patch][] to keep it concise.  The formats used for date and time are
@@ -252,7 +263,6 @@ bind index,pager O edit
 macro index,pager go "<pipe-message>goobook add<return>" \
    "add the sender address to Google Contacts"
 macro index,pager i "<copy-message>=INBOX<enter><enter>" "Copy the current entry to INBOX"
-# macro attach V "<pipe-entry>cat >~/.mutt/mail.html && firefox ~/.mutt/mail.html<enter>"
 
 # Control the sidebar with the arrow keys.  Based on
 # <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.

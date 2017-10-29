@@ -1,10 +1,22 @@
-text/html; firefox-developer %s; test=test -n "$DISPLAY"; needsterminal
+# When using the <view-attach> or <view-mailcap> functions (return key and "m" key in the
+# attachment menu) for an HTML attachment:
+# * display the HTML file in a new tab in Firefox if X is running ([1] explains why we
+#   need `sleep`),
+# * display the HTML file using Lynx otherwise.
+#
+# The second entry will also be used for automatically viewing the HTML attachment while
+# in the pager [2] because "when using the built-in pager, only entries with [the
+# copiousoutput] flag will be considered a handler for a MIME type" [3].  "Entries with
+# the copiousoutput tag should always be specified as the last one per type" [4].
+#
+# [1]: https://dev.mutt.org/trac/wiki/MuttFaq/Attachment#HowtoviewHTMLattachmentsinanewtabinfirefox:
+# [2]: https://dev.mutt.org/doc/manual.html#auto-view
+# [3]: https://dev.mutt.org/doc/manual.html#optional-mailcap-fields
+# [4]: https://dev.mutt.org/doc/manual.html#mailcap-search-order
+text/html; "$BROWSER" %s && sleep 1; test=test -n "$DISPLAY"
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
 
 image/*; feh -B black --scale-down %s; test=test -n "$DISPLAY"
-# image/*; sxiv -b %s; test=test -n "$DISPLAY"
 
-# This doesn't behave like the commands for HTML.  Both m and <Enter> start `zathura` when
-# used from the attachments menu.  I thought <Enter> would use `pdftotext`.
 application/pdf; zathura %s; test=test -n "$DISPLAY"
 application/pdf; pdftotext %s -; copiousoutput;
