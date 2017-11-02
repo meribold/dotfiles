@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=NetHack
+Exec=xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
+StartupNotify=false
+Categories=Game;AdventureGame;RolePlaying
