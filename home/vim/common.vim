@@ -451,6 +451,9 @@ onoremap <silent> ib :call TextObjWordBasedColumn('iw')<CR>
 onoremap <silent> iB :call TextObjWordBasedColumn('iW')<CR>
 
 " vim-autoformat {{{2
+"
+" TODO: put this into a separate file?
+
 " When no formatprg exists for a filetype, do nothing.  Don't indent, retab, and remove
 " trailing whitespace.
 let g:autoformat_autoindent = 0
@@ -480,9 +483,21 @@ let s:noconfigfile_def = "'clang-format -lines=' . a:firstline . ':' . a:lastlin
 " Copied from [defaults.vim][3] again, except for formatting.
 let g:formatdef_clangformat = 'g:ClangFormatConfigFileExists() ? ('
  \ . s:configfile_def . ') : (' . s:noconfigfile_def . ')'
+
+" Reverse the order of the preferred formatters for Python compared to what
+" [defaults.vim][3] from the plugin would set otherwise.
+let g:formatters_python = ['yapf','autopep8']
+" Add `--aggressive` to the [default value of `g:formatdef_autopep8`][3].  TODO: can we
+" use Vim's `after-directory` to avoid repeating stuff in [defaults.vim][3]?
+let g:formatdef_autopep8 = '"autopep8 --aggressive -" . '
+ \ . '(g:DoesRangeEqualBuffer(a:firstline, a:lastline) ? '
+ \ . '" --range " . a:firstline . " " . a:lastline : "") . " " . '
+ \ . '(&textwidth ? "--max-line-length=" . &textwidth : "")'
+
 " [1]: http://clang.llvm.org/docs/ClangFormatStyleOptions.html
 " [2]: http://clang.llvm.org/docs/ClangFormat.html
-" [3]: https://github.com/Chiel92/vim-autoformat/blob/master/plugin/defaults.vim#L69
+" [3]: https://github.com/Chiel92/vim-autoformat/blob/master/plugin/defaults.vim
+
 " neomake {{{2
 let g:neomake_echo_current_error = 0
 let g:neomake_place_signs = 0
