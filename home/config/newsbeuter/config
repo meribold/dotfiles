@@ -1,0 +1,51 @@
+browser $BROWSER
+datetime-format "%F"  # ISO 8601
+refresh-on-startup yes
+reload-threads 4
+swap-title-and-hints yes  # Like Mutt.
+
+feedlist-format "%4i  %n  %11u  %t"
+articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
+
+# Pretty idiosyncratic keybindings because of muscle memory.
+bind-key SPACE next-unread
+bind-key j down
+bind-key k up
+bind-key ^N next
+bind-key ^P prev
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key g pageup
+bind-key G pagedown
+# FIXME: the next two bindings override the last two.  Bug?
+bind-key ^U pageup
+bind-key ^D pagedown
+bind-key u quit
+# Switch these two compared to the defaults.
+bind-key o open-in-browser-and-mark-read
+bind-key O open-in-browser
+
+# Taken verbatim from the manual (https://www.newsbeuter.org/doc/newsbeuter.html).
+# Update: seems useless because `open-in-browser-and-mark-read` exists?
+# macro o open-in-browser ; toggle-article-read "read"
+
+# Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
+# hope Newsbeuter sanitizes `%u`.
+macro o set browser ~/.config/newsbeuter/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
+macro O set browser ~/.config/newsbeuter/mpv.sh ; open-in-browser ; set browser $BROWSER
+# [1]: https://wiki.archlinux.org/index.php/Newsbeuter#Pass_article_URL_to_external_command.
+# [2]: https://www.newsbeuter.org/doc/newsbeuter.html#_macro_support
+
+color background        white   black
+color listnormal        white   black
+color listfocus         default red
+color listnormal_unread green   default
+color listfocus_unread  default red
+color info              black   blue
+color article           white   black
+
+# There are a lot of filetypes Vim ships configuration files for.  I tried `cfg`,
+# `config`, `ini, `rc`, and `conf`.  The last seems to give the best results for this
+# file.
+
+# vim: tw=90 sts=-1 sw=3 et ft=conf
