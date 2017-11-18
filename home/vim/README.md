@@ -9,7 +9,6 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
     anything ever since I started using [rhysd's clever-f.vim plugin][1] a [long time
     ago][2].  What a waste.
 *   [`common.vim`][] is too big.  Split it into several files.
-*   `common.vim` is too big.  Split its contents into multiple files?
 *   Add `minimal.vim` vimrc file that's used for `git commit` and
     <kbd>Ctrl</kbd>-<kbd>X</kbd> <kbd>Ctrl</kbd>-<kbd>E</kbd> in Bash?
 *   Fix warnings when doing `vim -u NORC`.
