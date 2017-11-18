@@ -1,8 +1,10 @@
-### Installation
+## Installation
+
 *   Extend `makefile` to set up symlinks for all files that should have them.
 *   Add a phony target for each program for which configuration is included.
 
-### [Firefox][]
+## [Firefox][]
+
 *   **Custom keybinds** (why is this so damn difficult?)
     *   Keybind that sends the current tab to OneTab.
     *   Use [KeySnail](https://github.com/mooz/keysnail)?  It probably will
@@ -18,18 +20,21 @@
 [`userContent.css`]: /home/mozilla/firefox/ctontcrf.default/chrome/userContent.css
 [`user.js`]: /home/mozilla/firefox/ctontcrf.default/user.js
 
-#### [Sigaldry][]
+### [Sigaldry][]
+
 *   Convert [Sigaldry][] to use WebExtensions APIs.
 *   Use it to keep the set of search engines synchronised between machines and profiles.
 
 [Sigaldry]: /misc/sigaldry
 
-### [Mutt][]
+## [Mutt][]
+
 *   Desktop notifications?
 
 [Mutt]: /home/mutt/
 
-### Uncategorized
+## Uncategorized
+
 *   Create a desktop entry file for the [`wifail`](/home/bin/wifail) script.
 *   Remove the configuration files for Notion?
 
