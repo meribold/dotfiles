@@ -44,14 +44,6 @@ color listfocus_unread  default red
 color info              black   blue
 color article           white   black
 
-# Only keep articles from Steve Losh's feed that are under <http://stevelosh.com/blog/>.
-# I had to check <https://bitbucket.org/sjl/stevelosh/src/default/nginx.conf> to find his
-# feed (it's at <http://stevelosh.com/index.xml>) because his website only links to
-# <http://feeds2.feedburner.com/stevelosh> (why?) and all article URLS there look like
-# <http://feedproxy.google.com/~r/stevelosh/~3/7AI3tCMWYZE/>: I can't filter based on
-# that.
-ignore-article "http://stevelosh.com/index.xml" "link !~ \"^http://stevelosh.com/blog/\""
-
 # There are a lot of filetypes Vim ships configuration files for.  I tried `cfg`,
 # `config`, `ini, `rc`, and `conf`.  The last seems to give the best results for this
 # file.
