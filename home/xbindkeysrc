@@ -68,7 +68,7 @@
 # though (see <https://github.com/enkore/j4-dmenu-desktop#how-much-faster-is-it>).
 #
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
-"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -color-window "#000000, #c0c0c0, #d75f5f"'"
+"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -theme-str "* { accent-color: #d75f5f; }"'"
    Mod4 + u
 
 # vim: tw=90 sts=-1 sw=3 et ft=conf

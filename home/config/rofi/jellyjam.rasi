@@ -1,0 +1,93 @@
+/* Global properties.  Everything inherits these. */
+* {
+   /* Specify a font.  The font used affects the startup time of Rofi considerably.  Dina
+    * gives the best result of the fonts below which seems logical as it's the only bitmap
+    * font.  Switching between vector fonts still has a considerable effect, though.
+    * Ubuntu Mono gives the worst results.  */
+   font: "Dina 5.81";
+   /* font: "Ubuntu Mono 7"; */
+   /* font: "Source Code Pro Medium 6"; */
+   /* font: "Source Code Pro 6"; */
+   /* font: "Mono 7"; */
+
+   background-color: #000;
+   text-color:       #dfdfdf;
+
+   /* Reset some stuff to zero to avoid surprises. */
+   border:  0;
+   padding: 0;
+   spacing: 0;
+
+   /* These properties don't have any effect by themselves, but their values can be
+    * referenced. */
+   accent-color:      #8787af;
+   urgent-text-color: #d75f5f;
+}
+
+#window {
+   width:    80ch;
+   y-offset: -25px; /* Vertically center the separator line. */
+
+   border-color: #c0c0c0;
+   border:       1px;
+   padding:      4px;
+}
+
+#inputbar {
+   /* Draw a separator line. */
+   border:       0px 0px 2px;
+   border-color: @accent-color;
+
+   spacing: 0.7ch; /* Hacks? */
+   padding: 2px 2px 4px; /* top, left & right, bottom */
+}
+
+#listview {
+   spacing:   2px;
+   scrollbar: true;
+   padding:   4px 0px 0px;
+   lines:     13;
+}
+
+#scrollbar {
+   handle-color: @accent-color;
+   handle-width: 4px ;
+}
+
+#element {
+   padding: 2px;
+}
+
+#element.alternate {
+   background-color: #060606;
+}
+
+#element.selected {
+   background-color: #121212;
+}
+
+#element.normal.active {
+   text-color: @accent-color;
+}
+
+#element.selected.active {
+   text-color: @accent-color;
+}
+
+#element.alternate.active {
+   text-color: @accent-color;
+}
+
+#element.normal.urgent {
+   text-color: @urgent-text-color;
+}
+
+#element.selected.urgent {
+   text-color: @urgent-text-color;
+}
+
+#element.alternate.urgent {
+   text-color: @urgent-text-color;
+}
+
+/* vim: set ft=css tw=90 sts=-1 sw=3 et: */

@@ -10,6 +10,11 @@ rofi.dpi: 135
 ! TODO: modify the "$TERMINAL" environment variable?
 rofi.terminal: xterm
 
+! Use my `jellyjam.rasi` theme file.  This should cause Rofi (1.4 or later) to ignore most
+! of the settings below.  TODO: remove the settings that are ignored now and replace any
+! that aren't ignored but deprecated.
+rofi.theme: jellyjam
+
 ! Reduce the height of the window based on the number of items.  See
 ! <https://github.com/DaveDavenport/rofi/releases/tag/1.3.0>.  Off by default (i.e.
 ! `fixed-num-lines` is true).
