@@ -41,10 +41,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-utils/vim-line'
 Plug 'vim-utils/vim-vertical-move'
 Plug 'wellle/targets.vim'
-
-" Plug 'easymotion/vim-easymotion'
-" Plug 'goldfeld/vim-seek'
-" Plug 'justinmk/vim-sneak'
 Plug 'rhysd/clever-f.vim'
 
 " New operators {{{2
@@ -80,13 +76,11 @@ Plug 'airblade/vim-gitgutter', { 'on': ['GitGutterToggle', 'GitGutterEnable'] }
 if !has('nvim')
    Plug 'vim-utils/vim-man'
 endif
-" Plug 'lambdalisue/vim-manpager'
 
 if has('unix')
    Plug 'beloglazov/vim-online-thesaurus'
    Plug 'szw/vim-dict'
 endif
-" Plug 'szw/vim-g'
 
 " Send the current paragraph to a REPL with <C-C><C-C>.  Haskell code is [adapted][1] to
 " the syntax ghci expects.  I think all of these plugins are similar:
@@ -131,11 +125,9 @@ endif
 
 " Improvements of existing functionality {{{2
 Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
-" Plug 'qpkorr/vim-bufkill'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
-" Plug 'xolox/vim-session'
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-speeddating'
 
@@ -152,27 +144,13 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
 " render Markdown (http://stackoverflow.com/q/9212340).
 
-" Both slow Vim down way too much on my laptop.
-" Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'Yggdroot/indentLine'
-
 " Automatically close parens, brackets, braces, quotes, etc.  See
 " http://vim.wikia.com/wiki/Automatically_append_closing_characters
 Plug 'Raimondi/delimitMate'
-" Plug 'ervandew/matchem'
-" Plug 'cohama/lexima.vim'
-" Plug 'rstacruz/vim-closer'
-" Plug 'jiangmiao/auto-pairs' " Breaks repeat and undo/redo.
-" Plug 'Townk/vim-autoclose'  " Inactive.  Try anyway?
-" Plug 'kana/vim-smartinput'  " Breaks repeat and undo/redo?
 Plug 'tpope/vim-endwise'
 
-" Plug 'majutsushi/tagbar'
-
 Plug 'vim-scripts/a.vim'
-" Plug 'derekwyatt/vim-fswitch'
 
-" Plug 'simnalamburt/vim-mundo'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " Automatically adjusts 'shiftwidth' and 'expandtab' heuristically.
@@ -184,42 +162,16 @@ if has('python') || has('python3') " TODO: is this what we should check?
    Plug 'SirVer/ultisnips'
 endif
 
-" Plug 'Shougo/neocomplete'
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
-
-" I have vim-youcompleteme-git from the AUR installed.  Upstream is on GitHub at
-" Valloric/YouCompleteMe.  I'm not sure I like it, though, and it slows Vim down
-" noticeably on my laptop.  It's disabled for now.  See [How to turn-off a plugin in Vim
-" temporarily?](http://stackoverflow.com/q/601412) and [How do you disable a specific
-" plugin in Vim?](http://stackoverflow.com/q/2888970).
-if has('unix')
-   let g:loaded_youcompleteme = 1
-   " Plug 'rdnetto/YCM-Generator'
-endif
-" Plug 'scrooloose/syntastic'
-
-" Plug 'kien/ctrlp.vim'
-" Plug 'wincent/command-t'
-" Plug 'szw/vim-ctrlspace'
 Plug 'Shougo/unite.vim'
 
 " TODO: use fzf for this?
 Plug 'kopischke/unite-spell-suggest'
 
 Plug 'vim-utils/vim-husk'
-" Plug 'tpope/vim-rsi'
-
-" Plug 'terryma/vim-multiple-cursors'
 
 Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
-" Plug 'reedes/vim-pencil'
-" Plug 'junegunn/limelight.vim', { 'on':  'Limelight' }
-" autocmd! User GoyoEnter Limelight
-" autocmd! User GoyoLeave Limelight!
 
 Plug 'itchyny/lightline.vim'
-" Plug 'bling/vim-airline'
 
 " Color schemes {{{2
 Plug 'NLKNguyen/papercolor-theme'
@@ -229,14 +181,6 @@ Plug 'itchyny/landscape.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'meribold/jellyjam.vim'
 Plug 'vim-scripts/wombat256.vim'
-" Plug 'chriskempson/base16-vim'
-" Plug 'jonathanfilip/vim-lucius'
-" Plug 'junegunn/seoul256.vim'
-" Plug 'meribold/molokai'
-" Plug 'sjl/badwolf'
-" Plug 'vim-scripts/Neverness-colour-scheme'
-" Plug 'vim-scripts/xoria256.vim'
-" Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 " }}}2
 call plug#end()
