@@ -49,8 +49,8 @@
 "pgrep -u $(id -u) -x nvim && screen -S fullscreen -X select - && screen -S fullscreen -X select nvim || screen -S fullscreen -X screen nvim -S && i3-msg workspace 2"
    Mod4 + v
 
-# Switch to or start Newsbeuter.
-"pgrep -u $(id -u) -x newsbeuter && screen -S fullscreen -X select - && screen -S fullscreen -X select newsbeuter || screen -S fullscreen -X screen newsbeuter && i3-msg workspace 2"
+# Switch to or start Newsboat.
+"pgrep -u $(id -u) -x newsboat && screen -S fullscreen -X select - && screen -S fullscreen -X select newsboat || screen -S fullscreen -X screen newsboat && i3-msg workspace 2"
    Mod4 + n
 
 # List [desktop entry files][1] using `j4-dmenu-desktop` and Rofi and launch the selected

@@ -1,9 +1,11 @@
-# [Newsbeuter](https://newsbeuter.org) Configuration
+# [Newsboat](https://newsboat.org) Configuration
 
-[Newsbeuter is the Mutt of feed readers.][1]  I set it up to mostly use the same colors I
-configured for Mutt as well as similar keybindings.  Newsbeuter doesn't really have the
-flexibility to faithfully reproduce *all* my Mutt key bindings, but it does get close
-enough: I only get irritated once in a while because of muscle memory.
+Newsboat is a fork of Newsbeuter, [the Mutt of feed readers][1].  "[The only difference
+is that Newsboat is actively maintained while Newsbeuter isn't.][Newsboat]"  I set
+Newsboat up to mostly use the same colors I configured for Mutt as well as similar
+keybindings.  Newsboat doesn't really have the flexibility to faithfully reproduce *all*
+my Mutt key bindings, but it does get close enough: I only get irritated once in a while
+because of muscle memory.
 
 My [`urls`](urls) file is encrypted with [git-crypt][].
 
@@ -30,7 +32,6 @@ My [`urls`](urls) file is encrypted with [git-crypt][].
 
 ## TODO
 
-*   Migrate to [Newsboat][].
 *   Add a screenshot to this readme file?
 *   [`mpv.sh`](mpv.sh) could probably be made more robust if I would switch to [tmux][].
 

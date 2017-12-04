@@ -5,6 +5,10 @@ reload-threads 4
 swap-title-and-hints yes  # Like Mutt.
 
 feedlist-format "%4i  %n  %11u  %t"
+# FIXME: this breaks with unread (colored) articles.  The issue is not specific to
+# screen(1) or xterm(1).  It also happens with other terminals (I tested termite and
+# urxvt) and when not running screen.  I should switch to Newsboat and see if it still
+# happens, though.
 articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
 
 # Pretty idiosyncratic keybindings because of muscle memory.
@@ -30,9 +34,9 @@ bind-key O open-in-browser
 # macro o open-in-browser ; toggle-article-read "read"
 
 # Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
-# hope Newsbeuter sanitizes `%u`.
-macro o set browser ~/.config/newsbeuter/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
-macro O set browser ~/.config/newsbeuter/mpv.sh ; open-in-browser ; set browser $BROWSER
+# hope Newsboat sanitizes `%u`.
+macro o set browser ~/.config/newsboat/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
+macro O set browser ~/.config/newsboat/mpv.sh ; open-in-browser ; set browser $BROWSER
 # [1]: https://wiki.archlinux.org/index.php/Newsbeuter#Pass_article_URL_to_external_command.
 # [2]: https://www.newsbeuter.org/doc/newsbeuter.html#_macro_support
 
