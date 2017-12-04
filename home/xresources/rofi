@@ -5,6 +5,11 @@
 !
 ! [1]: https://github.com/DaveDavenport/rofi
 
+! Autodetect the screen's DPI value.  I tried omitting this completely, but that gave the
+! same result as setting it to 96 (as of Rofi 1.4.2).  TODO: where does the default of 96
+! come from?
+rofi.dpi: 0
+
 ! TODO: modify the "$TERMINAL" environment variable?
 rofi.terminal: xterm
 
