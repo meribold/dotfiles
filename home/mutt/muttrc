@@ -81,7 +81,8 @@ set pgp_show_unusable=no
 # [4]: https://dev.mutt.org/trac/wiki/ConfigTricks
 # [5]: https://dev.mutt.org/doc/manual.html#configuration-files
 source `for file in /etc/Muttrc.gpg.dist /etc/Muttrc.d/gpg.rc \
-                    /usr/share/doc/mutt/samples/gpg.rc /dev/null; do \
+                    /usr/share/doc/mutt/samples/gpg.rc \
+                    /usr/share/doc/neomutt/samples/gpg.rc /dev/null; do \
            if [ -f "$file" ] || [ "$file" = /dev/null ]; then \
               echo "$file"; \
               break; \

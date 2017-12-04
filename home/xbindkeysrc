@@ -37,7 +37,7 @@
 # non-interactive shell.  TODO: do something smarter than jumping to workspace 2 to focus
 # the terminal?  See <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>
 # and <https://i3wm.org/docs/userguide.html#vim_like_marks>.
-"pgrep -u $(id -u) -x mutt && screen -S fullscreen -X select - && screen -S fullscreen -X select mutt || { screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t mutt bash -ic mutt; screen -S fullscreen -X defdynamictitle on; }; } && i3-msg workspace 2"
+"pgrep -u $(id -u) -x neomutt && screen -S fullscreen -X select - && screen -S fullscreen -X select neomutt || { screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t neomutt bash -ic neomutt; screen -S fullscreen -X defdynamictitle on; }; } && i3-msg workspace 2"
    Mod4 + m
 
 # Switch to or start Irssi.  This is basically like the Mutt keybinding but simpler
