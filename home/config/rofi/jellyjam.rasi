@@ -31,18 +31,26 @@
    /* font: "Source Code Pro 6"; */
    /* font: "Mono 7"; */
 
-   background-color: #000;
-   text-color:       #dfdfdf;
+   background-color: @black;
+   text-color:       @white;
 
    /* Reset some stuff to zero to avoid surprises. */
    border:  0;
    padding: 0;
    spacing: 0;
 
-   /* These properties don't have any effect by themselves, but their values can be
-    * referenced. */
-   accent-color: #8787af;
-   red:          #d75f5f;
+   /* These following properties don't have any effect by themselves, but their values can
+    * be referenced. */
+   black:   #000000;
+   red:     #d75f5f;
+   green:   #8787af;
+   yellow:  #ffdf87;
+   blue:    #8787af;
+   magenta: #d70087;
+   cyan:    #87afd7;
+   white:   #dfdfdf;
+
+   accent-color: @blue;
 }
 
 #window {
