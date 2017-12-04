@@ -88,9 +88,6 @@
 [submodule "signal-cli.bash"]
 	path = misc/signal-cli.bash
 	url = https://github.com/meribold/signal-cli.bash.git
-[submodule "AUR/neomutt"]
-	path = misc/AUR/neomutt
-	url = https://aur.archlinux.org/neomutt.git
 [submodule "AUR/unclutter-xfixes-git"]
 	path = misc/AUR/unclutter-xfixes-git
 	url = https://aur.archlinux.org/unclutter-xfixes-git.git
