@@ -41,8 +41,8 @@
 
    /* These properties don't have any effect by themselves, but their values can be
     * referenced. */
-   accent-color:      #8787af;
-   urgent-text-color: #d75f5f;
+   accent-color: #8787af;
+   red:          #d75f5f;
 }
 
 #window {
@@ -106,15 +106,15 @@
 }
 
 #element.normal.urgent {
-   text-color: @urgent-text-color;
+   text-color: @red;
 }
 
 #element.selected.urgent {
-   text-color: @urgent-text-color;
+   text-color: @red;
 }
 
 #element.alternate.urgent {
-   text-color: @urgent-text-color;
+   text-color: @red;
 }
 
 /* vim: set ft=css tw=90 sts=-1 sw=3 et: */
