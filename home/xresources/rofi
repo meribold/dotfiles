@@ -5,8 +5,6 @@
 !
 ! [1]: https://github.com/DaveDavenport/rofi
 
-rofi.dpi: 135
-
 ! TODO: modify the "$TERMINAL" environment variable?
 rofi.terminal: xterm
 
