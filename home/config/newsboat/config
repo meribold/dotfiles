@@ -25,10 +25,6 @@ bind-key u quit
 bind-key o open-in-browser-and-mark-read
 bind-key O open-in-browser
 
-# Taken verbatim from the manual (https://www.newsbeuter.org/doc/newsbeuter.html).
-# Update: seems useless because `open-in-browser-and-mark-read` exists?
-# macro o open-in-browser ; toggle-article-read "read"
-
 # Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
 # hope Newsboat sanitizes `%u`.
 macro o set browser ~/.config/newsboat/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
