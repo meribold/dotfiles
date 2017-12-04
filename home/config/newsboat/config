@@ -5,10 +5,6 @@ reload-threads 4
 swap-title-and-hints yes  # Like Mutt.
 
 feedlist-format "%4i  %n  %11u  %t"
-# FIXME: this breaks with unread (colored) articles.  The issue is not specific to
-# screen(1) or xterm(1).  It also happens with other terminals (I tested termite and
-# urxvt) and when not running screen.  I should switch to Newsboat and see if it still
-# happens, though.
 articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
 
 # Pretty idiosyncratic keybindings because of muscle memory.
