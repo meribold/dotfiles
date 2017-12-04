@@ -35,7 +35,7 @@ bind-key O open-all-unread-in-browser feedlist
 macro o set browser ~/.config/newsboat/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
 macro O set browser ~/.config/newsboat/mpv.sh ; open-in-browser ; set browser $BROWSER
 # [1]: https://wiki.archlinux.org/index.php/Newsbeuter#Pass_article_URL_to_external_command.
-# [2]: https://www.newsbeuter.org/doc/newsbeuter.html#_macro_support
+# [2]: file:///usr/share/doc/newsboat/newsboat.html#_macro_support
 
 color background        white   black
 color listnormal        white   black

@@ -38,9 +38,9 @@ My [`urls`](urls) file is encrypted with [git-crypt][].
 [1]: https://zedshaw.com/archive/i-want-the-mutt-of-feed-readers/
 [git-crypt]: https://github.com/AGWA/git-crypt
 [mpv]: https://github.com/mpv-player/mpv
-[2]: https://www.newsbeuter.org/doc/newsbeuter.html#_query_feeds
+[2]: file:///usr/share/doc/newsboat/newsboat.html#_query_feeds
 [3]: https://github.com/newsboat/newsboat/issues/33
-[4]: https://www.newsbeuter.org/doc/newsbeuter.html#_tagging
+[4]: file:///usr/share/doc/newsboat/newsboat.html#_tagging
 [Newsboat]: https://github.com/newsboat/newsboat
 [tmux]: https://github.com/tmux/tmux
 
