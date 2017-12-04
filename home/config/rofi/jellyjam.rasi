@@ -50,7 +50,7 @@
    cyan:    #87afd7;
    white:   #dfdfdf;
 
-   accent-color: @blue;
+   accent-color: @white;
 }
 
 #window {
