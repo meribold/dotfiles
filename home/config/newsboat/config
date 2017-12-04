@@ -11,8 +11,10 @@ articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
 bind-key SPACE next-unread
 bind-key j down
 bind-key k up
-bind-key ^N next
-bind-key ^P prev
+bind-key ^N next-unread
+bind-key ^P prev-unread
+bind-key ^N next-unread-feed articlelist
+bind-key ^P prev-unread-feed articlelist
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key g pageup
@@ -24,6 +26,9 @@ bind-key u quit
 # Switch these two compared to the defaults.
 bind-key o open-in-browser-and-mark-read
 bind-key O open-in-browser
+# When o or O is used in the feed list, open all unread articles of the selected feed.
+bind-key o open-all-unread-in-browser-and-mark-read feedlist
+bind-key O open-all-unread-in-browser feedlist
 
 # Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
 # hope Newsboat sanitizes `%u`.
