@@ -1,3 +1,4 @@
+config/newsbeuter/urls filter=git-crypt diff=git-crypt
 config/newsboat/urls filter=git-crypt diff=git-crypt
 mutt/aliases filter=git-crypt diff=git-crypt
 mutt/per-recipient-rules filter=git-crypt diff=git-crypt
