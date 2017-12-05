@@ -22,7 +22,6 @@ bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key g pageup
 bind-key G pagedown
-# FIXME: the next two bindings override the last two.  Bug?
 bind-key ^U pageup
 bind-key ^D pagedown
 bind-key u quit
