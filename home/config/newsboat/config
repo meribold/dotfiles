@@ -3,6 +3,9 @@ datetime-format "%F"  # ISO 8601
 refresh-on-startup yes
 reload-threads 42
 swap-title-and-hints yes  # Like Mutt.
+# Also download ignored articles, just don't display them.  See
+# <fle:///usr/share/doc/newsboat/newsboat.html#_killfiles>.
+ignore-mode "display"
 
 feedlist-format "%4i  %n  %11u  %t"
 articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
@@ -44,6 +47,9 @@ color listnormal_unread green   default
 color listfocus_unread  default red
 color info              black   blue
 color article           white   black
+
+# Only show Angry Video Game Nerd videos from the Cinemassacre YouTube channel.
+ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UC0M0rxSz3IF0CsSour1iWmw" "title !~ \"AVGN|[Aa]ngry [Vv]ideo [Gg]ame [Nn]erd\""
 
 # There are a lot of filetypes Vim ships configuration files for.  I tried `cfg`,
 # `config`, `ini, `rc`, and `conf`.  The last seems to give the best results for this
