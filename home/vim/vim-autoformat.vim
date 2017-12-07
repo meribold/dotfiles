@@ -54,6 +54,17 @@ let g:formatdef_autopep8 = '"autopep8 --aggressive -" . '
  \ . '" --range " . a:firstline . " " . a:lastline : "") . " " . '
  \ . '(&textwidth ? "--max-line-length=" . &textwidth : "")'
 
+" Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Operator mappings for vim-autoformat using vim-operator-user.  They don't work when
+" using nnoremap and xnoremap.
+nmap <Leader>q <Plug>(operator-autoformat)
+xmap <Leader>q <Plug>(operator-autoformat)
+call operator#user#define_ex_command('autoformat', 'Autoformat')
+
+" Format the entire buffer.
+nnoremap <silent> <Leader>Q :Autoformat<CR>
+
 " [1]: https://github.com/Chiel92/vim-autoformat#default-formatprograms
 " [2]: http://clang.llvm.org/docs/ClangFormatStyleOptions.html
 " [3]: http://clang.llvm.org/docs/ClangFormat.html

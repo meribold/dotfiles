@@ -810,15 +810,6 @@ nnoremap + <C-W>=
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
 
-" Operator mappings for vim-autoformat using vim-operator-user.  They don't work when
-" using nnoremap and xnoremap.
-nmap <Leader>q <Plug>(operator-autoformat)
-xmap <Leader>q <Plug>(operator-autoformat)
-call operator#user#define_ex_command('autoformat', 'Autoformat')
-
-" Format the entire buffer.
-nnoremap <silent> <Leader>Q :Autoformat<CR>
-
 " vim-easy-align {{{2
 " Operator starting interactive EasyAlign.  Normal and visual mode.
 nmap gl <Plug>(EasyAlign)
