@@ -1,5 +1,10 @@
 " [vim-autoformat](https://github.com/Chiel92/vim-autoformat) configuration
 "
+" I also tested [vim-clang-format](https://github.com/rhysd/vim-clang-format), but having
+" one plugin that integrates code formatters for many languages seems better.  As far as I
+" could see there weren't any advantages to using `clang-format` through vim-clang-format
+" instead of vim-autoformat either.
+"
 " There are some general settings and language-specific settings for C++ and Python in
 " here.
 "

@@ -45,7 +45,6 @@ Plug 'rhysd/clever-f.vim'
 
 " New operators {{{2
 Plug 'Chiel92/vim-autoformat'
-Plug 'rhysd/vim-clang-format'  " Doesn't honor 'textwidth' and breaks undo.  TODO: remove?
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'    " See <https://redd.it/26mszm>.
@@ -819,11 +818,6 @@ call operator#user#define_ex_command('autoformat', 'Autoformat')
 
 " Format the entire buffer.
 nnoremap <silent> <Leader>Q :Autoformat<CR>
-
-" Alternative mappings using vim-clang-format.  TODO: remove?
-autocmd vimrc_common FileType c,cpp,objc
-   \ nmap <buffer> <LocalLeader>q <Plug>(operator-clang-format) |
-   \ xmap <buffer> <LocalLeader>q <Plug>(operator-clang-format)
 
 " vim-easy-align {{{2
 " Operator starting interactive EasyAlign.  Normal and visual mode.
