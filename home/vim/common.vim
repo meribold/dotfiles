@@ -131,6 +131,7 @@ Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-speeddating'
 
 " Ungrouped (TODO) {{{2
+Plug 'airblade/vim-rooter'
 
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
@@ -256,8 +257,6 @@ set modeline
 
 " Don't automatically yank all visual selections into the "* register.
 set clipboard-=autoselect
-
-"set autochdir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the cursor line.
