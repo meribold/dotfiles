@@ -14,7 +14,7 @@ if has('multi_byte')
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable use of the mouse all modes.
+" Enable use of the mouse in all modes.
 set mouse=a
 
 if has('unix')
