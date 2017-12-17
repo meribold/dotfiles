@@ -254,11 +254,6 @@ endif
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
 set modeline
 
-set showcmd      " Why does this default to off for Unix ONLY?
-set history=1000 " Vim default: 50.  TODO: move this to vimrc (Neovim's default is 10000).
-set incsearch    " Search while typing the search command and...
-set hlsearch     " hightlight matches.
-
 " Don't automatically yank all visual selections into the "* register.
 set clipboard-=autoselect
 
@@ -310,7 +305,6 @@ set title " Let vim set the terminal title.
 
 set scrolloff=2   " Always keep 2 lines above and below the cursor.
 set hidden        " Only hide (don't unload) a buffer when abandoned.
-set ruler         " Show the ruler.
 set laststatus=2  " Always show a status line.
 set showtabline=0 " Never display tab labels.
 
@@ -344,10 +338,6 @@ if exists('&breakindent') " character that fits on the screen.
    set breakindent        " Continue lines at their indentation level when wrapping.
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if exists('&belloff')
-   set belloff=all
-endif
 
 set maxmem=2000000    " Lots of memory for each buffer.
 set maxmemtot=2000000 " Lots of memory for all buffers together.

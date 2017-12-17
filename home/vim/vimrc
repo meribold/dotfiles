@@ -14,8 +14,12 @@ if has('multi_byte')
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable use of the mouse in all modes.
-set mouse=a
+set mouse=a       " Enable use of the mouse in all modes.
+set ruler         " Show the ruler.
+set showcmd       " Why does this default to off for Unix ONLY?
+set history=10000 " Vim's default: 50.  Neovim's default: 10000.
+set incsearch     " Search while typing the search command and...
+set hlsearch      " ...hightlight matches.
 
 if has('unix')
    source ~/.vim/common.vim
@@ -30,6 +34,10 @@ if &term =~# 'screen'
    set t_fs=\
 endif " The settings for those termcap codes are taken from
 " http://vim.wikia.com/wiki/Automatically_set_screen_title.
+
+if exists('&belloff')
+   set belloff=all
+endif
 
 " Fallback method to disable beeping in case the 'belloff' option doesn't exist or doesn't
 " work.  See :h 'vb' and :h exists().
