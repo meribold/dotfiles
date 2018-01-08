@@ -41,6 +41,11 @@
     background-color: #121212 !important;
   }
 
+  /* See <https://support.mozilla.org/en-US/questions/814083>. */
+  input, textarea {
+    -moz-appearance: none !important;
+  }
+
   /* Bright text */
   td.title a:link, span.comment font, span.comment font a:link, u a:link,
   span.yclinks a:link, body:not([id]), td:nth-child(2):not(.subtext) > a:link, input,
