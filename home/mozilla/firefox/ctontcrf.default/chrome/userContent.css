@@ -17,9 +17,10 @@
 
   .comhead {
     font-family: monospace !important;
+    font-size: 9pt !important;
   }
 
-  input {
+  input, .subtext {
     font-size: 8pt !important;
   }
 
@@ -30,14 +31,6 @@
 
   .title, .comment {
     font-size: 10pt !important;
-  }
-
-  .comhead {
-    font-size: 9pt !important;
-  }
-
-  .subtext {
-    font-size: 8pt !important;
   }
 
   tr.spacer{
