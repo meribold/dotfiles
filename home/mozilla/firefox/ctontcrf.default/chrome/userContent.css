@@ -4,4 +4,78 @@
   }
 }
 
+/* Hacker News */
+@-moz-document domain("news.ycombinator.com") {
+  body {
+    background-color: #161616 !important;
+  }
+
+  body, td, .admin td, .subtext td, input[type="submit"], .default, .admin, .title,
+  .subtext, .yclinks, .pagetop, .comment, input, textarea {
+    font-family: sans-serif;
+  }
+
+  .comhead {
+    font-family: monospace;
+  }
+
+  input {
+    font-size: 8pt;
+  }
+
+  .pagetop {
+    font-size: 10pt;
+    font-variant: small-caps;
+  }
+
+  .title, .comment {
+    font-size: 10pt;
+  }
+
+  .comhead {
+    font-size: 9pt;
+  }
+
+  .subtext {
+    font-size: 8pt;
+  }
+
+  tr.spacer{
+    height: 8px !important;
+  }
+
+  body > center > table, input, textarea {
+    background-color: #121212 !important;
+  }
+
+  /* Bright text */
+  td.title a:link, span.comment font, span.comment font a:link, u a:link,
+  span.yclinks a:link, body:not([id]), td:nth-child(2):not(.subtext) > a:link, input,
+  textarea, p > a, a > u, .c00, .c00 a:link, a[href="http://www.ycombinator.com/apply/"] {
+    color: #ccc !important;
+  }
+
+  td.title {
+    padding-bottom: 3px;
+  }
+
+  .comhead a:link, span.sitestr, .subtext a:visited {
+    color: #888 !important;
+  }
+
+  .admin td {
+    color: #aaa !important;
+  }
+
+  /* Search box and comment box */
+  input, textarea {
+    border: 1px solid #828282 !important;
+  }
+
+  /* Upvote arrow */
+  .votearrow {
+    background-image: url(data:image/gif;base64,R0lGODlhCgAKAPcAAAAAAAYGBgkJCSwsLD09PUBAQEVFRVhYWGJiYmVlZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAKAAoAAAgsAP8JHEiwoMGDBgsYQJggwcEDDQ8UDNCwoQCCCCo2HDhAY8MBAgmIHCnyX0AAOw==);
+  }
+}
+
 /* vim: set tw=90 sts=-1 sw=2 et: */
