@@ -5,6 +5,9 @@
 #
 # [1]: https://unix.stackexchange.com/a/228166 "Move a file and replace it by a symlink"
 
+# TODO: think more about the case where "$original" is a directory (maybe ending with
+# slash); there may be problems (see <https://unix.stackexchange.com/q/253524>).
+
 # See <http://mywiki.wooledge.org/BashFAQ/112>.
 set -o nounset
 
@@ -29,6 +32,8 @@ case "${original%/}" in
    # relative path can be used as the link target directly since it is relative to the
    # link's location.
 esac
+
+# TODO: move the file back if `ln` fails?
 ln -sT -- "$target" "${original%/}"
 
 # vim: tw=90 sts=-1 sw=3 et
