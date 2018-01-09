@@ -173,6 +173,7 @@ p() {
 
 # Aliases for humans.
 alias df='df -h'
+alias du='du -h'
 alias free='free -h'
 
 alias info='info --vi-keys'
@@ -233,7 +234,7 @@ g() {
    fi
 }
 
-d() { dict "$@" |& less; }
+d() { dict "$@" |& less -FX; }
 
 # Translate a word from English to German and vice versa.  I don't know how to invoke
 # `dict` specifying more than one database to search (exception: searching all available
