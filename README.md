@@ -1,10 +1,26 @@
 ![](/../media/screenshot.png?raw=true "Screenshot showing Vim, Conky, and vis")
 
+<!--
+I don't think a `# dotfiles` caption is needed: just make some interesting points as fast
+as possible.
+
+Some dotfiles repos with nice READMEs:
+*   <https://github.com/wincent/wincent>
+*   <https://github.com/thoughtbot/dotfiles>
+*   Maybe some of the ones linked from <https://dotfiles.github.io/>
+
+Generally, these two projects are examples of pretty nice README files, I think:
+*   <https://github.com/junegunn/vim-plug>
+*   <https://github.com/junegunn/fzf>
+-->
+
 **Dotfiles** for [Vim][vim/] (and [Neovim][]), [i3-gaps][i3/], [Mutt][mutt/] (and
 [NeoMutt][]), Bash, [and][conky/] [more][dunst/] [programs][screen/][...][xresources] some
 [scripts][bin/], Bash [functions and aliases][bashrc], [keybindings][xbindkeysrc], ...
 
 [Click here for more screenshots](https://imgur.com/a/1bnaT).
+
+<!-- TODO: `## Highlights` section? -->
 
 ## Project Structure
 
