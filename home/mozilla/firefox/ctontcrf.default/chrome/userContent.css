@@ -8,6 +8,7 @@
 @-moz-document domain("news.ycombinator.com") {
   body {
     background-color: #161616 !important;
+    margin: 0;
   }
 
   body, td, .admin td, .subtext td, input[type="submit"], .default, .admin, .title,
@@ -15,42 +16,111 @@
     font-family: sans-serif !important;
   }
 
-  .comhead {
-    font-family: monospace !important;
-    font-size: 9pt !important;
+  /* Limit the width of comments. */
+  .comment {
+    max-width: 80ch !important;
   }
 
-  input, .subtext {
-    font-size: 8pt !important;
+  /* Center the comments. */
+  .comment-tree {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #hnmain {
+    /* width: initial; */
+    margin-top: 8px;
+  }
+
+  .itemlist {
+    padding: 0 1ch;
+  }
+
+  /*
+  #hnmain > tbody > tr:nth-child(3) {
+    margin: auto !important;
+  }
+  */
+
+  html {
+    font-size: 100% !important;
+  }
+
+  body, td {
+    font-size: 1rem !important;
   }
 
   .pagetop {
-    font-size: 10pt !important;
     font-variant: small-caps;
+    font-size: .9167rem !important;
+  }
+
+  .pagetop > .hnname {
+    font-size: 1rem !important;
   }
 
   .title, .comment {
-    font-size: 10pt !important;
+    font-size: .9167rem !important;
+  }
+
+  .comment {
+    line-height: 1.2;
+  }
+
+  .comhead {
+    font-family: monospace !important;
+    font-size: .8rem !important;
+  }
+
+  input, .subtext {
+    font-size: .8rem !important;
+  }
+
+  .yclinks {
+    font-size: .8rem !important;
+  }
+
+  #hnmain > tbody > tr:last-child form {
+    font-size: .9167rem !important;
   }
 
   tr.spacer{
     height: 8px !important;
   }
 
-  body > center > table, input, textarea {
+  body > center > table {
     background-color: #121212 !important;
   }
 
-  /* See <https://support.mozilla.org/en-US/questions/814083>. */
+  .comment-tree {
+    /* background-color: #0e0e0e; */
+    border-left: 6px solid #0e0e0e;
+    border-radius: 6px;
+  }
+
+  /*
+  td.ind {
+    background-color: #0e0e0e;
+    border-right: 2px solid #000;
+  }
+
+  td.votelinks {
+    background-color: #0e0e0e;
+    border-right: 2px solid #000;
+  }
+  */
+
   input, textarea {
+    /* See <https://support.mozilla.org/en-US/questions/814083>. */
     -moz-appearance: none !important;
+    background-color: #0e0e0e;
   }
 
   /* Bright text */
   td.title a:link, span.comment font, span.comment font a:link, u a:link,
   span.yclinks a:link, body:not([id]), td:nth-child(2):not(.subtext) > a:link, input,
   textarea, p > a, a > u, .c00, .c00 a:link, a[href="http://www.ycombinator.com/apply/"] {
-    color: #ccc !important;
+    color: #dfdfdf !important;
   }
 
   td.title {
@@ -67,7 +137,7 @@
 
   /* Search box and comment box */
   input, textarea {
-    border: 1px solid #828282 !important;
+    border: 1px solid #888 !important;
   }
 
   /* Upvote arrow; see <https://css-tricks.com/snippets/css/css-triangle> */
