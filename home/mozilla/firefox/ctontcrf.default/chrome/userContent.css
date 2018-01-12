@@ -11,6 +11,10 @@
     margin: 0;
   }
 
+  td[bgcolor="#ff6600"] {
+    background-color: #d0d0d0;
+  }
+
   body, td, .admin td, .subtext td, input[type="submit"], .default, .admin, .title,
   .subtext, .yclinks, .pagetop, .comment, input, textarea {
     font-family: sans-serif !important;
