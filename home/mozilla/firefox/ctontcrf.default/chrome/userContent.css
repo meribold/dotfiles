@@ -30,12 +30,6 @@
     padding: 0 1ch;
   }
 
-  /*
-  #hnmain > tbody > tr:nth-child(3) {
-    margin: auto !important;
-  }
-  */
-
   html {
     font-size: 100% !important;
   }
@@ -85,18 +79,6 @@
   body > center > table {
     background-color: #121212 !important;
   }
-
-  /*
-  td.ind {
-    background-color: #0e0e0e;
-    border-right: 2px solid #000;
-  }
-
-  td.votelinks {
-    background-color: #0e0e0e;
-    border-right: 2px solid #000;
-  }
-  */
 
   input, textarea {
     /* See <https://support.mozilla.org/en-US/questions/814083>. */
