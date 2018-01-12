@@ -39,16 +39,20 @@
   }
 
   .pagetop {
-    font-variant: small-caps;
     font-size: .9167rem !important;
   }
 
   .pagetop > .hnname {
+    font-variant: small-caps;
     font-size: 1rem !important;
   }
 
-  .title, .comment {
+  .comment {
     font-size: .9167rem !important;
+  }
+
+  .title {
+    font-size: .95rem !important;
   }
 
   .comment {
@@ -60,8 +64,12 @@
     font-size: .8rem !important;
   }
 
-  input, .subtext {
+  input {
     font-size: .8rem !important;
+  }
+
+  .subtext {
+    font-size: .7667rem !important;
   }
 
   .yclinks {
@@ -73,7 +81,7 @@
   }
 
   tr.spacer{
-    height: 8px !important;
+    height: 10px !important;
   }
 
   body > center > table {
