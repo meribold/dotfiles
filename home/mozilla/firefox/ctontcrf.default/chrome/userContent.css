@@ -21,14 +21,8 @@
     max-width: 80ch !important;
   }
 
-  /* Center the comments. */
-  .comment-tree {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   #hnmain {
-    /* width: initial; */
+    width: initial;
     margin-top: 8px;
   }
 
@@ -90,12 +84,6 @@
 
   body > center > table {
     background-color: #121212 !important;
-  }
-
-  .comment-tree {
-    /* background-color: #0e0e0e; */
-    border-left: 6px solid #0e0e0e;
-    border-radius: 6px;
   }
 
   /*
