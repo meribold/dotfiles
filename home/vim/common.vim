@@ -69,6 +69,7 @@ Plug 'benekastah/neomake'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter', { 'on': ['GitGutterToggle', 'GitGutterEnable'] }
+Plug 'editorconfig/editorconfig-vim'
 
 " FIXME: vim-man doesn't work in Neovim 0.2.2.  The :Man command fails to open any man
 " page.  (The latest commit to vim-man is cfdc78f52707b4df76cbe57552a7c8c28a390da4.)
