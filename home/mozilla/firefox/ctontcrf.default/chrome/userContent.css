@@ -44,6 +44,22 @@
 
   .pagetop {
     font-size: .9167rem !important;
+    color: #fff !important;
+  }
+
+  td:last-child > .pagetop {
+    visibility: hidden;
+    font-size: 0 !important;
+  }
+
+  td:last-child > .pagetop > #me, td:last-child > .pagetop > #logout {
+    visibility: visible;
+    font-size: .9167rem !important;
+  }
+
+  td:last-child > .pagetop > #me::after {
+    content: " | ";
+    color: #fff;
   }
 
   .pagetop > .hnname {
