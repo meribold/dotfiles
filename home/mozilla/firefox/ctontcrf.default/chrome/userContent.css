@@ -27,7 +27,8 @@
 
   #hnmain {
     width: initial;
-    margin-top: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
   .itemlist {
