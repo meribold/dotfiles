@@ -20,7 +20,7 @@
     font-family: sans-serif !important;
   }
 
-  /* Limit the width of comments. */
+  /* Limit the line length of comments. */
   .comment {
     max-width: 80ch !important;
   }
