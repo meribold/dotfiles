@@ -823,12 +823,13 @@ nnoremap <silent> cog :GitGutterToggle<CR>
 " <http://vim.wikia.com/wiki/Fix_syntax_highlighting>.
 nnoremap <silent> <Leader>s :sy sync fromstart<CR>
 
-" Mappings for visual-split.vim.  The default mappings from visual-split.vim also work in
-" normal mode (they operate on a text object).  TODO: these mappings should have normal
-" mode equivalents as well (just nmapping doesn't work).  See
-" <https://github.com/wellle/visual-split.vim/blob/master/plugin/visual-split.vim>.
-xnoremap <silent> <C-W>j :VSSplitBelow<CR>
-xnoremap <silent> <C-W>k :VSSplitAbove<CR>
+" Mappings for visual-split.vim.  They work in normal (with a motion) and visual mode.
+" See [1].
+xmap <C-W>j <Plug>(Visual-Split-VSSplitBelow)
+nmap <C-W>j <Plug>(Visual-Split-SplitBelow)
+xmap <C-W>k <Plug>(Visual-Split-VSSplitAbove)
+nmap <C-W>k <Plug>(Visual-Split-SplitAbove)
+" [1]: https://github.com/wellle/visual-split.vim#remapping
 
 nnoremap <silent> <Leader>c :Gcommit<CR>
 nnoremap <silent> <Leader>C :Gcommit --amend<CR>
