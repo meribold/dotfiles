@@ -1,2 +1,6 @@
 clear lock
 keycode 66 = Escape NoSymbol Escape
+
+! Use the right right Alt key (AltGr) as the Compose key.  See Compose(5),
+! <https://vi.stackexchange.com/a/2256>, and <https://en.wikipedia.org/wiki/Compose_key>.
+keysym Alt_R = Multi_key
