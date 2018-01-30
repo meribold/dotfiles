@@ -21,7 +21,7 @@ fi
 #    session was started in detached mode and I'm starting a new xterm that immediately
 #    attaches.  Otherwise flow control is enabled.  I don't know why.
 # *  Preselect window 1 of the screen session with `-p 1`.
-xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
+xterm -sl 0 -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
 # Note: using `screen -r` for one xterm if we just created a detached session doesn't
 # always work when either xterm may attach first (`screen -r` won't attach to a session
 # that is already attached somewhere else).  Contrary to what the screen(1) man page says,
@@ -40,7 +40,7 @@ screen -S scratchpad -p 0 -X stuff '^L'
 
 # Start the second xterm and attach to the screen session.  Preselect window 0.  This
 # xterm gets placed on workspace 2 and I mainly use it for Vim and Mutt.
-xterm -e 'stty -ixon && exec screen -S fullscreen -x -p 0' &
+xterm -sl 0 -e 'stty -ixon && exec screen -S fullscreen -x -p 0' &
 
 # Wait until the xterm is started again (hopefully)...
 sleep .3

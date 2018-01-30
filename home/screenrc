@@ -6,6 +6,9 @@ term screen-256color
 # http://www.gnu.org/software/screen/manual/screen.html#Command-Character
 escape ^ss
 
+# The default scrollback buffer size is only 100 lines.
+defscrollback 4096
+
 bind ` select 0
 
 startup_message off
