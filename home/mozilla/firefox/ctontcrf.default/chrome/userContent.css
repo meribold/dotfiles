@@ -25,6 +25,18 @@
     max-width: 80ch !important;
   }
 
+  /* Fix the color, font size, and line length of text posts. */
+  .fatitem > tbody > tr:nth-child(4) > td:nth-child(2) {
+    color: #dfdfdf !important;
+    font-size: .9167rem !important;
+    max-width: 80ch !important;
+  }
+
+  /* Hide the search box.  (I've added a search engine to Firefox.) */
+  span.yclinks + br + br + form {
+    display: none;
+  }
+
   #hnmain {
     width: initial;
     margin-top: 6px;
@@ -39,8 +51,12 @@
     font-size: 100% !important;
   }
 
-  body, td {
+  body {
     font-size: 1rem !important;
+  }
+
+  td {
+    font-size: .9167rem !important;
   }
 
   .pagetop {
@@ -118,7 +134,8 @@
   /* Bright text */
   td.title a:link, span.comment font, span.comment font a:link, u a:link,
   span.yclinks a:link, body:not([id]), td:nth-child(2):not(.subtext) > a:link, input,
-  textarea, p > a, a > u, .c00, .c00 a:link, a[href="http://www.ycombinator.com/apply/"] {
+  textarea, p > a, a > u, .c00, .c00 a:link,
+  a[href="https://www.ycombinator.com/apply/"] {
     color: #dfdfdf !important;
   }
 
