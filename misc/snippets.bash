@@ -24,7 +24,7 @@ ip route show dev wlan0
 iw dev wlan0 link
 journalctl -fu dhcpcd@wlan0 --no-tail -b -o cat
 journalctl -fu wpa_supplicant@wlan0 --no-tail -b -o cat
-jpm run -b /usr/bin/firefox-developer # test Firefox add-on
+jpm run -b /usr/bin/firefox-developer-edition # test Firefox add-on
 killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 latexmk -pdf -shell-escape

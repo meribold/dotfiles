@@ -44,7 +44,7 @@
 
 ;; Set the name by which to invoke Firefox; in effect, use Firefox Developer Edition as
 ;; the default browser.
-(setq browse-url-firefox-program "firefox-developer")
+(setq browse-url-firefox-program "firefox-developer-edition")
 
 ;; Load host-specific Lisp files.  The third argument tells `load` not to report an error
 ;; if a file doesn't exist.  I only create symlinks for files I want to load on each

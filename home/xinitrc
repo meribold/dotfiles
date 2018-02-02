@@ -64,7 +64,7 @@ case $1 in
            exec xmonad;;
    # I didn't realize this was possible.  Not very useful for Firefox but [maybe for
    # graphical games](https://wiki.archlinux.org/index.php/Xinitrc).
-   firefox) exec firefox-developer;;
+   firefox) exec ${FIREFOX:-firefox};;
    # Try to start whatever $1 is.
    *) exec "$1";;
 esac

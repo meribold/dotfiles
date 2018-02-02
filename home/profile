@@ -1,6 +1,7 @@
 export VISUAL=nvim
 export EDITOR=nvim
-export BROWSER=firefox-developer
+export FIREFOX=firefox-developer-edition
+export BROWSER=$FIREFOX
 
 # Export an environment variable for executing the pgpewrap program bundled with
 # (Neo)Mutt.  See <https://stackoverflow.com/a/677212>.
