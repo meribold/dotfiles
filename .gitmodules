@@ -76,9 +76,6 @@
 [submodule "emacs.d/emacs-vim-modeline"]
 	path = home/emacs.d/emacs-vim-modeline
 	url = https://github.com/cinsk/emacs-vim-modeline
-[submodule "AUR/firefox-developer"]
-	path = misc/AUR/firefox-developer
-	url = https://aur.archlinux.org/firefox-developer.git
 [submodule "AUR/libmatthew-unix-java"]
 	path = misc/AUR/libmatthew-unix-java
 	url = https://aur.archlinux.org/libmatthew-unix-java.git
