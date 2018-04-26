@@ -11,7 +11,9 @@ if ! screen -S scratchpad -ls; then
    while ! screen -S scratchpad -ls; do sleep .1; done
 fi
 if ! screen -S fullscreen -ls; then
-   screen -d -m -S fullscreen
+   # Start a screen session with a window titled "nvim" running Neovim.  FIXME: does this
+   # break when "$PWD" isn't "$HOME"?
+   screen -d -m -S fullscreen -t nvim nvim -S
    while ! screen -S fullscreen -ls; do sleep .1; done
 fi
 
@@ -41,10 +43,6 @@ sleep .5
 # don't do this when we attached to an existing screen session.
 screen -S scratchpad -p 0 -X height -w 29
 screen -S scratchpad -p 0 -X stuff '^L'
-
-# Apparently just sending ^L works fine now.  Maybe something is special about hidden
-# scratchpad workspaces.
-screen -S fullscreen -p 0 -X stuff '^L'
 
 # TODO: is it possible to set the size of the terminals emulated be screen without
 # attaching to the screen session first?
