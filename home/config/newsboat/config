@@ -1,4 +1,4 @@
-browser $BROWSER
+browser "nohup $FIREFOX --new-tab %u &>/dev/null &"
 datetime-format "%F"  # ISO 8601
 refresh-on-startup yes
 reload-threads 42
