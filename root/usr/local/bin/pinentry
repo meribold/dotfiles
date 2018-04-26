@@ -10,7 +10,7 @@ case $PINENTRY_USER_DATA in
    gtk)
       exec /usr/bin/pinentry-gtk-2 "$@" ;;
    *)
-      exec /usr/bin/pinentry-curses "$@"
+      exec /usr/bin/pinentry-curses "$@" ;;
 esac
 
 # vim: tw=90 sts=-1 sw=3 et
