@@ -12,7 +12,7 @@
    "swallows": [
       {
          "class": "^XTerm$",
-         "instance": "^xterm$"
+         "instance": "^fullscreen$"
       }
    ],
    "type": "con"

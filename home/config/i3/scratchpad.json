@@ -16,7 +16,7 @@
          "swallows": [
             {
                "class": "^XTerm$",
-               "instance": "^xterm$"
+               "instance": "^scratchpad$"
             }
          ],
          "type": "con"

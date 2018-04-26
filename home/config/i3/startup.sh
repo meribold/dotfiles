@@ -21,14 +21,18 @@ fi
 #    session was started in detached mode and I'm starting a new xterm that immediately
 #    attaches.  Otherwise flow control is enabled.  I don't know why.
 # *  Preselect window 1 of the screen session with `-p 1`.
-xterm -sl 0 -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
+xterm -sl 0 -name scratchpad -e 'stty -ixon && exec screen -S scratchpad -x -p 1' &
 # Note: using `screen -r` for one xterm if we just created a detached session doesn't
 # always work when either xterm may attach first (`screen -r` won't attach to a session
 # that is already attached somewhere else).  Contrary to what the screen(1) man page says,
 # `screen -x` still works when the screen session is detached.
 
-# Wait a little so the xterm will hopefully be started...
-sleep .3
+# Start the second xterm and attach to the screen session.  Preselect window 0.  This
+# xterm gets placed on workspace 2 and I mainly use it for Vim and Mutt.
+xterm -sl 0 -name fullscreen -e 'stty -ixon && exec screen -S fullscreen -x -p 0' &
+
+# Wait a little so the xterms will hopefully be started...
+sleep .5
 
 # Set the window height to 29 lines (the height of the xterm; I think it's assumed to be
 # 24 otherwise).  Then, send ^L to the input buffer of window 0 (using screen's `stuff`
@@ -37,13 +41,6 @@ sleep .3
 # don't do this when we attached to an existing screen session.
 screen -S scratchpad -p 0 -X height -w 29
 screen -S scratchpad -p 0 -X stuff '^L'
-
-# Start the second xterm and attach to the screen session.  Preselect window 0.  This
-# xterm gets placed on workspace 2 and I mainly use it for Vim and Mutt.
-xterm -sl 0 -e 'stty -ixon && exec screen -S fullscreen -x -p 0' &
-
-# Wait until the xterm is started again (hopefully)...
-sleep .3
 
 # Apparently just sending ^L works fine now.  Maybe something is special about hidden
 # scratchpad workspaces.
