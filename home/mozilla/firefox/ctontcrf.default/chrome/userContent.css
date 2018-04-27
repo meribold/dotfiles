@@ -12,7 +12,7 @@
   }
 
   td[bgcolor="#ff6600"] {
-    background-color: #d0d0d0;
+    background-color: #d0d0d0 !important;
   }
 
   body, td, .admin td, .subtext td, input[type="submit"], .default, .admin, .title,
@@ -38,7 +38,7 @@
   }
 
   #hnmain {
-    width: initial;
+    width: auto !important;
     margin-top: 6px;
     margin-bottom: 6px;
   }
