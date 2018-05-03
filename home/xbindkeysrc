@@ -10,10 +10,10 @@
 "amixer -q set Master toggle"
    XF86AudioMute
 
-"amixer -q set PCM playback 2dB-"
+"amixer -q set Master playback 2dB-"
    XF86AudioLowerVolume
 
-"amixer -q set PCM playback 2dB+"
+"amixer -q set Master playback 2dB+"
    XF86AudioRaiseVolume
 
 "mpc next"
