@@ -3,10 +3,23 @@
 # Print the remaining amount of energy stored in the battery identified by `BAT0`.  This
 # is what works on my ThinkPad X220 and is probably not portable to other laptops without
 # changes.
-now=$(</sys/class/power_supply/BAT0/energy_now)
-full=$(</sys/class/power_supply/BAT0/energy_full)
+
+cd /sys/class/power_supply/BAT0
+
+# XXX: sometimes there are `energy_now` and `energy_full` pseudofiles, and sometimes there
+# are `charge_now` and `charge_full` pseudofiles instead.
+declare -i energy_divisor
+if [[ -e energy_now ]]; then
+   now=$(<energy_now)
+   full=$(<energy_full)
+   energy_divisor=1000000
+elif [[ -e charge_now ]]; then
+   now=$(<charge_now)
+   full=$(<charge_full)
+   energy_divisor=100000
+fi
 # http://mywiki.wooledge.org/ArithmeticExpression
 percent=$((100 * now / full))
-now=$(bc <<< "scale=1; $now / 1000000")
-full=$(bc <<< "scale=1; $full / 1000000")
+now=$(bc <<< "scale=1; $now / $energy_divisor")
+full=$(bc <<< "scale=1; $full / $energy_divisor")
 echo "$now Wh / $full Wh (${percent}%)"
