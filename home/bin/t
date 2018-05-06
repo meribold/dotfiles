@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# Translate a word from English to German and vice versa.  I don't know how to invoke
+# `dict` specifying more than one database to search (exception: searching all available
+# databases is no problem), so this functions runs `dict` twice: once for "eng-deu" and
+# once for "deu-eng".  Then, the output is processed to make it look like a normal
+# invocation of `dict` in all cases.
+#
+# Tests passed: `t curious`, `t du`, `t la`, `t treee`, `t lassso`, `t kindergarten`,
+# `t haus`, `t nun`.
+
+output=$(dict -d eng-deu -- "$1" 2>&1)
+status=$?
+other_output=$(dict -d deu-eng -- "$1" 2>&1)
+other_status=$?
+# See http://mywiki.wooledge.org/BashFAQ/002.
+if [[ $status -eq 0 && $other_status -eq 0 ]]; then
+   # Both commands succeeded (should happen for `t kindergarten`, for example).
+   # Merge the "definition found" lines.
+   declare -i definition_count # Using `declare` also renders variables local.
+   definition_count=${output%% *}
+   definition_count+=${other_output%% *}
+   echo "$definition_count definitions ${output#* * }"
+   # See http://wiki.bash-hackers.org/syntax/pe.
+   # Remove the top line.
+   echo "$other_output" | tail -n +2
+elif [[ $status -eq 0 ]]; then
+   # Only the first lookup succeeded.
+   echo "$output"
+elif [[ $other_status -eq 0 ]]; then
+   # Only the second lookup succeeded.
+   echo "$other_output"
+else
+   # SNAFU.
+   if [[ $other_output = *'perhaps you mean'* ]]; then
+      echo "$other_output" | head -n 1
+   else
+      echo "$output" | head -n 1
+   fi
+   echo "$output" | tail -n +2
+   echo "$other_output" | tail -n +2
+fi

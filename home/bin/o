@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Select a file with fzf and open it with xdg-open.  If only one file matches "$1", bypass
+# fzf (`--select-1`).  Exit fzf immediately if there's no match (`--exit-0).  Adapted from
+# the snippets at <https://github.com/junegunn/fzf/wiki/Examples>.  xdg-open is ran in the
+# background and all its file descriptors are redirected do /dev/null.  See
+# https://felixmilea.com/2014/12/running-bash-commands-background-properly,
+# http://superuser.com/a/178592 and https://gist.github.com/dualbus/9275406.
+if [[ -f $1 ]]; then
+   file=$1
+else
+   if [[ -d "$1" ]]; then
+      # Remove a trailing / from $1 (if it ends in one), then append /.
+      path=${1/%\/}/
+   else
+      # Remove the longest possible string ending with / from the beginning of $1 (see
+      # http://wiki.bash-hackers.org/syntax/pe#common_use).
+      query=${1##*/}
+      # Consider everything up to and including the last / (or nothing if there is
+      # none) to be the path to search.
+      path=${1%$query}
+   fi
+   file=$path$(cd -- "$path" && fzf --query="$query" --select-1 --exit-0) || exit
+fi
+[[ -n $file ]] && { xdg-open "$file" &>/dev/null <&1 & disown; }
