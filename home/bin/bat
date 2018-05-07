@@ -7,19 +7,23 @@
 cd /sys/class/power_supply/BAT0
 
 # XXX: sometimes there are `energy_now` and `energy_full` pseudofiles, and sometimes there
-# are `charge_now` and `charge_full` pseudofiles instead.
-declare -i energy_divisor
+# are `charge_now` and `charge_full` pseudofiles instead.  See [1].
 if [[ -e energy_now ]]; then
    now=$(<energy_now)
    full=$(<energy_full)
+   # The energy is given in microwatt hours: convert to watt hours.
    energy_divisor=1000000
 elif [[ -e charge_now ]]; then
    now=$(<charge_now)
    full=$(<charge_full)
-   energy_divisor=100000
+   # The energy is given in microampere hours.  We need to multiply by the voltage later
+   # to get watt hours.  1000000 / 11.1 ~= 90090.09.
+   energy_divisor=90090.09
 fi
 # http://mywiki.wooledge.org/ArithmeticExpression
 percent=$((100 * now / full))
 now=$(bc <<< "scale=1; $now / $energy_divisor")
 full=$(bc <<< "scale=1; $full / $energy_divisor")
 echo "$now Wh / $full Wh (${percent}%)"
+
+# [1]: https://bbs.archlinux.org/viewtopic.php?id=131025
