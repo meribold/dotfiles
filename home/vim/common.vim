@@ -747,6 +747,19 @@ else
    " right now.
 endif
 
+nnoremap j gj
+nnoremap k gk
+
+" Heresy refined.  Courtesy of Steve Losh (found in a discussion of his Vim configuration
+" on Hacker News: <https://news.ycombinator.com/item?id=3252644>).
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+
+" Use the semicolon key to enter Ex commands.  The key is available thanks to
+" [clever-f.vim](https://github.com/rhysd/clever-f.vim).  Also see
+" <http://stevelosh.com/blog/2010/09/coming-home-to-vim/>.
+noremap ; :
+
 " Use . (`:h .`) in visual mode to repeat the last change for each selected line (see
 " `:h :normal-range`).  This often doesn't work as expected.  Try repeating `dd`.  The
 " mapping doesn't override anything though, so it's probably still worth keeping.  Picked
