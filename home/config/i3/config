@@ -25,9 +25,6 @@ bindsym $mod+r exec --no-startup-id "$(yeganesh -x -- -b -f -fn 'Dina-5:style=re
 # Run clipmenu.
 bindsym $mod+y exec --no-startup-id clipmenu -b -f -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#87af5f' -sf '#000000'
 
-# Run passmenu.
-bindsym $mod+p exec --no-startup-id env PINENTRY_USER_DATA=gtk passmenu --type -b -f -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#8787af' -sf '#ffffff'
-
 # Start an xterm and run muccadoro [1], a pomodoro [2] timer.  By the way, using `-class`
 # instead of `-title` would mean all my X resources aren't applied to the xterm.  We could
 # also use `xterm -name muccadoro ...` and `for_window [instance="muccadoro] ...`.  The

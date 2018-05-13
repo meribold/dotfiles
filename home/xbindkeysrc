@@ -71,4 +71,8 @@
 "j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -theme-str "* { accent-color: @red; }"'"
    Mod4 + u
 
+# Run [rofi-pass](https://github.com/carnager/rofi-pass), an alternative to passmenu.
+"PINENTRY_USER_DATA=gtk rofi-pass"
+   Mod4 + p
+
 # vim: tw=90 sts=-1 sw=3 et ft=conf

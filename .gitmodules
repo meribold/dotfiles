@@ -121,3 +121,6 @@
 [submodule "misc/muccadoro"]
 	path = misc/muccadoro
 	url = https://github.com/meribold/muccadoro.git
+[submodule "misc/rofi-pass"]
+	path = misc/rofi-pass
+	url = https://github.com/meribold/rofi-pass.git
