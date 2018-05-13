@@ -43,7 +43,7 @@
     * be referenced. */
    black:   #000000;
    red:     #d75f5f;
-   green:   #8787af;
+   green:   #87af5f;
    yellow:  #ffdf87;
    blue:    #8787af;
    magenta: #d70087;
