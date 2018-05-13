@@ -61,7 +61,7 @@
 #   matching: while I type "firefox", the highest ranked match is "Signal Private
 #   Messenger" until I type the "x".  Using the `-disable-history` flag doesn't fix this.
 #   TODO: what's going on here?
-# * `j4-dmenu-desktop` allows customizing the format used to list desktop entry files -- I
+# * `j4-dmenu-desktop` allows customizing the format used to list desktop entry files---I
 #   don't think Rofi's built-in `drun` mode can do that.
 #
 # Unlike `i3-dmenu-desktop(1)`, both Rofi's `drun` mode and `j4-dmenu-desktop` are fast,
