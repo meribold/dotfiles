@@ -400,22 +400,6 @@ let g:neomake_place_signs = 0
 autocmd vimrc_common FileType cpp setlocal commentstring=//%s
 autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
-" vim-sneak {{{2
-" Let Sneak handle f, F, t and T.
-" nmap f <Plug>Sneak_f
-" nmap F <Plug>Sneak_F
-" xmap f <Plug>Sneak_f
-" xmap F <Plug>Sneak_F
-" omap f <Plug>Sneak_f
-" omap F <Plug>Sneak_F
-" nmap t <Plug>Sneak_t
-" nmap T <Plug>Sneak_T
-" xmap t <Plug>Sneak_t
-" xmap T <Plug>Sneak_T
-" omap t <Plug>Sneak_t
-" omap T <Plug>Sneak_T
-
-" }}}2
 " vim-markdown {{{2
 " let g:vim_markdown_folding_disabled = 1
 " let g:vim_markdown_no_default_key_mappings = 1
