@@ -124,3 +124,6 @@
 [submodule "misc/rofi-pass"]
 	path = misc/rofi-pass
 	url = https://github.com/meribold/rofi-pass.git
+[submodule "misc/AUR/freedict-tools"]
+	path = misc/AUR/freedict-tools
+	url = https://aur.archlinux.org/freedict-tools.git
