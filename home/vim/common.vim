@@ -388,7 +388,12 @@ onoremap <silent> aB :call TextObjWordBasedColumn('aW')<CR>
 onoremap <silent> ib :call TextObjWordBasedColumn('iw')<CR>
 onoremap <silent> iB :call TextObjWordBasedColumn('iW')<CR>
 
-source ~/.vim/vim-autoformat.vim " {{{2
+" Source separate configuration files.  See `:h filename-modifiers`, `:h fnamemodify` and
+" <http://ryrych.pl/protips/2016-04-23-splitting-vim-config-into-modules-protip/>.  I used
+" to just use the `:source` command with an absolute path (~/.vim/...); that broke when I
+" symlinked to my Vim configuration from `~/vimfiles` on Windows.
+let s:vimrc_path = fnamemodify($MYVIMRC, ':h') . '/'
+exe 'so ' . s:vimrc_path . 'vim-autoformat.vim'
 
 " neomake {{{2
 let g:neomake_echo_current_error = 0
