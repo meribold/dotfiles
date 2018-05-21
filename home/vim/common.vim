@@ -10,7 +10,7 @@
 " of the bundled VimL files also use the default group so sourcing this file again after
 " startup would kill their autocommands as well (e.g., syntax highlighting did stop being
 " enabled automatically in new buffers).  I think the default autocommand group should be
-" reserved for users.
+" reserved for users, but alas...
 augroup vimrc_common
    autocmd!
 augroup END
@@ -750,7 +750,8 @@ inoremap <C-E> <End>
 noremap ; :
 " For consistency, also support opening the command-line window with `q;`.  Don't `nmap`
 " because that also adds an operator-pending mapping which incurs a delay when using `gqq`
-" (format the current line).
+" (format the current line).  TODO: there's still a delay when using `q` to stop recording
+" a macro.
 nnoremap q; q:
 vnoremap q; q:
 
