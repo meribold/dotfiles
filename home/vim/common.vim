@@ -748,8 +748,11 @@ inoremap <C-E> <End>
 " [clever-f.vim](https://github.com/rhysd/clever-f.vim).  Also see
 " <http://stevelosh.com/blog/2010/09/coming-home-to-vim/>.
 noremap ; :
-" For consistency, also support opening the command-line window with `q;`.
-noremap q; q:
+" For consistency, also support opening the command-line window with `q;`.  Don't `nmap`
+" because that also adds an operator-pending mapping which incurs a delay when using `gqq`
+" (format the current line).
+nnoremap q; q:
+vnoremap q; q:
 
 " Use . (`:h .`) in visual mode to repeat the last change for each selected line (see
 " `:h :normal-range`).  This often doesn't work as expected.  Try repeating `dd`.  The
