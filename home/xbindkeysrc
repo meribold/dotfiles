@@ -75,4 +75,4 @@
 "PINENTRY_USER_DATA=gtk rofi-pass"
    Mod4 + p
 
-# vim: tw=90 sts=-1 sw=3 et ft=conf
+# vim: ft=conf

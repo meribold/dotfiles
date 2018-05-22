@@ -68,5 +68,3 @@ case $1 in
    # Try to start whatever $1 is.
    *) exec "$1";;
 esac
-
-# vim: tw=90 sts=-1 sw=3 et

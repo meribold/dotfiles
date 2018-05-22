@@ -10,5 +10,3 @@ set show-all-if-ambiguous on
 set input-meta   on
 set output-meta  on
 set convert-meta off
-
-# vim: tw=90 sts=-1 sw=3 et

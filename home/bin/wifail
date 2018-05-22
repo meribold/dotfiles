@@ -16,5 +16,3 @@ xterm -title 'ping gateway' -e 'while true; do a=$(ip ro | awk '\''/^def/{print 
 xterm -title 'ip address show dev wlan0' -e 'watch -d -n 1 ip address show dev wlan0' &
 xterm -title route -e 'watch -d -n 1 route -n' &
 xterm -title 'ping google.com' -e 'while true; do ping -c 8 google.com && sleep 10 && clear || sleep 1; done' &
-
-# vim: tw=90 sts=-1 sw=3 et

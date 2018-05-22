@@ -20,5 +20,3 @@ while read; do
          $'<small>MPD: now playing</small>\n'"${mpd_status[0]}"
    fi
 done
-
-# vim: tw=90 sts=-1 sw=3 et

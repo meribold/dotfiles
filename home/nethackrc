@@ -15,5 +15,3 @@ CATNAME=Leibniz
 OPTIONS=align:lawful, boulder:0
 OPTIONS=runmode:crawl, !splash_screen, standout, lit_corridor
 OPTIONS=pettype:cat, fruit:space brain
-
-# vim: tw=90 sts=-1 sw=3 et

@@ -13,5 +13,3 @@ sed '/^$/d' |
 dmenu -b -f -l 8 -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#ffdf87' \
       -sf '#000000'
 # rofi -dmenu -p '' -auto-select
-
-# vim: tw=90 sts=-1 sw=3 et

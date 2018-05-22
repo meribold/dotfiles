@@ -50,4 +50,4 @@ fi
 # can be used without specifying a path.  See cowsay(1).
 export COWPATH="/usr/local/share/cows:/usr/share/cows:$COWPATH"
 
-# vim: tw=90 sts=-1 sw=3 et ft=sh
+# vim: ft=sh

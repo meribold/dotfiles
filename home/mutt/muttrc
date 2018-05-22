@@ -272,4 +272,4 @@ bind index,pager <Right> sidebar-open
 bind index,pager <Left>  sidebar-toggle-visible
 # }}}1
 
-# vim: tw=90 sts=-1 sw=3 et nowrap fdm=marker
+# vim: nowrap fdm=marker

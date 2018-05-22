@@ -24,4 +24,4 @@ style "gVimFix" {
 }
 widget "vim-main-window.*GtkForm" style "gVimFix"
 
-# vim: tw=90 sts=-1 sw=3 et cms=#%s
+# vim: cms=#%s

@@ -923,4 +923,4 @@ nnoremap <silent> <expr> <CR> <SID>OnEnter()
 xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
 
 " }}}1
-" vim: tw=90 sts=-1 sw=3 et fdm=marker
+" vim: fdm=marker

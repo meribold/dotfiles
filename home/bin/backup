@@ -37,5 +37,3 @@ if [[ $? -eq 0 ]]; then
    # `last` to the backup we just created.
    (cd "$dest" && ln -sfv -T "$date" last)
 fi
-
-# vim: tw=90 sts=-1 sw=3 et

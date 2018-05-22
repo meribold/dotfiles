@@ -14,5 +14,3 @@ USERNAME = 'meribold'
 # [2]: https://gist.github.com/klmr/3840aa3c12f947e4064c
 # [3]: https://docs.python.org/3/library/subprocess.html
 PASSWORD = sp.run(['pass', 'show', 'github'], stdout = sp.PIPE).stdout.splitlines()[0]
-
-# vim: tw=90 sts=-1 sw=4 et

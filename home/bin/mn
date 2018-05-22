@@ -35,5 +35,3 @@ esac
 
 # TODO: move the file back if `ln` fails?
 ln -sT -- "$target" "${original%/}"
-
-# vim: tw=90 sts=-1 sw=3 et
