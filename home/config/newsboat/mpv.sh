@@ -6,5 +6,5 @@
 screen -X split
 screen -X focus
 screen -X resize 10
-screen bash -c 'trap '\''screen -X focus top && screen -X only'\'' EXIT; mpv --keep-open -- '\'"$1"\'
+screen -t mpv bash -c 'trap '\''screen -X focus top && screen -X only'\'' EXIT; mpv --keep-open -- '\'"$1"\'
 screen -X focus
