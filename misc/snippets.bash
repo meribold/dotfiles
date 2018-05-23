@@ -1,6 +1,6 @@
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
-cat /proc/acpi/ibm/{thermal,fan} | head -n -3 # temperatures
+cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/class/power_supply/BAT1/energy_{now,full}
 clear && neofetch --uptime_shorthand tiny --ascii && read
 cower -u
