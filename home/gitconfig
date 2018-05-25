@@ -38,5 +38,12 @@
 	             [[ $1 != get ]] && return 0; \
 	             printf 'password='; pass show github | head -1; \
 	           }; f"
+[credential "https://gitlab.com"]
+	username = meribold
+	; See above.
+	helper = !"f() { \
+	             [[ $1 != get ]] && return 0; \
+	             printf 'password='; pass show gitlab | head -1; \
+	           }; f"
 
 ; vim: ft=gitconfig tw=90 sts=-1 sw=0 ts=8 noet
