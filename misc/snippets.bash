@@ -10,7 +10,6 @@ firefox-developer --new-tab $(gatewayip) # Try to open a router's web interface
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 git clean -dfx && git checkout -- .
 git commit -m 'Update commits recorded by submodules'
-git log --oneline --decorate --graph
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
 git submodule foreach git clean -dfx # remove all untracked files of all submodules

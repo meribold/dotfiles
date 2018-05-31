@@ -12,6 +12,13 @@
 [alias]
 	amend = commit --amend
 	c = commit
+	ff = merge --ff-only
+	; See <https://stackoverflow.com/a/35075021>.  TODO: Is `--decorate` needed?  I
+	; don't think so (https://stackoverflow.com/a/25097285).
+	adog = log --all --decorate --oneline --graph
+	; I like `adog`, but usually I also want the date: this alias is pretty much the
+	; same as `adog` but also shows the relative author date.
+	graph = log --all --graph --format='%C(auto)%h %C(dim)%ar%C(auto)%d %s'
 [credential]
 	; Temporarily store passwords in memory.  Set before the helper that invokes
 	; `pass` so Git will consult the `credential-cache` helper first.  The shell
