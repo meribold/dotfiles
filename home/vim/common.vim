@@ -355,6 +355,17 @@ set shortmess+=I " Don't give the intro message when starting Vim.
 set backup
 set writebackup
 
+" Use the 'en_us' instead of the 'en' word list as the default for spell checking.  This
+" helps with consistently using one spelling when (e.g.) American and British English
+" differ (color, colour; gray, grey, ...).  I'm using the American instead of the British
+" (or any other) word list for no particular reason; the point is just to have Vim help
+" with spelling stuff in one way consistently (one thing I prefer about American English
+" is that spellings are usually shorter than their British counterparts, though).  Note
+" that the highlighting for misspellings that would be correct according to another
+" regional variety of English are highlighted differently than other spelling errors.  See
+" `:h spell`.
+set spelllang=en_us
+
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw, vim-dirvish, open-browser.vim {{{2
