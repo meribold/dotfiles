@@ -23,7 +23,7 @@
 ### [Sigaldry][]
 
 *   Convert [Sigaldry][] to use WebExtensions APIs.
-*   Use it to keep the set of search engines synchronised between machines and profiles.
+*   Use it to keep the set of search engines synchronized between machines and profiles.
 
 [Sigaldry]: /misc/sigaldry
 
