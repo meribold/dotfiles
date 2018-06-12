@@ -28,11 +28,11 @@ killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
-mount ~/sdb1 # mount known USB drive as normal user
-mount ~/sdb1 && { git pull usb; umount ~/sdb1; } # pull from my USB drive
-mount ~/sdb1 && { git push usb; umount ~/sdb1; } # push to my USB drive
-mount ~/sdb1 && { pass git pull; umount ~/sdb1; } # pull to ~/.password-store
-mount ~/sdb1 && { pass git push; umount ~/sdb1; } # push ~/.password-store
+mount ~/v8x # mount my USB drive (this only works because of an entry in my fstab(5))
+mount ~/v8x && { git pull usb; umount ~/v8x; } # pull from my USB drive
+mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
+mount ~/v8x && { pass git pull; umount ~/v8x; } # pull to ~/.password-store
+mount ~/v8x && { pass git push; umount ~/v8x; } # push ~/.password-store
 mpc clear && mpc ls | mpc add
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 pacman -Qeq --foreign > ~/packages-foreign.txt
@@ -53,7 +53,7 @@ sudo systemctl restart wpa_supplicant@wlan0
 sudo systemctl suspend
 sudo umount ~/sdb1
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
-umount ~/sdb1
+umount ~/v8x
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
 while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read -n 1; done
 xprop
