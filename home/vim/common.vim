@@ -339,9 +339,6 @@ if exists('&breakindent') " character that fits on the screen.
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set maxmem=2000000    " Lots of memory for each buffer.
-set maxmemtot=2000000 " Lots of memory for all buffers together.
-
 set undofile " Make undo history persistent.
 
 " TODO: what was the idea with this?
