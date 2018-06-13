@@ -6,14 +6,22 @@ i3-msg 'append_layout ~/.config/i3/workspace-2.json; move workspace 2'
 
 # Create two screen sessions: one for the scratchpad and one for a fullscreen terminal.
 if ! screen -S scratchpad -ls; then
-   # There's no screen session named "scratchpad"; create one.
-   screen -S scratchpad -d -m
+   # There's no screen session named "scratchpad".  Create one.  XXX: The weird "bash -c"
+   # incantation fixes an issue that appeared after doing a system upgrade on 2018-06-08:
+   # fzf(1) ceased to accept any input (not even Ctrl-C) in the two screen windows started
+   # here (new windows created in the screen *sessions* are fine, though).  I don't know
+   # what `stty min 1` does (reading stty(1) didn't help me either); I simply looked at
+   # how the output of `stty -a` differed in a screen window in which fzf didn't work to
+   # the output in another screen window (or terminal) and tried changing the differing
+   # settings.  TODO: see if this can be removed at some point and if the "bash -c ..."
+   # thing below can be changed back to just "nvim -S" later.
+   screen -S scratchpad -d -m bash -c 'stty min 1 && exec bash'
    while ! screen -S scratchpad -ls; do sleep .1; done
 fi
 if ! screen -S fullscreen -ls; then
    # Start a screen session with a window titled "nvim" running Neovim.  FIXME: does this
    # break when "$PWD" isn't "$HOME"?
-   screen -d -m -S fullscreen -t nvim nvim -S
+   screen -d -m -S fullscreen -t nvim bash -c 'stty min 1 && exec nvim -S'
    while ! screen -S fullscreen -ls; do sleep .1; done
 fi
 
