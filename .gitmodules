@@ -127,3 +127,21 @@
 [submodule "misc/AUR/freedict-tools"]
 	path = misc/AUR/freedict-tools
 	url = https://aur.archlinux.org/freedict-tools.git
+[submodule "misc/AUR/ttf-merriweather"]
+	path = misc/AUR/ttf-merriweather
+	url = https://aur.archlinux.org/ttf-merriweather.git
+[submodule "misc/AUR/ttf-merriweather-sans"]
+	path = misc/AUR/ttf-merriweather-sans
+	url = https://aur.archlinux.org/ttf-merriweather-sans.git
+[submodule "misc/AUR/ttf-opensans"]
+	path = misc/AUR/ttf-opensans
+	url = https://aur.archlinux.org/ttf-opensans.git
+[submodule "misc/AUR/ttf-oswald"]
+	path = misc/AUR/ttf-oswald
+	url = https://aur.archlinux.org/ttf-oswald.git
+[submodule "misc/AUR/ttf-quintessential"]
+	path = misc/AUR/ttf-quintessential
+	url = https://aur.archlinux.org/ttf-quintessential.git
+[submodule "misc/AUR/ttf-signika"]
+	path = misc/AUR/ttf-signika
+	url = https://aur.archlinux.org/ttf-signika.git
