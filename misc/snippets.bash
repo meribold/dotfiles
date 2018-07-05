@@ -33,7 +33,7 @@ mount ~/v8x && { git pull usb; umount ~/v8x; } # pull from my USB drive
 mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
 mount ~/v8x && { pass git pull; umount ~/v8x; } # pull to ~/.password-store
 mount ~/v8x && { pass git push; umount ~/v8x; } # push ~/.password-store
-mpc clear && mpc add /
+mpc clear && mpc add / && mpc shuffle
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 pacman -Qeq --foreign > ~/packages-foreign.txt
 pacman -Qeq --native > ~/packages-native.txt
