@@ -234,11 +234,13 @@ endif
 " [4]: https://github.com/tpope/vim-sensible/commit/9e91be7
 set nolazyredraw " This currently is the default.
 
-" Makes Y consistent with C and D.  See :h Y and :h &.  Removed by
-" <https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff7bcf3800>.
+" Make Y consistent with C and D.  See `:h Y` and `:h &`.  Additionally, change & to
+" *exactly* repeat the last substitute (it drops any flags by default).  These three lines
+" were removed from sensible.vim by [e48a405][].
 nnoremap Y y$
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
+" [e48a405]: https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff
 
 " }}}2
 " Use <Space> as <Leader> and <BS> as <LocalLeader>.
