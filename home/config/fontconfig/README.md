@@ -67,8 +67,8 @@ It's important to know the <!--sequence-->order in which Fontconfig loads config
 files.  There usually are lots in `/etc/fonts/conf.d/` and they interfere with
 user-specific configuration.  The only explanation I've found is in the [*Tuning
 Fontconfig*][] section of [*Beyond Linux From Scratch*][]: files in `/etc/fonts/conf.d/`
-have names starting with a two-digit number and a hyphen and smaller numbers are loaded
-first.
+have names starting with a two-digit number followed by a hyphen and smaller numbers are
+loaded first.
 
 Loading files from the configuration paths specified by [`fonts-conf(5)`][] isn't
 intrinsic behavior of Fontconfig.  Instead, the master `/etc/fonts/fonts.conf` file
@@ -78,6 +78,46 @@ system,<sup>[\[1\]](#user-content-footnote-1)</sup> it only includes files in
 [`~/.config/fontconfig/fonts.conf`][`fonts.conf`].  The takeaway is that the user-specific
 configuration here is loaded sort of after one half and before<!--the other--> one half of
 the system-wide configuration files.
+
+My configuration file started off based on the one in [this section][fonts-aw-ffo] of the
+[*Fonts*][Fonts - ArchWiki] ArchWiki article.  The important part is an `<alias>` element
+such as:
+
+```xml
+<alias>
+   <family>sans-serif</family>
+   <prefer>
+      <family>Ubuntu</family>
+      <family>Noto Sans CJK TC</family>
+      <family>Noto Color Emoji</family>
+      <family>Noto Sans</family>
+   </prefer>
+</alias>
+```
+
+It says to prepend those 4 font families to the list of best-matching fonts in that order
+when "sans-serif" is requested.
+
+<!--
+Configuration files with numbers that are lower than 50 and that also prepend fonts to
+`serif`, `sans-serif`, or `monospace` win.  The fonts they prepend are above the ones I
+prepend in the output of `fc-match`.  The file that messes stuff up is
+`/etc/fonts/conf.d/30-infinality-aliases.conf`.  I think it does stuff that should really
+be done in files with numbers 60 to 69 (see [*Tuning Fontconfig*]; search for "generic
+aliases, map generic to family").
+-->
+
+This would typically work.  I think.  It didn't quite do it for me, though.  Something
+else was also prepending "Noto Sans" with the effect that it ended up at the very top of
+the font list.  I identified [`30-infinality-aliases.conf`][], which I got from the
+[`fonts-meta-extended-lt`][] package, as the culprit.  It does this:
+
+```xml
+<alias>
+    <family>sans-serif</family>
+    <prefer><family>Noto Sans</family></prefer>
+</alias>
+```
 
 ## Footnotes
 
@@ -112,3 +152,9 @@ the system-wide configuration files.
     "Tuning Fontconfig"
 [*Beyond Linux From Scratch*]: http://linuxfromscratch.org/blfs/view/stable/index.html
 [`fonts.conf`]: fonts.conf
+[fonts-aw-ffo]: https://wiki.archlinux.org/index.php/Fonts#Fallback_font_order_with_X11
+    "\"Fallback font order with X11\" (Fonts - ArchWiki)"
+[Fonts - ArchWiki]: https://wiki.archlinux.org/index.php/Fonts "Fonts - ArchWiki"
+[`30-infinality-aliases.conf`]: https://gist.githubusercontent.com/cryzed/4f64bb79e80d619866ee0b18ba2d32fc/raw/bd073b52365393f9f0718425271825fc27b218f7/local.conf
+[`fonts-meta-extended-lt`]: https://aur.archlinux.org/packages/fonts-meta-extended-lt
+    "AUR (en) - fonts-meta-extended-lt"
