@@ -119,10 +119,38 @@ the font list.  I identified [`30-infinality-aliases.conf`][], which I got from 
 </alias>
 ```
 
+<!-- TODO: is rule the correct term? -->
+But wait!<!-- At this point I got pretty confused. -->
+How can <code><b>30</b>-infinality-aliases.conf</code> override <!--my-->a rule that is
+ultimately included from <code><b>50</b>-user.conf</code>?  Well, there are two ways in
+which Fontconfig can prepend fonts and `<prefer>`ing is syntactic sugar for inserting
+before the matching `<family>` but not actually at the top<!-- of the list-->.
+`30-infinality-aliases.conf` does this before my own configuration and consequently it
+wins.<sup>[\[2\]](#user-content-footnote-2)</sup>
+
+We can get around this using `<prepend_first>`, but have to do without the `<alias>`
+shorthand<!--forego using the `<alias>` shorthand--><!-- we can't use the `<alias>`
+shorthand anymore-->:
+
+```xml
+<match target="pattern">
+   <test name="family">
+      <string>sans-serif</string>
+   </test>
+   <edit name="family" mode="prepend_first">
+      <string>Ubuntu</string>
+      <string>Noto Sans CJK TC</string>
+      <string>Noto Color Emoji</string>
+      <string>Noto Sans</string>
+   </edit>
+</match>
+```
+
 ## Footnotes
 
 <ol>
 <li id="footnote-1"><a href="https://redd.it/32o299">Did I tell you I use Arch Linux?</a></li>
+<li id="footnote-2"><b>TODO</b>: talk about how <code>30-infinality-aliases.conf</code> breaks the <a href="http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html">rules</a>.</li>
 </ol>
 
 [Fontconfig]: https://en.wikipedia.org/wiki/Fontconfig "Fontconfig - Wikipedia"
