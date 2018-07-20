@@ -26,6 +26,21 @@ output implies that (with my configuration) a program that (reasonably) wants to
 most default font possible will use [Ubuntu][], and a program that wants the default serif
 font will use [Noto Serif CJK TC][].
 
+## My configuration
+
+First, I want [Ubuntu][] to be the default sans-serif typeface for the Latin alphabet.
+That is, I want `fc-match sans-serif` to print it.
+
+<!-- Is character the correct term here?  What about symbol, glyph, grapheme, sign,
+ideograph, ...-->
+Second, Google's [Noto][] font family should be used as the fallback for every character
+missing in Ubuntu.  This is complicated by [Han unification][]<!--, a controversial effort
+by the authors of Unicode-->.
+
+### Major tangent: Han unification
+
+**TODO.**
+
 ## Footnotes
 
 <ol>
@@ -38,3 +53,6 @@ font will use [Noto Serif CJK TC][].
 [`fc-match(1)`]: https://linux.die.net/man/1/fc-match "fc-match(1)"
 [Ubuntu]: https://en.wikipedia.org/wiki/Ubuntu_(typeface) "Ubuntu (typeface) - Wikipedia"
 [Noto Serif CJK TC]: https://www.google.com/get/noto/#serif-hant "Google Noto Fonts"
+[Noto]: https://en.wikipedia.org/wiki/Noto_fonts "Noto fonts - Wikipedia"
+[Han unification]: https://en.wikipedia.org/wiki/Han_unification
+    "Han unification - Wikipedia"
