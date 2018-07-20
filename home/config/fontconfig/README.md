@@ -39,7 +39,9 @@ by the authors of Unicode-->.
 
 ### Major tangent: Han unification
 
-`<tangent>`
+<!-- (This section is majorly tangential.) -->
+
+(The following is majorly tangential information about Unicode and not about Fontconfig.)
 
 If your system is configured well and has the necessary fonts installed, you will see two
 similar but <!--distinct-->non-identical [Han characters][] here:
@@ -75,8 +77,6 @@ purpose.
 
 My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
 additional fallback font.
-
-`</tangent>`
 
 ## Footnotes
 
