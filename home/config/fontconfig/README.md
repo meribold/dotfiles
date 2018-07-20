@@ -149,6 +149,10 @@ shorthand:
 </match>
 ```
 
+My [`fonts.conf`][] consists of such `<match>` elements for `serif`, `sans-serif`, and
+`monospace`.  The semantics of Fontconfig's XML schema are documented in
+[`fonts-conf(5)`].
+
 <!-- ## Resources -->
 ## Sources
 
