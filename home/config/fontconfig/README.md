@@ -153,17 +153,8 @@ My [`fonts.conf`][] consists of such `<match>` elements for `serif`, `sans-serif
 `monospace`.  The semantics of Fontconfig's XML schema are documented in
 [`fonts-conf(5)`].
 
-<!-- ## Resources -->
 ## Sources
 
-<!--
-Here are most of the articles and other resources that were referenced before, as well as
-some that weren't but are still relevant and interesting:
--->
-<!--
-Here are most of the articles and other resources that I referenced, as well as many more
-relevant and interesting webpages:
--->
 Here are most of the articles and other resources that I referenced, as well some more
 that are relevant and interesting:
 
