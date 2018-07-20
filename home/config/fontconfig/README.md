@@ -64,7 +64,7 @@ additional fallback font.
 ### Back to topic (sort of)
 
 It's important to know the <!--sequence-->order in which Fontconfig loads configuration
-files.  There usually are lots in `/etc/fonts/conf.d/` and they interfere with any
+files.  There usually are lots in `/etc/fonts/conf.d/` and they interfere with
 user-specific configuration.  The only explanation I've found is in the [*Tuning
 Fontconfig*][] section of [*Beyond Linux From Scratch*][]: files in `/etc/fonts/conf.d/`
 have names starting with a two-digit number and a hyphen and smaller numbers are loaded
