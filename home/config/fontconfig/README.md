@@ -39,6 +39,8 @@ by the authors of Unicode-->.
 
 ### Major tangent: Han unification
 
+`<tangent>`
+
 If your system is configured well and has the necessary fonts installed, you will see two
 similar but <!--distinct-->non-identical [Han characters][] here:
 
@@ -54,6 +56,27 @@ only reason they (hopefully) look distinct is that I added [`lang`][] attributes
 list items.  Those two characters can only coexist when additional metadata is
 provided—possible on a webpage, but try copying both characters into your browser's
 [address bar][], a text editor, or a terminal: I bet they'll look the same.
+
+<!--
+One result of Han unification is that simply specifying "Noto Sans" as a fallback font
+means the choice which variant of [some Han characters][] is used in contexts that lack
+additional metadata is implicit.
+-->
+
+<!-- The consequence of Han unification that's relevant here is this: -->
+Relying on additional metadata for correct rendering of text seems like a weird choice in
+hindsight, but the consequence that's relevant here is this:
+choosing a fallback font<!-- for CJK--> also determines which variant of [some Han
+characters][] will be used in contexts that lack language metadata.  Simply asking for
+"[Noto Sans][]" apparently means that the Japanese [kanji][] forms will be used.  I
+want<!-- the [traditional Chinese characters][] used in Taiwan--> [traditional Chinese
+characters][] instead; Noto includes<!-- the--> [Noto Sans CJK TC][]<!-- font--> for this
+purpose.
+
+My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
+additional fallback font.
+
+`</tangent>`
 
 ## Footnotes
 
@@ -76,3 +99,11 @@ provided—possible on a webpage, but try copying both characters into your brow
 [`lang`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
     "lang - HTML | MDN"
 [address bar]: https://en.wikipedia.org/wiki/Address_bar "Address bar - Wikipedia"
+[some Han characters]: https://en.wikipedia.org/wiki/Variant_Chinese_character#Usage_in_computing
+    "Variant Chinese character - Wikipedia"
+[kanji]: https://en.wikipedia.org/wiki/Kanji
+    "Kanji - Wikipedia"
+[traditional Chinese characters]: https://en.wikipedia.org/wiki/Traditional_Chinese_characters
+    "Traditional Chinese characters - Wikipedia"
+[Noto Sans CJK TC]: https://www.google.com/get/noto/#sans-hant "Google Noto Fonts"
+[Noto Sans]: https://www.google.com/get/noto/#sans-lgc "Google Noto Fonts"
