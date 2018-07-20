@@ -149,6 +149,38 @@ shorthand:
 </match>
 ```
 
+<!-- ## Resources -->
+## Sources
+
+<!--
+Here are most of the articles and other resources that were referenced before, as well as
+some that weren't but are still relevant and interesting:
+-->
+<!--
+Here are most of the articles and other resources that I referenced, as well as many more
+relevant and interesting webpages:
+-->
+Here are most of the articles and other resources that I referenced, as well some more
+that are relevant and interesting:
+
+*   [*I stared into the fontconfig, and the fontconfig stared back at me*][] by Eevee
+*   [*The Secret Life of Unicode*][] by Suzanne Topping
+*   Joel Spolsky's [blog post about Unicode with a very long title][The 15 Excuses]
+*   [*Unicode Revisited*][] by Steven J. Searle
+*   [*Around the* 🌎 *with Unicode*][nora-sandler-unicode] by Nora Sandler
+*   Jonathan New's [article][poo] about the JavaScript `length` of emoji
+*   [`fonts-conf(5)`][] (this seems to be the primary documentation of Fontconfig)
+*   [`fc-match(1)`][]
+*   The *[Han unification][]*, *[Variant Chinese character][]*, *[Noto fonts][]*,
+    *[Fontconfig][]*, and *[Unicode][]* Wikipedia articles
+*   The [*Fonts*][Fonts - ArchWiki], [*Font configuration*][Font configuration -
+    ArchWiki], and [*Font configuration/Examples*][Font configuration/Examples - ArchWiki]
+    ArchWiki articles
+*   The [*Tuning Fontconfig*][] section from [*Beyond Linux From Scratch*][]
+*   The [*Unicode HOWTO*][] at `docs.python.org`
+*   Lastly, you can probably find many examples of Fontconfig configuration files in
+    `/etc/fonts/conf.d/`
+
 ## Footnotes
 
 <ol>
@@ -194,3 +226,24 @@ naming scheme</a> in doing so: "generic aliases" should appear in files with num
 [`30-infinality-aliases.conf`]: https://gist.githubusercontent.com/cryzed/4f64bb79e80d619866ee0b18ba2d32fc/raw/bd073b52365393f9f0718425271825fc27b218f7/local.conf
 [`fonts-meta-extended-lt`]: https://aur.archlinux.org/packages/fonts-meta-extended-lt
     "AUR (en) - fonts-meta-extended-lt"
+[*I stared into the fontconfig, and the fontconfig stared back at me*]: https://eev.ee/blog/2015/05/20/i-stared-into-the-fontconfig-and-the-fontconfig-stared-back-at-me/
+<!-- [*The Secret Life of Unicode*]: https://web.archive.org/web/20131216023226/http://www.ibm.com/developerworks/library/u-secret.html -->
+[*The Secret Life of Unicode*]: http://www.btetrud.com/Lima/The%20Secret%20Life%20of%20Unicode.pdf
+[The 15 Excuses]: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
+    "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
+[*Unicode Revisited*]: http://tronweb.super-nova.co.jp/unicoderevisited.html
+[nora-sandler-unicode]: https://norasandler.com/2017/11/02/Around-the-with-Unicode.html
+    "Around the 🌎 with Unicode"
+[poo]: https://blog.jonnew.com/posts/poo-dot-length-equals-two
+    "Jonathan New | \"💩\".length === 2"
+[Variant Chinese character]: https://en.wikipedia.org/wiki/Variant_Chinese_character
+    "Variant Chinese character - Wikipedia"
+[Noto fonts]: https://en.wikipedia.org/wiki/Noto_fonts
+    "Noto fonts - Wikipedia"
+[Unicode]: https://en.wikipedia.org/wiki/Unicode "Unicode - Wikipedia"
+[Font configuration - ArchWiki]: https://wiki.archlinux.org/index.php/Font_configuration
+    "Font configuration - ArchWiki"
+[Font configuration/Examples - ArchWiki]: https://wiki.archlinux.org/index.php/Font_configuration/Examples
+    "Font configuration/Examples - ArchWiki"
+[*Unicode HOWTO*]: https://docs.python.org/3/howto/unicode.html
+    "Unicode HOWTO — Python 3 documentation"
