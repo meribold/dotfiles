@@ -4,9 +4,7 @@
 *   Add a footnote saying that this started as a comment explaining my `fonts.conf`...
 -->
 
-<!-- ## Concerning Fontconfig -->
-
-Fontconfig<!-- (or is it fontconfig?<sup>[\[1\]](#user-content-footnote-1)</sup>) --> is a
+Fontconfig is a
 library that many graphical programs use to figure out what font to use.  A program can
 ask Fontconfig for a font matching a pattern and Fontconfig *will* return a font which may
 or may not be "[anything like the requested pattern][`fonts-conf(5)`]".  The important
@@ -34,15 +32,12 @@ That is, I want `fc-match sans-serif` to print it.
 <!-- Is character the correct term here?  What about symbol, glyph, grapheme, sign,
 ideograph, ...-->
 Second, Google's [Noto][] font family should be used as the fallback for every character
-missing in Ubuntu.  This is complicated by [Han unification][]<!--, a controversial effort
-by the authors of Unicode-->.
+missing in Ubuntu.  This is complicated by [Han unification][].
 
 ### Major tangent: Han unification
 
-<!-- (This section is majorly tangential.) -->
-
 If your system is configured well and has the necessary fonts installed, you will see two
-similar but <!--distinct-->non-identical [Han characters][] here:
+similar but non-identical [Han characters][] here:
 
 <!-- We can't use <span>.  Use a list as a workaround.  See
 <https://github.com/github/markup/issues/245#issuecomment-245460087>. -->
@@ -57,20 +52,13 @@ list items.  Those two characters can only coexist when additional metadata is
 provided—possible on a webpage, but try copying both characters into your browser's
 [address bar][], a text editor, or a terminal: I bet they'll look the same.
 
-<!--
-One result of Han unification is that simply specifying "Noto Sans" as a fallback font
-means the choice which variant of [some Han characters][] is used in contexts that lack
-additional metadata is implicit.
--->
-
-<!-- The consequence of Han unification that's relevant here is this: -->
 Relying on additional metadata for correct rendering of text seems like a weird choice in
 hindsight, but the consequence that's relevant here is this:
-choosing a fallback font<!-- for CJK--> also determines which variant of [some Han
+choosing a fallback font also determines which variant of [some Han
 characters][] will be used in contexts that lack language metadata.  Simply asking for
 "[Noto Sans][]" apparently means that the Japanese [kanji][] forms will be used.  I
-want<!-- the [traditional Chinese characters][] used in Taiwan--> [traditional Chinese
-characters][] instead; Noto includes<!-- the--> [Noto Sans CJK TC][]<!-- font--> for this
+want [traditional Chinese
+characters][] instead; Noto includes [Noto Sans CJK TC][] for this
 purpose.
 
 My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
