@@ -63,7 +63,7 @@ additional fallback font.
 
 ### Back to topic (sort of)
 
-It's important to know the <!--sequence-->order in which Fontconfig loads configuration
+It's important to know the order in which Fontconfig loads configuration
 files.  There usually are lots in `/etc/fonts/conf.d/` and they interfere with
 user-specific configuration.  The only explanation I've found is in the [*Tuning
 Fontconfig*][] section of [*Beyond Linux From Scratch*][]: files in `/etc/fonts/conf.d/`
@@ -76,7 +76,7 @@ contains `<include>` directives.  On my
 system,<sup>[\[1\]](#user-content-footnote-1)</sup> it only includes files in
 `/etc/fonts/conf.d/`, but in there is `50-user.conf` which includes (among other things)
 [`~/.config/fontconfig/fonts.conf`][`fonts.conf`].  The takeaway is that the user-specific
-configuration here is loaded sort of after one half and before<!--the other--> one half of
+configuration here is loaded sort of after one half and before one half of
 the system-wide configuration files.
 
 My configuration file started off based on the one in [this section][fonts-aw-ffo] of the
@@ -120,17 +120,16 @@ the font list.  I identified [`30-infinality-aliases.conf`][], which I got from 
 ```
 
 <!-- TODO: is rule the correct term? -->
-But wait!<!-- At this point I got pretty confused. -->
-How can <code><b>30</b>-infinality-aliases.conf</code> override <!--my-->a rule that is
+But wait!
+How can <code><b>30</b>-infinality-aliases.conf</code> override a rule that is
 ultimately included from <code><b>50</b>-user.conf</code>?  Well, there are two ways in
 which Fontconfig can prepend fonts and `<prefer>`ing is syntactic sugar for inserting
-before the matching `<family>` but not actually at the top<!-- of the list-->.
+before the matching `<family>` but not actually at the top.
 `30-infinality-aliases.conf` does this before my own configuration and consequently it
 wins.<sup>[\[2\]](#user-content-footnote-2)</sup>
 
 We can get around this using `<prepend_first>`, but have to do without the `<alias>`
-shorthand<!--forego using the `<alias>` shorthand--><!-- we can't use the `<alias>`
-shorthand anymore-->:
+shorthand:
 
 ```xml
 <match target="pattern">
