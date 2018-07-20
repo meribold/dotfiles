@@ -120,8 +120,8 @@ the font list.  I identified [`30-infinality-aliases.conf`][], which I got from 
 
 ```xml
 <alias>
-    <family>sans-serif</family>
-    <prefer><family>Noto Sans</family></prefer>
+   <family>sans-serif</family>
+   <prefer><family>Noto Sans</family></prefer>
 </alias>
 ```
 
