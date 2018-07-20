@@ -227,7 +227,6 @@ naming scheme</a> in doing so: "generic aliases" should appear in files with num
 [`fonts-meta-extended-lt`]: https://aur.archlinux.org/packages/fonts-meta-extended-lt
     "AUR (en) - fonts-meta-extended-lt"
 [*I stared into the fontconfig, and the fontconfig stared back at me*]: https://eev.ee/blog/2015/05/20/i-stared-into-the-fontconfig-and-the-fontconfig-stared-back-at-me/
-<!-- [*The Secret Life of Unicode*]: https://web.archive.org/web/20131216023226/http://www.ibm.com/developerworks/library/u-secret.html -->
 [*The Secret Life of Unicode*]: http://www.btetrud.com/Lima/The%20Secret%20Life%20of%20Unicode.pdf
 [The 15 Excuses]: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
     "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
