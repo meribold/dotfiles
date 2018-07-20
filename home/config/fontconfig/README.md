@@ -4,12 +4,11 @@
 *   Add a footnote saying that this started as a comment explaining my `fonts.conf`...
 -->
 
-Fontconfig is a
-library that many graphical programs use to figure out what font to use.  A program can
-ask Fontconfig for a font matching a pattern and Fontconfig *will* return a font which may
-or may not be "[anything like the requested pattern][`fonts-conf(5)`]".  The important
-thing is that we can mess with this matching process using configuration files—for example
-to set default fonts in a way that will work across many programs.
+Fontconfig is a library that many graphical programs use to figure out what font to use.
+A program can ask Fontconfig for a font matching a pattern and Fontconfig *will* return a
+font which may or may not be "[anything like the requested pattern][`fonts-conf(5)`]".
+The important thing is that we can mess with this matching process using configuration
+files—for example to set default fonts in a way that will work across many programs.
 
 The [`fc-match(1)`][] utility that ships with Fontconfig can be used to test what fonts
 are returned for a given pattern:
@@ -53,13 +52,11 @@ provided—possible on a webpage, but try copying both characters into your brow
 [address bar][], a text editor, or a terminal: I bet they'll look the same.
 
 Relying on additional metadata for correct rendering of text seems like a weird choice in
-hindsight, but the consequence that's relevant here is this:
-choosing a fallback font also determines which variant of [some Han
-characters][] will be used in contexts that lack language metadata.  Simply asking for
-"[Noto Sans][]" apparently means that the Japanese [kanji][] forms will be used.  I
-want [traditional Chinese
-characters][] instead; Noto includes [Noto Sans CJK TC][] for this
-purpose.
+hindsight, but the consequence that's relevant here is this: choosing a fallback font also
+determines which variant of [some Han characters][] will be used in contexts that lack
+language metadata.  Simply asking for "[Noto Sans][]" apparently means that the Japanese
+[kanji][] forms will be used.  I want [traditional Chinese characters][] instead; Noto
+includes [Noto Sans CJK TC][] for this purpose.
 
 My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
 additional fallback font.
