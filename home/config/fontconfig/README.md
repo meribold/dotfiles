@@ -39,12 +39,21 @@ by the authors of Unicode-->.
 
 ### Major tangent: Han unification
 
-If you're lucky, you may see two slightly different characters here:<!--
-We can't use <span>.  Use <a> as a workaround.  See
-<https://github.com/github/markup/issues/245#issuecomment-245460087>.
--->
-<a href="https://en.wiktionary.org/wiki/%E7%B7%B4#Definitions" lang="zh">練</a> and
-<a href="https://en.wiktionary.org/wiki/%E7%B7%B4#Kanji" lang="ja">練</a>.
+If your system is configured well and has the necessary fonts installed, you will see two
+similar but <!--distinct-->non-identical [Han characters][] here:
+
+<!-- We can't use <span>.  Use a list as a workaround.  See
+<https://github.com/github/markup/issues/245#issuecomment-245460087>. -->
+<ul>
+<li lang="zh">練</li>
+<li lang="ja">練</li>
+</ul>
+
+*Unicode does not.*  It assigns the same [code point][] (number) to both characters.  The
+only reason they (hopefully) look distinct is that I added [`lang`][] attributes to the
+list items.  Those two characters can only coexist when additional metadata is
+provided—possible on a webpage, but try copying both characters into your browser's
+[address bar][], a text editor, or a terminal: I bet they'll look the same.
 
 ## Footnotes
 
@@ -61,3 +70,9 @@ We can't use <span>.  Use <a> as a workaround.  See
 [Noto]: https://en.wikipedia.org/wiki/Noto_fonts "Noto fonts - Wikipedia"
 [Han unification]: https://en.wikipedia.org/wiki/Han_unification
     "Han unification - Wikipedia"
+[Han characters]: https://en.wikipedia.org/wiki/Han_characters
+    "Han characters - Wikipedia"
+[code point]: https://en.wikipedia.org/wiki/Code_point "Code point - Wikipedia"
+[`lang`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
+    "lang - HTML | MDN"
+[address bar]: https://en.wikipedia.org/wiki/Address_bar "Address bar - Wikipedia"
