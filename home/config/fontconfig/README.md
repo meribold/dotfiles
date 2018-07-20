@@ -55,7 +55,7 @@ Relying on additional metadata for correct rendering of text seems like a weird 
 hindsight, but the consequence that's relevant here is this: choosing a fallback font also
 determines which variant of [some Han characters][] will be used in contexts that lack
 language metadata.  Simply asking for "[Noto Sans][]" apparently means that the Japanese
-[kanji][] forms will be used.  I want [traditional Chinese characters][] instead; Noto
+[*kanji*][] forms will be used.  I want [traditional Chinese characters][] instead; Noto
 includes [Noto Sans CJK TC][] for this purpose.
 
 My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
@@ -79,7 +79,7 @@ configuration here is loaded sort of after one half and before one half of the s
 configuration files.
 
 My configuration file started off based on the one in [this section][fonts-aw-ffo] of the
-[*Fonts*][Fonts - ArchWiki] ArchWiki article.  The important part is an `<alias>` element
+[*Fonts*][Fonts - ArchWiki] ArchWiki article.  The important parts are `<alias>` elements
 such as:
 
 ```xml
@@ -94,8 +94,8 @@ such as:
 </alias>
 ```
 
-It says to prepend those 4 font families to the list of best-matching fonts in that order
-when "sans-serif" is requested.
+The element says: prepend those 4 font families to the list of best-matching fonts in that
+order when "sans-serif" is requested.
 
 <!--
 Configuration files with numbers that are lower than 50 and that also prepend fonts to
@@ -125,7 +125,7 @@ inserting before the matching `<family>` but not actually at the top.
 `30-infinality-aliases.conf` does this before my own configuration and consequently it
 wins.<sup>[\[2\]](#user-content-footnote-2)</sup>
 
-We can get around this using `<prepend_first>`, but have to do without the `<alias>`
+We can get around this by using `<prepend_first>`, but have to do without the `<alias>`
 shorthand:
 
 ```xml
@@ -171,7 +171,7 @@ naming scheme</a> in doing so: "generic aliases" should appear in files with num
 [address bar]: https://en.wikipedia.org/wiki/Address_bar "Address bar - Wikipedia"
 [some Han characters]: https://en.wikipedia.org/wiki/Variant_Chinese_character#Usage_in_computing
     "Variant Chinese character - Wikipedia"
-[kanji]: https://en.wikipedia.org/wiki/Kanji
+[*kanji*]: https://en.wikipedia.org/wiki/Kanji
     "Kanji - Wikipedia"
 [traditional Chinese characters]: https://en.wikipedia.org/wiki/Traditional_Chinese_characters
     "Traditional Chinese characters - Wikipedia"
