@@ -61,10 +61,28 @@ includes [Noto Sans CJK TC][] for this purpose.
 My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
 additional fallback font.
 
+### Back to topic (sort of)
+
+It's important to know the <!--sequence-->order in which Fontconfig loads configuration
+files.  There usually are lots in `/etc/fonts/conf.d/` and they interfere with any
+user-specific configuration.  The only explanation I've found is in the [*Tuning
+Fontconfig*][] section of [*Beyond Linux From Scratch*][]: files in `/etc/fonts/conf.d/`
+have names starting with a two-digit number and a hyphen and smaller numbers are loaded
+first.
+
+Loading files from the configuration paths specified by [`fonts-conf(5)`][] isn't
+intrinsic behavior of Fontconfig.  Instead, the master `/etc/fonts/fonts.conf` file
+contains `<include>` directives.  On my
+system,<sup>[\[1\]](#user-content-footnote-1)</sup> it only includes files in
+`/etc/fonts/conf.d/`, but in there is `50-user.conf` which includes (among other things)
+[`~/.config/fontconfig/fonts.conf`][`fonts.conf`].  The takeaway is that the user-specific
+configuration here is loaded sort of after one half and before<!--the other--> one half of
+the system-wide configuration files.
+
 ## Footnotes
 
 <ol>
-<li id="footnote-1"><b>TODO</b></li>
+<li id="footnote-1"><a href="https://redd.it/32o299">Did I tell you I use Arch Linux?</a></li>
 </ol>
 
 [Fontconfig]: https://en.wikipedia.org/wiki/Fontconfig "Fontconfig - Wikipedia"
@@ -90,3 +108,7 @@ additional fallback font.
     "Traditional Chinese characters - Wikipedia"
 [Noto Sans CJK TC]: https://www.google.com/get/noto/#sans-hant "Google Noto Fonts"
 [Noto Sans]: https://www.google.com/get/noto/#sans-lgc "Google Noto Fonts"
+[*Tuning Fontconfig*]: http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html
+    "Tuning Fontconfig"
+[*Beyond Linux From Scratch*]: http://linuxfromscratch.org/blfs/view/stable/index.html
+[`fonts.conf`]: fonts.conf
