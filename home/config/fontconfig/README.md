@@ -39,7 +39,12 @@ by the authors of Unicode-->.
 
 ### Major tangent: Han unification
 
-**TODO.**
+If you're lucky, you may see two slightly different characters here:<!--
+We can't use <span>.  Use <a> as a workaround.  See
+<https://github.com/github/markup/issues/245#issuecomment-245460087>.
+-->
+<a href="https://en.wiktionary.org/wiki/%E9%9D%9C#Definitions" lang="zh">靜</a> and
+<a href="https://en.wiktionary.org/wiki/%E9%9D%9C#Kanji" lang="ja">靜</a>.
 
 ## Footnotes
 
