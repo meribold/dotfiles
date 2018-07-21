@@ -32,15 +32,16 @@ font will use [Noto Serif CJK TC][].
 
 ## My configuration
 
-First, I want [Ubuntu][] to be the default sans-serif typeface for the Latin alphabet.
-That is, I want `fc-match sans-serif` to print it.
+I want to use members of the [Ubuntu][] family as the default sans-serif and monospace
+typefaces for the Latin alphabet.  That is, I want `fc-match` to print those when the
+argument is `sans-serif` or `monospace`.  Google's [Noto][] font family should be used as
+the fallback for missing characters <!-- Is character the correct term here?  What about
+symbol, glyph, grapheme, sign, ideograph, ... --> and also when a serif typeface is
+requested.
 
-<!-- Is character the correct term here?  What about symbol, glyph, grapheme, sign,
-ideograph, ...-->
-Second, Google's [Noto][] font family should be used as the fallback for every character
-missing in Ubuntu.  This is complicated by [Han unification][].
+There are some nuances to this this that make it more tricky than it sounds.
 
-### Major tangent: Han unification
+### Major tangent: [Han unification][]
 
 If your system is configured well and has the necessary fonts installed, you will see two
 similar but non-identical [Han characters][] here:
@@ -149,9 +150,33 @@ shorthand:
 </match>
 ```
 
-My [`fonts.conf`][] consists of such `<match>` elements for `serif`, `sans-serif`, and
-`monospace`.  The semantics of Fontconfig's XML schema are documented in
-[`fonts-conf(5)`].
+My [`fonts.conf`][] consists of such `<match>` elements for "serif", "sans-serif", and
+"monospace".<sup>[\[3\]](#user-content-footnote-3)</sup> We can test the results with the
+`-s` flag of `fc-match`:
+
+```bash
+$ fc-match -s serif | head -3
+NotoSerifCJK-Regular.ttc: "Noto Serif CJK TC" "Regular"
+NotoColorEmoji.ttf: "Noto Color Emoji" "Regular"
+NotoSerif-Regular.ttf: "Noto Serif" "Regular"
+```
+
+```bash
+$ fc-match -s sans-serif | head -4
+Ubuntu-R.ttf: "Ubuntu" "Regular"
+NotoSansCJK-Regular.ttc: "Noto Sans CJK TC" "Regular"
+NotoColorEmoji.ttf: "Noto Color Emoji" "Regular"
+NotoSans-Regular.ttf: "Noto Sans" "Regular"
+```
+
+```bash
+$ fc-match -s monospace | head -3
+UbuntuMono-R.ttf: "Ubuntu Mono" "Regular"
+NotoSansCJK-Regular.ttc: "Noto Sans Mono CJK TC" "Regular"
+NotoSansMono-Regular.ttf: "Noto Sans Mono" "Regular"
+```
+
+🙂
 
 ## Sources
 
@@ -185,6 +210,11 @@ I think <code>30-infinality-aliases.conf</code> disregards the <a
 href="http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html">conventional
 naming scheme</a> in doing so: "generic aliases" should appear in files with numbers 60 to
 69 (see the <i>various files</i> section).
+</li>
+<li id="footnote-3">
+The semantics of Fontconfig's XML schema are documented in <a
+href="https://www.freedesktop.org/software/fontconfig/fontconfig-user.html"
+title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
 </li>
 </ol>
 
