@@ -30,14 +30,13 @@ output implies that (with my configuration) a program that (reasonably) wants to
 most default font possible will use [Ubuntu][], and a program that wants the default serif
 font will use [Noto Serif CJK TC][].
 
-## My configuration
+## Configuration
 
 I want to use members of the [Ubuntu][] family as the default sans-serif and monospace
-typefaces for the Latin alphabet.  That is, I want `fc-match` to print those when the
-argument is `sans-serif` or `monospace`.  Google's [Noto][] font family should be used as
-the fallback for missing characters <!-- Is character the correct term here?  What about
-symbol, glyph, grapheme, sign, ideograph, ... --> and also when a serif typeface is
-requested.
+typefaces.  That is, I want `fc-match` to print those when the argument is `sans-serif` or
+`monospace`.  Google's [Noto][] font family should be used as the fallback for missing
+characters <!-- Is character the correct term here?  What about symbol, glyph, grapheme,
+sign, ideograph, ... --> and when a serif typeface is requested.
 
 There are some nuances to this this that make it more tricky than it sounds.
 
