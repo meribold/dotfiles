@@ -23,12 +23,12 @@ are returned for a given pattern:
     $ fc-match
     Ubuntu-R.ttf: "Ubuntu" "Regular"
     $ fc-match serif
-    NotoSerifCJK-Regular.ttc: "Noto Serif CJK TC" "Regular"
+    RobotoSlab-Regular.ttf: "Roboto Slab" "Regular"
 
 Since `fc-match` uses "[the normal fontconfig matching rules][`fc-match(1)`]", the above
 output implies that (with my configuration) a program that (reasonably) wants to use the
 most default font possible will use [Ubuntu][], and a program that wants the default serif
-font will use [Noto Serif CJK TC][].
+font will use [Roboto Slab][].
 
 ## Configuration
 
@@ -157,7 +157,8 @@ My [`fonts.conf`][] consists of such `<match>` elements for "serif", "sans-serif
 `-s` flag of `fc-match`:
 
 ```bash
-$ fc-match -s serif | head -3
+$ fc-match -s serif | head -4
+RobotoSlab-Regular.ttf: "Roboto Slab" "Regular"
 NotoSerifCJK-Regular.ttc: "Noto Serif CJK TC" "Regular"
 NotoColorEmoji.ttf: "Noto Color Emoji" "Regular"
 NotoSerif-Regular.ttf: "Noto Serif" "Regular"
@@ -225,7 +226,7 @@ title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
     "fonts-conf(5)"
 [`fc-match(1)`]: https://linux.die.net/man/1/fc-match "fc-match(1)"
 [Ubuntu]: https://en.wikipedia.org/wiki/Ubuntu_(typeface) "Ubuntu (typeface) - Wikipedia"
-[Noto Serif CJK TC]: https://www.google.com/get/noto/#serif-hant "Google Noto Fonts"
+[Roboto Slab]: https://en.wikipedia.org/wiki/Roboto#Roboto_Slab "Roboto - Wikipedia"
 [Noto]: https://en.wikipedia.org/wiki/Noto_fonts "Noto fonts - Wikipedia"
 [Han unification]: https://en.wikipedia.org/wiki/Han_unification
     "Han unification - Wikipedia"
