@@ -28,13 +28,12 @@ font will use [Roboto Slab][].
 
 ## Configuration
 
-I want to use members of the [Ubuntu][] family as the default sans-serif and monospace
-typefaces.  That is, I want `fc-match` to print those when the argument is `sans-serif` or
-`monospace`.  Google's [Noto][] font family should be used as the fallback for missing
-characters <!-- Is character the correct term here?  What about symbol, glyph, grapheme,
-sign, ideograph, ... --> and when a serif typeface is requested.
+I use members of the [Ubuntu][] family as the default sans-serif and monospace typefaces
+and [Roboto Slab][] as the default serif one.  Google's [Noto][] font family is the
+fallback for missing characters <!-- Is character the correct term here?  What about
+symbol, glyph, grapheme, sign, ideograph, ... --> and [emoji][Noto Color Emoji].
 
-There are some nuances to this that make it more tricky than it sounds.
+There are some nuances that make this more tricky than it sounds.
 
 ### Major tangent: [Han unification][]
 
@@ -223,6 +222,7 @@ title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
 [`fc-match(1)`]: https://linux.die.net/man/1/fc-match "fc-match(1)"
 [Ubuntu]: https://en.wikipedia.org/wiki/Ubuntu_(typeface) "Ubuntu (typeface) - Wikipedia"
 [Roboto Slab]: https://en.wikipedia.org/wiki/Roboto#Roboto_Slab "Roboto - Wikipedia"
+[Noto Color Emoji]: https://www.google.com/get/noto/#emoji-zsye-color "Google Noto Fonts"
 [Noto]: https://en.wikipedia.org/wiki/Noto_fonts "Noto fonts - Wikipedia"
 [Han unification]: https://en.wikipedia.org/wiki/Han_unification
     "Han unification - Wikipedia"
