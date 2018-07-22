@@ -8,7 +8,7 @@
         NotoColorEmoji.ttf: "Noto Color Emoji" "Regular"
         NotoSerif-Regular.ttf: "Noto Serif" "Regular"
 *   Write that [`fc-match(1)`][] appears to reflect changes to configuration files
-    immediately.  Thas is, it seems running `fc-cache` is usually unnecessary.
+    immediately.  That is, it seems running `fc-cache` is usually unnecessary.
 -->
 
 Fontconfig is a library that many graphical programs use to figure out what font to use.
