@@ -61,12 +61,15 @@ provided—possible on a webpage, but try copying both characters into your brow
 Relying on additional metadata for correct rendering of text seems like a weird choice in
 hindsight, but the consequence that's relevant here is this: choosing a fallback font also
 determines which variant of [some Han characters][] will be used in contexts that lack
-language metadata.  Simply asking for "[Noto Sans][]" apparently means that the Japanese
-[*kanji*][] forms will be used.  I want [traditional Chinese characters][] instead; Noto
-includes [Noto Sans CJK TC][] for this purpose.
+language metadata.  Simply asking for (e.g) "[Noto Sans][]" apparently means that the
+Japanese [*kanji*][] forms will be used.  I want [traditional Chinese characters][]
+instead.  Noto includes [Noto Sans CJK TC][] etc. for this purpose.
 
-My best bet is probably to specify "Noto San CJK TC" as the first and "Noto Sans" as an
-additional fallback font.
+<!--
+I think my best bet for setting up Fontconfig is to specify "Noto San CJK TC" as the first
+and "Noto Sans" as an additional fallback font for requests of a sans-serif typeface, and
+to do something equivalent for serif and monospace.
+-->
 
 ### Back to topic (sort of)
 
