@@ -60,9 +60,9 @@ provided—possible on a webpage, but try copying both characters into your brow
 
 Relying on additional metadata for correct rendering of text seems like a weird choice in
 hindsight, but the consequence that's relevant here is this: choosing a fallback font also
-determines which variant of [some Han characters][] will be used in contexts that lack
-language metadata.  Simply asking for (e.g) "[Noto Sans][]" apparently means that the
-Japanese [*kanji*][] forms will be used.  I want [traditional Chinese characters][]
+determines which variant of [some Han characters][] will appear in contexts that lack
+language metadata.  Plainly using [Noto Sans][], [Noto Serif][], etc. apparently means
+that the Japanese [*kanji*][] forms are used.  I want [traditional Chinese characters][]
 instead.  Noto includes [Noto Sans CJK TC][] etc. for this purpose.
 
 <!--
@@ -243,6 +243,7 @@ title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
     "Traditional Chinese characters - Wikipedia"
 [Noto Sans CJK TC]: https://www.google.com/get/noto/#sans-hant "Google Noto Fonts"
 [Noto Sans]: https://www.google.com/get/noto/#sans-lgc "Google Noto Fonts"
+[Noto Serif]: https://www.google.com/get/noto/#serif-lgc "Google Noto Fonts"
 [*Tuning Fontconfig*]: http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html
     "Tuning Fontconfig"
 [*Beyond Linux From Scratch*]: http://linuxfromscratch.org/blfs/view/stable/index.html
