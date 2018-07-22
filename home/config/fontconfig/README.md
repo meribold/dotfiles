@@ -34,7 +34,7 @@ typefaces.  That is, I want `fc-match` to print those when the argument is `sans
 characters <!-- Is character the correct term here?  What about symbol, glyph, grapheme,
 sign, ideograph, ... --> and when a serif typeface is requested.
 
-There are some nuances to this this that make it more tricky than it sounds.
+There are some nuances to this that make it more tricky than it sounds.
 
 ### Major tangent: [Han unification][]
 
