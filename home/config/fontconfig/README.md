@@ -1,14 +1,10 @@
 # [Fontconfig][] 🤷
 
 <!-- TODO
-*   Add a footnote saying that this started as a comment explaining my `fonts.conf`...
-*   A better way to test the configuration is `fc-match -s`:
-        $ fc-match -s serif | head -3
-        NotoSerifCJK-Regular.ttc: "Noto Serif CJK TC" "Regular"
-        NotoColorEmoji.ttf: "Noto Color Emoji" "Regular"
-        NotoSerif-Regular.ttf: "Noto Serif" "Regular"
+*   Add a footnote saying that this started as a comment explaining my `fonts.conf`?
 *   Write that [`fc-match(1)`][] appears to reflect changes to configuration files
-    immediately.  That is, it seems running `fc-cache` is usually unnecessary.
+    automatically.  That is, it seems running `fc-cache` is unnecessary.  Eevee talks
+    about running `fc-cache` a lot in here article...
 -->
 
 Fontconfig is a library that many graphical programs use to figure out what font to use.
