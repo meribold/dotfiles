@@ -4,7 +4,16 @@
 *   Add a footnote saying that this started as a comment explaining my `fonts.conf`?
 *   Write that [`fc-match(1)`][] appears to reflect changes to configuration files
     automatically.  That is, it seems running `fc-cache` is unnecessary.  Eevee talks
-    about running `fc-cache` a lot in here article...
+    about running `fc-cache` a lot in here article.  I also don't have to run `fc-cache`
+    for Firefox to pick up configuration changes, but I do have to restart it.
+*   "[65,535 glyphs (the maximum number of glyphs that can be included in a single
+    font).][Noto CJK]"
+*   "[Variation Selector format characters [...] are used to specify a specific glyph
+    variant for a Unicode character, such as the Japanese, Chinese, Korean, or Taiwanese
+    form of a particular CJK ideograph.][Variant form (Unicode)]"
+
+[Variant form (Unicode)]: https://en.wikipedia.org/wiki/Variant_form_(Unicode)
+    "Variant form (Unicode) - Wikipedia"
 -->
 
 Fontconfig is a library that many graphical programs use to figure out what font to use.
@@ -49,16 +58,36 @@ similar but non-identical [Han characters][] here:
 
 *Unicode does not.*  It assigns the same [code point][] (number) to both characters.  The
 only reason they (hopefully) look distinct is that I added [`lang`][] attributes to the
-list items.  Those two characters can only coexist when additional metadata is
-provided—possible on a webpage, but try copying both characters into your browser's
+list items.  Those two characters *can only coexist when additional metadata is
+provided*—possible on a webpage, but try copying both characters into your browser's
 [address bar][], a text editor, or a terminal: I bet they'll look the same.
 
 Relying on additional metadata for correct rendering of text seems like a weird choice in
 hindsight, but the consequence that's relevant here is this: choosing a fallback font also
 determines which variant of [some Han characters][] will appear in contexts that lack
-language metadata.  Plainly using [Noto Sans][], [Noto Serif][], etc. apparently means
-that the Japanese [*kanji*][] forms are used.  I want [traditional Chinese characters][]
-instead.  Noto includes [Noto Sans CJK TC][] etc. for this purpose.
+language metadata.  Plainly using<!-- [Noto Serif][], [Noto Sans][], etc.--> [Noto
+Serif][] or [Noto Sans][] apparently means that the Japanese [*kanji*][] forms are used.
+I suppose this is because the Noto fonts<!-- that include them--> for Japanese are
+alphabetically first among their respective groups of language-specific Noto CJK fonts:
+
+```bash
+$ fc-match -a sans-serif | grep '"Noto Sans CJK .*" "Regular"'
+NotoSansCJK-Regular.ttc: "Noto Sans CJK JP" "Regular"
+NotoSansCJK-Regular.ttc: "Noto Sans CJK KR" "Regular"
+NotoSansCJK-Regular.ttc: "Noto Sans CJK SC" "Regular"
+NotoSansCJK-Regular.ttc: "Noto Sans CJK TC" "Regular"
+```
+
+Curiously, each font "[**does** support all four languages and includes the complete set
+of glyphs][Noto CJK]".  Notice how the above four fonts even all resolve to the same one
+file, `NotoSansCJK-Regular.ttc`.  A special [OpenType][] feature allows programs that
+support it to "[access language-specific variants other than the default language][Noto
+CJK]".  (I guess getting a glyph from an OpenType font file is much more complicated than
+just asking for a code point.)
+
+Anyway.  I want [traditional Chinese characters][] when no metadata is available<!-- and
+Noto includes e.g. [Noto Serif CJK TC][] and [Noto Sans CJK TC][] for this purpose-->, so
+I'm using [Noto Serif CJK TC][] and [Noto Sans CJK TC][].
 
 <!--
 I think my best bet for setting up Fontconfig is to specify "Noto San CJK TC" as the first
@@ -181,23 +210,34 @@ NotoSansMono-Regular.ttf: "Noto Sans Mono" "Regular"
 Here are most of the articles and other resources that I referenced, as well some more
 that are relevant and interesting:
 
+**Fontconfig**
+
 *   [*I stared into the fontconfig, and the fontconfig stared back at me*][] by Eevee
-*   [*The Secret Life of Unicode*][] by Suzanne Topping
-*   Joel Spolsky's [blog post about Unicode with a very long title][The 15 Excuses]
-*   [*Unicode Revisited*][] by Steven J. Searle
-*   [*Around the* 🌎 *with Unicode*][nora-sandler-unicode] by Nora Sandler
-*   Jonathan New's [article][poo] about the JavaScript `length` of emoji
-*   [`fonts-conf(5)`][] (this seems to be the primary documentation of Fontconfig)
-*   [`fc-match(1)`][]
-*   The *[Han unification][]*, *[Variant Chinese character][]*, *[Noto fonts][]*,
-    *[Fontconfig][]*, and *[Unicode][]* Wikipedia articles
+*   The [*Tuning Fontconfig*][] section of [*Beyond Linux From Scratch*][]
 *   The [*Fonts*][Fonts - ArchWiki], [*Font configuration*][Font configuration -
     ArchWiki], and [*Font configuration/Examples*][Font configuration/Examples - ArchWiki]
     ArchWiki articles
-*   The [*Tuning Fontconfig*][] section from [*Beyond Linux From Scratch*][]
-*   The [*Unicode HOWTO*][] at `docs.python.org`
-*   Lastly, you can probably find many examples of Fontconfig configuration files in
+*   The *[Fontconfig][]* Wikipedia article
+*   [`fonts-conf(5)`][] (this seems to be the primary documentation of Fontconfig)
+*   [`fc-match(1)`][]
+*   Examples of Fontconfig configuration files you can probably find in
     `/etc/fonts/conf.d/`
+
+**Unicode**
+
+*   Joel Spolsky's [blog post about Unicode with a very long title][The 15 Excuses]
+*   [*Around the* 🌎 *with Unicode*][nora-sandler-unicode] by Nora Sandler
+*   The [*Unicode HOWTO*][] at `docs.python.org`
+*   [*The Secret Life of Unicode*][] by Suzanne Topping
+*   [*Unicode Revisited*][] by Steven J. Searle
+*   Jonathan New's [article][poo] about the JavaScript `length` of emoji
+*   The *[Unicode][]*, *[Han unification][]*, and *[Variant Chinese character][]*
+    Wikipedia articles
+
+**Other**
+
+*   The *[Noto fonts][]* Wikipedia article
+*   [This help page][Noto CJK] about Noto CJK fonts
 
 ## Footnotes
 
@@ -234,13 +274,16 @@ title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
 [address bar]: https://en.wikipedia.org/wiki/Address_bar "Address bar - Wikipedia"
 [some Han characters]: https://en.wikipedia.org/wiki/Variant_Chinese_character#Usage_in_computing
     "Variant Chinese character - Wikipedia"
-[*kanji*]: https://en.wikipedia.org/wiki/Kanji
-    "Kanji - Wikipedia"
-[traditional Chinese characters]: https://en.wikipedia.org/wiki/Traditional_Chinese_characters
-    "Traditional Chinese characters - Wikipedia"
-[Noto Sans CJK TC]: https://www.google.com/get/noto/#sans-hant "Google Noto Fonts"
 [Noto Sans]: https://www.google.com/get/noto/#sans-lgc "Google Noto Fonts"
 [Noto Serif]: https://www.google.com/get/noto/#serif-lgc "Google Noto Fonts"
+[*kanji*]: https://en.wikipedia.org/wiki/Kanji
+    "Kanji - Wikipedia"
+[Noto CJK]: https://www.google.com/get/noto/help/cjk/ "Noto CJK – Google Noto Fonts"
+[OpenType]: https://en.wikipedia.org/wiki/OpenType "OpenType - Wikipedia"
+[traditional Chinese characters]: https://en.wikipedia.org/wiki/Traditional_Chinese_characters
+    "Traditional Chinese characters - Wikipedia"
+[Noto Serif CJK TC]: https://www.google.com/get/noto/#serif-hant "Google Noto Fonts"
+[Noto Sans CJK TC]: https://www.google.com/get/noto/#sans-hant "Google Noto Fonts"
 [*Tuning Fontconfig*]: http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html
     "Tuning Fontconfig"
 [*Beyond Linux From Scratch*]: http://linuxfromscratch.org/blfs/view/stable/index.html
@@ -271,3 +314,7 @@ title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
     "Font configuration/Examples - ArchWiki"
 [*Unicode HOWTO*]: https://docs.python.org/3/howto/unicode.html
     "Unicode HOWTO — Python 3 documentation"
+<!--
+[Fontconfig website]: https://www.freedesktop.org/wiki/Software/fontconfig/
+    "Fontconfig website"
+-->
