@@ -97,7 +97,7 @@ to do something equivalent for serif and monospace.
 
 ### Back to topic (sort of)
 
-It's important to know the order in which Fontconfig loads configuration files.  There
+It's good to know the order in which Fontconfig loads configuration files.  There
 usually are lots in `/etc/fonts/conf.d/` and they interfere with user-specific
 configuration.  The only explanation I've found is in the [*Tuning Fontconfig*][] section
 of [*Beyond Linux From Scratch*][]: files in `/etc/fonts/conf.d/` have names starting with
@@ -128,8 +128,10 @@ such as:
 </alias>
 ```
 
-The element says: prepend those 4 font families to the list of best-matching fonts in that
-order when "sans-serif" is requested.
+The element says: prepend those four font families to the list of best-matching fonts in
+that order when "sans-serif" is requested.  My [`fonts.conf`][] consists of such `<alias>`
+elements for "serif", "sans-serif", and
+"monospace".<sup>[\[3\]](#user-content-footnote-3)</sup>
 
 <!--
 Configuration files with numbers that are lower than 50 and that also prepend fonts to
@@ -140,10 +142,11 @@ be done in files with numbers 60 to 69 (see [*Tuning Fontconfig*]; search for "g
 aliases, map generic to family").
 -->
 
-This would typically work.  I think.  It didn't quite do it for me, though.  Something
-else was also prepending "Noto Sans" with the effect that it ended up at the very top of
-the font list.  I identified [`30-infinality-aliases.conf`][], which I got from the
-[`fonts-meta-extended-lt`][] package, as the culprit.  It does this:
+This works but I ran into one problem.  Something else was also prepending "Noto Sans"
+with the effect that it ended up at the very top of the sans-serif font list.  The same
+thing happened for serif and monospace fonts.  I identified
+[`30-infinality-aliases.conf`][], which I got from the [`fonts-meta-extended-lt`][]
+package, as the culprit.  It does this:
 
 ```xml
 <alias>
@@ -158,27 +161,10 @@ which one may prepend fonts with Fontconfig and `<prefer>`ing is syntactic sugar
 inserting before the matching `<family>` but not actually at the top.
 `30-infinality-aliases.conf` does this before my own configuration and consequently it
 wins.<sup>[\[2\]](#user-content-footnote-2)</sup>
+I [forked](conf.d/30-infinality-aliases.conf) `30-infinality-aliases.conf` and removed
+the<!--offending--> problematic lines.
 
-We can get around this by using `<prepend_first>`, but have to do without the `<alias>`
-shorthand:
-
-```xml
-<match target="pattern">
-   <test name="family">
-      <string>sans-serif</string>
-   </test>
-   <edit name="family" mode="prepend_first">
-      <string>Ubuntu</string>
-      <string>Noto Sans CJK TC</string>
-      <string>Noto Color Emoji</string>
-      <string>Noto Sans</string>
-   </edit>
-</match>
-```
-
-My [`fonts.conf`][] consists of such `<match>` elements for "serif", "sans-serif", and
-"monospace".<sup>[\[3\]](#user-content-footnote-3)</sup> We can test the results with the
-`-s` flag of `fc-match`:
+We can test the results with the `-s` flag of `fc-match`:
 
 ```bash
 $ fc-match -s serif | head -4
