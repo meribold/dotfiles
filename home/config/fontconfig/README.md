@@ -8,12 +8,6 @@
     for Firefox to pick up configuration changes, but I do have to restart it.
 *   "[65,535 glyphs (the maximum number of glyphs that can be included in a single
     font).][Noto CJK]"
-*   "[Variation Selector format characters [...] are used to specify a specific glyph
-    variant for a Unicode character, such as the Japanese, Chinese, Korean, or Taiwanese
-    form of a particular CJK ideograph.][Variant form (Unicode)]"
-
-[Variant form (Unicode)]: https://en.wikipedia.org/wiki/Variant_form_(Unicode)
-    "Variant form (Unicode) - Wikipedia"
 -->
 
 Fontconfig is a library that many graphical programs use to figure out what font to use.
@@ -60,7 +54,8 @@ similar but non-identical [Han characters][] here:
 only reason they (hopefully) look distinct is that I added [`lang`][] attributes to the
 list items.  Those two characters *can only coexist when additional metadata is
 provided*—possible on a webpage, but try copying both characters into your browser's
-[address bar][], a text editor, or a terminal: I bet they'll look the same.
+[address bar][], a text editor, or a terminal: I bet they'll look the
+same.<sup>[\[1\]](#user-content-footnote-1)</sup>
 
 Relying on additional metadata for correct rendering of text seems like a weird choice in
 hindsight, but the consequence that's relevant here is this: choosing a fallback font also
@@ -106,7 +101,7 @@ number followed by a hyphen and smaller numbers are loaded first.
 Loading files from the configuration paths specified by [`fonts-conf(5)`][] isn't
 intrinsic behavior of Fontconfig.  Instead, the master `/etc/fonts/fonts.conf` file
 contains `<include>` directives.  On my
-system,<sup>[\[1\]](#user-content-footnote-1)</sup> it only includes files in
+system,<sup>[\[2\]](#user-content-footnote-2)</sup> it only includes files in
 `/etc/fonts/conf.d/`, but in there is `50-user.conf` which includes (among other things)
 [`~/.config/fontconfig/fonts.conf`][`fonts.conf`].  The takeaway is that the user-specific
 configuration here is loaded sort of after one half and before one half of the system-wide
@@ -160,7 +155,7 @@ is ultimately included from <code><b>50</b>-user.conf</code>?  Well, there are t
 which one may prepend fonts with Fontconfig and `<prefer>`ing is syntactic sugar for
 inserting before the matching `<family>` but not actually at the top.
 `30-infinality-aliases.conf` does this before my own configuration and consequently it
-wins.<sup>[\[2\]](#user-content-footnote-2)</sup>
+wins.<sup>[\[4\]](#user-content-footnote-4)</sup>
 I [forked](conf.d/30-infinality-aliases.conf) `30-infinality-aliases.conf` and removed
 the<!--offending--> problematic lines.
 
@@ -228,17 +223,23 @@ that are relevant and interesting:
 ## Footnotes
 
 <ol>
-<li id="footnote-1"><a href="https://redd.it/32o299">Did I tell you I use Arch Linux?</a></li>
-<li id="footnote-2">
-I think <code>30-infinality-aliases.conf</code> disregards the <a
-href="http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html">conventional
-naming scheme</a> in doing so: "generic aliases" should appear in files with numbers 60 to
-69 (see the <i>various files</i> section).
+<li id="footnote-1">
+There may be another way: "<a href="https://en.wikipedia.org/wiki/Variant_form_(Unicode)"
+title="Variant form (Unicode) - Wikipedia">Variation Selector format characters [...] are
+used to specify a specific glyph variant for a Unicode character, such as the Japanese,
+Chinese, Korean, or Taiwanese form of a particular CJK ideograph.</a>"
 </li>
+<li id="footnote-2"><a href="https://redd.it/32o299">Did I tell you I use Arch Linux?</a></li>
 <li id="footnote-3">
 The semantics of Fontconfig's XML schema are documented in <a
 href="https://www.freedesktop.org/software/fontconfig/fontconfig-user.html"
 title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
+</li>
+<li id="footnote-4">
+I think <code>30-infinality-aliases.conf</code> disregards the <a
+href="http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html">conventional
+naming scheme</a> in doing so: "generic aliases" should appear in files with numbers 60 to
+69 (see the <i>various files</i> section).
 </li>
 </ol>
 
