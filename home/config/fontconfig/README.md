@@ -97,11 +97,11 @@ to do something equivalent for serif and monospace.
 
 ### Back to topic (sort of)
 
-It's good to know the order in which Fontconfig loads configuration files.  There
-usually are lots in `/etc/fonts/conf.d/` and they interfere with user-specific
-configuration.  The only explanation I've found is in the [*Tuning Fontconfig*][] section
-of [*Beyond Linux From Scratch*][]: files in `/etc/fonts/conf.d/` have names starting with
-a two-digit number followed by a hyphen and smaller numbers are loaded first.
+It's good to know the order in which Fontconfig loads configuration files.  There usually
+are lots in `/etc/fonts/conf.d/` and they interfere with user-specific configuration.  The
+only explanation I've found is in the [*Tuning Fontconfig*][] section of [*Beyond Linux
+From Scratch*][]: files in `/etc/fonts/conf.d/` have names starting with a two-digit
+number followed by a hyphen and smaller numbers are loaded first.
 
 Loading files from the configuration paths specified by [`fonts-conf(5)`][] isn't
 intrinsic behavior of Fontconfig.  Instead, the master `/etc/fonts/fonts.conf` file
