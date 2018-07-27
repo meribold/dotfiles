@@ -5,3 +5,4 @@ mutt/aliases filter=git-crypt diff=git-crypt
 mutt/per-recipient-rules filter=git-crypt diff=git-crypt
 vim/spell/de.utf-8.add filter=git-crypt diff=git-crypt
 vim/spell/en.utf-8.add filter=git-crypt diff=git-crypt
+irssi/config filter=git-crypt diff=git-crypt
