@@ -1,6 +1,8 @@
-# i3 config file
+# Configuration file for i3(-gaps)
 #
-# See http://i3wm.org/docs/userguide.html and https://github.com/Airblader/i3 (i3-gaps).
+# See the user guide at <https://i3wm.org/docs/userguide.html>.
+#
+# TODO: always use xbindkeys(1) for keybindings?
 
 # Use the Super key as the default modifier.
 set $mod Mod4
