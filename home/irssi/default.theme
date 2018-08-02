@@ -250,7 +250,7 @@ abstracts = {
 
   # default background for all statusbars. You can also give
   # the default foreground color for statusbar items.
-  sb_background = "%4%w";
+  sb_background = "%2%k";
 
   # default backround for "default" statusbar group
   #sb_default_bg = "%4";
@@ -273,22 +273,22 @@ abstracts = {
 
   prompt = "[$*] ";
 
-  sb = " %c[%n$*%c]%n";
-  sbmode = "(%c+%n$*)";
-  sbaway = " (%GzZzZ%n)";
+  sb = " %w[%n$*%w]%n";
+  sbmode = "(%w+%n$*)";
+  sbaway = " (zZzZ)";
   sbservertag = ":$0 (change with ^X)";
   sbnickmode = "$0";
 
   # activity in statusbar
 
   # ',' separator
-  sb_act_sep = "%c$*";
+  sb_act_sep = "%w$*%n";
   # normal text
-  sb_act_text = "%c$*";
+  sb_act_text = "%7%U$*%U%n";
   # public message
-  sb_act_msg = "%W$*";
+  sb_act_msg = "%3%U$*%U%n";
   # hilight
-  sb_act_hilight = "%M$*";
+  sb_act_hilight = "%1%U$*%U%n";
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "$0$1-%n";
 };
