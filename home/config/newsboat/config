@@ -44,7 +44,7 @@ color listnormal        white   black
 color listfocus         default red
 color listnormal_unread green   default
 color listfocus_unread  default red
-color info              black   blue
+color info              black   yellow
 color article           white   black
 
 # Only show Angry Video Game Nerd videos from the Cinemassacre YouTube channel.
