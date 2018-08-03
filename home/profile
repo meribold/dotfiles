@@ -32,10 +32,6 @@ if which ruby >/dev/null && which gem >/dev/null; then
    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-# Make `jpm` available.  See
-# <https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installing_jpm_locally>.
-PATH="$HOME/node_modules/.bin/:$PATH"
-
 # Make executables installed with `pip install --user ...`, which drops them into
 # `~/.local/bin/`, available.  See
 # <https://docs.python.org/3/install/index.html#alternate-installation-the-user-scheme>.
