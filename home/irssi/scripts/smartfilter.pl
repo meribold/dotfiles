@@ -81,7 +81,7 @@ sub smartfilter_text {
 			&checkactive($1, $2, $dest->{'target'});
 		}
 	} elsif($dest->{'level'} & MSGLEVEL_QUITS) {
-		if($stripped =~ m/-!- ([^ ]+) .+? has quit/) {
+		if($stripped =~ m/! ([^ ]+) .+? has quit/) {
 			&checkactive($1, undef, $dest->{'target'});
 		}
 	}
