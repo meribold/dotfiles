@@ -62,11 +62,12 @@ abstracts = {
   ## generic
   ##
 
-  # text to insert at the beginning of each non-message line
-  line_start = "%B-%n!%B-%n ";
+  # Text to insert at the beginning of each non-message line.  I think `%X7M` is #808080
+  # (and `%X7A` #080808).
+  line_start = "%X7M! %n";
 
   # timestamp styling, nothing by default
-  timestamp = "$*";
+  timestamp = "%X7M$*%n";
 
   # any kind of text that needs hilighting, default is to bold
   hilight = "%_$*%_";
@@ -87,7 +88,7 @@ abstracts = {
   server = "%_$*%_";
 
   # some kind of comment is printed
-  comment = "[$*]";
+  comment = "[%X7M$*%n]";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -100,25 +101,26 @@ abstracts = {
   ##
 
   # highlighted nick/host is printed (joins)
-  channick_hilight = "%C$*%n";
-  chanhost_hilight = "{nickhost %c$*%n}";
+  channick_hilight = "$*";
+  chanhost_hilight = "{nickhost %g$*%n}";
 
   # nick/host is printed (parts, quits, etc.)
-  channick = "%c$*%n";
-  chanhost = "{nickhost $*}";
+  channick = "$*";
+  chanhost = "{nickhost %X7M$*%n}";
 
   # highlighted channel name is printed
-  channelhilight = "%c$*%n";
+  channelhilight = "$*";
 
   # ban/ban exception/invite list mask is printed
-  ban = "%c$*%n";
+  ban = "%g$*%n";
 
   ##
   ## messages
   ##
 
-  # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick = "%K<%n$0$1-%K>%n %|";
+  # Clean up "the basic styling of how to print message[s]".  `$0` is the "nick mode" and
+  # `$1` the nick.
+  msgnick = "$0$1-%X7M | %n%|";
 
   # message from you is printed. "ownnick" specifies the styling of the
   # nick ($0 part in msgnick) and "ownmsgnick" specifies the styling of the
