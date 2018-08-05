@@ -120,7 +120,7 @@ abstracts = {
 
   # Clean up "the basic styling of how to print message[s]".  `$0` is the "nick mode" and
   # `$1` the nick.
-  msgnick = "$0$1-%X7M | %n%|";
+  msgnick = "$0$1-%X7M │ %n%|";
 
   # message from you is printed. "ownnick" specifies the styling of the
   # nick ($0 part in msgnick) and "ownmsgnick" specifies the styling of the
