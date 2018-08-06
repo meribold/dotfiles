@@ -296,7 +296,13 @@ abstracts = {
 };
 formats = {
   "fe-common/core" = {
-    pubmsg = "{pubmsgnick $2 {pubnick \00302$[-12]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick $[-12]0}}$1";
     own_msg = "{ownmsgnick $2 {ownnick $[-12]0}}$1";
+    own_msg_channel = "{ownmsgnick $3 {ownnick $[-12]0}{msgchannel $1}}$2";
+    pubmsg_me = "{pubmsgmenick $2 {menick $[-12]0}}$1";
+    pubmsg_me_channel = "{pubmsgmenick $3 {menick $[-12]0}{msgchannel $1}}$2";
+    pubmsg_hilight = "{pubmsghinick $0 $3 $[-12]1}$2";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-12]1{msgchannel $2}}$3";
+    pubmsg_channel = "{pubmsgnick $3 {pubnick $[-12]0}{msgchannel $1}}$2";
   };
 };
