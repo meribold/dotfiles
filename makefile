@@ -14,10 +14,10 @@ MAKEFLAGS += --no-builtin-rules
 # (https://www.gnu.org/software/make/manual/make.html#Using-Variables).
 GIT_CRYPT ?= git-crypt
 
-.PHONY: all vim nvim
+.PHONY: all vim
 
 # Set the default goal.
-all: vim nvim
+all: vim
 
 # Explicitly initialize as simple variables as recursive ones are the default.  Some
 # directories are added to $(links) instead of $(dirs) when just linking to a directory
@@ -49,6 +49,11 @@ else
    # the list of file paths to obtain the respective targets (".add.spl" files).  See
    # `:h spell` in Vim.
    add_spl_files := $(patsubst home/%,$(HOME)/.%.spl,$(wildcard home/vim/spell/*.add))
+endif
+
+ifneq ($(shell command -v nvim 2>/dev/null),)
+   .PHONY: nvim
+   all: nvim
 endif
 
 # See <https://github.com/junegunn/vim-plug#installation>.
