@@ -102,7 +102,7 @@ abstracts = {
 
   # highlighted nick/host is printed (joins)
   channick_hilight = "$*";
-  chanhost_hilight = "{nickhost %g$*%n}";
+  chanhost_hilight = "{nickhost %X7M$*%n}";
 
   # nick/host is printed (parts, quits, etc.)
   channick = "$*";
