@@ -173,6 +173,13 @@ links += $(mutt_links)
 mutt: $(mutt_links)
 all: mutt
 
+irssi_link_targets := $(wildcard home/irssi/*)
+irssi_links := $(patsubst home/%,$(HOME)/.%,$(irssi_link_targets))
+links += $(irssi_links)
+.PHONY: irssi
+irssi: $(irssi_links)
+all: irssi
+
 conky_links := $(HOME)/.config/conky
 links += $(conky_links)
 .PHONY: conky
