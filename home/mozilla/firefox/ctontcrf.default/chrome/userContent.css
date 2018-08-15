@@ -37,6 +37,11 @@
     display: none;
   }
 
+  /* Hide the numbers.  See <https://stackoverflow.com/q/133051>. */
+  span.rank {
+    display: none;
+  }
+
   #hnmain {
     width: auto !important;
     margin-top: 6px;
