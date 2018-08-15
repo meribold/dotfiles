@@ -1,12 +1,30 @@
-# ~/.inputrc
+# Configuration file for readline(3)
 
-# http://superuser.com/questions/342455/flashing-window-in-gnu-screen
+# From <https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/>.  Read commands and
+# bindings from `/etc/inputrc`, which, I guess, would otherwise only be read if
+# `~/.inputrc` didn't exist.
+$include /etc/inputrc
+
+# From <https://superuser.com/q/342455/flashing-window-in-gnu-screen>.
 set bell-style none
 
-# https://wiki.archlinux.org/index.php/Bashrc#Faster_completion
+# From <https://wiki.archlinux.org/index.php/Readline#Faster_completion>.
 set show-all-if-ambiguous on
 
-# http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html
+# From <http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.
 set input-meta   on
 set output-meta  on
 set convert-meta off
+
+# From <https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/>.  Change Control+P and
+# Control+N to only bring up history items that match the already typed characters.
+"\C-P": history-search-backward
+"\C-N": history-search-forward
+
+# More stuff from <https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/>.  Except
+# for `colored-completion-prefix`, which I find even nicer than
+# `completion-prefix-display-length`.
+set colored-stats on
+set completion-ignore-case on
+set colored-completion-prefix
+set mark-symlinked-directories on
