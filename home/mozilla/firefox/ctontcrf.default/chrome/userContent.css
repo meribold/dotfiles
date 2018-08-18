@@ -84,9 +84,10 @@
     color: #fff;
   }
 
-  .pagetop > .hnname {
-    font-variant: small-caps;
-    font-size: 1rem !important;
+  .pagetop > b.hnname {
+    display: none !important;
+    /* font-variant: small-caps; */
+    /* font-size: 1rem !important; */
   }
 
   .comment {
