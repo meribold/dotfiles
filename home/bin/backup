@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# Shell script to create incremental backups with rsync.  The shebang specifies Bash
-# because this script relies on brace expansion (http://stackoverflow.com/q/10376206).
-# I've used information from rsync(1) and these ArchWiki pages and guides:
+# Shell script for creating incremental backups with rsync.  The shebang specifies Bash
+# because this script relies on brace expansion (https://stackoverflow.com/q/10376206).
+# I've used information from rsync(1) and these guides and ArchWiki pages:
 # https://wiki.archlinux.org/index.php/Backup_programs
 # https://wiki.archlinux.org/index.php/Rsync#Snapshot_backup
 # https://wiki.archlinux.org/index.php/Full_system_backup_with_rsync
-# http://www.ibm.com/developerworks/aix/library/au-spunix_rsync/index.html#backup
-# http://www.sanitarium.net/golug/rsync_backups_2010.html
+# https://www.ibm.com/developerworks/aix/library/au-spunix_rsync/index.html#backup
+# https://www.sanitarium.net/golug/rsync_backups_2010.html
 
 # Use a timestamp in the ISO 8601 basic date and time format.  The precision is reduced to
 # minutes.  The time is given in UTC (Coordinated Universal Time), which is indicated by
