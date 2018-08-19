@@ -154,6 +154,12 @@ links += $(bash_links)
 bash: $(bash_links)
 all: bash
 
+readline_links := $(HOME)/.inputrc
+links += $(readline_links)
+.PHONY: readline
+readline: $(readline_links)
+all: readline
+
 screen_links := $(HOME)/.screenrc
 links += $(screen_links)
 .PHONY: screen
