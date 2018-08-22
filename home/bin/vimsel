@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# vimsel - a simpler [vim-anywhere][1]
+#
+# TODO:
+#
+# * vim-anywhere also uses a temporary file to copy the contents of Vim's buffer to the
+#   clipboard, but we can probably just use an autocommand instead [4].
+# * Don't yank the final newline.
+# * Should we use `xclip` or `xsel`?  See [5].
+
+f=$(mktemp) &&
+# Add a mapping for saving and quitting without leaving insert mode (Control+Q) and start
+# insert mode (see [6] and [7]).
+xterm -name vimsel -e nvim +'set ft=mail' +'inoremap <C-Q> <Esc>ZZ' \
+      +'nnoremap <C-Q> <Esc>ZZ' +startinsert "$f" &&
+xsel --clipboard < "$f"
+
+# [1]: https://github.com/cknadler/vim-anywhere
+# [2]: https://github.com/hrantzsch/vimclip
+# [3]: https://redd.it/98jq2p "vimclip: poor man's vim-anywhere"
+# [4]: https://reddit.com/comments/98jq2p/e4gjdhn
+# [5]: https://askubuntu.com/q/705620 "xclip vs. xsel"
+# [6]: https://github.com/cknadler/vim-anywhere/pull/88/files
+# [7]: https://github.com/cknadler/vim-anywhere/issues/94

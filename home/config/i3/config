@@ -170,4 +170,6 @@ exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
 assign [class="^Firefox$"] 1
 assign [class="^Firefox Developer Edition$"] 1
 
+for_window [instance="^vimsel$"] floating enable
+
 # vim: tw=90 sts=-1 sw=3 et fdm=marker
