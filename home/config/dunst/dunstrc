@@ -47,6 +47,9 @@
     # keyboard focus.
     follow = none
 
+    # Don't merge multiple notifications with the same content.
+    stack_duplicates = false
+
     # Notifications popped up from history should be sticky and not timeout as they
     # normally do.
     sticky_history = yes
