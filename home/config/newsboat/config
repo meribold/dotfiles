@@ -2,6 +2,7 @@ browser "nohup $FIREFOX --new-tab %u &>/dev/null &"
 datetime-format "%F"  # ISO 8601
 refresh-on-startup yes
 reload-threads 42
+prepopulate-query-feeds yes
 swap-title-and-hints yes  # Like Mutt.
 # Also download ignored articles, just don't display them.  See
 # <fle:///usr/share/doc/newsboat/newsboat.html#_killfiles>.
