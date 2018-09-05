@@ -13,8 +13,8 @@
 	amend = commit --amend
 	c = commit
 	ff = merge --ff-only
-	; See <https://stackoverflow.com/a/35075021>.  TODO: Is `--decorate` needed?  I
-	; don't think so (https://stackoverflow.com/a/25097285).
+	; See <https://stackoverflow.com/a/35075021>.  With recent versions of Git,
+	; `--decorate` is not needed (https://stackoverflow.com/a/25097285).
 	dog = log --decorate --oneline --graph
 	adog = log --all --decorate --oneline --graph
 	; I like `adog`, but usually I also want the date: this alias is pretty much the
