@@ -78,4 +78,7 @@
 "vimsel"
    Mod4 + e
 
+"xterm -name 'floating htop' -geometry 180x29 -e htop"
+   Mod4 + apostrophe
+
 # vim: ft=conf
