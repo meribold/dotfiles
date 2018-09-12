@@ -78,6 +78,10 @@
 "vimsel"
    Mod4 + e
 
+# TODO: kill this xterm when it loses focus?
+"xterm -name 'floating xterm'"
+   Mod4 + o
+
 "xterm -name 'floating htop' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
