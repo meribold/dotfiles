@@ -174,4 +174,7 @@ for_window [instance="^vimsel$"] floating enable
 for_window [instance="^floating htop$"] floating enable
 for_window [instance="^floating xterm$"] floating enable
 
+# There appears to be no other property we could use...
+for_window [title="^Android Emulator - "] floating enable
+
 # vim: tw=90 sts=-1 sw=3 et fdm=marker
