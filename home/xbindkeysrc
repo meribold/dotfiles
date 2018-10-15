@@ -16,14 +16,39 @@
 "amixer -q set Master playback 2dB+"
    XF86AudioRaiseVolume
 
+# Increase the audio volume by scrolling up while holding the Super/Windows key.  Yay!
+# *Much* faster and more convenient than the media keys!  (TrackPoints FTW!)  TODO: there
+# should be some notification showing the current volume.
+"amixer -q set Master playback 1dB+"
+   Mod4 + b:4
+
+# Decrease the volume by scrolling down while holding the Super/Windows key.
+"amixer -q set Master playback 1dB-"
+   Mod4 + b:5
+
+"mpc seek +5"
+   XF86Forward
+
+"mpc seek -5"
+   XF86Back
+
 "mpc next"
    XF86AudioNext
+
+"mpc next"
+   Mod4 + slash
 
 "mpc toggle"
    XF86AudioPlay
 
+"mpc toggle"
+   Mod4 + period
+
 "mpc prev"
    XF86AudioPrev
+
+"mpc prev"
+   Mod4 + comma
 
 # Take a screenshot using maim(1).
 "f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
