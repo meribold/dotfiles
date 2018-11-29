@@ -40,7 +40,7 @@ pacman -Qeq --native > ~/packages-native.txt
 pacman -Qtdq # list (real) orphan packages
 pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
-reflector -a 1 -f 10 -n 5 -p http -p https --sort score | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
+reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
 rofi -modi drun,run -matching fuzzy -show
 rsync -r -h --info=progress2 SRC DEST
 sudo dhcpcd -B wlan0
