@@ -251,6 +251,9 @@ macro index,pager gc "<shell-escape>$BROWSER https://contacts.google.com<return>
    "open Google Contacts in Firefox"
 
 # Mutt-y (similar to Mutt's defaults) {{{2
+bind index M middle-page # I'm pretty sure this didn't use to be necessary?  Anyway,
+                         # NeoMutt's default keybinding for M in the index menu apparently
+                         # is `show-log-messages`.
 bind index L bottom-page # Provided by default in "generic" context but overridden.  M and
                          # H are Vim-ish by default as well.
 bind pager <Space> half-down
