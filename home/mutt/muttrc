@@ -102,7 +102,7 @@ set pgp_sign_as="C4592C12"
 source ~/.mutt/per-recipient-rules
 
 # Get a signature from the message of the day.
-set signature="cat /etc/motd|"
+set signature="/etc/motd"
 
 set abort_nosubject=no
 set abort_unmodified=no
