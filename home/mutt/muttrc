@@ -149,9 +149,10 @@ folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %
 # <http://www.mutt.org/doc/manual/#status-format>.
 set status_format="%f%?V?/%V? [%m%?M?, %M shown?%?n?, %n new?%?o?, %o old?%?d?, %d deleted?%?F?, %F flagged?%?t?, %t tagged?%?p?, %p postponed?] %> %P"
 
-# Also show less information in the status line when the compose menu is displayed and
-# don't use hyphens for padding in that case either.
-set compose_format="Approximate message size: %lB"
+# I don't think any of the information we can show in the status line while in the compose
+# menu is useful (see <file:///usr/share/doc/neomutt/manual.html#compose-format>).  Also
+# get rid of the hyphens again.
+set compose_format=
 
 # Customize the status line shown when reading a message (the status line for the pager).
 # See <https://dev.mutt.org/doc/manual.html#pager-format>.
