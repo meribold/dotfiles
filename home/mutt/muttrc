@@ -1,4 +1,6 @@
-# My muttrc.  Lots of documentation is in muttrc(5).
+# My main NeoMutt configuration file.  Lots of documentation is in neomuttrc(5) and
+# <file:///usr/share/doc/neomutt/manual.html> or <https://neomutt.org/guide/>.  I don't
+# know if my configuration works well with unpatched Mutt anymore.  It probably doesn't.
 
 # Configure native IMAP support.  http://dev.mutt.org/trac/wiki/UseCases/Gmail
 # http://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support
@@ -147,9 +149,19 @@ folder-hook [Ss]ent "set index_format='%4C  %Z  %<[y?%<[m?%<[d?%[   %H:%M]&%[  %
 # <http://www.mutt.org/doc/manual/#status-format>.
 set status_format="%f%?V?/%V? [%m%?M?, %M shown?%?n?, %n new?%?o?, %o old?%?d?, %d deleted?%?F?, %F flagged?%?t?, %t tagged?%?p?, %p postponed?] %> %P"
 
+# Also show less information in the status line when the compose menu is displayed and
+# don't use hyphens for padding in that case either.
+set compose_format="Approximate message size: %lB"
+
 # Customize the status line shown when reading a message (the status line for the pager).
 # See <https://dev.mutt.org/doc/manual.html#pager-format>.
 set pager_format="%s%*   %P"
+
+# See <file:///usr/share/doc/neomutt/manual.html#attach-format> and
+# <file:///usr/share/doc/neomutt/manual.html#nested-if>.  The "%u%D" part of the default
+# format string is about whether an attachment was deleted or is marked for deletion.  I
+# don't delete attachments, so I dropped it.  TODO: can we use color and drop "%t"?
+set attach_format="%T%?t?*?%<d?%d%>   [%m/%M, %e%?C?, %C?]  %4s&[%m/%M]%>   [%e%?C?, %C?]  %4s>"
 
 # Hide the line showing a few key bindings that's normally at the top of the window.  See
 # <http://www.mutt.org/doc/manual/#help>.
