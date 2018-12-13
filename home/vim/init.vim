@@ -28,5 +28,3 @@ inoremap <M-h> <Left>
 inoremap <M-j> <Down>
 inoremap <M-k> <Up>
 inoremap <M-l> <Right>
-
-" vim: tw=90 sts=-1 sw=3 et
