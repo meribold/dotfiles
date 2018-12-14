@@ -13,9 +13,6 @@
 [submodule "AUR/dict-wn"]
 	path = misc/AUR/dict-wn
 	url = https://aur.archlinux.org/dict-wn.git
-[submodule "AUR/thinkfan"]
-	path = misc/AUR/thinkfan
-	url = https://aur.archlinux.org/thinkfan.git
 [submodule "AUR/tor-browser-en"]
 	path = misc/AUR/tor-browser-en
 	url = https://aur.archlinux.org/tor-browser-en.git
