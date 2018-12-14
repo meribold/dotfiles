@@ -145,3 +145,6 @@
 [submodule "misc/AUR/ttf-signika"]
 	path = misc/AUR/ttf-signika
 	url = https://aur.archlinux.org/ttf-signika.git
+[submodule "misc/AUR/alock-git"]
+	path = misc/AUR/alock-git
+	url = https://aur.archlinux.org/alock-git.git
