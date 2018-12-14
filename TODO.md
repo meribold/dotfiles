@@ -33,8 +33,4 @@
 
 [Mutt]: /home/mutt/
 
-## Uncategorized
-
-*   Remove the configuration files for Notion?
-
 <!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
