@@ -13,7 +13,7 @@
 
 ! Black.
 *color0:  #000000
-! Grey (color 244); used by jellybeans for the "Comment" highlighting group.
+! Gray (color 244); used by jellybeans for the "Comment" highlighting group.
 *color8:  #808080
 
 ! Red (color 167); "Constant" highlighting group
