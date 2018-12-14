@@ -126,9 +126,6 @@ mode "resize" {
 # Resize mode.
 bindsym $mod+w mode "resize"
 
-# Lock all input until the password is supplied, leaving windows visible.
-bindsym $mod+Shift+x exec --no-startup-id "xtrlock"
-
 # No borders...
 new_window none
 # ...except for floating windows.  The dream is dead.
