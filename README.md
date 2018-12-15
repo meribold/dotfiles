@@ -1,4 +1,4 @@
-![](/../media/screenshot.png?raw=true "Screenshot showing Vim, Conky, and vis")
+![Screenshot showing Vim, Conky, and vis](/../media/screenshot.png?raw=true)
 
 <!--
 I don't think a `# dotfiles` caption is needed: just make some interesting points as fast
