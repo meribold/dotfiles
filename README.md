@@ -15,9 +15,9 @@ Generally, these two projects are examples of pretty nice README files, I think:
 -->
 
 **Dotfiles** for [Vim/Neovim](home/vim/), [i3-gaps](home/config/i3/),
-[NeoMutt](home/mutt/), [and](home/config/conky/) [more](home/config/dunst/)
-[programs](home/screenrc)[...](home/xresources) some [scripts](home/bin/), Bash [functions
-and aliases](home/bashrc), [keybindings](home/xbindkeysrc), ...
+[NeoMutt](home/mutt/), [e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
+[p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
+[scripts](home/bin/), [keybindings](home/xbindkeysrc), …
 
 [Click here for more screenshots](https://imgur.com/a/1bnaT).
 
