@@ -1,4 +1,11 @@
-![Screenshot showing Vim, Conky, and vis](/../media/screenshot.png?raw=true)
+**Dotfiles** for [Vim/Neovim](home/vim/), [i3-gaps](home/config/i3/),
+[NeoMutt](home/mutt/), [e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
+[p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
+[scripts](home/bin/), [keybindings](home/xbindkeysrc), …
+
+<a href="https://imgur.com/a/1bnaT" title="Click for more screenshots">
+<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing Vim, Conky, and vis">
+</a>
 
 <!--
 I don't think a `# dotfiles` caption is needed: just make some interesting points as fast
@@ -13,13 +20,6 @@ Generally, these two projects are examples of pretty nice README files, I think:
 *   <https://github.com/junegunn/vim-plug>
 *   <https://github.com/junegunn/fzf>
 -->
-
-**Dotfiles** for [Vim/Neovim](home/vim/), [i3-gaps](home/config/i3/),
-[NeoMutt](home/mutt/), [e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
-[p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
-[scripts](home/bin/), [keybindings](home/xbindkeysrc), …
-
-[Click here for more screenshots](https://imgur.com/a/1bnaT).
 
 <!-- TODO: `## Highlights` section? -->
 
