@@ -14,9 +14,10 @@ Generally, these two projects are examples of pretty nice README files, I think:
 *   <https://github.com/junegunn/fzf>
 -->
 
-**Dotfiles** for [Vim][vim/] (and [Neovim][]), [i3-gaps][i3/], [Mutt][mutt/] (and
-[NeoMutt][]), Bash, [and][conky/] [more][dunst/] [programs][screen/][...][xresources] some
-[scripts][bin/], Bash [functions and aliases][bashrc], [keybindings][xbindkeysrc], ...
+**Dotfiles** for [Vim/Neovim](home/vim/), [i3-gaps](home/config/i3/),
+[NeoMutt](home/mutt/), [and](home/config/conky/) [more](home/config/dunst/)
+[programs](home/screenrc)[...](home/xresources) some [scripts](home/bin/), Bash [functions
+and aliases](home/bashrc), [keybindings](home/xbindkeysrc), ...
 
 [Click here for more screenshots](https://imgur.com/a/1bnaT).
 
@@ -70,27 +71,7 @@ regular files.
 
 Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execute.
 
-[vim/]: home/vim/
-[neovim]: https://neovim.io
-[i3/]: home/config/i3/
-[mutt/]: home/mutt/
-[neomutt]: https://neomutt.org
-[conky/]: home/config/conky/
-[dunst/]: home/config/dunst/
-[screen/]: home/screenrc
-[xresources]: home/xresources
-[bin/]: home/bin/
-[bashrc]: home/bashrc
-[xbindkeysrc]: home/xbindkeysrc
 [make]: https://www.gnu.org/software/make/
 [arch]: https://archlinux.org
-<!--
-[vim]: http://vim.org
-[i3-gaps]: https://github.com/Airblader/i3
-[mutt]: http://mutt.org
-[bash]: https://www.gnu.org/software/bash/
-[screen]: https://gnu.org/software/screen/
-[irssi/]: home/irssi/
--->
 
 <!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
