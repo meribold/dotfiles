@@ -23,3 +23,6 @@ max_line_length = 72
 [home/gitconfig]
 indent_size = 8
 indent_style = tab
+
+[misc/snippets.bash]
+max_line_length = 0
