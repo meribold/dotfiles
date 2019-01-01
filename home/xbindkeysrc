@@ -100,18 +100,9 @@
 "PINENTRY_USER_DATA=gtk rofi-pass"
    Mod4 + p
 
-# Lock all input until my password is supplied but leave everything visible.  There aren't
-# many screen-locking programs that work this way.  I previously used xtrlock, but it
-# changes the cursor to a hideous lock graphic which isn't configurable.  Now I'm using
-# [alock][1], which is "based upon xtrlock" (see the man page) and available in the
-# [AUR][2].  (There's also [this fork][3] of xtrlock.)  TODO: the very first keypress
-# seems to be dropped when I enter my password.  I'm currently working around this by
-# hitting the enter key before typing my password.
-"alock -bg none -i none -c glyph:name=X_cursor"
+# Lock the screen.
+"lock"
    XF86ScreenSaver
-# [1]: https://github.com/Arkq/alock
-# [2]: https://aur.archlinux.org/packages/alock-git
-# [3]: https://github.com/Airblader/xtrlock
 
 "vimsel"
    Mod4 + e
