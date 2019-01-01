@@ -234,6 +234,8 @@ g() {
    fi
 }
 
+alias nx='git-annex'
+
 d() { dict "$@" |& less -FX; }
 
 # Stuff concerning Bash's command history {{{1
