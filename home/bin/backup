@@ -14,7 +14,7 @@
 # adding a trailing Z to the timestamp.  See http://programmers.stackexchange.com/q/61683.
 date=$(date --utc "+%Y%m%dT%H%MZ")
 
-dest=/home/casi/sdb1/backup/rsync
+dest=/home/casi/usb-hdd/backup/rsync
 
 # Options used:
 # --archive: recurse and preserve almost everything
@@ -26,7 +26,7 @@ dest=/home/casi/sdb1/backup/rsync
 # --exclude: don't copy files matching these patterns
 # --link-dest: hard link to unchanged files here (make incremental backups)
 rsync --archive --hard-links --acls --xattrs --info=progress2 --human-readable \
-   --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/casi/sdb1/*"} \
+   --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/casi/usb-hdd/*"} \
    --link-dest="$dest"/last \
    /* "$dest/$date/"
 

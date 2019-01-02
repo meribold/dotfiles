@@ -46,12 +46,12 @@ rsync -r -h --info=progress2 SRC DEST
 sudo dhcpcd -B wlan0
 sudo ip link set wlan0 up
 sudo iw dev wlan0 scan | less
-sudo mount /dev/sdb1 ~/sdb1
+mount ~/usb-hdd
 sudo pacman -Syu
 sudo systemctl poweroff
 sudo systemctl restart wpa_supplicant@wlan0
 sudo systemctl suspend
-sudo umount ~/sdb1
+umount ~/usb-hdd
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 umount ~/v8x
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
