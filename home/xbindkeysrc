@@ -104,6 +104,10 @@
 "lock"
    XF86ScreenSaver
 
+# TODO: exclude theses notifications from Dunst's history.
+"notify-send -u low -t 2000 "$(bat)""
+   Mod4 + b
+
 "vimsel"
    Mod4 + e
 
