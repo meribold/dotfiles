@@ -151,21 +151,19 @@
 #
 #def_key "mouse"
 #  mouse_event
-#
-#def_key "up"
-#  scroll_up
-#
-#def_key "shift-up"
-#  select_item
-#  scroll_up
-#
-#def_key "down"
-#  scroll_down
-#
-#def_key "shift-down"
-#  select_item
-#  scroll_down
-#
+
+def_key "up"
+  dummy
+
+def_key "shift-up"
+  dummy
+
+def_key "down"
+  dummy
+
+def_key "shift-down"
+  dummy
+
 #def_key "["
 #  scroll_up_album
 #
@@ -177,22 +175,22 @@
 #
 #def_key "}"
 #  scroll_down_artist
-#
-#def_key "page_up"
-#  page_up
-#
-#def_key "page_down"
-#  page_down
-#
-#def_key "home"
-#  move_home
-#
-#def_key "end"
-#  move_end
-#
-#def_key "insert"
-#  select_item
-#
+
+def_key "page_up"
+  dummy
+
+def_key "page_down"
+  dummy
+
+def_key "home"
+  dummy
+
+def_key "end"
+  dummy
+
+def_key "insert"
+  dummy
+
 #def_key "enter"
 #  enter_directory
 #
@@ -213,43 +211,25 @@
 #
 #def_key "space"
 #  toggle_visualization_type
-#
-#def_key "delete"
-#  delete_playlist_items
-#
-#def_key "delete"
-#  delete_browser_items
-#
-#def_key "delete"
-#  delete_stored_playlist
-#
-#def_key "right"
-#  next_column
-#
-#def_key "right"
-#  slave_screen
-#
-#def_key "right"
-#  volume_up
-#
+
+def_key "delete"
+  dummy
+
+def_key "right"
+  dummy
+
 #def_key "+"
 #  volume_up
-#
-#def_key "left"
-#  previous_column
-#
-#def_key "left"
-#  master_screen
-#
-#def_key "left"
-#  volume_down
-#
+
+def_key "left"
+  dummy
+
 #def_key "-"
 #  volume_down
-#
-#def_key ":"
-#  execute_command
-#
+
+def_key ":"
+  dummy
+
 #def_key "tab"
 #  next_screen
 #
@@ -297,25 +277,19 @@
 #
 #def_key "@"
 #  show_server_info
-#
-#def_key "s"
-#  stop
-#
-#def_key "p"
-#  pause
-#
-#def_key ">"
-#  next
-#
-#def_key "<"
-#  previous
-#
-#def_key "ctrl-h"
-#  jump_to_parent_directory
-#
-#def_key "ctrl-h"
-#  replay_song
-#
+
+def_key "p"
+  dummy
+
+def_key ">"
+  dummy
+
+def_key "<"
+  dummy
+
+def_key "ctrl-h"
+  dummy
+
 #def_key "backspace"
 #  jump_to_parent_directory
 #
@@ -361,24 +335,12 @@
 #def_key "Z"
 #  shuffle
 #
-#def_key "x"
-#  toggle_crossfade
-#
-#def_key "X"
-#  set_crossfade
-#
 #def_key "u"
 #  update_database
-#
-#def_key "ctrl-s"
-#  sort_playlist
-#
-#def_key "ctrl-s"
-#  toggle_browser_sort_mode
-#
-#def_key "ctrl-s"
-#  toggle_media_library_sort_mode
-#
+
+def_key "ctrl-s"
+  dummy
+
 #def_key "ctrl-r"
 #  reverse_playlist
 #
@@ -399,12 +361,6 @@
 #
 #def_key "?"
 #  find_item_backward
-#
-#def_key "."
-#  next_found_item
-#
-#def_key ","
-#  previous_found_item
 #
 #def_key "w"
 #  toggle_find_mode
@@ -436,9 +392,6 @@
 #def_key "g"
 #  jump_to_position_in_song
 #
-#def_key "l"
-#  show_lyrics
-#
 #def_key "ctrl-v"
 #  select_range
 #
@@ -465,22 +418,10 @@
 #
 #def_key "C"
 #  crop_main_playlist
-#
-#def_key "m"
-#  move_sort_order_up
-#
-#def_key "m"
-#  move_selected_items_up
-#
-#def_key "n"
-#  move_sort_order_down
-#
-#def_key "n"
-#  move_selected_items_down
-#
-#def_key "M"
-#  move_selected_items_to
-#
+
+def_key "M"
+  dummy
+
 #def_key "A"
 #  add
 #
@@ -540,4 +481,71 @@
 #
 #def_key "q"
 #  quit
-#
+
+def_key "n"
+  next_found_item
+
+def_key "N"
+  previous_found_item
+
+def_key "k"
+  scroll_up
+
+def_key "j"
+  scroll_down
+
+def_key "l"
+  enter_directory
+
+def_key "l"
+  next_column
+
+def_key "h"
+  jump_to_parent_directory
+
+def_key "h"
+  previous_column
+
+def_key ";"
+  execute_command
+
+def_key "."
+  pause
+
+def_key "L"
+  show_lyrics
+
+def_key "J"
+  move_sort_order_down
+
+def_key "J"
+  move_selected_items_down
+
+def_key "K"
+  move_sort_order_up
+
+def_key "K"
+  move_selected_items_up
+
+def_key "x"
+  select_item
+  scroll_down
+
+def_key "X"
+  select_item
+  scroll_up
+
+def_key "m"
+  move_selected_items_to
+
+def_key "escape"
+  remove_selection
+
+def_key "s"
+  sort_playlist
+
+def_key "s"
+  toggle_browser_sort_mode
+
+def_key "s"
+  toggle_media_library_sort_mode

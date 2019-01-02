@@ -182,17 +182,17 @@
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
+song_list_format = {%a - }{%t}|{$8%f$9}$R{$(244)%y$9}
 #
-#song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
+song_status_format = {{$b%a$/b{ - %b{ (%y)}} - }{$b%t$/b}}|{%f}
 #
 #song_library_format = {%n - }{%t}|{%f}
 #
-#alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+alternative_header_first_line_format = $1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9
 #
 #alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-#current_item_prefix = $(yellow)$r
+current_item_prefix = $(blue)$r
 #
 #current_item_suffix = $/r$(end)
 #
@@ -206,7 +206,7 @@
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #
-#selected_item_prefix = $6
+selected_item_prefix = $2
 #
 #selected_item_suffix = $9
 #
@@ -262,7 +262,8 @@
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+#song_columns_list_format = (50)[white]{t|f:Title} (25)[blue]{a} (25)[244]{b}
+song_columns_list_format = (67)[white]{t|f:Title} (33)[blue]{a} (4f)[244]{yE}
 #
 ##### various settings #####
 #
@@ -318,6 +319,10 @@
 ## part of progressbar.
 ##
 #progressbar_look = =>
+#progressbar_look = ─>
+#progressbar_look = >>
+#progressbar_look = //
+progressbar_look = ...
 #
 ## Available values: database, playlist.
 ##
@@ -327,7 +332,7 @@
 ##
 #user_interface = classic
 #
-#data_fetching_delay = yes
+data_fetching_delay = no
 #
 ## Available values: artist, album_artist, date, genre, composer, performer.
 ##
@@ -351,7 +356,7 @@
 #
 #cyclic_scrolling = no
 #
-#lines_scrolled = 2
+lines_scrolled = 1
 #
 #lyrics_fetchers = lyricwiki, azlyrics, genius, sing365, lyricsmania, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
 #
@@ -417,7 +422,7 @@
 #
 #clock_display_seconds = no
 #
-#display_volume_level = yes
+display_volume_level = no
 #
 #display_bitrate = no
 #
@@ -444,7 +449,7 @@
 #
 #mouse_support = yes
 #
-#mouse_list_scroll_whole_page = yes
+mouse_list_scroll_whole_page = no
 #
 #empty_tag_marker = <empty>
 #
@@ -510,9 +515,9 @@
 #
 #colors_enabled = yes
 #
-#empty_tag_color = cyan
+empty_tag_color = blue
 #
-#header_window_color = default
+header_window_color = blue
 #
 #volume_color = default
 #
@@ -520,25 +525,26 @@
 #
 #state_flags_color = default:b
 #
-#main_window_color = yellow
+main_window_color = default
 #
 #color1 = white
 #
 #color2 = green
 #
-#progressbar_color = black:b
+#progressbar_color = black
+progressbar_color = 236:b
 #
-#progressbar_elapsed_color = green:b
+progressbar_elapsed_color = default:b
 #
-#statusbar_color = default
+statusbar_color = blue
 #
-#statusbar_time_color = default:b
+statusbar_time_color = default
 #
-#player_state_color = default:b
+player_state_color = default
 #
 #alternative_ui_separator_color = black:b
 #
-#window_border_color = green
+window_border_color = blue
 #
 #active_window_border = red
 #
