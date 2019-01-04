@@ -10,7 +10,7 @@
 while :; do
    mpc idleloop player || sleep 1
 done |
-# For every line read (whenever the `player` event occres), create a desktop notification
+# For every line read (whenever the `player` event occurs), create a desktop notification
 # with information about the currently playing song.
 while read; do
    readarray -c 2 mpd_status < <(mpc)
