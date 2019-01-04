@@ -16,7 +16,7 @@ while read; do
    readarray -c 2 mpd_status < <(mpc)
    if [[ ${mpd_status[1]} == \[playing\]* ]]; then
       # See `notify-send -?`.
-      notify-send --expire-time=2000 -u low -a mpd \
+      notify-send --expire-time=2000 -u low -c ephemeral \
          $'<small>MPD: now playing</small>\n'"${mpd_status[0]}"
    fi
 done

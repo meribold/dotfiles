@@ -104,8 +104,9 @@
 "lock"
    XF86ScreenSaver
 
-# TODO: exclude theses notifications from Dunst's history.
-"notify-send -u low -t 2000 "$(bat)""
+# These notifications are excluded from Dunst's history based on the "ephemeral" category.
+# There is associated configuration in `home/config/dunst/dunstrc` that makes this work.
+"notify-send -u low -t 2000 -c ephemeral "$(bat)""
    Mod4 + b
 
 "vimsel"
