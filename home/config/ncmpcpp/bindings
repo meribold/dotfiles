@@ -389,9 +389,6 @@ def_key "ctrl-s"
 #def_key "I"
 #  show_artist_info
 #
-#def_key "g"
-#  jump_to_position_in_song
-#
 #def_key "ctrl-v"
 #  select_range
 #
@@ -430,12 +427,6 @@ def_key "M"
 #
 #def_key "o"
 #  jump_to_playing_song
-#
-#def_key "G"
-#  jump_to_browser
-#
-#def_key "G"
-#  jump_to_playlist_editor
 #
 #def_key "~"
 #  jump_to_media_library
@@ -549,3 +540,15 @@ def_key "s"
 
 def_key "s"
   toggle_media_library_sort_mode
+
+def_key "g"
+  move_home
+
+def_key "G"
+  move_end
+
+def_key "ctrl-u"
+  page_up
+
+def_key "ctrl-d"
+  page_down
