@@ -27,9 +27,9 @@ export wiki_browser=$BROWSER
 # [3]: https://mozilla.org/en-US/firefox/52.0/releasenotes/
 export SDL_AUDIODRIVER=alsa
 
-# Make RubyGems available (http://guides.rubygems.org/faqs/#user-install).
+# Make RubyGems available (https://guides.rubygems.org/faqs/#user-install).
 if which ruby >/dev/null && which gem >/dev/null; then
-   PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 # Make executables installed with `pip install --user ...`, which drops them into
