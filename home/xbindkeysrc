@@ -78,6 +78,10 @@
 "pgrep -u $(id -u) -x newsboat && screen -S fullscreen -X select - && screen -S fullscreen -X select newsboat || screen -S fullscreen -X screen newsboat && i3-msg workspace 2"
    Mod4 + n
 
+# Switch to or start ncmpcpp.
+"pgrep -u $(id -u) -x ncmpcpp && screen -S fullscreen -X select - && screen -S fullscreen -X select ncmpcpp || screen -S fullscreen -X screen ncmpcpp && i3-msg workspace 2"
+   Mod4 + c
+
 # List [desktop entry files][1] using `j4-dmenu-desktop` and Rofi and launch the selected
 # program.  Rofi can do this by itself (`rofi -modi drun -show`) but I use
 # `j4-dmenu-desktop` to parse the desktop files for two reasons:

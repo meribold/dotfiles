@@ -18,7 +18,6 @@ bindsym $mod+Return exec --no-startup-id xterm
 
 # Kill focused window.
 bindsym $mod+q kill
-bindsym $mod+c kill
 
 # Run yeganesh (dmenu wrapper).
 bindsym $mod+r exec --no-startup-id "$(yeganesh -x -- -b -f -fn 'Dina-5:style=regular' -nb '#000000' -nf '#dfdfdf' -sb '#d75f5f' -sf '#ffffff')"
