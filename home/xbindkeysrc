@@ -10,20 +10,23 @@
 "amixer -q set Master toggle"
    XF86AudioMute
 
-"amixer -q set Master playback 2dB-"
+# TODO: Exclude these notifications from Dunst's message history.  I use `-c ephemeral` to
+# do that with `notify-send`, but `dunstify` doesn't seem to allow specifying a
+# notification category.  We can probably use `notify-send` instead of `dunstify` in the
+# future, though: see <https://github.com/dunst-project/dunst/pull/552>.
+"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 2db- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    XF86AudioLowerVolume
 
-"amixer -q set Master playback 2dB+"
+"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 2db+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    XF86AudioRaiseVolume
 
-# Increase the audio volume by scrolling up while holding the Super/Windows key.  Yay!
-# *Much* faster and more convenient than the media keys!  (TrackPoints FTW!)  TODO: there
-# should be some notification showing the current volume.
-"amixer -q set Master playback 1dB+"
+# Increase the audio volume by scrolling up while holding the Super key.  With a
+# TrackPoint, this is much faster and more convenient than the media keys.
+"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 1%+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:4
 
 # Decrease the volume by scrolling down while holding the Super/Windows key.
-"amixer -q set Master playback 1dB-"
+"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 1%- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:5
 
 "mpc seek +5"
