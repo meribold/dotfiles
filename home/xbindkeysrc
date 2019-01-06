@@ -110,7 +110,7 @@
 
 # These notifications are excluded from Dunst's history based on the "ephemeral" category.
 # There is associated configuration in `home/config/dunst/dunstrc` that makes this work.
-"notify-send -u low -t 2000 -c ephemeral "$(bat)""
+"notify-send -u low -t 2000 -c ephemeral $'<small>Battery status</small>\n'"$(bat)""
    Mod4 + b
 
 "vimsel"
