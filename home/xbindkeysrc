@@ -77,8 +77,11 @@
 "pgrep -u $(id -u) -x nvim && screen -S fullscreen -X select - && screen -S fullscreen -X select nvim || screen -S fullscreen -X screen nvim -S && i3-msg workspace 2"
    Mod4 + v
 
-# Switch to or start Newsboat.
-"pgrep -u $(id -u) -x newsboat && screen -S fullscreen -X select - && screen -S fullscreen -X select newsboat || screen -S fullscreen -X screen newsboat && i3-msg workspace 2"
+# Start Newsboat in a floating xterm.  My previous version of this keybinding started
+# Newsboat in my "fullscreen" screen session, but Newsboat doesn't need much space and
+# ends up looking a bit ugly when it has too much.  It's also nice to keep whatever other
+# programs are running partially visible (https://news.ycombinator.com/item?id=17328740).
+"xterm -name 'floating xterm' -geometry 100x24 -e 'i3-msg sticky enable; newsboat'"
    Mod4 + n
 
 # Switch to or start ncmpcpp.
