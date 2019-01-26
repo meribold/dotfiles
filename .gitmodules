@@ -139,3 +139,6 @@
 [submodule "misc/AUR/alock-git"]
 	path = misc/AUR/alock-git
 	url = https://aur.archlinux.org/alock-git.git
+[submodule "misc/git-snap"]
+	path = misc/git-snap
+	url = https://github.com/meribold/git-snap.git
