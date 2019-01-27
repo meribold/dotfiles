@@ -130,7 +130,7 @@ hide_edge_borders both
 
 # Class                 Border  Backgr. Text    Indicator
 client.focused          #000000 #c0c0c0 #c0c0c0 #2e9ef4
-client.focused_inactive #000000 #808080 #808080 #484e50
+client.focused_inactive #000000 #606060 #606060 #484e50
 client.unfocused        #000000 #121212 #121212 #292d2e
 client.urgent           #000000 #900000 #900000 #900000
 client.placeholder      #000000 #0c0c0c #0c0c0c #000000
