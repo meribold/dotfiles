@@ -1,22 +1,21 @@
 {
-   "rect": {
-      "height": 381,
-      "width": 1370,
-      "x": -2,
-      "y": -2
-   },
-   "type": "floating_con",
-   "nodes": [
-      {
-         "floating": "user_on",
-         "swallows": [
-            {
-               "class": "^XTerm$",
-               "instance": "^scratchpad$"
-            }
-         ],
-         "type": "con"
-      }
-   ]
+  "rect": {
+    "height": 381,
+    "width": 1370,
+    "x": -2,
+    "y": -2
+  },
+  "type": "floating_con",
+  "nodes": [
+    {
+      "floating": "user_on",
+      "swallows": [
+        {
+          "class": "^XTerm$",
+          "instance": "^scratchpad$"
+        }
+      ],
+      "type": "con"
+    }
+  ]
 }
-// vim: sts=-1 sw=3 et
