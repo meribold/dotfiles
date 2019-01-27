@@ -1,17 +1,13 @@
 {
-   "border": "none",
-   "floating": "auto_off",
    "rect": {
-      "height": 377,
-      "width": 1366,
-      "x": 0,
-      "y": 0
+      "height": 381,
+      "width": 1370,
+      "x": -2,
+      "y": -2
    },
    "type": "floating_con",
    "nodes": [
       {
-         "border": "none",
-         "current_border_width": 0,
          "floating": "user_on",
          "swallows": [
             {

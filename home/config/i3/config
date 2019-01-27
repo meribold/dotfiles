@@ -122,9 +122,7 @@ mode "resize" {
 # Resize mode.
 bindsym $mod+w mode "resize"
 
-# No borders...
-new_window none
-# ...except for floating windows.  The dream is dead.
+new_window pixel 1
 new_float pixel 1
 
 # Hide borders adjacent to screen edges.  Redundant.
