@@ -54,5 +54,3 @@ screen -S scratchpad -p 0 -X stuff '^L'
 
 # TODO: is it possible to set the size of the terminals emulated be screen without
 # attaching to the screen session first?
-
-# vim: tw=90 sts=-1 sw=3 et

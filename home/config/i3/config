@@ -128,8 +128,6 @@ new_float pixel 1
 # Hide borders adjacent to screen edges.  Redundant.
 hide_edge_borders both
 
-# Colors {{{1
-
 # Class                 Border  Backgr. Text    Indicator
 client.focused          #000000 #c0c0c0 #c0c0c0 #2e9ef4
 client.focused_inactive #000000 #808080 #808080 #484e50
@@ -137,8 +135,6 @@ client.unfocused        #000000 #121212 #121212 #292d2e
 client.urgent           #000000 #900000 #900000 #900000
 client.placeholder      #000000 #0c0c0c #0c0c0c #000000
 client.background       #000000
-
-# i3-gaps configuration {{{1
 
 # 23 is a magic number.  Increasing it by one reduces the number of columns, that fit into
 # an xterm using exactly half of my screen width, by one.  This is only what works for my
@@ -152,7 +148,6 @@ gaps outer -22
 # Disable all gaps whenever there's only one container on the current workspace.  This
 # should be redundant, though.
 smart_gaps on
-# }}}1
 
 exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
 
@@ -167,5 +162,3 @@ for_window [instance="^floating xterm$"] floating enable
 
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
-
-# vim: tw=90 sts=-1 sw=3 et fdm=marker
