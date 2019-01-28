@@ -141,9 +141,8 @@ client.background       #000000
 # screen width and font, of course.  My previous magic number is 9.
 gaps inner 23
 
-# -22 is the magic number that, when used with the previous magic number, exactly
-# eliminates all gaps at the edges of my screen.  Why not -23?  No idea.
-gaps outer -22
+# Remove any gaps at screen edges.  This is obviously achieved with -23 :P
+gaps outer -23
 
 # Disable all gaps whenever there's only one container on the current workspace.  This
 # should be redundant, though.
