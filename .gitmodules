@@ -34,9 +34,6 @@
 [submodule "AUR/urlview"]
 	path = misc/AUR/urlview
 	url = https://aur.archlinux.org/urlview.git
-[submodule "AUR/i3-gaps-git"]
-	path = misc/AUR/i3-gaps-git
-	url = https://aur.archlinux.org/i3-gaps-git.git
 [submodule "AUR/neofetch"]
 	path = misc/AUR/neofetch
 	url = https://aur.archlinux.org/neofetch.git
