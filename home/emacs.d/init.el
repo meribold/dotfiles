@@ -49,7 +49,7 @@
 ;; Load host-specific Lisp files.  The third argument tells `load` not to report an error
 ;; if a file doesn't exist.  I only create symlinks for files I want to load on each
 ;; machine.
-(load (expand-file-name "elanor.el" user-emacs-directory) t)
+(load (expand-file-name "smial.el" user-emacs-directory) t)
 (load (expand-file-name "goldberry.el" user-emacs-directory) t)
 
 (require 'package)

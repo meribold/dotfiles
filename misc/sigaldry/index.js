@@ -4,7 +4,7 @@
 // https://github.com/TigerKid001/Blink/blob/master/data/js/NewTabSetter.js
 (function() {
    /* Get the URL to the start page.  This method is obviously bad:
-   const newTabPage = 'file:///home/casi/dotfiles/misc/startpage/index.html';
+   const newTabPage = 'file:///home/meribold/dotfiles/misc/startpage/index.html';
     * This one works but the whole page needs to be packaged with the add-on inside the
     * `data` subdirectory:
    const self = require('sdk/self');
