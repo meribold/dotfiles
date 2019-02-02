@@ -259,50 +259,51 @@ HISTCONTROL=ignoreboth:erasedups
 # The pattern used accounts for the space appended when using tab completion.
 HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg|g)?( ):s *'
 
-# Set Bash's PS1 and PS2 prompts {{{1
-case "$TERM" in
-   xterm-256color|rxvt-unicode-256color|xterm-termite|screen*)
-      # '\e' should be equivalent to the ANSI escape sequence '\033'.  The escaped
-      # brackets surrounding these sequences should prevent Bash from counting them when
-      # determining the cursor position.
-      # white='\[\e[38;5;231m\]'
-      # X11 Gray is 0xbe.
-      # gray='\[\e[38;5;251m\]' # 0xc6 (198) triplet.
-      dark_gray='\[\e[38;5;246m\]' # 0x94 triplet.
-      black='\[\e[38;5;16m\]'
-      #bold_black='\[\e[1;30m\]'
-      #green='\[\e[38;5;28m\]'
-      # on_light_gray='\[\e[48;5;251m\]' # 0x94 triplet.
-      on_gray='\[\e[48;5;236m\]' # 0x30 triplet.
-      #on_black='\[\e[48;5;0m\]'
-      bold='\[\e[1m\]'
-      reset='\[\e[m\]'
-      # Colors: http://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
-      #         http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+# Using this function (`PS1='$(ps1)'`) results in a marginally nicer PS1 than `PS1='\$ '`.
+# The default PS1 is '[\u@\h \W]\$ ' (TODO: is this set by Bash or by Arch?).
+ps1() {
+   # Save the value of $? before doing anything else.
+   local exit_code=$?
 
-      PS1="$reset$dark_gray"'\n\342\224\214'
-      PS1+="$reset$on_gray"'[\u'"$bold${black}@$reset$on_gray"'\h]'
-      PS1+="$reset$dark_gray"' \w\n'
-      PS1+='\342\224\224\342\224\200 '"$reset$bold"'\$ '"$reset$dark_gray"
-      # If the last command's output didn't end with a newline, add one.  I don't know how
-      # it works, but it does.  From http://serverfault.com/q/97503.
-      PS1='$(printf "%$(($(tput cols)-1))s\r")'"$PS1"
-      PS2="$reset${dark_gray}\342\224\224\342\224\200 $reset${bold}> $reset$dark_gray"
+   # Using \[ and \] for surrounding non-printable characters doesn't work here.  See
+   # <https://wiki.archlinux.org/index.php/Bash/Prompt_customization>.  We have to use
+   # \001 and \002 instead.
+   local gray=$'\001\e[38;5;246m\002'
+   local bold=$'\001\e[1m\002'
+   local reset=$'\001\e[m\002'
 
-      unset -v white gray dark_gray black bold on_light_gray on_gray on_black reset
+   local stuff_in_brackets=
+   local prompt=
 
-      # Reset the color of the output text.  Input text is set to a darker gray by the
-      # prompts above.  This function is set to be called as part of the DEBUG trap later.
-      reset_VT100_character_attributes()
-      {
-         echo -ne "\e[0m"
-      }
-      ;;
-   *) # Could be 'linux', i.e. a virtual console...
-      PS1='\n\342\224\214[\u@\h] \w\n\342\224\224\342\224\200 \$ '
-      PS1='$(printf "%$(($(tput cols)-1))s\r")'"$PS1"
-      ;;
-esac # Web links: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+   # Show the last commands exit code when it's nonzero.
+   if [[ $exit_code != 0 ]]; then
+      prompt+=$'\001\e[31m\002'"$exit_code"$'\001\e[m\002\n'
+   fi
+
+   # Show the username and the hostname if they aren't "meribold" and "smial".
+   if [[ $USER != meribold || $HOSTNAME != smial ]]; then
+      stuff_in_brackets+=$USER$gray@$reset$HOSTNAME
+   fi
+
+   # Show the working directory if it isn't $HOME.
+   if [[ $PWD != "$HOME" ]]; then
+      stuff_in_brackets+="${stuff_in_brackets:+ }${PWD/$HOME/\~}"
+   fi
+
+   if [[ $stuff_in_brackets ]]; then
+      prompt+="$gray[$reset$stuff_in_brackets$gray]$reset "
+   fi
+
+   prompt+="$bold\$$reset "
+   printf %s "$prompt"
+}
+# [1]: https://wiki.archlinux.org/index.php/Bash/Prompt_customization
+# [2]: https://en.wikipedia.org/wiki/ANSI_escape_code
+# [3]: https://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
+# [4]: https://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+
+PS1='$(ps1)'
+PS2='\[\e[1m\]>\[\e[m\] '
 
 # Rules for setting the terminal title {{{1
 case "$TERM" in
@@ -371,7 +372,7 @@ esac # More web links:
 # "If a sigspec is DEBUG, the command arg is executed after every simple command, for
 # command, case command, select command, every arithmetic for command, and before the
 # first command executes in a shell function." - bash(1)
-trap '{ reset_VT100_character_attributes; show_command_in_title; } 2>/dev/null' DEBUG
+trap 'show_command_in_title 2>/dev/null' DEBUG
 # I don't care if these commands weren't defined: redirect to /dev/null.  This should be
 # the last command in ~/.bashrc.  If there are more, the terminal title will be changed
 # for each one, increasing the startup time.
