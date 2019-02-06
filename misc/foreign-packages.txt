@@ -21,7 +21,6 @@ j4-dmenu-desktop
 mime-editor
 nestopia
 nethack-nao
-pcmciautils
 profile-cleaner
 proggyfonts
 screenkey
