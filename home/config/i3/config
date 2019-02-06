@@ -148,8 +148,6 @@ gaps outer -23
 # should be redundant, though.
 smart_gaps on
 
-exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
-
 # Always start Firefox on workspace 1 so I can switch to another workspace while waiting
 # for it to start.  See <http://i3wm.org/docs/userguide.html#assign_workspace>.
 assign [class="^Firefox$"] 1
@@ -161,3 +159,5 @@ for_window [instance="^floating xterm$"] floating enable
 
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
+
+exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
