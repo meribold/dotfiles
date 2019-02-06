@@ -6,6 +6,7 @@ $BROWSER --new-tab $(gatewayip) # try to open a router's web interface
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
 bundle exec jekyll serve --drafts
+cat /proc/sys/kernel/sysrq
 cat /sys/class/power_supply/BAT1/energy_{now,full}
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/module/usbcore/parameters/autosuspend
@@ -15,7 +16,6 @@ cower -u
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
-echo 1 | sudo tee /proc/sys/kernel/sysrq # enable all magic SysRq commands (e.g. REISUB)
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
