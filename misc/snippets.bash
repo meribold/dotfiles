@@ -7,7 +7,7 @@ PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
 bundle exec jekyll serve --drafts
 cat /proc/sys/kernel/sysrq
-cat /sys/class/power_supply/BAT1/energy_{now,full}
+cat /sys/class/power_supply/BAT0/energy_{now,full}
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/module/usbcore/parameters/autosuspend
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
@@ -147,7 +147,7 @@ trans :zh-TW -b - | s
 umount ~/usb-hdd
 umount ~/v8x
 vim -u NONE
-watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT1/energy_{now,full}
+watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
 wgetpaste
 while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read -n 1; done
 xdg-open file &>/dev/null <&1 & disown
