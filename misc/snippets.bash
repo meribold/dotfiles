@@ -16,6 +16,7 @@ cower -u
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
+f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add rsync.net esgaroth:"$1"; }; f
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
@@ -100,6 +101,7 @@ nvim -q <(grep -n .e.e. /tmp/tmp.*) # TODO: Bash function?
 nx copy --fast --to rsync.net
 nx info
 nx init 'Toshiba USB HDD'
+nx initremote rsync.net type=rsync rsyncurl=esgaroth:DIR encryption=none
 nx sync --cleanup
 nx sync --no-resolvemerge --no-commit
 paccache -rk1 # remove all but the most recent cached versions of ALL packages
@@ -125,6 +127,8 @@ sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
 ssh -ti ~/.ssh/zirakzigil.pem meribold@zirakzigil screen -x
+ssh esgaroth quota
+sshfs esgaroth: ~/esgaroth
 sshfs meribold@zirakzigil:/home/meribold/ ~/zirakzigil -o IdentityFile=~/.ssh/zirakzigil.pem
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
@@ -133,6 +137,7 @@ sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
 sudo iw dev wlan0 scan | less
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
+sudo rsync -hazHAXx --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/
 sudo systemctl poweroff
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
