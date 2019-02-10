@@ -137,7 +137,7 @@ sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
 sudo iw dev wlan0 scan | less
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
-sudo rsync -hazHAXx --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/
+sudo rsync -hazHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/
 sudo systemctl poweroff
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
