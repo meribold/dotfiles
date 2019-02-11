@@ -41,6 +41,10 @@
 "mpc next"
    Mod4 + slash
 
+# Like ncmpcpp.
+"mpc seek 0"
+   Mod4 + BackSpace
+
 "mpc toggle"
    XF86AudioPlay
 
@@ -93,6 +97,9 @@
 "pgrep -u $(id -u) -x ncmpcpp && screen -S fullscreen -X select - && screen -S fullscreen -X select ncmpcpp || screen -S fullscreen -X screen ncmpcpp && i3-msg workspace 2"
    Mod4 + c
 
+"xterm -name 'floating xterm' -e 'bash -ic p'"
+   Mod4 + g
+
 # List [desktop entry files][1] using `j4-dmenu-desktop` and Rofi and launch the selected
 # program.  Rofi can do this by itself (`rofi -modi drun -show`) but I use
 # `j4-dmenu-desktop` to parse the desktop files for two reasons:
@@ -109,11 +116,21 @@
 #
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 "j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -theme-str "* { accent-color: @red; }"'"
+   Mod4 + semicolon
+
+# IPython is a bit slow to start (cf. `bc` and `calc`), but maybe it's still my best
+# choice for doing some quick maths.  The familiar syntax is nice.  How about `ghci` or
+# `dc` or `lua`, though?  Also see <https://reddit.com/comments/5z5fwh//devtocl>.
+"xterm -name 'floating xterm' -e ipython --no-banner -ic 'from math import *'"
    Mod4 + u
 
 # Run [rofi-pass](https://github.com/carnager/rofi-pass), an alternative to passmenu.
 "PINENTRY_USER_DATA=gtk rofi-pass"
    Mod4 + p
+
+# Doesn't work with `Mod4 + Escape` for some reason.
+"rofi -modi window -show"
+   Mod4 + c:66
 
 # Lock the screen.
 "lock"
@@ -131,7 +148,10 @@
 "xterm -name 'floating xterm'"
    Mod4 + o
 
-"xterm -name 'floating htop' -geometry 180x29 -e htop"
+"xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
+
+"notify-send -u low -t 3000 -c ephemeral "$(date +$'%A, %B %-d\n<b>%H:%M</b>')""
+   Mod4 + z
 
 # vim: ft=conf
