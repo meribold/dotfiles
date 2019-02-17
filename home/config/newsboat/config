@@ -4,6 +4,7 @@ refresh-on-startup yes
 reload-threads 42
 reload-time 30
 prepopulate-query-feeds yes
+show-keymap-hint no
 show-read-feeds no
 swap-title-and-hints yes  # Like Mutt.
 # Also download ignored articles, just don't display them.  See
@@ -13,7 +14,16 @@ ignore-mode "display"
 feedlist-format "%4i  %n  %11u  %t"
 articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
 
+# Disable the thermonuclear key (`mark-all-feeds-read`).  I don't want to use it by
+# accident.  TODO: what about `A`?
+unbind-key C
+# This sounds dangerous too (`delete-all-articles`).
+unbind-key ^D
+# TODO: what about D (`delete-article`)?  At least it should probably be bound to `#`,
+# since that's what I'm using in Mutt.
+
 # Pretty idiosyncratic keybindings because of muscle memory.
+bind-key ; cmdline
 bind-key SPACE next-unread
 bind-key j down
 bind-key k up
@@ -23,6 +33,10 @@ bind-key ^N next-unread-feed articlelist
 bind-key ^P prev-unread-feed articlelist
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
+bind-key ] next feedlist
+bind-key [ prev feedlist
+bind-key ] next-feed articlelist
+bind-key [ prev-feed articlelist
 bind-key g pageup
 bind-key G pagedown
 bind-key ^U pageup
@@ -64,13 +78,13 @@ macro O set browser ~/.config/newsboat/mpv.sh ; open-in-browser ; set browser $B
 # [1]: https://wiki.archlinux.org/index.php/Newsbeuter#Pass_article_URL_to_external_command.
 # [2]: file:///usr/share/doc/newsboat/newsboat.html#_macro_support
 
-color background        white   black
-color listnormal        white   black
-color listfocus         default red
-color listnormal_unread green   default
-color listfocus_unread  default red
-color info              black   yellow
-color article           white   black
+color background        white    black
+color listnormal        color244 black
+color listfocus         default  red
+color listnormal_unread white    default
+color listfocus_unread  default  red
+color info              black    yellow
+color article           white    black
 
 # Only show Angry Video Game Nerd videos from the Cinemassacre YouTube channel.
 ignore-article "https://www.youtube.com/feeds/videos.xml?channel_id=UC0M0rxSz3IF0CsSour1iWmw" "title !~ \"AVGN|[Aa]ngry [Vv]ideo [Gg]ame [Nn]erd\""
