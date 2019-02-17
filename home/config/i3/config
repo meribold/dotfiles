@@ -75,7 +75,11 @@ bindsym $mod+d focus child
 bindsym $mod+Shift+grave move scratchpad
 
 # Show the first scratchpad window.
-bindsym $mod+grave scratchpad show
+bindsym $mod+grave [instance="^scratchpad$"] scratchpad show
+
+# Don't comply when programs request to be focused.  Firefox does that when I open an
+# article's associated URL in Newsboat, for example, and it's annoying.
+focus_on_window_activation urgent
 
 # Switch workspace.
 bindsym $mod+1 workspace 1
@@ -158,5 +162,15 @@ for_window [instance="^floating xterm$"] floating enable
 
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
+
+exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
+
+# Use a sticky scratchpad window for Newsboat.
+for_window [instance="^newsboat$"] floating enable
+for_window [instance="^newsboat$"] move scratchpad
+for_window [instance="^newsboat$"] sticky enable
+bindsym $mod+n [instance="^newsboat$"] scratchpad show
+# TODO: screen?
+exec --no-startup-id "xterm -name newsboat -geometry 100x24 -e newsboat"
 
 exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh

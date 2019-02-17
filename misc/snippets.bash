@@ -16,6 +16,7 @@ cower -u
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
+ds xterm -name newsboat -geometry 100x24 -e newsboat
 f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add rsync.net esgaroth:"$1"; }; f
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'

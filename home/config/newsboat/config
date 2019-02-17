@@ -2,6 +2,7 @@ browser "nohup $FIREFOX --new-tab %u &>/dev/null &"
 datetime-format "%F"  # ISO 8601
 refresh-on-startup yes
 reload-threads 42
+reload-time 30
 prepopulate-query-feeds yes
 show-read-feeds no
 swap-title-and-hints yes  # Like Mutt.
@@ -26,7 +27,29 @@ bind-key g pageup
 bind-key G pagedown
 bind-key ^U pageup
 bind-key ^D pagedown
-bind-key u quit
+
+# Prevent accidentally quitting Newsboat: unbind "q" and then restore its function
+# everywhere but in the feedlist.  We can still quit with `:quit`.  Make "u" work just
+# like "q" and also unbind "Q" (hard-quit).
+unbind-key q
+unbind-key Q
+bind-key q quit filebrowser
+bind-key q quit help
+bind-key q quit articlelist
+bind-key q quit article
+bind-key q quit tagselection
+bind-key q quit filterselection
+bind-key q quit urlview
+bind-key q quit dialogs
+bind-key u quit filebrowser
+bind-key u quit help
+bind-key u quit articlelist
+bind-key u quit article
+bind-key u quit tagselection
+bind-key u quit filterselection
+bind-key u quit urlview
+bind-key u quit dialogs
+
 # Switch these two compared to the defaults.
 bind-key o open-in-browser-and-mark-read
 bind-key O open-in-browser
