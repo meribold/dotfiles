@@ -6,6 +6,7 @@ auto-reload yes
 reload-time 30
 prepopulate-query-feeds yes
 show-keymap-hint no
+show-read-articles no
 show-read-feeds no
 swap-title-and-hints yes  # Like Mutt.
 # Also download ignored articles, just don't display them.  See
