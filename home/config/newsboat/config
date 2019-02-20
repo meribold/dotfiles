@@ -16,6 +16,19 @@ ignore-mode "display"
 feedlist-format "%4i  %n  %11u  %t"
 articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
 
+# Don't ever include "newsboat" or a version number in the title bar and tweak some title
+# formats in other ways.
+feedlist-title-format ""
+articlelist-title-format "%T (%u unread, %t total)"
+searchresult-title-format "Search result (%u unread, %t total)"
+filebrowser-title-format "%?O?Open File&Save File? - %f"
+help-title-format "Help"
+selecttag-title-format "Select Tag"
+selectfilter-title-format "Select Filter"
+itemview-title-format "%T"
+urlview-title-format "URLs"
+dialogs-title-format "Dialogs"
+
 # Disable the thermonuclear key (`mark-all-feeds-read`).  I don't want to use it by
 # accident.  TODO: what about `A`?
 unbind-key C
