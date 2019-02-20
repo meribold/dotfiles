@@ -44,6 +44,10 @@ bind-key G pagedown
 bind-key ^U pageup
 bind-key ^D pagedown
 
+# Swap `reload` and `reload-all` because the latter is more useful.
+bind-key r reload-all
+bind-key R reload
+
 # Prevent accidentally quitting Newsboat: unbind "q" and then restore its function
 # everywhere but in the feedlist.  We can still quit with `:quit`.  Make "u" work just
 # like "q" and also unbind "Q" (hard-quit).
