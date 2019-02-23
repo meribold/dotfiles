@@ -171,6 +171,6 @@ for_window [instance="^newsboat$"] move scratchpad
 for_window [instance="^newsboat$"] sticky enable
 bindsym $mod+n [instance="^newsboat$"] scratchpad show
 # TODO: screen?
-exec --no-startup-id "xterm -name newsboat -geometry 100x24 -e newsboat"
+exec --no-startup-id "xterm -name newsboat -geometry 140x24 -e newsboat"
 
 exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh

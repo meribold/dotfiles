@@ -19,8 +19,8 @@ feedlist-format " %t%>   %U "
 # would break the alignment, we can work around it by renaming the feed.  I don't think we
 # could fix alignment issues caused by problematic article titles if we were to put those
 # first.  XXX: this format string is built around the assumption of running Newsboat in a
-# terminal with width 100.  Dates (%D) take 10 characters.  1 + 10 + 2 + 86 + 1 = 100.
-articlelist-format " %D  %?T?%-20T  ?%> %?T?%-64t&%-86t? "
+# terminal with width 140.  Dates (%D) take 10 characters.  1 + 10 + 2 + 126 + 1 = 140.
+articlelist-format " %D  %?T?%-20T  ?%> %?T?%-104t&%-126t? "
 # [issue #139]: https://github.com/newsboat/newsboat/issues/139
 # [issue #572]: https://github.com/akrennmair/newsbeuter/issues/572
 
