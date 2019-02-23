@@ -13,8 +13,16 @@ swap-title-and-hints yes  # Like Mutt.
 # <fle:///usr/share/doc/newsboat/newsboat.html#_killfiles>.
 ignore-mode "display"
 
-feedlist-format "%4i  %n  %11u  %t"
-articlelist-format "%4i  %f  %D  %?T?%-35T  ?%t%>   %L"
+feedlist-format " %t%>   %U "
+# We put feed titles (%T) before article titles (%t) because of Newsboat [issue #139][]
+# (also see [issue #572][] of Newsbeuter).  When a feed title contains characters that
+# would break the alignment, we can work around it by renaming the feed.  I don't think we
+# could fix alignment issues caused by problematic article titles if we were to put those
+# first.  XXX: this format string is built around the assumption of running Newsboat in a
+# terminal with width 100.  Dates (%D) take 10 characters.  1 + 10 + 2 + 86 + 1 = 100.
+articlelist-format " %D  %?T?%-20T  ?%> %?T?%-64t&%-86t? "
+# [issue #139]: https://github.com/newsboat/newsboat/issues/139
+# [issue #572]: https://github.com/akrennmair/newsbeuter/issues/572
 
 # Don't ever include "newsboat" or a version number in the title bar and tweak some title
 # formats in other ways.
