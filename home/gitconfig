@@ -11,7 +11,7 @@
 	default = simple
 [alias]
 	amend = commit --amend
-	c = commit
+	ci = commit
 	co = checkout
 	ff = merge --ff-only
 	; See <https://stackoverflow.com/a/35075021>.  With recent versions of Git,
