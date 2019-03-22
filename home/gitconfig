@@ -55,5 +55,8 @@
 	             [[ $1 != get ]] && return 0; \
 	             printf 'password='; pass show gitlab | head -1; \
 	           }; f"
+[annex]
+	autocommit = false
+	resolvemerge = false
 
 ; vim: ft=gitconfig
