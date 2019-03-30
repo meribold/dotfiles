@@ -119,18 +119,18 @@ reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirror
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
-rsync -rh --info=progress2 -e 'ssh -i '~'/.ssh/zirakzigil.pem' zirakzigil:/home/meribold/snapscore-server/received_images/ ~/snapscore-images
+rsync -rh --info=progress2 zirakzigil:/home/meribold/snapscore-server/received_images/ ~/snapscore-images
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
-scp -i ~/.ssh/zirakzigil.pem zirakzigil:src dest
+scp zirakzigil:src dest
 sensors
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
-ssh -ti ~/.ssh/zirakzigil.pem zirakzigil screen -x
+ssh -t zirakzigil screen -x
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
-sshfs -o IdentityFile=~/.ssh/zirakzigil.pem zirakzigil:/home/meribold/ ~/zirakzigil
+sshfs zirakzigil:/home/meribold/ ~/zirakzigil
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
 sudo ip link set wlan0 up
