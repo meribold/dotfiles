@@ -4,7 +4,7 @@
 # i.e., it starts a non-interactive shell.
 
 # Create an i3 workspace with 7 placeholder windows that swallow xterms.
-i3-msg -q 'append_layout ~/.config/i3/wifi-debug-workspace.json'
+i3-msg -q 'append_layout ~/.config/i3/wifail-workspace.json'
 
 # Show the output of wpa_supplicant and dhcpcd from the current boot as if they were
 # running in the foreground.  See journalctl(1).
