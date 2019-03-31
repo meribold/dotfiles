@@ -1,0 +1,58 @@
+{
+  "layout": "splitv",
+  "type": "con",
+  "nodes": [
+    {
+      "layout": "splith",
+      "percent": 0.333,
+      "type": "con",
+      "nodes": [
+        {
+          "percent": 0.6,
+          "swallows": [{ "title": "^ip address show dev eth0$" }],
+          "type": "con"
+        },
+        {
+          "percent": 0.4,
+          "swallows": [{ "title": "^dhcpcd$" }],
+          "type": "con"
+        }
+      ]
+    },
+    {
+      "layout": "splith",
+      "percent": 0.666,
+      "type": "con",
+      "nodes": [
+        {
+          "layout": "splitv",
+          "type": "con",
+          "nodes": [
+            {
+              "swallows": [{ "title": "^iw dev eth0 link$" }],
+              "type": "con"
+            },
+            {
+              "swallows": [{ "title": "^ping gateway$" }],
+              "type": "con"
+            }
+          ]
+        },
+        {
+          "layout": "splitv",
+          "type": "con",
+          "nodes": [
+            {
+              "swallows": [{ "title": "^route$" }],
+              "type": "con"
+            },
+            {
+              "swallows": [{ "title": "^ping google.com$" }],
+              "type": "con"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
