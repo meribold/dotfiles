@@ -30,12 +30,12 @@
           "type": "con",
           "nodes": [
             {
-              "percent": 0.4,
+              "percent": 0.6,
               "swallows": [{ "title": "^iw dev wlan0 link$" }],
               "type": "con"
             },
             {
-              "percent": 0.6,
+              "percent": 0.4,
               "swallows": [{ "title": "^ping gateway$" }],
               "type": "con"
             }
