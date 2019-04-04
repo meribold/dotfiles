@@ -213,7 +213,9 @@ wanip() {
 }
 
 # Get the default gateway's (router's) IP address (from http://serverfault.com/q/31170).
-alias gatewayip="ip route | awk '/^def/{print \$3}'"
+gatewayip() {
+   ip route | awk '/^def/{print $3}'
+}
 
 alias localip=lanip
 alias internalip=lanip
