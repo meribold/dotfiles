@@ -16,5 +16,3 @@ __git_complete g __git_main
 
 # [bash-completion]: https://www.archlinux.org/packages/extra/any/bash-completion
 # [1]: https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
-
-# vim: tw=90 sts=-1 sw=3 et ft=sh
