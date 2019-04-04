@@ -235,6 +235,9 @@ g() {
 
 alias nx='git-annex'
 
+alias feh='feh -.'
+alias msa='mpc search any'
+
 d() { dict "$@" |& less -FX; }
 
 # Stuff concerning Bash's command history {{{1
