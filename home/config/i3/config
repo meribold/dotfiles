@@ -49,6 +49,8 @@ bindsym $mod+Shift+l move right
 
 # A vertical split in Vim is a horizontal split in i3.  I'm using vimish key bindings.
 bindsym $mod+s split v
+# FIXME: We use the same key combination in `xbindkeysrc` to switch to or start Neovim.
+# It seems that key binding takes priority over this one, so the next line has no effect.
 bindsym $mod+v split h
 
 # Fullscreen the focused container.
