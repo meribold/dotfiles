@@ -18,6 +18,7 @@ indent_size = 4
 indent_size = 2
 
 [makefile]
+tab_width = 8
 indent_style = tab
 
 [.git/COMMIT_EDITMSG]

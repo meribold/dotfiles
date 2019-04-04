@@ -243,5 +243,3 @@ $(root_links): | $$(dir $$@)
 $(add_spl_files): $$(patsubst %.spl,%,$$@)
 	@# See `:h s-ex`.
 	vim -u NONE -es '+mkspell! $<' +q
-
-# vim: tw=90 ts=8 sts=-1 sw=3 noet
