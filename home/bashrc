@@ -261,9 +261,6 @@ HISTFILESIZE=80000
 # http://askubuntu.com/q/15926
 HISTCONTROL=ignoreboth:erasedups
 
-# The pattern used accounts for the space appended when using tab completion.
-HISTIGNORE='@(clear|exit|history|ls|pwd|bg|fg|g)?( ):s *'
-
 # Using this function (`PS1='$(ps1)'`) results in a marginally nicer PS1 than `PS1='\$ '`.
 # The default PS1 is '[\u@\h \W]\$ ' (TODO: is this set by Bash or by Arch?).
 ps1() {
