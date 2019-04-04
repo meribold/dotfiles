@@ -1,0 +1,12 @@
+# Tab completion for my `nx` alias (defined in ~/.bashrc)
+#
+# Deploy with `make /usr/local/share/bash-completion/completions/nx`.
+
+if ! type -t _git-annex; then
+  . /usr/share/bash-completion/completions/git-annex
+fi
+
+# There's a line just line this (with "git-annex" instead of "nx") in
+# `/usr/share/bash-completion/completions/git-annex`, so I copied it here and put "nx"
+# instead of "git-annex".  Apparently that initializes the tab completion.
+complete -o bashdefault -o default -o filenames -F _git-annex nx
