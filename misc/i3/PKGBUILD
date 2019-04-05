@@ -1,0 +1,44 @@
+# Maintainer: Lukas Waymann <meribold@gmail.com>
+
+pkgname=i3-gaps-meribold-git
+pkgver=4.16.1.r3.g276cf356
+pkgrel=1
+pkgdesc='A slightly patched fork of i3-gaps'
+arch=('i686' 'x86_64')
+url='https://github.com/meribold/i3/tree/meribold'
+license=('BSD')
+provides=('i3-wm')
+conflicts=('i3-wm')
+groups=('i3')
+depends=('xcb-util-keysyms' 'xcb-util-wm' 'libev' 'yajl' 'startup-notification' 'pango'
+         'perl' 'xcb-util-cursor' 'xcb-util-xrm' 'libxkbcommon-x11')
+makedepends=('bison' 'flex' 'asciidoc' 'xmlto' 'git' 'docbook-xsl' 'pkgconfig')
+optdepends=('perl-json-xs: For i3-save-tree' 'perl-anyevent-i3: For i3-save-tree')
+backup=(etc/i3/config)
+options=('docs' '!strip')
+source=('git://github.com/meribold/i3#branch=meribold')
+sha256sums=('SKIP')
+
+pkgver() {
+   cd "$srcdir/i3"
+   git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare(){
+   mkdir build
+   cd i3
+   autoreconf -fvi
+}
+
+build() {
+   cd build
+   ../i3/configure --prefix=/usr --sysconfdir=/etc
+   make
+}
+
+package() {
+   cd build
+   make DESTDIR="$pkgdir/" install
+   install -Dt "$pkgdir/usr/share/man/man1" -m644 man/*.1
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 ../i3/LICENSE
+}
