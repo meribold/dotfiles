@@ -10,6 +10,7 @@ PKGBUILDs:
 
 *   <https://wiki.archlinux.org/index.php/Arch_Build_System>
 *   <https://wiki.archlinux.org/index.php/Arch_package_guidelines>
+*   <https://wiki.archlinux.org/index.php/VCS_package_guidelines>
 *   <https://wiki.archlinux.org/index.php/Creating_packages>
 *   <https://wiki.archlinux.org/index.php/Makepkg>
 *   <https://wiki.archlinux.org/index.php/PKGBUILD>
@@ -19,11 +20,12 @@ Also see [PKGBUILD(5)][] and maybe [makepkg(8)][] and namcap(1).
 
 ## TODO
 
-I get this warning when running `makepgk`:
+*   I get this warning when running `makepgk`:
 
-    ==> WARNING: Package contains reference to $srcdir
+        ==> WARNING: Package contains reference to $srcdir
 
-See [this][2].
+    See [this][2].
+*   The makefile should kick off building and installing the package.
 
 [PKGBUILD]: https://wiki.archlinux.org/index.php/PKGBUILD
 [1]: https://github.com/meribold/i3/tree/meribold
