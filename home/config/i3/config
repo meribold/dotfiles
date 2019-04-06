@@ -7,9 +7,6 @@
 # Use the Super key as the default modifier.
 set $mod Mod4
 
-# Font used for window "titles".  Super ugly hack to have slim tabs without text.
-font pango:Ubuntu Mono 0
-
 # Floating windows can be dragged and resized with the mouse while holding $mod.
 floating_modifier $mod
 
