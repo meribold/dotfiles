@@ -129,8 +129,13 @@ mode "resize" {
 bindsym $mod+w mode "resize"
 
 # See <https://i3wm.org/docs/userguide.html#_layout_mode_for_new_containers>.  Use the
-# `tabbed` layout by default.
-workspace_layout tabbed
+# `stacking` layout by default.  I use a patched version of i3 that always hides tab/title
+# bars, so the `stacking` and the `tabbed` layouts aren't visually distinguishable.  The
+# only difference I'm aware of is that the former uses Super+J and Super+K to cycle
+# through windows while the latter uses Super+H and Super+L with my keybindings.  Super+J
+# and Super+K seem more convenient to me, so let's make `stacking` the default (by the
+# way, I think xmonad has a layout which is just like this).
+workspace_layout stacking
 
 new_window pixel 1
 new_float pixel 1
