@@ -72,14 +72,11 @@
 "if pgrep -u $(id -u) -x neomutt; then screen -S fullscreen -X msgwait 0 && { screen -S fullscreen -X select neomutt; screen -S fullscreen -X msgwait 5; } else screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t neomutt bash -ic neomutt; screen -S fullscreen -X defdynamictitle on; } fi && i3-msg workspace 2"
    Mod4 + m
 
-# Switch to or start Irssi.  This doesn't actually start Irssi but connects to my VPS on
-# which I run Irssi.  This only works when Irssi is actually running in a remote screen
-# session and the title of the screen window is "irssi".  I have an entry for "zirakzigil"
-# in my hosts(5).  The whole thing is wrapped in `msgwait 0` and `msgwait 5` screen
-# commands because `screen -Q` displays the message that is sent to stdout inside screen
-# as well (as of version 4.06.02).  The `select irssi` command also sends a notification
-# to screen's message line when the window with title "irssi" is already selected.
-"screen -S fullscreen -X msgwait 0; { screen -S fullscreen -Q windows '(%t)' | grep '(irssi)' && screen -S fullscreen -X select irssi || screen -S fullscreen -X screen -t irssi ssh -t meribold@zirakzigil screen -x -p irssi && i3-msg workspace 2; }; screen -S fullscreen -X msgwait 5"
+# Connect to my VPS on which I run Irssi and other stuff.  I have a "zirakzigil" entry in
+# my hosts(5).  If an xterm with X11 window instance "zirakzigil" already exists, just
+# focus that.  See <https://i3wm.org/docs/userguide.html#_focusing_moving_containers> and
+# <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>.
+"[[ $(i3-msg '[instance="zirakzigil"] focus') == '[{"success":true}]' ]] || xterm -name zirakzigil -e ssh -t zirakzigil screen -x"
    Mod4 + i
 
 # Switch to or start Neovim.
