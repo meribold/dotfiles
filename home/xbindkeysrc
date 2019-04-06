@@ -118,7 +118,8 @@
 "PINENTRY_USER_DATA=gtk rofi-pass"
    Mod4 + p
 
-# Doesn't work with `Mod4 + Escape` for some reason.
+# Doesn't work with `Mod4 + Escape` for some reason.  TODO: try using Space instead of
+# Escape?
 "rofi -modi window -show"
    Mod4 + c:66
 
