@@ -12,6 +12,9 @@ floating_modifier $mod
 
 # Start a terminal.
 bindsym $mod+Return exec --no-startup-id xterm
+# Also start a terminal with Super+Backslash because on German keyboards the Backslash key
+# is where Return should be.
+bindsym $mod+backslash exec --no-startup-id xterm
 
 # Kill focused window.
 bindsym $mod+q kill
