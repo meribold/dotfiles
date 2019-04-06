@@ -13,8 +13,9 @@ PKGBUILDs:
 *   <https://wiki.archlinux.org/index.php/Creating_packages>
 *   <https://wiki.archlinux.org/index.php/Makepkg>
 *   <https://wiki.archlinux.org/index.php/PKGBUILD>
+*   <https://wiki.archlinux.org/index.php/Namcap>
 
-Also see PKGBUILD(5).
+Also see [PKGBUILD(5)][] and maybe [makepkg(8)][] and namcap(1).
 
 ## TODO
 
@@ -27,4 +28,6 @@ See [this][2].
 [PKGBUILD]: https://wiki.archlinux.org/index.php/PKGBUILD
 [1]: https://github.com/meribold/i3/tree/meribold
 [i3-gaps]: https://github.com/Airblader/i3
+[PKGBUILD(5)]: https://archlinux.org/pacman/PKGBUILD.5.html
+[makepkg(8)]: https://archlinux.org/pacman/makepkg.8.html
 [2]: https://wiki.archlinux.org/index.php/Makepkg#WARNING:_Package_contains_reference_to_$srcdir
