@@ -4,6 +4,9 @@
 #   need `sleep`),
 # * display the HTML file using Lynx otherwise.
 #
+# TODO: Use [surf](https://surf.suckless.org) instead of Firefox?  Block external
+# resources?
+#
 # The second entry will also be used for automatically viewing the HTML attachment while
 # in the pager [2] because "when using the built-in pager, only entries with [the
 # copiousoutput] flag will be considered a handler for a MIME type" [3].  "Entries with
