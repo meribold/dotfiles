@@ -177,8 +177,6 @@ alias info='info --vi-keys'
 
 alias v='$VISUAL'
 
-alias gds='git diff --staged'
-
 alias starwars='telnet towel.blinkenlights.nl'
 
 alias vims='vim --servername vim' # "VIM" is the only server name that makes
@@ -232,6 +230,14 @@ g() {
       git status -s
    fi
 }
+
+alias gd='git diff'
+alias gg='git graph'
+alias gl='git log'
+alias gp='git push'
+alias gds='git diff --staged'
+alias game='git commit --amend'
+alias gish='git show'
 
 alias nx='git-annex'
 
