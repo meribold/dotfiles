@@ -66,10 +66,8 @@
 # (`bash -ic ...`) because it gets my password by invoking `pass`, which eventually
 # results in `pinentry-curses` being used to create the dialog asking for the PIN to
 # unlock my GPG key.  This dialog creation seems to fail when there is no shell or a
-# non-interactive shell.  TODO: do something smarter than jumping to workspace 2 to focus
-# the terminal?  See <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>
-# and <https://i3wm.org/docs/userguide.html#vim_like_marks>.
-"if pgrep -u $(id -u) -x neomutt; then screen -S fullscreen -X msgwait 0 && { screen -S fullscreen -X select neomutt; screen -S fullscreen -X msgwait 5; } else screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t neomutt bash -ic neomutt; screen -S fullscreen -X defdynamictitle on; } fi && i3-msg workspace 2"
+# non-interactive shell.
+"if pgrep -u $(id -u) -x neomutt; then screen -S fullscreen -X msgwait 0 && { screen -S fullscreen -X select neomutt; screen -S fullscreen -X msgwait 5; } else screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t neomutt bash -ic neomutt; screen -S fullscreen -X defdynamictitle on; } fi && i3-msg [instance='^fullscreen$' class='^XTerm$'] focus"
    Mod4 + m
 
 # Connect to my VPS on which I run Irssi and other stuff.  I have a "zirakzigil" entry in
@@ -80,7 +78,7 @@
    Mod4 + i
 
 # Switch to or start Neovim.
-"if pgrep -u $(id -u) -x nvim; then screen -S fullscreen -X msgwait 0 && { screen -S fullscreen -X select nvim; screen -S fullscreen -X msgwait 5; } else screen -S fullscreen -X screen nvim -S; fi && i3-msg workspace 2"
+"if pgrep -u $(id -u) -x nvim; then screen -S fullscreen -X msgwait 0 && { screen -S fullscreen -X select nvim; screen -S fullscreen -X msgwait 5; } else screen -S fullscreen -X screen nvim -S; fi && i3-msg [instance='^fullscreen$' class='^XTerm$'] focus"
    Mod4 + v
 
 # Switch to or start ncmpcpp.
