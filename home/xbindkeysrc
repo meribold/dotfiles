@@ -61,12 +61,13 @@
 "f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
    Print
 
-# Switch to or start Mutt (switches the screen session's active window and, if the window
-# manager is i3, focuses workspace 2).  We need to start Mutt in an interactive shell
-# (`bash -ic ...`) because it gets my password by invoking `pass`, which eventually
-# results in `pinentry-curses` being used to create the dialog asking for the PIN to
-# unlock my GPG key.  This dialog creation seems to fail when there is no shell or a
-# non-interactive shell.
+# Switch to or start NeoMutt: switch the active window of the screen session named
+# "fullscreen" and, if the window manager is i3, try to focus an xterm attached to that
+# screen session.  We need to start NeoMutt in an interactive shell (`bash -ic ...`)
+# because it gets my password by invoking `pass`, which eventually results in
+# `pinentry-curses` being used to create the dialog asking for the PIN to unlock my GPG
+# key.  This dialog creation seems to fail when there is no shell or a non-interactive
+# shell.
 "if pgrep -u $(id -u) -x neomutt; then screen -S fullscreen -X msgwait 0 && { screen -S fullscreen -X select neomutt; screen -S fullscreen -X msgwait 5; } else screen -S fullscreen -X defdynamictitle off && { screen -S fullscreen -X screen -t neomutt bash -ic neomutt; screen -S fullscreen -X defdynamictitle on; } fi && i3-msg [instance='^fullscreen$' class='^XTerm$'] focus"
    Mod4 + m
 
