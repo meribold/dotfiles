@@ -1,5 +1,6 @@
 **Dotfiles** for [Vim/Neovim](home/vim/), [i3-gaps](home/config/i3/),
-[NeoMutt](home/mutt/), [e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
+[NeoMutt](home/config/neomutt/),
+[e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
 [p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
 [scripts](home/bin/), [keybindings](home/xbindkeysrc), …
 
