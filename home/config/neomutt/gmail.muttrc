@@ -20,4 +20,17 @@ set smtp_url=smtps://lb.waym@smtp.gmail.com
 set smtp_pass=`pass show google/lb.waym 2>/dev/null`
 set ssl_force_tls
 
+macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
+   "\"archive\" the current entry (move it to [Gmail]/All Mail)"
+# Mail is only removed from [Gmail]/Inbox (and kept everywhere else, I think) when using
+# Mutt's normal delete action with Gmail (called "Archive" in the Gmail web app).  This
+# macro seems to work.  TODO: undelete.
+macro index,pager \# "<save-message>=[Gmail]/Trash<enter><enter>" \
+   "\"delete\" the current entry (move it to [Gmail]/Trash)"
+macro index,pager gi "<change-folder>=INBOX<enter>" "open inbox"
+macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
+macro index,pager gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
+macro index,pager ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
+
 # vim: ft=neomuttrc

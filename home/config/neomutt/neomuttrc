@@ -2,6 +2,7 @@
 # <file:///usr/share/doc/neomutt/manual.html> or <https://neomutt.org/guide/>.  I don't
 # know if my configuration works well with unpatched Mutt anymore.  It probably doesn't.
 
+bind index,pager g noop
 source ~/.config/neomutt/gmail.muttrc
 
 # Default is "us-ascii:iso-8859-1:utf-8".  Really?
@@ -202,7 +203,6 @@ bind index,pager d noop
 bind attach d noop
 
 # Vim-ish {{{2
-bind index g noop
 bind index gj next-entry
 bind index gk previous-entry
 bind index,browser gg first-entry
@@ -213,7 +213,6 @@ bind index,pager  half-up
 bind index,pager  half-down
 bind pager j next-line
 bind pager k previous-line
-bind pager g noop
 bind pager gg top
 bind pager G bottom
 bind index zb current-bottom
@@ -229,27 +228,15 @@ bind index,pager c mail
 bind index o display-message
 bind pager,attach,browser,query u exit
 bind index u imap-fetch-mail
-macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
-   "\"archive\" the current entry (move it to [Gmail]/All Mail)"
 bind index,browser,attach x tag-entry
 bind pager x tag-message
 bind index,pager s flag-message
 bind index,pager a group-reply
-# Mail is only removed from [Gmail]/Inbox (and kept everywhere else, I think) when using
-# Mutt's normal delete action with Gmail (called "Archive" in the Gmail web app).  This
-# macro seems to work.  TODO: undelete.
-macro index,pager \# "<save-message>=[Gmail]/Trash<enter><enter>" \
-   "\"delete\" the current entry (move it to [Gmail]/Trash)"
 bind index,pager v save-message
 # macro index,pager v "<save-message>?<toggle-mailboxes>" ""
 bind index I toggle-new
 bind index U toggle-new
 bind pager U mark-as-new
-macro index,pager gi "<change-folder>=INBOX<enter>" "open inbox"
-macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
-macro index,pager gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
-macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
-macro index,pager ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
 macro index,pager gc "<shell-escape>$BROWSER https://contacts.google.com<return>" \
    "open Google Contacts in Firefox"
 
