@@ -2,8 +2,29 @@
 # <file:///usr/share/doc/neomutt/manual.html> or <https://neomutt.org/guide/>.  I don't
 # know if my configuration works well with unpatched Mutt anymore.  It probably doesn't.
 
+set realname='Lukas Waymann'
+
 bind index,pager g noop
+
+# See <file:///usr/share/doc/neomutt/manual.html#set-myvar>.  Setting these in
+# "gmail.muttrc" and "fastmail.muttrc" would result in many more `gpg` invocations.
+# Prepending `notify-send foo` is a good trick to debug that stuff.
+set my_fastmail_user="`gpg -dq ~/.config/neomutt/fastmail-user.gpg`"
+# See <https://www.fastmail.com/help/clients/apppassword.html>
+set my_fastmail_pass="`gpg -dq ~/.config/neomutt/fastmail-password.gpg`"
+# Call pass(1) to get the account's password.  "Since initialization files are line
+# oriented, only the first line of output from the Unix command will be substituted."  See
+# <file:///usr/share/doc/neomutt/manual.html#neomuttrc-syntax>.
+set my_gmail_pass="`pass show google/lb.waym 2>/dev/null`"
+
+# See <https://wiki.archlinux.org/index.php/Mutt#Multiple_accounts> and
+# <file:///usr/share/doc/neomutt/manual.html#account-hook>.
 source ~/.config/neomutt/gmail.muttrc
+folder-hook $folder 'source ~/.config/neomutt/gmail.muttrc'
+# Add a hacky separator between the Gmail and FastMail mailboxes.
+mailboxes ' '
+source ~/.config/neomutt/fastmail.muttrc
+folder-hook $folder 'source ~/.config/neomutt/fastmail.muttrc'
 
 # Default is "us-ascii:iso-8859-1:utf-8".  Really?
 # http://wiki.archlinux.org/index.php/Mutt#E-mail_character_encoding
@@ -24,6 +45,8 @@ charset-hook ^iso-8859-1$ cp1252
 # <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.
 set sidebar_visible=yes
 set sidebar_width=24
+set sidebar_short_path=yes
+set sidebar_delim_chars='/'
 
 # Taken from <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.  Sort by
 # [threads](http://www.mutt.org/doc/manual/#threads), displaying them as a tree structure.

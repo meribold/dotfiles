@@ -1,24 +1,27 @@
+set ssl_force_tls
+
 # Configure native IMAP support.  http://dev.mutt.org/trac/wiki/UseCases/Gmail
 # http://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support
 set imap_user=lb.waym@gmail.com
-# Call pass(1) to get the account's password.
-set imap_pass=`pass show google/lb.waym 2>/dev/null`
+set imap_pass="$my_gmail_pass"
 set folder=imaps://imap.gmail.com/ # http://dev.mutt.org/trac/wiki/MuttGuide/Folders
 set spoolfile=+INBOX
-set copy=no # Don't save copies of outgoing messages (Gmail already saves them).
 set postponed=+[Gmail]/Drafts # Save drafts remotely.
-set imap_check_subscribed # Check all subscribed IMAP folders.
+
+# See <https://neomutt.org/guide/advancedusage.html#shortcuts>.  `!` and `+` are expanded
+# according to that table.
+mailboxes ! +[Gmail]/All\ Mail +[Gmail]/Drafts +[Gmail]/Important +[Gmail]/Sent\ Mail \
+          +[Gmail]/Spam +[Gmail]/Starred +[Gmail]/Trash +arch-announce +casibaeus \
+          +help-make +info@fsf +meribold +network.list +notion +winter
 
 # Configure native SMTP support.
-set realname="Lukas Waymann"
 set from=lb.waym@gmail.com
 set smtp_url=smtps://lb.waym@smtp.gmail.com
-# Call pass(1) to get the account's password again.  This time to use it for sending mail
-# via SMTP.  The GPG key will be unlocked now because we already used pass to set
-# `imap_pass`.  When not setting `smtp_pass`, Mutt prompts for the password when first
-# sending mail.  See <http://mutt.org/doc/manual/#imap-pass>.
-set smtp_pass=`pass show google/lb.waym 2>/dev/null`
-set ssl_force_tls
+set smtp_pass="$my_gmail_pass"
+
+# Don't save copies of outgoing messages (Gmail already saves them).
+unset copy
+unset record
 
 macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
    "\"archive\" the current entry (move it to [Gmail]/All Mail)"
@@ -32,5 +35,7 @@ macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Star
 macro index,pager gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Drafts"
 macro index,pager ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
+
+account-hook $folder "set imap_user='lb.waym@gmail.com' imap_pass='$my_gmail_pass'"
 
 # vim: ft=neomuttrc
