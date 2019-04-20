@@ -2,9 +2,19 @@
 # <file:///usr/share/doc/neomutt/manual.html> or <https://neomutt.org/guide/>.  I don't
 # know if my configuration works well with unpatched Mutt anymore.  It probably doesn't.
 
-set realname='Lukas Waymann'
-
+# Unbind some keys.  TODO: maybe we should follow this guy's example:
+# <https://github.com/iagox86/mutt/blob/master/keybindings.conf>.
+bind generic z noop
+bind generic Z noop
+bind index,pager d noop
+# I never wanted to delete a specific attachment but keep the message itself so far.
+# Unbind <delete-entry> in the attachment menu.
+bind attach d noop
 bind index,pager g noop
+bind generic ] noop
+bind generic [ noop
+
+set realname='Lukas Waymann'
 
 # See <file:///usr/share/doc/neomutt/manual.html#set-myvar>.  Setting these in
 # "gmail.muttrc" and "fastmail.muttrc" would result in many more `gpg` invocations.
@@ -263,16 +273,6 @@ color index      yellow   color0 ~T   # tagged
 color index      color8   color0 ~D   # deleted
 
 # Key Bindings {{{1
-# Unbind some keys {{{2
-# TODO: maybe we should follow this guy's example:
-# <https://github.com/iagox86/mutt/blob/master/keybindings.conf>.
-bind generic z noop
-bind generic Z noop
-bind index,pager d noop
-# I never wanted to delete a specific attachment but keep the message itself so far.
-# Unbind <delete-entry> in the attachment menu.
-bind attach d noop
-
 # Vim-ish {{{2
 bind index gj next-entry
 bind index gk previous-entry
@@ -354,8 +354,6 @@ bind index,pager \` sidebar-toggle-visible
 bind index,pager ] sidebar-next
 bind index,pager [ sidebar-prev
 bind index,pager > sidebar-open
-bind generic ] noop
-bind generic [ noop
 
 # We can't toggle the sidebar using the <sidebar-toggle-visible> function in some contexts
 # (e.g. the "compose" context).  The following, OTOH, seems to work everywhere.
