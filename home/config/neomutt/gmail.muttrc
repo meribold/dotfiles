@@ -1,10 +1,11 @@
 set ssl_force_tls
 
-# Configure native IMAP support.  http://dev.mutt.org/trac/wiki/UseCases/Gmail
-# http://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support
+# Configure native IMAP support.  See
+# <https://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support>.
 set imap_user=lb.waym@gmail.com
 set imap_pass="$my_gmail_pass"
-set folder=imaps://imap.gmail.com/ # http://dev.mutt.org/trac/wiki/MuttGuide/Folders
+# See <https://gitlab.com/muttmua/mutt/wikis/MuttGuide/Folders>.
+set folder=imaps://imap.gmail.com/
 set spoolfile=+INBOX
 set postponed=+[Gmail]/Drafts # Save drafts remotely.
 
@@ -37,5 +38,7 @@ macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "open [Gmail]/Draft
 macro index,pager ga "<change-folder>=[Gmail]/All%20Mail<enter>" "open [Gmail]/All Mail"
 
 account-hook $folder "set imap_user='lb.waym@gmail.com' imap_pass='$my_gmail_pass'"
+
+# Also see <https://gitlab.com/muttmua/mutt/wikis/UseCases/Gmail>.
 
 # vim: ft=neomuttrc
