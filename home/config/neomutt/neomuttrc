@@ -55,7 +55,41 @@ set sidebar_delim_chars='/'
 # was received).  Recent threads and messages go to the top.
 set sort=threads
 set sort_aux=reverse-last-date-received
+set strict_threads
 
+# TODO: explain.
+set autoedit
+set edit_headers
+set recall=no
+
+set fast_reply
+
+# See <https://neomutt.org/guide/tuning>.
+set read_inc=100
+
+# When in the pager (reading a message), still show a few lines of the index (list of
+# messages) for context.  I got this from Steve Losh's blog post.
+set pager_index_lines=10
+
+# TODO: explain.
+set imap_delim_chars='/'
+
+# Ask fewer questions.  TODO: explain more.
+set delete=yes
+set include=yes
+set reply_to=yes
+
+# Stuff found at <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.  TODO:
+# explain.
+set wait_key=no
+set pager_stop
+set menu_scroll
+unset markers
+
+# From <https://wiki.archlinux.org/index.php/mutt#Speed_up_folders_switch>.  Don't pause
+# to show info messages (for example when opening another folder).  See
+# <https://dev.mutt.org/doc/manual.html#sleep-time>.
+set sleep_time=0
 # Configure GnuPG.
 set pgp_use_gpg_agent
 set pgp_auto_decode
@@ -114,10 +148,14 @@ set alias_file="~/.config/neomutt/aliases"
 source $alias_file
 
 # Cache message headers here.  This takes very little space and makes opening large
-# folders much faster.  See http://www.mutt.org/doc/devel/manual.html#header-caching.
+# folders much faster.  See <file:///usr/share/doc/neomutt/manual.html#header-caching>.
 set header_cache=~/.config/neomutt/cache/headers/
 
-# Copied from http://gitlab.com/goobook/goobook.
+# Make things faster at the cost of a negligible amount of disk space.  See
+# <file:///usr/share/doc/neomutt/manual.html#body-caching>.
+set message_cachedir=~/.config/neomutt/cache/
+
+# Copied from <https://gitlab.com/goobook/goobook>.
 set query_command="goobook query '%s'"
 bind editor <Tab> complete-query
 
@@ -208,11 +246,21 @@ color tree       default color0
 color header     red     color0 ^From
 color header     red     color0 ^Subject
 
-# Regexp patterns for the index.
-color index      red     color0 ~F # Flagged
-color index      green   color0 ~N # New
-color index      yellow  color0 ~T # Tagged
-color index      color8  color0 ~D # Deleted
+# Color the index using patterns.  See <https://dev.mutt.org/doc/manual.html#patterns>.
+# XXX: only one color command is ever applied to a line of the index and it's the one
+# listed last here.  This means we can't set a background color and a foreground color
+# from separate patterns.
+color index      red      color0 "~z 262144-" # bigger than 256 KiB
+color index      color8   color0 ~u           # addressed to a subscribed mailing list
+color index      cyan     color0 ~g           # signed
+color index      blue     color0 ~G           # encrypted
+color index      color8   default ~P          # from me
+# TODO: it would be nice if the background color from this pattern could be active at the
+# same time as another pattern's foreground color.
+color index      default  color234 ~v # part of a collapsed thread
+color index      green    color0 ~N   # new
+color index      yellow   color0 ~T   # tagged
+color index      color8   color0 ~D   # deleted
 
 # Key Bindings {{{1
 # Unbind some keys {{{2
@@ -230,10 +278,10 @@ bind index gj next-entry
 bind index gk previous-entry
 bind index,browser gg first-entry
 bind index,browser G last-entry
-bind index,pager  previous-line
-bind index,pager  next-line
-bind index,pager  half-up
-bind index,pager  half-down
+bind index,pager,browser  previous-line
+bind index,pager,browser  next-line
+bind index,pager,browser  half-up
+bind index,pager,browser  half-down
 bind pager j next-line
 bind pager k previous-line
 bind pager gg top
