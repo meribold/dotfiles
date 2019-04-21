@@ -11,6 +11,7 @@ set folder='imaps://imap.fastmail.com:993/'
 # use "=" instead of "+".  See <https://neomutt.org/guide/advancedusage.html#shortcuts>.
 set spoolfile='+INBOX'
 set postponed='+Drafts'
+set trash='+Trash'
 
 # The "!" is expanded to "$spoolfile", i.e., "+INBOX".  I previously used the
 # `imap_check_subscribed` setting and didn't use the `mailboxes` command, but I ran into
@@ -31,7 +32,6 @@ set copy
 set record='+Sent'
 
 macro index,pager e  "<save-message>=Archive<enter><enter>"
-macro index,pager \# "<save-message>=Trash<enter><enter>"
 macro index,pager gi "<change-folder>=INBOX<enter>"
 macro index,pager gs "<change-folder>=Starred<enter>"
 macro index,pager gt "<change-folder>=Sent<enter>"

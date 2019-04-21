@@ -295,6 +295,7 @@ bind pager,attach,browser,query  exit
 # bind generic N search-opposite
 
 # Gmail-esque {{{2
+bind index,pager \# delete-message
 bind index,pager c mail
 bind index o display-message
 bind pager,attach,browser,query u exit
