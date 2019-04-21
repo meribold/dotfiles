@@ -272,6 +272,8 @@ color index      green    color0 ~N   # new
 color index      yellow   color0 ~T   # tagged
 color index      color8   color0 ~D   # deleted
 
+color sidebar_divider blue default
+
 # Key Bindings {{{1
 # Vim-ish {{{2
 bind index gj next-entry
