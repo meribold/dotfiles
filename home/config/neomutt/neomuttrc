@@ -100,6 +100,11 @@ unset markers
 # to show info messages (for example when opening another folder).  See
 # <https://dev.mutt.org/doc/manual.html#sleep-time>.
 set sleep_time=0
+# Check for new mail once per minute, 12 times less often than the default.  Mutt lags
+# every time it checks for new mail.  Lag once a minute is much more tolerable than lag
+# every 5 seconds.  "All mail clients suck.  This one just sucks less."
+set mail_check=60
+
 # Configure GnuPG.
 set pgp_use_gpg_agent
 set pgp_auto_decode
