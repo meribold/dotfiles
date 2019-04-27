@@ -1,0 +1,19 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+# I went to <contacts.google.com>, clicked the "Export" button, and chose vCard as the
+# format.  This gave me one .vcf file with MD5 sum 1de37656dc7219e429fad35de4a7ccd9.
+[storage onetime_google_contacts_import]
+type = "singlefile"
+read_only = true
+path = "~/google-contacts-export-20190427.vcf"
+
+[storage here]
+type = "filesystem"
+path = "~/.contacts/"
+fileext = ".vcf"
+
+[pair contacts]
+a = "onetime_google_contacts_import"
+b = "here"
+collections = null
