@@ -5,3 +5,18 @@ status_path = "~/.vdirsyncer/status/"
 type = "filesystem"
 path = "~/.contacts/"
 fileext = ".vcf"
+
+# See <https://vdirsyncer.pimutils.org/en/stable/tutorials/fastmail.html> and
+# <https://www.fastmail.com/help/technical/servernamesandports.html#contacts>.
+[storage fastmail_contacts]
+type = "carddav"
+url = "https://carddav.fastmail.com/"
+# See <https://vdirsyncer.pimutils.org/en/stable/keyring.html>.  Expansion of "~" does not
+# seem to work.
+username.fetch = ["command", "gpg", "-dq", "/home/meribold/.config/neomutt/fastmail-user.gpg"]
+password.fetch = ["command", "gpg", "-dq", "/home/meribold/.config/neomutt/fastmail-password.gpg"]
+
+[pair here_and_fastmail_contacts]
+a = "here"
+b = "fastmail_contacts"
+collections = ["from a", "from b"]
