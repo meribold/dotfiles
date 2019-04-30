@@ -1,56 +1,37 @@
 {
   "layout": "splitv",
-  "type": "con",
   "nodes": [
     {
       "layout": "splith",
-      "percent": 0.333,
-      "type": "con",
+      "percent": 0.72,
       "nodes": [
         {
+          "layout": "splitv",
           "percent": 0.6,
-          "swallows": [{ "title": "^ip address show dev eth0$" }],
-          "type": "con"
+          "nodes": [
+            {
+              "swallows": [{ "title": "^ip address show dev eth0$" }]
+            },
+            {
+              "swallows": [{ "title": "^route$" }]
+            }
+          ]
         },
         {
           "percent": 0.4,
-          "swallows": [{ "title": "^dhcpcd$" }],
-          "type": "con"
+          "swallows": [{ "title": "^dhcpcd$" }]
         }
       ]
     },
     {
       "layout": "splith",
-      "percent": 0.666,
-      "type": "con",
+      "percent": 0.28,
       "nodes": [
         {
-          "layout": "splitv",
-          "type": "con",
-          "nodes": [
-            {
-              "swallows": [{ "title": "^iw dev eth0 link$" }],
-              "type": "con"
-            },
-            {
-              "swallows": [{ "title": "^ping gateway$" }],
-              "type": "con"
-            }
-          ]
+          "swallows": [{ "title": "^ping gateway$" }]
         },
         {
-          "layout": "splitv",
-          "type": "con",
-          "nodes": [
-            {
-              "swallows": [{ "title": "^route$" }],
-              "type": "con"
-            },
-            {
-              "swallows": [{ "title": "^ping google.com$" }],
-              "type": "con"
-            }
-          ]
+          "swallows": [{ "title": "^ping google.com$" }]
         }
       ]
     }
