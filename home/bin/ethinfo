@@ -2,7 +2,7 @@
 
 # Also see the `wifail` script.  This is mostly the same thing for Ethernet.
 
-# Create an i3 workspace with 6 placeholder windows that swallow xterms.
+# Create an i3 workspace with 5 placeholder windows that swallow xterms.
 i3-msg -q 'append_layout ~/.config/i3/ethinfo-workspace.json'
 
 # Start the xterms.
