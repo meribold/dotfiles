@@ -3,6 +3,13 @@
 # Note: xterm's `-e` option seems to prepend `bash -c` to its argument (when necessary?);
 # i.e., it starts a non-interactive shell.
 
+# Check if a workspace named "wifail" exists.
+workspace_exists=$(i3-msg -t get_workspaces | jq 'any (.name == "wifail")')
+# Switch to the workspace named "wifail".  Create it if necessary.
+i3-msg 'workspace wifail'
+# Exit if the "wifail" workspace already existed.
+[[ $workspace_exists == 'true' ]] && exit
+
 # Create an i3 workspace with 7 placeholder windows that swallow xterms.
 i3-msg -q 'append_layout ~/.config/i3/wifail-workspace.json'
 

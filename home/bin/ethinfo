@@ -2,6 +2,13 @@
 
 # Also see the `wifail` script.  This is mostly the same thing for Ethernet.
 
+# Check if a workspace named "ethinfo" exists.
+workspace_exists=$(i3-msg -t get_workspaces | jq 'any (.name == "ethinfo")')
+# Switch to the workspace named "ethinfo".  Create it if necessary.
+i3-msg 'workspace ethinfo'
+# Exit if the "ethinfo" workspace already existed.
+[[ $workspace_exists == 'true' ]] && exit
+
 # Create an i3 workspace with 5 placeholder windows that swallow xterms.
 i3-msg -q 'append_layout ~/.config/i3/ethinfo-workspace.json'
 
