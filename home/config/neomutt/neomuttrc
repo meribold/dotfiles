@@ -170,8 +170,11 @@ set header_cache=~/.config/neomutt/cache/headers/
 # <file:///usr/share/doc/neomutt/manual.html#body-caching>.
 set message_cachedir=~/.config/neomutt/cache/
 
-# Copied from <https://gitlab.com/goobook/goobook>.
-set query_command="goobook query '%s'"
+# Like GooBook, Khard is a Python program, and it's not fast enough.  TODO: maybe check
+# out <https://github.com/pimutils/mates.rs>.
+set query_command="khard email --parsable '%s'"
+# The editor menu is "command-line mode", i.e., what you when hitting colon.  See
+# <file:///usr/share/doc/neomutt/manual.html#editor-map>.
 bind editor <Tab> complete-query
 
 # Based on <https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML>.  TODO: add a keyboard
