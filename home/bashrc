@@ -89,6 +89,11 @@ alias ll='ls -lh'
 # List subdirectories (http://stackoverflow.com/a/171938).
 alias lsd='ls -d */'
 
+# Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].
+alias n='s lukas'
+# [1]: https://github.com/AsamK/signal-cli
+# [2]: https://github.com/meribold/signal-cli.bash
+
 # Create a new directory and change into it.  Conceptually like `mkdir -p "$1" && cd "$1"`
 # but handles many subtle edge cases.  Taken from http://unix.stackexchange.com/a/9124.
 mkcd() {
