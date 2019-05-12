@@ -20,6 +20,16 @@ text/html; "$BROWSER" %s && sleep 3; test=test -n "$DISPLAY"
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
 
 image/*; feh -B black --scale-down %s; test=test -n "$DISPLAY"
+video/*; mpv %s
 
-application/pdf; zathura %s; test=test -n "$DISPLAY"
+# Use stdin because it allows us to fork (Mutt would shred the file if we were to use %s).
+# See <http://www.rdrop.com/docs/mutt/manual83.html>.
+application/pdf; zathura --fork - && sleep 1; test=test -n "$DISPLAY"
 application/pdf; pdftotext %s -; copiousoutput;
+
+application/vnd.oasis.opendocument.text; lowriter %s
+application/msword; lowriter %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; lowriter %s
+application/vnd.oasis.opendocument.spreadsheet; localc %s
+application/vnd.ms-excel; localc %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; localc %s
