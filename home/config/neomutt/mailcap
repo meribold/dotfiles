@@ -20,10 +20,10 @@ text/html; "$BROWSER" %s && sleep 3; test=test -n "$DISPLAY"
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
 
 image/*; feh -B black --scale-down %s; test=test -n "$DISPLAY"
-video/*; mpv %s
+video/*; mpv --keep-open -
 
-# Use stdin because it allows us to fork (Mutt would shred the file if we were to use %s).
-# See <http://www.rdrop.com/docs/mutt/manual83.html>.
+# Use stdin because it allows us to fork (NeoMutt would shred the file if we were to use
+# %s).  See <file:///usr/share/doc/neomutt/manual.html#mailcap-basics>.
 application/pdf; zathura --fork - && sleep 1; test=test -n "$DISPLAY"
 application/pdf; pdftotext %s -; copiousoutput;
 
