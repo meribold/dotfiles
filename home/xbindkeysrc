@@ -144,4 +144,13 @@
 "notify-send -u low -t 3000 -c ephemeral "$(date +$'%A, %B %-d\n<b>%H:%M</b>')""
    Mod4 + z
 
+# Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].  The
+# actual sending happens in the background.  The xterm that the note is typed into is
+# closed without any delay.  If signal-cli encounters an error, we pop up a desktop
+# notification.
+"xterm -name 'floating xterm' -geometry 80x4 -e bash -ic 'message=$(rlwrap -pcyan -S "> " -ow0 cat) && { s lukas "$message" || notify-send -u critical "signal-cli: something went wrong" & disown; }'"
+   Mod4 + bracketleft
+# [1]: https://github.com/AsamK/signal-cli
+# [2]: https://github.com/meribold/signal-cli.bash
+
 # vim: ft=conf
