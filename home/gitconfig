@@ -1,6 +1,6 @@
 [user]
 	name = Lukas Waymann
-	email = meribold@gmail.com
+	email = git@meribold.xyz
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
