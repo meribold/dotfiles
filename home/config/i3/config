@@ -53,8 +53,7 @@ bindsym $mod+s split v
 # It seems that key binding takes priority over this one, so the next line has no effect.
 bindsym $mod+v split h
 
-# Fullscreen the focused container.
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f [class="^Firefox Developer Edition$"] focus
 
 # Change container layout (stacked, tabbed, toggle split).
 bindsym $mod+Shift+s layout stacking
