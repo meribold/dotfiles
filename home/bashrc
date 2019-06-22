@@ -263,12 +263,12 @@ shopt -s histverify
 shopt -s histappend
 
 HISTTIMEFORMAT='%F %T  '
-HISTSIZE=40000
+HISTSIZE=50000
 
 # "The maximum number of lines contained in the history file" - bash(1).  As
 # $HISTTIMEFORMAT is used, timestamps are written to separate lines for each command and
 # no more than ($HISTFILESIZE / 2) commands are saved.
-HISTFILESIZE=80000
+HISTFILESIZE=100000
 # http://askubuntu.com/q/15926
 HISTCONTROL=ignoreboth:erasedups
 
