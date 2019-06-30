@@ -141,7 +141,7 @@
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
-"notify-send -u low -t 3000 -c ephemeral "$(date +$'%A, %B %-d\n<b>%H:%M</b>')""
+"notify-send -u low -t 5000 -c ephemeral "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
    Mod4 + z
 
 # Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].  The
