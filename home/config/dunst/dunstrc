@@ -133,6 +133,10 @@
 # used).  Dunst treats such sections as *rules*.  Rules can be used to filter
 # notifications, override attributes, or run scripts.
 
+[no_summary]
+    summary = "-"
+    format = "%b"
+
 # Don't keep certain notifications in the history.  For example, those from my
 # `home/bin/mpd-notify` script and Super+B keybinding would just add noise when recalling
 # notifications; we specify the `ephemeral` category when sending them so we can filter
@@ -140,5 +144,9 @@
 [history_ignore]
     category = ephemeral
     history_ignore = yes
+
+[mpd_notify]
+    appname = "mpd-notify"
+    format = "<small>MPD: now playing</small>\n%s"
 
 # vim: tw=90 sts=-1 sw=4 et ft=cfg cms=#%s

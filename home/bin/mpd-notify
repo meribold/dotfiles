@@ -17,7 +17,6 @@ while read; do
    if [[ ${mpd_status[1]} == \[playing\]* ]]; then
       # See `dunstify -?`.  TODO: exclude these notifications from Dunst's message
       # history.
-      dunstify -t 2000 -u low -r 288722701 \
-         $'<small>MPD: now playing</small>\n'"${mpd_status[0]}"
+      dunstify -a mpd-notify -t 2000 -u low -r 288722701 "${mpd_status[0]}"
    fi
 done

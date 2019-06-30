@@ -14,19 +14,19 @@
 # do that with `notify-send`, but `dunstify` doesn't seem to allow specifying a
 # notification category.  We can probably use `notify-send` instead of `dunstify` in the
 # future, though: see <https://github.com/dunst-project/dunst/pull/552>.
-"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 2db- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 2db- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    XF86AudioLowerVolume
 
-"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 2db+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 2db+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    XF86AudioRaiseVolume
 
 # Increase the audio volume by scrolling up while holding the Super key.  With a
 # TrackPoint, this is much faster and more convenient than the media keys.
-"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 1%+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 1%+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:4
 
 # Decrease the volume by scrolling down while holding the Super/Windows key.
-"dunstify -u low -t 2000 -r 699814432 "$(amixer set Master playback 1%- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 1%- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:5
 
 "mpc seek +5"
@@ -128,7 +128,7 @@
 
 # These notifications are excluded from Dunst's history based on the "ephemeral" category.
 # There is associated configuration in `home/config/dunst/dunstrc` that makes this work.
-"notify-send -u low -t 2000 -c ephemeral $'<small>Battery status</small>\n'"$(bat)""
+"notify-send -u low -t 2000 -c ephemeral - $'<small>Battery status</small>\n'"$(bat)""
    Mod4 + b
 
 "vimsel"
@@ -141,7 +141,7 @@
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
-"notify-send -u low -t 5000 -c ephemeral "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
+"notify-send -u low -t 5000 -c ephemeral - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
    Mod4 + z
 
 # Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].  The
