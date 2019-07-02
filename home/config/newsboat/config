@@ -1,3 +1,6 @@
+# TODO: I don't think opening an article should mark it as read automatically.  See
+# <https://github.com/akrennmair/newsbeuter/issues/200>.
+
 browser "nohup $FIREFOX --new-tab %u &>/dev/null &"
 datetime-format "%F"  # ISO 8601
 refresh-on-startup yes
@@ -60,20 +63,24 @@ bind-key ] next feedlist
 bind-key [ prev feedlist
 bind-key ] next-feed articlelist
 bind-key [ prev-feed articlelist
-bind-key g pageup
-bind-key G pagedown
+bind-key g home
+bind-key G end
+# FIXME: only the last two lines of the next four have an effect.
 bind-key ^U pageup
 bind-key ^D pagedown
+bind-key u pageup
+bind-key d pagedown
 
 # Swap `reload` and `reload-all` because the latter is more useful.
 bind-key r reload-all
 bind-key R reload
 
 # Prevent accidentally quitting Newsboat: unbind "q" and then restore its function
-# everywhere but in the feedlist.  We can still quit with `:quit`.  Make "u" work just
-# like "q" and also unbind "Q" (hard-quit).
+# everywhere but in the feedlist.  We can still quit with `:quit`.  Make "u" and "h" work
+# just like "q" and also unbind "Q" (hard-quit).
 unbind-key q
 unbind-key Q
+unbind-key h
 bind-key q quit filebrowser
 bind-key q quit help
 bind-key q quit articlelist
@@ -90,13 +97,26 @@ bind-key u quit tagselection
 bind-key u quit filterselection
 bind-key u quit urlview
 bind-key u quit dialogs
+bind-key h quit filebrowser
+bind-key h quit help
+bind-key h quit articlelist
+bind-key h quit article
+bind-key h quit tagselection
+bind-key h quit filterselection
+bind-key h quit urlview
+bind-key h quit dialogs
 
 # Switch these two compared to the defaults.
 bind-key o open-in-browser-and-mark-read
 bind-key O open-in-browser
-# When o or O is used in the feed list, open all unread articles of the selected feed.
+# Open the latest article of a feed in Firefox and mark it as read with o.  This is pretty
+# neat.  Hitting o again opens the next one, and so on.
+max-browser-tabs 1
 bind-key o open-all-unread-in-browser-and-mark-read feedlist
 bind-key O open-all-unread-in-browser feedlist
+
+bind-key l open
+bind-key L toggle-show-read-feeds
 
 # Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
 # hope Newsboat sanitizes `%u`.
