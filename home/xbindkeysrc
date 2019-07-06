@@ -114,7 +114,7 @@
 # IPython is a bit slow to start (cf. `bc` and `calc`), but maybe it's still my best
 # choice for doing some quick maths.  The familiar syntax is nice.  How about `ghci` or
 # `dc` or `lua`, though?  Also see <https://reddit.com/comments/5z5fwh//devtocl>.
-"xterm -name 'floating xterm' -e ipython --no-banner -ic 'from math import *'"
+"[[ $(i3-msg '[instance="^ipython$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ipython -e ipython --no-banner -ic 'from math import *'"
    Mod4 + u
 
 # Run [rofi-pass](https://github.com/carnager/rofi-pass), an alternative to passmenu.
