@@ -95,7 +95,7 @@ Plug 'jpalardy/vim-slime'
 
 " Automated management of tag files.  I chose [Gutentags][1] semi-randomly: it has some
 " cool features like incremental tags generation but [there][2] [are][3] [many][4]
-" [similar][5] [plugins][6], neither of which I tried.
+" [similar][5] [plugins][6], none of which I tried.
 " [1]: https://github.com/ludovicchabant/vim-gutentags
 " [2]: https://github.com/basilgor/vim-autotags
 " [3]: https://github.com/soramugi/auto-ctags.vim
