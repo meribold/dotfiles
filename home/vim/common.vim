@@ -494,6 +494,11 @@ let g:dict_hosts = [
    \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
 \ ]
 
+" vim-gutentags {{{2
+" See `:helpgrep gutentags_cache_dir` and
+" <https://wiki.archlinux.org/index.php/XDG_Base_Directory>.
+let g:gutentags_cache_dir = '~/.cache/gutentags'
+
 " ultisnips {{{2
 " Apparently, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
 " probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to work in a terminal
