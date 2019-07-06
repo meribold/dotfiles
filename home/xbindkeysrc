@@ -111,10 +111,10 @@
 "j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -theme-str "* { accent-color: @red; }"'"
    Mod4 + semicolon
 
-# IPython is a bit slow to start (cf. `bc` and `calc`), but maybe it's still my best
-# choice for doing some quick maths.  The familiar syntax is nice.  How about `ghci` or
-# `dc` or `lua`, though?  Also see <https://reddit.com/comments/5z5fwh//devtocl>.
-"[[ $(i3-msg '[instance="^ipython$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ipython -e ipython --no-banner -ic 'from math import *'"
+# I previously used IPython here, but it's a bit slow to start compared to pretty much
+# every other potential option for doing some quick maths (`bc`, `calc`, `dc`, `lua`, just
+# `python`, ...).  Now I'm trying GHCi.  Also see <https://reddit.com/comments/5z5fwh>.
+"[[ $(i3-msg '[instance="^ghci$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ghci -geometry 61x34 -e ghci"
    Mod4 + u
 
 # Run [rofi-pass](https://github.com/carnager/rofi-pass), an alternative to passmenu.

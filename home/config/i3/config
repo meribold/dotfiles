@@ -182,9 +182,9 @@ for_window [instance="^newsboat$"] sticky enable
 for_window [instance="^newsboat$"] scratchpad show
 
 # Use a sticky scratchpad window for IPython (my current calculator of choice).
-for_window [instance="^ipython$"] floating enable
-for_window [instance="^ipython$"] move scratchpad
-for_window [instance="^ipython$"] sticky enable
-for_window [instance="^ipython$"] scratchpad show
+for_window [instance="^ghci$"] floating enable
+for_window [instance="^ghci$"] move scratchpad
+for_window [instance="^ghci$"] sticky enable
+for_window [instance="^ghci$"] scratchpad show
 
 exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
