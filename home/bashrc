@@ -244,6 +244,8 @@ alias gds='git diff --staged'
 alias game='git commit --amend'
 alias gish='git show'
 
+alias tag='tig --all'
+
 alias nx='git-annex'
 
 alias feh='feh -.'
