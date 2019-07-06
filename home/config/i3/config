@@ -179,8 +179,6 @@ exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
 for_window [instance="^newsboat$"] floating enable
 for_window [instance="^newsboat$"] move scratchpad
 for_window [instance="^newsboat$"] sticky enable
-bindsym $mod+n [instance="^newsboat$"] scratchpad show
-# TODO: screen?
-exec --no-startup-id "xterm -name newsboat -geometry 140x24 -e newsboat"
+for_window [instance="^newsboat$"] scratchpad show
 
 exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh

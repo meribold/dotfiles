@@ -86,6 +86,10 @@
 "pgrep -u $(id -u) -x ncmpcpp && screen -S fullscreen -X select - && screen -S fullscreen -X select ncmpcpp || screen -S fullscreen -X screen ncmpcpp && i3-msg workspace 2"
    Mod4 + c
 
+# TODO: screen?
+"[[ $(i3-msg '[instance="^newsboat$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name newsboat -geometry 140x24 -e newsboat"
+   Mod4 + n
+
 "xterm -name 'floating xterm' -e 'bash -ic p'"
    Mod4 + g
 
