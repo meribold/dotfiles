@@ -7,7 +7,11 @@
 	autocrlf = false
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
-	tool = nvim -d
+	; I used `vimdiff` and `nvim -d` before, but Vim is rubbish at 3-way diffs.  Meld
+	; doesn't seem too bad.  TODO: Could we make Vim work acceptably well somehow?
+	; Maybe see <https://vim.fandom.com/wiki/A_better_Vimdiff_Git_mergetool> and
+	; <https://youtu.be/Pxgl3Wtf78Y>.
+	tool = meld
 [push]
 	default = simple
 [alias]
