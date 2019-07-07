@@ -127,9 +127,9 @@ aur-browse() {
    xdg-open "$url" &>/dev/null <&1 & disown
 }
 
-# Jump into the most 'frecent' directory matching all arguments.  Normally like z(1) but
-# when used without arguments, use fzf to select a directory.  Adapted from
-# https://github.com/junegunn/fzf/wiki/Examples#z.
+# Jump into the most "frecent" directory matching all arguments.  Normally like z(1), but
+# uses fzf to select a directory when invoked without arguments.  Adapted from
+# <https://github.com/junegunn/fzf/wiki/Examples#z>.
 j() {
    [[ $# -gt 0 ]] && _z "$*" && return
    cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
