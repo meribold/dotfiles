@@ -107,26 +107,6 @@ mkcd() {
    esac
 }
 
-# Open the AUR page of a package in the preferred web browser.  If no package with the
-# given name exists, open a page with search results instead.
-aur-browse() {
-   local args
-   local url
-   args="$*"
-   # Does "$args" change when we remove the first whitespace character?  I.e., does it
-   # contain whitespace?  If not, don't waste time checking if a package with that name
-   # exists.
-   if [[ $args = "${args/[[:space:]]}" ]]; then
-      # No whitespace.  May be the name of a package.
-      url=$(cower -i --format=%p "$args" 2>/dev/null)
-   fi
-   if [[ -z $url ]]; then
-      # There is no package called "$args", create a search URL instead.
-      url='https://aur.archlinux.org/packages/?K='"${args//[[:space:]]/+}"
-   fi
-   xdg-open "$url" &>/dev/null <&1 & disown
-}
-
 # Jump into the most "frecent" directory matching all arguments.  Normally like z(1), but
 # uses fzf to select a directory when invoked without arguments.  Adapted from
 # <https://github.com/junegunn/fzf/wiki/Examples#z>.
