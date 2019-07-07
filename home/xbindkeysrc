@@ -90,7 +90,7 @@
 "[[ $(i3-msg '[instance="^newsboat$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name newsboat -geometry 140x24 -e newsboat"
    Mod4 + n
 
-"xterm -name 'floating xterm' -e 'bash -ic p'"
+"xterm -name 'floating xterm' -e p"
    Mod4 + g
 
 # List [desktop entry files][1] using `j4-dmenu-desktop` and Rofi and launch the selected
