@@ -95,7 +95,7 @@ alias n='s lukas'
 # [2]: https://github.com/meribold/signal-cli.bash
 
 # Create a new directory and change into it.  Conceptually like `mkdir -p "$1" && cd "$1"`
-# but handles many subtle edge cases.  Taken from http://unix.stackexchange.com/a/9124.
+# but handles many subtle edge cases.  Taken from <https://unix.stackexchange.com/a/9124>.
 mkcd() {
    case "$1" in
       */..|*/../) cd -- "$1";; # Doesn't make sense unless the directory already exists.
