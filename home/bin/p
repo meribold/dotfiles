@@ -2,7 +2,8 @@
 
 # Select a song from the current MPD playlist with fzf and start playing it.  If only one
 # matches "$*", bypass fzf.  Based on <https://github.com/junegunn/fzf/wiki/Examples#mpd>
-# but this version shows the next song to be played first.
+# but this version shows the next song to be played first.  TODO: accept as soon as there
+# is only one match?
 
 set -o nounset -o pipefail
 
