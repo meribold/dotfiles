@@ -116,7 +116,7 @@ bind-key o open-all-unread-in-browser-and-mark-read feedlist
 bind-key O open-all-unread-in-browser feedlist
 
 bind-key l open
-bind-key L toggle-show-read-feeds
+bind-key s toggle-show-read-feeds
 
 # Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
 # hope Newsboat sanitizes `%u`.
