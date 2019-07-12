@@ -76,8 +76,8 @@ bind-key r reload-all
 bind-key R reload
 
 # Prevent accidentally quitting Newsboat: unbind "q" and then restore its function
-# everywhere but in the feedlist.  We can still quit with `:quit`.  Make "u" and "h" work
-# just like "q" and also unbind "Q" (hard-quit).
+# everywhere but in the feedlist.  We can still quit with `:quit`.  Make "h" work just
+# like "q" and also unbind "Q" (hard-quit).
 unbind-key q
 unbind-key Q
 unbind-key h
@@ -89,14 +89,6 @@ bind-key q quit tagselection
 bind-key q quit filterselection
 bind-key q quit urlview
 bind-key q quit dialogs
-bind-key u quit filebrowser
-bind-key u quit help
-bind-key u quit articlelist
-bind-key u quit article
-bind-key u quit tagselection
-bind-key u quit filterselection
-bind-key u quit urlview
-bind-key u quit dialogs
 bind-key h quit filebrowser
 bind-key h quit help
 bind-key h quit articlelist
