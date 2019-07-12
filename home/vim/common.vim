@@ -365,6 +365,8 @@ set writebackup
 " `:h spell`.
 set spelllang=en_us
 
+set winminwidth=0 winminheight=0
+
 " Plugin settings {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw, vim-dirvish, open-browser.vim {{{2
