@@ -4,7 +4,7 @@
 [p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
 [scripts](home/bin/), [keybindings](home/xbindkeysrc), …
 
-<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing Vim, Conky, and vis">
+<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash">
 
 <!--
 I don't think a `# dotfiles` caption is needed: just make some interesting points as fast
