@@ -9,7 +9,7 @@ shopt -s extglob
 case "$1" in
    ''|d?(ns)) dig @resolver1.opendns.com myip.opendns.com +short;;
    h?(ttp)) wget http://ipinfo.io/ip -qO -;;
-   *) echo Bad argument >&2 && return 1;;
+   *) echo Bad argument >&2 && exit 1;;
 esac
 
 # [1]: http://unix.stackexchange.com/q/22615
