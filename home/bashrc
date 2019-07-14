@@ -138,8 +138,6 @@ alias info='info --vi-keys'
 
 alias v='$VISUAL'
 
-alias starwars='telnet towel.blinkenlights.nl'
-
 # `alert` alias for use with long-running commands.  For example, `sleep 10; alert` will
 # send a desktop notification after `sleep 10` is done (if a notification daemon like
 # "Notify OSD" or "dunst" is running).  Adapted from Ubuntu's .bashrc.  See
