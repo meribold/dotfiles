@@ -151,22 +151,6 @@ alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 # http://askubuntu.com/a/604691).
 alias lanip='ip route get 1 | head -1 | cut -d " " -f7'
 
-# Get the system's public IP address (based on [these][1] [threads][2] and [this
-# script][3]).  The first method should be the fastest but [doesn't work in some
-# networks][4].  TODO: automatically fall back to the HTTP method if the one using DNS
-# doesn't work?
-# [1]: http://unix.stackexchange.com/q/22615
-# [2]: http://askubuntu.com/q/95910
-# [3]: https://github.com/rsp/scripts/blob/master/externalip.md#externalip
-# [4]: http://unix.stackexchange.com/q/22615#comment411014_81699
-wanip() {
-   case "$1" in
-      ''|d?(ns)) dig @resolver1.opendns.com myip.opendns.com +short;;
-      h?(ttp)) wget http://ipinfo.io/ip -qO -;;
-      *) echo Bad argument >&2 && return 1;;
-   esac
-}
-
 # Get the default gateway's (router's) IP address (from http://serverfault.com/q/31170).
 gatewayip() {
    ip route | awk '/^def/{print $3}'
