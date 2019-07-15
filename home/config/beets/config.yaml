@@ -1,0 +1,6 @@
+directory: ~/music
+plugins: beatport info edit badfiles
+asciify_paths: yes
+
+import:
+    timid: yes
