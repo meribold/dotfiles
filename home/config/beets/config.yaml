@@ -4,3 +4,18 @@ asciify_paths: yes
 
 import:
     timid: yes
+
+# See <https://beets.readthedocs.io/en/latest/reference/config.html#replace>.
+replace:
+    '[\\/]': '-'
+    '^\.': '-'
+    '[\x00-\x1f]': '-'
+    '[<>:"\?\*\|]': '-'
+    '\.$': '-'
+    '\s+$': ''
+    '^\s+': ''
+    '\s': '_'
+
+# See <https://beets.readthedocs.io/en/latest/reference/config.html#path-format-configuration>.
+paths:
+    default: %lower{$albumartist/$album%aunique{}/$track-$title}
