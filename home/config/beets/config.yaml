@@ -15,6 +15,7 @@ replace:
     '\s+$': ''
     '^\s+': ''
     '\s': '_'
+    "'": '-'
 
 # See <https://beets.readthedocs.io/en/latest/reference/config.html#path-format-configuration>.
 paths:
