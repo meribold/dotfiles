@@ -199,12 +199,10 @@ shopt -s histverify
 shopt -s histappend
 
 HISTTIMEFORMAT='%F %T  '
-HISTSIZE=50000
+# Bash sets HISTFILESIZE to this value as well and "if HISTFILESIZE is [...] a numeric
+# value less than zero, the history file is not truncated" (bash(1)).
+HISTSIZE=-1
 
-# Set the "maximum number of lines contained in the history file" (bash(1)).  Because I'm
-# using $HISTTIMEFORMAT, timestamps are also written to the history file.  There's an
-# extra line for each timestamp, so we set $HISTFILESIZE to twice the value of $HISTSIZE.
-HISTFILESIZE=100000
 # Don't save lines starting with a space character in the history.  Cf.
 # <https://askubuntu.com/q/15926>.
 HISTCONTROL=ignorespace
