@@ -205,8 +205,9 @@ HISTSIZE=50000
 # using $HISTTIMEFORMAT, timestamps are also written to the history file.  There's an
 # extra line for each timestamp, so we set $HISTFILESIZE to twice the value of $HISTSIZE.
 HISTFILESIZE=100000
-# See <https://askubuntu.com/q/15926>.
-HISTCONTROL=ignoreboth:erasedups
+# Don't save lines starting with a space character in the history.  Cf.
+# <https://askubuntu.com/q/15926>.
+HISTCONTROL=ignorespace
 
 # Using this function (`PS1='$(ps1)'`) results in a marginally nicer PS1 than `PS1='\$ '`.
 # The default PS1 is '[\u@\h \W]\$ ' (TODO: is this set by Bash or by Arch?).
