@@ -192,20 +192,20 @@ shopt -s histverify
 
 # Append new history lines from each Bash session to $HISTFILE when the shell exits,
 # rather than overwriting the file with the history list.  When histappend is unset,
-# running several instances of Bash at the same time will result in the ``new'' history
-# lines of all but the last instance that exits to be lost.  Having histappend unset also
-# may pose an additional risk of losing (part of) the history if something goes wrong
-# while overwriting the file.  See bash(1) and <https://unix.stackexchange.com/a/6509>.
+# running several instances of Bash at the same time will result in the new history lines
+# of all but the last instance that exits to be lost.  Having histappend unset also may
+# pose an additional risk of losing (part of) the history if something goes wrong while
+# overwriting the file.  See bash(1) and <https://unix.stackexchange.com/a/6509>.
 shopt -s histappend
 
 HISTTIMEFORMAT='%F %T  '
 HISTSIZE=50000
 
-# "The maximum number of lines contained in the history file" - bash(1).  As
-# $HISTTIMEFORMAT is used, timestamps are written to separate lines for each command and
-# no more than ($HISTFILESIZE / 2) commands are saved.
+# Set the "maximum number of lines contained in the history file" (bash(1)).  Because I'm
+# using $HISTTIMEFORMAT, timestamps are also written to the history file.  There's an
+# extra line for each timestamp, so we set $HISTFILESIZE to twice the value of $HISTSIZE.
 HISTFILESIZE=100000
-# http://askubuntu.com/q/15926
+# See <https://askubuntu.com/q/15926>.
 HISTCONTROL=ignoreboth:erasedups
 
 # Using this function (`PS1='$(ps1)'`) results in a marginally nicer PS1 than `PS1='\$ '`.
