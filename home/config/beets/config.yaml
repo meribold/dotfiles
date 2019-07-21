@@ -21,4 +21,4 @@ embedart:
     # "Avoid embedding album art for files that already have art embedded."  See
     # <https://beets.readthedocs.io/en/latest/plugins/embedart.html>.
     ifempty: yes
-    maxwidth: 400
+    maxwidth: 1000
