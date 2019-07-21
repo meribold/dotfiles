@@ -1,5 +1,5 @@
 directory: ~/music
-plugins: beatport info edit fetchart
+plugins: beatport info edit fetchart embedart
 asciify_paths: yes
 
 import:
@@ -16,3 +16,9 @@ replace:
 # See <https://beets.readthedocs.io/en/latest/reference/config.html#path-format-configuration>.
 paths:
     default: %lower{$albumartist/$album%aunique{}/$track-$title}
+
+embedart:
+    # "Avoid embedding album art for files that already have art embedded."  See
+    # <https://beets.readthedocs.io/en/latest/plugins/embedart.html>.
+    ifempty: yes
+    maxwidth: 400
