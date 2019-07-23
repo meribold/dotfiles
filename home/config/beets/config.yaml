@@ -1,6 +1,8 @@
 directory: ~/music
 plugins: beatport info edit fetchart embedart
 asciify_paths: yes
+# See <https://github.com/beetbox/beets/issues/323>.
+path_sep_replace: '-'
 
 import:
     timid: yes
