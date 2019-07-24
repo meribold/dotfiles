@@ -61,8 +61,11 @@
 "f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
    Print
 
-# Switch to or start NeoMutt.
-"[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e neomutt"
+# Switch to or start NeoMutt.  We need to start NeoMutt in a shell (`bash -c ...`) because
+# it gets my password by invoking `pass`, which eventually results in `pinentry-curses`
+# being used to create the dialog asking for the PIN to unlock my GPG key.  This dialog
+# creation seems to fail when there is no shell.
+"[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e bash -c neomutt"
    Mod4 + m
 
 # Connect to my VPS on which I run Irssi and other stuff.  I have a "zirakzigil" entry in
