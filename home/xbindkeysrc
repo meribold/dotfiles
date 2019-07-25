@@ -75,12 +75,8 @@
 "[[ $(i3-msg '[instance="zirakzigil"] focus') == '[{"success":true}]' ]] || xterm -name zirakzigil -e ssh -t zirakzigil screen -x"
    Mod4 + i
 
-# Switch to or start Neovim.  Focus the right xterm and select the right Screen window if
-# possible.  Start any/all of the xterm, the Screen session, and Neovim if necessary.  We
-# assume that, if the "fullscreen" xterm exists, the Screen session also exists and is
-# attached to that xterm.  TODO: we probably don't need to autostart Neovim along with i3
-# anymore, do we?
-"if [[ $(i3-msg '[instance="^fullscreen$" class="^XTerm$"] focus') != '[{"success":true}]' ]]; then if screen -ls fullscreen; then if [[ $(screen -S fullscreen -Q windows) != *nvim* ]]; then screen -S fullscreen -X screen nvim -S; fi; exec xterm -name fullscreen -e screen -x fullscreen -p nvim; else exec xterm -name fullscreen -e 'stty -ixon && exec screen -S fullscreen nvim -S'; fi; else screen -S fullscreen -X msgwait 0 && { if ! screen -S fullscreen -Q select nvim; then screen -S fullscreen -X screen nvim -S; fi; screen -S fullscreen -X msgwait 5; } fi"
+# Switch to or start Neovim.  FIXME: don't autostart Neovim along with i3 anymore.
+"[[ $(i3-msg '[instance="^nvim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name nvim -e nvim -S"
    Mod4 + v
 
 # Switch to or start ncmpcpp.
