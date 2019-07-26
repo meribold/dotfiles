@@ -94,23 +94,12 @@
 "xterm -name 'floating xterm' -e p"
    Mod4 + g
 
-# List [desktop entry files][1] using `j4-dmenu-desktop` and Rofi and launch the selected
-# program.  Rofi can do this by itself (`rofi -modi drun -show`) but I use
-# `j4-dmenu-desktop` to parse the desktop files for two reasons:
-#
-# * Rofi's matching algorithm goes *out of whack* otherwise, especially when using fuzzy
-#   matching: while I type "firefox", the highest ranked match is "Signal Private
-#   Messenger" until I type the "x".  Using the `-disable-history` flag doesn't fix this.
-#   TODO: what's going on here?
-# * `j4-dmenu-desktop` allows customizing the format used to list desktop entry files---I
-#   don't think Rofi's built-in `drun` mode can do that.
-#
-# Unlike `i3-dmenu-desktop(1)`, both Rofi's `drun` mode and `j4-dmenu-desktop` are fast,
-# though (see <https://github.com/enkore/j4-dmenu-desktop#how-much-faster-is-it>).
-#
-# [1]: https://wiki.archlinux.org/index.php/Desktop_entries
-"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='rofi -matching fuzzy -dmenu -i -p $ -sync -theme-str "* { accent-color: @red; }"'"
+# List [desktop entry files][1] using j4-dmenu-desktop and fzf and launch the selected
+# program.  I used Rofi instead of fzf before, but fzf is faster and has superior fuzzy
+# matching.
+"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu=fzfmenu"
    Mod4 + semicolon
+# [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
 # every other potential option for doing some quick maths (`bc`, `calc`, `dc`, `lua`, just
