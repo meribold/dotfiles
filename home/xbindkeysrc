@@ -84,8 +84,8 @@
 "[[ $(i3-msg '[instance="^nvim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name nvim -e nvim -S"
    Mod4 + v
 
-# Switch to or start ncmpcpp.
-"pgrep -u $(id -u) -x ncmpcpp && screen -S fullscreen -X select - && screen -S fullscreen -X select ncmpcpp || screen -S fullscreen -X screen ncmpcpp && i3-msg workspace 2"
+# Start or kill ncmpcpp.
+"pkill -u $USER -x ncmpcpp || xterm -name ncmpcpp -e ncmpcpp"
    Mod4 + c
 
 "[[ $(i3-msg '[instance="^newsboat$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name newsboat -geometry 140x24 -e 'stty -ixon && exec screen -S newsboat newsboat'"

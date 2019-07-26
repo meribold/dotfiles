@@ -187,4 +187,8 @@ for_window [instance="^ghci$"] scratchpad show
 for_window [instance="^scratchpad$"] move scratchpad
 for_window [instance="^scratchpad$"] scratchpad show
 
+for_window [instance="^ncmpcpp$"] move scratchpad
+for_window [instance="^ncmpcpp$"] sticky enable
+for_window [instance="^ncmpcpp$"] scratchpad show
+
 exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
