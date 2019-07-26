@@ -178,7 +178,7 @@ for_window [instance="^newsboat$"] move scratchpad
 for_window [instance="^newsboat$"] sticky enable
 for_window [instance="^newsboat$"] scratchpad show
 
-# Use a sticky scratchpad window for IPython (my current calculator of choice).
+# Use a sticky scratchpad window for GHCi (my current calculator of choice).
 for_window [instance="^ghci$"] floating enable
 for_window [instance="^ghci$"] move scratchpad
 for_window [instance="^ghci$"] sticky enable
