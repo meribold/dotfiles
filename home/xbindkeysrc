@@ -61,6 +61,13 @@
 "f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
    Print
 
+# Simply using `qrencode --size=9 --margin 1 "$(xsel)" -o - | feh -` would work, but it
+# makes it hard to specifically match the feh window in i3's configuration file, which I
+# do to make the window float.  Using mktemp with a custom template makes the feh window
+# easily identifiable; see `home/config/i3/config`.  TODO: use `xsel -b`?
+"path=$(mktemp --tmpdir= qrencode.XXX.png) && { qrencode --size=9 --margin=1 "$(xsel)" -o "$path" && feh "$path"; rm "$path"; }"
+   Mod4 + minus
+
 # Show or create my "dropdown terminal" scratchpad.  FIXME: no longer autostart the
 # scratchpad along with i3.
 "if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
