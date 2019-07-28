@@ -64,7 +64,9 @@
 # Simply using `qrencode --size=9 --margin 1 "$(xsel)" -o - | feh -` would work, but it
 # makes it hard to specifically match the feh window in i3's configuration file, which I
 # do to make the window float.  Using mktemp with a custom template makes the feh window
-# easily identifiable; see `home/config/i3/config`.  TODO: use `xsel -b`?
+# easily identifiable; see `home/config/i3/config`.  TODO: use `xsel -b`?  TODO:  This
+# appears to consume the PRIMARY selection.  Why?  It doesn't happen when I manually run
+# the thing in a terminal.
 "path=$(mktemp --tmpdir= qrencode.XXX.png) && { qrencode --size=9 --margin=1 "$(xsel)" -o "$path" && feh "$path"; rm "$path"; }"
    Mod4 + minus
 
