@@ -19,6 +19,7 @@ replace:
 paths:
     default: %lower{$albumartist/$album%aunique{}/$track-$title}
     singleton: non-album/%lower{$artist/$title}
+    comp: compilations/%lower{$album%aunique{}/$track-$title}
 
 embedart:
     # "Avoid embedding album art for files that already have art embedded."  See
