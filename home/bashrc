@@ -242,6 +242,7 @@ ps1() {
       prompt+="$gray[$reset$stuff_in_brackets$gray]$reset "
    fi
 
+   # FIXME: \$ doesn't work here!
    prompt+="$bold\$$reset "
    printf %s "$prompt"
 }
