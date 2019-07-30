@@ -225,7 +225,10 @@ ps1() {
 
    # Show the last command's exit code when it's nonzero.
    if [[ $exit_code != 0 ]]; then
-      prompt+=$'\001\e[31m\002'"$exit_code"$'\001\e[m\002\n'
+      # When we add nothing else to `prompt` and `\n` is the very last thing, the newline
+      # gets swallowed for some reason.  Apparently we can work around this by appending
+      # something inconsequential, for example `\001\002`.
+      prompt+=$'\001\e[31m\002'"$exit_code"$'\001\e[m\002\n\001\002'
    fi
 
    # Show the username and the hostname if they aren't "meribold" and "smial".
@@ -242,8 +245,6 @@ ps1() {
       prompt+="$gray[$reset$stuff_in_brackets$gray]$reset "
    fi
 
-   # FIXME: \$ doesn't work here!
-   prompt+="$bold\$$reset "
    printf %s "$prompt"
 }
 # [1]: https://wiki.archlinux.org/index.php/Bash/Prompt_customization
@@ -251,8 +252,13 @@ ps1() {
 # [3]: https://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
 # [4]: https://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 
-PS1='$(ps1)'
+bold=$'\001\e[1m\002'
+reset=$'\001\e[m\002'
+
+PS1='$(ps1)'"$bold"'\$'"$reset "
 PS2='\[\e[1m\]>\[\e[m\] '
+
+unset bold reset
 
 # Rules for setting the terminal title {{{1
 case "$TERM" in
