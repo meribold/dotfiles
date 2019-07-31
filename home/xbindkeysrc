@@ -75,11 +75,11 @@
 "if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + grave
 
-# Switch to or start NeoMutt.  We need to start NeoMutt in a shell (`bash -c ...`) because
-# it gets my password by invoking `pass`, which eventually results in `pinentry-curses`
-# being used to create the dialog asking for the PIN to unlock my GPG key.  This dialog
-# creation seems to fail when there is no shell.
-"[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e bash -c neomutt"
+# Switch to or start NeoMutt.  The `GPG_TTY=$(tty)` variable assignment makes sure that
+# the creation of the `pinentry-curses` dialog doesn't fail.  This dialog is indirectly
+# created by `pass` when my NeoMutt configuration invokes it to get passwords.  For more
+# details, search for `GPG_TTY` in `home/bashrc`.
+"[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e 'GPG_TTY=$(tty) neomutt'"
    Mod4 + m
 
 # Connect to my VPS on which I run Irssi and other stuff.  I have a "zirakzigil" entry in
