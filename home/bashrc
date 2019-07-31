@@ -40,8 +40,7 @@ if [[ -f /usr/lib/z.sh ]]; then
    unalias z # I use j for z.
 fi
 
-# http://mywiki.wooledge.org/glob
-# http://stackoverflow.com/q/17191622
+# See <https://mywiki.wooledge.org/glob> and <https://stackoverflow.com/q/17191622>.
 shopt -s extglob
 
 # Perform history expansion on the current line and insert a space, with space.  See
