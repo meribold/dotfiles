@@ -3,8 +3,8 @@
 # This file is sourced by login shells and interactive non-login shells.  On at least
 # Debian and Arch Linux, Bash is compiled with the `-DSYS_BASHRC="/etc/bash.bashrc"`
 # option, which makes it source /etc/bash.bashrc first for interactive non-login shells.
-# See https://wiki.archlinux.org/index.php/Bash#Configuration_files and
-# http://unix.stackexchange.com/q/187369.
+# See <https://wiki.archlinux.org/index.php/Bash#Configuration_files> and
+# <https://unix.stackexchange.com/q/187369>.
 
 # FIXME: ShellCheck warnings.
 
