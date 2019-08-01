@@ -230,11 +230,7 @@ ps1() {
    # Show the username and the hostname if the current user isn't my normal user or the
    # hostname isn't "smial".
    if [[ $EUID != 1000 || $HOSTNAME != smial ]]; then
-      # I got this strange "@P" expansion from <https://stackoverflow.com/a/54265211>.
-      # Also see "Parameter transformation" in bash(1).  Compared to `whoami, `logname`,
-      # or `id`, this seems preferable because we don't start a new process.
-      backslash_u='\u'
-      stuff_in_brackets+=${backslash_u@P}$gray@$reset$HOSTNAME
+      stuff_in_brackets+='\u'$gray@$reset'\h'
    fi
 
    # Show the working directory if it isn't $HOME.
@@ -246,7 +242,10 @@ ps1() {
       prompt+="$gray[$reset$stuff_in_brackets$gray]$reset "
    fi
 
-   printf %s "$prompt"
+   # This "@P" thing is called "parameter transformation".  See bash(1) and
+   # <https://stackoverflow.com/a/54265211>.  Without it, we would probably have to start
+   # a new (`whoami`, `logname`, or `id`) process.
+   printf %s "${prompt@P}"
 }
 # [1]: https://wiki.archlinux.org/index.php/Bash/Prompt_customization
 # [2]: https://en.wikipedia.org/wiki/ANSI_escape_code
