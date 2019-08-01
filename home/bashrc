@@ -227,9 +227,14 @@ ps1() {
       prompt+=$'\001\e[31m\002'"$exit_code"$'\001\e[m\002\n\001\002'
    fi
 
-   # Show the username and the hostname if they aren't "meribold" and "smial".
-   if [[ $USER != meribold || $HOSTNAME != smial ]]; then
-      stuff_in_brackets+=$USER$gray@$reset$HOSTNAME
+   # Show the username and the hostname if the current user isn't my normal user or the
+   # hostname isn't "smial".
+   if [[ $EUID != 1000 || $HOSTNAME != smial ]]; then
+      # I got this strange "@P" expansion from <https://stackoverflow.com/a/54265211>.
+      # Also see "Parameter transformation" in bash(1).  Compared to `whoami, `logname`,
+      # or `id`, this seems preferable because we don't start a new process.
+      backslash_u='\u'
+      stuff_in_brackets+=${backslash_u@P}$gray@$reset$HOSTNAME
    fi
 
    # Show the working directory if it isn't $HOME.
