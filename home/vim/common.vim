@@ -131,6 +131,9 @@ Plug 'tpope/vim-obsession'
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-speeddating'
 
+" Language support {{{2
+Plug 'tikhomirov/vim-glsl'
+
 " Ungrouped (TODO) {{{2
 Plug 'airblade/vim-rooter'
 
