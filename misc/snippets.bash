@@ -124,7 +124,6 @@ rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
 rsync -rh --info=progress2 SRC DEST
-rsync -rh --info=progress2 zirakzigil:/home/meribold/snapscore-data/received_images/ ~/snapscore-images
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp zirakzigil:src dest
 sensors
