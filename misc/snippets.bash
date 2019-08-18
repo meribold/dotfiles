@@ -1,6 +1,7 @@
 # git clean -dfx && git checkout -- .
 # git submodule foreach git clean -dfx # remove all untracked files of all submodules
 # nx forget --force
+# nx sync --cleanup
 $BROWSER --new-tab $(gatewayip) # try to open a router's web interface
 >/dev/null trans -speak en: spinach
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
@@ -16,7 +17,7 @@ cower -u
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
-f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add rsync.net esgaroth:"$1"; }; f
+f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add esgaroth esgaroth:"$1"; }; f
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
@@ -27,10 +28,13 @@ fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 fusermount3 -u ~/zirakzigil
 g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
-getent hosts zirakzigil snapscore.meribold.xyz meribold.xyz
+getent hosts zirakzigil tharbad snapscore.meribold.xyz meribold.xyz
 git check-attr --all
+git commit -m 'Fix typo'
 git commit -m 'Update commits recorded by submodules'
 git fetch . WIP:master
+git gc # "[u]sers are encouraged to run this [...] on a regular basis"
+git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
 git submodule foreach git pull
@@ -97,15 +101,16 @@ mpv av://v4l2:/dev/video0
 mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
 neomutt -s 'Hi.' 'meribold@gmail.com' <<< ''
 nohup xdg-open file &>/dev/null <&1 &
-nvim -q <(grep -n .e.e. /tmp/tmp.*) # TODO: Bash function?
-nx copy --fast --to rsync.net
+nx copy --fast --to esgaroth
 nx info
+nx info .
 nx init 'Toshiba USB HDD'
-nx initremote rsync.net type=rsync rsyncurl=esgaroth:DIR encryption=none
-nx sync --cleanup
+nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
+nx move --unused --to esgaroth
 nx sync --no-resolvemerge --no-commit
 paccache -rk1 # remove all but the most recent cached versions of ALL packages
 paccache -ruk0 # remove ALL cached versions of uninstalled packages
+pacman -Fs FILENAME
 pacman -Qe | grep -v "$(pacman -Qqeg base-devel base)" # print explicitly installed packages not in base or base-devel
 pacman -Qeq --foreign > ~/dotfiles/misc/foreign-packages.txt
 pacman -Qeq --native > ~/dotfiles/misc/native-packages.txt
@@ -118,14 +123,15 @@ reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirror
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
-rsync -rh --info=progress2 zirakzigil:/home/meribold/snapscore-server/received_images/ ~/snapscore-images
 rsync -rh --info=progress2 SRC DEST
+rsync -rh --info=progress2 zirakzigil:/home/meribold/snapscore-data/received_images/ ~/snapscore-images
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp zirakzigil:src dest
 sensors
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
+ssh -t tharbad screen -x
 ssh -t zirakzigil screen -x
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
@@ -155,6 +161,7 @@ vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
 wgetpaste
 while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read -n 1; done
+xbindkeys -k
 xdg-open file &>/dev/null <&1 & disown
 xev # interactively enter keys and get keysyms
 xprop
