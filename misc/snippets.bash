@@ -33,7 +33,6 @@ git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Update commits recorded by submodules'
 git fetch . WIP:master
-git gc # "[u]sers are encouraged to run this [...] on a regular basis"
 git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
