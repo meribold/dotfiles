@@ -82,11 +82,11 @@
 "[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e 'GPG_TTY=$(tty) neomutt'"
    Mod4 + m
 
-# Connect to my VPS on which I run Irssi and other stuff.  I have a "zirakzigil" entry in
-# my hosts(5).  If an xterm with X11 window instance "zirakzigil" already exists, just
-# focus that.  See <https://i3wm.org/docs/userguide.html#_focusing_moving_containers> and
+# Connect to my VPS on which I run Irssi and other stuff.  I have a "athrad" entry in my
+# hosts(5).  If an xterm with X11 window instance "athrad" already exists, just focus
+# that.  See <https://i3wm.org/docs/userguide.html#_focusing_moving_containers> and
 # <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>.
-"[[ $(i3-msg '[instance="zirakzigil"] focus') == '[{"success":true}]' ]] || xterm -name zirakzigil -e ssh -t zirakzigil screen -x"
+"[[ $(i3-msg '[instance="athrad"] focus') == '[{"success":true}]' ]] || xterm -name athrad -e ssh -t athrad screen -x"
    Mod4 + i
 
 # Switch to or start Neovim.  FIXME: don't autostart Neovim along with i3 anymore.
