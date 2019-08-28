@@ -28,7 +28,7 @@ fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 fusermount3 -u ~/zirakzigil
 g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
-getent hosts zirakzigil tharbad snapscore.meribold.xyz meribold.xyz
+getent hosts zirakzigil tharbad athrad snapscore.meribold.xyz meribold.xyz
 git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Update commits recorded by submodules'
@@ -118,17 +118,19 @@ pacman -Qtdq # list (real) orphan packages
 pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
+rclone mount dropbox: ~/dropbox
 reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
-scp zirakzigil:src dest
+scp -i athrad:SRC DEST
 sensors
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
+ssh -t athrad screen -x
 ssh -t tharbad screen -x
 ssh -t zirakzigil screen -x
 ssh esgaroth quota
