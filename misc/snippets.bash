@@ -130,9 +130,9 @@ sensors
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
-ssh -t athrad screen -x
+ssh -t athrad screen -Ux
 ssh -t tharbad screen -x
-ssh -t zirakzigil screen -x
+ssh -t zirakzigil screen -Ux
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
 sshfs zirakzigil:/home/meribold/ ~/zirakzigil

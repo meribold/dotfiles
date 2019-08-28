@@ -86,7 +86,7 @@
 # hosts(5).  If an xterm with X11 window instance "athrad" already exists, just focus
 # that.  See <https://i3wm.org/docs/userguide.html#_focusing_moving_containers> and
 # <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>.
-"[[ $(i3-msg '[instance="athrad"] focus') == '[{"success":true}]' ]] || xterm -name athrad -e ssh -t athrad screen -x"
+"[[ $(i3-msg '[instance="athrad"] focus') == '[{"success":true}]' ]] || xterm -name athrad -e ssh -t athrad screen -Ux"
    Mod4 + i
 
 # Switch to or start Neovim.  FIXME: don't autostart Neovim along with i3 anymore.
