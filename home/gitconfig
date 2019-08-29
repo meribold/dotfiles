@@ -5,13 +5,6 @@
 	editor = nvim
 	excludesfile = ~/.gitignore
 	autocrlf = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
-[merge]
-	; I used `vimdiff` and `nvim -d` before, but Vim is rubbish at 3-way diffs.  Meld
-	; doesn't seem too bad.  TODO: Could we make Vim work acceptably well somehow?
-	; Maybe see <https://vim.fandom.com/wiki/A_better_Vimdiff_Git_mergetool> and
-	; <https://youtu.be/Pxgl3Wtf78Y>.
-	tool = meld
 [push]
 	default = simple
 [alias]
@@ -33,32 +26,6 @@
 	; succeeds (`pass` takes a second to run on my laptop).  See
 	; git-credential-cache(1).
 	helper = cache --timeout=10800
-[credential "https://github.com"]
-	username = meribold
-	; Ad hoc shell snippet credential helper for GitHub using [pass][1].  If $1
-	; (the operation to perform) is "get", obtain the GitHub password from `pass`
-	; (possibly causing gpg-agent to request the passphrase for unlocking the private
-	; key) and print a key-value pair with the password.  Otherwise, if the operation
-	; is "store" or "erase", do nothing successfully: "[i]f [the helper] does not
-	; support the requested operation (e.g., a read-only store), it should silently
-	; ignore the request" [2].  Add `echo $1 >&2` to see what operations are
-	; requested.
-	;
-	; See gitcredentials(7), git-credential(1), [2], and git-config(1).
-	;
-	; [1]: https://www.passwordstore.org
-	; [2]: https://kernel.org/pub/software/scm/git/docs/technical/api-credentials.html
-	helper = !"f() { \
-	             [[ $1 != get ]] && return 0; \
-	             printf 'password='; pass show github | head -1; \
-	           }; f"
-[credential "https://gitlab.com"]
-	username = meribold
-	; See above.
-	helper = !"f() { \
-	             [[ $1 != get ]] && return 0; \
-	             printf 'password='; pass show gitlab | head -1; \
-	           }; f"
 [annex]
 	autocommit = false
 	resolvemerge = false

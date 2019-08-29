@@ -11,6 +11,19 @@
 # If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
 
+##### Copied from /home/ubuntu/.bashrc ###################################################
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+##########################################################################################
+
 # The GNU Privacy Guard Manual and gpg-agent(1) suggest setting and exporting GPG_TTY like
 # this [1][2].  It tells gpg-agent the file name of the terminal connected to stdin, which
 # is used by `pinentry-curses` (though [2] also recommends having GPG_TTY set for the
@@ -26,11 +39,11 @@ unset PROMPT_COMMAND
 if hash fzf 2>/dev/null; then
    # Try to set up fzf's Bash key bindings using a file Arch's fzf package installs.
    [[ -f /usr/share/fzf/key-bindings.bash ]] && source /usr/share/fzf/key-bindings.bash
-   # Maybe fzf was installed directly from the Git repository.  If this involved running
-   # the bundled install script, there should be a `~/.fzf.bash` file.  Source that file
-   # if it exists.
-   [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
 fi
+# Maybe fzf was installed directly from the Git repository.  If this involved running
+# the bundled install script, there should be a `~/.fzf.bash` file.  Source that file
+# if it exists.
+[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
 
 # Source z.sh (https://github.com/rupa/z); z(1) jumps to frecent directories and it's
 # faster than autojump (I haven't tried fasd, which is similar too).  This appends a
