@@ -25,10 +25,9 @@ feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 feh --sort mtime ~/.config/signal/attachments # view photos from Signal
 find / -name '*.desktop' 2>/dev/null | less
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
-fusermount3 -u ~/zirakzigil
 g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
-getent hosts zirakzigil athrad snapscore.meribold.xyz meribold.xyz
+getent hosts athrad snapscore.meribold.xyz meribold.xyz
 git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Update commits recorded by submodules'
@@ -131,10 +130,8 @@ sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
 ssh -t athrad screen -Ux
-ssh -t zirakzigil screen -Ux
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
-sshfs zirakzigil:/home/meribold/ ~/zirakzigil
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
 sudo ip link set wlan0 up
