@@ -25,8 +25,8 @@
     *    TODO: attain some clarity about the different ways fonts are specified in various
     *    programs' configuration files and add some enlightening comment about the format
     *    Rofi expects here. */
-   font: "Dina 5.81";
-   /* font: "Ubuntu Mono 7"; */
+   /* font: "Dina 5.81"; */
+   font: "Ubuntu Mono 7";
    /* font: "Source Code Pro Medium 6"; */
    /* font: "Source Code Pro 6"; */
    /* font: "Mono 7"; */
