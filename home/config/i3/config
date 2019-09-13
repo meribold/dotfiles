@@ -194,5 +194,3 @@ for_window [instance="^ncmpcpp$"] scratchpad show
 # This enhances a keybind defined in `home/xbindkeysrc`.  TODO: set the keybind up here
 # and don't use XBindKeys for this one?
 for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/qrencode\....\.png$"] floating enable
-
-exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
