@@ -53,8 +53,6 @@ bindsym $mod+s split v
 # here.
 # bindsym $mod+v split h
 
-bindsym $mod+f [class="^Firefox Developer Edition$"] focus
-
 # Change container layout (stacked, tabbed, toggle split).
 bindsym $mod+Shift+s layout stacking
 bindsym $mod+Shift+w layout tabbed
