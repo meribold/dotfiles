@@ -2,7 +2,9 @@
 # git submodule foreach git clean -dfx # remove all untracked files of all submodules
 # nx forget --force
 # nx sync --cleanup
-$BROWSER --new-tab $(gatewayip) # try to open a router's web interface
+$FIREFOX --ProfileManager
+$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
+$FIREFOX --safe-mode
 >/dev/null trans -speak en: spinach
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
@@ -35,6 +37,7 @@ git fetch . WIP:master
 git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
+git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
 git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
@@ -105,7 +108,9 @@ nx info .
 nx init 'Toshiba USB HDD'
 nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
 nx move --unused --to esgaroth
+nx status
 nx sync --no-resolvemerge --no-commit
+nx version
 paccache -rk1 # remove all but the most recent cached versions of ALL packages
 paccache -ruk0 # remove ALL cached versions of uninstalled packages
 pacman -Fs FILENAME
@@ -164,6 +169,7 @@ xprop
 xrandr --output HDMI-0 --auto --right-of LVDS # FIXME: untested
 xrandr --output VGA-0 --auto --output HDMI-0 --auto # enable connected and disable disconnected external monitors
 xrandr --output VGA-0 --off --output HDMI-0 --off # disable external monitors
+xsel --clipboard | vipe | xsel --clipboard
 xsel --clipboard | wgetpaste --tee -C
 xwininfo
 youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
