@@ -27,7 +27,7 @@ find / -name '*.desktop' 2>/dev/null | less
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
-getent hosts athrad snapscore.meribold.xyz meribold.xyz
+getent hosts athrad snapscore.meribold.xyz meribold.xyz meribold.org
 git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Update commits recorded by submodules'
