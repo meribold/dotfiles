@@ -160,7 +160,7 @@ smart_gaps on
 # Always start Firefox on workspace 1 so I can switch to another workspace while waiting
 # for it to start.  See <http://i3wm.org/docs/userguide.html#assign_workspace>.
 assign [class="^Firefox$"] 1
-assign [class="^Firefox Developer Edition$"] 1
+assign [class="^firefoxdeveloperedition$"] 1
 
 for_window [instance="^vimsel$"] floating enable
 for_window [instance="^floating xterm$"] floating enable

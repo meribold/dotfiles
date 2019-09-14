@@ -75,7 +75,7 @@
 "if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + grave
 
-"[[ $(i3-msg '[class="^Firefox Developer Edition$"] focus') == '[{"success":true}]' ]] || firefox-developer-edition"
+"[[ $(i3-msg '[class="^firefoxdeveloperedition$"] focus') == '[{"success":true}]' ]] || firefox-developer-edition"
    Mod4 + f
 
 # Switch to or start NeoMutt.  The `GPG_TTY=$(tty)` variable assignment makes sure that
