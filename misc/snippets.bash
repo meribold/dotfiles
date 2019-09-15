@@ -53,6 +53,9 @@ journalctl --no-tail -b -o cat -fu dhcpcd@eth0
 journalctl --no-tail -b -o cat -fu dhcpcd@wlan0
 journalctl --no-tail -b -o cat -fu wpa_supplicant@wlan0
 journalctl --user -n 100 -fu signal-cli.bash.service
+journalctl -u "sshd@*"
+journalctl /usr/bin/sshd
+journalctl _COMM=sshd
 killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 killall xbindkeys; (cd ~ && xbindkeys)
