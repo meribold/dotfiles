@@ -15,7 +15,7 @@ endfunction
 " [1]: https://github.com/moll/vim-bbye
 " [2]: https://github.com/neovim/neovim/issues/4291
 " [3]: https://vi.stackexchange.com/q/10292
-" [4]: https://reddit.com/comments/46g5wy
+" [4]: https://redd.it/46g5wy
 " [5]: https://github.com/neovim/neovim/issues/5176
 
 function! s:SendMail()
