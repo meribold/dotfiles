@@ -1,4 +1,5 @@
 setl spell
+setl omnifunc=mailcomplete#Complete
 
 function! s:OnExit(job_id, code, event) dict
    if a:code == 0
