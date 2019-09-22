@@ -33,9 +33,9 @@ function! s:SendMail()
    " directly instead of starting Vim inside of Vim.  Also don't use the curses pinentry
    " program.  There seem to be some issues when using it from NeoMutt inside Vim inside
    " screen(1).
-   call termopen('VISUAL=true PINENTRY_USER_DATA=gtk ' .
-               \ "neomutt -e 'set postpone=no sidebar_visible=no' -H " . l:message_file,
-               \ {'on_exit': function('s:OnExit')})
+   call termopen('VISUAL=true PINENTRY_USER_DATA=gtk neomutt ' .
+               \ "-e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' " .
+               \ "-H " . l:message_file, {'on_exit': function('s:OnExit')})
    let s:bufnr = bufnr('%')
    startinsert
 endfunction
