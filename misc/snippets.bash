@@ -14,6 +14,7 @@ cat /sys/class/power_supply/BAT0/energy_{now,full}
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/module/usbcore/parameters/autosuspend
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
+chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
 cower -u
 curl ipinfo.io
