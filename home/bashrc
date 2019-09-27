@@ -178,6 +178,8 @@ alias tag='tig --all'
 
 alias nx='git-annex'
 
+alias pg='pass git'
+
 alias feh='feh -.'
 alias msa='mpc search any'
 
