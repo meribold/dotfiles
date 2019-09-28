@@ -341,6 +341,13 @@ set preserveindent " When changing the indent of the current line, do not replac
                    " add additional tabs or spaces as required.
 set autoindent     " The last two settings only seem to work with this enabled.
 
+" Tweak what automatic indenting does when 'cindent' is enabled.  See `indent.txt` and
+" 'cindent' and 'cinoptions'.  Maybe <https://vim.fandom.com/wiki/Indenting_source_code>
+" as well.  Note that 'cindent' is automatically enabled for C and C++ files (e.g. from
+" `/usr/share/nvim/runtime/indent/c.vim` or `cpp.vim`, try `:verb set cindent?`).  TODO:
+" Python (see <https://orchistro.tistory.com/236>).
+set cinoptions=g.501s,h.499s,N-s,(0,Ws
+
 set linebreak             " Wrap lines at characters in 'breakat', not at the last
 if exists('&breakindent') " character that fits on the screen.
    set breakindent        " Continue lines at their indentation level when wrapping.
