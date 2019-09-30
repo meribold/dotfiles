@@ -70,8 +70,7 @@
 "path=$(mktemp --tmpdir= qrencode.XXX.png) && { qrencode --size=9 --margin=1 "$(xsel)" -o "$path" && feh "$path"; rm "$path"; }"
    Mod4 + minus
 
-# Show or create my "dropdown terminal" scratchpad.  FIXME: no longer autostart the
-# scratchpad along with i3.
+# Show or create my "dropdown terminal" scratchpad.
 "if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + grave
 
