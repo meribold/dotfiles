@@ -171,6 +171,7 @@ alias gg='git graph'
 alias gl='git log'
 alias gp='git push'
 alias gds='git diff --staged'
+alias gcm='git commit -m'
 alias game='git commit --amend'
 alias gish='git show'
 
