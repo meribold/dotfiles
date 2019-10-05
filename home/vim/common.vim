@@ -811,7 +811,7 @@ nnoremap <C-K> <C-W>W
 
 " Control+Q just does the same as Control+V by default; use it to close windows.  TODO:
 " map it to something useful in insert mode as well.
-nnoremap <C-Q> <C-W>c
+nnoremap <C-Q> ZZ
 
 " Traverse the change list more quickly.  <C-P> and <C-N> are just duplicates of k and j
 " by default.  I added zv to also open just enough folds after moving the cursor to make
