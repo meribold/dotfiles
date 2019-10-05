@@ -73,6 +73,8 @@ set strict_threads
 # prompt for a subject line before allowing composition of a mail's body.
 set autoedit
 set edit_headers
+# Also don't ask whether we want to recall a postponed message when hitting `m`.  We can
+# use `R` (`recall-message`) to do that.
 set recall=no
 
 set fast_reply
