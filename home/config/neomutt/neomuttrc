@@ -67,7 +67,10 @@ set sort=threads
 set sort_aux=reverse-last-date-received
 set strict_threads
 
-# TODO: explain.
+# Setting `autoedit` along with `edit_headers` makes Mutt immediately open Vim when
+# composing a new message.  Common wisdom is to "write the introduction last".  Assuming
+# this advice can be at all extended to writing email, it surely doesn't make sense to
+# prompt for a subject line before allowing composition of a mail's body.
 set autoedit
 set edit_headers
 set recall=no
