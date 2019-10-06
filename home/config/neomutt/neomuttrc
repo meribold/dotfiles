@@ -348,7 +348,6 @@ bind index <BackTab> collapse-all
 bind index <Space> next-new-then-unread
 macro index,pager go "<pipe-message>goobook add<return>" \
    "add the sender address to Google Contacts"
-macro index,pager i "<copy-message>=INBOX<enter><enter>" "Copy the current entry to INBOX"
 
 # Search everything and search on the server by default.
 macro index / <search>=B\ 

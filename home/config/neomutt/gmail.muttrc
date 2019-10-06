@@ -27,6 +27,7 @@ unset record
 
 macro index,pager e "<save-message>=[Gmail]/All%20Mail<enter><enter>" \
    "\"archive\" the current entry (move it to [Gmail]/All Mail)"
+macro index,pager i "<copy-message>=INBOX<enter><enter>" "Copy the current entry to INBOX"
 macro index,pager gi "<change-folder>=INBOX<enter>" "open inbox"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "open [Gmail]/Starred"
 macro index,pager gt "<change-folder>=[Gmail]/Sent%20Mail<enter>" "open [Gmail]/Sent Mail"

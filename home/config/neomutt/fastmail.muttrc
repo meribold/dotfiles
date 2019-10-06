@@ -32,6 +32,7 @@ set copy
 set record='+Sent'
 
 macro index,pager e  "<save-message>=Archive<enter><enter>"
+macro index,pager i "<save-message>=INBOX<enter><enter>"
 macro index,pager gi "<change-folder>=INBOX<enter>"
 macro index,pager gs "<change-folder>=Starred<enter>"
 macro index,pager gt "<change-folder>=Sent<enter>"
