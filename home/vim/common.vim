@@ -813,6 +813,9 @@ nnoremap <C-K> <C-W>W
 nnoremap <C-Q> ZZ
 inoremap <C-Q> <Esc>ZZ
 
+" Correct typos in insert mode.  Copied from <https://castel.dev/post/lecture-notes-1/>.
+inoremap <C-L> <C-G>u<Esc>[s1z=`]a<C-G>u
+
 " Traverse the change list more quickly.  <C-P> and <C-N> are just duplicates of k and j
 " by default.  I added zv to also open just enough folds after moving the cursor to make
 " the current line visible.  Directly using the g; and g, mappings already seems to do
