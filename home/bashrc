@@ -166,6 +166,7 @@ g() {
    fi
 }
 
+alias ci='git commit'
 alias gd='git diff'
 alias gg='git graph'
 alias gl='git log'
