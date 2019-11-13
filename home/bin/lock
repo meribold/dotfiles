@@ -6,7 +6,40 @@
 # [alock][1], which is "based upon xtrlock" (see the man page) and available in the
 # [AUR][2].  (There's also [this fork][3] of xtrlock.)
 
-alock -bg none -i frame:width=1 -c glyph:name=X_cursor
+# Remember what workspace is focused and then switch to a most probably empty workspace.
+workspace_num=$(i3-msg -t get_workspaces | jq '.[] | select(.focused == true) | .num')
+# i3-msg 'workspace 42'
+# Update: or maybe switch to workspace 7?
+i3-msg 'workspace 7'
+
+# pgrep conky
+# conky_running=$?
+
+# # Start Conky if it isn't running already.
+# if (( conky_running != 0 )); then
+#   conky &
+# fi
+
+# Start Conky if it isn't running already.
+if ! pgrep conky; then
+  conky &
+  kill_conky=1
+else
+  kill_conky=0
+fi
+
+# The very first keypress seems to be dropped when I enter my password.  Work around this
+# by simulating a keypress of the return key after alock started.  FIXME: this doesn't
+# quite do the trick: when waiting a while before unlocking one keypress is still
+# swallowed.
+{ sleep 0.2 && xdotool key Return; } &
+
+# TODO: kill Conky if it wasn't running before.  TODO: return to the previously active
+# workspace.
+alock -bg none -i none -c glyph:name=X_cursor
+(( kill_conky )) && kill %1
+# (( conky_running !=0 )) && kill %1
+i3-msg "workspace $workspace_num"
 
 # [1]: https://github.com/Arkq/alock
 # [2]: https://aur.archlinux.org/packages/alock-git
