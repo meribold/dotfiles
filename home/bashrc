@@ -166,15 +166,22 @@ g() {
    fi
 }
 
+alias c='git commit'
 alias ci='git commit'
+alias ff='git merge --ff-only'
+alias ga='git add'
 alias gd='git diff'
 alias gg='git graph'
 alias gl='git log'
 alias gp='git push'
+alias gap='git add -p'
+alias gau='git add -u'
 alias gds='git diff --staged'
 alias gcm='git commit -m'
+alias gin='git init'
 alias game='git commit --amend'
 alias gish='git show'
+alias gist='git status'
 
 alias tag='tig --all'
 
