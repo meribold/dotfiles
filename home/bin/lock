@@ -6,7 +6,7 @@
 # [alock][1], which is "based upon xtrlock" (see the man page) and available in the
 # [AUR][2].  (There's also [this fork][3] of xtrlock.)
 
-alock -bg none -i none -c glyph:name=X_cursor
+alock -bg none -i frame:width=1 -c glyph:name=X_cursor
 
 # [1]: https://github.com/Arkq/alock
 # [2]: https://aur.archlinux.org/packages/alock-git
