@@ -95,7 +95,7 @@
 "[[ $(i3-msg '[instance="bamfurlong"] focus') == '[{"success":true}]' ]] || xterm -name bamfurlong -e ssh -t bamfurlong screen -S default -DR"
    Mod4 + Return
 
-# Switch to or start Neovim.  FIXME: don't autostart Neovim along with i3 anymore.
+# Switch to or start Neovim.
 "[[ $(i3-msg '[instance="^nvim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name nvim -e nvim -S"
    Mod4 + v
 
