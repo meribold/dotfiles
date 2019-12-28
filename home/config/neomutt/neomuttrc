@@ -31,8 +31,6 @@ set my_gmail_pass="`pass show google/lb.waym 2>/dev/null`"
 # <file:///usr/share/doc/neomutt/manual.html#account-hook>.
 source ~/.config/neomutt/gmail.muttrc
 folder-hook $folder 'source ~/.config/neomutt/gmail.muttrc'
-# Add a hacky separator between the Gmail and FastMail mailboxes.
-mailboxes ' '
 source ~/.config/neomutt/fastmail.muttrc
 folder-hook $folder 'source ~/.config/neomutt/fastmail.muttrc'
 
