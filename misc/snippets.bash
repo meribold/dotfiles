@@ -9,10 +9,12 @@ $FIREFOX --safe-mode
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
 bundle exec jekyll serve --drafts
+bundle install --path vendor/bundle
 cat /proc/sys/kernel/sysrq
 cat /sys/class/power_supply/BAT0/energy_{now,full}
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/module/usbcore/parameters/autosuspend
+cd $(mktemp -d)
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
 chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
@@ -26,30 +28,35 @@ f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || mai
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 feh --sort mtime ~/.config/signal/attachments # view photos from Signal
+feh --sort mtime ~/screenshots
 find / -name '*.desktop' 2>/dev/null | less
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
-getent hosts athrad snapscore.meribold.xyz meribold.xyz meribold.org
+getent hosts athrad snapscore.meribold.xyz snapscore.meribold.org meribold.xyz meribold.org
 git check-attr --all
 git commit -m 'Fix typo'
+git commit -m 'Initial commit'
 git commit -m 'Update commits recorded by submodules'
 git fetch . WIP:master
 git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
+git remote | xargs -L1 git push
 git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
 git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
 git-crypt status
+gpg --armor --export D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg --encrypt --armor --recipient D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
-ip address show dev wlan0
+ip address show wlan0
 ip route show dev wlan0
-iw dev wlan0 link
+iw wlan0 info
+iw wlan0 link
 journalctl --no-tail -b -o cat -fu dhcpcd@eth0
 journalctl --no-tail -b -o cat -fu dhcpcd@wlan0
 journalctl --no-tail -b -o cat -fu wpa_supplicant@wlan0
@@ -109,6 +116,7 @@ nohup xdg-open file &>/dev/null <&1 &
 nx copy --fast --to esgaroth
 nx info
 nx info .
+nx init 'ThinkPad X220'
 nx init 'Toshiba USB HDD'
 nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
 nx move --unused --to esgaroth
@@ -123,6 +131,7 @@ pacman -Qeq --foreign > ~/dotfiles/misc/foreign-packages.txt
 pacman -Qeq --native > ~/dotfiles/misc/native-packages.txt
 pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
 pacman -Qtdq # list (real) orphan packages
+pass git remote | xargs -L1 pass git push
 pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
@@ -131,6 +140,7 @@ reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirror
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
+rsync -ni -hazHAXx ~/muddle esgaroth: | less
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
