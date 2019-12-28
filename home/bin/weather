@@ -2,4 +2,4 @@
 
 # Get a weather forecast from <wttr.in>; based on comments at <https://redd.it/4cqbnh>.
 # See <https://superuser.com/q/173209> for information about the options passed to `curl`.
-curl --silent --fail --show-error "wttr.in/${1:-}" | head -n -2
+curl --silent --fail --show-error "wttr.in/${1:-}" | head -n -2 | less -r
