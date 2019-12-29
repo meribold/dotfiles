@@ -18,7 +18,7 @@ cd $(mktemp -d)
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
 chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
-cower -u
+auracle outdated
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
@@ -187,4 +187,4 @@ xsel --clipboard | vipe | xsel --clipboard
 xsel --clipboard | wgetpaste --tee -C
 xwininfo
 youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
-{ checkupdates & cower -u; } | less -FX # check for updates to native and foreign (AUR) packages
+{ checkupdates & auracle outdated; } | less -FX # check for updates to native and foreign (AUR) packages
