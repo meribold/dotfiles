@@ -40,9 +40,6 @@
 [submodule "AUR/j4-dmenu-desktop"]
 	path = misc/AUR/j4-dmenu-desktop
 	url = https://aur.archlinux.org/j4-dmenu-desktop.git
-[submodule "AUR/cower"]
-	path = misc/AUR/cower
-	url = https://aur.archlinux.org/cower.git
 [submodule "AUR/z-git"]
 	path = misc/AUR/z-git
 	url = https://aur.archlinux.org/z-git.git
