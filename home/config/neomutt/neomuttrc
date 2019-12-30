@@ -344,8 +344,6 @@ bind index <BackTab> collapse-all
 # By default, <Tab> is bound to this function.  See
 # <https://dev.mutt.org/doc/manual.html#tab-index-bindings>.
 bind index <Space> next-new-then-unread
-macro index,pager go "<pipe-message>goobook add<return>" \
-   "add the sender address to Google Contacts"
 
 # Search everything and search on the server by default.
 macro index / <search>=B\ 
