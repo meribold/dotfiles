@@ -133,9 +133,6 @@
 [submodule "misc/git-snap"]
 	path = misc/git-snap
 	url = https://github.com/meribold/git-snap.git
-[submodule "misc/AUR/buku"]
-	path = misc/AUR/buku
-	url = https://aur.archlinux.org/buku.git
 [submodule "misc/AUR/auracle-git"]
 	path = misc/AUR/auracle-git
 	url = https://aur.archlinux.org/auracle-git.git
