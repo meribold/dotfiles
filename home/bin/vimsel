@@ -10,10 +10,11 @@
 # * Should we use `xclip` or `xsel`?  See [5].
 
 f=$(mktemp) &&
+xsel > "$f" &&
 # Add a mapping for saving and quitting without leaving insert mode (Control+Q) and start
 # insert mode (see [6] and [7]).
-xterm -name vimsel -e nvim +'set ft=mail' +'inoremap <C-Q> <Esc>ZZ' \
-      +'nnoremap <C-Q> <Esc>ZZ' +startinsert "$f" &&
+xterm -name vimsel -e nvim +'set ft=mail' \
+      +'inoremap <C-Space> <Esc>:Snippets<CR>' "$f" &&
 xsel --clipboard < "$f"
 
 # [1]: https://github.com/cknadler/vim-anywhere
