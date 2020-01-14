@@ -31,10 +31,8 @@ for_window [title="muccadoro"] floating enable
 # [3]: https://i3wm.org/docs/userguide.html#exec
 
 # Change focus.
-bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus right
 
 bindsym $mod+t sticky toggle
 
@@ -56,10 +54,10 @@ bindsym $mod+Shift+w layout tabbed
 bindsym $mod+Shift+e layout toggle split
 
 # Toggle between tiling and floating.
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+slash floating toggle
 
 # Change focus between tiling and floating windows.
-bindsym $mod+space focus mode_toggle
+bindsym $mod+slash focus mode_toggle
 
 # Focus the parent container.
 bindsym $mod+a focus parent
@@ -73,6 +71,9 @@ bindsym $mod+Shift+grave move scratchpad
 # Don't comply when programs request to be focused.  Firefox does that when I open an
 # article's associated URL in Newsboat, for example, and it's annoying.
 focus_on_window_activation urgent
+
+bindsym $mod+h workspace prev
+bindsym $mod+l workspace next
 
 # Switch workspace.
 bindsym $mod+1 workspace 1
@@ -165,7 +166,9 @@ for_window [instance="^floating xterm$"] floating enable
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
 
-exec --no-startup-id ~/dotfiles/home/config/i3/startup.sh
+# Enable floating mode and add a border to the Firefox about dialog.
+for_window [class="^Firefox$" window_role="^About$"] floating enable, border pixel 1
+for_window [class="^firefoxdeveloperedition$" window_role="^About$"] floating enable, border pixel 1
 
 # Use a sticky scratchpad window for Newsboat.
 for_window [instance="^newsboat$"] floating enable

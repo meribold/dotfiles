@@ -39,7 +39,7 @@
    XF86AudioNext
 
 "mpc next"
-   Mod4 + slash
+   Mod4 + period
 
 # Like ncmpcpp.
 "mpc seek 0"
@@ -49,7 +49,7 @@
    XF86AudioPlay
 
 "mpc toggle"
-   Mod4 + period
+   Mod4 + space
 
 "mpc prev"
    XF86AudioPrev
@@ -69,6 +69,9 @@
 # the thing in a terminal.
 "path=$(mktemp --tmpdir= qrencode.XXX.png) && { qrencode --size=9 --margin=1 "$(xsel)" -o "$path" && feh "$path"; rm "$path"; }"
    Mod4 + minus
+
+"trans -speak en: <<< "$(xsel)""
+   Mod4 + equal
 
 # Show or create my "dropdown terminal" scratchpad.
 "if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
@@ -94,6 +97,9 @@
 # Connect to my Raspberry Pi on which I run Irssi and other stuff.
 "[[ $(i3-msg '[instance="bamfurlong"] focus') == '[{"success":true}]' ]] || xterm -name bamfurlong -e ssh -t bamfurlong screen -S default -DR"
    Mod4 + Return
+
+"[[ $(i3-msg '[instance="minecraft"] focus') == '[{"success":true}]' ]] || xterm -name minecraft -e ssh -t bamfurlong screen -S minecraft -DR"
+   Mod4 + Shift + Return
 
 # Switch to or start Neovim.
 "[[ $(i3-msg '[instance="^nvim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name nvim -e nvim -S"
