@@ -22,6 +22,17 @@ call s:hide_tildes()
 " <https://github.com/onivim/oni/issues/962>.
 autocmd vimrc_init TermOpen * setlocal nonumber norelativenumber
 
+" See `:h :term`.
+autocmd vimrc_common TermOpen * startinsert
+
+function! s:new_mail()
+   let l:path = system('mktemp --tmpdir XXXXXXXXXX.eml')
+   execute 'sp' l:path
+   " See the help for `skeleton`.
+   0r ~/.vim/skeleton/skeleton.eml | w | $
+endfunction
+command! Mail call s:new_mail()
+
 " Do something with Alt.  Maybe just having some normal mode commands in insert mode would
 " be cool.
 inoremap <M-h> <Left>
