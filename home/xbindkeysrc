@@ -87,6 +87,9 @@
 "[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e 'GPG_TTY=$(tty) neomutt'"
    Mod4 + m
 
+"xterm -name 'floating xterm' -e nvim +Mail +1bw +startinsert"
+   Mod4 + Shift + m
+
 # Connect to my VPS on which I run Irssi and other stuff.  I have a "athrad" entry in my
 # hosts(5).  If an xterm with X11 window instance "athrad" already exists, just focus
 # that.  See <https://i3wm.org/docs/userguide.html#_focusing_moving_containers> and

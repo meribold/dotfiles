@@ -6,6 +6,10 @@ function! s:OnExit(job_id, code, event) dict
       " NeoMutt successfully sent the mail.  Get rid of the terminal buffer and window.
       " We can't use plain `bd!` because the terminal window may no longer have focus.
       execute 'bd!' s:bufnr
+      " Quit if we succeeded in sending the email and there's only one buffer left.
+      if len(getbufinfo({'buflisted': 1})) == 1
+         quit
+      endif
    else
       " We didn't send the mail.  Go back to the buffer with the message.  FIXME: we
       " probably shouldn't rely on a [plugin][1].
