@@ -153,6 +153,11 @@
 "vimsel"
    Mod4 + e
 
+# FIXME: it seems silly to use $BROWSER from the environment and then hardcode
+# "firefoxdeveloperedition".
+"$BROWSER https://wiki.meribold.org && i3-msg '[class="^firefoxdeveloperedition$"] focus'"
+   Mod4 + r
+
 # TODO: kill this xterm when it loses focus?
 "xterm -name 'floating xterm'"
    Mod4 + o
