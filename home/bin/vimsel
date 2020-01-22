@@ -8,6 +8,7 @@
 #   clipboard, but we can probably just use an autocommand instead [4].
 # * Don't yank the final newline.
 # * Should we use `xclip` or `xsel`?  See [5].
+# * Maybe we don't need an actual file here.
 
 f=$(mktemp) &&
 xsel > "$f" &&
