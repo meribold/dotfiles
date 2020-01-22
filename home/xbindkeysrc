@@ -87,7 +87,7 @@
 "[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e 'GPG_TTY=$(tty) neomutt'"
    Mod4 + m
 
-"xterm -name 'floating xterm' -e nvim +Mail +1bw +startinsert"
+"xterm -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
    Mod4 + Shift + m
 
 # Connect to my VPS on which I run Irssi and other stuff.  I have a "athrad" entry in my

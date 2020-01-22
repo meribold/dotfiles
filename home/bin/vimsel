@@ -12,8 +12,7 @@
 
 f=$(mktemp) &&
 xsel > "$f" &&
-xterm -name vimsel -e nvim +'set ft=markdown' \
-      +'inoremap <C-Space> <Esc>:Snippets<CR>' "$f" &&
+xterm -name vimsel -e nvim +'set ft=markdown' "$f" &&
 xsel --clipboard < "$f"
 
 # [1]: https://github.com/cknadler/vim-anywhere
