@@ -45,3 +45,9 @@ function! s:SendMail()
 endfunction
 
 nnoremap <buffer> <silent> <C-H> :<C-U>call <SID>SendMail()<CR>
+
+nnoremap <buffer> <silent> <localleader>f gg/From:<CR>:nohlsearch<CR>4lC: 
+nnoremap <buffer> <silent> <localleader>t gg/To:<CR>:nohlsearch<CR>2lC: 
+nnoremap <buffer> <silent> <localleader>c gg/Cc:<CR>:nohlsearch<CR>2lC: 
+nnoremap <buffer> <silent> <localleader>b gg/Bcc:<CR>:nohlsearch<CR>3lC: 
+nnoremap <buffer> <silent> <localleader>s gg/Subject:<CR>:nohlsearch<CR>7lC: 
