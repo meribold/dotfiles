@@ -4,7 +4,7 @@
 # is what works on my ThinkPad X220 and may not be portable to other laptops without
 # changes.
 
-cd /sys/class/power_supply/BAT0
+cd /sys/class/power_supply/BAT0 || exit $?
 
 # XXX: sometimes there are `energy_now` and `energy_full` pseudofiles, and sometimes there
 # are `charge_now` and `charge_full` pseudofiles instead.  See [1].
