@@ -147,7 +147,7 @@
 
 # These notifications are excluded from Dunst's history based on the "ephemeral" category.
 # There is associated configuration in `home/config/dunst/dunstrc` that makes this work.
-"notify-send -u low -t 2000 -c ephemeral - $'<small>Battery status</small>\n'"$(bat)""
+"notify-send -u low -t 0 -c ephemeral - $'<small>Battery status</small>\n'"$(bat)""
    Mod4 + b
 
 "vimsel"
@@ -165,7 +165,7 @@
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
-"notify-send -u low -t 5000 -c ephemeral - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
+"notify-send -u low -t 0 -c ephemeral - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
    Mod4 + z
 
 # Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].  The
