@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Send a desktop notification displaying the remaining amount of energy stored in `BAT0`
+# if (and only if) the battery is currently discharging.  This is what works on my
+# ThinkPad X220 and may not be portable to other laptops without changes.  TODO: increase
+# the urgency as the battery depletes?
+
+set -o nounset -o pipefail
+
+read -r status < /sys/class/power_supply/BAT0/status || exit $?
+
+if [[ $status == 'Discharging' ]]; then
+   notify-send -t 0 - $'<small>Battery status</small>\n'"$(~/dotfiles/home/bin/bat)"
+fi

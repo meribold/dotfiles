@@ -207,6 +207,14 @@ fortunes: $(fortune_links) $(addsuffix .dat,$(fortune_links))
 $(addsuffix .dat,$(fortune_links)): %.dat: %
 	sudo strfile -s '$<'
 
+/var/spool/cron/$(USER): misc/cron/crontab
+	crontab $<
+all: /var/spool/cron/$(USER)
+
+# This is an alias for convenience.
+.PHONY: crontab
+crontab: /var/spool/cron/$(USER)
+
 # Find regular files (`f`) and symlinks (`l`) below `root/` and print their paths with
 # 'root/' removed (`%P`).  These are the paths outside of $HOME where links should be
 # created.
