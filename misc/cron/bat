@@ -10,5 +10,5 @@ set -o nounset -o pipefail
 read -r status < /sys/class/power_supply/BAT0/status || exit $?
 
 if [[ $status == 'Discharging' ]]; then
-   notify-send -t 0 - $'<small>Battery status</small>\n'"$(~/dotfiles/home/bin/bat)"
+   notify-send - $'<small>Battery status</small>\n'"$(~/dotfiles/home/bin/bat)"
 fi
