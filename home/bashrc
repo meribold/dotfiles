@@ -35,8 +35,8 @@ fi
 # Source z.sh (https://github.com/rupa/z); z(1) jumps to frecent directories and it's
 # faster than autojump (I haven't tried fasd, which is similar too).  This appends a
 # command to PROMPT_COMMAND that's terminated with a semicolon.
-if [[ -f /usr/lib/z.sh ]]; then
-   . /usr/lib/z.sh
+if [[ -f /usr/share/z/z.sh ]]; then
+   . /usr/share/z/z.sh
    unalias z # I use j for z.
 fi
 
