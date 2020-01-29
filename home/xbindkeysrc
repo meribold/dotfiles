@@ -136,6 +136,9 @@
 "PINENTRY_USER_DATA=gtk rofi-pass"
    Mod4 + p
 
+"xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --silent --fail "wttr.in/${1:-}" | head -n -2'"
+   Mod4 + y
+
 # Doesn't work with `Mod4 + Escape` for some reason.  TODO: try using Space instead of
 # Escape?
 "rofi -modi window -show"
