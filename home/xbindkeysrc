@@ -150,7 +150,7 @@
 
 # These notifications are excluded from Dunst's history based on the "ephemeral" category.
 # There is associated configuration in `home/config/dunst/dunstrc` that makes this work.
-"notify-send -u low -t 0 -c ephemeral - $'<small>Battery status</small>\n'"$(bat)""
+"notify-send -u low -t 0 -c ephemeral - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei"$'\n\n'"$(bat)""
    Mod4 + b
 
 "vimsel"
