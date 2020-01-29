@@ -153,7 +153,7 @@
 # ugly workaround of course.  TODO: take a look at what sxhkd can do.  Also, these
 # notifications are currently no longer excluded from Dunst's history because Dunstify
 # doesn't seem to have an equivalent to the `--category` option of `notify-send`.
-"dunstify -u low -t 0 -r 84873362 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei"$'\n\n'"$(bat)""
+"dunstify -u low -t 0 -r 84873362 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei"$'\n\n'"$(btry)""
    Mod4 + b
 
 # We only show this "date and battery info" notification while the B key is held down and
