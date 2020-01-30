@@ -10,23 +10,24 @@
 "amixer -q set Master toggle"
    XF86AudioMute
 
-# TODO: Exclude these notifications from Dunst's message history.  I use `-c ephemeral` to
-# do that with `notify-send`, but `dunstify` doesn't seem to allow specifying a
-# notification category.  We can probably use `notify-send` instead of `dunstify` in the
-# future, though: see <https://github.com/dunst-project/dunst/pull/552>.
-"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 2db- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+# These notifications are excluded from Dunst's message history based on the "application
+# name" hzVgHJS3.  I used `-c ephemeral` to achieve the same with `notify-send` before,
+# but `dunstify` doesn't seem to allow specifying a notification category.  TODO: Does
+# <https://github.com/dunst-project/dunst/pull/552> mean that we can use `notify-send`
+# instead of `dunstify`?
+"dunstify -u low -t 2000 -a hzVgHJS3 -r 699814432 - "$(amixer set Master playback 2db- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    XF86AudioLowerVolume
 
-"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 2db+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -a hzVgHJS3 -r 699814432 - "$(amixer set Master playback 2db+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    XF86AudioRaiseVolume
 
 # Increase the audio volume by scrolling up while holding the Super key.  With a
 # TrackPoint, this is much faster and more convenient than the media keys.
-"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 1%+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -a hzVgHJS3 -r 699814432 - "$(amixer set Master playback 1%+ | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:4
 
 # Decrease the volume by scrolling down while holding the Super/Windows key.
-"dunstify -u low -t 2000 -r 699814432 - "$(amixer set Master playback 1%- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
+"dunstify -u low -t 2000 -a hzVgHJS3 -r 699814432 - "$(amixer set Master playback 1%- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:5
 
 "mpc seek +5"
@@ -150,10 +151,8 @@
 
 # Show a "date and battery info" desktop notification.  FIXME: This doesn't work correctly
 # until I run `xset -r 56`, which disables autorepeat for the B key globally.  That's an
-# ugly workaround of course.  TODO: take a look at what sxhkd can do.  Also, these
-# notifications are currently no longer excluded from Dunst's history because Dunstify
-# doesn't seem to have an equivalent to the `--category` option of `notify-send`.
-"dunstify -u low -t 0 -r 84873362 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei"$'\n\n'"$(btry)""
+# ugly workaround of course.  TODO: take a look at what sxhkd can do.
+"dunstify -u low -t 0 -a hzVgHJS3 -r 84873362 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei"$'\n\n'"$(btry)""
    Mod4 + b
 
 # We only show this "date and battery info" notification while the B key is held down and
@@ -176,9 +175,10 @@
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
-# These notifications are excluded from Dunst's history based on the "ephemeral" category.
-# There is associated configuration in `home/config/dunst/dunstrc` that makes this work.
-"notify-send -u low -t 0 -c ephemeral - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
+# These notifications are excluded from Dunst's message history based on the "application
+# name" hzVgHJS3.  There is associated configuration in `home/config/dunst/dunstrc` that
+# makes this work.
+"notify-send -u low -t 0 -a hzVgHJS3 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
    Mod4 + z
 
 # Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].  The
