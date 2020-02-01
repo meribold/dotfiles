@@ -160,6 +160,9 @@ assign [class="^firefoxdeveloperedition$"] 1
 for_window [instance="^vimsel$"] floating enable
 for_window [instance="^floating xterm$"] floating enable
 
+for_window [instance="^funny xterm$"] floating enable
+for_window [instance="^funny xterm$"] move position mouse
+
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
 

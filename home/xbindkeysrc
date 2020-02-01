@@ -172,6 +172,9 @@
 "xterm -name 'floating xterm'"
    Mod4 + o
 
+"xterm -name 'funny xterm'"
+   Mod4 + x
+
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
