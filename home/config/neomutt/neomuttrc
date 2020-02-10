@@ -20,7 +20,7 @@ set realname='Lukas Waymann'
 # "gmail.muttrc" and "fastmail.muttrc" would result in many more `gpg` invocations.
 # Prepending `notify-send foo` is a good trick to debug that stuff.
 set my_fastmail_user="`gpg -dq ~/.config/neomutt/fastmail-user.gpg`"
-# See <https://www.fastmail.com/help/clients/apppassword.html>
+# See <https://www.fastmail.com/help/clients/apppassword.html>.
 set my_fastmail_pass="`gpg -dq ~/.config/neomutt/fastmail-password.gpg`"
 # Call pass(1) to get the account's password.  "Since initialization files are line
 # oriented, only the first line of output from the Unix command will be substituted."  See
