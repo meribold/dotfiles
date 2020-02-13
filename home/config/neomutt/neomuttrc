@@ -22,6 +22,8 @@ set realname='Lukas Waymann'
 set my_fastmail_user="`gpg -dq ~/.config/neomutt/fastmail-user.gpg`"
 # See <https://www.fastmail.com/help/clients/apppassword.html>.
 set my_fastmail_pass="`gpg -dq ~/.config/neomutt/fastmail-password.gpg`"
+# This is used in fastmail.muttrc to set the default "from" address.
+set my_fastmail_from="`gpg -dq ~/.config/neomutt/fastmail-from.gpg`"
 # Call pass(1) to get the account's password.  "Since initialization files are line
 # oriented, only the first line of output from the Unix command will be substituted."  See
 # <file:///usr/share/doc/neomutt/manual.html#neomuttrc-syntax>.

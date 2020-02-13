@@ -17,9 +17,11 @@ mailboxes ! +[Gmail]/All\ Mail +[Gmail]/Drafts +[Gmail]/Important +[Gmail]/Sent\
           +help-make +info@fsf +meribold +network.list +notion +winter
 
 # Configure native SMTP support.
-set from=lb.waym@gmail.com
 set smtp_url=smtps://lb.waym@smtp.gmail.com
 set smtp_pass="$my_gmail_pass"
+
+# Set the default "from" address (file:///usr/share/doc/neomutt/manual.html#from).
+set from=lb.waym@gmail.com
 
 # Don't save copies of outgoing messages (Gmail already saves them).
 unset copy

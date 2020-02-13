@@ -19,9 +19,11 @@ set trash='+Trash'
 mailboxes ! +Archive +Drafts +Sent +Spam +Trash
 
 # Configure native SMTP support.
-set from="$my_fastmail_user"
 set smtp_url="smtps://$my_fastmail_user@smtp.fastmail.com:465"
 set smtp_pass="$my_fastmail_pass"
+
+# Set the default "from" address (file:///usr/share/doc/neomutt/manual.html#from).
+set from="$my_fastmail_from"
 
 # We set `copy` here even though that's the default because we unset it in the Gmail
 # configuration file (Gmail copies sent messages to "[Gmail]/Sent Mail" on its own).
