@@ -25,6 +25,17 @@ set smtp_pass="$my_fastmail_pass"
 # Set the default "from" address (file:///usr/share/doc/neomutt/manual.html#from).
 set from="$my_fastmail_from"
 
+# When replying to a message that was sent to foo@meribold.org, ignore the "from"
+# configuration variable and reply from foo@meribold.org.  See
+# <file:///usr/share/doc/neomutt/manual.html#reverse-name> and
+# <file:///usr/share/doc/neomutt/manual.html#reverse-realname> and
+# <file:///usr/share/doc/neomutt/manual.html#alternates>.
+set reverse_name
+# file:///usr/share/doc/neomutt/manual.html#reverse-name
+unset reverse_realname
+# file:///usr/share/doc/neomutt/manual.html#alternates
+alternates '@meribold.org$'
+
 # We set `copy` here even though that's the default because we unset it in the Gmail
 # configuration file (Gmail copies sent messages to "[Gmail]/Sent Mail" on its own).
 set copy
