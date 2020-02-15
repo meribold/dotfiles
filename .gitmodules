@@ -127,3 +127,6 @@
 [submodule "misc/AUR/auracle-git"]
 	path = misc/AUR/auracle-git
 	url = https://aur.archlinux.org/auracle-git.git
+[submodule "misc/AUR/screenkey"]
+	path = misc/AUR/screenkey
+	url = https://aur.archlinux.org/screenkey.git
