@@ -880,7 +880,7 @@ nnoremap <silent> <Leader>C :Gcommit --amend<CR>
 " split respectively.
 nnoremap <silent> U :Windows<CR>
 nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>F :Files ~<CR>
+nnoremap <silent> <Leader>F :Files ~/git<CR>
 nnoremap <silent> <Leader>l :Buffers<CR>
 nnoremap <silent> <Leader>L :History<CR>
 nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
