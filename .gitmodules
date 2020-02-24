@@ -130,3 +130,6 @@
 [submodule "misc/AUR/screenkey"]
 	path = misc/AUR/screenkey
 	url = https://aur.archlinux.org/screenkey.git
+[submodule "misc/AUR/recutils"]
+	path = misc/AUR/recutils
+	url = https://aur.archlinux.org/recutils.git
