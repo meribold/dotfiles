@@ -955,5 +955,62 @@ nnoremap <silent> <expr> <CR> <SID>OnEnter()
 " mode).  TODO: it feels pretty inelegant, though.
 xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
 
+" After entering a window (WinEnter event) and if the previous window has a height of only
+" a single line, change the previous window's height to 0.  This only makes sense when
+" 'winminheight' is 0, which is not the default.
+function! s:RecollapsePreviousWindow()
+   let prevWindow = winnr('#')
+
+   if winheight(prevWindow) != 1
+      return
+   endif
+
+   let columnId = win_screenpos(prevWindow)[1]
+
+   " We use win_screenpos() to determine whether two windows are part of the same column.
+   " When the window number argument is invalid it returns [0, 0].
+   let firstWinOfCol = prevWindow - 1
+   while win_screenpos(firstWinOfCol)[1] == columnId
+      let firstWinOfCol = firstWinOfCol - 1
+   endwhile
+   let firstWinOfCol = firstWinOfCol + 1
+
+   let lastWinOfCol = prevWindow + 1
+   while win_screenpos(lastWinOfCol)[1] == columnId
+      let lastWinOfCol = lastWinOfCol + 1
+   endwhile
+   let lastWinOfCol = lastWinOfCol - 1
+
+   if firstWinOfCol == lastWinOfCol
+      return
+   endif
+
+   " Shrinking a window increases the height of the window below (which is also the
+   " numerical successor in terms of winnr()) by an equal amount.  The exception to this
+   " is (necessarily) the column's bottommost window.  We don't set the height of that
+   " window to 0 because doing so would just enlarge the window above again.
+   for i in range(prevWindow, lastWinOfCol - 1)
+      if winheight(i) == 1
+         execute i . 'resize 0'
+      elseif winheight(i) > 1
+         return
+      endif
+   endfor
+
+   " It wasn't sufficient to (implicitly) enlarge windows below prevWindow.  Only now do
+   " we consider enlarging windows above prevWindow.  This is in line with how Vim selects
+   " what window to shrink when increasing another window's height.  When resizing a
+   " window, Vim prefers to accommodate the height of windows below if possible.
+   if winheight(lastWinOfCol) == 1
+      for i in range(prevWindow - 1, firstWinOfCol, -1)
+         if winheight(i) != 0
+            execute i . 'resize' (winheight(i) + 1)
+            return
+         endif
+      endfor
+   endif
+endfunction
+autocmd vimrc_common WinEnter * call s:RecollapsePreviousWindow()
+
 " }}}1
 " vim: fdm=marker
