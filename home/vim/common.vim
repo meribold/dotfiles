@@ -957,7 +957,8 @@ xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
 
 " After entering a window (WinEnter event) and if the previous window has a height of only
 " a single line, change the previous window's height to 0.  This only makes sense when
-" 'winminheight' is 0, which is not the default.
+" 'winminheight' is 0, which is not the default.  XXX: Vim hasn't changed any window
+" heights yet when it executes this function.
 function! s:RecollapsePreviousWindow()
    let prevWindow = winnr('#')
 
@@ -966,6 +967,15 @@ function! s:RecollapsePreviousWindow()
    endif
 
    let columnId = win_screenpos(prevWindow)[1]
+   let columnChanged = columnId != win_screenpos(0)[1]
+   let curWindow = winnr()
+
+   " We moved up to a window that is in the same column as the previous window and that
+   " previously had height 0.  Vim will set the height to 1 and this will set the height
+   " of the previously focused window to 0.
+   if !columnChanged && prevWindow == curWindow + 1 && winheight(0) == 0
+      return
+   endif
 
    " We use win_screenpos() to determine whether two windows are part of the same column.
    " When the window number argument is invalid it returns [0, 0].
@@ -985,6 +995,13 @@ function! s:RecollapsePreviousWindow()
       return
    endif
 
+   " We moved down to the column's last window and that window has height 0.  We already
+   " know the column has more than a single window.  Vim's default behavior is fine in
+   " this case.
+   if curWindow == lastWinOfCol && curWindow == prevWindow + 1 && winheight(0) == 0
+      return
+   endif
+
    " Shrinking a window increases the height of the window below (which is also the
    " numerical successor in terms of winnr()) by an equal amount.  The exception to this
    " is (necessarily) the column's bottommost window.  We don't set the height of that
@@ -996,6 +1013,12 @@ function! s:RecollapsePreviousWindow()
          return
       endif
    endfor
+
+   " Vim hasn't changed the newly entered window's height yet when this function is
+   " executed.
+   if winheight(0) == 0
+      resize 1
+   endif
 
    " It wasn't sufficient to (implicitly) enlarge windows below prevWindow.  Only now do
    " we consider enlarging windows above prevWindow.  This is in line with how Vim selects
