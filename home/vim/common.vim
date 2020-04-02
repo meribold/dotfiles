@@ -835,8 +835,9 @@ nnoremap <C-N> g,zv
 nnoremap <expr> \| !v:count ? '<C-W>\|' : '\|'
 nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
 " I find myself using <C-W>= regrettably much; hitting + is faster.  TODO: maybe I
-" shouldn't remap both + and <CR>?
-nnoremap + <C-W>=
+" shouldn't remap both + and <CR>?  XXX: this relies on 'equalalways' not being disabled;
+" see <https://stackoverflow.com/a/45591177>.
+nnoremap <silent> + :sp \| :q<CR>
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
