@@ -986,12 +986,20 @@ function! s:RecollapsePreviousWindow()
       return
    endif
 
-   " We moved down to the column's last window and that window has height 0.  We already
-   " know the column has more than a single window.  Vim's default behavior is fine in
-   " this case.
-   let curWindow = winnr()
-   if curWindow == lastWinOfCol && curWindow == prevWindow + 1 && winheight(0) == 0
-      return
+   " Are we in the same column as before?
+   if columnId == win_screenpos(0)[1]
+      let curWindow = winnr()
+      " We moved down to the column's last window and that window has height 0.
+      if curWindow == lastWinOfCol && curWindow > prevWindow && winheight(0) == 0
+         let rowOffset = win_screenpos(0)[0] - win_screenpos(prevWindow)[0]
+         " If we moved down (e.g.) 3 windows and the row offset is 4, then all the windows
+         " between the previously and newly focused one have height 0.  The previously
+         " focused window has height 1, which is why we subtract 1 from rowOffset.
+         if curWindow - prevWindow == rowOffset - 1
+            " Vim's default behavior is all we need in this case.
+            return
+         endif
+      endif
    endif
 
    " Shrinking a window increases the height of the window below (which is also the
