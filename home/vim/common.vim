@@ -726,6 +726,14 @@ endif
 " [7]: https://codeinthehole.com/tips/using-the-silver-searcher-with-vim/
 " [8]: https://robots.thoughtbot.com/faster-grepping-in-vim
 
+" I got this from <https://noahfrederick.com/log/vim-streamlining-grep>.
+cnorea <expr> grep  getcmdtype() == ':' && getcmdline() =~# '^grep'  ? 'sil gr'  : 'grep'
+cnorea <expr> gre   getcmdtype() == ':' && getcmdline() =~# '^gre'   ? 'sil gr'  : 'gre'
+cnorea <expr> gr    getcmdtype() == ':' && getcmdline() =~# '^gr'    ? 'sil gr'  : 'gr'
+cnorea <expr> lgrep getcmdtype() == ':' && getcmdline() =~# '^lgrep' ? 'sil lgr' : 'lgrep'
+cnorea <expr> lgre  getcmdtype() == ':' && getcmdline() =~# '^lgre'  ? 'sil lgr' : 'lgre'
+cnorea <expr> lgr   getcmdtype() == ':' && getcmdline() =~# '^lgr'   ? 'sil lgr' : 'lgr'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
 " :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
