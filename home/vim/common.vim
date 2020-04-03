@@ -705,17 +705,17 @@ if !has('gui_running')
 endif
 
 " If we have `rg`, use it to `:grep`.  If we don't have `rg` but have Ag, use Ag.  TODO:
-" there are [lots][1] [of][2] [related][3] [plugins][4]; do they provide significant
-" improvements over just setting 'grepprg'?
+" There are lots of related plugins [1][2][3][4].  Do they provide worthwhile improvements
+" compared to just setting 'grepprg'?
 if executable('rg')
    set grepprg=rg\ --vimgrep
    set grepformat=%f:%l:%c:%m
 elseif executable('ag')
-   " I copied this from [here][5].  It's almost the same as a snippet from [this post][6]
-   " by Romain Lafourcade (that version also adds new :Grep and :LGrep commands).  Also
-   " see ag(1) and these [two][7] [posts][8].
-   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-   set grepformat=%f:%l:%c:%m,%f:%l:%m
+   " I copied this from ag(1); search for `--vimgrep`.  Also see [5], [this comment][6] by
+   " Romain Lafourcade, and these [two][7] [posts][8].  TODO: are the :Grep and :LGrep
+   " commands from Romain's comment cool?
+   set grepprg=ag\ --vimgrep
+   set grepformat=%f:%l:%c:%m
 endif
 " [1]: https://github.com/rking/ag.vim
 " [2]: https://github.com/mileszs/ack.vim
@@ -723,7 +723,7 @@ endif
 " [4]: https://github.com/Chun-Yang/vim-action-ag
 " [5]: https://www.vi-improved.org/recommendations/
 " [6]: https://reddit.com/comments/4gjbqn//d2iatu9
-" [7]: http://codeinthehole.com/writing/using-the-silver-searcher-with-vim/
+" [7]: https://codeinthehole.com/tips/using-the-silver-searcher-with-vim/
 " [8]: https://robots.thoughtbot.com/faster-grepping-in-vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
