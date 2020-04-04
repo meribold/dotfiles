@@ -133,3 +133,6 @@
 [submodule "misc/AUR/recutils"]
 	path = misc/AUR/recutils
 	url = https://aur.archlinux.org/recutils.git
+[submodule "home/vim/pack/meribold/start/vim-qf"]
+	path = home/vim/pack/meribold/start/vim-qf
+	url = https://github.com/romainl/vim-qf.git
