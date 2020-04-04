@@ -726,7 +726,8 @@ endif
 " [7]: https://codeinthehole.com/tips/using-the-silver-searcher-with-vim/
 " [8]: https://robots.thoughtbot.com/faster-grepping-in-vim
 
-" I got this from <https://noahfrederick.com/log/vim-streamlining-grep>.
+" I got this from <https://noahfrederick.com/log/vim-streamlining-grep>.  TODO: consider
+" this: <https://redd.it/fu9v18>.
 cnorea <expr> grep  getcmdtype() == ':' && getcmdline() =~# '^grep'  ? 'sil gr'  : 'grep'
 cnorea <expr> gre   getcmdtype() == ':' && getcmdline() =~# '^gre'   ? 'sil gr'  : 'gre'
 cnorea <expr> gr    getcmdtype() == ':' && getcmdline() =~# '^gr'    ? 'sil gr'  : 'gr'
