@@ -15,83 +15,24 @@ augroup vimrc_common
    autocmd!
 augroup END
 
-" vim-plug section {{{1
+" Conditonally loaded plugins {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup vim-plug (https://github.com/junegunn/vim-plug).  Plugins are loaded after vimrc
-" files (:h initialization).
-call plug#begin('~/.vim/plugged')
+" Plugins are loaded after vimrc files (:h initialization).
 
-" Replacements for bundled plugins {{{2
-" I use dirvish.vim and open-browser.vim to replace netrw.  Unlike tpope's vinegar.vim,
-" dirvish.vim doesn't depend on netrw.
-Plug 'justinmk/vim-dirvish'
-Plug 'tyru/open-browser.vim'
-
-" Auxiliary plugins {{{2
-Plug 'kana/vim-operator-user'
-Plug 'kana/vim-textobj-user'
-Plug 'tpope/vim-repeat'       " Used by surround.vim, commentary.vim, unimpaired.vim, ...
-
-" New or improved motions and text objects {{{2
-Plug 'coderifous/textobj-word-column.vim'
-Plug 'gilligan/textobj-gitgutter'         " Requires vim-textobj-user and vim-gitgutter.
-Plug 'glts/vim-textobj-comment'           " Requires vim-textobj-user.
-Plug 'kana/vim-textobj-entire'            " Requires vim-textobj-user.
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'vim-utils/vim-line'
-Plug 'vim-utils/vim-vertical-move'
-Plug 'wellle/targets.vim'
-Plug 'rhysd/clever-f.vim'
-
-" New operators {{{2
-Plug 'Chiel92/vim-autoformat'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'    " See <https://redd.it/26mszm>.
-Plug 'tpope/vim-scriptease'    " Adds `g!`: evaluate VimL and substitute the result.
-Plug 'tpope/vim-surround'
-Plug 'wellle/visual-split.vim'
-
-" There are two alternatives to [EasyAlign][1] I know of: [Tabular][2] and [Lion.vim][3].
-" Tabular is the oldest.  I think it doesn't provide an operator.  Lion.vim is much
-" simpler than EasyAlign (its help file has less than 100 lines compared to EasyAlign's
-" almost 1000) but EasyAlign tends to automagically do the 'right thing' in many common
-" cases (like ignoring comments).  Also see [this reddit post][4] about EasyAlign.
-" [1]: https://github.com/junegunn/vim-easy-align
-" [2]: https://github.com/godlygeek/tabular
-" [3]: https://github.com/tommcdo/vim-lion
-" [4]: https://redd.it/2lsr8d
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-
-" External tool integration {{{2
-Plug 'tpope/vim-dispatch'
-Plug 'benekastah/neomake'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter', { 'on': ['GitGutterToggle', 'GitGutterEnable'] }
-Plug 'editorconfig/editorconfig-vim'
+" This is needed because we call `operator#user#define_ex_command` later (by sourcing
+" `vim-autoformat.vim`).  TODO: find a better way.
+packadd! vim-operator-user
 
 " FIXME: vim-man doesn't work in Neovim 0.2.2.  The :Man command fails to open any man
 " page.  (The latest commit to vim-man is cfdc78f52707b4df76cbe57552a7c8c28a390da4.)
 if !has('nvim')
-   Plug 'vim-utils/vim-man'
+   packadd! vim-man
 endif
 
 if has('unix')
-   Plug 'beloglazov/vim-online-thesaurus'
-   Plug 'szw/vim-dict'
+   packadd! vim-online-thesaurus
+   packadd! vim-dict
 endif
-
-" Send the current paragraph to a REPL with <C-C><C-C>.  Haskell code is [adapted][1] to
-" the syntax ghci expects.  I think all of these plugins are similar:
-" *  [vim-quickrun](https://github.com/thinca/vim-quickrun)
-" *  [slimv](https://github.com/kovisoft/slimv)
-" *  [slimux](https://github.com/epeli/slimux)
-" *  [neoterm](https://github.com/kassio/neoterm) (for Neovim only)
-" Also see [this discussion][2].
-Plug 'jpalardy/vim-slime'
-" [1]: https://github.com/jpalardy/vim-slime/tree/master/ftplugin/haskell
-" [2]: https://redd.it/4o97kn
 
 " Automated management of tag files.  I chose [Gutentags][1] semi-randomly: it has some
 " cool features like incremental tags generation but [there][2] [are][3] [many][4]
@@ -103,91 +44,28 @@ Plug 'jpalardy/vim-slime'
 " [5]: https://github.com/szw/vim-tags
 " [6]: https://github.com/xolox/vim-easytags
 if executable('ctags')
-   Plug 'ludovicchabant/vim-gutentags'
+   packadd! vim-gutentags
 end
 
-" The startup time of pastery.vim is unusually long: use on-demand loading.  TODO:
-" investigate why it's long (see https://github.com/skorokithakis/pastery.vim/issues/2).
+" TODO: Investigate whether pastery.vim still considerably slows down starting Vim.  See
+" <https://github.com/skorokithakis/pastery.vim/issues/2>.
 if has('unix')
-   Plug 'skorokithakis/pastery.vim', { 'on': ['PasteCode', 'PasteFile'] }
+   packadd! pastery.vim
 endif
 
 " I'm using the fzf package from Arch's community repository, but that doesn't include the
-" `fzf.vim` file.  Adding fzf as a Vim plugin here only serves to get that file, so none
-" of the options to the Plug command suggested [here][1] are used.  TODO: find a way to
-" only sync the .vim file?
-" [1]: https://github.com/junegunn/fzf#install-as-vim-plugin
+" `fzf.vim` file.  Adding fzf as a Vim plugin here only serves to get that file.  TODO:
+" find a way to only sync the .vim file?
 if executable('fzf')
-   Plug 'junegunn/fzf'
-   Plug 'junegunn/fzf.vim'
+   packadd! fzf
+   packadd! fzf.vim
 endif
-
-
-" Improvements of existing functionality {{{2
-Plug 'moll/vim-bbye' " :bufdo :Bdelete unloads all buffers.
-Plug 'sickill/vim-pasta'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-obsession'
-Plug 'thinca/vim-visualstar'
-Plug 'tpope/vim-speeddating'
-
-" Language support {{{2
-Plug 'tikhomirov/vim-glsl'
-
-" Ungrouped (TODO) {{{2
-Plug 'airblade/vim-rooter'
-
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-
-" Plug 'plasticboy/vim-markdown' " Depends on tabular?
-
-" I'm using [Grip](https://github.com/joeyespo/grip) to preview Markdown files at the
-" moment which actually lets GitHub do the rendering.  The best Vim plugin might be
-" suan/vim-instant-markdown.  JamshedVesuna/vim-markdown-preview is somewhat buggy.
-" greyblake/vim-preview doesn't seem to do GitHub Flavored Markdown (it uses the redcarpet
-" Gem).  There's also the github-markdown-preview Gem and several Chromium extensions that
-" render Markdown (http://stackoverflow.com/q/9212340).
-
-" Automatically close parens, brackets, braces, quotes, etc.  See
-" http://vim.wikia.com/wiki/Automatically_append_closing_characters
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-endwise'
-
-Plug 'vim-scripts/a.vim'
-
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
-" Automatically adjusts 'shiftwidth' and 'expandtab' heuristically.
-Plug 'tpope/vim-sleuth'
 
 " Snippet engine using Python.  Doesn't define any snippets by itself; they are in
 " honza/vim-snippets (but I'm only using my own snippets at the moment).
 if has('python') || has('python3') " TODO: is this what we should check?
-   Plug 'SirVer/ultisnips'
+   packadd! ultisnips
 endif
-
-Plug 'Shougo/unite.vim'
-
-" TODO: use fzf for this?
-Plug 'kopischke/unite-spell-suggest'
-
-Plug 'vim-utils/vim-husk'
-
-Plug 'junegunn/goyo.vim', { 'on':  'Goyo' }
-
-Plug 'itchyny/lightline.vim'
-
-" Color schemes {{{2
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'itchyny/landscape.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'meribold/jellyjam.vim'
-Plug 'vim-scripts/wombat256.vim'
-
-" }}}2
-call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Basic settings {{{1
@@ -197,11 +75,6 @@ call plug#end()
 " Most (all?) of this is probably redundant for Neovim.  TODO: move it into vim/vimrc?
 " There probably also are more settings scattered around this file that belong in this
 " section.
-
-" Running `syntax enable` should be redundant for both Neovim and Vim.  It's the [default
-" in Neovim][1] and redundant for Vim as well because [vim-plug does it][2].
-" [1]: https://github.com/neovim/neovim/issues/2676
-" [2]: https://github.com/junegunn/vim-plug/wiki/faq
 
 " TODO: plugins are loaded after personal vimrc files; should this command therefore be at
 " the very end of this file or in a different file inside an after/ subdirectory?

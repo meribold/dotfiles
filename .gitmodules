@@ -136,3 +136,192 @@
 [submodule "home/vim/pack/meribold/start/vim-qf"]
 	path = home/vim/pack/meribold/start/vim-qf
 	url = https://github.com/romainl/vim-qf.git
+[submodule "home/vim/pack/meribold/start/vim-dirvish"]
+	path = home/vim/pack/meribold/start/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "home/vim/pack/meribold/start/open-browser.vim"]
+	path = home/vim/pack/meribold/start/open-browser.vim
+	url = https://github.com/tyru/open-browser.vim.git
+[submodule "home/vim/pack/meribold/start/vim-operator-user"]
+	path = home/vim/pack/meribold/start/vim-operator-user
+	url = https://github.com/kana/vim-operator-user.git
+[submodule "home/vim/pack/meribold/start/vim-textobj-user"]
+	path = home/vim/pack/meribold/start/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "home/vim/pack/meribold/start/vim-repeat"]
+	path = home/vim/pack/meribold/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "home/vim/pack/meribold/start/textobj-word-column.vim"]
+	path = home/vim/pack/meribold/start/textobj-word-column.vim
+	url = https://github.com/coderifous/textobj-word-column.vim.git
+[submodule "home/vim/pack/meribold/start/textobj-gitgutter"]
+	path = home/vim/pack/meribold/start/textobj-gitgutter
+	url = https://github.com/gilligan/textobj-gitgutter.git
+[submodule "home/vim/pack/meribold/start/vim-textobj-comment"]
+	path = home/vim/pack/meribold/start/vim-textobj-comment
+	url = https://github.com/glts/vim-textobj-comment.git
+[submodule "home/vim/pack/meribold/start/vim-textobj-entire"]
+	path = home/vim/pack/meribold/start/vim-textobj-entire
+	url = https://github.com/kana/vim-textobj-entire.git
+[submodule "home/vim/pack/meribold/start/vim-indent-object"]
+	path = home/vim/pack/meribold/start/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "home/vim/pack/meribold/start/vim-line"]
+	path = home/vim/pack/meribold/start/vim-line
+	url = https://github.com/vim-utils/vim-line.git
+[submodule "home/vim/pack/meribold/start/vim-vertical-move"]
+	path = home/vim/pack/meribold/start/vim-vertical-move
+	url = https://github.com/vim-utils/vim-vertical-move.git
+[submodule "home/vim/pack/meribold/start/targets.vim"]
+	path = home/vim/pack/meribold/start/targets.vim
+	url = https://github.com/wellle/targets.vim.git
+[submodule "home/vim/pack/meribold/start/clever-f.vim"]
+	path = home/vim/pack/meribold/start/clever-f.vim
+	url = https://github.com/rhysd/clever-f.vim.git
+[submodule "home/vim/pack/meribold/start/vim-autoformat"]
+	path = home/vim/pack/meribold/start/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "home/vim/pack/meribold/start/vim-exchange"]
+	path = home/vim/pack/meribold/start/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "home/vim/pack/meribold/start/vim-abolish"]
+	path = home/vim/pack/meribold/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "home/vim/pack/meribold/start/vim-commentary"]
+	path = home/vim/pack/meribold/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "home/vim/pack/meribold/start/vim-scriptease"]
+	path = home/vim/pack/meribold/start/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease.git
+[submodule "home/vim/pack/meribold/start/vim-surround"]
+	path = home/vim/pack/meribold/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "home/vim/pack/meribold/start/visual-split.vim"]
+	path = home/vim/pack/meribold/start/visual-split.vim
+	url = https://github.com/wellle/visual-split.vim.git
+[submodule "home/vim/pack/meribold/start/vim-easy-align"]
+	path = home/vim/pack/meribold/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "home/vim/pack/meribold/start/vim-dispatch"]
+	path = home/vim/pack/meribold/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "home/vim/pack/meribold/start/neomake"]
+	path = home/vim/pack/meribold/start/neomake
+	url = https://github.com/benekastah/neomake.git
+[submodule "home/vim/pack/meribold/start/vim-eunuch"]
+	path = home/vim/pack/meribold/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "home/vim/pack/meribold/start/vim-fugitive"]
+	path = home/vim/pack/meribold/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "home/vim/pack/meribold/start/vim-gitgutter"]
+	path = home/vim/pack/meribold/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "home/vim/pack/meribold/start/editorconfig-vim"]
+	path = home/vim/pack/meribold/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "home/vim/pack/meribold/opt/vim-man"]
+	path = home/vim/pack/meribold/opt/vim-man
+	url = https://github.com/vim-utils/vim-man.git
+[submodule "home/vim/pack/meribold/opt/vim-online-thesaurus"]
+	path = home/vim/pack/meribold/opt/vim-online-thesaurus
+	url = https://github.com/beloglazov/vim-online-thesaurus.git
+[submodule "home/vim/pack/meribold/opt/vim-dict"]
+	path = home/vim/pack/meribold/opt/vim-dict
+	url = https://github.com/szw/vim-dict.git
+[submodule "home/vim/pack/meribold/start/vim-slime"]
+	path = home/vim/pack/meribold/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git
+[submodule "home/vim/pack/meribold/opt/vim-gutentags"]
+	path = home/vim/pack/meribold/opt/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "home/vim/pack/meribold/opt/pastery.vim"]
+	path = home/vim/pack/meribold/opt/pastery.vim
+	url = https://github.com/skorokithakis/pastery.vim.git
+[submodule "home/vim/pack/meribold/opt/fzf"]
+	path = home/vim/pack/meribold/opt/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "home/vim/pack/meribold/opt/fzf.vim"]
+	path = home/vim/pack/meribold/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "home/vim/pack/meribold/start/vim-bbye"]
+	path = home/vim/pack/meribold/start/vim-bbye
+	url = https://github.com/moll/vim-bbye.git
+[submodule "home/vim/pack/meribold/start/vim-pasta"]
+	path = home/vim/pack/meribold/start/vim-pasta
+	url = https://github.com/sickill/vim-pasta.git
+[submodule "home/vim/pack/meribold/start/vim-unimpaired"]
+	path = home/vim/pack/meribold/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "home/vim/pack/meribold/start/vim-obsession"]
+	path = home/vim/pack/meribold/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
+[submodule "home/vim/pack/meribold/start/vim-visualstar"]
+	path = home/vim/pack/meribold/start/vim-visualstar
+	url = https://github.com/thinca/vim-visualstar.git
+[submodule "home/vim/pack/meribold/start/vim-speeddating"]
+	path = home/vim/pack/meribold/start/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "home/vim/pack/meribold/start/vim-glsl"]
+	path = home/vim/pack/meribold/start/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
+[submodule "home/vim/pack/meribold/start/vim-rooter"]
+	path = home/vim/pack/meribold/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
+[submodule "home/vim/pack/meribold/start/vim-table-mode"]
+	path = home/vim/pack/meribold/start/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode.git
+[submodule "home/vim/pack/meribold/start/delimitMate"]
+	path = home/vim/pack/meribold/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "home/vim/pack/meribold/start/vim-endwise"]
+	path = home/vim/pack/meribold/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "home/vim/pack/meribold/start/a.vim"]
+	path = home/vim/pack/meribold/start/a.vim
+	url = https://github.com/vim-scripts/a.vim.git
+[submodule "home/vim/pack/meribold/start/undotree"]
+	path = home/vim/pack/meribold/start/undotree
+	url = https://github.com/mbbill/undotree.git
+[submodule "home/vim/pack/meribold/start/vim-sleuth"]
+	path = home/vim/pack/meribold/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "home/vim/pack/meribold/opt/ultisnips"]
+	path = home/vim/pack/meribold/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "home/vim/pack/meribold/start/unite.vim"]
+	path = home/vim/pack/meribold/start/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "home/vim/pack/meribold/start/unite-spell-suggest"]
+	path = home/vim/pack/meribold/start/unite-spell-suggest
+	url = https://github.com/kopischke/unite-spell-suggest.git
+[submodule "home/vim/pack/meribold/start/vim-husk"]
+	path = home/vim/pack/meribold/start/vim-husk
+	url = https://github.com/vim-utils/vim-husk.git
+[submodule "home/vim/pack/meribold/start/goyo.vim"]
+	path = home/vim/pack/meribold/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "home/vim/pack/meribold/start/lightline.vim"]
+	path = home/vim/pack/meribold/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "home/vim/pack/meribold/start/papercolor-theme"]
+	path = home/vim/pack/meribold/start/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "home/vim/pack/meribold/start/vim-colors-solarized"]
+	path = home/vim/pack/meribold/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "home/vim/pack/meribold/start/vim-tomorrow-theme"]
+	path = home/vim/pack/meribold/start/vim-tomorrow-theme
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule "home/vim/pack/meribold/start/landscape.vim"]
+	path = home/vim/pack/meribold/start/landscape.vim
+	url = https://github.com/itchyny/landscape.vim.git
+[submodule "home/vim/pack/meribold/start/jellybeans.vim"]
+	path = home/vim/pack/meribold/start/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "home/vim/pack/meribold/start/jellyjam.vim"]
+	path = home/vim/pack/meribold/start/jellyjam.vim
+	url = https://github.com/meribold/jellyjam.vim.git
+[submodule "home/vim/pack/meribold/start/wombat256.vim"]
+	path = home/vim/pack/meribold/start/wombat256.vim
+	url = https://github.com/vim-scripts/wombat256.vim.git
