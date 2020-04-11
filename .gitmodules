@@ -223,9 +223,6 @@
 [submodule "home/vim/pack/meribold/opt/vim-man"]
 	path = home/vim/pack/meribold/opt/vim-man
 	url = https://github.com/vim-utils/vim-man.git
-[submodule "home/vim/pack/meribold/opt/vim-online-thesaurus"]
-	path = home/vim/pack/meribold/opt/vim-online-thesaurus
-	url = https://github.com/beloglazov/vim-online-thesaurus.git
 [submodule "home/vim/pack/meribold/opt/vim-dict"]
 	path = home/vim/pack/meribold/opt/vim-dict
 	url = https://github.com/szw/vim-dict.git

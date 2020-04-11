@@ -30,7 +30,6 @@ if !has('nvim')
 endif
 
 if has('unix')
-   packadd! vim-online-thesaurus
    packadd! vim-dict
 endif
 
@@ -830,7 +829,7 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " Either way, using the <expr> special argument seems like a much better approach that
 " avoids this mess.  See :h <expr> and :h expression-syntax.
 function! s:OnEnter()
-   let filetypes = [ 'man', 'thesaurus' ]
+   let filetypes = [ 'man' ]
    if empty(&buftype) || &buftype ==# 'help' || index(filetypes, &filetype) != -1
       return ':noh | echo'
    else
