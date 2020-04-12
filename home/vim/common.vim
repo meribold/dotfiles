@@ -374,6 +374,9 @@ let delimitMate_balance_matchpairs = 1
 " <https://github.com/vim-utils/vim-man/issues/14>.
 let g:man_width = 93
 
+" pastery.vim {{{2
+runtime pastery-api-key.vim
+
 " vim-dict {{{2
 " Use local DICT daemon for speed.  These are all databases I have installed.  They are
 " listed explicitly to change the order ['*'] would use.
