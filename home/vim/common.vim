@@ -375,6 +375,7 @@ let delimitMate_balance_matchpairs = 1
 let g:man_width = 93
 
 " pastery.vim {{{2
+let g:pastery_open_in_browser = 1
 runtime pastery-api-key.vim
 
 " vim-dict {{{2
