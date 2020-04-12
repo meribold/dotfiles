@@ -378,6 +378,9 @@ let g:man_width = 93
 let g:pastery_open_in_browser = 1
 runtime pastery-api-key.vim
 
+" vim-rooter {{{2
+let g:rooter_silent_chdir = 1
+
 " vim-dict {{{2
 " Use local DICT daemon for speed.  These are all databases I have installed.  They are
 " listed explicitly to change the order ['*'] would use.
