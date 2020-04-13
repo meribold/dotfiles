@@ -47,9 +47,8 @@ shopt -s extglob
 # bash(1).  For example, typing !!<Space> will replace the !! with the previous command.
 bind Space:magic-space
 
-# Disable XON/XOFF flow control.  See stty(1),
-# http://unix.stackexchange.com/q/12107 and
-# https://en.wikipedia.org/wiki/Software_flow_control.
+# Disable XON/XOFF flow control.  See stty(1), <https://unix.stackexchange.com/q/12107>,
+# and <https://en.wikipedia.org/wiki/Software_flow_control>.
 stty -ixon
 
 # Send ASCII DEL (0x7F) for the backspace key instead of ASCII BS (0x08).  This is some
@@ -85,7 +84,7 @@ alias  l='ls -F'
 alias la='ls -FA'
 alias ll='ls -lh'
 
-# List subdirectories (http://stackoverflow.com/a/171938).
+# List subdirectories (https://stackoverflow.com/a/171938).
 alias lsd='ls -d */'
 
 alias spinach='>/dev/null trans -speak en:'
@@ -141,11 +140,11 @@ alias v='$VISUAL'
 alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 '"$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Get the system's local IP address (from http://stackoverflow.com/a/25851186 -- also see
-# http://askubuntu.com/a/604691).
+# Get the system's local IP address (taken from <https://stackoverflow.com/a/25851186>).
+# Also see <https://askubuntu.com/a/604691>.
 alias lanip='ip route get 1 | head -1 | cut -d " " -f7'
 
-# Get the default gateway's (router's) IP address (from http://serverfault.com/q/31170).
+# Get the default gateway's (router's) IP address.  See <https://serverfault.com/q/31170>.
 gatewayip() {
    ip route | awk '/^def/{print $3}'
 }
@@ -275,13 +274,13 @@ unset bold reset
 case "$TERM" in
    xterm*) # It's an xterm.
       # Try to remove a semicolon from the end of PROMPT_COMMAND.  Then append '; ' unless
-      # PROMPT_COMMAND is unset or empty.  See http://wiki.bash-hackers.org/syntax/pe.
+      # PROMPT_COMMAND is unset or empty.  See <https://wiki.bash-hackers.org/syntax/pe>.
       PROMPT_COMMAND="${PROMPT_COMMAND%;}"
       PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }"
       # We can safely append new commands to PROMPT_COMMAND now.
       PROMPT_COMMAND+='printf "\033]0;%s@%s %s\007" "$USER" "${HOSTNAME%%.*}"'
       PROMPT_COMMAND+=' "${PWD/#$HOME/\~}"'
-      # http://stackoverflow.com/q/7316107
+      # https://stackoverflow.com/q/7316107
 
       # On Arch Linux and for most terminals, /etc/bash.bashrc sets PROMPT_COMMAND to:
       #    printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"
@@ -330,23 +329,21 @@ case "$TERM" in
       # It's something else.
       ;;
 esac # More web links:
-# http://mg.pov.lt/blog/bash-prompt.html
-# http://www.tldp.org/HOWTO/Xterm-Title-3.html#ss3.1
-# http://www.tldp.org/HOWTO/Xterm-Title-4.html#ss4.3
+# https://mg.pov.lt/blog/bash-prompt.html
+# https://tldp.org/HOWTO/Xterm-Title-3.html#ss3.1
+# https://tldp.org/HOWTO/Xterm-Title-4.html#ss4.3
 
-# When exacly does bash receive the the DEBUG signal and execute the command?
-# "If a sigspec is DEBUG, the command arg is executed after every simple command, for
-# command, case command, select command, every arithmetic for command, and before the
-# first command executes in a shell function." - bash(1)
+# When exactly does Bash receive the DEBUG signal and execute the command?  "If a sigspec
+# is DEBUG, the command arg is executed after every simple command, for command, case
+# command, select command, every arithmetic for command, and before the first command
+# executes in a shell function" (from bash(1)).  I don't care if these commands weren't
+# defined: redirect to /dev/null.  This should be the last command in ~/.bashrc.  If there
+# are more, the terminal title will be changed for each one, increasing the startup time.
 trap 'show_command_in_title 2>/dev/null' DEBUG
-# I don't care if these commands weren't defined: redirect to /dev/null.  This should be
-# the last command in ~/.bashrc.  If there are more, the terminal title will be changed
-# for each one, increasing the startup time.
-# Web links:
-# http://linux.die.net/Bash-Beginners-Guide/sect_12_02.html.
-# http://stackoverflow.com/q/16636007
-# http://stackoverflow.com/q/9268836
-# http://stackoverflow.com/q/3338030
-# https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
+# [1]: http://linux.die.net/Bash-Beginners-Guide/sect_12_02.html.
+# [2]: https://stackoverflow.com/q/16636007
+# [3]: https://stackoverflow.com/q/9268836
+# [4]: https://stackoverflow.com/q/3338030
+# [5]: https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
 
 # vim: fdm=marker
