@@ -698,8 +698,8 @@ endfunction
 nnoremap <silent> <S-Tab> :call <SID>CycleFoldlevel()<CR>
 
 " Switch windows more easily.  TODO: map <C-H> and <C-L> to something.
-nnoremap <C-J> <C-W>w
-nnoremap <C-K> <C-W>W
+nnoremap <silent> <C-J> <C-W>w
+nnoremap <silent> <C-K> <C-W>W
 
 " Control+Q just does the same as Control+V by default; use it to close windows.
 nnoremap <C-Q> ZZ
