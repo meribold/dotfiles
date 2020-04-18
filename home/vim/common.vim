@@ -139,6 +139,8 @@ set clipboard-=autoselect
 " Make ^X^K work without having spell checking enabled (without `:set spell`).
 set dictionary+=spell
 
+set noshowcmd
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the cursor line.
 " Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
