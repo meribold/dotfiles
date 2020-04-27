@@ -61,12 +61,8 @@ $(HOME)/.vim/autoload/plug.vim: | $(HOME)/.vim/autoload/
 	curl -fLso '$@' \
 	   'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# TODO: split plugin declarations into a separate file?
 vim: $(vim_links) $(add_spl_files) $(HOME)/.vim/autoload/plug.vim \
    $(addprefix $(HOME)/.vim/spell/de.utf-8.,spl sug)
-	@# Install plugins with vim-plug.  See
-	@# <https://github.com/junegunn/dotfiles/blob/master/install-vim>.
-	vim -u home/vim/vimrc +PlugInstall +qa
 
 nvim: vim $(HOME)/.config/nvim \
    $(foreach ll,en de,$(addprefix $(HOME)/.config/nvim/spell/$(ll).utf-8.,spl sug))
