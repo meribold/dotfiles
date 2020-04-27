@@ -32,7 +32,7 @@ links :=
 # directories are linked directly: `vim/after`, `vim/ftplugin`, `vim/UltiSnips`.
 vim_link_targets := $(shell find home/vim -path 'home/vim/pack' -prune -o -regex \
                                  'home/vim/after\|home/vim/ftplugin\|home/vim/UltiSnips' \
-                                 -prune -o -type f -o -type l)
+                                 -prune -o -not -name '.*' \( -type f -o -type l \))
 # Transform the list of link targets to paths of links that should be created when
 # building the `vim` goal.
 vim_links := $(patsubst home/%,$(HOME)/.%,$(vim_link_targets))
