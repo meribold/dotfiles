@@ -133,6 +133,10 @@
 "[[ $(i3-msg '[instance="^ghci$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ghci -geometry 61x34 -e ghci"
    Mod4 + u
 
+# Why not both?
+"[[ $(i3-msg '[instance="^ipython$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ipython -geometry 61x34 -e ipython"
+   Mod4 + Shift + u
+
 # Run [rofi-pass](https://github.com/carnager/rofi-pass), an alternative to passmenu.
 "PINENTRY_USER_DATA=gtk rofi-pass"
    Mod4 + p

@@ -182,6 +182,12 @@ for_window [instance="^ghci$"] move scratchpad
 for_window [instance="^ghci$"] sticky enable
 for_window [instance="^ghci$"] scratchpad show
 
+# Use a sticky scratchpad window for IPython (my other calculator of choice).
+for_window [instance="^ipython$"] floating enable
+for_window [instance="^ipython$"] move scratchpad
+for_window [instance="^ipython$"] sticky enable
+for_window [instance="^ipython$"] scratchpad show
+
 for_window [instance="^scratchpad$"] move scratchpad
 for_window [instance="^scratchpad$"] scratchpad show
 
