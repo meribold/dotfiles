@@ -30,7 +30,7 @@ links :=
 # Define a variable containing all link targets used when building the `vim` goal.
 # Generally, the directory structure is mirrored and only files are linked, but these
 # directories are linked directly: `vim/after`, `vim/ftplugin`, `vim/UltiSnips`.
-vim_link_targets := $(shell find home/vim -regex \
+vim_link_targets := $(shell find home/vim -path 'home/vim/pack' -prune -o -regex \
                                  'home/vim/after\|home/vim/ftplugin\|home/vim/UltiSnips' \
                                  -prune -o -type f -o -type l)
 # Transform the list of link targets to paths of links that should be created when
