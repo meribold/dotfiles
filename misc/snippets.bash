@@ -140,7 +140,7 @@ reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirror
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
-rsync -ni -hazHAXx ~/muddle esgaroth: | less
+rsync -ni -hazzHAXx ~/muddle esgaroth: | less
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
@@ -151,7 +151,7 @@ slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pix
 ssh -t athrad screen -Ux
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
-sudo bash -c "rsync -hazHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/; systemctl suspend"
+sudo bash -c "rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/; systemctl suspend"
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
 sudo ip link set wlan0 up
