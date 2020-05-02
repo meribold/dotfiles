@@ -130,6 +130,9 @@ if has('win32')
    set fileformats=unix,dos
 endif
 
+" Don't silently fix my shitty files.  I don't want noisy diffs.
+set nofixeol
+
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
 set modeline
 
