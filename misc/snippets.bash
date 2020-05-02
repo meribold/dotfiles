@@ -151,6 +151,7 @@ slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pix
 ssh -t athrad screen -Ux
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
+sudo bash -c "rsync -hazHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/; systemctl suspend"
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
 sudo ip link set wlan0 up
@@ -158,7 +159,6 @@ sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
 sudo iw dev wlan0 scan | less
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
-sudo rsync -hazHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found'} --info=progress2 / esgaroth:smial/
 sudo systemctl poweroff
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
