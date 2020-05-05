@@ -322,3 +322,6 @@
 [submodule "home/vim/pack/meribold/start/wombat256.vim"]
 	path = home/vim/pack/meribold/start/wombat256.vim
 	url = https://github.com/vim-scripts/wombat256.vim.git
+[submodule "home/vim/pack/meribold/start/vim-gnupg"]
+	path = home/vim/pack/meribold/start/vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg

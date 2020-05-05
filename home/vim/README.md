@@ -38,7 +38,6 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
     [nvr](https://github.com/mhinz/neovim-remote) (not actually a plugin),
     [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace),
     [vim-easygrep](https://github.com/dkprice/vim-easygrep),
-    [vim-gnupg](https://github.com/jamessan/vim-gnupg),
     [vim-journal](https://github.com/junegunn/vim-journal),
     [vim-protodef](https://github.com/derekwyatt/vim-protodef),
     [vim-quicklink](https://github.com/christoomey/vim-quicklink),
