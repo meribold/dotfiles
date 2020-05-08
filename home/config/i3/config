@@ -11,7 +11,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+backslash exec --no-startup-id xterm
+bindsym $mod+Return exec --no-startup-id xterm
 
 # Kill focused window.
 bindsym $mod+q kill
