@@ -58,9 +58,6 @@
 [submodule "signal-cli.bash"]
 	path = misc/signal-cli.bash
 	url = https://github.com/meribold/signal-cli.bash.git
-[submodule "AUR/unclutter-xfixes-git"]
-	path = misc/AUR/unclutter-xfixes-git
-	url = https://aur.archlinux.org/unclutter-xfixes-git.git
 [submodule "AUR/fonts-meta-base"]
 	path = misc/AUR/fonts-meta-base
 	url = https://aur.archlinux.org/fonts-meta-base.git
