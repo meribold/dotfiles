@@ -1,5 +1,8 @@
+! Turn Caps Lock into Control.  See <https://wiki.archlinux.org/index.php/Xmodmap>.
 clear lock
-keycode 66 = Escape NoSymbol Escape
+clear control
+keycode 66 = Control_L
+add control = Control_L Control_R
 
 ! Use the right right Alt key (AltGr) as the Compose key.  See Compose(5),
 ! <https://vi.stackexchange.com/a/2256>, and <https://en.wikipedia.org/wiki/Compose_key>.
