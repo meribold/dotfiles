@@ -2,7 +2,7 @@
 
 pkgname=i3-gaps-meribold-git
 pkgver=4.16.1.r4.g0f8625a5
-pkgrel=1
+pkgrel=2
 pkgdesc='A slightly patched fork of i3-gaps'
 arch=('i686' 'x86_64')
 url='https://github.com/meribold/i3/tree/meribold'
@@ -32,7 +32,7 @@ prepare(){
 
 build() {
    cd build
-   ../i3/configure --prefix=/usr --sysconfdir=/etc
+   ../i3/configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
    make
 }
 
