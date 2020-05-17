@@ -71,7 +71,7 @@ XTerm*VT100.backarrowKey: false
 ! [2]: https://wiki.archlinux.org/index.php/Xterm#PRIMARY_and_CLIPBOARD
 ! [3]: https://unix.stackexchange.com/q/225062
 XTerm*VT100.translations: #override \
-Ctrl <Key>I: string(ÿ) \n\
+Ctrl <Key>I: string("ÿ") \n\
 Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
 Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
