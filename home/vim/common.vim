@@ -720,6 +720,9 @@ inoremap <C-L> <C-G>u<Esc>[s1z=`]a<C-G>u
 nnoremap <C-P> g;zv
 nnoremap <C-N> g,zv
 
+" This is alike Emacs, Mutt, Newsboat, ncmpcpp, and cmus.
+cnoremap <C-G> <C-U><BS>
+
 " More convenient mappings for maximizing the width or height of the current window.  They
 " fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
 " can still be used with a count -- I don't really do that, though, but I don't really use
