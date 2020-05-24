@@ -12,6 +12,8 @@
 	; Maybe see <https://vim.fandom.com/wiki/A_better_Vimdiff_Git_mergetool> and
 	; <https://youtu.be/Pxgl3Wtf78Y>.
 	tool = meld
+[pull]
+	ff = only
 [push]
 	default = simple
 [alias]
