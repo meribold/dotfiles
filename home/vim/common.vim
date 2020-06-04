@@ -702,7 +702,7 @@ function! s:CycleFoldlevel()
 endfunction
 nnoremap <silent> <S-Tab> :call <SID>CycleFoldlevel()<CR>
 
-" Switch windows more easily.  TODO: map <C-H> and <C-L> to something.
+" Switch windows more easily.  TODO: map <C-H> to something.
 nnoremap <silent> <C-J> :normal <C-V><C-W>w<CR>
 nnoremap <silent> <C-K> :normal <C-V><C-W>W<CR>
 
@@ -722,6 +722,13 @@ nnoremap <C-N> g,zv
 
 " This is alike Emacs, Mutt, Newsboat, ncmpcpp, and cmus.
 cnoremap <C-G> <C-U><BS>
+
+let g:qf_auto_open_quickfix = 0
+let g:qf_auto_open_loclist = 0
+" Mappings for toggling the quickfix and location windows.  I think the default Control+L
+" mapping isn't all that useful.
+nmap <C-F> <Plug>(qf_qf_toggle_stay)
+nmap <C-L> <Plug>(qf_loc_toggle_stay)
 
 " More convenient mappings for maximizing the width or height of the current window.  They
 " fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
