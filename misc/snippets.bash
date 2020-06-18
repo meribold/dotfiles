@@ -11,14 +11,16 @@ amixer set Master mute
 auracle outdated
 bundle exec jekyll serve --drafts
 bundle install --path vendor/bundle
+cat /proc/cmdline # check what kernel parameters we booted with
 cat /proc/sys/kernel/sysrq
-cat /sys/class/power_supply/BAT0/energy_{now,full}
+cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null;:
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/module/usbcore/parameters/autosuspend
 cd $(mktemp -d)
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
 chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
+coredumpctl list
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
@@ -53,6 +55,8 @@ gpg --encrypt --armor --recipient D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
+i3-msg -t get_workspaces | jq
+ip address show eth0
 ip address show wlan0
 ip route show dev wlan0
 iw wlan0 info
@@ -64,6 +68,7 @@ journalctl --user -n 100 -fu signal-cli.bash.service
 journalctl -u "sshd@*"
 journalctl /usr/bin/sshd
 journalctl _COMM=sshd
+kill -l
 killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 killall xbindkeys; (cd ~ && xbindkeys)
@@ -113,16 +118,23 @@ mpv av://v4l2:/dev/video0
 mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
 neomutt -s 'Hi.' 'meribold@gmail.com' <<< ''
 nohup xdg-open file &>/dev/null <&1 &
+nx copy --fast --all --to t5a # copy all available versions of all files
 nx copy --fast --to esgaroth
+nx copy --fast --to s3
+nx describe esgaroth Esgaroth
+nx describe here Smial
+nx describe s3 'Amazon S3'
+nx describe t5a 'Toshiba USB HDD'
 nx info
 nx info .
 nx init 'ThinkPad X220'
-nx init 'Toshiba USB HDD'
 nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
+nx initremote foo type=S3 --whatelse
 nx move --unused --to esgaroth
 nx status
 nx sync --no-resolvemerge --no-commit
 nx version
+nx vicfg
 paccache -rk1 # remove all but the most recent cached versions of ALL packages
 paccache -ruk0 # remove ALL cached versions of uninstalled packages
 pacman -F FILENAME
@@ -134,13 +146,20 @@ pacman -Qtdq # list (real) orphan packages
 pass git remote | xargs -L1 pass git push
 pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
+pydoc str
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
 rclone mount dropbox: ~/dropbox
+rclone mount googledrive: ~/googledrive
 reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
-rsync -ni -hazzHAXx ~/muddle esgaroth: | less
+rsync -hazzHAX --delete --info=progress2 ~/attic bamfurlong:t5a
+rsync -hazzHAX --delete --info=progress2 ~/attic esgaroth:
+rsync -hazzHAX --delete -ni ~/attic bamfurlong:t5a
+rsync -hazzHAX --delete -ni ~/attic esgaroth:
+rsync -hazzHAX --delete -v ~/attic bamfurlong:t5a
+rsync -hazzHAX --delete -v ~/attic esgaroth:
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
@@ -149,6 +168,7 @@ sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
 ssh -t athrad screen -Ux
+ssh esgaroth ls .zfs/snapshot
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
 sudo bash -c "rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*'} --info=progress2 / esgaroth:smial/; systemctl suspend"
@@ -157,18 +177,23 @@ sudo etckeeper commit
 sudo ip link set wlan0 up
 sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
 sudo iw dev wlan0 scan | less
+sudo pacman -D --asdeps PACKAGE
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
+sudo sysctl kernel.sysrq=1
 sudo systemctl poweroff
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
-sudo systemctl start dhcpcd@eth0 && sudo systemctl stop wpa_supplicant@wlan0
+sudo systemctl start dhcpcd@eth0
+sudo systemctl stop wpa_supplicant@wlan0
 sudo systemctl suspend
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
+sysctl kernel.sysrq
 systemctl --user restart signal-cli.bash.service
 systemctl --user start signal-cli.bash.service
 systemctl --user stop signal-cli.bash.service
 telnet mapscii.me
+time cat
 trans :zh-TW -b - | s
 umount ~/usb-hdd
 umount ~/v8x
@@ -178,6 +203,7 @@ wgetpaste
 while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read -n 1; done
 xbindkeys -k
 xdg-open file &>/dev/null <&1 & disown
+xdotool key Caps_Lock
 xev # interactively enter keys and get keysyms
 xprop
 xrandr --output HDMI-0 --auto --right-of LVDS # FIXME: untested
