@@ -154,12 +154,6 @@ reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirror
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
-rsync -hazzHAX --delete --info=progress2 ~/attic bamfurlong:t5a
-rsync -hazzHAX --delete --info=progress2 ~/attic esgaroth:
-rsync -hazzHAX --delete -ni ~/attic bamfurlong:t5a
-rsync -hazzHAX --delete -ni ~/attic esgaroth:
-rsync -hazzHAX --delete -v ~/attic bamfurlong:t5a
-rsync -hazzHAX --delete -v ~/attic esgaroth:
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
