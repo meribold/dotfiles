@@ -79,6 +79,10 @@ Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 ! manager's job to provide one.
 XTerm.fullscreen: never
 
+! See xterm(1) and <https://unix.stackexchange.com/q/45925>.
+XTerm*VT100.cutNewline: false
+XTerm*VT100.cutToBeginningOfLine: false
+
 ! Assume the font does not contain line-drawing characters, and draw them directly (see
 ! xterm(1)).  This seems to be required for the Dina font.
 XTerm*VT100.forceBoxChars: true
