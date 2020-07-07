@@ -116,9 +116,8 @@ $(HOME)/.vim/spell/%.utf-8.spl $(HOME)/.vim/spell/%.utf-8.sug:
 
 # Neovim doesn't bundle any spell files [1] but improved the auto-download feature [2][3].
 #
-# The command to get spell files with Neovim is slightly different from Vim's.  For
-# example, Neovim doesn't complain if stdin isn't a terminal and automatically confirming
-# the downloads with `<<< y` works as expected.  We also don't need `-N`.
+# The command to get spell files with Neovim is slightly different from Vim's: we don't
+# need `-N`.
 #
 # When no spell directory is found, Neovim creates one inside `$XDG_DATA_HOME/nvim/site`
 # (`~/.local/share/nvim/site`) and saves spell files there [4].  Readding `~/.config/nvim`
@@ -132,7 +131,7 @@ $(HOME)/.config/nvim/spell/%.utf-8.spl $(HOME)/.config/nvim/spell/%.utf-8.sug:
 	@[[ -e '$(@:.sug=.spl)' && ! -e '$(@:.spl=.sug)' ]] && \
 	   { PS4=; set -x; rm '$(@:.sug=.spl)'; } || :
 	nvim -u NORC --cmd 'set rtp=$$VIMRUNTIME' \
-	     +'set rtp+=~/.config/nvim spelllang=$* spell' +q <<< y
+	     +'set rtp+=~/.config/nvim spelllang=$* spell' +q
 
 # FIXME: DRY.  This is too manual.  Write a function or something.  It could take the
 # program name and a list of link names or link targets as arguments.
