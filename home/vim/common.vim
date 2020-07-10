@@ -730,6 +730,9 @@ let g:qf_auto_open_loclist = 0
 nmap <C-F> <Plug>(qf_qf_toggle_stay)
 nmap <C-L> <Plug>(qf_loc_toggle_stay)
 
+" Search and highlight but don't jump.  See <https://stackoverflow.com/a/60583995>.
+nnoremap <silent> <C-B> :let @/ = '\<' . expand('<cword>') .'\>' \| set hlsearch<CR>
+
 " More convenient mappings for maximizing the width or height of the current window.  They
 " fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
 " can still be used with a count -- I don't really do that, though, but I don't really use
