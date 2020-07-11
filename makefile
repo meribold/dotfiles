@@ -56,12 +56,7 @@ ifneq ($(shell command -v nvim 2>/dev/null),)
    all: nvim
 endif
 
-# See <https://github.com/junegunn/vim-plug#installation>.
-$(HOME)/.vim/autoload/plug.vim: | $(HOME)/.vim/autoload/
-	curl -fLso '$@' \
-	   'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-vim: $(vim_links) $(add_spl_files) $(HOME)/.vim/autoload/plug.vim \
+vim: $(vim_links) $(add_spl_files) \
    $(addprefix $(HOME)/.vim/spell/de.utf-8.,spl sug)
 
 nvim: vim $(HOME)/.config/nvim \
