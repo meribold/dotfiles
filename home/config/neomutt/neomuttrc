@@ -309,12 +309,14 @@ bind pager,attach,browser,query  exit
 # bind index N search-opposite
 # bind generic N search-opposite
 
+# Less-inspired {{{2
+bind index,pager,browser u half-up
+bind index,pager,browser d half-down
+
 # Gmail-esque {{{2
 bind index,pager \# delete-message
 bind index,pager c mail
 bind index o display-message
-bind pager,attach,browser,query u exit
-bind index u imap-fetch-mail
 bind index,browser,attach x tag-entry
 bind pager x tag-message
 bind index,pager s flag-message

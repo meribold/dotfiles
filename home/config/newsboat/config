@@ -45,8 +45,9 @@ dialogs-title-format "Dialogs"
 unbind-key C
 # This sounds dangerous too (`delete-all-articles`).
 unbind-key ^D
-# TODO: what about D (`delete-article`)?  At least it should probably be bound to `#`,
-# since that's what I'm using in Mutt.
+# Use `#` instead of `D` for `delete-article`, since that's what I use in Mutt.
+unbind-key D
+bind-key "#" delete-article
 
 # Pretty idiosyncratic keybindings because of muscle memory.
 bind-key ; cmdline
