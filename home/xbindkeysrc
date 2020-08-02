@@ -123,7 +123,7 @@
 # List [desktop entry files][1] using j4-dmenu-desktop and fzf and launch the selected
 # program.  I used Rofi instead of fzf before, but fzf is faster and has superior fuzzy
 # matching.
-"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu=fzfmenu"
+"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='fzfmenu --no-sort'"
    Mod4 + semicolon
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
@@ -193,5 +193,8 @@
    Mod4 + bracketleft
 # [1]: https://github.com/AsamK/signal-cli
 # [2]: https://github.com/meribold/signal-cli.bash
+
+"xterm -e $(man -k -s 1 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+   Mod4 + F1
 
 # vim: ft=conf
