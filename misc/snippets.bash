@@ -150,7 +150,7 @@ pydoc str
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
 rclone mount dropbox: ~/dropbox
 rclone mount googledrive: ~/googledrive
-reflector --age 1 --latest 200 --sort rate -n 10 | sudo tee /etc/pacman.d/mirrorlist # generate new mirror list for pacman
+mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
