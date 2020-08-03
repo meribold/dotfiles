@@ -110,6 +110,12 @@ j() {
    cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
 }
 
+if [[ $TERM == screen* ]]; then
+   k() {
+      screen -X screen && screen -X stuff "j $*"$'\n'
+   }
+fi
+
 # Select a line from snippets.bash with fzf and paste the selection to stdin.  This code
 # is copied and adapted from the `__fzf_history__` function in
 # /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
