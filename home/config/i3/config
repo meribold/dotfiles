@@ -21,15 +21,17 @@ bindsym $mod+q kill
 # also use `xterm -name muccadoro ...` and `for_window [instance="muccadoro] ...`.  The
 # "entire command must be quoted" because it "contains a ; (semicolon)" [3].
 #
-bindsym $mod+Shift+p exec --no-startup-id "xterm -title muccadoro -geometry 28x13 -e 'muccadoro | tee -ai ~/pomodoros.txt; read -n 1'"
+# bindsym $mod+Shift+p exec --no-startup-id "xterm -title muccadoro -geometry 28x13 -e 'muccadoro | tee -ai ~/pomodoros.txt; read -n 1'"
 for_window [title="muccadoro"] floating enable
 # [1]: https://github.com/meribold/muccadoro
 # [2]: https://en.wikipedia.org/wiki/Pomodoro_Technique
 # [3]: https://i3wm.org/docs/userguide.html#exec
 
 # Change focus.
+bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 bindsym $mod+t sticky toggle
 
@@ -69,8 +71,8 @@ bindsym $mod+Shift+grave move scratchpad
 # article's associated URL in Newsboat, for example, and it's annoying.
 focus_on_window_activation urgent
 
-bindsym $mod+h workspace prev
-bindsym $mod+l workspace next
+bindsym $mod+p workspace prev
+bindsym $mod+n workspace next
 
 # Switch workspace.
 bindsym $mod+1 workspace 1

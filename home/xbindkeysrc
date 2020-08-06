@@ -115,7 +115,7 @@
 
 # This is very similar to the "Mod4 + grave" keybind above.
 "if [[ $(i3-msg '[instance="^newsboat$"] scratchpad show') != '[{"success":true}]' ]]; then if screen -ls newsboat; then exec xterm -name newsboat -geometry 140x24 -e 'stty -ixon && exec screen -x newsboat'; else exec xterm -name newsboat -geometry 140x24 -e 'stty -ixon && exec screen -S newsboat newsboat'; fi; fi"
-   Mod4 + n
+   Mod4 + Shift + n
 
 "xterm -name 'floating xterm' -e p"
    Mod4 + g
@@ -139,7 +139,7 @@
 
 # Run [rofi-pass](https://github.com/carnager/rofi-pass), an alternative to passmenu.
 "PINENTRY_USER_DATA=gtk rofi-pass"
-   Mod4 + p
+   Mod4 + Shift + p
 
 "xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --silent --fail "wttr.in/${1:-}" | head -n -2'"
    Mod4 + y
