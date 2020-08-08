@@ -179,10 +179,7 @@
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
-# These notifications are excluded from Dunst's message history based on the "application
-# name" hzVgHJS3.  There is associated configuration in `home/config/dunst/dunstrc` that
-# makes this work.
-"notify-send -u low -t 0 -a hzVgHJS3 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei""
+"i3-msg '[instance="^floating man$"] scratchpad show'"
    Mod4 + z
 
 # Take a note by messaging myself using [signal-cli][1] via [signal-cli.bash][2].  The
@@ -194,28 +191,28 @@
 # [1]: https://github.com/AsamK/signal-cli
 # [2]: https://github.com/meribold/signal-cli.bash
 
-"xterm -e $(man -k -s 1 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 1"
    Mod4 + F1
 
-"xterm -e $(man -k -s 2 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 2"
    Mod4 + F2
 
-"xterm -e $(man -k -s 3 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 3"
    Mod4 + F3
 
-"xterm -e $(man -k -s 4 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 4"
    Mod4 + F4
 
-"xterm -e $(man -k -s 5 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 5"
    Mod4 + F5
 
-"xterm -e $(man -k -s 6 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 6"
    Mod4 + F6
 
-"xterm -e $(man -k -s 7 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 7"
    Mod4 + F7
 
-"xterm -e $(man -k -s 8 . | awk '{ print $1, $2 }' | fzfmenu | sed -r 's/(.*) \((.*)\)/man \2 \1/')"
+"~/dotfiles/misc/xbindkeys-helpers/man 8"
    Mod4 + F8
 
 # vim: ft=conf

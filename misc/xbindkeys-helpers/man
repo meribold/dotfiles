@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -o nounset -o pipefail
+
+if [[ ! -f /tmp/man$1.txt ]]; then
+   man -k -s "$1" . | awk '{ print $1, $2 }' > "/tmp/man$1.txt"
+fi
+
+mapfile -t selection < <(fzfmenu < "/tmp/man$1.txt" | sed -r 's/(.*) \((.*)\)/\2\n\1/')
+
+[[ ${selection[0]} && ${selection[1]} ]] || exit $?
+
+xterm -sl 0 -name 'floating man' -title "${selection[1]}(${selection[0]}) manual page" \
+   -geometry 100x58 -e man --nj --nh "${selection[@]}"

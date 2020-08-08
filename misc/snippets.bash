@@ -32,6 +32,7 @@ feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 feh --sort mtime ~/.config/signal/attachments # view photos from Signal
 feh --sort mtime ~/screenshots
 find / -name '*.desktop' 2>/dev/null | less
+for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
