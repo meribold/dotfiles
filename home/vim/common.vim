@@ -188,7 +188,6 @@ set sidescroll=1 " Scroll horizontally smoothly (one column at a time) instead o
 
 set title " Let vim set the terminal title.
 
-set scrolloff=2   " Always keep 2 lines above and below the cursor.
 set hidden        " Only hide (don't unload) a buffer when abandoned.
 set laststatus=2  " Always show a status line.
 set showtabline=0 " Never display tab labels.
