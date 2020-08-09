@@ -34,7 +34,6 @@ feh --sort mtime ~/screenshots
 find / -name '*.desktop' 2>/dev/null | less
 for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
-g=$(mktemp) && f="$g".cpp && $VISUAL "$f" && g++ "$f" -o "$g" && "$g" # quickly hack some C++
 gds --color-words
 getent hosts athrad snapscore.meribold.xyz snapscore.meribold.org meribold.xyz meribold.org
 git check-attr --all

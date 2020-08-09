@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -o nounset -o pipefail
+shopt -s extglob
+
+if [[ $0 = *reforge ]]; then
+   IFS= read -r d < <(
+      find /tmp -maxdepth 1 -type d -name 'forge.??????????' -printf '%A@\t%p\n' |
+      sort -rn | cut -f2
+   ) || exit $?
+fi
+
+if [[ ! -v d || ! -d $d ]]; then
+   d=$(mktemp --tmpdir -d forge.XXXXXXXXXX) || exit $?
+   cat > "$d/main.cpp" <<EOF
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char* argv[]) {
+   
+}
+EOF
+   nvim "$d/main.cpp" +6 +'startinsert!'
+else
+   nvim "$d/main.cpp" +'normal! g`"'
+fi
+
+g++ "$d/main.cpp" -o "$d/main" && "$d/main"
