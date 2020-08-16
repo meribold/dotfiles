@@ -98,13 +98,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# Reload the configuration file.
-bindsym $mod+Shift+c reload
-# Restart i3 inplace (preserves layout and session, can be used to upgrade i3).
-bindsym $mod+Shift+r restart
-# Exit i3.
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
-
 # These bindings trigger when entering resize mode.
 mode "resize" {
    bindsym h resize shrink width 10 px or 10 ppt

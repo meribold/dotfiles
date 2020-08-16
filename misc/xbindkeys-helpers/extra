@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -o nounset -o pipefail
+
+gatewayip() {
+   ip route | awk '/^def/{print $3}'
+}
+
+lock() {
+   nohup lock &>/dev/null &
+   sleep 0.001
+}
+
+# These commands are halfway between keybind and `snippets.bash` material.  Plus, there's
+# only so many keys on a keyboard.
+selected_command=$(fzf <<'EOF'
+killall xbindkeys; (cd ~ && xbindkeys)
+$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
+cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
+lock
+auracle outdated
+for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
+i3-msg exit
+i3-msg -q reload
+i3-msg restart
+ip address show eth0
+ip address show wlan0
+ip route show dev wlan0
+iw wlan0 info
+iw wlan0 link
+EOF
+) || exit $?
+
+[[ $selected_command ]] || exit $?
+
+output=$(eval "$selected_command")
+
+if [[ $output ]]; then
+   if (( $(wc -l <<< "$output") >= 14 )); then
+      printf '$ %s\n%s' "$selected_command" "$output" | less
+   else
+      tput civis
+      printf '$ %s\n%s' "$selected_command" "$output"
+      read -rn1
+   fi
+fi

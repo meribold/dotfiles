@@ -3,17 +3,14 @@
 # nx forget --force
 # nx sync --cleanup
 $FIREFOX --ProfileManager
-$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 $FIREFOX --safe-mode
 >/dev/null trans -speak en: spinach
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
-auracle outdated
 bundle exec jekyll serve --drafts
 bundle install --path vendor/bundle
 cat /proc/cmdline # check what kernel parameters we booted with
 cat /proc/sys/kernel/sysrq
-cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null;:
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
 cat /sys/module/usbcore/parameters/autosuspend
 cd $(mktemp -d)
@@ -32,7 +29,6 @@ feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 feh --sort mtime ~/.config/signal/attachments # view photos from Signal
 feh --sort mtime ~/screenshots
 find / -name '*.desktop' 2>/dev/null | less
-for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 gds --color-words
 getent hosts athrad snapscore.meribold.xyz snapscore.meribold.org meribold.xyz meribold.org
@@ -56,11 +52,6 @@ gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
 i3-msg -t get_workspaces | jq
-ip address show eth0
-ip address show wlan0
-ip route show dev wlan0
-iw wlan0 info
-iw wlan0 link
 journalctl --no-tail -b -o cat -fu dhcpcd@eth0
 journalctl --no-tail -b -o cat -fu dhcpcd@wlan0
 journalctl --no-tail -b -o cat -fu wpa_supplicant@wlan0
@@ -71,7 +62,6 @@ journalctl _COMM=sshd
 kill -l
 killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
-killall xbindkeys; (cd ~ && xbindkeys)
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
 mount ~/usb-hdd

@@ -127,6 +127,9 @@
    Mod4 + semicolon
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
+"xterm -name 'floating xterm' -geometry 120x14 -e bash ~/dotfiles/misc/xbindkeys-helpers/extra"
+   Mod4 + Shift + semicolon
+
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
 # every other potential option for doing some quick maths (`bc`, `calc`, `dc`, `lua`, just
 # `python`, ...).  Now I'm trying GHCi.  Also see <https://reddit.com/comments/5z5fwh>.
