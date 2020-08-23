@@ -98,14 +98,16 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# These bindings trigger when entering resize mode.
 mode "resize" {
    bindsym h resize shrink width 10 px or 10 ppt
    bindsym j resize grow height 10 px or 10 ppt
    bindsym k resize shrink height 10 px or 10 ppt
    bindsym l resize grow width 10 px or 10 ppt
-   # Back to normal: Enter or Escape.
-   bindsym Return mode "default"
+   bindsym Shift+h move left
+   bindsym Shift+j move down
+   bindsym Shift+k move up
+   bindsym Shift+l move right
+   bindsym Return move position center
    bindsym Escape mode "default"
 }
 
