@@ -22,14 +22,19 @@ export GPG_TTY=$(tty)
 # Clear PROMPT_COMMAND.  It's set from /etc/bash.bashrc on Arch Linux.
 unset PROMPT_COMMAND
 
-# Set up fzf keybindings if fzf is installed (see https://stackoverflow.com/a/677212).
+# Set up fzf's Bash keybinds if fzf is installed (see https://stackoverflow.com/a/677212).
 if hash fzf 2>/dev/null; then
-   # Try to set up fzf's Bash key bindings using a file Arch's fzf package installs.
-   [[ -f /usr/share/fzf/key-bindings.bash ]] && source /usr/share/fzf/key-bindings.bash
+   # Arch's fzf package installs this file.  Source it if it exists.
+   if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+      source /usr/share/fzf/key-bindings.bash
+   # Ubuntu's fzf package installs this file.
+   elif [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]]; then
+      source /usr/share/doc/fzf/examples/key-bindings.bash
    # Maybe fzf was installed directly from the Git repository.  If this involved running
-   # the bundled install script, there should be a `~/.fzf.bash` file.  Source that file
-   # if it exists.
-   [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+   # the bundled install script, there should be a `~/.fzf.bash` file.
+   elif [[ -f ~/.fzf.bash ]]; then
+      source ~/.fzf.bash
+   fi
 fi
 
 # Source z.sh (https://github.com/rupa/z); z(1) jumps to frecent directories and it's
