@@ -107,7 +107,7 @@ mode extra {
    bindsym Shift+j move down
    bindsym Shift+k move up
    bindsym Shift+l move right
-   bindsym Return move position center
+   bindsym Return move position center; mode default
    bindsym Escape mode default
    bindsym a exec xrandr --output LVDS-1 --auto; mode default
 }
