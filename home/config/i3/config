@@ -109,6 +109,7 @@ mode "resize" {
    bindsym Shift+l move right
    bindsym Return move position center
    bindsym Escape mode default
+   bindsym a exec xrandr --output LVDS-1 --auto; mode default
 }
 
 # Resize mode.
