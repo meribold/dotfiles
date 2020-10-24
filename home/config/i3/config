@@ -98,7 +98,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-mode "extra" {
+mode extra {
    bindsym h resize shrink width 10 px or 10 ppt
    bindsym j resize grow height 10 px or 10 ppt
    bindsym k resize shrink height 10 px or 10 ppt
@@ -112,7 +112,7 @@ mode "extra" {
    bindsym a exec xrandr --output LVDS-1 --auto; mode default
 }
 
-bindsym $mod+w mode "extra"
+bindsym $mod+w mode extra
 
 # See <https://i3wm.org/docs/userguide.html#_layout_mode_for_new_containers>.  Use the
 # `stacking` layout by default.  I use a patched version of i3 that always hides tab/title
