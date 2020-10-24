@@ -1,7 +1,5 @@
 #!/usr/bin/env dash
 
-set -o nounset
-
 # This is inspired by [1].
 exec xterm -name 'floating xterm' -e dash -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"
 
