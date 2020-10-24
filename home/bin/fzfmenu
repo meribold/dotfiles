@@ -3,6 +3,6 @@
 set -o nounset
 
 # This is inspired by [1].
-xterm -name 'floating xterm' -e dash -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"
+exec xterm -name 'floating xterm' -e dash -c "fzf $* < /proc/$$/fd/0 > /proc/$$/fd/1"
 
 # [1]: https://github.com/enkore/j4-dmenu-desktop/issues/39#issuecomment-177164865
