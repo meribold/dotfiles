@@ -1,4 +1,3 @@
 #!/bin/sh
 
-# Start a screen session and run xinit.
-exec screen -S tty xinit "$@"
+exec xinit "$@" -- :1 &> ~/.xinit.log

@@ -1,19 +1,5 @@
 #!/bin/bash
 
-# *If* inside a screen session, detach and logout ("power detach").  This prevents
-# sidestepping whatever mechanism is used to lock the X session and gaining unauthorized
-# access to the virtual console from which X is started (either by killing the X server
-# with Control+Alt+Backspace or by switching to that virtual console with e.g.
-# Control+Alt+F1).  XXX: this does nothing when X isn't started from within a screen
-# session.
-#
-# I'm aware someone with physical access can still compromise security in other ways
-# [1][2], but making that a little more difficult is still useful (security isn't binary).
-#
-[[ $STY ]] && screen -X pow_detach
-# [1]: https://superuser.com/q/323144#comment348412_323144
-# [2]: https://unix.stackexchange.com/q/40720#comment55641_40720
-
 # TODO: consider sourcing the scripts in /etc/X11/xinit/xinitrc.d/ like
 # /etc/X11/xinit/xinitrc does.
 

@@ -29,8 +29,8 @@ ip address show wlan0
 ip route show dev wlan0
 iw wlan0 info
 iw wlan0 link
-sudo systemctl suspend
-sudo systemctl poweroff
+systemctl suspend
+systemctl poweroff
 xset dpms force off # turn off the display
 xrandr --output LVDS-1 --off # disable the internal display
 EOF
