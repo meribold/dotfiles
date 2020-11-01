@@ -3,7 +3,8 @@
 # See <https://github.com/meribold/rofi-pass/blob/master/config.example>.
 
 _rofi () {
-   rofi -i -matching fuzzy -theme-str '* { accent-color: @blue; }' "$@"
+   rofi -i -matching fuzzy -sort -sorting-method fzf \
+        -theme-str '* { accent-color: @blue; }' "$@"
 }
 
 # Defaults.  We expect to find these fields in pass(1)'s output.
