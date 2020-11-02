@@ -155,7 +155,7 @@ ssh -t athrad screen -Ux
 ssh esgaroth ls .zfs/snapshot
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
-sudo bash -c "rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*'} --info=progress2 / esgaroth:smial/; systemctl suspend"
+sudo rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*'} --info=progress2 / esgaroth:smial/; systemctl suspend
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
 sudo ip link set wlan0 up
