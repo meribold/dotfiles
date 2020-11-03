@@ -182,6 +182,9 @@
 "xterm -name 'floating xterm' -geometry 180x29 -e htop"
    Mod4 + apostrophe
 
+"xterm -name 'floating xterm' -geometry 159x32 -e alsamixer"
+   Mod4 + Shift + apostrophe
+
 "i3-msg '[instance="^floating man$"] scratchpad show'"
    Mod4 + z
 
