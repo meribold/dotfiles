@@ -109,7 +109,7 @@ mode extra {
    bindsym Shift+l move right
    bindsym Return move position center; mode default
    bindsym Escape mode default
-   bindsym a exec xrandr --output LVDS-1 --auto; mode default
+   bindsym a exec --no-startup-id xrandr --output LVDS-1 --auto; mode default
 }
 
 bindsym $mod+w mode extra
