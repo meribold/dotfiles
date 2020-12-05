@@ -1,0 +1,9 @@
+include "%L"
+
+<Multi_key> <c> <o> <f> <f> <e> <e> : "☕"
+<Multi_key> <p> <i> <z> <z> <a> : "🍕"
+<Multi_key> <h> <m> <m> : "🤔"
+<Multi_key> <plus> <1> : "👍"
+<Multi_key> <s> <h> <r> <u> <g> : "🤷"
+
+# vim: ft=conf
