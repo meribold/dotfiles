@@ -322,3 +322,6 @@
 [submodule "home/vim/pack/meribold/start/vim-gnupg"]
 	path = home/vim/pack/meribold/start/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg
+[submodule "misc/AUR/dragon-drag-and-drop"]
+	path = misc/AUR/dragon-drag-and-drop
+	url = https://aur.archlinux.org/dragon-drag-and-drop.git
