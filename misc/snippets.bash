@@ -40,7 +40,7 @@ git fetch . WIP:master
 git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
-git remote | xargs -L1 git push
+git remote | xargs -L1 -P0 git push
 git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
@@ -133,7 +133,7 @@ pacman -Qeq --foreign > ~/dotfiles/misc/foreign-packages.txt
 pacman -Qeq --native > ~/dotfiles/misc/native-packages.txt
 pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
 pacman -Qtdq # list (real) orphan packages
-pass git remote | xargs -L1 pass git push
+pass git remote | xargs -L1 -P0 pass git push
 pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
 pydoc str
