@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 for tz in America/{Los_Angeles,Chicago,New_York} UTC Europe/{London,Berlin} Asia/Taipei; do
-   printf '%19s' $tz
+   tz_tail=${tz##*/}
+   printf '%11s' "${tz_tail//_/ }"
    TZ=$tz date +' · %Z · %:::z │ %a %H:%M';
 done
