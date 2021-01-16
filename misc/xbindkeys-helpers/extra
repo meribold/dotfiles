@@ -18,7 +18,7 @@ killall xbindkeys; (cd ~ && xbindkeys)
 $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 lock
-for TZ in America/{Los_Angeles,New_York} UTC Europe/{London,Berlin} Asia/Taipei; do TZ=$TZ date; done
+dates
 auracle outdated
 for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 i3-msg exit
