@@ -16,6 +16,11 @@ charge_thresholds() {
    echo $2 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold >/dev/null
 }
 
+toggle_thinklight() {
+   echo $((($(cat '/sys/class/leds/tpacpi::thinklight/brightness') + 1) % 2)) |
+      sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
+}
+
 # These commands are halfway between keybind and `snippets.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 selected_command=$(fzf <<'EOF'
@@ -43,8 +48,7 @@ cat /sys/class/power_supply/BAT0/status
 charge_thresholds 40 60
 charge_thresholds 60 80
 charge_thresholds 95 100
-echo 0 | sudo tee '/sys/class/leds/tpacpi::thinklight/brightness' >/dev/null
-echo 1 | sudo tee '/sys/class/leds/tpacpi::thinklight/brightness' >/dev/null
+toggle_thinklight
 EOF
 ) || exit $?
 
