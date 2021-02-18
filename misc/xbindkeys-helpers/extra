@@ -11,6 +11,11 @@ lock() {
    sleep 0.001
 }
 
+charge_thresholds() {
+   echo $1 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
+   echo $2 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold >/dev/null
+}
+
 # These commands are halfway between keybind and `snippets.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 selected_command=$(fzf <<'EOF'
@@ -33,6 +38,13 @@ systemctl suspend
 systemctl poweroff
 xset dpms force off # turn off the display
 xrandr --output LVDS-1 --off # disable the internal display
+cat /sys/class/power_supply/BAT0/charge_{start,stop}_threshold
+cat /sys/class/power_supply/BAT0/status
+charge_thresholds 0 60
+charge_thresholds 0 80
+charge_thresholds 0 100
+charge_thresholds 40 60
+charge_thresholds 40 80
 EOF
 ) || exit $?
 
