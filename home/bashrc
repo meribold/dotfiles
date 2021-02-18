@@ -230,6 +230,14 @@ HISTSIZE=-1
 # <https://askubuntu.com/q/15926>.
 HISTCONTROL=ignorespace
 
+HISTFILE=~/bash-history/current
+
+# Bash appears to append history before running this, so there's no need for `history -a`.
+commit_history() {
+   cd ~/bash-history && git commit -m 'Update history' current &>/dev/null &
+}
+trap commit_history EXIT
+
 # Using this function (`PS1='$(ps1)'`) results in a marginally nicer PS1 than `PS1='\$ '`.
 # The default PS1 is '[\u@\h \W]\$ ' (TODO: is this set by Bash or by Arch?).
 ps1() {
