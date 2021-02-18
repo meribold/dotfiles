@@ -222,12 +222,14 @@ shopt -s histverify
 shopt -s histappend
 
 HISTTIMEFORMAT='%F %T  '
+
 # Bash sets HISTFILESIZE to this value as well and "if HISTFILESIZE is [...] a numeric
 # value less than zero, the history file is not truncated" (bash(1)).
 HISTSIZE=-1
+# Set HISTFILESIZE explicitly anyway.
+HISTFILESIZE=-1
 
-# Don't save lines starting with a space character in the history.  Cf.
-# <https://askubuntu.com/q/15926>.
+# Don't save lines starting with a space character in the history.
 HISTCONTROL=ignorespace
 
 HISTFILE=~/bash-history/current
