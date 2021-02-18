@@ -235,6 +235,8 @@ HISTCONTROL=ignorespace
 HISTFILE=~/bash-history/current
 
 # Bash appears to append history before running this, so there's no need for `history -a`.
+# XXX: when running e.g. `exec htop` Bash does not seem to run this.  The new history
+# isn't committed.  It is still appended, though.
 commit_history() {
    cd ~/bash-history && git commit -m 'Update history' current &>/dev/null &
 }
