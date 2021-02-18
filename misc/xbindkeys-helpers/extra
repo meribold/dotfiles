@@ -21,6 +21,14 @@ toggle_thinklight() {
       sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
 }
 
+wifail() {
+   command wifail >/dev/null && sleep 0.5
+}
+
+ethinfo() {
+   command ethinfo >/dev/null && sleep 0.5
+}
+
 # These commands are halfway between keybind and `snippets.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 selected_command=$(fzf <<'EOF'
@@ -29,6 +37,8 @@ $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 lock
 dates
+wifail
+ethinfo
 auracle outdated
 for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 i3-msg exit
