@@ -43,6 +43,8 @@ cat /sys/class/power_supply/BAT0/status
 charge_thresholds 40 60
 charge_thresholds 60 80
 charge_thresholds 95 100
+echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness >/dev/null
+echo 1 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness >/dev/null
 EOF
 ) || exit $?
 
