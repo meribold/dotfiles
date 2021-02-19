@@ -11,9 +11,22 @@ lock() {
    sleep 0.001
 }
 
+# A precondition of this function is $1 <= $2.
 charge_thresholds() {
+   # This can fail because it may try to set charge_start_threshold to a value bigger than
+   # the current charge_stop_threshold.
    echo "$1" | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
+   retry=$?
+   # In theory this fails when trying to set charge_stop_threshold to a value smaller than
+   # charge_start_threshold, but we already adjusted charge_start_threshold.  If adjusting
+   # charge_start_threshold failed because the new charge_start_threshold ($1) is bigger
+   # than the old charge_stop_threshold, then the new charge_stop_threshold ($2) is bigger
+   # than the old charge_start_threshold, and we are fine:
+   #    old charge_start_threshold <= old charge_stop_threshold < $1 <= $2
    echo "$2" | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold >/dev/null
+   if (( retry )); then
+      echo "$1" | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
+   fi
 }
 
 toggle_thinklight() {
