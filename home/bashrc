@@ -127,19 +127,19 @@ if [[ $TERM == screen* ]]; then
    }
 fi
 
-# Select a line from snippets.bash with fzf and paste the selection to stdin.  This code
+# Select a line from oneliners.bash with fzf and paste the selection to stdin.  This code
 # is copied and adapted from the `__fzf_history__` function in
 # /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
 # <https://www.archlinux.org/packages/community/x86_64/fzf/>).
-__fzf_snippets__() {
+__fzf_oneliners__() {
    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
-      < ~/dotfiles/misc/snippets.bash
+      < ~/dotfiles/misc/oneliners.bash
 }
 
-# Invoke __fzf_snippets__ with Control+I (xterm is configured to send ÿ when Control+I is
+# Invoke __fzf_oneliners__ with Control+I (xterm is configured to send ÿ when Control+I is
 # pressed, so it can be distinguished from Tab).  I just copied and adapted the code used
 # in /usr/share/fzf/key-bindings.bash to set up the Control+R readline key binding.
-bind '"ÿ": " \C-e\C-u$(__fzf_snippets__)\e\C-e\e^\er"'
+bind '"ÿ": " \C-e\C-u$(__fzf_oneliners__)\e\C-e\e^\er"'
 
 # Aliases for humans.
 alias df='df -h'

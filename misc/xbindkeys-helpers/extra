@@ -46,7 +46,7 @@ ethinfo() {
    command ethinfo >/dev/null && sleep 0.5
 }
 
-# These commands are halfway between keybind and `snippets.bash` material.  Plus, there's
+# These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 selected_command=$(fzf <<'EOF'
 killall xbindkeys; (cd ~ && xbindkeys)
