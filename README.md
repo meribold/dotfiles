@@ -22,8 +22,6 @@ Generally, these two projects are examples of pretty nice readme files, I think:
 
 <!-- TODO: `## Highlights` section? -->
 
-## Project Structure
-
 The repository is split into three main directories: [`home/`](home/), [`root/`](root/),
 and [`misc/`](misc/).
 *   `home` contains files that should be linked to from `$HOME` and mirrors that directory
