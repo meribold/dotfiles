@@ -4,7 +4,7 @@
 [p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
 [scripts](home/bin/), [keybindings](home/xbindkeysrc), …
 
-<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash">
+<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection.">
 
 <!--
 I don't think a `# dotfiles` caption is needed: just make some interesting points as fast
@@ -23,7 +23,7 @@ Generally, these two projects are examples of pretty nice readme files, I think:
 <!-- TODO: `## Highlights` section? -->
 
 There are three main directories: [`home`](home/), [`root`](root/), and [`misc`](misc/).
-*   `home` contains files that should be linked to from `$HOME` and mirrors that directory
+*   `home` contains files that should be linked to from `$HOME` and mirrors its directory
     structure.
 *   `root` contains files that should be linked to from *outside* `$HOME`.  Paths reflect
     where symlinks should be created relative to the filesystem root directory.
@@ -37,16 +37,15 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 ## Installation
 
 I don't recommend blindly installing these dotfiles: my setup is personal, opinionated,
-and sometimes my own information is hard-coded.  Some configuration is not portable and
-specific to [Arch][] or my ThinkPad.  That being said…
-
-The installation is based on [GNU Make][make] and you can specifically try out the
-configuration for individual programs without creating any other links.
+and sometimes personal information is hard-coded.  Some configuration is not portable and
+specific to [Arch][] or my ThinkPad.  That being said, you can specifically install the
+configuration for individual programs without creating any other links.  Installation uses
+[GNU Make][].
 
 *   Clone this repository to `~/dotfiles`.
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
-    names.  The makefile doesn't replace most conflicting files, they need to be removed
-    or moved manually first.  For example:
+    names.  The makefile doesn't replace most conflicting files; you need to remove or
+    move them manually first.  For example:
 
     ```bash
     mv ~/.vim ~/.vim.backup
@@ -64,7 +63,7 @@ regular files.
 
 Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execute.
 
-[make]: https://www.gnu.org/software/make/
+[GNU Make]: https://www.gnu.org/software/make/
 [arch]: https://archlinux.org
 
 <!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
