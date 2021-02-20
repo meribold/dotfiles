@@ -23,11 +23,13 @@ Generally, these two projects are examples of pretty nice readme files, I think:
 <!-- TODO: `## Highlights` section? -->
 
 There are three main directories: [`home`](home/), [`root`](root/), and [`misc`](misc/).
-*   `home` contains files that should be linked to from `$HOME` and mirrors its directory
-    structure.
-*   `root` contains files that should be linked to from *outside* `$HOME`.  Paths reflect
-    where symlinks should be created relative to the filesystem root directory.
-*   `misc` contains configuration files that don't require linking.
+
+*   The `home` directory contains files that should be linked to from `$HOME` and mirrors
+    its directory structure.
+*   The `root` directory contains files that should be linked to from *outside* `$HOME`.
+    Paths reflect where symlinks should be created relative to the filesystem root
+    directory.
+*   The `misc` directory contains configuration files that don't require linking.
 
 For example, [`home/vim/vimrc`](home/vim/vimrc) would be the target of a link at
 `~/.vim/vimrc` and
@@ -37,10 +39,10 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 ## Installation
 
 I don't recommend blindly installing these dotfiles: my setup is personal, opinionated,
-and sometimes personal information is hard-coded.  Some configuration is not portable and
-specific to [Arch][] or my ThinkPad.  That being said, you can specifically install the
-configuration for individual programs without creating any other links.  Installation uses
-[GNU Make][].
+and sometimes my own information is hard-coded.  Some configuration is specific to
+[Arch][], the ThinkPad X220, or otherwise not portable.  That being said, you can
+specifically install the configuration for individual programs without creating any other
+links.  Installation uses [GNU Make][].
 
 *   Clone this repository to `~/dotfiles`.
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
