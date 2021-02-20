@@ -49,13 +49,13 @@ ethinfo() {
 # These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 selected_command=$(fzf <<'EOF'
-killall xbindkeys; (cd ~ && xbindkeys)
-$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
-cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 lock
 dates
 wifail
 ethinfo
+killall xbindkeys; (cd ~ && xbindkeys)
+$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
+cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 auracle outdated
 for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 i3-msg exit
