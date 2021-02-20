@@ -124,11 +124,11 @@
 # program.  I used Rofi instead of fzf before, but fzf is faster and has superior fuzzy
 # matching.
 "j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='fzfmenu --no-sort'"
-   Mod4 + semicolon
+   Mod4 + Shift + semicolon
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
 "xterm -name 'floating xterm' -geometry 120x14 -e bash ~/dotfiles/misc/xbindkeys-helpers/extra"
-   Mod4 + Shift + semicolon
+   Mod4 + semicolon
 
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
 # every other potential option for doing some quick maths (`bc`, `calc`, `dc`, `lua`, just
