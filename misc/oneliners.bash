@@ -64,6 +64,7 @@ killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
+mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
 mount ~/usb-hdd
 mount ~/v8x # mount my USB drive (this only works because of an entry in my fstab(5))
 mount ~/v8x && { git pull usb; umount ~/v8x; } # pull from my USB drive
@@ -140,7 +141,6 @@ pydoc str
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
 rclone mount dropbox: ~/dropbox
 rclone mount googledrive: ~/googledrive
-mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
@@ -155,7 +155,6 @@ ssh -t athrad screen -Ux
 ssh esgaroth ls .zfs/snapshot
 ssh esgaroth quota
 sshfs esgaroth: ~/esgaroth
-sudo rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*'} --info=progress2 / esgaroth:smial/; systemctl suspend
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
 sudo ip link set wlan0 up
@@ -164,6 +163,7 @@ sudo iw dev wlan0 scan | less
 sudo pacman -D --asdeps PACKAGE
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
+sudo rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*'} --info=progress2 / esgaroth:smial/; systemctl suspend
 sudo sysctl kernel.sysrq=1
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
