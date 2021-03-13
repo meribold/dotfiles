@@ -6,6 +6,10 @@ gatewayip() {
    ip route | awk '/^def/{print $3}'
 }
 
+nethack() {
+   xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
+}
+
 lock() {
    nohup lock &>/dev/null &
    sleep 0.001
@@ -73,6 +77,7 @@ background:ethinfo
 :charge_thresholds 75 80
 :charge_thresholds 95 100
 :toggle_thinklight
+background:nethack
 background:chromium
 EOF
 ) || exit $?
