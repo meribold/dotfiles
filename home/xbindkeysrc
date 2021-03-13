@@ -127,7 +127,7 @@
    Mod4 + Shift + semicolon
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
-"xterm -name 'floating xterm' -geometry 120x14 -e bash ~/dotfiles/misc/xbindkeys-helpers/extra"
+"xterm -name 'floating xterm' -geometry 120x14 -e ~/dotfiles/misc/xbindkeys-helpers/extra"
    Mod4 + semicolon
 
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
