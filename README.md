@@ -29,7 +29,7 @@ There are three main directories: [`home`](home/), [`root`](root/), and [`misc`]
 *   The `root` directory contains files that should be linked to from *outside* `$HOME`.
     Paths reflect where symlinks should be created relative to the filesystem root
     directory.
-*   The `misc` directory contains configuration files that don't require linking.
+*   The `misc` directory contains files that don't require linking.
 
 For example, [`home/vim/vimrc`](home/vim/vimrc) would be the target of a link at
 `~/.vim/vimrc` and
