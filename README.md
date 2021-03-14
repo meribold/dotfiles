@@ -46,8 +46,8 @@ links.  Installation uses [GNU Make][].
 
 *   Clone this repository to `~/dotfiles`.
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
-    names.  The makefile doesn't replace most conflicting files; you need to remove or
-    move them manually first.  For example:
+    names.  The makefile doesn't replace most conflicting files.  Remove or move them
+    manually.  For example:
 
     ```bash
     mv ~/.vim ~/.vim.backup
