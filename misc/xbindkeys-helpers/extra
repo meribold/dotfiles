@@ -82,7 +82,10 @@ background:gimp
 background:emacs
 background:inkscape
 background:anki
+background:screenkey
+background:qutebrowser
 background:chromium
+:pkill screenkey
 EOF
 ) || exit $?
 
