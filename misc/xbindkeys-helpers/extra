@@ -78,6 +78,10 @@ background:ethinfo
 :charge_thresholds 95 100
 :toggle_thinklight
 background:nethack
+background:gimp
+background:emacs
+background:inkscape
+background:anki
 background:chromium
 EOF
 ) || exit $?
