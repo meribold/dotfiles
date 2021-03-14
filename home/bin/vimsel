@@ -11,7 +11,7 @@
 # * Maybe we don't need an actual file here.
 
 f=$(mktemp) &&
-xsel > "$f" &&
+xsel -o > "$f" &&
 xterm -name vimsel -e nvim +'set ft=markdown' "$f" &&
 xsel --clipboard < "$f"
 
