@@ -38,11 +38,11 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 
 ## Installation
 
-I don't recommend blindly installing these dotfiles: my setup is personal, opinionated,
-and sometimes my own information is hard-coded.  Some configuration is specific to
-[Arch][], the ThinkPad X220, or otherwise not portable.  That being said, you can
-specifically install the configuration for individual programs without creating any other
-links.  Installation uses [GNU Make][].
+Be warned that my setup is personal, opinionated, and sometimes my own information is
+hard-coded.  Some configuration is specific to [Arch][], the ThinkPad X220, or otherwise
+not portable.  That being said, you can specifically install the configuration for
+individual programs without any extraneous changes being made.  Installation uses [GNU
+Make][].
 
 *   Clone this repository to `~/dotfiles`.
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
