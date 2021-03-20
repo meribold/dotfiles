@@ -22,6 +22,7 @@ tab_width = 8
 indent_style = tab
 
 [.git/COMMIT_EDITMSG]
+indent_size = 4
 max_line_length = 72
 
 [home/gitconfig]
