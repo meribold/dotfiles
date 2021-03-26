@@ -78,6 +78,8 @@ charge_thresholds 75 80
 charge_thresholds 95 100
 toggle_thinklight
 browse::wiki.meribold.org
+browse::wiki.meribold.org/Lists
+browse::wiki.meribold.org/rec/Words
 browse::wiki.meribold.org/edit/rec/Words
 browse::wiki.meribold.org/$(date -I)
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
