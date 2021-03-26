@@ -6,7 +6,7 @@ gatewayip() {
    ip route | awk '/^def/{print $3}'
 }
 
-nethack() {
+NetHack() {
    xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
 }
 
@@ -47,60 +47,74 @@ toggle_thinklight() {
 
 # These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
-selection=$(fzf --with-nth 2.. -d : <<'EOF'
-:lock
-:dates
-background:wifail
-background:ethinfo
-:killall xbindkeys; (cd ~ && xbindkeys)
-:$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
-:cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
-:auracle outdated
-:for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
-:i3-msg exit
-:i3-msg -q reload
-:i3-msg restart
-:ip address show eth0
-:ip address show wlan0
-:ip route show dev wlan0
-:iw wlan0 info
-:iw wlan0 link
-:systemctl suspend
-:systemctl poweroff
-:xset dpms force off # turn off the display
-:xrandr --output LVDS-1 --off # disable the internal display
-:cat /sys/class/power_supply/BAT0/status
-:charge_thresholds
-:charge_thresholds 40 60
-:charge_thresholds 55 60
-:charge_thresholds 60 80
-:charge_thresholds 75 80
-:charge_thresholds 95 100
-:toggle_thinklight
-background:nethack
-background:gimp
-background:emacs
-background:inkscape
-background:anki
-background:screenkey
-background:qutebrowser
-background:chromium
-:pkill screenkey
+selection=$(fzf --with-nth -1 -d :: <<'EOF'
+lock
+dates
+background::wifail
+background::ethinfo
+killall xbindkeys; (cd ~ && xbindkeys)
+$FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
+cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
+auracle outdated
+for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
+i3-msg exit
+i3-msg -q reload
+i3-msg restart
+ip address show eth0
+ip address show wlan0
+ip route show dev wlan0
+iw wlan0 info
+iw wlan0 link
+systemctl suspend
+systemctl poweroff
+xset dpms force off # turn off the display
+xrandr --output LVDS-1 --off # disable the internal display
+cat /sys/class/power_supply/BAT0/status
+charge_thresholds
+charge_thresholds 40 60
+charge_thresholds 55 60
+charge_thresholds 60 80
+charge_thresholds 75 80
+charge_thresholds 95 100
+toggle_thinklight
+browse::wiki.meribold.org
+browse::wiki.meribold.org/edit/rec/Words
+browse::wiki.meribold.org/$(date -I)
+background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
+background::NetHack
+background::gimp::Gimp
+background::emacs::Emacs
+background::inkscape::Inkscape
+background::anki::Anki
+background::screenkey
+background::qutebrowser
+background::chromium::Chromium
+pkill screenkey
+xrandr
 EOF
 ) || exit $?
 
 [[ $selection ]] || exit $?
 
-command_type=${selection%%:*}
-selected_command=${selection#*:}
+if [[ $selection != *::* ]]; then
+   command_type=
+   selected_command=$selection
+else
+   command_type=${selection%%::*}
+   selected_command=${selection#*::}
+   selected_command=${selected_command%::*}
+fi
 
 if [[ $command_type == background ]]; then
    # I also tried using `disown` and `nohup`, but neither prevents programs from being
    # killed immediately when XBindKeys launches this script with `xterm -e`.
    trap '' SIGHUP
-   $selected_command &
-else
-   output=$(eval "$selected_command")
+   eval "$selected_command" &
+elif [[ $command_type == '' ]]; then
+   output=$(eval "$selected_command" 2>&1)
+elif [[ $command_type == browse ]]; then
+   trap '' SIGHUP
+   eval '$BROWSER' "$selected_command" &
 fi
 
 if [[ $output ]]; then
