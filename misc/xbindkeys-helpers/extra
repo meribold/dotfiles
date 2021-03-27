@@ -2,49 +2,6 @@
 
 set -o nounset -o pipefail
 
-gatewayip() {
-   ip route | awk '/^def/{print $3}'
-}
-
-NetHack() {
-   xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
-}
-
-lock() {
-   nohup lock &>/dev/null &
-   sleep 0.001
-   if [[ $(cat /sys/class/power_supply/BAT0/status) == 'Discharging' ]]; then
-      xset dpms force off
-   fi
-}
-
-# A precondition of this function is $1 <= $2 (or $# == 0).
-charge_thresholds() {
-   if (( $# == 0 )); then
-      cat /sys/class/power_supply/BAT0/charge_{start,stop}_threshold
-      return
-   fi
-   # This can fail because it may try to set charge_start_threshold to a value bigger than
-   # the current charge_stop_threshold.
-   echo "$1" | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
-   retry=$?
-   # In theory this fails when trying to set charge_stop_threshold to a value smaller than
-   # charge_start_threshold, but we already adjusted charge_start_threshold.  If adjusting
-   # charge_start_threshold failed because the new charge_start_threshold ($1) is bigger
-   # than the old charge_stop_threshold, then the new charge_stop_threshold ($2) is bigger
-   # than the old charge_start_threshold, and we are fine:
-   #    old charge_start_threshold <= old charge_stop_threshold < $1 <= $2
-   echo "$2" | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold >/dev/null
-   if (( retry )); then
-      echo "$1" | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
-   fi
-}
-
-toggle_thinklight() {
-   echo $((($(cat '/sys/class/leds/tpacpi::thinklight/brightness') + 1) % 2)) |
-      sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
-}
-
 # These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 readarray -t fzf_output < <(fzf --with-nth -1 -d :: --expect=alt-enter <<'EOF'
@@ -95,6 +52,49 @@ pkill screenkey
 xrandr
 EOF
 ) || exit $?
+
+gatewayip() {
+   ip route | awk '/^def/{print $3}'
+}
+
+NetHack() {
+   xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
+}
+
+lock() {
+   nohup lock &>/dev/null &
+   sleep 0.001
+   if [[ $(cat /sys/class/power_supply/BAT0/status) == 'Discharging' ]]; then
+      xset dpms force off
+   fi
+}
+
+# A precondition of this function is $1 <= $2 (or $# == 0).
+charge_thresholds() {
+   if (( $# == 0 )); then
+      cat /sys/class/power_supply/BAT0/charge_{start,stop}_threshold
+      return
+   fi
+   # This can fail because it may try to set charge_start_threshold to a value bigger than
+   # the current charge_stop_threshold.
+   echo "$1" | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
+   retry=$?
+   # In theory this fails when trying to set charge_stop_threshold to a value smaller than
+   # charge_start_threshold, but we already adjusted charge_start_threshold.  If adjusting
+   # charge_start_threshold failed because the new charge_start_threshold ($1) is bigger
+   # than the old charge_stop_threshold, then the new charge_stop_threshold ($2) is bigger
+   # than the old charge_start_threshold, and we are fine:
+   #    old charge_start_threshold <= old charge_stop_threshold < $1 <= $2
+   echo "$2" | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold >/dev/null
+   if (( retry )); then
+      echo "$1" | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold >/dev/null
+   fi
+}
+
+toggle_thinklight() {
+   echo $((($(cat '/sys/class/leds/tpacpi::thinklight/brightness') + 1) % 2)) |
+      sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
+}
 
 key=${fzf_output[0]}
 selection=${fzf_output[1]}
