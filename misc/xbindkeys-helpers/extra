@@ -4,7 +4,8 @@ set -o nounset -o pipefail
 
 # These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
-readarray -t fzf_output < <(fzf --with-nth -1 -d :: --expect=alt-enter <<'EOF'
+readarray -t fzf_output < <(fzf --with-nth -1 -d :: --print-query \
+                                --expect=ctrl-e,alt-enter <<'EOF'
 lock
 dates
 background::wifail
@@ -96,8 +97,14 @@ toggle_thinklight() {
       sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
 }
 
-key=${fzf_output[0]}
-selection=${fzf_output[1]}
+key=${fzf_output[1]}
+
+if [[ $key == alt-enter || ${#fzf_output[@]} == 2 ]]; then
+   # Alt+Enter was used or there is no match.  We'll run the query.
+   selection=${fzf_output[0]}
+else
+   selection=${fzf_output[2]}
+fi
 
 [[ $selection ]] || exit $?
 
@@ -110,7 +117,7 @@ else
    selected_command=${selected_command%::*}
 fi
 
-if [[ $key == alt-enter ]]; then
+if [[ $key == ctrl-e ]]; then
    read -rep '$ ' -i "$selected_command" selected_command
 fi
 
@@ -131,7 +138,7 @@ if [[ $output ]]; then
       printf '$ %s\n%s' "$selected_command" "$output" | less
    else
       tput civis
-      if [[ $key != alt-enter ]]; then
+      if [[ $key != ctrl-e ]]; then
          printf '$ %s\n' "$selected_command"
       fi
       printf '%s' "$output"
