@@ -51,6 +51,12 @@ background::qutebrowser
 background::chromium::Chromium
 pkill screenkey
 xrandr
+xterm::ssh bamfurlong
+xterm::ssh -t bamfurlong screen -S default -DR
+xterm::ssh -t bamfurlong screen -S minecraft -DR
+xterm::ssh -t athrad screen -UDR
+checkupdates
+xwininfo
 EOF
 ) || exit $?
 
@@ -131,6 +137,9 @@ elif [[ $command_type == '' ]]; then
 elif [[ $command_type == browse ]]; then
    trap '' SIGHUP
    eval '$BROWSER' "$selected_command" &
+elif [[ $command_type == xterm ]]; then
+   trap '' SIGHUP
+   eval 'xterm -e' "$selected_command" &
 fi
 
 if [[ $output ]]; then
