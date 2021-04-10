@@ -42,7 +42,7 @@ browse::wiki.meribold.org/edit/rec/Words
 browse::wiki.meribold.org/$(date -I)
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
-background::gimp::Gimp
+background::gimp::GIMP
 background::emacs::Emacs
 background::inkscape::Inkscape
 background::anki::Anki
