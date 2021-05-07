@@ -47,6 +47,7 @@ browse::wiki.meribold.org/edit/rec/Words
 browse::github.com/meribold
 browse::github.com/meribold/dotfiles
 browse::github.com/meribold/dotfiles/commits
+browse::https://play.google.com/apps/publish::Google Play Console
 evalbrowse::wiki.meribold.org/$(date -I)
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
@@ -149,9 +150,11 @@ elif [[ $command_type == '' ]]; then
 elif [[ $command_type == browse ]]; then
    trap '' SIGHUP
    $BROWSER "$selected_command" &
+   i3-msg '[class="^firefoxdeveloperedition$"] focus'
 elif [[ $command_type == evalbrowse ]]; then
    trap '' SIGHUP
    eval '$BROWSER' "$selected_command" &
+   i3-msg '[class="^firefoxdeveloperedition$"] focus'
 elif [[ $command_type == xterm ]]; then
    trap '' SIGHUP
    eval 'xterm -e' "$selected_command" &
