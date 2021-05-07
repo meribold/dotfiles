@@ -25,6 +25,7 @@ iw wlan0 info
 iw wlan0 link
 systemctl suspend
 systemctl poweroff
+systemctl reboot
 xset dpms force off # turn off the display
 xrandr --output LVDS-1 --off # disable the internal display
 cat /sys/class/power_supply/BAT0/status
@@ -35,11 +36,18 @@ charge_thresholds 60 80
 charge_thresholds 75 80
 charge_thresholds 95 100
 toggle_thinklight
+browse::meribold.org
+browse::snapcraft.io/muccadoro/metrics
+browse::https://www.fastmail.com::Fastmail
+browse::file:///usr/share/doc/neomutt/manual.html
 browse::wiki.meribold.org
 browse::wiki.meribold.org/Lists
 browse::wiki.meribold.org/rec/Words
 browse::wiki.meribold.org/edit/rec/Words
-browse::wiki.meribold.org/$(date -I)
+browse::github.com/meribold
+browse::github.com/meribold/dotfiles
+browse::github.com/meribold/dotfiles/commits
+evalbrowse::wiki.meribold.org/$(date -I)
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
 background::gimp::GIMP
@@ -55,8 +63,12 @@ xterm::ssh bamfurlong
 xterm::ssh -t bamfurlong screen -S default -DR
 xterm::ssh -t bamfurlong screen -S minecraft -DR
 xterm::ssh -t athrad screen -UDR
+xterm::less /var/log/pacman.log
 checkupdates
 xwininfo
+sensors
+ascii
+khard show lukas waymann
 EOF
 ) || exit $?
 
@@ -135,6 +147,9 @@ if [[ $command_type == background ]]; then
 elif [[ $command_type == '' ]]; then
    output=$(eval "$selected_command" 2>&1)
 elif [[ $command_type == browse ]]; then
+   trap '' SIGHUP
+   $BROWSER "$selected_command" &
+elif [[ $command_type == evalbrowse ]]; then
    trap '' SIGHUP
    eval '$BROWSER' "$selected_command" &
 elif [[ $command_type == xterm ]]; then
