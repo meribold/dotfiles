@@ -96,7 +96,7 @@
 "[[ $(i3-msg '[instance="athrad"] focus') == '[{"success":true}]' ]] || xterm -name athrad -e ssh -t athrad screen -UDR"
    Mod4 + i
 
-"i3-msg '[instance="^scratchpad$"] focus' && screen -S scratchpad -X screen"
+"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + backslash
 
 # Switch to or start Neovim.
