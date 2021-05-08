@@ -167,7 +167,7 @@
    Mod4 + r
 
 # TODO: kill this xterm when it loses focus?
-"xterm -name 'floating xterm'"
+"xterm -name 'floating xterm' -geometry 100x25"
    Mod4 + o
 
 "xterm -name 'funny xterm'"
