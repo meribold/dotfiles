@@ -65,6 +65,7 @@ xterm::ssh -t bamfurlong screen -S default -DR
 xterm::ssh -t bamfurlong screen -S minecraft -DR
 xterm::ssh -t athrad screen -UDR
 xterm::less /var/log/pacman.log
+background::exec xterm -e bash -c 'cd ~/dotfiles && bash'::~/dotfiles
 checkupdates
 xwininfo
 sensors
