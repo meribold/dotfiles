@@ -232,6 +232,8 @@ HISTFILESIZE=-1
 # Don't save lines starting with a space character in the history.
 HISTCONTROL=ignorespace
 
+HISTIGNORE='k:k *'
+
 HISTFILE=~/bash-history/current
 
 # Bash appears to append history before running this, so there's no need for `history -a`.
