@@ -70,6 +70,8 @@ xwininfo
 sensors
 ascii
 khard show lukas waymann
+nostdout::redshift -PO 3500
+nostdout::redshift -x
 EOF
 ) || exit $?
 
@@ -158,6 +160,8 @@ elif [[ $command_type == evalbrowse ]]; then
 elif [[ $command_type == xterm ]]; then
    trap '' SIGHUP
    eval 'xterm -e' "$selected_command" &
+elif [[ $command_type == nostdout ]]; then
+   output=$(eval "$selected_command" 2>&1 1>/dev/null)
 fi
 
 if [[ $output ]]; then
