@@ -65,7 +65,8 @@ xterm::ssh -t bamfurlong screen -S default -DR
 xterm::ssh -t bamfurlong screen -S minecraft -DR
 xterm::ssh -t athrad screen -UDR
 xterm::less /var/log/pacman.log
-background::exec xterm -e bash -c 'cd ~/dotfiles && bash'::~/dotfiles
+background::exec xterm -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles
+background::exec xterm -name 'floating xterm' -geometry 100x25 -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles (floating xterm)
 checkupdates
 xwininfo
 sensors
