@@ -48,6 +48,8 @@ browse::github.com/meribold
 browse::github.com/meribold/dotfiles
 browse::github.com/meribold/dotfiles/commits
 browse::https://play.google.com/apps/publish::Google Play Console
+browse::youtube.com/feed/history
+browse::youtube.com/playlist?list=WL
 evalbrowse::wiki.meribold.org/$(date -I)
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
