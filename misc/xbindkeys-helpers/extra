@@ -38,7 +38,8 @@ charge_thresholds 95 100
 toggle_thinklight
 browse::meribold.org
 browse::snapcraft.io/muccadoro/metrics
-browse::https://www.fastmail.com::Fastmail
+browse::https://www.fastmail.com::fastmail.com
+browse::https://www.fastmail.com/contacts::fastmail.com/contacts
 browse::file:///usr/share/doc/neomutt/manual.html
 browse::wiki.meribold.org
 browse::wiki.meribold.org/Lists
@@ -78,6 +79,9 @@ ascii
 khard show lukas waymann
 nostdout::redshift -PO 3500
 nostdout::redshift -x
+killall -SIGUSR1 dunst # pause Dunst
+killall -SIGUSR2 dunst # resume Dunst
+sed -n '/^## Rebooting$/,/^## /p' ~/wiki/Bamfurlong.md | head -n -2
 EOF
 ) || exit $?
 
