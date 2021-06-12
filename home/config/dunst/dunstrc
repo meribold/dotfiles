@@ -84,7 +84,7 @@
     dmenu = dunst-dmenu
 
     # Browser for opening URLs in context menu.
-    browser = firefox-developer-edition --new-tab
+    browser = firefox --new-tab
 
     frame_width = 2
 

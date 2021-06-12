@@ -1,6 +1,6 @@
 export VISUAL=nvim
 export EDITOR=nvim
-export FIREFOX=firefox-developer-edition
+export FIREFOX=firefox
 export BROWSER=$FIREFOX
 
 # This makes `tree` use color.
