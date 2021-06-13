@@ -72,7 +72,7 @@ mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
 mount ~/v8x && { pass git pull; umount ~/v8x; } # pull to ~/.password-store
 mount ~/v8x && { pass git push; umount ~/v8x; } # push ~/.password-store
 mpc clear && mpc add / && mpc shuffle # make MPD queue all songs in random order
-mpc clear && mpc load favorites
+mpc clear && mpc load favorites.m3u
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://3p8jLMz0lu8' # Taverns of Azeroth (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://7cy_RK04TUA' # Vanilla Winterspring (music & ambience)
