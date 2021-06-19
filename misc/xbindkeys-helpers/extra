@@ -52,6 +52,7 @@ browse::https://play.google.com/apps/publish::Google Play Console
 browse::youtube.com/feed/history
 browse::youtube.com/playlist?list=WL
 evalbrowse::wiki.meribold.org/$(date -I)
+background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
 background::gimp::GIMP
