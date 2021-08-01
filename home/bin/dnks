@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+printf "\n\n%$((($(tput cols) - 5) / 2))s* * *\n\n\n" ''
