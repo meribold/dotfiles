@@ -1,92 +1,92 @@
 [submodule "AUR/dict-gcide"]
-	path = misc/AUR/dict-gcide
+	path = misc/aur/dict-gcide
 	url = https://aur.archlinux.org/dict-gcide.git
 [submodule "AUR/dict-freedict-deu-eng"]
-	path = misc/AUR/dict-freedict-deu-eng
+	path = misc/aur/dict-freedict-deu-eng
 	url = https://aur.archlinux.org/dict-freedict-deu-eng.git
 [submodule "AUR/dict-freedict-eng-deu"]
-	path = misc/AUR/dict-freedict-eng-deu
+	path = misc/aur/dict-freedict-eng-deu
 	url = https://aur.archlinux.org/dict-freedict-eng-deu.git
 [submodule "AUR/dict-foldoc"]
-	path = misc/AUR/dict-foldoc
+	path = misc/aur/dict-foldoc
 	url = https://aur.archlinux.org/dict-foldoc.git
 [submodule "AUR/dict-wn"]
-	path = misc/AUR/dict-wn
+	path = misc/aur/dict-wn
 	url = https://aur.archlinux.org/dict-wn.git
 [submodule "AUR/tor-browser-en"]
-	path = misc/AUR/tor-browser-en
+	path = misc/aur/tor-browser-en
 	url = https://aur.archlinux.org/tor-browser-en.git
 [submodule "AUR/nethack-nao"]
-	path = misc/AUR/nethack-nao
+	path = misc/aur/nethack-nao
 	url = https://aur.archlinux.org/nethack-nao.git
 [submodule "AUR/conky-lua"]
-	path = misc/AUR/conky-lua
+	path = misc/aur/conky-lua
 	url = https://aur.archlinux.org/conky-lua.git
 [submodule "AUR/proggyfonts"]
-	path = misc/AUR/proggyfonts
+	path = misc/aur/proggyfonts
 	url = https://aur.archlinux.org/proggyfonts.git
 [submodule "AUR/urlview"]
-	path = misc/AUR/urlview
+	path = misc/aur/urlview
 	url = https://aur.archlinux.org/urlview.git
 [submodule "AUR/neofetch"]
-	path = misc/AUR/neofetch
+	path = misc/aur/neofetch
 	url = https://aur.archlinux.org/neofetch.git
 [submodule "AUR/cli-visualizer"]
-	path = misc/AUR/cli-visualizer
+	path = misc/aur/cli-visualizer
 	url = https://aur.archlinux.org/cli-visualizer.git
 [submodule "AUR/j4-dmenu-desktop"]
-	path = misc/AUR/j4-dmenu-desktop
+	path = misc/aur/j4-dmenu-desktop
 	url = https://aur.archlinux.org/j4-dmenu-desktop.git
 [submodule "AUR/git-crypt"]
-	path = misc/AUR/git-crypt
+	path = misc/aur/git-crypt
 	url = https://aur.archlinux.org/git-crypt.git
 [submodule "AUR/imgurbash"]
-	path = misc/AUR/imgurbash
+	path = misc/aur/imgurbash
 	url = https://aur.archlinux.org/imgurbash.git
 [submodule "AUR/profile-cleaner"]
-	path = misc/AUR/profile-cleaner
+	path = misc/aur/profile-cleaner
 	url = https://aur.archlinux.org/profile-cleaner.git
 [submodule "emacs.d/emacs-vim-modeline"]
 	path = home/emacs.d/emacs-vim-modeline
 	url = https://github.com/cinsk/emacs-vim-modeline
 [submodule "AUR/libmatthew-unix-java"]
-	path = misc/AUR/libmatthew-unix-java
+	path = misc/aur/libmatthew-unix-java
 	url = https://aur.archlinux.org/libmatthew-unix-java.git
 [submodule "AUR/signal-cli"]
-	path = misc/AUR/signal-cli
+	path = misc/aur/signal-cli
 	url = https://aur.archlinux.org/signal-cli.git
 [submodule "signal-cli.bash"]
 	path = misc/signal-cli.bash
 	url = https://github.com/meribold/signal-cli.bash.git
 [submodule "AUR/fonts-meta-base"]
-	path = misc/AUR/fonts-meta-base
+	path = misc/aur/fonts-meta-base
 	url = https://aur.archlinux.org/fonts-meta-base.git
 [submodule "AUR/fonts-meta-extended-lt"]
-	path = misc/AUR/fonts-meta-extended-lt
+	path = misc/aur/fonts-meta-extended-lt
 	url = https://aur.archlinux.org/fonts-meta-extended-lt.git
 [submodule "AUR/ttf-courier-prime"]
-	path = misc/AUR/ttf-courier-prime
+	path = misc/aur/ttf-courier-prime
 	url = https://aur.archlinux.org/ttf-courier-prime.git
 [submodule "AUR/ttf-heuristica"]
-	path = misc/AUR/ttf-heuristica
+	path = misc/aur/ttf-heuristica
 	url = https://aur.archlinux.org/ttf-heuristica.git
 [submodule "AUR/ttf-caladea"]
-	path = misc/AUR/ttf-caladea
+	path = misc/aur/ttf-caladea
 	url = https://aur.archlinux.org/ttf-caladea.git
 [submodule "AUR/ttf-impallari-cantora"]
-	path = misc/AUR/ttf-impallari-cantora
+	path = misc/aur/ttf-impallari-cantora
 	url = https://aur.archlinux.org/ttf-impallari-cantora.git
 [submodule "AUR/ttf-carlito"]
-	path = misc/AUR/ttf-carlito
+	path = misc/aur/ttf-carlito
 	url = https://aur.archlinux.org/ttf-carlito.git
 [submodule "AUR/ttf-google-fonts-git"]
-	path = misc/AUR/ttf-google-fonts-git
+	path = misc/aur/ttf-google-fonts-git
 	url = https://aur.archlinux.org/ttf-google-fonts-git.git
 [submodule "AUR/lostfiles"]
-	path = misc/AUR/lostfiles
+	path = misc/aur/lostfiles
 	url = https://aur.archlinux.org/lostfiles.git
 [submodule "AUR/translate-shell"]
-	path = misc/AUR/translate-shell
+	path = misc/aur/translate-shell
 	url = https://aur.archlinux.org/translate-shell.git
 [submodule "misc/muccadoro"]
 	path = misc/muccadoro
@@ -95,37 +95,37 @@
 	path = misc/rofi-pass
 	url = https://github.com/meribold/rofi-pass.git
 [submodule "misc/AUR/freedict-tools"]
-	path = misc/AUR/freedict-tools
+	path = misc/aur/freedict-tools
 	url = https://aur.archlinux.org/freedict-tools.git
 [submodule "misc/AUR/ttf-merriweather"]
-	path = misc/AUR/ttf-merriweather
+	path = misc/aur/ttf-merriweather
 	url = https://aur.archlinux.org/ttf-merriweather.git
 [submodule "misc/AUR/ttf-merriweather-sans"]
-	path = misc/AUR/ttf-merriweather-sans
+	path = misc/aur/ttf-merriweather-sans
 	url = https://aur.archlinux.org/ttf-merriweather-sans.git
 [submodule "misc/AUR/ttf-opensans"]
-	path = misc/AUR/ttf-opensans
+	path = misc/aur/ttf-opensans
 	url = https://aur.archlinux.org/ttf-opensans.git
 [submodule "misc/AUR/ttf-oswald"]
-	path = misc/AUR/ttf-oswald
+	path = misc/aur/ttf-oswald
 	url = https://aur.archlinux.org/ttf-oswald.git
 [submodule "misc/AUR/ttf-quintessential"]
-	path = misc/AUR/ttf-quintessential
+	path = misc/aur/ttf-quintessential
 	url = https://aur.archlinux.org/ttf-quintessential.git
 [submodule "misc/AUR/ttf-signika"]
-	path = misc/AUR/ttf-signika
+	path = misc/aur/ttf-signika
 	url = https://aur.archlinux.org/ttf-signika.git
 [submodule "misc/AUR/alock-git"]
-	path = misc/AUR/alock-git
+	path = misc/aur/alock-git
 	url = https://aur.archlinux.org/alock-git.git
 [submodule "misc/git-snap"]
 	path = misc/git-snap
 	url = https://github.com/meribold/git-snap.git
 [submodule "misc/AUR/auracle-git"]
-	path = misc/AUR/auracle-git
+	path = misc/aur/auracle-git
 	url = https://aur.archlinux.org/auracle-git.git
 [submodule "misc/AUR/recutils"]
-	path = misc/AUR/recutils
+	path = misc/aur/recutils
 	url = https://aur.archlinux.org/recutils.git
 [submodule "home/vim/pack/meribold/start/vim-qf"]
 	path = home/vim/pack/meribold/start/vim-qf
@@ -320,5 +320,5 @@
 	path = home/vim/pack/meribold/start/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg
 [submodule "misc/AUR/dragon-drag-and-drop"]
-	path = misc/AUR/dragon-drag-and-drop
+	path = misc/aur/dragon-drag-and-drop
 	url = https://aur.archlinux.org/dragon-drag-and-drop.git
