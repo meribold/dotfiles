@@ -1,3 +1,34 @@
 #!/usr/bin/env bash
 
-printf "\n\n%$((($(tput cols) - 5) / 2))s* * *\n\n\n" ''
+set -o nounset -o pipefail
+
+cols=$(tput cols)
+num_thingies=$(((cols + 1) / 6))
+extra_space=$((cols - (num_thingies * 6 - 1)))
+extra_space_left=$((extra_space / 2))
+
+if ((num_thingies == 0)); then
+   exit
+fi
+
+printf '\n\n\n%*s  *  ' $((extra_space_left)) ''
+for ((i = 1; i < num_thingies; ++i)); do
+   printf '   *  '
+done
+printf '\n%*s * * ' $((extra_space_left)) ''
+for ((i = 1; i < num_thingies; ++i)); do
+   printf '  * * '
+done
+printf '\n%*s*   *' $((extra_space_left)) ''
+for ((i = 1; i < num_thingies; ++i)); do
+   printf ' *   *'
+done
+printf '\n%*s * * ' $((extra_space_left)) ''
+for ((i = 1; i < num_thingies; ++i)); do
+   printf '  * * '
+done
+printf '\n%*s  *  ' $((extra_space_left)) ''
+for ((i = 1; i < num_thingies; ++i)); do
+   printf '   *  '
+done
+printf '\n\n\n\n'
