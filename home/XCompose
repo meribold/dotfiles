@@ -10,9 +10,11 @@ include "%L"
 <Multi_key> <t> <e> <e> <t> <h> : "😬"
 <Multi_key> <m> <o> <n> <o> <c> <l> <e> : "🧐"
 <Multi_key> <e> <y> <e> <b> <r> <o> <w> : "🤨"
+<Multi_key> <g> <r> <i> <m> <a> <c> <e> : "😬"
 <Multi_key> <less> <3> : "❤️"
 <Multi_key> <c> <o> <o> <k> <i> <e> : "🍪"
 <Multi_key> <p> <e> <n> <g> <u> <i> <n> : "🐧"
 <Multi_key> <colon> <parenright> : "🙂"
+<Multi_key> <colon> <parenleft> : "🙁"
 
 # vim: ft=conf
