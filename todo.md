@@ -20,13 +20,6 @@
 [`userContent.css`]: /home/mozilla/firefox/ctontcrf.default/chrome/userContent.css
 [`user.js`]: /home/mozilla/firefox/ctontcrf.default/user.js
 
-### [Sigaldry][]
-
-*   Convert [Sigaldry][] to use WebExtensions APIs.
-*   Use it to keep the set of search engines synchronized between machines and profiles.
-
-[Sigaldry]: /misc/sigaldry
-
 ## [Mutt][]
 
 *   Desktop notifications?
