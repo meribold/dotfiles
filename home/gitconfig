@@ -52,7 +52,7 @@
 	; [2]: https://kernel.org/pub/software/scm/git/docs/technical/api-credentials.html
 	helper = !"f() { \
 	             [[ $1 != get ]] && return 0; \
-	             printf 'password='; pass show github | head -1; \
+	             printf 'password='; pass show github/pat | head -1; \
 	           }; f"
 [credential "https://gitlab.com"]
 	username = meribold
