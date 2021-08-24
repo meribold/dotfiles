@@ -88,6 +88,9 @@ nostdout::redshift -x
 killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 sed -n '/^## Rebooting$/,/^## /p' ~/wiki/Bamfurlong.md | head -n -2
+man::7 ascii::man 7 ascii
+man::gitglossary::man gitglossary
+man::gitrevisions::man gitrevisions
 EOF
 ) || exit $?
 
@@ -176,6 +179,10 @@ elif [[ $command_type == evalbrowse ]]; then
 elif [[ $command_type == xterm ]]; then
    trap '' SIGHUP
    eval 'xterm -e' "$selected_command" &
+elif [[ $command_type == man ]]; then
+   trap '' SIGHUP
+   # shellcheck disable=SC2086
+   xterm -sl 0 -name 'floating man' -geometry 100x58 -e man --nj --nh $selected_command &
 elif [[ $command_type == nostdout ]]; then
    output=$(eval "$selected_command" 2>&1 1>/dev/null)
 fi
