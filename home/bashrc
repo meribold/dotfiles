@@ -85,9 +85,10 @@ alias ......='cd ../../../../..'
 
 # Aliases for ls.
 alias ls='ls --color=auto'
-alias  l='ls -F'
-alias la='ls -FA'
+alias l='ls'
+alias la='ls -A'
 alias ll='ls -lh'
+alias thrl='ls -thrl'
 
 # List subdirectories (https://stackoverflow.com/a/171938).
 alias lsd='ls -d */'
