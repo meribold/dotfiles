@@ -134,6 +134,10 @@ charge_thresholds() {
    fi
 }
 
+cal() {
+   unbuffer cal "$@"
+}
+
 toggle_thinklight() {
    echo $((($(cat '/sys/class/leds/tpacpi::thinklight/brightness') + 1) % 2)) |
       sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
@@ -191,7 +195,7 @@ fi
 
 if [[ $output ]]; then
    if (( $(wc -l <<< "$output") >= 14 )); then
-      printf '$ %s\n%s' "$selected_command" "$output" | less
+      printf '$ %s\n%s' "$selected_command" "$output" | less -R
    else
       tput civis
       if [[ $key != ctrl-e ]]; then

@@ -69,6 +69,7 @@ editorconfig-core-c
 emacs
 espeak
 etckeeper
+expect
 fakeroot
 fcitx-chewing
 fcitx-configtool
