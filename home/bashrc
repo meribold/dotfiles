@@ -233,7 +233,7 @@ HISTFILESIZE=-1
 # Don't save lines starting with a space character in the history.
 HISTCONTROL=ignorespace
 
-HISTIGNORE='k:k *'
+HISTIGNORE='k:k *:dnks'
 
 HISTFILE=~/bash-history/current
 
