@@ -49,12 +49,15 @@
 [submodule "emacs.d/emacs-vim-modeline"]
 	path = home/emacs.d/emacs-vim-modeline
 	url = https://github.com/cinsk/emacs-vim-modeline
-[submodule "AUR/libmatthew-unix-java"]
-	path = misc/aur/libmatthew-unix-java
-	url = https://aur.archlinux.org/libmatthew-unix-java.git
 [submodule "AUR/signal-cli"]
 	path = misc/aur/signal-cli
 	url = https://aur.archlinux.org/signal-cli.git
+[submodule "misc/aur/libsignal-client"]
+	path = misc/aur/libsignal-client
+	url = https://aur.archlinux.org/libsignal-client.git
+[submodule "misc/aur/libzkgroup"]
+	path = misc/aur/libzkgroup
+	url = https://aur.archlinux.org/libzkgroup.git
 [submodule "signal-cli.bash"]
 	path = misc/signal-cli.bash
 	url = https://github.com/meribold/signal-cli.bash.git
