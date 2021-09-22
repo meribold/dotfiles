@@ -1,0 +1,179 @@
+/* Hacker News */
+@-moz-document domain("news.ycombinator.com") {
+  body {
+    background-color: #000 !important;
+    margin: 0;
+  }
+
+  .comment a {
+    text-decoration: none !important;
+  }
+
+  .comment a:hover {
+     text-decoration: underline !important;
+  }
+
+  td[bgcolor="#ff6600"] {
+    background-color: #d0d0d0 !important;
+  }
+
+  body, td, .admin td, .subtext td, input[type="submit"], .default, .admin, .title,
+  .subtext, .yclinks, .pagetop, .comment, input, textarea {
+    font-family: sans-serif !important;
+  }
+
+  /* Limit the line length of comments. */
+  .comment {
+    max-width: 80ch !important;
+  }
+
+  /* Fix the color, font size, and line length of text posts. */
+  .fatitem > tbody > tr:nth-child(4) > td:nth-child(2) {
+    color: #dfdfdf !important;
+    font-size: .9167rem !important;
+    max-width: 80ch !important;
+  }
+
+  /* Hide the search box.  (I've added a search engine to Firefox.) */
+  span.yclinks + br + br + form {
+    display: none;
+  }
+
+  /* Hide the numbers.  See <https://stackoverflow.com/q/133051>. */
+  span.rank {
+    display: none;
+  }
+
+  #hnmain {
+    width: auto !important;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .itemlist {
+    padding: 0 1ch;
+  }
+
+  html {
+    font-size: 100% !important;
+  }
+
+  body {
+    font-size: 1rem !important;
+  }
+
+  td {
+    font-size: .9167rem !important;
+  }
+
+  .pagetop {
+    font-size: .9167rem !important;
+    color: #fff !important;
+  }
+
+  td:last-child > .pagetop {
+    visibility: hidden;
+    font-size: 0 !important;
+  }
+
+  td:last-child > .pagetop > #me, td:last-child > .pagetop > #logout {
+    visibility: visible;
+    font-size: .9167rem !important;
+  }
+
+  td:last-child > .pagetop > #me::after {
+    content: " | ";
+    color: #fff;
+  }
+
+  .pagetop > b.hnname {
+    display: none !important;
+    /* font-variant: small-caps; */
+    /* font-size: 1rem !important; */
+  }
+
+  .comment {
+    font-size: .9167rem !important;
+  }
+
+  .title {
+    font-size: .95rem !important;
+  }
+
+  .comment {
+    line-height: 1.3;
+  }
+
+  .comhead {
+    font-family: monospace !important;
+    font-size: .8rem !important;
+  }
+
+  input {
+    font-size: .8rem !important;
+  }
+
+  .subtext {
+    font-size: .7667rem !important;
+  }
+
+  .yclinks {
+    font-size: .8rem !important;
+  }
+
+  #hnmain > tbody > tr:last-child form {
+    font-size: .9167rem !important;
+  }
+
+  tr.spacer{
+    height: 10px !important;
+  }
+
+  body > center > table {
+    background-color: #181818 !important;
+  }
+
+  input, textarea {
+    /* See <https://support.mozilla.org/en-US/questions/814083>. */
+    -moz-appearance: none !important;
+    background-color: #0e0e0e;
+  }
+
+  /* Bright text */
+  td.title a:link, span.comment font, span.comment font a:link, u a:link,
+  span.yclinks a:link, body:not([id]), td:nth-child(2):not(.subtext) > a:link, input,
+  textarea, p > a, a > u, .c00, .c00 a:link,
+  a[href="https://www.ycombinator.com/apply/"] {
+    color: #dfdfdf !important;
+  }
+
+  td.title {
+    padding-bottom: 3px;
+  }
+
+  .comhead a:link, span.sitestr, .subtext a:visited {
+    color: #888 !important;
+  }
+
+  .admin td {
+    color: #aaa !important;
+  }
+
+  /* Search box and comment box */
+  input, textarea {
+    border: 1px solid #888 !important;
+  }
+
+  /* Upvote arrow; see <https://css-tricks.com/snippets/css/css-triangle> */
+  .votearrow {
+    /* Disable the image that's shown by default. */
+    background-image: none !important;
+    /* Use CSS to draw a triangle. */
+    width: 0 !important;
+    height: 0 !important;
+    margin: 5px 4px 0px 4px !important; /* top right bottom left */
+    border-left: 4px solid transparent !important;
+    border-right: 4px solid transparent !important;
+    border-bottom: 7px solid #888 !important;
+  }
+}
