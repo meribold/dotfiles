@@ -7,8 +7,16 @@
 /* Hacker News */
 @-moz-document domain("news.ycombinator.com") {
   body {
-    background-color: #161616 !important;
+    background-color: #000 !important;
     margin: 0;
+  }
+
+  .comment a {
+    text-decoration: none !important;
+  }
+
+  .comment a:hover {
+     text-decoration: underline !important;
   }
 
   td[bgcolor="#ff6600"] {
@@ -99,7 +107,7 @@
   }
 
   .comment {
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .comhead {
@@ -128,7 +136,7 @@
   }
 
   body > center > table {
-    background-color: #121212 !important;
+    background-color: #181818 !important;
   }
 
   input, textarea {
