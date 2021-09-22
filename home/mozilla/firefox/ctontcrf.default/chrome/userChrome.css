@@ -36,5 +36,3 @@ tabbrowser toolbarbutton[class^="scrollbutton"],
 #window-controls {
   display: none !important;
 }
-
-/* vim: set tw=90 sts=-1 sw=2 et: */
