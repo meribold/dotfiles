@@ -17,6 +17,9 @@ indent_size = 4
 [*.json]
 indent_size = 2
 
+[*.css]
+indent_size = 2
+
 [makefile]
 tab_width = 8
 indent_style = tab
