@@ -1,5 +1,5 @@
 /* Hacker News */
-@-moz-document domain("news.ycombinator.com") {
+@-moz-document regexp("https?://news.ycombinator.com(?!(/newsguidelines.html|/newsfaq.html|lists|/security.html|/legal/|/apply/|/showhn.html)).*") {
   body {
     background-color: #000 !important;
     margin: 0;
