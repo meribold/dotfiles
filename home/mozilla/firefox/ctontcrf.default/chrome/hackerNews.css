@@ -1,4 +1,3 @@
-/* Hacker News */
 @-moz-document regexp("https?://news.ycombinator.com(?!(/newsguidelines.html|/newsfaq.html|lists|/security.html|/legal/|/apply/|/showhn.html)).*") {
   body {
     background-color: #000 !important;
