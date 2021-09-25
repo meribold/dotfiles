@@ -13,5 +13,3 @@ A couple notes about the [desktop entry files][1] (`.desktop` files) in this dir
 [5]: https://specifications.freedesktop.org/menu-spec/menu-spec-latest.html
      ("Desktop Menu Specification" at freedesktop.org)
 [6]: https://systutorials.com/docs/linux/man/1-desktop-file-validate/
-
-<!-- vim: set spell: -->

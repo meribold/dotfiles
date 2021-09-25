@@ -50,5 +50,3 @@ My [`urls`](urls) file is encrypted with [git-crypt][].
 [6]: file:///usr/share/doc/newsboat/newsboat.html#_tagging
 [Newsboat]: https://github.com/newsboat/newsboat
 [tmux]: https://github.com/tmux/tmux
-
-<!-- vim: set spell: -->

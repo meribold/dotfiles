@@ -25,5 +25,3 @@
 *   Desktop notifications?
 
 [Mutt]: /home/mutt/
-
-<!-- vim: set spell: -->

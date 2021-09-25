@@ -67,5 +67,3 @@ Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execut
 
 [GNU Make]: https://www.gnu.org/software/make/
 [arch]: https://archlinux.org
-
-<!-- vim: set spell: -->

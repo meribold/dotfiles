@@ -7,5 +7,3 @@ a specific game and is used by [associated desktop entry files][3].
 [2]: dosbox-0.74.conf
 [3]: /home/local/share/applications/
 [4]: https://dosbox.com/wiki/Dosbox.conf#Recommendations
-
-<!-- vim: set spell: -->

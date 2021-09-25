@@ -63,5 +63,3 @@ Further informative links:
      "“Xterm” or “xterm” in configuration file"
 [5]: https://superuser.com/q/243914
      ".Xresources or .Xdefaults?"
-
-<!-- vim: set spell: -->

@@ -60,5 +60,3 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
     "Try rhysd's clever-f.vim plugin · meribold/dotfiles@8fa5786"
 [`fzf`]: https://github.com/junegunn/fzf
 [`par`]: http://vimcasts.org/episodes/formatting-text-with-par/
-
-<!-- vim: set spell: -->
