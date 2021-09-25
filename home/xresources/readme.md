@@ -64,4 +64,4 @@ Further informative links:
 [5]: https://superuser.com/q/243914
      ".Xresources or .Xdefaults?"
 
-<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set spell: -->

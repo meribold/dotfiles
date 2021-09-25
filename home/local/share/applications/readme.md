@@ -14,4 +14,4 @@ A couple notes about the [desktop entry files][1] (`.desktop` files) in this dir
      ("Desktop Menu Specification" at freedesktop.org)
 [6]: https://systutorials.com/docs/linux/man/1-desktop-file-validate/
 
-<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set spell: -->

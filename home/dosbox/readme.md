@@ -8,4 +8,4 @@ a specific game and is used by [associated desktop entry files][3].
 [3]: /home/local/share/applications/
 [4]: https://dosbox.com/wiki/Dosbox.conf#Recommendations
 
-<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set spell: -->

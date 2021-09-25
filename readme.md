@@ -68,4 +68,4 @@ Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execut
 [GNU Make]: https://www.gnu.org/software/make/
 [arch]: https://archlinux.org
 
-<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set spell: -->

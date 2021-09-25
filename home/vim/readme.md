@@ -61,4 +61,4 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
 [`fzf`]: https://github.com/junegunn/fzf
 [`par`]: http://vimcasts.org/episodes/formatting-text-with-par/
 
-<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set spell: -->

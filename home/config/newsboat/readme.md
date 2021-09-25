@@ -51,4 +51,4 @@ My [`urls`](urls) file is encrypted with [git-crypt][].
 [Newsboat]: https://github.com/newsboat/newsboat
 [tmux]: https://github.com/tmux/tmux
 
-<!-- vim: set tw=90 sts=-1 sw=4 et spell: -->
+<!-- vim: set spell: -->
