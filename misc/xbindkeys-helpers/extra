@@ -18,11 +18,15 @@ for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"
 i3-msg exit
 i3-msg -q reload
 i3-msg restart
+ip link
+ip address
 ip address show eth0
 ip address show wlan0
+ip route
 ip route show dev wlan0
 iw wlan0 info
 iw wlan0 link
+sudo iw dev wlan0 scan
 systemctl suspend
 systemctl poweroff
 systemctl reboot
@@ -52,6 +56,7 @@ browse::https://play.google.com/apps/publish::Google Play Console
 browse::youtube.com/feed/history
 browse::youtube.com/playlist?list=WL
 evalbrowse::wiki.meribold.org/$(date -I)
+background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
 background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
@@ -93,6 +98,7 @@ sed -n '/^## Rebooting$/,/^## /p' ~/wiki/Bamfurlong.md | head -n -2
 man::7 ascii::man 7 ascii
 man::gitglossary::man gitglossary
 man::gitrevisions::man gitrevisions
+time cat
 EOF
 ) || exit $?
 
