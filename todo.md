@@ -19,9 +19,3 @@
 [`userChrome.css`]: /home/mozilla/firefox/ctontcrf.default/chrome/userChrome.css
 [`userContent.css`]: /home/mozilla/firefox/ctontcrf.default/chrome/userContent.css
 [`user.js`]: /home/mozilla/firefox/ctontcrf.default/user.js
-
-## [Mutt][]
-
-*   Desktop notifications?
-
-[Mutt]: /home/mutt/
