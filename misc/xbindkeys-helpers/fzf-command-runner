@@ -103,6 +103,8 @@ background::mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed'
 background::mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
 background::mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
 gpg-connect-agent reloadagent /bye
+background::fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
+xbindkeys -k
 EOF
 ) || exit $?
 

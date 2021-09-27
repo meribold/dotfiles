@@ -20,7 +20,6 @@ clear && neofetch --uptime_shorthand tiny --ascii && read
 coredumpctl list
 curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
-ds fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
 f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add esgaroth esgaroth:"$1"; }; f
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
@@ -182,7 +181,6 @@ vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
 wgetpaste
 while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read -n 1; done
-xbindkeys -k
 xdg-open file &>/dev/null <&1 & disown
 xdotool key Caps_Lock
 xev # interactively enter keys and get keysyms
