@@ -48,7 +48,6 @@ git submodule update --remote --merge # merge upstream submodule changes, update
 git-crypt status
 gpg --armor --export D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg --encrypt --armor --recipient D14CCBFF836E57327C252FDE7066AC79C4592C12
-gpg-connect-agent reloadagent /bye # https://wiki.archlinux.org/index.php/GnuPG#Reload_the_agent
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
 i3-msg -t get_workspaces | jq
