@@ -121,7 +121,7 @@
    Mod4 + Shift + semicolon
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
-"xterm -name 'floating xterm' -geometry 120x14 -e ~/dotfiles/misc/xbindkeys-helpers/fzf-command-runner"
+"xterm -name 'floating xterm' -geometry 120x14 -e ~/dotfiles/misc/keybind-scripts/fzf-command-runner"
    Mod4 + semicolon
 
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
@@ -190,28 +190,28 @@
 # [1]: https://github.com/AsamK/signal-cli
 # [2]: https://github.com/meribold/signal-cli.bash
 
-"~/dotfiles/misc/xbindkeys-helpers/man 1"
+"~/dotfiles/misc/keybind-scripts/man 1"
    Mod4 + F1
 
-"~/dotfiles/misc/xbindkeys-helpers/man 2"
+"~/dotfiles/misc/keybind-scripts/man 2"
    Mod4 + F2
 
-"~/dotfiles/misc/xbindkeys-helpers/man 3"
+"~/dotfiles/misc/keybind-scripts/man 3"
    Mod4 + F3
 
-"~/dotfiles/misc/xbindkeys-helpers/man 4"
+"~/dotfiles/misc/keybind-scripts/man 4"
    Mod4 + F4
 
-"~/dotfiles/misc/xbindkeys-helpers/man 5"
+"~/dotfiles/misc/keybind-scripts/man 5"
    Mod4 + F5
 
-"~/dotfiles/misc/xbindkeys-helpers/man 6"
+"~/dotfiles/misc/keybind-scripts/man 6"
    Mod4 + F6
 
-"~/dotfiles/misc/xbindkeys-helpers/man 7"
+"~/dotfiles/misc/keybind-scripts/man 7"
    Mod4 + F7
 
-"~/dotfiles/misc/xbindkeys-helpers/man 8"
+"~/dotfiles/misc/keybind-scripts/man 8"
    Mod4 + F8
 
 # vim: ft=conf
