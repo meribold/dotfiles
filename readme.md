@@ -2,7 +2,8 @@
 [NeoMutt](home/config/neomutt/),
 [e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
 [p](home/xresources)[p](home/nethackrc).  Bash [functions and aliases](home/bashrc),
-[scripts](home/bin/), [keybindings](home/xbindkeysrc), …
+[scripts](home/bin/), [keybindings](home/xbindkeysrc),
+[more scripts](misc/xbindkeys-helpers), …
 
 <img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection.">
 
