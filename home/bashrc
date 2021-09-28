@@ -135,6 +135,9 @@ j() {
    esac
 }
 
+alias jd='cd ~/dotfiles'
+alias jorg='cd ~/projects/meribold.org'
+
 if [[ $TERM == screen* ]]; then
    k() {
       screen -X screen && screen -X stuff "j $*"$'\n'
