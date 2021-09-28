@@ -118,8 +118,21 @@ mkcd() {
 # uses fzf to select a directory when invoked without arguments.  Adapted from
 # <https://github.com/junegunn/fzf/wiki/Examples#z>.
 j() {
-   [[ $# -gt 0 ]] && _z "$*" && return
-   cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
+   if [[ $# == 0 ]]; then
+      # shellcheck disable=SC2164
+      cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
+      return
+   fi
+   case $1 in
+      d)
+         # shellcheck disable=SC2164
+         cd ~/dotfiles;;
+      org)
+         # shellcheck disable=SC2164
+         cd ~/projects/meribold.org;;
+      *)
+         _z "$*";;
+   esac
 }
 
 if [[ $TERM == screen* ]]; then
