@@ -82,5 +82,3 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 " [1]: https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 " [2]: https://github.com/neovim/neovim/issues/2676
-
-" vim: tw=90 sts=-1 sw=3 et
