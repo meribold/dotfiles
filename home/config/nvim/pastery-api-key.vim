@@ -1,0 +1,1 @@
+../../vim/pastery-api-key.vim

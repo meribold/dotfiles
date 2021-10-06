@@ -29,15 +29,26 @@ links :=
 
 # Define a variable containing all link targets used when building the `vim` goal.
 # Generally, the directory structure is mirrored and only files are linked, but these
-# directories are linked directly: `vim/after`, `vim/ftplugin`, `vim/UltiSnips`.
-vim_link_targets := $(shell find home/vim -path 'home/vim/pack' -prune -o -regex \
-                                 'home/vim/after\|home/vim/ftplugin\|home/vim/UltiSnips' \
-                                 -prune -o -not -name '.*' \( -type f -o -type l \))
+# directories are linked directly: `after`, `ftplugin`, `pack`, and `UltiSnips`.
+vim_link_targets := \
+   $(shell find home/vim \
+                -regex 'home/vim/\(after\|ftplugin\|pack\|UltiSnips\)' -prune \
+                -o -not -name readme.md -not -name '.*' \( -type f -o -type l \))
 # Transform the list of link targets to paths of links that should be created when
-# building the `vim` goal.
+# building the `vim` target.
 vim_links := $(patsubst home/%,$(HOME)/.%,$(vim_link_targets))
 
+dirs += $(HOME)/.vim/spell
 links += $(vim_links)
+
+nvim_link_targets := \
+   $(shell find -L home/config/nvim \
+                -regex 'home/config/nvim/\(after\|ftplugin\|pack\|UltiSnips\)' -prune \
+                -o -not -name readme.md -not -name '.*' \( -type f -o -type l \))
+nvim_links := $(patsubst home/%,$(HOME)/.%,$(nvim_link_targets))
+
+dirs += $(HOME)/.config/nvim/spell
+links += $(nvim_links)
 
 # Check if $(GIT_CRYPT) exists.  See <http://stackoverflow.com/a/677212>.  `command -v`
 # prints something iff the command is available.  Thus, if the output is empty,
@@ -48,7 +59,10 @@ else
    # Find (encrypted) prerequisite ".add" spell files (e.g. `en.utf-8.add`) and transform
    # the list of file paths to obtain the respective targets (".add.spl" files).  See
    # `:h spell` in Vim.
-   add_spl_files := $(patsubst home/%,$(HOME)/.%.spl,$(wildcard home/vim/spell/*.add))
+   vim_add_spl_files := \
+      $(patsubst home/%,$(HOME)/.%.spl,$(wildcard home/vim/spell/*.add))
+   nvim_add_spl_files := \
+      $(patsubst home/%,$(HOME)/.%.spl,$(wildcard home/config/nvim/spell/*.add))
 endif
 
 ifneq ($(shell command -v nvim 2>/dev/null),)
@@ -56,19 +70,11 @@ ifneq ($(shell command -v nvim 2>/dev/null),)
    all: nvim
 endif
 
-vim: $(vim_links) $(add_spl_files) \
+vim: $(vim_links) $(vim_add_spl_files) \
    $(addprefix $(HOME)/.vim/spell/de.utf-8.,spl sug)
 
-nvim: vim $(HOME)/.config/nvim \
+nvim: $(nvim_links) $(nvim_add_spl_files) \
    $(foreach ll,en de,$(addprefix $(HOME)/.config/nvim/spell/$(ll).utf-8.,spl sug))
-
-# This is not a normal link into `dotfiles/`, so we need a special rule (instead of just
-# adding the target to $(links)).  One alternative might be to have a link
-# `dotfiles/config/nvim` to `~/.vim`.
-$(HOME)/.config/nvim: %nvim: | %
-	@# Assert that $@ doesn't exist.
-	@[[ ! -e '$@' ]]
-	ln -s '$(HOME)/.vim' '$@'
 
 # Vim only bundles English spell files (though Arch has [vim-spell-de]).  I want German
 # ones too.  Start Vim and prompt it to prompt us if it should download spell files.  They
@@ -101,7 +107,7 @@ $(HOME)/.config/nvim: %nvim: | %
 # rule has multiple targets, `make` knows that the rule's recipe is responsible for making
 # all of the targets.  The recipe is executed only once to make all the targets."
 #    -- <https://www.gnu.org/software/make/manual/make.html#Pattern-Intro>
-$(HOME)/.vim/spell/%.utf-8.spl $(HOME)/.vim/spell/%.utf-8.sug:
+$(HOME)/.vim/spell/%.utf-8.spl $(HOME)/.vim/spell/%.utf-8.sug: $(HOME)/.vim/spell
 	@# Remove the ".spl" file if the associated ".sug" file doesn't exist.  Else, the
 	@# download prompt won't appear.
 	@[[ -e '$(@:.sug=.spl)' && ! -e '$(@:.spl=.sug)' ]] && \
@@ -122,7 +128,8 @@ $(HOME)/.vim/spell/%.utf-8.spl $(HOME)/.vim/spell/%.utf-8.sug:
 # [2]: https://github.com/neovim/neovim/pull/3027
 # [3]: https://github.com/neovim/neovim/pull/4555
 # [4]: https://github.com/neovim/neovim/blob/master/runtime/autoload/spellfile.vim
-$(HOME)/.config/nvim/spell/%.utf-8.spl $(HOME)/.config/nvim/spell/%.utf-8.sug:
+$(HOME)/.config/nvim/spell/%.utf-8.spl $(HOME)/.config/nvim/spell/%.utf-8.sug: \
+   $(HOME)/.config/nvim/spell
 	@[[ -e '$(@:.sug=.spl)' && ! -e '$(@:.spl=.sug)' ]] && \
 	   { PS4=; set -x; rm '$(@:.sug=.spl)'; } || :
 	nvim -u NORC --cmd 'set rtp=$$VIMRUNTIME' \
@@ -238,6 +245,9 @@ $(root_links): | $$(dir $$@)
 # A ".add" file is a word list.  Vim updates these when using the `zg` and `zw` mappings
 # etc. but doesn't read them directly.  Instead, the associated binary ".add.spl" files
 # are used.
-$(add_spl_files): $$(patsubst %.spl,%,$$@)
+$(vim_add_spl_files): $$(patsubst %.spl,%,$$@) $(HOME)/.vim/spell
 	@# See `:h s-ex`.
 	vim -u NONE -es '+mkspell! $<' +q
+
+$(nvim_add_spl_files): $$(patsubst %.spl,%,$$@) $(HOME)/.config/nvim/spell
+	nvim -u NONE -es '+mkspell! $<' +q

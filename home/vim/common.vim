@@ -525,30 +525,6 @@ endif
 " Based on snippets from <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" TODO: explain.
-if has('unix')
-   let s:vimfiles = $HOME . '/.vim'
-elseif has('win32')
-   " Use $HOME or $USERPROFILE?
-   let s:vimfiles = $HOME . '/vimfiles'
-endif
-if exists('s:vimfiles')
-   if !isdirectory(s:vimfiles . '/swp')
-      call mkdir(s:vimfiles . '/swp', 'p')
-   endif
-   if !isdirectory(s:vimfiles . '/undo')
-      call mkdir(s:vimfiles . '/undo', 'p')
-   endif
-   if !isdirectory(s:vimfiles . '/backup')
-      call mkdir(s:vimfiles . '/backup', 'p')
-   endif
-   let &dir = s:vimfiles . '/swp//'
-   let &undodir = s:vimfiles . '/undo'
-   let &backupdir = s:vimfiles . '/backup'
-endif
-" http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-
-" http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
-
 " Use the 'colorcolumn' option to highlight the first column after 'textwidth' in the
 " focused window, but only if the buffer is 'modifiable' and 'noreadonly'.
 autocmd vimrc_common WinEnter * if &ma && !&ro | setl cc=+1 | endif
