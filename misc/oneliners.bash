@@ -7,7 +7,6 @@ $FIREFOX --safe-mode
 >/dev/null trans -speak en: spinach
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 amixer set Master mute
-bundle exec jekyll serve --drafts
 bundle install --path vendor/bundle
 cat /proc/cmdline # check what kernel parameters we booted with
 cat /proc/sys/kernel/sysrq
@@ -30,15 +29,19 @@ feh --sort mtime ~/screenshots
 find / -name '*.desktop' 2>/dev/null | less
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 gds --color-words
-getent hosts athrad snapscore.meribold.xyz snapscore.meribold.org meribold.xyz meribold.org
+gds --word-diff
 git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Initial commit'
 git commit -m 'Update commits recorded by submodules'
 git fetch . WIP:master
+git mergetool --tool=kdiff3
+git mergetool --tool=meld
+git mergetool --tool=p4merge
 git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
+git push esgaroth snapshots-meribold-smial
 git remote | xargs -L1 -P0 git push
 git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
@@ -63,7 +66,9 @@ killall -SIGUSR2 dunst # resume Dunst
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
 mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
-mount ~/usb-hdd
+mkcd $(date -I)
+mkdir -p delete-me && feh --action 'mv %N delete-me' .
+mount ~/t5a
 mount ~/v8x # mount my USB drive (this only works because of an entry in my fstab(5))
 mount ~/v8x && { git pull usb; umount ~/v8x; } # pull from my USB drive
 mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
@@ -107,9 +112,9 @@ mpv av://v4l2:/dev/video0
 mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
 neomutt -s 'Hi.' 'meribold@gmail.com' <<< ''
 nohup xdg-open file &>/dev/null <&1 &
-nx copy --fast --all --to t5a # copy all available versions of all files
-nx copy --fast --to esgaroth
-nx copy --fast --to s3
+nx copy --fast --all --to esgaroth
+nx copy --fast --all --to s3
+nx copy --fast --all --to t5a
 nx describe esgaroth Esgaroth
 nx describe here Smial
 nx describe s3 'Amazon S3'
@@ -137,15 +142,18 @@ pip list --local --outdated # list outdated Python packages; use `pip install --
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
 pydoc str
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
+rclone ls dropbox:
+rclone lsl dropbox:
 rclone mount dropbox: ~/dropbox
 rclone mount googledrive: ~/googledrive
+rm -rf _site && bundle exec jekyll build
+rm -rf _site && bundle exec jekyll serve --drafts
 rofi -combi-modi window,drun -modi combi -show
 rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
-sensors
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
@@ -154,7 +162,6 @@ ssh esgaroth ls .zfs/snapshot
 sshfs esgaroth: ~/esgaroth
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
-sudo ip link set wlan0 up
 sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
 sudo iw dev wlan0 scan | less
 sudo pacman -D --asdeps PACKAGE
@@ -174,7 +181,7 @@ systemctl --user stop signal-cli.bash.service
 telnet mapscii.me
 time cat
 trans :zh-TW -b - | s
-umount ~/usb-hdd
+umount ~/t5a
 umount ~/v8x
 vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}

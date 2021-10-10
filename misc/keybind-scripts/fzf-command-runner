@@ -45,6 +45,8 @@ browse::snapcraft.io/muccadoro/metrics
 browse::https://www.fastmail.com::fastmail.com
 browse::https://www.fastmail.com/contacts::fastmail.com/contacts
 browse::file:///usr/share/doc/neomutt/manual.html
+browse::file:///usr/share/doc/arch-wiki/html/en/Network_configuration.html
+browse::moz-extension://bbd71618-3b7d-474d-94c7-2e062c6a5870/onetab.html::OneTab
 browse::wiki.meribold.org
 browse::wiki.meribold.org/Lists
 browse::wiki.meribold.org/rec/Words
@@ -71,6 +73,7 @@ background::$FIREFOX::Firefox
 background::$FIREFOX --ProfileManager::Firefox (profile manager)
 background::firefox-developer-edition::Firefox Developer Edition
 background::firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
+background::signal-desktop --force-device-scale-factor=1.333333333::Signal Desktop
 pkill screenkey
 xrandr
 xterm::ssh bamfurlong
@@ -80,6 +83,7 @@ xterm::ssh -t athrad screen -UDR
 xterm::ssh shirebourn
 xterm::ssh baranduin
 xterm::less /var/log/pacman.log
+xterm::less ~/.xinit.log
 background::exec xterm -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles
 background::exec xterm -name 'floating xterm' -geometry 100x25 -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles (floating xterm)
 checkupdates
@@ -109,6 +113,8 @@ xbindkeys -k
 ::ssh_esgaroth_quota::ssh esgaroth quota
 df -h
 free -h
+sudo ip link set wlan0 down
+sudo ip link set wlan0 up
 EOF
 ) || exit $?
 
