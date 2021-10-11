@@ -135,8 +135,7 @@
    Mod4 + Shift + u
 
 # Run [fzf-pass](https://github.com/meribold/fzf-pass), an alternative to passmenu based
-# on [rofi-pass](https://github.com/carnager/rofi-pass).  FIXME: it should be possible to
-# use pinentry-curses.
+# on [rofi-pass](https://github.com/carnager/rofi-pass).
 "PINENTRY_USER_DATA=gtk xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass/fzf-pass"
    Mod4 + Shift + p
 
