@@ -4,8 +4,9 @@ set -o nounset -o pipefail
 
 # These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
-readarray -t fzf_output < <(fzf --with-nth -1 -d :: --print-query \
-                                --expect=ctrl-e,alt-enter <<'EOF'
+readarray -t fzf_output < <(
+   fzf --prompt='$ ' --color='dark,hl:green:regular,fg+:white:regular,hl+:green:regular:reverse,query:white:regular,info:gray:regular,prompt:white:regular,pointer:green:bold' \
+       --with-nth -1 -d :: --print-query --expect=ctrl-e,alt-enter <<'EOF'
 lock
 dates
 background::wifail
