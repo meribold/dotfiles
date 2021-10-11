@@ -144,6 +144,16 @@ if [[ $TERM == screen* ]]; then
    }
 fi
 
+# `filch` is a portmanteau of `file` and `which`.
+filch() {
+   path=$(which "$1") && file "$path"
+}
+
+# `catch` is a portmanteau of `cat` and `which`.
+catch() {
+   path=$(which "$1") && [[ $(file -L "$path") == *text* ]] && bat "$path"
+}
+
 # Select a line from oneliners.bash with fzf and paste the selection to stdin.  This code
 # is copied and adapted from the `__fzf_history__` function in
 # /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
