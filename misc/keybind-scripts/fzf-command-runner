@@ -87,6 +87,7 @@ xterm::less /var/log/pacman.log
 xterm::less ~/.xinit.log
 background::exec xterm -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles
 background::exec xterm -name 'floating xterm' -geometry 100x25 -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles (floating xterm)
+background::exec xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --silent --fail wttr.in | head -n -2'::curl wttr.in
 checkupdates
 xwininfo
 cal -3
