@@ -117,7 +117,7 @@
 # List [desktop entry files][1] using j4-dmenu-desktop and fzf and launch the selected
 # program.  I used Rofi instead of fzf before, but fzf is faster and has superior fuzzy
 # matching.
-"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='fzfmenu --no-sort'"
+"j4-dmenu-desktop --display-binary --no-generic --term=xterm --usage-log=$HOME/.j4-dmenu-desktop.log --dmenu='fzfmenu --no-sort --prompt=\"~ \" --color=dark,hl:red:regular,fg+:white:regular,hl+:red:regular:reverse,query:white:regular,info:gray:regular,prompt:red:bold,pointer:red:bold'"
    Mod4 + Shift + semicolon
 # [1]: https://wiki.archlinux.org/index.php/Desktop_entries
 
