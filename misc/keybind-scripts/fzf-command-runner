@@ -9,8 +9,8 @@ readarray -t fzf_output < <(
        --with-nth -1 -d :: --print-query --expect=ctrl-e,alt-enter <<'EOF'
 lock
 dates
-background::wifail
-background::ethinfo
+background::~/dotfiles/misc/keybind-scripts/wifail::wifail
+background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
 killall xbindkeys; xbindkeys
 $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
