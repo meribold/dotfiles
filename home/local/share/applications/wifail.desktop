@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.1
-Type=Application
-Name=wifail
-Exec=wifail
-StartupNotify=false
-Categories=Network;Monitor
