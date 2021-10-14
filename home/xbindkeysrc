@@ -50,7 +50,7 @@
    XF86AudioPlay
 
 "mpc toggle"
-   Mod4 + space
+   Mod4 + Escape
 
 "mpc prev"
    XF86AudioPrev
@@ -139,9 +139,8 @@
 "PINENTRY_USER_DATA=gtk xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass/fzf-pass"
    Mod4 + y
 
-# TODO: try using Space instead of Escape?
 "i3-msg [id=$(wmctrl -l | fzfmenu --with-nth 4.. | cut -d\  -f1)] focus"
-   Mod4 + Escape
+   Mod4 + space
 
 # Lock the screen.
 "lock"
