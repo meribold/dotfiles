@@ -6,12 +6,12 @@
 11,code-oss.desktop
 590,conquest.desktop
 5,dosbox.desktop
-550,dwarffortress.desktop
+551,dwarffortress.desktop
 280,easytag.desktop
 430,emacs.desktop
-5000,ethinfo.desktop
 370,firefox-developer-edition.desktop
 730,firefox.desktop
+1,gcolor2.desktop
 2990,gimp.desktop
 140,git-annex.desktop
 7,gvim.desktop
@@ -22,10 +22,12 @@
 240,libreoffice-calc.desktop
 4,libreoffice-writer.desktop
 250,minecraft-launcher.desktop
-8,mpv.desktop
+4,monero-gui.desktop
+9,mpv.desktop
 3,nestopia.desktop
 330,net.minetest.minetest.desktop
-2120,nethack.desktop
+2122,nethack.desktop
+5,nl.hjdskes.gcolor3.desktop
 4,nvim.desktop
 130,org.gnome.meld.desktop
 1110,org.inkscape.Inkscape.desktop
@@ -35,6 +37,7 @@
 1,qt5ct.desktop
 2,redshift-gtk.desktop
 611,screenkey.desktop
+3,signal-desktop.desktop
 3,skypeforlinux.desktop
 300,teamspeak3.desktop
 370,termite.desktop
@@ -43,5 +46,5 @@
 450,urxvt.desktop
 5,vim.desktop
 5,vlc.desktop
-13380,wifail.desktop
-131,xterm.desktop
+221,wireshark.desktop
+132,xterm.desktop
