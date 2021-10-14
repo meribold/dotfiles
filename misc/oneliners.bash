@@ -148,8 +148,6 @@ rclone mount dropbox: ~/dropbox
 rclone mount googledrive: ~/googledrive
 rm -rf _site && bundle exec jekyll build
 rm -rf _site && bundle exec jekyll serve --drafts
-rofi -combi-modi window,drun -modi combi -show
-rofi -modi drun,run -matching fuzzy -show
 route -n # get the IP address of the default gateway (router)
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
