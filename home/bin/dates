@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+[[ $(TZ=Europe/Berlin date +%Z) == CEST ]] && tz_width=4 || tz_width=3
+
 for tz in America/{Los_Angeles,Chicago,New_York} UTC Europe/{London,Berlin} Asia/Taipei; do
    tz_tail=${tz##*/}
    printf '%11s' "${tz_tail//_/ }"
-   TZ=$tz date +' · %Z · %:::z │ %a %H:%M';
+   TZ=$tz date +" · %${tz_width}Z · %:::z │ %a %H:%M";
 done
