@@ -10,5 +10,6 @@ mapfile -t selection < <(fzfmenu < "/tmp/man$1.txt" | sed -r 's/(.*) \((.*)\)/\2
 
 [[ ${selection[0]} && ${selection[1]} ]] || exit $?
 
-xterm -sl 0 -name 'floating man' -title "${selection[1]}(${selection[0]}) manual page" \
+exec xterm -sl 0 -name 'floating man' \
+   -title "${selection[1]}(${selection[0]}) manual page" \
    -geometry 100x58 -e man --nj --nh "${selection[@]}"
