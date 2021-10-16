@@ -117,6 +117,8 @@ df -h
 free -h
 sudo ip link set wlan0 down
 sudo ip link set wlan0 up
+mpc clear && mpc add / && mpc shuffle # make MPD queue all songs in random order
+mpc clear && mpc load favorites.m3u
 EOF
 ) || exit $?
 
