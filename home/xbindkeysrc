@@ -89,11 +89,7 @@
 "xterm -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
    Mod4 + Shift + m
 
-# Connect to Athrad (a VPS I have).  I have a "athrad" entry in my hosts(5).  If an xterm
-# with X11 window instance "athrad" already exists, just focus that.  See
-# <https://i3wm.org/docs/userguide.html#_focusing_moving_containers> and
-# <https://i3wm.org/docs/userguide.html#_jumping_to_specific_windows>.
-"[[ $(i3-msg '[instance="athrad"] focus') == '[{"success":true}]' ]] || xterm -name athrad -e ssh -t athrad screen -UDR"
+"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi && sleep 0.1 && screen -S scratchpad -X stuff ÿ"
    Mod4 + i
 
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else i3-msg 'append_layout ~/.config/i3/scratchpad.json'; if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
