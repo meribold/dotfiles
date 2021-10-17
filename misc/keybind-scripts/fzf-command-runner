@@ -33,6 +33,9 @@ systemctl poweroff
 systemctl reboot
 xset dpms force off # turn off the display
 xrandr --output LVDS-1 --off # disable the internal display
+xrandr --output VGA-0 --auto --output HDMI-0 --auto # enable connected and disable disconnected external monitors
+xrandr --output VGA-0 --off --output HDMI-0 --off # disable external monitors
+xrandr --output HDMI-0 --auto --right-of LVDS # FIXME: untested
 cat /sys/class/power_supply/BAT0/status
 charge_thresholds
 charge_thresholds 40 60
@@ -119,6 +122,23 @@ sudo ip link set wlan0 down
 sudo ip link set wlan0 up
 mpc clear && mpc add / && mpc shuffle # make MPD queue all songs in random order
 mpc clear && mpc load favorites.m3u
+umount ~/t5a
+umount ~/v8x
+sysctl kernel.sysrq
+route -n # get the IP address of the default gateway (router)
+rclone ls dropbox:
+rclone lsl dropbox:
+pydoc str
+i3-msg -t get_workspaces | jq -C
+background::feh --sort mtime ~/.config/signal/attachments # view photos from Signal
+background::feh --sort mtime ~/screenshots
+cat /proc/sys/kernel/sysrq
+cat /sys/module/usbcore/parameters/autosuspend
+cat /proc/cmdline # check what kernel parameters we booted with
+>/dev/null trans -speak en: spinach
+amixer set Master mute
+kill -l
+curl -s ipinfo.io
 EOF
 ) || exit $?
 

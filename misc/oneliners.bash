@@ -4,28 +4,20 @@
 # nx sync --cleanup
 $FIREFOX --ProfileManager
 $FIREFOX --safe-mode
->/dev/null trans -speak en: spinach
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
-amixer set Master mute
 bundle install --path vendor/bundle
-cat /proc/cmdline # check what kernel parameters we booted with
-cat /proc/sys/kernel/sysrq
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
-cat /sys/module/usbcore/parameters/autosuspend
 cd $(mktemp -d)
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
 chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
 coredumpctl list
-curl ipinfo.io
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add esgaroth esgaroth:"$1"; }; f
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
 feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
-feh --sort mtime ~/.config/signal/attachments # view photos from Signal
-feh --sort mtime ~/screenshots
 find / -name '*.desktop' 2>/dev/null | less
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 gds --color-words
@@ -52,7 +44,6 @@ gpg --armor --export D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg --encrypt --armor --recipient D14CCBFF836E57327C252FDE7066AC79C4592C12
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
-i3-msg -t get_workspaces | jq
 journalctl --no-tail -b -o cat -fu dhcpcd@eth0
 journalctl --no-tail -b -o cat -fu dhcpcd@wlan0
 journalctl --no-tail -b -o cat -fu wpa_supplicant@wlan0
@@ -60,7 +51,6 @@ journalctl --user -n 100 -fu signal-cli.bash.service
 journalctl -u "sshd@*"
 journalctl /usr/bin/sshd
 journalctl _COMM=sshd
-kill -l
 killall -SIGUSR1 dunst # pause Dunst
 killall -SIGUSR2 dunst # resume Dunst
 latexmk -pdf -shell-escape
@@ -138,15 +128,11 @@ pacman -Qtdq # list (real) orphan packages
 pass git remote | xargs -L1 -P0 pass git push
 pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
 pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
-pydoc str
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
-rclone ls dropbox:
-rclone lsl dropbox:
 rclone mount dropbox: ~/dropbox
 rclone mount googledrive: ~/googledrive
 rm -rf _site && bundle exec jekyll build
 rm -rf _site && bundle exec jekyll serve --drafts
-route -n # get the IP address of the default gateway (router)
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
@@ -170,15 +156,12 @@ sudo systemctl restart wpa_supplicant@wlan0
 sudo systemctl start dhcpcd@eth0
 sudo systemctl stop wpa_supplicant@wlan0
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
-sysctl kernel.sysrq
 systemctl --user restart signal-cli.bash.service
 systemctl --user start signal-cli.bash.service
 systemctl --user stop signal-cli.bash.service
 telnet mapscii.me
 time cat
 trans :zh-TW -b - | s
-umount ~/t5a
-umount ~/v8x
 vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
 wgetpaste
@@ -187,9 +170,6 @@ xdg-open file &>/dev/null <&1 & disown
 xdotool key Caps_Lock
 xev # interactively enter keys and get keysyms
 xprop
-xrandr --output HDMI-0 --auto --right-of LVDS # FIXME: untested
-xrandr --output VGA-0 --auto --output HDMI-0 --auto # enable connected and disable disconnected external monitors
-xrandr --output VGA-0 --off --output HDMI-0 --off # disable external monitors
 xsel --clipboard | vipe | xsel --clipboard
 xsel --clipboard | wgetpaste --tee -C
 xwininfo
