@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
 
-shopt -s extglob
+# Get our public IP address.  Based on [these][1] [threads][2] and [this script][3].  The
+# DNS method is very fast but [doesn't work in some networks][4].
+ip=$(dig @resolver1.opendns.com myip.opendns.com +short)
+# shellcheck disable=SC2015
+[[ $ip ]] && echo "$ip" || curl -sw '\n' ipinfo.io/ip
 
-# Get the system's public IP address (based on [these][1] [threads][2] and [this
-# script][3]).  The first method should be the fastest but [doesn't work in some
-# networks][4].  TODO: automatically fall back to the HTTP method if the one using DNS
-# doesn't work?
-case "$1" in
-   ''|d?(ns)) dig @resolver1.opendns.com myip.opendns.com +short;;
-   h?(ttp)) wget http://ipinfo.io/ip -qO -;;
-   *) echo Bad argument >&2 && exit 1;;
-esac
-
-# [1]: http://unix.stackexchange.com/q/22615
-# [2]: http://askubuntu.com/q/95910
+# [1]: https://unix.stackexchange.com/q/22615
+# [2]: https://askubuntu.com/q/95910
 # [3]: https://github.com/rsp/scripts/blob/master/externalip.md#externalip
-# [4]: http://unix.stackexchange.com/q/22615#comment411014_81699
+# [4]: https://unix.stackexchange.com/q/22615#comment411014_81699
