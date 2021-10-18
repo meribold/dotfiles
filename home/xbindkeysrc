@@ -153,7 +153,7 @@
 "vimsel"
    Mod4 + e
 
-# FIXME: it seems silly to use $BROWSER from the environment and then hardcode "firefox".
+# FIXME: it's silly to use $BROWSER from the environment and then hardcode "firefox".
 "$BROWSER https://wiki.meribold.org/Home && i3-msg '[class="^firefox$"] focus'"
    Mod4 + r
 
