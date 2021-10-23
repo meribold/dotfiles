@@ -235,7 +235,7 @@ elif [[ $command_type == evalbrowse ]]; then
    i3-msg '[class="^firefox$"] focus'
 elif [[ $command_type == xterm ]]; then
    trap '' SIGHUP
-   eval 'xterm -e' "$selected_command" &
+   eval 'exec xterm -e' "$selected_command" &
 elif [[ $command_type == man ]]; then
    trap '' SIGHUP
    # shellcheck disable=SC2086
