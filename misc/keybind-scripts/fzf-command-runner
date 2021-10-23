@@ -64,20 +64,20 @@ browse::youtube.com/playlist?list=WL
 evalbrowse::wiki.meribold.org/$(date -I)
 background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
-background::dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
+background::exec dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
-background::gimp::GIMP
-background::emacs::Emacs
-background::inkscape::Inkscape
-background::anki::Anki
-background::screenkey
-background::qutebrowser
-background::chromium::Chromium
-background::$FIREFOX::Firefox
-background::$FIREFOX --ProfileManager::Firefox (profile manager)
-background::firefox-developer-edition::Firefox Developer Edition
-background::firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
-background::signal-desktop --force-device-scale-factor=1.333333333::Signal Desktop
+background::exec gimp::GIMP
+background::exec emacs::Emacs
+background::exec inkscape::Inkscape
+background::exec anki::Anki
+background::exec screenkey::screenkey
+background::exec qutebrowser::qutebrowser
+background::exec chromium::Chromium
+background::exec $FIREFOX::Firefox
+background::exec $FIREFOX --ProfileManager::Firefox (profile manager)
+background::exec firefox-developer-edition::Firefox Developer Edition
+background::exec firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
+background::exec signal-desktop --force-device-scale-factor=1.333333333::Signal Desktop
 pkill screenkey
 xrandr
 xterm::ssh bamfurlong
@@ -108,9 +108,9 @@ man::7 ascii::man 7 ascii
 man::gitglossary::man gitglossary
 man::gitrevisions::man gitrevisions
 time cat
-background::mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --geometry=25%-4-4 /dev/video0
-background::mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
-background::mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
+background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --geometry=25%-4-4 /dev/video0
+background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
+background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
 gpg-connect-agent reloadagent /bye
 background::fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
 killall fcitx
@@ -130,8 +130,8 @@ rclone ls dropbox:
 rclone lsl dropbox:
 pydoc str
 i3-msg -t get_workspaces | jq -C
-background::feh --sort mtime ~/.config/signal/attachments # view photos from Signal
-background::feh --sort mtime ~/screenshots
+background::exec feh --sort mtime ~/.config/signal/attachments # view photos from Signal
+background::exec feh --sort mtime ~/screenshots
 cat /proc/sys/kernel/sysrq
 cat /sys/module/usbcore/parameters/autosuspend
 cat /proc/cmdline # check what kernel parameters we booted with
@@ -148,7 +148,7 @@ gatewayip() {
 }
 
 NetHack() {
-   xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
+   exec xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
 }
 
 lock() {
