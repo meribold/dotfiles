@@ -116,7 +116,7 @@ background::fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
 killall fcitx
 xbindkeys -k
 ::ssh_esgaroth_quota::ssh esgaroth quota
-df -h
+df -Th
 free -h
 sudo ip link set wlan0 down
 sudo ip link set wlan0 up
