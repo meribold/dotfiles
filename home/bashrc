@@ -127,7 +127,16 @@ j() {
       d)
          # shellcheck disable=SC2164
          cd ~/dotfiles;;
-      org)
+      p)
+         # shellcheck disable=SC2164
+         cd ~/projects;;
+      w)
+         # shellcheck disable=SC2164
+         cd ~/wiki;;
+      r)
+         # shellcheck disable=SC2164
+         cd ~/projects/resume;;
+      m)
          # shellcheck disable=SC2164
          cd ~/projects/meribold.org;;
       *)
@@ -136,7 +145,10 @@ j() {
 }
 
 alias jd='cd ~/dotfiles'
-alias jorg='cd ~/projects/meribold.org'
+alias jp='cd ~/projects'
+alias jw='cd ~/wiki'
+alias jr='cd ~/projects/resume'
+alias jm='cd ~/projects/meribold.org'
 
 if [[ $TERM == screen* ]]; then
    k() {
