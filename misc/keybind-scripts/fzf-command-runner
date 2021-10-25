@@ -138,7 +138,7 @@ cat /proc/cmdline # check what kernel parameters we booted with
 >/dev/null trans -speak en: spinach
 amixer set Master mute
 kill -l
-wanip
+iipa
 curl -s ipinfo.io
 EOF
 ) || exit $?

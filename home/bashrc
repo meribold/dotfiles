@@ -198,17 +198,13 @@ alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 
 # Get the system's local IP address (taken from <https://stackoverflow.com/a/25851186>).
 # Also see <https://askubuntu.com/a/604691>.
-alias lanip='ip route get 1 | head -1 | cut -d " " -f7'
+alias ipa='ip route get 1 | head -1 | cut -d " " -f7'
 
 # Get the default gateway's (router's) IP address.  See <https://serverfault.com/q/31170>.
 gatewayip() {
    ip route | awk '/^def/{print $3}'
 }
 
-alias localip=lanip
-alias internalip=lanip
-alias globalip=wanip
-alias externalip=wanip
 alias gateip=gatewayip
 
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
