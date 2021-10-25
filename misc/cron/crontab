@@ -1,1 +1,1 @@
-*/10 * * * * DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus ~/dotfiles/misc/cron/bat
+*/10 * * * * DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus ~/dotfiles/misc/cron/btry
