@@ -8,8 +8,10 @@
 set -o nounset -o pipefail
 
 read -r status < /sys/class/power_supply/BAT0/status || exit $?
+[[ $status != 'Discharging' ]] && exit
 
-if [[ $status == 'Discharging' ]]; then
-   notify-send -c ephemeral - \
-      $'<small>Battery status</small>\n'"$(~/dotfiles/home/bin/btry)"
-fi
+btry_output=$(~/dotfiles/home/bin/btry)
+percentage_in_parens=${btry_output##* Wh }
+(( ${percentage_in_parens:1:-2} > 35 )) && exit
+
+notify-send -c ephemeral - $'<small>Battery status</small>\n'"$btry_output"
