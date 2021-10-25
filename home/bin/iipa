@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC2015
+
 # Get our public IP address.  Based on [these][1] [threads][2] and [this script][3].  The
 # DNS method is very fast but [doesn't work in some networks][4].
-ip=$(dig @resolver1.opendns.com myip.opendns.com +short)
-# shellcheck disable=SC2015
+ip=$(dig @resolver1.opendns.com myip.opendns.com +short +tries=1 +timeout=1) &&
 [[ $ip ]] && echo "$ip" || curl -sw '\n' ipinfo.io/ip
 
 # [1]: https://unix.stackexchange.com/q/22615
