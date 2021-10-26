@@ -129,6 +129,7 @@ route -n # get the IP address of the default gateway (router)
 rclone ls dropbox:
 rclone lsl dropbox:
 pydoc str
+wmctrl -l
 i3-msg -t get_workspaces | jq -C
 background::exec feh --sort mtime ~/.config/signal/attachments # view photos from Signal
 background::exec feh --sort mtime ~/screenshots
