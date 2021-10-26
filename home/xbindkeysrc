@@ -141,6 +141,9 @@
 "i3-msg [id=$(wmctrl -l | fzfmenu --with-nth 4.. | cut -d\  -f1)] focus"
    Mod4 + space
 
+"i3-msg [class=.] focus"
+   Mod4 + Tab
+
 # Lock the screen.
 "lock"
    XF86ScreenSaver
