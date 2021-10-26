@@ -196,10 +196,6 @@ alias v='$VISUAL'
 alias alert='notify-send -i "$([[ $? == 0 ]] && echo terminal || echo error)" '\
 '"$(history | tail -1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Get the system's local IP address (taken from <https://stackoverflow.com/a/25851186>).
-# Also see <https://askubuntu.com/a/604691>.
-alias ipa='ip route get 1 | head -1 | cut -d " " -f7'
-
 # Get the default gateway's (router's) IP address.  See <https://serverfault.com/q/31170>.
 gatewayip() {
    ip route | awk '/^def/{print $3}'

@@ -1,0 +1,5 @@
+#!/usr/bin/env dash
+
+# Get the system's local IP address (taken from <https://stackoverflow.com/a/25851186>).
+# Also see <https://askubuntu.com/a/604691>.
+ip route get 1 | head -1 | cut -d ' ' -f7
