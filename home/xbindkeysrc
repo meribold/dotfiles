@@ -160,7 +160,7 @@
    Mod4 + e
 
 # FIXME: it's silly to use $BROWSER from the environment and then hardcode "firefox".
-"$BROWSER https://wiki.meribold.org/Home && i3-msg '[class="^firefox$"] focus'"
+"page=$(fd '.(md|txt)$' ~/wiki | sed "s:$HOME/wiki/::; s/\.md$\|\.txt$//" | shuf | fzfmenu); [[ $page ]] && $BROWSER https://wiki.meribold.org/"$page" && i3-msg '[class="^firefox$"] focus'"
    Mod4 + r
 
 # TODO: kill this xterm when it loses focus?
