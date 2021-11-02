@@ -84,8 +84,8 @@ xterm::ssh bamfurlong
 xterm::ssh -t bamfurlong screen -S default -DR
 xterm::ssh -t bamfurlong screen -S minecraft -DR
 xterm::ssh -t athrad screen -UDR
-xterm::ssh shirebourn
-xterm::ssh baranduin
+xterm::ssh shirebourn # Ubiquiti UniFi AP
+xterm::ssh baranduin # Ubiquiti EdgeRouter X
 xterm::less /var/log/pacman.log
 xterm::less ~/.xinit.log
 background::exec xterm -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles
