@@ -142,6 +142,7 @@ kill -l
 ipa
 iipa
 curl -s ipinfo.io
+daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 EOF
 ) || exit $?
 
@@ -225,6 +226,9 @@ if [[ $command_type == background ]]; then
    # killed immediately when XBindKeys launches this script with `xterm -e`.
    trap '' SIGHUP
    eval "$selected_command" &
+elif [[ $command_type == daemon ]]; then
+   trap '' SIGHUP
+   output=$(eval "$selected_command" 2>&1)
 elif [[ $command_type == '' ]]; then
    output=$(eval "$selected_command" 2>&1)
 elif [[ $command_type == browse ]]; then
