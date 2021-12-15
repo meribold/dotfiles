@@ -158,6 +158,10 @@ assign [class="^firefoxdeveloperedition$"] 1
 for_window [instance="^vimsel$"] floating enable
 for_window [instance="^floating xterm$"] floating enable
 
+for_window [instance="^gcolor2$"] sticky enable
+for_window [instance="^gcolor3$"] sticky enable
+for_window [instance="^gcolor3$"] floating enable
+
 for_window [instance="^funny xterm$"] floating enable
 for_window [instance="^funny xterm$"] move position mouse
 

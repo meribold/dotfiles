@@ -78,6 +78,8 @@ background::exec $FIREFOX --ProfileManager::Firefox (profile manager)
 background::exec firefox-developer-edition::Firefox Developer Edition
 background::exec firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
 background::exec signal-desktop --force-device-scale-factor=1.333333333::Signal Desktop
+background::exec gcolor2::gcolor2
+background::exec gcolor3::gcolor3
 pkill screenkey
 xrandr
 xterm::ssh bamfurlong
