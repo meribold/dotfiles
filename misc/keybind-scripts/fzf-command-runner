@@ -12,6 +12,7 @@ dates
 background::~/dotfiles/misc/keybind-scripts/wifail::wifail
 background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
 killall xbindkeys; xbindkeys
+killall -HUP xbindkeys
 $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 auracle outdated
@@ -31,20 +32,20 @@ sudo iw dev wlan0 scan
 systemctl suspend
 systemctl poweroff
 systemctl reboot
-xset dpms force off # turn off the display
+xset dpms force off # turn off the display/screen/monitor
 xrandr --output LVDS-1 --off # disable the internal display
 xrandr --output VGA-0 --auto --output HDMI-0 --auto # enable connected and disable disconnected external monitors
 xrandr --output VGA-0 --off --output HDMI-0 --off # disable external monitors
 xrandr --output HDMI-0 --auto --right-of LVDS # FIXME: untested
 cat /sys/class/power_supply/BAT0/status
 charge_thresholds
-charge_thresholds 40 60
 charge_thresholds 55 60
-charge_thresholds 60 80
 charge_thresholds 75 80
 charge_thresholds 95 100
 toggle_thinklight
-browse::meribold.org
+browse::https://meribold.org::meribold.org
+browse::https://staging.meribold.org::staging.meribold.org
+browse::https://testing.meribold.org::testing.meribold.org
 browse::snapcraft.io/muccadoro/metrics
 browse::https://www.fastmail.com::fastmail.com
 browse::https://www.fastmail.com/contacts::fastmail.com/contacts
@@ -61,6 +62,7 @@ browse::github.com/meribold/dotfiles/commits
 browse::https://play.google.com/apps/publish::Google Play Console
 browse::youtube.com/feed/history
 browse::youtube.com/playlist?list=WL
+browse::detectportal.firefox.com
 evalbrowse::wiki.meribold.org/$(date -I)
 background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
@@ -90,6 +92,7 @@ xterm::ssh shirebourn # Ubiquiti UniFi AP
 xterm::ssh baranduin # Ubiquiti EdgeRouter X
 xterm::less /var/log/pacman.log
 xterm::less ~/.xinit.log
+xterm::tail -F ~/.xinit.log
 background::exec xterm -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles
 background::exec xterm -name 'floating xterm' -geometry 100x25 -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles (floating xterm)
 background::exec xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --silent --fail wttr.in | head -n -2'::curl wttr.in
@@ -117,7 +120,7 @@ gpg-connect-agent reloadagent /bye
 background::fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
 killall fcitx
 xbindkeys -k
-::ssh_esgaroth_quota::ssh esgaroth quota
+::ssh_esgaroth_quota::ssh 1791esgaroth quota
 df -Th
 free -h
 sudo ip link set wlan0 down
@@ -127,7 +130,6 @@ mpc clear && mpc load favorites.m3u
 umount ~/t5a
 umount ~/v8x
 sysctl kernel.sysrq
-route -n # get the IP address of the default gateway (router)
 rclone ls dropbox:
 rclone lsl dropbox:
 pydoc str
@@ -143,6 +145,9 @@ amixer set Master mute
 kill -l
 ipa
 iipa
+gatewayip
+route
+arp
 curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 EOF
