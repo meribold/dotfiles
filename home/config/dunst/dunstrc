@@ -32,7 +32,14 @@
     # The message window has a width of 320 pixels, can display a maximum of 40 messages
     # (theoretically, they wouldn't fit), and is positioned 36 pixels to the left and
     # bottom from the top-right screen corner.
-    geometry = "320x40-36+36"
+    width = 320
+    notification_limit = 40
+    offset = 36x36
+
+    # By default the scale factor is auto-detected.  "Is not recommended to use a
+    # fractional scaling factor" (dunst(5)), but the auto-detected factor is fractional on
+    # my system.
+    scale = 1
 
     # Don't shrink the message window.
     shrink = no
@@ -92,22 +99,6 @@
     # :hi Normal.
     # color = "#121212"
     frame_color = "#000000"
-
-[shortcuts]
-    # Xev might be helpful to find names of keys.  FIXME: use super as the modifier key
-    # (should be mod4 but isn't working).
-
-    # Close one notification.
-    close = ctrl+space
-
-    # Close all notifications.
-    close_all = ctrl+shift+space
-
-    # Redisplay the last notification.
-    history = ctrl+grave
-
-    # Open dmenu with URLs filtered from all displayed notifications.
-    context = ctrl+shift+period
 
 [urgency_low]
     # Blue from jellybeans.vim: color 103 in terminals, #8197bf in gVim; see
