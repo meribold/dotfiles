@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+read -r x y < <(xrandr | sed -En 's/.*primary [0-9x]+\+([0-9]+)\+([0-9]+).*/\1 \2/p')
+
+(( x -= 3 ))
+(( y -= 3 ))
+
+f=$(mktemp) || exit $?
+
+cleanup() {
+   rm "$f"
+}
+trap cleanup EXIT
+
+sed "/\"x\":/s/-3/$x/; /\"y\":/s/-3/$y/" ~/.config/i3/scratchpad.json > "$f" &&
+i3-msg "append_layout $f"

@@ -5,7 +5,7 @@
 
 [global]
     # Two quite nice alternatives are `Source Code Pro 6` and `Source Code Pro Medium 6`.
-    font = Ubuntu Mono 7
+    font = Ubuntu Mono 8.2
 
     # Allow a small subset of html markup tags message.  For a complete reference see
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
@@ -29,12 +29,12 @@
     # Split notifications into multiple lines if they don't fit.
     word_wrap = yes
 
-    # The message window has a width of 320 pixels, can display a maximum of 40 messages
-    # (theoretically, they wouldn't fit), and is positioned 36 pixels to the left and
+    # The message window has a width of 600 pixels, can display a maximum of 40 messages
+    # (theoretically, they wouldn't fit), and is positioned 68 pixels to the left and
     # bottom from the top-right screen corner.
-    width = 320
+    width = 600
     notification_limit = 40
-    offset = 36x36
+    offset = 68x68
 
     # By default the scale factor is auto-detected.  "Is not recommended to use a
     # fractional scaling factor" (dunst(5)), but the auto-detected factor is fractional on
@@ -68,14 +68,14 @@
     # Don't display the "(U)" prefix before messages with URLs.
     show_indicators = no
 
-    # Draw a line of 2 pixels height between two notifications.
-    separator_height = 2
+    # Draw a line of 4 pixels height between two notifications.
+    separator_height = 4
 
     # Vertical padding between text and separator.
-    padding = 8
+    padding = 16
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 16
 
     # For notifications specifying an icon name or path, show the icon at the left of the
     # notification window.  By default, icons are disabled.
@@ -93,7 +93,7 @@
     # Browser for opening URLs in context menu.
     browser = firefox --new-tab
 
-    frame_width = 2
+    frame_width = 4
 
     # Background color from jellybeans.vim: color 233 in terminals, #151515 in gVim; see
     # :hi Normal.

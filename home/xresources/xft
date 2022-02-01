@@ -1,6 +1,6 @@
 ! X FreeType interface library configuration
 
-Xft.dpi: 135
+Xft.dpi: 226.983
 
 ! Taken from the [ArchWiki][1].
 Xft.antialias: 1

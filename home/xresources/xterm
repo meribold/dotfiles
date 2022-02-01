@@ -94,20 +94,26 @@ XTerm*VT100.forceBoxChars: true
 XTerm.borderWidth:          0
 XTerm*VT100.internalBorder: 0
 
-! Use Ubuntu Mono 7 as the TrueType font...
+XTerm*VT100.renderFont: true
+
 XTerm*VT100.faceName: Ubuntu Mono
-XTerm*VT100.faceSize: 7
-! ...but stick with a bitmap font for now.
-XTerm*VT100.renderFont: false
-! Different sizes can be selected from the fontMenu when TrueType fonts are enabled (but
-! the labels for bitmap fonts continue to be used, so those make no sense).  Switching to
-! TrueType fonts at runtime can be done from the fontMenu as well.
+XTerm*VT100.faceSize: 8.2
+XTerm*fontMenu.fontdefault.Label: Ubuntu Mono 8.2
 XTerm*VT100.faceSize1: 8
-XTerm*VT100.faceSize2: 9
-XTerm*VT100.faceSize3: 10
-XTerm*VT100.faceSize4: 11
-XTerm*VT100.faceSize5: 12
-XTerm*VT100.faceSize6: 13
+XTerm*fontMenu.font1.Label: Ubuntu Mono 8
+XTerm*VT100.faceSize2: 7.5
+XTerm*fontMenu.font2.Label: Ubuntu Mono 7.5
+XTerm*VT100.faceSize3: 9
+XTerm*fontMenu.font3.Label: Ubuntu Mono 9
+XTerm*VT100.faceSize4: 10
+XTerm*fontMenu.font4.Label: Ubuntu Mono 10
+XTerm*VT100.faceSize5: 11
+XTerm*fontMenu.font5.Label: Ubuntu Mono 11
+XTerm*VT100.faceSize6: 12
+XTerm*fontMenu.font6.Label: Ubuntu Mono 12
+! It seems font 7 can't be a TrueType font.
+XTerm*fontMenu.font7.Label: TODO
+
 ! TrueType fallback font for CJK and other double-width characters from the [Noto Sans
 ! CJK][1] font family.  "Noto Sans CJK is a rebadged version of Source Han Sans, a
 ! typeface developed by Adobe and Google" [2].  It looks better than "Droid Sans Fallback"
@@ -121,20 +127,11 @@ XTerm*VT100.faceSize6: 13
 ! [5]: https://wiki.archlinux.org/index.php/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
 XTerm*VT100.faceNameDoublesize: Noto Sans Mono CJK TC
 
-XTerm*fontMenu.fontdefault.Label: dina 10
-XTerm*VT100.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
-XTerm*fontMenu.font1.Label: dina 12
-XTerm*VT100.font1: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
-XTerm*fontMenu.font2.Label: dina 13
-XTerm*VT100.font2: -*-dina-medium-r-*-*-13-*-*-*-*-*-iso8859-1
-XTerm*fontMenu.font3.Label: proggy clean sz 13
-XTerm*VT100.font3: -*-proggycleanszcp-*-*-*-*-13-*-*-*-*-*-*-*
-XTerm*fontMenu.font4.Label: terminus 12
-XTerm*VT100.font4: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-1
-XTerm*fontMenu.font5.Label: terminus 14
-XTerm*VT100.font5: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-XTerm*fontMenu.font6.Label: fixed 13
-XTerm*VT100.font6: -misc-fixed-medium-r-normal-*-13-*-100-100-*-70-iso8859-1
+XTerm*VT100.font: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1
+XTerm*VT100.font1: -*-terminus-bold-*-*-*-24-*-*-*-*-*-iso10646-1
+XTerm*VT100.font2: -*-terminus-medium-*-*-*-28-*-*-*-*-*-iso10646-1
+XTerm*VT100.font3: -*-terminus-bold-*-*-*-28-*-*-*-*-*-iso10646-1
+XTerm*VT100.font4: -*-fixed-*-*-*-*-20-*-*-*-*-*-iso8859-*
 
 ! Unset the resources for specifying UTF-8 fonts to force xterm to use the ISO-8859-1
 ! fonts.  FIXME: the "utf8Fonts" resource should take care of this.
@@ -150,12 +147,14 @@ XTerm*VT100.utf8Fonts.font6:
 ! class.  See <http://invisible-island.net/xterm/manpage/xterm.html#h3-Menu-Resources>,
 ! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#smebsb_resources>, and
 ! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#Common_Resources>.
-XTerm.SimpleMenu.background:   #000000
+XTerm.SimpleMenu.background:   #444444
 XTerm.SimpleMenu.?.foreground: #dfdfdf
-XTerm.SimpleMenu.borderColor:  #dfdfdf
-XTerm.SimpleMenu.borderWidth:  1
-XTerm.SimpleMenu.leftMargin:   4
-XTerm.SimpleMenu.rightMargin:  4
+XTerm.SimpleMenu.borderColor:  #3c3c3c
+XTerm.SimpleMenu.borderWidth:  2
+XTerm.SimpleMenu.leftMargin:   8
+XTerm.SimpleMenu.rightMargin:  8
+XTerm.SimpleMenu.topMargin:    8
+XTerm.SimpleMenu.bottomMargin: 8
 
 ! Color 188; used by jellybeans for the "Normal" highlighting group (`:hi Normal`).
 XTerm*VT100.foreground:  #dfdfdf

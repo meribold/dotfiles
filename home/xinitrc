@@ -17,8 +17,9 @@ fi
 xset +fp /usr/share/fonts/local/
 
 xset -b # Turn off the beep in X.
-# Set the desktop wallpaper, wait until feh returns, then start conky.
-~/.fehbg &
+
+# Set the desktop wallpaper.
+feh --no-fehbg --bg-center /home/meribold/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
 
 # Make the multimedia keys do stuff using XBindKeys(1).  Reads ~/.xbindkeysrc.
 xbindkeys

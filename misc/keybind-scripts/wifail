@@ -18,8 +18,8 @@ i3-msg -q 'append_layout ~/.config/i3/wifail-workspace.json'
 xterm -title wpa_supplicant -e 'journalctl -fu wpa_supplicant@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
 xterm -title dhcpcd -e 'journalctl -fu dhcpcd@wlan0 -n $(($(tput lines)-1)) -b -o cat' &
 
-xterm -title 'iw dev wlan0 link' -e 'watch -n 1 iw dev wlan0 link' &
-xterm -title 'ping gateway' -e 'while true; do a=$(ip ro | awk '\''/^def/{print $3}'\''); [[ $a ]] && ping -c 8 "$a" && sleep 10 && clear || sleep 1; done' &
-xterm -title 'ip address show dev wlan0' -e 'watch -d -n 1 ip address show dev wlan0' &
+xterm -title 'iw wlan0 link' -e 'watch -n 1 iw wlan0 link' &
+xterm -title 'ping gateway' -e 'while true; do a=$(ip r | awk '\''/^default via .* wlan/{print $3}'\''); [[ $a ]] && ping -c 8 "$a" && sleep 10 && clear || sleep 1; done' &
+xterm -title 'ip address show wlan0' -e 'watch -d -n 1 ip address show wlan0' &
 xterm -title route -e 'watch -d -n 1 route -n' &
 xterm -title 'ping google.com' -e 'while true; do ping -c 8 google.com && sleep 10 && clear || sleep 1; done' &

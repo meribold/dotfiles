@@ -12,6 +12,7 @@ dates
 background::~/dotfiles/misc/keybind-scripts/wifail::wifail
 background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
 killall xbindkeys; xbindkeys
+xrdb -merge ~/.xresources/* && { killall xbindkeys; xbindkeys; }
 killall -HUP xbindkeys
 $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
@@ -33,16 +34,19 @@ systemctl suspend
 systemctl poweroff
 systemctl reboot
 xset dpms force off # turn off the display/screen/monitor
-xrandr --output LVDS-1 --off # disable the internal display
-xrandr --output VGA-0 --auto --output HDMI-0 --auto # enable connected and disable disconnected external monitors
-xrandr --output VGA-0 --off --output HDMI-0 --off # disable external monitors
-xrandr --output HDMI-0 --auto --right-of LVDS # FIXME: untested
+xrandr
+xrandr --listmonitors
+xrandr --auto
+xrandr --output eDP-1 --off # disable the internal display
+xrandr --output eDP-1 --auto --output HDMI-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off --output DP-6 --off # disable external monitors
+xrandr --output eDP-1 --auto --primary --pos 2560x1440 --output DP-5 --mode 1920x1080 --rate 144 --scale-from 2560x1440 --pos 0x0
+xrandr --output eDP-1 --off --output DP-5 --mode 1920x1080 --rate 144 --scale-from 2560x1440
+background::exec arandr::arandr
 cat /sys/class/power_supply/BAT0/status
 charge_thresholds
 charge_thresholds 55 60
 charge_thresholds 75 80
 charge_thresholds 95 100
-toggle_thinklight
 browse::https://meribold.org::meribold.org
 browse::https://staging.meribold.org::staging.meribold.org
 browse::https://testing.meribold.org::testing.meribold.org
@@ -79,11 +83,10 @@ background::exec $FIREFOX::Firefox
 background::exec $FIREFOX --ProfileManager::Firefox (profile manager)
 background::exec firefox-developer-edition::Firefox Developer Edition
 background::exec firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
-background::exec signal-desktop --force-device-scale-factor=1.333333333::Signal Desktop
+background::exec signal-desktop --force-device-scale-factor=1.84::Signal Desktop
 background::exec gcolor2::gcolor2
 background::exec gcolor3::gcolor3
 pkill screenkey
-xrandr
 xterm::ssh bamfurlong
 xterm::ssh -t bamfurlong screen -S default -DR
 xterm::ssh -t bamfurlong screen -S minecraft -DR
@@ -135,6 +138,7 @@ rclone lsl dropbox:
 pydoc str
 wmctrl -l
 i3-msg -t get_workspaces | jq -C
+i3-msg 'move workspace to output DP-5 DP-6'
 background::exec feh --sort mtime ~/.config/signal/attachments # view photos from Signal
 background::exec feh --sort mtime ~/screenshots
 cat /proc/sys/kernel/sysrq
@@ -150,6 +154,9 @@ route
 arp
 curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
+cat /sys/class/backlight/amdgpu_bl0/{,max_}brightness
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 128
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 255
 EOF
 ) || exit $?
 
@@ -193,11 +200,6 @@ charge_thresholds() {
 
 cal() {
    unbuffer cal "$@"
-}
-
-toggle_thinklight() {
-   echo $((($(cat '/sys/class/leds/tpacpi::thinklight/brightness') + 1) % 2)) |
-      sudo dd status=none of='/sys/class/leds/tpacpi::thinklight/brightness'
 }
 
 ssh_esgaroth_quota() {

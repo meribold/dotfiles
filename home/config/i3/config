@@ -109,7 +109,7 @@ mode extra {
    bindsym Shift+l move right
    bindsym Return move position center; mode default
    bindsym Escape mode default
-   bindsym a exec --no-startup-id xrandr --output LVDS-1 --auto; mode default
+   bindsym a exec --no-startup-id xrandr --output eDP-1 --auto; mode default
    bindsym d exec --no-startup-id xterm -name 'floating xterm' -geometry 74x28 -e 'dict "$(xsel)" | less'; mode default
 }
 
@@ -149,6 +149,8 @@ gaps outer -23
 # Disable all gaps whenever there's only one container on the current workspace.  This
 # should be redundant, though.
 smart_gaps on
+
+workspace 4 output DP-5 DP-6
 
 # Always start Firefox on workspace 1 so I can switch to another workspace while waiting
 # for it to start.  See <http://i3wm.org/docs/userguide.html#assign_workspace>.

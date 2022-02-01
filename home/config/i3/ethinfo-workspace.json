@@ -10,7 +10,7 @@
           "percent": 0.6,
           "nodes": [
             {
-              "swallows": [{ "title": "^ip address show dev eth0$" }]
+              "swallows": [{ "title": "^ip address show eth1$" }]
             },
             {
               "swallows": [{ "title": "^route$" }]

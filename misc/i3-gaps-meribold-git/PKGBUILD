@@ -1,22 +1,27 @@
-# Maintainer: Lukas Waymann <meribold@gmail.com>
+# Maintainer: Lukas Waymann <io@meribold.org>
 
 pkgname=i3-gaps-meribold-git
-pkgver=4.16.1.r4.g0f8625a5
-pkgrel=2
+pkgver=4.20.1.r1.g31a67bdb
+pkgrel=1
 pkgdesc='A slightly patched fork of i3-gaps'
 arch=('i686' 'x86_64')
-url='https://github.com/meribold/i3/tree/meribold'
+url='https://github.com/meribold/i3'
 license=('BSD')
 provides=('i3-wm')
 conflicts=('i3-wm')
 groups=('i3')
 depends=('xcb-util-keysyms' 'xcb-util-wm' 'libev' 'yajl' 'startup-notification' 'pango'
          'perl' 'xcb-util-cursor' 'xcb-util-xrm' 'libxkbcommon-x11')
-makedepends=('bison' 'flex' 'asciidoc' 'xmlto' 'git' 'docbook-xsl' 'pkgconfig')
-optdepends=('perl-json-xs: For i3-save-tree' 'perl-anyevent-i3: For i3-save-tree')
+makedepends=('bison' 'flex' 'asciidoc' 'xmlto' 'git' 'meson')
+optdepends=('rxvt-unicode: The terminal emulator used in the default config.'
+            'dmenu: As menu.'
+            'i3lock: For locking your screen.'
+            'i3status: To display system information with a bar.'
+            'perl-json-xs: For i3-save-tree'
+            'perl-anyevent-i3: For i3-save-tree')
 backup=(etc/i3/config)
-options=('docs' '!strip')
-source=('git://github.com/meribold/i3#branch=meribold')
+options=('docs')
+source=('git://github.com/meribold/i3#branch=4.20.1-meribold')
 sha256sums=('SKIP')
 
 pkgver() {
@@ -24,21 +29,14 @@ pkgver() {
    git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare(){
-   mkdir build
-   cd i3
-   autoreconf -fvi
-}
-
 build() {
-   cd build
-   ../i3/configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-   make
+   cd i3
+   arch-meson -Ddocs=true -Dmans=true ../build
+   meson compile -C ../build
 }
 
 package() {
-   cd build
-   make DESTDIR="$pkgdir/" install
-   install -Dt "$pkgdir/usr/share/man/man1" -m644 man/*.1
-   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 ../i3/LICENSE
+   cd i3
+   DESTDIR="$pkgdir" meson install -C ../build
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 LICENSE
 }

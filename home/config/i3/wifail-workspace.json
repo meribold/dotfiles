@@ -31,7 +31,7 @@
           "nodes": [
             {
               "percent": 0.6,
-              "swallows": [{ "title": "^iw dev wlan0 link$" }],
+              "swallows": [{ "title": "^iw wlan0 link$" }],
               "type": "con"
             },
             {
@@ -53,7 +53,7 @@
               "nodes": [
                 {
                   "percent": 0.5,
-                  "swallows": [{ "title": "^ip address show dev wlan0$" }],
+                  "swallows": [{ "title": "^ip address show wlan0$" }],
                   "type": "con"
                 },
                 {

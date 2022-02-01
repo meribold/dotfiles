@@ -13,8 +13,8 @@ i3-msg 'workspace ethinfo'
 i3-msg -q 'append_layout ~/.config/i3/ethinfo-workspace.json'
 
 # Start the xterms.
-xterm -title dhcpcd -e 'journalctl -fu dhcpcd@eth0 -n $(($(tput lines)-1)) -b -o cat' &
-xterm -title 'ping gateway' -e 'while true; do a=$(ip ro | awk '\''/^def/{print $3}'\''); [[ $a ]] && ping -c 8 "$a" && sleep 10 && clear || sleep 1; done' &
-xterm -title 'ip address show dev eth0' -e 'watch -d -n 1 ip address show dev eth0' &
+xterm -title dhcpcd -e 'journalctl -fu dhcpcd@eth1 -n $(($(tput lines)-1)) -b -o cat' &
+xterm -title 'ping gateway' -e 'while true; do a=$(ip r | awk '\''/^default via .* eth/{print $3}'\''); [[ $a ]] && ping -c 8 "$a" && sleep 10 && clear || sleep 1; done' &
+xterm -title 'ip address show eth1' -e 'watch -d -n 1 ip address show eth1' &
 xterm -title route -e 'watch -d -n 1 route -n' &
 xterm -title 'ping google.com' -e 'while true; do ping -c 8 google.com && sleep 10 && clear || sleep 1; done' &
