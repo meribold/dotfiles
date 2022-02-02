@@ -1,9 +1,8 @@
 9base
-abook
-adobe-source-serif-pro-fonts
+adobe-source-serif-fonts
 alsa-utils
+amd-ucode
 android-tools
-anki
 arandr
 arch-wiki-docs
 arch-wiki-lite
@@ -15,6 +14,7 @@ autoconf
 automake
 autopep8
 awesome
+aws-cli
 base
 bash
 bash-completion
@@ -54,6 +54,7 @@ dictd
 diff-so-fancy
 diffutils
 dina-font
+discord
 dmenu
 docker
 dos2unix
@@ -66,8 +67,8 @@ e2fsprogs
 easytag
 ed
 editorconfig-core-c
+efibootmgr
 emacs
-espeak
 etckeeper
 expect
 fakeroot
@@ -94,6 +95,8 @@ fzf
 gawk
 gcc
 gcc-libs
+gcolor2
+gcolor3
 gdb
 gettext
 ghostscript
@@ -105,6 +108,7 @@ glfw-x11
 glibc
 glm
 gnome-themes-extra
+gnu-netcat
 gnuplot
 gparted
 grep
@@ -125,7 +129,6 @@ hunspell-de
 imagemagick
 inetutils
 inkscape
-intel-ucode
 iputils
 ipython
 irssi
@@ -139,10 +142,12 @@ khard
 kitty
 kotlin
 less
+lftp
 libnotify
 libreoffice-fresh
 libtool
 libva-intel-driver
+libvips
 licenses
 linux
 lm_sensors
@@ -163,6 +168,8 @@ mercurial
 mesa
 mesa-demos
 minetest
+monero
+monero-gui
 moreutils
 mosh
 mpc
@@ -172,6 +179,7 @@ mpv
 msmtp
 msr-tools
 mtr
+mutt
 mypy
 namcap
 nano
@@ -183,6 +191,7 @@ net-tools
 newsboat
 nload
 nmap
+nodejs
 notion
 notmuch
 notmuch-vim
@@ -194,6 +203,7 @@ ntp
 octave
 opencv
 opencv-samples
+openmw
 openresolv
 openssh
 os-prober
@@ -205,6 +215,7 @@ pass
 pass-otp
 patch
 pciutils
+pdftk
 perf
 perl
 perl-anyevent-i3
@@ -215,14 +226,19 @@ picom
 pkgconf
 playerctl
 powertop
+prettier
 procps-ng
 profile-cleaner
+progress
+protobuf-c
 psmisc
+pv
 pwgen
 python-black
 python-docs
 python-isort
 python-matplotlib
+python-opencv
 python-pillow
 python-pip
 python-pynvim
@@ -266,6 +282,7 @@ scrot
 sed
 shadow
 shellcheck
+signal-desktop
 sl
 slock
 slop
@@ -285,7 +302,6 @@ tar
 tcpdump
 teamspeak3
 terminus-font
-termite
 tex-gyre-fonts
 texinfo
 texlive-bibtexextra
@@ -336,6 +352,7 @@ wgetpaste
 which
 whois
 wireless_tools
+wireshark-qt
 wmctrl
 wpa_supplicant
 wxgtk2
@@ -361,6 +378,7 @@ xorg-xrandr
 xorg-xrdb
 xsel
 xterm
+yamllint
 yapf
 youtube-dl
 z

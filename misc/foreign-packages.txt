@@ -1,5 +1,7 @@
+abook
 alock-git
 android-studio
+anki
 auracle-git
 cli-visualizer
 conky-lua
@@ -9,6 +11,7 @@ dict-freedict-eng-deu
 dict-gcide
 dict-wn
 dragon-drag-and-drop
+espeak
 faience-icon-theme
 fonts-meta-base
 fonts-meta-extended-lt
@@ -19,8 +22,12 @@ i3-gaps-meribold-git
 imgur-screenshot-git
 imgurbash
 j4-dmenu-desktop
+libsignal-client
+libzkgroup
 mime-editor
 minecraft-launcher
+mongodb-bin
+mongodb-tools-bin
 nestopia
 nethack-nao
 numix-gtk-theme
@@ -32,6 +39,8 @@ signal-cli
 skypeforlinux-stable-bin
 st
 surf
+teams
+termite
 tor-browser-en
 ttf-courier-prime
 ttf-gelasio-ib
@@ -48,5 +57,6 @@ urlview
 vim-systemd
 wpa_actiond
 xbanish
+xkcdpass
 xorg-utils
 yeganesh-cabal
