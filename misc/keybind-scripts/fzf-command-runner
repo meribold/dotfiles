@@ -37,10 +37,10 @@ xset dpms force off # turn off the display/screen/monitor
 xrandr
 xrandr --listmonitors
 xrandr --auto
-xrandr --output eDP-1 --off # disable the internal display
-xrandr --output eDP-1 --auto --output HDMI-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off --output DP-6 --off # disable external monitors
-xrandr --output eDP-1 --auto --primary --pos 2560x1440 --output DP-5 --mode 1920x1080 --rate 144 --scale-from 2560x1440 --pos 0x0
-xrandr --output eDP-1 --off --output DP-5 --mode 1920x1080 --rate 144 --scale-from 2560x1440
+xrandr --output eDP --off # disable the internal display
+xrandr --output eDP --auto --output HDMI-A-0 --off --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --off --output DisplayPort-3 --off --output DisplayPort-4 --off --output DisplayPort-5 --off --output DisplayPort-6 --off # disable external monitors
+xrandr --output eDP --auto --primary --pos 2560x1440 --output DisplayPort-4 --mode 1920x1080 --rate 144 --scale-from 2560x1440 --pos 0x0
+xrandr --output eDP --off --output DisplayPort-4 --mode 1920x1080 --rate 144 --scale-from 2560x1440
 background::exec arandr::arandr
 cat /sys/class/power_supply/BAT0/status
 charge_thresholds
@@ -138,7 +138,8 @@ rclone lsl dropbox:
 pydoc str
 wmctrl -l
 i3-msg -t get_workspaces | jq -C
-i3-msg 'move workspace to output DP-5 DP-6'
+i3-msg 'move workspace to output DisplayPort-4 DisplayPort-5 DisplayPort-6'
+i3-msg 'move workspace to output eDP'
 background::exec feh --sort mtime ~/.config/signal/attachments # view photos from Signal
 background::exec feh --sort mtime ~/screenshots
 cat /proc/sys/kernel/sysrq
