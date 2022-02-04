@@ -37,10 +37,10 @@ xset dpms force off # turn off the display/screen/monitor
 xrandr
 xrandr --listmonitors
 xrandr --auto
-xrandr --output eDP --off # disable the internal display
 xrandr --output eDP --auto --output HDMI-A-0 --off --output DisplayPort-0 --off --output DisplayPort-1 --off --output DisplayPort-2 --off --output DisplayPort-3 --off --output DisplayPort-4 --off --output DisplayPort-5 --off --output DisplayPort-6 --off # disable external monitors
 xrandr --output eDP --auto --primary --pos 2560x1440 --output DisplayPort-4 --mode 1920x1080 --rate 144 --scale-from 2560x1440 --pos 0x0
-xrandr --output eDP --off --output DisplayPort-4 --mode 1920x1080 --rate 144 --scale-from 2560x1440
+xrandr --output eDP --off --output DisplayPort-4 --mode 1920x1080 --rate 144 --scale-from 2560x1440 # disable the internal display
+xrandr --output DisplayPort-4 --primary
 background::exec arandr::arandr
 cat /sys/class/power_supply/BAT0/status
 charge_thresholds
@@ -158,6 +158,7 @@ daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 cat /sys/class/backlight/amdgpu_bl0/{,max_}brightness
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 128
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 255
+feh --no-fehbg --bg-fill ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
 EOF
 ) || exit $?
 
@@ -204,7 +205,7 @@ cal() {
 }
 
 ssh_esgaroth_quota() {
-   i3-msg 'resize set 865 95; move position center' &>/dev/null && ssh esgaroth quota
+   i3-msg 'resize set 1599 189; move position center' &>/dev/null && ssh esgaroth quota
 }
 
 key=${fzf_output[1]}
