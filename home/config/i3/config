@@ -153,8 +153,8 @@ smart_gaps on
 workspace 4 output DisplayPort-4 DisplayPort-5 DisplayPort-6
 
 # Always start Firefox on workspace 1 so I can switch to another workspace while waiting
-# for it to start.  See <http://i3wm.org/docs/userguide.html#assign_workspace>.
-assign [class="^Firefox$"] 1
+# for it to start.  See <https://i3wm.org/docs/userguide.html#assign_workspace>.
+assign [class="^firefox$"] 1
 assign [class="^firefoxdeveloperedition$"] 1
 
 for_window [instance="^vimsel$"] floating enable
