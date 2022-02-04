@@ -1,5 +1,6 @@
 9base
 adobe-source-serif-fonts
+alacritty
 alsa-utils
 amd-ucode
 android-tools
@@ -40,6 +41,7 @@ cmake
 cmatrix
 cmus
 code
+cool-retro-term
 coreutils
 cowsay
 cpupower
@@ -120,6 +122,7 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
 gtk-engines
+gtk3-demos
 gvim
 gzip
 haveged
@@ -146,7 +149,6 @@ lftp
 libnotify
 libreoffice-fresh
 libtool
-libva-intel-driver
 libvips
 licenses
 linux
@@ -290,6 +292,7 @@ snes9x
 speedtest-cli
 sshfs
 sshuttle
+steam
 strace
 streamlink
 subversion
@@ -345,6 +348,7 @@ vdirsyncer
 vimpager
 vlc
 vpnc
+vulkan-radeon
 w3m
 weechat
 wget
@@ -363,6 +367,7 @@ xcursor-vanilla-dmz
 xcursor-vanilla-dmz-aa
 xdotool
 xf86-input-synaptics
+xf86-video-amdgpu
 xfsprogs
 xlockmore
 xmonad

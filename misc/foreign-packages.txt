@@ -40,7 +40,6 @@ skypeforlinux-stable-bin
 st
 surf
 teams
-termite
 tor-browser-en
 ttf-courier-prime
 ttf-gelasio-ib
