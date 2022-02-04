@@ -99,16 +99,16 @@ XTerm*VT100.renderFont: true
 XTerm*VT100.faceName: Ubuntu Mono
 XTerm*VT100.faceSize: 8.2
 XTerm*fontMenu.fontdefault.Label: Ubuntu Mono 8.2
-XTerm*VT100.faceSize1: 8
-XTerm*fontMenu.font1.Label: Ubuntu Mono 8
-XTerm*VT100.faceSize2: 7.5
-XTerm*fontMenu.font2.Label: Ubuntu Mono 7.5
-XTerm*VT100.faceSize3: 9
-XTerm*fontMenu.font3.Label: Ubuntu Mono 9
-XTerm*VT100.faceSize4: 10
-XTerm*fontMenu.font4.Label: Ubuntu Mono 10
-XTerm*VT100.faceSize5: 11
-XTerm*fontMenu.font5.Label: Ubuntu Mono 11
+XTerm*VT100.faceSize1: 5.6
+XTerm*fontMenu.font1.Label: Ubuntu Mono 5.6
+XTerm*VT100.faceSize2: 5.8
+XTerm*fontMenu.font2.Label: Ubuntu Mono 5.8
+XTerm*VT100.faceSize3: 6.6
+XTerm*fontMenu.font3.Label: Ubuntu Mono 6.6
+XTerm*VT100.faceSize4: 7.5
+XTerm*fontMenu.font4.Label: Ubuntu Mono 7.5
+XTerm*VT100.faceSize5: 8
+XTerm*fontMenu.font5.Label: Ubuntu Mono 8
 XTerm*VT100.faceSize6: 12
 XTerm*fontMenu.font6.Label: Ubuntu Mono 12
 ! It seems font 7 can't be a TrueType font.
