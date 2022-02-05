@@ -146,6 +146,7 @@ kitty
 kotlin
 less
 lftp
+lib32-pipewire
 libnotify
 libreoffice-fresh
 libtool
@@ -225,6 +226,8 @@ perl-file-mimeinfo
 perl-rename
 picard
 picom
+pipewire
+pipewire-alsa
 pkgconf
 playerctl
 powertop
@@ -356,6 +359,7 @@ wgetpaste
 which
 whois
 wireless_tools
+wireplumber
 wireshark-qt
 wmctrl
 wpa_supplicant
