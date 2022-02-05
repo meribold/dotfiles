@@ -47,8 +47,11 @@ xrandr --output DisplayPort-4 --primary
 background::exec arandr::arandr
 cat /sys/class/power_supply/BAT0/status
 charge_thresholds
-charge_thresholds 55 60
+charge_thresholds 60 65
+charge_thresholds 65 70
+charge_thresholds 70 75
 charge_thresholds 75 80
+charge_thresholds 80 85
 charge_thresholds 95 100
 browse::https://meribold.org::meribold.org
 browse::https://staging.meribold.org::staging.meribold.org
@@ -70,6 +73,8 @@ browse::https://play.google.com/apps/publish::Google Play Console
 browse::youtube.com/feed/history
 browse::youtube.com/playlist?list=WL
 browse::detectportal.firefox.com
+browse::https://www.computerbase.de::ComputerBase
+browse::https://meribold.goatcounter.com::GoatCounter
 evalbrowse::wiki.meribold.org/$(date -I)
 background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
@@ -123,6 +128,7 @@ background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam 
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
 gpg-connect-agent reloadagent /bye
+xmodmap ~/dotfiles/misc/xmodmaprc
 background::fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
 killall fcitx
 xbindkeys -k
@@ -141,6 +147,8 @@ rclone lsl dropbox:
 pydoc str
 wmctrl -l
 i3-msg -t get_workspaces | jq -C
+i3-msg -t get_tree | jq -C
+i3-save-tree
 i3-msg 'move workspace to output DisplayPort-4 DisplayPort-5 DisplayPort-6'
 i3-msg 'move workspace to output eDP'
 background::exec feh --sort mtime ~/.config/signal/attachments # view photos from Signal
@@ -162,6 +170,11 @@ cat /sys/class/backlight/amdgpu_bl0/{,max_}brightness
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 128
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 255
 feh --no-fehbg --bg-fill ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
+ulimit -a
+cat /etc/os-release
+mount
+xterm::systemctl status
+xterm::systemctl list-units
 EOF
 ) || exit $?
 
