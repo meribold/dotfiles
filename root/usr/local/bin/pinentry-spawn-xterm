@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -o nounset
+shopt -s extglob
+
+prompt=PIN:
+desc=pinentry-spawn-xterm%0A
+
+printf 'OK Pleased to meet you\n'
+
+while IFS= read -r line; do
+   command_type=${line%%[[:blank:]]*}
+   rest=${line:${#command_type}}
+   case "${command_type^^}$rest" in
+      OPTION+([[:blank:]])*)
+         printf 'OK\n'
+         ;;
+      GETINFO+([[:blank:]])flavor)
+         printf 'D spawn-xterm\nOK\n'
+         ;;
+      GETINFO+([[:blank:]])version)
+         printf 'D 0.1.0\nOK\n'
+         ;;
+      GETINFO+([[:blank:]])pid)
+         printf 'D %s\nOK\n' $$
+         ;;
+      SETDESC+([[:blank:]])*)
+         desc=${rest##*([[:blank:]])}
+         printf 'OK\n'
+         ;;
+      SETPROMPT+([[:blank:]])*)
+         prompt=${rest##*([[:blank:]])}
+         printf 'OK\n'
+         ;;
+      GETPIN)
+         pin=$(
+            bash <<-EOF
+					xterm -name 'floating xterm' -geometry 61x6 -e \
+						'printf "%b\n" '\''${desc//%/\\x}'\'' &&
+							IFS= read -rsp '\''$prompt '\'' pin &&
+							printf %s "\$pin" > /proc/'\$\$'/fd/1'
+				EOF
+            )
+         printf 'D %s\nOK\n' "$pin"
+         ;;
+      NOP)
+         printf 'OK\n'
+         ;;
+      BYE|BYE+([[:blank:]])*)
+         printf 'OK closing connection\n'
+         exit
+         ;;
+      '')
+         ;;
+      *)
+         printf 'ERR\n'
+   esac
+done

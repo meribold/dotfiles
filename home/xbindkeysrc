@@ -135,7 +135,7 @@
 
 # Run [fzf-pass](https://github.com/meribold/fzf-pass), an alternative to passmenu based
 # on [rofi-pass](https://github.com/carnager/rofi-pass).
-"PINENTRY_USER_DATA=gtk xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass/fzf-pass"
+"PINENTRY_USER_DATA=spawn-xterm xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass/fzf-pass"
    Mod4 + y
 
 "i3-msg [id=$(wmctrl -l | fzfmenu --with-nth 4.. | cut -d\  -f1)] focus"
