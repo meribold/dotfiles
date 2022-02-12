@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Choose a pinentry program depending on the PINENTRY_USER_DATA environment variable (see
-# gpg2(1)): either pinentry-curses or pinentry-spawn-xterm.  This only works with gpg2.
-# See <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=802020>.
+# gpg2(1)): either pinentry-tty or pinentry-spawn-xterm.  This only works with gpg2.  See
+# <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=802020>.
 #
 # I copied this script from <https://unix.stackexchange.com/q/236746>.
 
@@ -10,5 +10,5 @@ case $PINENTRY_USER_DATA in
    spawn-xterm)
       exec /usr/local/bin/pinentry-spawn-xterm "$@" ;;
    *)
-      exec /usr/bin/pinentry-curses "$@" ;;
+      exec /usr/bin/pinentry-tty "$@" ;;
 esac
