@@ -752,8 +752,8 @@ xmap <C-W>k <Plug>(Visual-Split-VSSplitAbove)
 nmap <C-W>k <Plug>(Visual-Split-SplitAbove)
 " [1]: https://github.com/wellle/visual-split.vim#remapping
 
-nnoremap <silent> <Leader>c :Gcommit<CR>
-nnoremap <silent> <Leader>C :Gcommit --amend<CR>
+nnoremap <silent> <Leader>c :Git commit<CR>
+nnoremap <silent> <Leader>C :Git commit --amend<CR>
 
 " Mappings for commands from junegunn's fzf.vim plugin.  Most commands support CTRL-T,
 " CTRL-X, and CTRL-V key mappings to open in a new tab, a new split, or a new vertical
