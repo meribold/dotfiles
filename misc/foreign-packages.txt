@@ -1,7 +1,7 @@
 abook
 alock-git
 android-studio
-anki
+atool
 auracle-git
 cli-visualizer
 conky-lua

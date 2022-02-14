@@ -9,7 +9,6 @@ arch-wiki-docs
 arch-wiki-lite
 archey3
 asciinema
-atool
 audacity
 autoconf
 automake
@@ -70,6 +69,7 @@ easytag
 ed
 editorconfig-core-c
 efibootmgr
+elvish
 emacs
 etckeeper
 expect
@@ -129,6 +129,7 @@ haveged
 htop
 httpie
 hunspell-de
+hyperfine
 imagemagick
 inetutils
 inkscape
@@ -158,6 +159,7 @@ logrotate
 lolcat
 lostfiles
 lsof
+lutris
 lynx
 lz4
 m4
@@ -204,6 +206,7 @@ npm
 ntfs-3g
 ntp
 octave
+oil
 opencv
 opencv-samples
 openmw
@@ -250,6 +253,7 @@ python-pynvim
 python-scikit-learn
 python-scipy
 python-wheel
+qemu
 qpdf
 qrencode
 qt5-connectivity
@@ -273,6 +277,7 @@ reptyr
 ripgrep
 rlwrap
 rofi
+rogue
 rsync
 ruby-bundler
 rustup
@@ -300,6 +305,7 @@ strace
 streamlink
 subversion
 sudo
+supertuxkart
 sxhkd
 sysfsutils
 syslog-ng
@@ -349,6 +355,7 @@ util-linux
 valgrind
 vdirsyncer
 vimpager
+virt-manager
 vlc
 vpnc
 vulkan-radeon
@@ -358,6 +365,7 @@ wget
 wgetpaste
 which
 whois
+wine
 wireless_tools
 wireplumber
 wireshark-qt
@@ -376,6 +384,8 @@ xfsprogs
 xlockmore
 xmonad
 xmonad-contrib
+xonotic
+xonsh
 xorg-server
 xorg-twm
 xorg-xfontsel
