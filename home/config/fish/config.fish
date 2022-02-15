@@ -54,3 +54,21 @@ abbr -ag tag 'tig --all'
 abbr -ag nx 'git annex'
 
 abbr -ag pg 'pass git'
+
+function archive_command_preexec --on-event fish_preexec
+   set rowid (
+      printf 'INSERT INTO commands(command, timestamp, wd, fish_pid)
+              VALUES(\'%s\', \'%s\', \'%s\', %s);
+              SELECT last_insert_rowid()' \
+         (string replace --all \' \'\' $argv | string collect) \
+         (date -Is) \
+         (string replace --all \' \'\' $PWD | string collect) \
+         $fish_pid \
+         | sqlite3 ~/fish-command-archive.db
+   )
+
+   function archive_command_postexec --inherit-variable rowid --on-event fish_postexec
+      printf 'UPDATE commands SET status = %s, duration = %s WHERE rowid = %s' \
+         $status $CMD_DURATION $rowid | sqlite3 ~/fish-command-archive.db
+   end
+end
