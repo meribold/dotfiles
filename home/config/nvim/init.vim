@@ -5,6 +5,9 @@ augroup END
 
 source ~/.config/nvim/common.vim
 
+" The default of Neovim 0.6.1 is ".,$XDG_DATA_HOME/nvim/backup//".
+set backupdir-=.
+
 if exists('&inccommand')
    set inccommand=nosplit
 endif
