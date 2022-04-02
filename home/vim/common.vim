@@ -763,8 +763,8 @@ nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>F :Files ~/projects<CR>
 nnoremap <silent> <Leader>l :Buffers<CR>
 nnoremap <silent> <Leader>L :History<CR>
-nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
-nnoremap <silent> <Leader>A :Ag <C-R><C-A><CR>
+nnoremap <silent> <Leader>a :Rg <C-R><C-W><CR>
+nnoremap <silent> <Leader>A :Rg <C-R><C-A><CR>
 nnoremap <silent> <Leader>: :History:<CR>
 nnoremap <silent> <Leader>/ :History/<CR>
 nnoremap <silent> <Leader><Leader> :Snippets<CR>
