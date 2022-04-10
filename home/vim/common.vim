@@ -277,6 +277,13 @@ xmap gx <Plug>(openbrowser-smart-search)
 " Search with DuckDuckGo by default.
 let g:openbrowser_default_search = 'duckduckgo'
 
+" EditorConfig plugin {{{2
+" Don't automagically fix my shitty files: don't fix newlines, don't fix trailing
+" whitespace, and don't fix a file's last line lacking a newline.  Prevent noisy diffs.
+" These issues should be fixed in bulk with a single commit rather than piecemeal.
+let g:EditorConfig_disable_rules = ['end_of_line', 'trim_trailing_whitespace',
+   \ 'insert_final_newline']
+
 " textobj-word-column.vim {{{2
 " Skip the plugin's default mappings: they conflict with those of vim-textobj-comment.
 let g:skip_default_textobj_word_column_mappings = 1
