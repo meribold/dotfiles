@@ -26,4 +26,4 @@ else
    nvim "$d/main.cpp" +'normal! g`"'
 fi
 
-g++ "$d/main.cpp" -o "$d/main" && "$d/main"
+g++ -Wall -Wextra -pedantic "$d/main.cpp" -o "$d/main" && "$d/main"
