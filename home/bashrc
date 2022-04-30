@@ -236,7 +236,7 @@ alias nx='git-annex'
 
 alias pg='pass git'
 
-alias feh='feh -.'
+alias feh='feh -B black -.'
 alias msa='mpc search any'
 
 d() { dict "$@" |& less -FX; }
