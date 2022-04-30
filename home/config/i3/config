@@ -209,3 +209,5 @@ for_window [instance="^floating man$"] scratchpad show
 # This enhances a keybind defined in `home/xbindkeysrc`.  TODO: set the keybind up here
 # and don't use XBindKeys for this one?
 for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/qrencode\....\.png$"] floating enable
+
+for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/feh_stdin_"] floating enable
