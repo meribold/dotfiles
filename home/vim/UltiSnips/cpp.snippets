@@ -13,43 +13,23 @@ def class_name():
 endglobal
 
 snippet class "minimal class definition" bm
-class ${1:`!p snip.rv = class_name()`}
-{
-	public:
-
-	${2:// ...}
-
-	private:
-
-	${0:// ...}
+class ${1:`!p snip.rv = class_name()`} {
+	${0}
 };
 endsnippet
 
 snippet "class (.+)" "minimal class definition" brm
-class `!p snip.rv = match.group(1)`
-{
-	public:
-
-	${1:// ...}
-
-	private:
-
-	${0:// ...}
+class `!p snip.rv = match.group(1)` {
+	${0}
 };
 endsnippet
 
 snippet struct "struct definition" b
-struct ${1:`!p snip.rv = class_name()`}
-{
-	${0:// ...}
-};
+struct ${1:`!p snip.rv = class_name()`} {${0}};
 endsnippet
 
 snippet "struct (.+)" "struct definition" br
-struct `!p snip.rv = match.group(1)`
-{
-	${0:// ...}
-};
+struct `!p snip.rv = match.group(1)` {${0}};
 endsnippet
 
 # https://en.wikipedia.org/wiki/Rule_of_three_%28C%2B%2B_programming%29
