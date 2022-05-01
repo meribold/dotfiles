@@ -21,9 +21,9 @@ int main(int argc, char* argv[]) {
    
 }
 EOF
-   nvim "$d/main.cpp" +6 +'startinsert!'
+   nvim "$d/main.cpp" +6 +'startinsert!' || exit $?
 else
-   nvim "$d/main.cpp" +'normal! g`"'
+   nvim "$d/main.cpp" +'normal! g`"' || exit $?
 fi
 
 g++ -Wall -Wextra -pedantic "$d/main.cpp" -o "$d/main" && "$d/main"
