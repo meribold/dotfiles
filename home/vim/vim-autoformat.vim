@@ -44,9 +44,9 @@ let g:formatdef_clangformat = 'g:ClangFormatConfigFileExists() ? ('
 
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Reverse the order of the preferred formatters for Python compared to what
-" [defaults.vim][4] from the plugin would set otherwise.
-let g:formatters_python = ['yapf','autopep8']
+" Customize what Python formatters can be used and their order of preference.  Black is
+" first.  The default list can by found in vim-autoformat's [defaults.vim][4] file.
+let g:formatters_python = ['black', 'yapf', 'autopep8']
 " Add `--aggressive` to the [default value of `g:formatdef_autopep8`][4].  TODO: can we
 " use Vim's `after-directory` to avoid repeating stuff in [defaults.vim][4]?
 let g:formatdef_autopep8 = '"autopep8 --aggressive -" . '
@@ -68,6 +68,6 @@ nnoremap <silent> <Leader>Q :Autoformat<CR>
 " [1]: https://github.com/Chiel92/vim-autoformat#default-formatprograms
 " [2]: http://clang.llvm.org/docs/ClangFormatStyleOptions.html
 " [3]: http://clang.llvm.org/docs/ClangFormat.html
-" [4]: https://github.com/Chiel92/vim-autoformat/blob/master/plugin/defaults.vim
+" [4]: https://github.com/vim-autoformat/vim-autoformat/blob/555c956db3bdd8ae6f1aa5af1c5fd37eac749e6a/plugin/defaults.vim
 
 " vim: tw=90 sts=-1 sw=3 et
