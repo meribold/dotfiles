@@ -308,9 +308,6 @@ let g:neomake_echo_current_error = 0
 let g:neomake_place_signs = 0
 
 " commentary.vim {{{2
-" Adjust commentstring for C++ so commentary.vim uses C++-style comments.  TODO: see
-" `:h ftplugin-overrule`.
-autocmd vimrc_common FileType cpp setlocal commentstring=//%s
 autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
 " vim-markdown {{{2
