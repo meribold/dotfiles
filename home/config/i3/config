@@ -211,3 +211,6 @@ for_window [instance="^floating man$"] scratchpad show
 for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/qrencode\....\.png$"] floating enable
 
 for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/feh_stdin_"] floating enable
+
+for_window [instance="^irssi$"] floating enable
+for_window [instance="^irssi$"] move right 640 px

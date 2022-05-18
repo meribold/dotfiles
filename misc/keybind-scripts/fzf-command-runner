@@ -98,7 +98,7 @@ pkill screenkey
 xterm::ssh bamfurlong
 xterm::ssh -t bamfurlong screen -S default -DR
 xterm::ssh -t bamfurlong screen -S minecraft -DR
-xterm::ssh -t bamfurlong 'screen -S irssi -x || screen -S irssi irssi'
+background::exec xterm -name irssi -geometry 96x54 -e ssh -t bamfurlong screen -S irssi -x \|\| screen -S irssi irssi::Irssi
 xterm::ssh -t athrad screen -UDR
 xterm::ssh shirebourn # Ubiquiti UniFi AP
 xterm::ssh baranduin # Ubiquiti EdgeRouter X
