@@ -138,7 +138,7 @@
 "PINENTRY_USER_DATA=spawn-xterm xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass/fzf-pass"
    Mod4 + y
 
-"i3-msg [id=$(wmctrl -l | fzfmenu --with-nth 4.. | cut -d\  -f1)] focus"
+"i3-msg [id=$(wmctrl -l | fzfmenu --select-1 --cycle --bind \'\;:jump-accept\' --with-nth 4.. | cut -d\  -f1)] focus"
    Mod4 + space
 
 "i3-msg [class=.] focus"
