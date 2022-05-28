@@ -25,6 +25,7 @@ biber
 bind
 binutils
 bison
+blender
 bluez
 bluez-utils
 boost
@@ -87,6 +88,7 @@ firefox
 firefox-developer-edition
 fish
 flake8
+flameshot
 flex
 fontconfig
 fontforge
@@ -106,6 +108,7 @@ gimp
 git
 git-annex
 git-crypt
+git-delta
 glfw-x11
 glibc
 glm
@@ -205,6 +208,7 @@ noto-fonts-emoji
 npm
 ntfs-3g
 ntp
+obs-studio
 octave
 oil
 opencv
@@ -275,6 +279,7 @@ reiserfsprogs
 renameutils
 reptyr
 ripgrep
+ripgrep-all
 rlwrap
 rofi
 rogue

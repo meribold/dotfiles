@@ -39,7 +39,6 @@ signal-cli
 skypeforlinux-stable-bin
 st
 surf
-teams
 tor-browser-en
 ttf-courier-prime
 ttf-gelasio-ib
