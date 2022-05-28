@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -o nounset
+
+window_list=$(wmctrl -l) || exit
+
+[[ $window_list ]] || exit 0
+
+num_windows=$(($(printf %s "$window_list" | grep -c ^) + 2))
+
+# shellcheck disable=SC2016
+window_id=$(xterm -name 'floating xterm' -geometry "80x$num_windows" -e '
+   fzf --select-1 --cycle --bind \;:jump-accept --with-nth 4.. \
+   < /proc/$PPID/fd/0 > /proc/$PPID/fd/1' <<< "$window_list") || exit
+
+[[ $window_id ]] || exit 0
+
+i3-msg [id="${window_id%% *}"] focus
