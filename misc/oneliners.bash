@@ -121,8 +121,6 @@ paccache -rk1 # remove all but the most recent cached versions of ALL packages
 paccache -ruk0 # remove ALL cached versions of uninstalled packages
 pacman -F FILENAME
 pacman -Qe | grep -v "$(pacman -Qqeg base-devel base)" # print explicitly installed packages not in base or base-devel
-pacman -Qeq --foreign > ~/dotfiles/misc/foreign-packages.txt
-pacman -Qeq --native > ~/dotfiles/misc/native-packages.txt
 pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
 pacman -Qtdq # list (real) orphan packages
 pass git remote | xargs -L1 -P0 pass git push

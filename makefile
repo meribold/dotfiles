@@ -223,6 +223,14 @@ dirs += $(sort $(dir $(links) $(root_links))) # `sort` removes duplicates.
 $(dirs):
 	mkdir -p '$@'
 
+misc/native-packages.txt: /var/log/pacman.log
+	pacman -Qeq --native > $@
+	git add $@
+
+misc/foreign-packages.txt: /var/log/pacman.log
+	pacman -Qeq --foreign > $@
+	git add $@
+
 # Enable the second expansion of prerequisites.
 .SECONDEXPANSION:
 
