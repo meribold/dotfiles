@@ -147,7 +147,7 @@ sudo iw dev wlan0 scan | less
 sudo pacman -D --asdeps PACKAGE
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
-sudo rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*'} --info=progress2 / esgaroth:smial/; systemctl suspend
+sudo rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*','/home/meribold/.local/share/Steam/*','/home/meribold/.local/share/lutris/*'} --info=progress2 / esgaroth:smial/; systemctl suspend
 sudo sysctl kernel.sysrq=1
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
