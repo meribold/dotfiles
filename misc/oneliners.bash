@@ -2,7 +2,6 @@
 # git submodule foreach git clean -dfx # remove all untracked files of all submodules
 # nx forget --force
 # nx sync --cleanup
-$FIREFOX --ProfileManager
 $FIREFOX --safe-mode
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 bundle install --path vendor/bundle
@@ -26,6 +25,7 @@ git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Initial commit'
 git commit -m 'Update commits recorded by submodules'
+git config --list
 git fetch . WIP:master
 git mergetool --tool=kdiff3
 git mergetool --tool=meld
@@ -40,19 +40,18 @@ git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
 git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
 git-crypt status
-gpg --armor --export D14CCBFF836E57327C252FDE7066AC79C4592C12
+gpg --edit-key D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg --encrypt --armor --recipient D14CCBFF836E57327C252FDE7066AC79C4592C12
+gpg --export --armor D14CCBFF836E57327C252FDE7066AC79C4592C12
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
+journalctl --dmesg --follow
 journalctl --no-tail -b -o cat -fu dhcpcd@eth0
 journalctl --no-tail -b -o cat -fu dhcpcd@wlan0
 journalctl --no-tail -b -o cat -fu wpa_supplicant@wlan0
-journalctl --user -n 100 -fu signal-cli.bash.service
 journalctl -u "sshd@*"
 journalctl /usr/bin/sshd
 journalctl _COMM=sshd
-killall -SIGUSR1 dunst # pause Dunst
-killall -SIGUSR2 dunst # resume Dunst
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
 mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
@@ -98,11 +97,12 @@ mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://xTPn_Nk_KrM' # Ash
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio --shuffle 'ytdl://PLBCLqOzi7nCR7cfDldMpVICZ5BSdmQCT0'
 mpv av://v4l2:/dev/video0
 mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
-neomutt -s 'Hi.' 'meribold@gmail.com' <<< ''
+neomutt -s 'Hi.' 'wise.text9686@fastmail.com' <<< ''
 nohup xdg-open file &>/dev/null <&1 &
 nx copy --fast --all --to esgaroth
 nx copy --fast --all --to s3
 nx copy --fast --all --to t5a
+nx copy --fast --all -J4 --to esgaroth
 nx describe esgaroth Esgaroth
 nx describe here Smial
 nx describe s3 'Amazon S3'
@@ -115,8 +115,10 @@ nx initremote foo type=S3 --whatelse
 nx move --unused --to esgaroth
 nx status
 nx sync --no-resolvemerge --no-commit
+nx sync --no-resolvemerge --no-commit --no-pull
 nx version
 nx vicfg
+nx whereis --unused
 paccache -rk1 # remove all but the most recent cached versions of ALL packages
 paccache -ruk0 # remove ALL cached versions of uninstalled packages
 pacman -F FILENAME
@@ -134,11 +136,11 @@ rm -rf _site && bundle exec jekyll serve --drafts
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
+set -o
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
 ssh -t athrad screen -Ux
-ssh esgaroth ls .zfs/snapshot
 sshfs esgaroth: ~/esgaroth
 sudo dhcpcd -B wlan0
 sudo etckeeper commit
@@ -154,11 +156,7 @@ sudo systemctl restart wpa_supplicant@wlan0
 sudo systemctl start dhcpcd@eth0
 sudo systemctl stop wpa_supplicant@wlan0
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
-systemctl --user restart signal-cli.bash.service
-systemctl --user start signal-cli.bash.service
-systemctl --user stop signal-cli.bash.service
 telnet mapscii.me
-time cat
 trans :zh-TW -b - | s
 vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
@@ -167,9 +165,7 @@ while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read
 xdg-open file &>/dev/null <&1 & disown
 xdotool key Caps_Lock
 xev # interactively enter keys and get keysyms
-xprop
 xsel --clipboard | vipe | xsel --clipboard
 xsel --clipboard | wgetpaste --tee -C
-xwininfo
 youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
 { checkupdates & auracle outdated; } | less -FX # check for updates to native and foreign (AUR) packages
