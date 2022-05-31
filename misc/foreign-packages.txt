@@ -1,7 +1,6 @@
 abook
 alock-git
 android-studio
-atool
 auracle-git
 cli-visualizer
 conky-lua
@@ -11,7 +10,6 @@ dict-freedict-eng-deu
 dict-gcide
 dict-wn
 dragon-drag-and-drop
-espeak
 faience-icon-theme
 fonts-meta-base
 fonts-meta-extended-lt

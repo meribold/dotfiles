@@ -9,6 +9,7 @@ arch-wiki-docs
 arch-wiki-lite
 archey3
 asciinema
+atool
 audacity
 autoconf
 automake
@@ -253,7 +254,7 @@ python-pynvim
 python-scikit-learn
 python-scipy
 python-wheel
-qemu
+qemu-desktop
 qpdf
 qrencode
 qt5-connectivity
