@@ -203,6 +203,7 @@ for_window [instance="^ncmpcpp$"] sticky enable
 for_window [instance="^ncmpcpp$"] scratchpad show
 
 for_window [instance="^floating man$"] floating enable
+for_window [instance="^floating man$"] move right 640 px
 for_window [instance="^floating man$"] move scratchpad
 for_window [instance="^floating man$"] scratchpad show
 
