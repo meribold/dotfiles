@@ -133,6 +133,7 @@ xmodmap ~/dotfiles/misc/xmodmaprc
 background::fcitx && sleep 0.5 && xmodmap ~/dotfiles/misc/xmodmaprc
 killall fcitx
 xbindkeys -k
+background::xev
 ::ssh_esgaroth_quota::ssh 1791esgaroth quota
 df -Th
 free -h
@@ -225,6 +226,11 @@ cal() {
 
 ssh_esgaroth_quota() {
    i3-msg 'resize set 1599 189; move position center' &>/dev/null && ssh esgaroth quota
+}
+
+xev() {
+   i3-msg workspace xev
+   xterm -e xev
 }
 
 key=${fzf_output[1]}

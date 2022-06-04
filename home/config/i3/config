@@ -168,6 +168,9 @@ for_window [instance="^webcam feed$"] sticky enable
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
 
+for_window [title="^Event Tester$"] floating enable
+for_window [title="^Event Tester$"] move position 2359 1399
+
 # Enable floating mode and add a border to the Firefox about dialog.
 for_window [class="^firefox$" window_role="^About$"] floating enable, border pixel 1
 for_window [class="^firefoxdeveloperedition$" window_role="^About$"] floating enable, border pixel 1
