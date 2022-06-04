@@ -59,7 +59,6 @@ bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
 # Make the currently focused window a scratchpad.
-bindsym $mod+Shift+grave move scratchpad
 bindsym $mod+period move scratchpad
 
 # Don't comply when programs request to be focused.  Firefox does that when I open an
