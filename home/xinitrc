@@ -25,8 +25,8 @@ feh --no-fehbg --bg-center /home/meribold/images/wallpapers/2560x1600/the-coming
 xbindkeys
 
 # Use Control as another Escape key without breaking its normal modifier key
-# functionality.
-xcape
+# functionality.  Use the Shift keys to enter parentheses.
+xcape -e 'Control_L=Escape;Shift_L=Shift_L|9;Shift_R=Shift_L|0'
 
 # Auto-hide the mouse cursor.  See <https://github.com/Airblader/unclutter-xfixes>.
 unclutter --fork

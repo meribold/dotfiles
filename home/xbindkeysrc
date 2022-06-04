@@ -7,6 +7,12 @@
 # [2]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys
 # [3]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys_in_Xorg
 
+"i3-msg 'floating enable; move position 13 68; resize set 1248 1458'"
+   Mod4 + Shift + h
+
+"i3-msg 'floating enable; move position 1293 68; resize set 1248 1458'"
+   Mod4 + Shift + l
+
 "amixer -q set Master toggle"
    XF86AudioMute
 
@@ -40,7 +46,7 @@
    XF86AudioNext
 
 "mpc next"
-   Mod4 + period
+   Mod4 + Shift + period
 
 # Like ncmpcpp.
 "mpc seek 0"
@@ -56,7 +62,7 @@
    XF86AudioPrev
 
 "mpc prev"
-   Mod4 + comma
+   Mod4 + Shift + comma
 
 # Take a screenshot using maim(1).
 "f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
