@@ -13,6 +13,12 @@
 "i3-msg 'floating enable; move position 1293 68; resize set 1248 1458'"
    Mod4 + Shift + l
 
+"wmctrl -r :ACTIVE: -e 0,0,-1,2560,-1"
+   Mod4 + Shift + j
+
+"wmctrl -r :ACTIVE: -e 0,-1,0,-1,1600"
+   Mod4 + Shift + k
+
 "amixer -q set Master toggle"
    XF86AudioMute
 
