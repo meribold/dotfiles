@@ -3,10 +3,16 @@
 set -o nounset -o pipefail
 
 if [[ ! -f /tmp/man$1.txt ]]; then
-   man -k -s "$1" . | awk '{ print $1, $2 }' > "/tmp/man$1.txt"
+   man -kS "$1" . | awk '{ print $1, $2 }' > "/tmp/man$1.txt"
 fi
 
-mapfile -t selection < <(fzfmenu < "/tmp/man$1.txt" | sed -r 's/(.*) \((.*)\)/\2\n\1/')
+# shellcheck disable=SC2016
+mapfile -t selection < <(xterm -name 'floating xterm' -geometry 36x24 -e '
+   fzf --prompt "? " --color dark,hl:yellow:regular,fg+:white:regular \
+   --color hl+:yellow:regular:reverse,query:white:regular,info:gray:regular \
+   --color prompt:yellow:regular,pointer:yellow:bold \
+   < /proc/$PPID/fd/0 > /proc/$PPID/fd/1' < "/tmp/man$1.txt" |
+   sed -r 's/(.*) \((.*)\)/\2\n\1/')
 
 [[ ${selection[0]} && ${selection[1]} ]] || exit $?
 
