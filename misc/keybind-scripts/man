@@ -6,15 +6,16 @@ if [[ ! -f /tmp/man$1.txt ]]; then
    man -kS "$1" . | awk '{ print $1, $2 }' > "/tmp/man$1.txt"
 fi
 
+export FZF_DEFAULT_OPTS='--prompt "? " --color dark,hl:yellow:regular,fg+:white:regular
+   --color hl+:yellow:regular:reverse,query:white:regular,info:gray:regular
+   --color prompt:yellow:regular,pointer:yellow:bold'
+
 # shellcheck disable=SC2016
 mapfile -t selection < <(xterm -name 'floating xterm' -geometry 36x24 -e '
-   fzf --prompt "? " --color dark,hl:yellow:regular,fg+:white:regular \
-   --color hl+:yellow:regular:reverse,query:white:regular,info:gray:regular \
-   --color prompt:yellow:regular,pointer:yellow:bold \
-   < /proc/$PPID/fd/0 > /proc/$PPID/fd/1' < "/tmp/man$1.txt" |
+   fzf < /proc/$PPID/fd/0 > /proc/$PPID/fd/1' < "/tmp/man$1.txt" |
    sed -r 's/(.*) \((.*)\)/\2\n\1/')
 
-[[ ${selection[0]} && ${selection[1]} ]] || exit $?
+[[ ${selection[0]} && ${selection[1]} ]] || exit
 
 exec xterm -sl 0 -name 'floating man' \
    -title "${selection[1]}(${selection[0]}) manual page" \
