@@ -10,7 +10,9 @@ num_windows=$(($(printf %s "$window_list" | grep -c ^) + 2))
 
 # shellcheck disable=SC2016
 window_id=$(xterm -name 'floating xterm' -geometry "80x$num_windows" -e '
-   fzf --select-1 --cycle --bind \;:jump-accept --with-nth 4.. \
+   fzf --select-1 --cycle --bind \;:jump-accept --with-nth 4.. --prompt "< " \
+       --color dark,hl:red:regular,fg+:white:regular,hl+:red:regular:reverse \
+       --color query:white:regular,info:gray:regular,prompt:red:bold,pointer:red:bold \
    < /proc/$PPID/fd/0 > /proc/$PPID/fd/1' <<< "$window_list") || exit
 
 [[ $window_id ]] || exit 0

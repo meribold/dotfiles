@@ -230,7 +230,7 @@ ssh_esgaroth_quota() {
 
 xev() {
    i3-msg workspace xev
-   xterm -e xev
+   xterm -e xev -rv
 }
 
 key=${fzf_output[1]}
