@@ -1,16 +1,38 @@
 #!/usr/bin/env bash
 
+# FIXME: double-width characters mess up the alignment; run this script after opening e.g.
+# <https://emojipedia.org> to see what happens.
+
 set -o nounset
 
-window_list=$(wmctrl -l) || exit
+coproc wmctrl -l
+mapfile -tu "${COPROC[0]}" window_array
+wait -n || exit
 
-[[ $window_list ]] || exit 0
+num_windows=${#window_array[@]}
 
-num_windows=$(($(printf %s "$window_list" | grep -c ^) + 2))
+(( num_windows )) || exit 0
+
+coproc wmctrl -lx
+mapfile -tu "${COPROC[0]}" window_array_x
+wait -n || exit
+
+for (( i = 0; i < num_windows; i++ )); do
+   window_id=${window_array[i]%% *}
+   window_title=${window_array[i]#[^ ]* [^ ]* [^ ]* }
+   : "${window_array_x[i]#[^ ]* [^ ]* }"
+   wm_class=${_%" $HOSTNAME $window_title"}
+   window_array[i]=$window_id\ $window_title$'\x1f'$wm_class
+done
+
+window_list=$(printf '%s\n' "${window_array[@]}" | gawk -F $'\x1f' '{
+   sub(/ +$/, "", $2)
+   printf("%-87s %20s\n", substr($1, 0, 87), substr($2, 0, 20))
+}')
 
 # shellcheck disable=SC2016
-window_id=$(xterm -name 'floating xterm' -geometry "80x$num_windows" -e '
-   fzf --select-1 --cycle --bind \;:jump-accept --with-nth 4.. --prompt "< " \
+window_id=$(xterm -name 'floating xterm' -geometry "100x$((num_windows + 2))" -e '
+   fzf --select-1 --cycle --bind \;:jump-accept --with-nth 2.. --prompt "< " \
        --color dark,hl:red:regular,fg+:white:regular,hl+:red:regular:reverse \
        --color query:white:regular,info:gray:regular,prompt:red:bold,pointer:red:bold \
    < /proc/$PPID/fd/0 > /proc/$PPID/fd/1' <<< "$window_list") || exit
