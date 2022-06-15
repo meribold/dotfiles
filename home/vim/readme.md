@@ -23,9 +23,45 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
 *   Is it possible to soft-wrap at `'textwidth'`?  See
     <https://github.com/neovim/neovim/issues/4386>.
 *   Use [`par`][] for automatic paragraph formatting?
-*   Maybe try some of these Vim plugins:
-    [Powerline](https://github.com/powerline/powerline),
+
+Maybe try some of these plugins:
+
+*   [neoterm](https://github.com/kassio/neoterm)
+    *   Neovim-only
+    *   Neoterm provides commands for sending code to REPLs using Neovim's built-in
+        terminal emulator.
+    *   `nnoremap <silent> <Leader>e :TREPLSend<CR>`?
+    *   `unlet g:neoterm_automap_keys`?
+    *   `Tmap ls`?
+*   [nvim-miniyank](https://github.com/bfredl/nvim-miniyank)
+    *   Neovim-only
+    *   `map p <Plug>(miniyank-autoput)`?
+    *   `map P <Plug>(miniyank-autoPut)`?
+    *   `map , <Plug>(miniyank-cycle)`?
+*   [dwm.vim](https://github.com/spolu/dwm.vim)
+    *   I mostly like this but sometimes it tries to do a bit too much automatically.
+    *   Maybe only add commands or keybinds for activating a master-and-stack layout and
+        for switching the master and/or cycling windows.
+*   [gabrielelana/vim-markdown](https://github.com/gabrielelana/vim-markdown)
+*   [plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown)
+    *   Some of the mappings are pretty nice.
+    *   This plugin noticeably slows down opening markdown files.
+    *   This plugin optionally depends on tabular.
+*   [kotlin-vim](https://github.com/udalov/kotlin-vim)
+    *   With vim-plug I was able to do this:
+        `Plug 'udalov/kotlin-vim', { 'for': ['kotlin'] }`
+*   [vim-searchindex](https://github.com/google/vim-searchindex) or
+    [vim-indexed-search](https://github.com/henrik/vim-indexed-search)
+    *   <https://stackoverflow.com/q/23110833>
+    *   <https://vim.wikia.com/wiki/Count_number_of_matches_of_a_pattern>
+    *   <https://stackoverflow.com/q/4668623>
+*   [loupe](https://github.com/wincent/loupe)
+    *   `let g:LoupeClearHighlightMap = 0`?
+*   [vim-textobj-pastedtext](https://github.com/saaguero/vim-textobj-pastedtext)
+    *   ``nnoremap gp `[v`]``?
+*   [Powerline](https://github.com/powerline/powerline),
     [Projectionist](https://github.com/tpope/vim-projectionist),
+    [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister),
     [VimShell](https://github.com/Shougo/vimshell.vim),
     [Vimwiki](https://github.com/vimwiki/vimwiki),
     [ack.vim](https://github.com/mileszs/ack.vim),
@@ -34,11 +70,19 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
     [investigate.vim](https://github.com/keith/investigate.vim),
     [libclang-vim](https://github.com/libclang-vim/libclang-vim),
     [neocomplete](https://github.com/Shougo/neocomplete.vim),
-    [neoterm](https://github.com/kassio/neoterm),
     [nvr](https://github.com/mhinz/neovim-remote) (not actually a plugin),
+    [python_match.vim](https://github.com/vim-scripts/python_match.vim),
+    [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim),
     [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace),
+    [vim-easyclip](https://github.com/svermeulen/vim-easyclip),
     [vim-easygrep](https://github.com/dkprice/vim-easygrep),
     [vim-journal](https://github.com/junegunn/vim-journal),
+    [vim-matchup](https://github.com/andymass/vim-matchup) (doesn't support Python) or
+    [vim-most-minimal-folds](https://github.com/vim-utils/vim-most-minimal-folds),
+    [vim-move](https://github.com/matze/vim-move),
+    [vim-pandoc/vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax),
+    [vim-pandoc/vim-pandoc](https://github.com/vim-pandoc/vim-pandoc),
+    [vim-peekaboo](https://github.com/junegunn/vim-peekaboo) (Neovim-only),
     [vim-protodef](https://github.com/derekwyatt/vim-protodef),
     [vim-quicklink](https://github.com/christoomey/vim-quicklink),
     [vim-sexp](https://github.com/guns/vim-sexp),
@@ -49,8 +93,8 @@ Neovim: Vim sources it from [`vimrc`][] and Neovim from [`init.vim`][].
     [vim-textobj-line](https://github.com/kana/vim-textobj-line),
     [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace),
     [vimproc](https://github.com/Shougo/vimproc.vim),
-    [vimtex](https://github.com/lervag/vimtex), and
-    [yankring.vim](https://github.com/vim-scripts/YankRing.vim).
+    [vimtex](https://github.com/lervag/vimtex),
+    [yankring.vim](https://github.com/vim-scripts/YankRing.vim)
 
 [`vimrc`]: vimrc
 [`init.vim`]: init.vim
