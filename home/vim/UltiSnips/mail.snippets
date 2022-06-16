@@ -23,6 +23,7 @@ kind_regards    = "Kind regards,\n"           + me
 best_regards    = "Best regards,\n"           + me
 regards         = "Regards,\n"                + me
 cheers          = "Cheers,\n"                 + me[:me.find(" ")]
+best            = "Best,\n"                   + me[:me.find(" ")]
 endglobal
 
 snippet me
@@ -59,6 +60,10 @@ endsnippet
 
 snippet c "" b
 `!p snip.rv = cheers`
+endsnippet
+
+snippet b "" b
+`!p snip.rv = best`
 endsnippet
 
 post_expand "vim.command('set spelllang=de,en_us')"

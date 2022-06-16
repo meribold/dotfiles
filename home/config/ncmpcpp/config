@@ -36,6 +36,7 @@ data_fetching_delay = no
 # statusbar_visibility = no
 titles_visibility = no
 
+display_bitrate = yes
 display_volume_level = no
 
 lines_scrolled = 1

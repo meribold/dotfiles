@@ -310,10 +310,6 @@ let g:neomake_place_signs = 0
 " commentary.vim {{{2
 autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
-" vim-markdown {{{2
-" let g:vim_markdown_folding_disabled = 1
-" let g:vim_markdown_no_default_key_mappings = 1
-
 " vim-instant-markdown {{{2
 " let g:instant_markdown_slow = 1
 " let g:instant_markdown_autostart = 0

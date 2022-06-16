@@ -12,6 +12,6 @@ read -r status < /sys/class/power_supply/BAT0/status || exit $?
 
 btry_output=$(~/dotfiles/home/bin/btry)
 percentage_in_parens=${btry_output##* Wh }
-(( ${percentage_in_parens:1:-2} > 35 )) && exit
+(( ${percentage_in_parens:1:-2} > 50 )) && exit
 
 notify-send -c ephemeral - $'<small>Battery status</small>\n'"$btry_output"

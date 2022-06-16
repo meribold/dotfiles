@@ -43,10 +43,14 @@ Maybe try some of these plugins:
     *   Maybe only add commands or keybinds for activating a master-and-stack layout and
         for switching the master and/or cycling windows.
 *   [gabrielelana/vim-markdown](https://github.com/gabrielelana/vim-markdown)
-*   [plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown)
+*   [preservim/vim-markdown](https://github.com/preservim/vim-markdown)
     *   Some of the mappings are pretty nice.
     *   This plugin noticeably slows down opening markdown files.
     *   This plugin optionally depends on tabular.
+    *   `let g:vim_markdown_folding_disabled = 1`?
+    *   `let g:vim_markdown_math = 1`?
+    *   `let g:vim_markdown_frontmatter = 1`?
+    *   `let g:vim_markdown_no_default_key_mappings = 1`?
 *   [kotlin-vim](https://github.com/udalov/kotlin-vim)
     *   With vim-plug I was able to do this:
         `Plug 'udalov/kotlin-vim', { 'for': ['kotlin'] }`

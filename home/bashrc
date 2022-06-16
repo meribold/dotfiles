@@ -76,12 +76,14 @@ if [[ "$TERM" == screen* ]]; then
    bind '\C-h: backward-delete-char'
 fi
 
-# Aliases and functions for interactive use {{{1
+# Aliases and functions for interactive use
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+
+alias -- -='cd - >/dev/null'
 
 # Aliases for ls.
 alias ls='ls --color=auto'
@@ -241,7 +243,7 @@ alias msa='mpc search any'
 
 d() { dict "$@" |& less -FX; }
 
-# Stuff concerning Bash's command history {{{1
+# Stuff concerning Bash's command history
 shopt -s histverify
 
 # Append new history lines from each Bash session to $HISTFILE when the shell exits,
@@ -332,7 +334,7 @@ PS2='\[\e[1m\]>\[\e[m\] '
 
 unset bold reset
 
-# Rules for setting the terminal title {{{1
+# Rules for setting the terminal title
 case "$TERM" in
    xterm*) # It's an xterm.
       # Try to remove a semicolon from the end of PROMPT_COMMAND.  Then append '; ' unless
@@ -402,7 +404,7 @@ esac # More web links:
 # defined: redirect to /dev/null.  This should be the last command in ~/.bashrc.  If there
 # are more, the terminal title will be changed for each one, increasing the startup time.
 trap 'show_command_in_title 2>/dev/null' DEBUG
-# [1]: http://linux.die.net/Bash-Beginners-Guide/sect_12_02.html.
+# [1]: https://linux.die.net/Bash-Beginners-Guide/sect_12_02.html
 # [2]: https://stackoverflow.com/q/16636007
 # [3]: https://stackoverflow.com/q/9268836
 # [4]: https://stackoverflow.com/q/3338030

@@ -16,6 +16,8 @@
 	ff = only
 [push]
 	default = simple
+[log]
+	follow = true
 [alias]
 	amend = commit --amend
 	ci = commit
