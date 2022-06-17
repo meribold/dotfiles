@@ -75,7 +75,6 @@ Maybe try some of these plugins:
     [libclang-vim](https://github.com/libclang-vim/libclang-vim),
     [neocomplete](https://github.com/Shougo/neocomplete.vim),
     [nvr](https://github.com/mhinz/neovim-remote) (not actually a plugin),
-    [python_match.vim](https://github.com/vim-scripts/python_match.vim),
     [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim),
     [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace),
     [vim-easyclip](https://github.com/svermeulen/vim-easyclip),

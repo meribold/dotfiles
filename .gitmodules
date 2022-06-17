@@ -325,3 +325,6 @@
 [submodule "misc/AUR/dragon-drag-and-drop"]
 	path = misc/aur/dragon-drag-and-drop
 	url = https://aur.archlinux.org/dragon-drag-and-drop.git
+[submodule "home/vim/pack/meribold/start/python_match.vim"]
+	path = home/vim/pack/meribold/start/python_match.vim
+	url = https://github.com/vim-scripts/python_match.vim.git
