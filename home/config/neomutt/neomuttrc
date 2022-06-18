@@ -233,7 +233,7 @@ set attach_format="%T%?t?*?%<d?%d%>   [%m/%M, %e%?C?, %C?]  %4s&[%m/%M]%>   [%e%
 # <http://www.mutt.org/doc/manual/#help>.
 set nohelp
 
-# Color Scheme {{{1
+# Color Scheme
 # Based on colors used by [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) and
 # [jellyjam.vim](https://github.com/meribold/jellyjam.vim) in 256-color terminals.
 # `color0` to `color15` are those defined in `Xresources`.  `color16` to `color255` should
@@ -287,8 +287,8 @@ color index      color8   color0 ~D   # deleted
 
 color sidebar_divider blue default
 
-# Key Bindings {{{1
-# Vim-ish {{{2
+# Key Bindings
+# Vim-ish
 bind index gj next-entry
 bind index gk previous-entry
 bind index,browser gg first-entry
@@ -309,11 +309,11 @@ bind pager,attach,browser,query  exit
 # bind index N search-opposite
 # bind generic N search-opposite
 
-# Less-inspired {{{2
+# Less-inspired
 bind index,pager,browser u half-up
 bind index,pager,browser d half-down
 
-# Gmail-esque {{{2
+# Gmail-esque
 bind index,pager \# delete-message
 bind index,pager c mail
 bind index o display-message
@@ -329,7 +329,7 @@ bind pager U mark-as-new
 macro index,pager gc "<shell-escape>$BROWSER https://contacts.google.com<return>" \
    "open Google Contacts in Firefox"
 
-# Mutt-y (similar to Mutt's defaults) {{{2
+# Mutt-y (similar to Mutt's defaults)
 bind index M middle-page # I'm pretty sure this didn't use to be necessary?  Anyway,
                          # NeoMutt's default keybinding for M in the index menu apparently
                          # is `show-log-messages`.
@@ -340,7 +340,7 @@ bind pager - half-up
 bind browser S unsubscribe
 bind index,pager V view-attachments
 
-# Other {{{2
+# Other
 bind index,pager O edit
 bind index <Tab> collapse-thread
 # `<BackTab>` is Shift+Tab (can be found with the `what-key` function).
@@ -375,6 +375,5 @@ bind index,pager > sidebar-open
 bind index,pager < sidebar-toggle-visible
 macro generic < "<enter-command>toggle sidebar_visible<enter>" \
    "make the sidebar (in)visible"
-# }}}1
 
-# vim: nowrap fdm=marker
+# vim: nowrap

@@ -409,5 +409,3 @@ trap 'show_command_in_title 2>/dev/null' DEBUG
 # [3]: https://stackoverflow.com/q/9268836
 # [4]: https://stackoverflow.com/q/3338030
 # [5]: https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
-
-# vim: fdm=marker

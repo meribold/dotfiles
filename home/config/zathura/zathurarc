@@ -11,7 +11,7 @@ set statusbar-home-tilde true
 set selection-notification false
 # set synctex-editor-command
 
-# Colors {{{1
+# Colors
 set completion-bg "#121212"
 set completion-fg "#dfdfdf"
 set completion-group-bg "#ff0000"
@@ -47,5 +47,4 @@ set render-loading-fg "#dfdfdf"
 # set index-active-bg "#121212"
 # set index-active-fg "#dfdfdf"
 
-# }}}1
-# vim: tw=90 sts=-1 sw=3 et ft=config cms=#%s fdm=marker
+# vim: tw=90 sts=-1 sw=3 et ft=config cms=#%s

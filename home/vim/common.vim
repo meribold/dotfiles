@@ -15,7 +15,7 @@ augroup vimrc_common
    autocmd!
 augroup END
 
-" Conditonally loaded plugins {{{1
+" Conditonally loaded plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins are loaded after vimrc files (:h initialization).
 
@@ -67,9 +67,9 @@ if has('python') || has('python3') " TODO: is this what we should check?
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Basic settings {{{1
+" Basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Stuff taken from sensible.vim {{{2
+" Stuff taken from sensible.vim
 
 " Most (all?) of this is probably redundant for Neovim.  TODO: move it into vim/vimrc?
 " There probably also are more settings scattered around this file that belong in this
@@ -98,8 +98,7 @@ if has('path_extra')
    setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
-" }}}2
-" Stuff that used to be part of sensible.vim {{{2
+" Stuff that used to be part of sensible.vim
 
 " Enabling 'lazyredraw' causes slight visual glitches sometimes.  It [made][1] [it's][2]
 " [way][3] into sensible.vim, but [was removed][4] again.
@@ -117,7 +116,6 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 " [e48a405]: https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff
 
-" }}}2
 " Use <Space> as <Leader> and <BS> as <LocalLeader>.
 let mapleader = ' '
 let maplocalleader = '\'
@@ -256,9 +254,9 @@ set spelllang=en_us
 
 set winminwidth=0 winminheight=0
 
-" Plugin settings {{{1
+" Plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" netrw, vim-dirvish, open-browser.vim {{{2
+" netrw, vim-dirvish, open-browser.vim
 " Disable netrw by [pretending it's already loaded][1].  I use [dirvish.vim][2], which
 " [doesn't depend on netrw][3], and [open-browser.vim][4] (to replace netrw's gx mapping)
 " instead.
@@ -277,14 +275,14 @@ xmap gx <Plug>(openbrowser-smart-search)
 " Search with DuckDuckGo by default.
 let g:openbrowser_default_search = 'duckduckgo'
 
-" EditorConfig plugin {{{2
+" EditorConfig plugin
 " Don't automagically fix my shitty files: don't fix newlines, don't fix trailing
 " whitespace, and don't fix a file's last line lacking a newline.  Prevent noisy diffs.
 " These issues should be fixed in bulk with a single commit rather than piecemeal.
 let g:EditorConfig_disable_rules = ['end_of_line', 'trim_trailing_whitespace',
    \ 'insert_final_newline']
 
-" textobj-word-column.vim {{{2
+" textobj-word-column.vim
 " Skip the plugin's default mappings: they conflict with those of vim-textobj-comment.
 let g:skip_default_textobj_word_column_mappings = 1
 xnoremap <silent> ab :<C-U>call TextObjWordBasedColumn('aw')<CR>
@@ -303,18 +301,18 @@ onoremap <silent> iB :call TextObjWordBasedColumn('iW')<CR>
 let s:vimrc_path = fnamemodify($MYVIMRC, ':h') . '/'
 exe 'so ' . s:vimrc_path . 'vim-autoformat.vim'
 
-" neomake {{{2
+" neomake
 let g:neomake_echo_current_error = 0
 let g:neomake_place_signs = 0
 
-" commentary.vim {{{2
+" commentary.vim
 autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
-" vim-instant-markdown {{{2
+" vim-instant-markdown
 " let g:instant_markdown_slow = 1
 " let g:instant_markdown_autostart = 0
 
-" lightline.vim {{{2
+" lightline.vim
 let g:lightline = {
    \ 'colorscheme': 'default',
 \ }
@@ -352,46 +350,45 @@ function! s:lightline_update() " Local to this file.
    endif
 endfunction
 
-" }}}2
-" vim-indent-guides {{{2
+" vim-indent-guides
 " let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 
-" vim-gitgutter {{{2
+" vim-gitgutter
 let g:gitgutter_enabled = 0  " Turn vim-gitgutter off by default.
 let g:gitgutter_realtime = 0 " Don't trigger sign updates when not typing.
 let g:gitgutter_eager = 0    " Update signs less often; mostly just when writing a buffer.
 
-" delimitMate {{{2
+" delimitMate
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 let delimitMate_balance_matchpairs = 1
 
-" vim-man {{{2
+" vim-man
 " Always render man pages at this width, regardless of the size of the window.  See
 " <https://github.com/vim-utils/vim-man/issues/14>.
 let g:man_width = 93
 
-" pastery.vim {{{2
+" pastery.vim
 let g:pastery_open_in_browser = 1
 runtime pastery-api-key.vim
 
-" vim-rooter {{{2
+" vim-rooter
 let g:rooter_silent_chdir = 1
 
-" vim-dict {{{2
+" vim-dict
 " Use local DICT daemon for speed.  These are all databases I have installed.  They are
 " listed explicitly to change the order ['*'] would use.
 let g:dict_hosts = [
    \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
 \ ]
 
-" vim-gutentags {{{2
+" vim-gutentags
 " See `:helpgrep gutentags_cache_dir` and
 " <https://wiki.archlinux.org/index.php/XDG_Base_Directory>.
 let g:gutentags_cache_dir = '~/.cache/gutentags'
 
-" ultisnips {{{2
+" ultisnips
 " Apparently, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
 " probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to work in a terminal
 " either and remapping escape has its own problems.
@@ -406,11 +403,11 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 " i_CTRL-Q, i_CTRL-L, i_CTRL-B, i_CTRL-F, i_CTRL-Z, i_CTRL-M, i_CTRL-J, i_CTRL-_ (this
 " seems to be inserted by <C-?>), i_CTRL-\, i_CTRL-G
 
-" unite.vim {{{2
+" unite.vim
 " Replace the built-in z= mapping with a less obtrusive interface based on unite.vim.
 nnoremap z= :Unite spell_suggest<CR>
 
-" goyo.vim {{{2
+" goyo.vim
 let g:goyo_height = '100%'
 function! s:GoyoToggle()
    if !exists('#goyo')
@@ -428,7 +425,7 @@ function! s:GoyoToggle()
 endfunction
 nnoremap <silent> Q :call <SID>GoyoToggle()<CR>
 
-" Not-so-basic settings {{{1
+" Not-so-basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Draw a continuous line to separate vertical splits.
 if has('multi_byte') | :set fillchars=vert:│ | endif
@@ -616,7 +613,7 @@ autocmd vimrc_common BufWinEnter * if empty(&ft) | call s:FixK() | endif
 " http://usevim.com/2012/09/07/vim101-keywordprg/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Mappings {{{1
+" Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " By default, <Tab> and <C-I> perform the same command in Vim.  Remap <Tab> to toggle
 " folds without overriding <C-I> (it still goes forward in the jump list).  This is
@@ -721,11 +718,10 @@ nnoremap <silent> + :sp \| :q<CR>
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
 
-" vim-easy-align {{{2
+" vim-easy-align
 " Operator starting interactive EasyAlign.  Normal and visual mode.
 nmap gl <Plug>(EasyAlign)
 xmap gl <Plug>(EasyAlign)
-" }}}2
 
 function! s:UpdateOrEnableGitGutter()
    if !g:gitgutter_enabled
@@ -787,7 +783,7 @@ vnoremap <silent> <Leader>p :PasteCode<CR>
 nnoremap <silent> <Leader>u :update<CR>
 nnoremap <silent> <Leader>U :Gwrite<CR>
 
-" Remap <CR> {{{2
+" Remap <CR>
 " nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the
 " command-line (idea from http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches).
 " Remapping <CR> is complicated because care needs to be taken not to break its normal
@@ -914,6 +910,3 @@ function! s:RecollapsePreviousWindow()
    endif
 endfunction
 autocmd vimrc_common WinEnter * call s:RecollapsePreviousWindow()
-
-" }}}1
-" vim: fdm=marker
