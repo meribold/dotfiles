@@ -37,7 +37,7 @@ source ~/.config/neomutt/fastmail.muttrc
 folder-hook $folder 'source ~/.config/neomutt/fastmail.muttrc'
 
 # Default is "us-ascii:iso-8859-1:utf-8".  Really?
-# http://wiki.archlinux.org/index.php/Mutt#E-mail_character_encoding
+# https://wiki.archlinux.org/title/Mutt#E-mail_character_encoding
 set send_charset="utf-8"
 
 # Empty by default.  This fixes most messages without character encoding indication that I
@@ -52,13 +52,13 @@ charset-hook ^iso-8859-1$ cp1252
 # requires that documents advertised as ISO-8859-1 are parsed as CP-1252.  Computers suck.
 
 # Enable and configure the [sidebar](http://www.mutt.org/doc/manual/#sidebar).  See
-# <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.
+# <https://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.
 set sidebar_visible=yes
 set sidebar_width=24
 set sidebar_short_path=yes
 set sidebar_delim_chars='/'
 
-# Taken from <http://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.  Sort by
+# Taken from <https://stevelosh.com/blog/2012/10/the-homely-mutt/#reading-email>.  Sort by
 # [threads](http://www.mutt.org/doc/manual/#threads), displaying them as a tree structure.
 # Sort entire threads (and messages that aren't part of a thread) in relation to each
 # other by the date the thread's most recent message was received (or the date the message
@@ -94,7 +94,7 @@ set delete=yes
 set include=yes
 set reply_to=yes
 
-# Stuff found at <http://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.  TODO:
+# Stuff found at <https://stevelosh.com/blog/2012/10/the-homely-mutt/#configuring>.  TODO:
 # explain.
 set wait_key=no
 set pager_stop

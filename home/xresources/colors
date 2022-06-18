@@ -9,7 +9,7 @@
 ! [1]: https://github.com/nanotech/jellybeans.vim
 ! [2]: https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
 ! [3]: https://wiki.archlinux.org/index.php/Xterm#Colors
-! [4]: http://terminal.sexy
+! [4]: https://terminal.sexy
 
 ! Black.
 *color0:  #000000

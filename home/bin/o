@@ -5,7 +5,7 @@
 # the snippets at <https://github.com/junegunn/fzf/wiki/Examples>.  xdg-open is ran in the
 # background and all its file descriptors are redirected do /dev/null.  See
 # https://felixmilea.com/2014/12/running-bash-commands-background-properly,
-# http://superuser.com/a/178592 and https://gist.github.com/dualbus/9275406.
+# https://superuser.com/a/178592 and https://gist.github.com/dualbus/9275406.
 if [[ -f $1 ]]; then
    file=$1
 else
@@ -14,7 +14,7 @@ else
       path=${1/%\/}/
    else
       # Remove the longest possible string ending with / from the beginning of $1 (see
-      # http://wiki.bash-hackers.org/syntax/pe#common_use).
+      # https://wiki.bash-hackers.org/syntax/pe#common_use).
       query=${1##*/}
       # Consider everything up to and including the last / (or nothing if there is
       # none) to be the path to search.

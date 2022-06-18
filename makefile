@@ -1,8 +1,8 @@
 # I don't really know how to write portable shell scripts.  Just use Bash.
 SHELL := /bin/bash
 
-# Disable all built-in rules.  See <http://stackoverflow.com/q/4122831> and
-# <http://gnu.org/software/make/manual/html_node/Catalogue-of-Rules.html>.
+# Disable all built-in rules.  See <https://stackoverflow.com/q/4122831> and
+# <https://gnu.org/software/make/manual/html_node/Catalogue-of-Rules.html>.
 MAKEFLAGS += --no-builtin-rules
 
 # Clear the suffix list; no suffix rules in this makefile.  See section 7.2.1 of the GNU
@@ -50,7 +50,7 @@ nvim_links := $(patsubst home/%,$(HOME)/.%,$(nvim_link_targets))
 dirs += $(HOME)/.config/nvim/spell
 links += $(nvim_links)
 
-# Check if $(GIT_CRYPT) exists.  See <http://stackoverflow.com/a/677212>.  `command -v`
+# Check if $(GIT_CRYPT) exists.  See <https://stackoverflow.com/a/677212>.  `command -v`
 # prints something iff the command is available.  Thus, if the output is empty,
 # `git-crypt` is not available.
 ifeq ($(shell command -v $(GIT_CRYPT) 2>/dev/null),)

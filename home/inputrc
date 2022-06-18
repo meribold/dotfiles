@@ -11,7 +11,7 @@ set bell-style none
 # From <https://wiki.archlinux.org/index.php/Readline#Faster_completion>.
 set show-all-if-ambiguous on
 
-# From <http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.
+# From <https://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.
 set input-meta   on
 set output-meta  on
 set convert-meta off

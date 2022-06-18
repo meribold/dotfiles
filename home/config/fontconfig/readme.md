@@ -237,7 +237,7 @@ title="fonts-conf(5)"><code>fonts-conf(5)</code></a>.
 </li>
 <li id="footnote-4">
 I think <code>30-infinality-aliases.conf</code> disregards the <a
-href="http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html">conventional
+href="https://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html">conventional
 naming scheme</a> in doing so: "generic aliases" should appear in files with numbers 60 to
 69 (see the <i>various files</i> section).
 </li>
@@ -271,9 +271,9 @@ naming scheme</a> in doing so: "generic aliases" should appear in files with num
     "Traditional Chinese characters - Wikipedia"
 [Noto Serif CJK TC]: https://www.google.com/get/noto/#serif-hant "Google Noto Fonts"
 [Noto Sans CJK TC]: https://www.google.com/get/noto/#sans-hant "Google Noto Fonts"
-[*Tuning Fontconfig*]: http://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html
+[*Tuning Fontconfig*]: https://linuxfromscratch.org/blfs/view/stable/x/tuning-fontconfig.html
     "Tuning Fontconfig"
-[*Beyond Linux From Scratch*]: http://linuxfromscratch.org/blfs/view/stable/index.html
+[*Beyond Linux From Scratch*]: https://linuxfromscratch.org/blfs/view/stable/index.html
 [`fonts.conf`]: fonts.conf
 [fonts-aw-ffo]: https://wiki.archlinux.org/index.php/Fonts#Fallback_font_order_with_X11
     "\"Fallback font order with X11\" (Fonts - ArchWiki)"

@@ -8,7 +8,7 @@
 # TODO: think more about the case where "$original" is a directory (maybe ending with
 # slash); there may be problems (see <https://unix.stackexchange.com/q/253524>).
 
-# See <http://mywiki.wooledge.org/BashFAQ/112>.
+# See <https://mywiki.wooledge.org/BashFAQ/112>.
 set -o nounset
 
 [ "$#" -ne 2 ] && { echo "$0: wrong number of parameters" >&2; exit 1; }

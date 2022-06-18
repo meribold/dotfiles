@@ -13,7 +13,7 @@ output=$(dict -d eng-deu -- "$1" 2>&1)
 status=$?
 other_output=$(dict -d deu-eng -- "$1" 2>&1)
 other_status=$?
-# See http://mywiki.wooledge.org/BashFAQ/002.
+# See https://mywiki.wooledge.org/BashFAQ/002.
 if [[ $status -eq 0 && $other_status -eq 0 ]]; then
    # Both commands succeeded (should happen for `t kindergarten`, for example).
    # Merge the "definition found" lines.
@@ -21,7 +21,7 @@ if [[ $status -eq 0 && $other_status -eq 0 ]]; then
    definition_count=${output%% *}
    definition_count+=${other_output%% *}
    echo "$definition_count definitions ${output#* * }"
-   # See http://wiki.bash-hackers.org/syntax/pe.
+   # See https://wiki.bash-hackers.org/syntax/pe.
    # Remove the top line.
    echo "$other_output" | tail -n +2
 elif [[ $status -eq 0 ]]; then

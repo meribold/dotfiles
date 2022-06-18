@@ -1,12 +1,12 @@
 ! XTerm configuration
 !
 ! Abandon All Hope, Ye Who Enter Here.
-!    -- XTerm README (http://invisible-island.net/xterm/xterm.html#download)
+!    -- XTerm README (https://invisible-island.net/xterm/xterm.html#download)
 !
 ! XTerm is a wonderful terminal.  It is, in my experience, the only terminal that combines
 ! a proper VT220 engine with a UI that's actually nice.  It's such a shame it comes with
 ! such horrible default settings.
-!    -- Paul "LeoNerd" Evans (http://www.leonerd.org.uk/hacks/hints/xterm-sensible.html)
+!    -- Paul "LeoNerd" Evans (https://www.leonerd.org.uk/hacks/hints/xterm-sensible.html)
 !
 ! The [xterm FAQ] advocates:
 !    As a stylistic convention, the capitalized form is 'XTerm', which corresponds to the
@@ -22,7 +22,7 @@
 !
 ! I am specifying resources for the "vt100" widget using its class name "VT100".
 !
-! [xterm FAQ]: http://invisible-island.net/xterm/xterm.faq.html
+! [xterm FAQ]: https://invisible-island.net/xterm/xterm.faq.html
 
 ! Specify that the TERM environment variable should be "xterm-256color".
 XTerm.termName: xterm-256color
@@ -32,7 +32,7 @@ XTerm.termName: xterm-256color
 XTerm*VT100.locale:    true
 XTerm*VT100.saveLines: 4096
 
-! See <http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.  The values for `utf8`,
+! See <https://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.  The values for `utf8`,
 ! `eightBitControl`, and `eightBitOutput` should be the defaults already.
 XTerm*VT100.utf8:            1
 XTerm*VT100.eightBitInput:   false
@@ -63,7 +63,7 @@ XTerm*VT100.backarrowKey: false
 !     different actions in (e.g.) Vim.  To work around this, make xterm send ÿ for
 !     Control+I instead (ÿ is just a random character that I don't enter directly; it's
 !     also part of latin1 in addition to Unicode in case that makes it less likely that
-!     this breaks with some setups).  See <http://stackoverflow.com/q/2686766> and
+!     this breaks with some setups).  See <https://stackoverflow.com/q/2686766> and
 !     xterm(1).
 ! 2.  Use Control+Shift+C and Control+Shift+V to copy and paste to and from the
 !     `CLIPBOARD` selection, like in GNOME Terminal and [termite][1].  See [2] and [3].
@@ -144,7 +144,7 @@ XTerm*VT100.utf8Fonts.font5:
 XTerm*VT100.utf8Fonts.font6:
 
 ! Specify resources for the "mainMenu" and "fontMenu", which both have the "SimpleMenu"
-! class.  See <http://invisible-island.net/xterm/manpage/xterm.html#h3-Menu-Resources>,
+! class.  See <https://invisible-island.net/xterm/manpage/xterm.html#h3-Menu-Resources>,
 ! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#smebsb_resources>, and
 ! <https://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html#Common_Resources>.
 XTerm.SimpleMenu.background:   #444444

@@ -30,7 +30,7 @@ rsync --archive --hard-links --acls --xattrs --info=progress2 --human-readable \
    --link-dest="$dest"/last \
    /* "$dest/$date/"
 
-# Check that rsync was successful (http://askubuntu.com/q/29370).
+# Check that rsync was successful (https://askubuntu.com/q/29370).
 if [[ $? -eq 0 ]]; then
    # The -f flag tells ln to remove the old link, -T makes it treat `last` as a normal
    # file.  Just -f is not enough because without -T, ln will create a link *inside*

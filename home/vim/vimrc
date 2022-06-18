@@ -7,9 +7,9 @@ set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8.
-" http://stackoverflow.com/q/5477565
-" http://superuser.com/q/154491
-" http://stackoverflow.com/q/2438021
+" https://stackoverflow.com/q/5477565
+" https://superuser.com/q/154491
+" https://stackoverflow.com/q/2438021
 if has('multi_byte')
    " Better default than latin1.  Can't be changed after startup.
    if has('vim_starting') | set encoding=utf-8 | endif
@@ -56,8 +56,8 @@ if exists('s:vimfiles')
    let &undodir = s:vimfiles . '/undo'
    let &backupdir = s:vimfiles . '/backup'
 endif
-" http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-
-" http://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
+" https://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist
+" https://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
 
 " If running inside screen, use these escape sequences to name the window (set the title
 " of the VT100 emulated by screen).
@@ -65,7 +65,7 @@ if &term =~# 'screen'
    set t_ts=k
    set t_fs=\
 endif " The settings for those termcap codes are taken from
-" http://vim.wikia.com/wiki/Automatically_set_screen_title.
+" https://vim.wikia.com/wiki/Automatically_set_screen_title.
 
 if exists('&belloff')
    set belloff=all

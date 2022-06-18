@@ -3,7 +3,7 @@ term screen-256color
 
 # Set the command character (prefix key) to C-s and the character generating a literal
 # command character to s.
-# http://www.gnu.org/software/screen/manual/screen.html#Command-Character
+# https://www.gnu.org/software/screen/manual/screen.html#Command-Character
 escape ^ss
 
 # The default scrollback buffer size is only 100 lines.
@@ -20,7 +20,7 @@ termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 defhstatus "^Et (screen ^E)"
 hardstatus off
 
-# http://wiki.archlinux.org/index.php/GNU_Screen#Use_X_scrolling_mechanism
+# https://wiki.archlinux.org/title/GNU_Screen#Use_X_scrolling_mechanism
 termcapinfo xterm* ti@:te@
 
 maptimeout 0

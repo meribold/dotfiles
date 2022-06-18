@@ -66,8 +66,8 @@ call operator#user#define_ex_command('autoformat', 'Autoformat')
 nnoremap <silent> <Leader>Q :Autoformat<CR>
 
 " [1]: https://github.com/Chiel92/vim-autoformat#default-formatprograms
-" [2]: http://clang.llvm.org/docs/ClangFormatStyleOptions.html
-" [3]: http://clang.llvm.org/docs/ClangFormat.html
+" [2]: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+" [3]: https://clang.llvm.org/docs/ClangFormat.html
 " [4]: https://github.com/vim-autoformat/vim-autoformat/blob/555c956db3bdd8ae6f1aa5af1c5fd37eac749e6a/plugin/defaults.vim
 
 " vim: tw=90 sts=-1 sw=3 et
