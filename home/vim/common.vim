@@ -260,10 +260,10 @@ set winminwidth=0 winminheight=0
 " Disable netrw by [pretending it's already loaded][1].  I use [dirvish.vim][2], which
 " [doesn't depend on netrw][3], and [open-browser.vim][4] (to replace netrw's gx mapping)
 " instead.
-" [1]: http://stackoverflow.com/a/21687112
-" [2]: http://github.com/justinmk/vim-dirvish
-" [3]: http://reddit.com/comments/4l00pj//d3j7a8j
-" [4]: http://github.com/tyru/open-browser.vim
+" [1]: https://stackoverflow.com/a/21687112
+" [2]: https://github.com/justinmk/vim-dirvish
+" [3]: https://reddit.com/comments/4l00pj//d3j7a8j
+" [4]: https://github.com/tyru/open-browser.vim
 let loaded_netrwPlugin = 1
 
 " Use gx to open the URL the cursor is on.  If the cursor doesn't appear to be on a URL,
@@ -392,7 +392,7 @@ let g:gutentags_cache_dir = '~/.cache/gutentags'
 " Apparently, getting <C-Tab> to work in xterm is [pretty complicated][1] so I should
 " probably remap g:UltiSnipsListSnippets instead.  Meta doesn't seem to work in a terminal
 " either and remapping escape has its own problems.
-" [1]: http://stackoverflow.com/a/2695818
+" [1]: https://stackoverflow.com/a/2695818
 let g:UltiSnipsExpandTrigger = '<C-J>'
 " let g:UltiSnipsExpandTrigger = '<Tab>'  " Makes <Tab> laggy.
 " let g:UltiSnipsExpandTrigger = '<C-CR>' " Only works in gVim.
@@ -430,7 +430,7 @@ nnoremap <silent> Q :call <SID>GoyoToggle()<CR>
 " Draw a continuous line to separate vertical splits.
 if has('multi_byte') | :set fillchars=vert:│ | endif
 
-" [Open help in the current window](http://stackoverflow.com/a/26431632)
+" [Open help in the current window](https://stackoverflow.com/a/26431632)
 " :h 'buftype'
 command! -nargs=1 -complete=help H :enew | :set buftype=help | :h <args>
 
@@ -460,7 +460,7 @@ endif
 " autocmd vimrc_common BufEnter * if &ft != 'help' | syntax sync fromstart | endif
 " autocmd vimrc_common BufEnter * if line('$') <= 3000 | syntax sync fromstart | endif
 " To check the active synchronization method use ':sy[ntax] sync'.
-" http://vim.wikia.com/wiki/Fix_syntax_highlighting
+" https://vim.wikia.com/wiki/Fix_syntax_highlighting
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight trailing whitespace unless it's in the current line, left of the cursor and
@@ -519,7 +519,7 @@ endif
 
 " Use :echo getmatches() to confirm we don't leak matches.  This snippet should never
 " create more than two.
-" Based on snippets from <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>.
+" Based on snippets from <https://vim.wikia.com/wiki/Highlight_unwanted_spaces>.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use the 'colorcolumn' option to highlight the first column after 'textwidth' in the
@@ -547,8 +547,8 @@ endif
 " resulting from function keys etc. nearly at the same instant.  I'm using 0 for
 " 'ttimeoutlen' since it doesn't seem to break anything.  I guess around 10 might be more
 " conservative.  See :h timeout, :h ttimeoutlen, :h timeoutlen, :h ttimeoutlen, :h esckeys
-" http://stackoverflow.com/q/15550100
-" http://superuser.com/q/161178
+" https://stackoverflow.com/q/15550100
+" https://superuser.com/q/161178
 " http://aperiodic.net/phil/archives/Geekery/term-function-keys.html
 if !has('gui_running')
    set ttimeoutlen=0
@@ -606,10 +606,10 @@ endfunction
 autocmd vimrc_common FileType * call s:FixK()
 autocmd vimrc_common BufWinEnter * if empty(&ft) | call s:FixK() | endif
 
-" [Help for word under cursor](http://stackoverflow.com/a/15867465)
+" [Help for word under cursor](https://stackoverflow.com/a/15867465)
 " https://github.com/vim-utils/vim-man
-" http://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
-" http://vim.wikia.com/wiki/View_man_pages_in_Vim
+" https://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
+" https://vim.wikia.com/wiki/View_man_pages_in_Vim
 " http://usevim.com/2012/09/07/vim101-keywordprg/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -639,7 +639,7 @@ inoremap <C-E> <End>
 
 " Use the semicolon key to enter Ex commands.  The key is available thanks to
 " [clever-f.vim](https://github.com/rhysd/clever-f.vim).  Also see
-" <http://stevelosh.com/blog/2010/09/coming-home-to-vim/>.
+" <https://stevelosh.com/blog/2010/09/coming-home-to-vim/>.
 noremap ; :
 " For consistency, also support opening the command-line window with `q;`.  Don't `nmap`
 " because that also adds an operator-pending mapping which incurs a delay when using `gqq`
@@ -703,7 +703,7 @@ nnoremap <silent> <C-B> :let @/ = '\<' . expand('<cword>') .'\>' \| set hlsearch
 " fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
 " can still be used with a count -- I don't really do that, though, but I don't really use
 " | or _ either).  Based on the mappings from [this comment by justinmk][1].
-" [1]: http://reddit.com/comments/4jyw8o//d3ayzox
+" [1]: https://reddit.com/comments/4jyw8o//d3ayzox
 nnoremap <expr> \| !v:count ? '<C-W>\|' : '\|'
 nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
 " I find myself using <C-W>= regrettably much; hitting + is faster.  TODO: maybe I
@@ -713,7 +713,7 @@ nnoremap <silent> + :sp \| :q<CR>
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
-" <http://stackoverflow.com/q/18523150> and <http://vi.stackexchange.com/q/2365>.
+" <https://stackoverflow.com/q/18523150> and <https://vi.stackexchange.com/q/2365>.
 " :noremap adds the mapping for normal, visual, select and operator-pending mode.
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'nN'[v:searchforward]
@@ -737,7 +737,7 @@ nnoremap <silent> <Leader>G :GitGutterDisable<CR>
 nnoremap <silent> cog :GitGutterToggle<CR>
 
 " Fix the syntax highlighting.  See `:h :syn-sync-first` and
-" <http://vim.wikia.com/wiki/Fix_syntax_highlighting>.
+" <https://vim.wikia.com/wiki/Fix_syntax_highlighting>.
 nnoremap <silent> <Leader>s :sy sync fromstart<CR>
 
 " Mappings for visual-split.vim.  They work in normal (with a motion) and visual mode.
@@ -790,7 +790,7 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 " function in the command-line window or the quickfix windows (:copen, :lopen).  Fugitive
 " also uses <CR> in some of its windows but this doesn't seem to override that mapping (I
 " guess fugitive's mapping is added later).
-" See <https://redd.it/47ivpz>, <http://stackoverflow.com/a/16360104>, :h :map-local and
+" See <https://redd.it/47ivpz>, <https://stackoverflow.com/a/16360104>, :h :map-local and
 " :h :map-silent.
 "
 " I was using this:
