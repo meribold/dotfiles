@@ -7,7 +7,7 @@ term screen-256color
 escape ^ss
 
 # The default scrollback buffer size is only 100 lines.
-defscrollback 4096
+defscrollback 16384
 
 bind ` select 0
 
