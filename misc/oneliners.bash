@@ -11,14 +11,11 @@ checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\
 chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
 coredumpctl list
-ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
 f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add esgaroth esgaroth:"$1"; }; f
 f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
-feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 find / -name '*.desktop' 2>/dev/null | less
-fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 gds --color-words
 gds --word-diff
 git check-attr --all
@@ -33,7 +30,6 @@ git mergetool --tool=p4merge
 git pull --ff-only
 git pull --recurse-submodules && git submodule update
 git push --force-with-lease
-git push esgaroth snapshots-meribold-smial
 git remote | xargs -L1 -P0 git push
 git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
@@ -43,7 +39,6 @@ git-crypt status
 gpg --edit-key D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg --encrypt --armor --recipient D14CCBFF836E57327C252FDE7066AC79C4592C12
 gpg --export --armor D14CCBFF836E57327C252FDE7066AC79C4592C12
-i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'
 i3-msg -- resize set 1370 381, move position -2 -2 # move and resize to scratchpad position and size
 journalctl --dmesg --follow
 journalctl --no-tail -b -o cat -fu dhcpcd@eth0
@@ -104,12 +99,10 @@ nx copy --fast --all --to s3
 nx copy --fast --all --to t5a
 nx copy --fast --all -J4 --to esgaroth
 nx describe esgaroth Esgaroth
-nx describe here Smial
 nx describe s3 'Amazon S3'
 nx describe t5a 'Toshiba USB HDD'
 nx info
 nx info .
-nx init 'ThinkPad X220'
 nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
 nx initremote foo type=S3 --whatelse
 nx move --unused --to esgaroth
@@ -149,7 +142,6 @@ sudo iw dev wlan0 scan | less
 sudo pacman -D --asdeps PACKAGE
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
-sudo rsync -hazzHAXx -M--fake-super --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/media/*','/lost+found','/var/cache/pacman/pkg/*','/home/meribold/.local/share/Steam/*','/home/meribold/.local/share/lutris/*'} --info=progress2 / esgaroth:smial/; systemctl suspend
 sudo sysctl kernel.sysrq=1
 sudo systemctl restart dhcpcd@wlan0
 sudo systemctl restart wpa_supplicant@wlan0
@@ -161,7 +153,6 @@ trans :zh-TW -b - | s
 vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
 wgetpaste
-while :; do clear; fortune meribold | cowsay -W 72 -f dynamic-duo | lolcat; read -n 1; done
 xdg-open file &>/dev/null <&1 & disown
 xdotool key Caps_Lock
 xsel --clipboard | vipe | xsel --clipboard
