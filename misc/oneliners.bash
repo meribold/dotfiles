@@ -1,12 +1,33 @@
-# git clean -dfx && git checkout -- .
-# git submodule foreach git clean -dfx # remove all untracked files of all submodules
-# nx forget --force
-# nx sync --cleanup
+git remote | xargs -L1 -P0 git push
+pass git remote | xargs -L1 -P0 pass git push
+git push --force-with-lease
+cd $(mktemp -d)
+pacman -Qtdq # list (real) orphan packages
+sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
+nx sync --no-resolvemerge --no-commit
+nx sync --no-resolvemerge --no-commit --no-pull
+nx copy --fast --all --to esgaroth
+nx copy --fast --all --to s3
+nx copy --fast --all --to t5a
+nx copy --fast --all -J4 --to esgaroth
+mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
+git check-attr --all
+gds --color-words
+gds --word-diff
+git pull --ff-only
+git mergetool --tool=kdiff3
+git mergetool --tool=meld
+git mergetool --tool=p4merge
+nx info
+nx info .
+nx status
+nx version
+paccache -rk1 # remove all but the most recent cached versions of ALL packages
+paccache -ruk0 # remove ALL cached versions of uninstalled packages
 $FIREFOX --safe-mode
 PKGEXT=".pkg.tar" makepkg -sri # build and install an uncompressed package
 bundle install --path vendor/bundle
 cat /sys/devices/virtual/thermal/thermal_zone{0,1}/temp /proc/acpi/ibm/fan | head -5 # temperatures
-cd $(mktemp -d)
 checkupdates | grep "$(pacman -Qqe | awk '{ print "^"$1" " }')" | grep -v ' \(.\+\)-\(.\+\) -> \1-.\+$' | less -FX
 chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
@@ -16,21 +37,12 @@ f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
 find / -name '*.desktop' 2>/dev/null | less
-gds --color-words
-gds --word-diff
-git check-attr --all
 git commit -m 'Fix typo'
 git commit -m 'Initial commit'
 git commit -m 'Update commits recorded by submodules'
 git config --list
 git fetch . WIP:master
-git mergetool --tool=kdiff3
-git mergetool --tool=meld
-git mergetool --tool=p4merge
-git pull --ff-only
 git pull --recurse-submodules && git submodule update
-git push --force-with-lease
-git remote | xargs -L1 -P0 git push
 git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
@@ -49,7 +61,6 @@ journalctl /usr/bin/sshd
 journalctl _COMM=sshd
 latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
-mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
 mkcd $(date -I)
 mkdir -p delete-me && feh --action 'mv %N delete-me' .
 mount ~/t5a
@@ -59,6 +70,56 @@ mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
 mount ~/v8x && { pass git pull; umount ~/v8x; } # pull to ~/.password-store
 mount ~/v8x && { pass git push; umount ~/v8x; } # push ~/.password-store
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
+mpv av://v4l2:/dev/video0
+mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
+neomutt -s 'Hi.' 'wise.text9686@fastmail.com' <<< ''
+nohup xdg-open file &>/dev/null <&1 &
+nx describe esgaroth Esgaroth
+nx describe s3 'Amazon S3'
+nx describe t5a 'Toshiba USB HDD'
+nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
+nx initremote foo type=S3 --whatelse
+nx move --unused --to esgaroth
+nx vicfg
+nx whereis --unused
+pacman -F FILENAME
+pacman -Qe | grep -v "$(pacman -Qqeg base-devel base)" # print explicitly installed packages not in base or base-devel
+pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
+pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
+pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
+python -c 'import cv2; print(cv2.getBuildInformation())' | less
+rclone mount dropbox: ~/dropbox
+rclone mount googledrive: ~/googledrive
+rm -rf _site && bundle exec jekyll build
+rm -rf _site && bundle exec jekyll serve --drafts
+rsync -rh --info=progress2 SRC DEST
+sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
+scp -i athrad:SRC DEST
+set -o
+sleep 1 && i3-msg border pixel 1
+slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
+slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
+ssh -t athrad screen -Ux
+sshfs esgaroth: ~/esgaroth
+sudo dhcpcd -B wlan0
+sudo etckeeper commit
+sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
+sudo iw dev wlan0 scan | less
+sudo pacman -D --asdeps PACKAGE
+sudo pacman -Syu
+sudo sysctl kernel.sysrq=1
+sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
+telnet mapscii.me
+trans :zh-TW -b - | s
+vim -u NONE
+watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
+wgetpaste
+xdg-open file &>/dev/null <&1 & disown
+xdotool key Caps_Lock
+xsel --clipboard | vipe | xsel --clipboard
+xsel --clipboard | wgetpaste --tee -C
+youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
+{ checkupdates & auracle outdated; } | less -FX # check for updates to native and foreign (AUR) packages
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://3p8jLMz0lu8' # Taverns of Azeroth (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://7cy_RK04TUA' # Vanilla Winterspring (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://BV-v9bdMQp0' # Teldrassil (music & ambience)
@@ -90,68 +151,7 @@ mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://u3qIZG11mSg' # Sto
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://wLY-5S-6xuY' # Darnassus (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://xTPn_Nk_KrM' # Ashenvale (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio --shuffle 'ytdl://PLBCLqOzi7nCR7cfDldMpVICZ5BSdmQCT0'
-mpv av://v4l2:/dev/video0
-mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
-neomutt -s 'Hi.' 'wise.text9686@fastmail.com' <<< ''
-nohup xdg-open file &>/dev/null <&1 &
-nx copy --fast --all --to esgaroth
-nx copy --fast --all --to s3
-nx copy --fast --all --to t5a
-nx copy --fast --all -J4 --to esgaroth
-nx describe esgaroth Esgaroth
-nx describe s3 'Amazon S3'
-nx describe t5a 'Toshiba USB HDD'
-nx info
-nx info .
-nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
-nx initremote foo type=S3 --whatelse
-nx move --unused --to esgaroth
-nx status
-nx sync --no-resolvemerge --no-commit
-nx sync --no-resolvemerge --no-commit --no-pull
-nx version
-nx vicfg
-nx whereis --unused
-paccache -rk1 # remove all but the most recent cached versions of ALL packages
-paccache -ruk0 # remove ALL cached versions of uninstalled packages
-pacman -F FILENAME
-pacman -Qe | grep -v "$(pacman -Qqeg base-devel base)" # print explicitly installed packages not in base or base-devel
-pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
-pacman -Qtdq # list (real) orphan packages
-pass git remote | xargs -L1 -P0 pass git push
-pip list --local --outdated # list outdated Python packages; use `pip install --user -U` to upgrade them
-pip list --user --outdated # list outdated Python packages; use `pip install -U` to upgrade them
-python -c 'import cv2; print(cv2.getBuildInformation())' | less
-rclone mount dropbox: ~/dropbox
-rclone mount googledrive: ~/googledrive
-rm -rf _site && bundle exec jekyll build
-rm -rf _site && bundle exec jekyll serve --drafts
-rsync -rh --info=progress2 SRC DEST
-sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
-scp -i athrad:SRC DEST
-set -o
-sleep 1 && i3-msg border pixel 1
-slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
-slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
-ssh -t athrad screen -Ux
-sshfs esgaroth: ~/esgaroth
-sudo dhcpcd -B wlan0
-sudo etckeeper commit
-sudo iw dev wlan0 connect SSID # join the open WiFi network with the given SSID
-sudo iw dev wlan0 scan | less
-sudo pacman -D --asdeps PACKAGE
-sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
-sudo pacman -Syu
-sudo sysctl kernel.sysrq=1
-sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
-telnet mapscii.me
-trans :zh-TW -b - | s
-vim -u NONE
-watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
-wgetpaste
-xdg-open file &>/dev/null <&1 & disown
-xdotool key Caps_Lock
-xsel --clipboard | vipe | xsel --clipboard
-xsel --clipboard | wgetpaste --tee -C
-youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
-{ checkupdates & auracle outdated; } | less -FX # check for updates to native and foreign (AUR) packages
+# git clean -dfx && git checkout -- .
+# git submodule foreach git clean -dfx # remove all untracked files of all submodules
+# nx forget --force
+# nx sync --cleanup

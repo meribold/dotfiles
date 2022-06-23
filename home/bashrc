@@ -175,7 +175,7 @@ catch() {
 __fzf_oneliners__() {
    if [[ -e ~/dotfiles/misc/oneliners.$HOSTNAME.bash ]]; then
       FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
-         < <(sort -m ~/dotfiles/misc/oneliners{,".$HOSTNAME"}.bash)
+         < <(cat ~/dotfiles/misc/oneliners{,".$HOSTNAME"}.bash)
    else
       FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
          < ~/dotfiles/misc/oneliners.bash
