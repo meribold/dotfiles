@@ -143,10 +143,6 @@ sudo pacman -D --asdeps PACKAGE
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
 sudo pacman -Syu
 sudo sysctl kernel.sysrq=1
-sudo systemctl restart dhcpcd@wlan0
-sudo systemctl restart wpa_supplicant@wlan0
-sudo systemctl start dhcpcd@eth0
-sudo systemctl stop wpa_supplicant@wlan0
 sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 telnet mapscii.me
 trans :zh-TW -b - | s
