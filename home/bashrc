@@ -173,7 +173,7 @@ catch() {
 # /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
 # <https://www.archlinux.org/packages/community/x86_64/fzf/>).
 __fzf_oneliners__() {
-   if [[ -e ~/dotfiles/misc/oneliners.smial.bash ]]; then
+   if [[ -e ~/dotfiles/misc/oneliners.$HOSTNAME.bash ]]; then
       FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
          < <(sort -m ~/dotfiles/misc/oneliners{,".$HOSTNAME"}.bash)
    else
