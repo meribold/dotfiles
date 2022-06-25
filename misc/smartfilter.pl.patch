@@ -1,0 +1,4 @@
+84c84
+< 		if($stripped =~ m/-!- ([^ ]+) .+? has quit/) {
+---
+> 		if($stripped =~ m/! ([^ ]+) .+? has quit/) {

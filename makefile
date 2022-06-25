@@ -176,11 +176,24 @@ links += $(mutt_links)
 mutt: $(mutt_links)
 all: mutt
 
+$(HOME)/.irssi/scripts/autorun/nickcolor.pl: | $(HOME)/.irssi/scripts/autorun
+	curl -fo $@ https://raw.githubusercontent.com/irssi/scripts.irssi.org/42abf11a3e36275d83c024a383f1d7ee09c65845/scripts/nickcolor.pl
+
+$(HOME)/.irssi/scripts/autorun/smartfilter.pl: | $(HOME)/.irssi/scripts/autorun
+	curl -fo $@ https://raw.githubusercontent.com/irssi/scripts.irssi.org/42abf11a3e36275d83c024a383f1d7ee09c65845/scripts/smartfilter.pl
+	patch $@ misc/smartfilter.pl.patch
+
+$(HOME)/.irssi/scripts/autorun/trackbar.pl: | $(HOME)/.irssi/scripts/autorun
+	curl -fo $@ https://raw.githubusercontent.com/irssi/scripts.irssi.org/6f043481997a04da4d8869c72bbe66eb4f66f2a6/scripts/trackbar.pl
+
+dirs += $(HOME)/.irssi/scripts/autorun
 irssi_link_targets := $(wildcard home/irssi/*)
 irssi_links := $(patsubst home/%,$(HOME)/.%,$(irssi_link_targets))
 links += $(irssi_links)
 .PHONY: irssi
-irssi: $(irssi_links)
+irssi: $(irssi_links) $(addprefix $(HOME)/.irssi/scripts/autorun/,nickcolor.pl \
+                                                                  smartfilter.pl \
+                                                                  trackbar.pl)
 all: irssi
 
 conky_links := $(HOME)/.config/conky
