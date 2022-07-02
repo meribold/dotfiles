@@ -14,10 +14,12 @@ MAKEFLAGS += --no-builtin-rules
 # (https://www.gnu.org/software/make/manual/make.html#Using-Variables).
 GIT_CRYPT ?= git-crypt
 
-.PHONY: all vim
+.PHONY: all help vim
 
-# Set the default goal.
-all: vim
+# This is the default goal.
+help:
+	@echo Available targets: vim, nvim, git, bash, screen, mutt, conky, xterm, \
+	   gpg,$$'\n'crontab, fortunes, irssi, readline
 
 # Explicitly initialize as simple variables as recursive ones are the default.  Some
 # directories are added to $(links) instead of $(dirs) when just linking to a directory

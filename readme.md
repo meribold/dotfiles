@@ -55,9 +55,8 @@ Make][].
     make vim
     ```
 
-    You probably always want to specify targets when running `make` rather than installing
-    all configuration.  The currently implemented targets are: `vim`, `nvim`, `git`,
-    `bash`, `screen`, `mutt`, `conky`, `xterm`, and `gpg`.
+    The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `mutt`,
+    `conky`, `xterm`, `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
 
 Make may consider targets to be up to date because of existing files that conflict with
 the links it should create.  The `-B` flag (e.g. `make -B vim`) forces remaking of all
