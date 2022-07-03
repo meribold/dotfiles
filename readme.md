@@ -45,14 +45,18 @@ otherwise not portable.  That being said, you can specifically install the confi
 for individual programs without any extraneous changes being made.  Installation uses [GNU
 Make][].
 
-*   Clone this repository to `~/dotfiles`.
+*   Clone this repository to `~/dotfiles`:
+
+    ```bash
+    git clone https://github.com/meribold/dotfiles.git ~/dotfiles
+    ```
 *   Initialize and clone submodules:
 
     ```bash
     git submodule update --init --jobs 32
     ```
-*   Cherry-pick the configuration for programs you're interested in by giving Make their
-    names.  The makefile doesn't replace most conflicting files.  Remove or move them
+*   Install the configuration for programs you're interested in by giving Make their
+    names.  The makefile generally doesn't replace conflicting files; move or remove them
     manually.  For example:
 
     ```bash
