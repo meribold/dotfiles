@@ -46,6 +46,11 @@ for individual programs without any extraneous changes being made.  Installation
 Make][].
 
 *   Clone this repository to `~/dotfiles`.
+*   Initialize and clone submodules:
+
+    ```bash
+    git submodule update --init --jobs 32
+    ```
 *   Cherry-pick the configuration for programs you're interested in by giving Make their
     names.  The makefile doesn't replace most conflicting files.  Remove or move them
     manually.  For example:
