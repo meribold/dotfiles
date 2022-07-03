@@ -7,20 +7,6 @@
 
 <img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection.">
 
-<!--
-I don't think a `# dotfiles` caption is needed: just make some interesting points as fast
-as possible.
-
-Some dotfiles repos with nice READMEs:
-*   <https://github.com/wincent/wincent>
-*   <https://github.com/thoughtbot/dotfiles>
-*   Maybe some of the ones linked from <https://dotfiles.github.io/>
-
-Generally, these two projects are examples of pretty nice readme files, I think:
-*   <https://github.com/junegunn/vim-plug>
-*   <https://github.com/junegunn/fzf>
--->
-
 ## Highlights
 
 See <https://youtu.be/CZxo41Ao_Tc>.
