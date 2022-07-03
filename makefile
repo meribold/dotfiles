@@ -19,7 +19,7 @@ GIT_CRYPT ?= git-crypt
 # This is the default goal.
 help:
 	@echo Available targets: vim, nvim, git, bash, screen, mutt, conky, xterm, \
-	   gpg,$$'\n'crontab, fortunes, irssi, readline
+	   gpg,$$'\n                  ' crontab, fortunes, irssi, readline
 
 # Explicitly initialize as simple variables as recursive ones are the default.  Some
 # directories are added to $(links) instead of $(dirs) when just linking to a directory
