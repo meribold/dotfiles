@@ -21,7 +21,11 @@ Generally, these two projects are examples of pretty nice readme files, I think:
 *   <https://github.com/junegunn/fzf>
 -->
 
-<!-- TODO: `## Highlights` section? -->
+## Highlights
+
+See <https://youtu.be/CZxo41Ao_Tc>.
+
+## Structure
 
 There are three main directories: [`home`](home/), [`root`](root/), and [`misc`](misc/).
 
