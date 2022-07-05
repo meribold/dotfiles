@@ -217,9 +217,6 @@
 [submodule "home/vim/pack/meribold/start/editorconfig-vim"]
 	path = home/vim/pack/meribold/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "home/vim/pack/meribold/opt/vim-man"]
-	path = home/vim/pack/meribold/opt/vim-man
-	url = https://github.com/vim-utils/vim-man.git
 [submodule "home/vim/pack/meribold/opt/vim-dict"]
 	path = home/vim/pack/meribold/opt/vim-dict
 	url = https://github.com/szw/vim-dict.git
@@ -292,9 +289,6 @@
 [submodule "home/vim/pack/meribold/start/vim-husk"]
 	path = home/vim/pack/meribold/start/vim-husk
 	url = https://github.com/vim-utils/vim-husk.git
-[submodule "home/vim/pack/meribold/start/goyo.vim"]
-	path = home/vim/pack/meribold/start/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
 [submodule "home/vim/pack/meribold/start/lightline.vim"]
 	path = home/vim/pack/meribold/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git

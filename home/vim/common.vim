@@ -23,12 +23,6 @@ augroup END
 " `vim-autoformat.vim`).  TODO: find a better way.
 packadd! vim-operator-user
 
-" FIXME: vim-man doesn't work in Neovim 0.2.2.  The :Man command fails to open any man
-" page.  (The latest commit to vim-man is cfdc78f52707b4df76cbe57552a7c8c28a390da4.)
-if !has('nvim')
-   packadd! vim-man
-endif
-
 if has('unix')
    packadd! vim-dict
 endif
@@ -364,11 +358,6 @@ let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 let delimitMate_balance_matchpairs = 1
 
-" vim-man
-" Always render man pages at this width, regardless of the size of the window.  See
-" <https://github.com/vim-utils/vim-man/issues/14>.
-let g:man_width = 93
-
 " pastery.vim
 let g:pastery_open_in_browser = 1
 runtime pastery-api-key.vim
@@ -406,24 +395,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-B>'
 " unite.vim
 " Replace the built-in z= mapping with a less obtrusive interface based on unite.vim.
 nnoremap z= :Unite spell_suggest<CR>
-
-" goyo.vim
-let g:goyo_height = '100%'
-function! s:GoyoToggle()
-   if !exists('#goyo')
-      " Set the window width based on the local 'textwidth' (unless it's 0) instead of
-      " g:goyo_width.  Add 1 so Vim doesn't scroll horizontally when the cursor is behind
-      " the last character in a full line.
-      exe ':Goyo' . (&textwidth ? &textwidth + 1 : '')
-      set showmode
-   else
-     Goyo
-     if exists('g:loaded_lightline')
-        set noshowmode
-     endif
-   endif
-endfunction
-nnoremap <silent> Q :call <SID>GoyoToggle()<CR>
 
 " Not-so-basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -584,34 +555,6 @@ cnorea <expr> gr    getcmdtype() == ':' && getcmdline() =~# '^gr'    ? 'sil gr' 
 cnorea <expr> lgrep getcmdtype() == ':' && getcmdline() =~# '^lgrep' ? 'sil lgr' : 'lgrep'
 cnorea <expr> lgre  getcmdtype() == ':' && getcmdline() =~# '^lgre'  ? 'sil lgr' : 'lgre'
 cnorea <expr> lgr   getcmdtype() == ':' && getcmdline() =~# '^lgr'   ? 'sil lgr' : 'lgr'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make K a well-behaved citizen.  See :h ft-man-plugin, :h find-manpage, :h K, :h v_K,
-" :h 'keywordprg'.  TODO: add a vmap for K that works like the built-in mapping.
-
-" XXX: will this always be run AFTER 'keywordprg' was changed?
-function! s:FixK()
-   if &ft ==# 'vim'
-      silent! unmap <buffer> K
-      setl keywordprg=:help
-   elseif &keywordprg ==# ':help'
-      setl keywordprg=man
-   elseif &keywordprg ==# 'man'
-      " I'm using the vim-man plugin.
-      nmap <buffer> K <Plug>(Man)
-   else
-      silent! unmap <buffer> K
-   endif
-endfunction
-autocmd vimrc_common FileType * call s:FixK()
-autocmd vimrc_common BufWinEnter * if empty(&ft) | call s:FixK() | endif
-
-" [Help for word under cursor](https://stackoverflow.com/a/15867465)
-" https://github.com/vim-utils/vim-man
-" https://vim.wikia.com/wiki/Open_a_window_with_the_man_page_for_the_word_under_the_cursor
-" https://vim.wikia.com/wiki/View_man_pages_in_Vim
-" http://usevim.com/2012/09/07/vim101-keywordprg/
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
