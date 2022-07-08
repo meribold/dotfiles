@@ -6,7 +6,7 @@
 [scripts](home/bin/), [keybindings](home/xbindkeysrc),
 [more scripts](misc/keybind-scripts), …
 
-<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection." width="442" height="277">
+<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection." width="523" height="327">
 
 ## Highlights
 
