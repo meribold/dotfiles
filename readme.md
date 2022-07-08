@@ -10,7 +10,11 @@
 
 ## Highlights
 
-See <https://youtu.be/CZxo41Ao_Tc>.
+I have a couple of relevant videos on YouTube:
+
+*   [Email Workflow Demo (Neovim, NeoMutt, UltiSnips, Khard/omnifunc contact completion)](https://www.youtube.com/watch?v=9a2TJKQeVZc)
+*   [Demo: Newsboat+mpv as a YouTube Client](https://www.youtube.com/watch?v=U31niad7bHY)
+*   [Some Highlights From My Dotfiles](https://www.youtube.com/watch?v=CZxo41Ao_Tc)
 
 ## Structure
 
