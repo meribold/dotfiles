@@ -17,7 +17,8 @@ elif [[ -e charge_now ]]; then
    now=$(<charge_now)
    full=$(<charge_full)
    # The energy is given in microampere hours.  We need to multiply by the voltage later
-   # to get watt hours.  1000000 / 11.1 ~= 90090.09.
+   # to get watt hours.  1000000 / 11.1 ~= 90090.09.  TODO: should we use the
+   # `voltage_now` file?
    divisor=90090.09
 fi
 percent=$((100 * now / full))
