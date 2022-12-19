@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Print the remaining amount of energy stored in the battery identified by `BAT0`.  This
-# is what works on my ThinkPad X220 and may not be portable to other laptops without
-# changes.
+# Print the remaining amount of energy (or charge) stored in the battery identified by
+# `BAT0`.  This is what works on my ThinkPad X220 and may not be portable to other laptops
+# without changes.
 
 cd /sys/class/power_supply/BAT0 || exit $?
 
@@ -11,19 +11,16 @@ cd /sys/class/power_supply/BAT0 || exit $?
 if [[ -e energy_now ]]; then
    now=$(<energy_now)
    full=$(<energy_full)
-   # The energy is given in microwatt hours: convert to watt hours.
-   divisor=1000000
+   unit=Wh
 elif [[ -e charge_now ]]; then
    now=$(<charge_now)
    full=$(<charge_full)
-   # The energy is given in microampere hours.  We need to multiply by the voltage later
-   # to get watt hours.  1000000 / 11.1 ~= 90090.09.  TODO: should we use the
-   # `voltage_now` file?
-   divisor=90090.09
+   unit=Ah
 fi
 percent=$((100 * now / full))
-now=$(bc <<< "scale=1; $now / $divisor")
-full=$(bc <<< "scale=1; $full / $divisor")
-echo "$now Wh / $full Wh (${percent}%)"
+# Convert from microwatt-hours (or microampere-hours) to watt-hours (or ampere-hours).
+now=$(bc <<< "scale=1; $now / 1000000")
+full=$(bc <<< "scale=1; $full / 1000000")
+echo "$now $unit / $full $unit (${percent}%)"
 
 # [1]: https://bbs.archlinux.org/viewtopic.php?id=131025
