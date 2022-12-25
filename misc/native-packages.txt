@@ -59,6 +59,7 @@ dina-font
 discord
 dmenu
 docker
+dog
 dos2unix
 dosbox
 dosfstools
@@ -98,7 +99,6 @@ fzf
 gawk
 gcc
 gcc-libs
-gcolor2
 gcolor3
 gdb
 gettext
@@ -126,8 +126,10 @@ gst-plugins-good
 gst-plugins-ugly
 gtk-engines
 gtk3-demos
+guetzli
 gvim
 gzip
+helix
 htop
 httpie
 hunspell-de
@@ -139,11 +141,15 @@ iputils
 ipython
 irssi
 isync
+j4-dmenu-desktop
 jdk8-openjdk
 jfsutils
+jhead
+jpegoptim
 jq
 jre8-openjdk-headless
 jupyter-notebook
+just
 kdenlive
 khard
 kitty
@@ -215,6 +221,7 @@ openmw
 openresolv
 openssh
 os-prober
+oxipng
 p7zip
 pacman
 pacman-contrib
@@ -235,6 +242,7 @@ pipewire
 pipewire-alsa
 pkgconf
 playerctl
+pngquant
 powertop
 prettier
 procps-ng
@@ -266,7 +274,6 @@ qt5-networkauth
 qt5-sensors
 qt5-serialport
 qt5-tools
-qt5-webkit
 qt5-websockets
 qt5ct
 qutebrowser
@@ -288,6 +295,7 @@ rxvt-unicode
 s-nail
 s3cmd
 sbcl
+scour
 screen
 screenfetch
 screenkey
@@ -313,8 +321,10 @@ sxhkd
 sysfsutils
 systemd-sysvcompat
 tar
+tcc
 tcpdump
 teamspeak3
+telegram-desktop
 terminus-font
 tex-gyre-fonts
 texinfo

@@ -14,12 +14,12 @@ faience-icon-theme
 fonts-meta-base
 fonts-meta-extended-lt
 freedict-tools
+gcolor2
 googlecl
 grace
 i3-gaps-meribold-git
 imgur-screenshot-git
 imgurbash
-j4-dmenu-desktop
 libsignal-client
 libzkgroup
 mime-editor
@@ -32,6 +32,7 @@ numix-gtk-theme
 oprofile
 proggyfonts
 python2-neovim
+qt5-webkit
 recutils
 signal-cli
 skypeforlinux-stable-bin
