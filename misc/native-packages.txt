@@ -72,6 +72,7 @@ editorconfig-core-c
 efibootmgr
 elvish
 emacs
+epiphany
 etckeeper
 expect
 fakeroot
