@@ -205,7 +205,7 @@
 "~/dotfiles/misc/keybind-scripts/man 2"
    Mod4 + F2
 
-"~/dotfiles/misc/keybind-scripts/man 3:3p"
+"~/dotfiles/misc/keybind-scripts/man 3:3p:3type"
    Mod4 + F3
 
 "~/dotfiles/misc/keybind-scripts/man 4"
