@@ -199,7 +199,7 @@
 # [1]: https://github.com/AsamK/signal-cli
 # [2]: https://github.com/meribold/signal-cli.bash
 
-"~/dotfiles/misc/keybind-scripts/man 0:0p:1:1p"
+"~/dotfiles/misc/keybind-scripts/man 0:0p:1:1p:6:8"
    Mod4 + F1
 
 "~/dotfiles/misc/keybind-scripts/man 2"
