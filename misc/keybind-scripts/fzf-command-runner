@@ -17,7 +17,7 @@ killall -HUP xbindkeys
 $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 auracle outdated
-for i in {1..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
+for i in 0:0p:1:1p 2 3:3p {4..8}; do man -k -s "$i" . | awk '{ print $1, $2 }' > "/tmp/man$i.txt"; done
 i3-msg exit
 i3-msg -q reload
 i3-msg restart
