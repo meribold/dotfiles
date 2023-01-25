@@ -212,3 +212,5 @@ for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/feh_st
 
 for_window [instance="^irssi$"] floating enable
 for_window [instance="^irssi$"] move right 640 px
+
+for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating enable, move position 1293 68, resize set 1248 1458
