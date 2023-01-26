@@ -18,7 +18,7 @@ GIT_CRYPT ?= git-crypt
 
 # This is the default goal.
 help:
-	@echo Available targets: vim, nvim, git, bash, screen, mutt, conky, xterm, \
+	@echo Available targets: vim, nvim, git, bash, screen, mutt, xterm, \
 	   gpg,$$'\n                  ' crontab, fortunes, irssi, readline
 
 # Explicitly initialize as simple variables as recursive ones are the default.  Some
@@ -197,12 +197,6 @@ irssi: $(irssi_links) $(addprefix $(HOME)/.irssi/scripts/autorun/,nickcolor.pl \
                                                                   smartfilter.pl \
                                                                   trackbar.pl)
 all: irssi
-
-conky_links := $(HOME)/.config/conky
-links += $(conky_links)
-.PHONY: conky
-conky: $(conky_links)
-all: conky
 
 gpg_links := $(HOME)/.gnupg/gpg-agent.conf
 links += $(gpg_links)

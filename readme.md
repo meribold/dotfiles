@@ -1,7 +1,7 @@
 **Dotfiles** for [Vim and Neovim](home/vim/), [i3-gaps](home/config/i3/),
 [NeoMutt](home/config/neomutt/),
 [Fontconfig](home/config/fontconfig/),
-[e](home/config/conky/)[t](home/config/dunst/)[c](home/screenrc).
+e[t](home/config/dunst/)[c](home/screenrc).
 [p](home/xresources)[p](home/nethackrc); Bash [functions and aliases](home/bashrc),
 [scripts](home/bin/), [keybindings](home/xbindkeysrc),
 [more scripts](misc/keybind-scripts), …
@@ -60,7 +60,7 @@ Make][].
     ```
 
     The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `mutt`,
-    `conky`, `xterm`, `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
+    `xterm`, `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
 
 Make may consider targets to be up to date because of existing files that conflict with
 the links it should create.  The `-B` flag (e.g. `make -B vim`) forces remaking of all
