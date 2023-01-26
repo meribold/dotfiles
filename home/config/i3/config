@@ -33,7 +33,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+t sticky toggle
+bindsym $mod+Shift+t sticky toggle
 
 # A vertical split in Vim is a horizontal split in i3.  I'm using vimish key bindings.
 bindsym $mod+s split v
@@ -214,3 +214,5 @@ for_window [instance="^irssi$"] floating enable
 for_window [instance="^irssi$"] move right 640 px
 
 for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating enable, move position 1293 68, resize set 1248 1458
+
+bindsym $mod+t [class="^TelegramDesktop$" instance="^telegram-desktop$"] sticky toggle, focus, move container to workspace 3; [class="^TelegramDesktop$" instance="^telegram-desktop$" workspace=__focused__] focus
