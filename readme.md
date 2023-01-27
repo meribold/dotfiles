@@ -1,20 +1,22 @@
-**Dotfiles** for [Vim and Neovim](home/vim/), [i3-gaps](home/config/i3/),
+Dotfiles for [Vim and Neovim](home/vim/), [i3-gaps](home/config/i3/),
 [NeoMutt](home/config/neomutt/),
 [Fontconfig](home/config/fontconfig/),
-e[t](home/config/dunst/)[c](home/screenrc).
-[p](home/xresources)[p](home/nethackrc); Bash [functions and aliases](home/bashrc),
+[e](home/xresources)[t](home/xinitrc)[c](home/gitconfig)[.](home/config/ncmpcpp)
+[p](home/config/dunst/dunstrc)[p](home/config/newsboat)[.](home/mozilla/firefox/ctontcrf.default);
+Bash [functions and aliases](home/bashrc),
 [scripts](home/bin/), [keybindings](home/xbindkeysrc),
-[more scripts](misc/keybind-scripts), …
+[more scripts](misc/keybind-scripts), […](home/XCompose)
 
 <img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection." width="523" height="327">
 
 ## Highlights
 
-I have a couple of relevant videos on YouTube:
-
-*   [Email Workflow Demo (Neovim, NeoMutt, UltiSnips, Khard/omnifunc contact completion)](https://www.youtube.com/watch?v=9a2TJKQeVZc)
-*   [Demo: Newsboat+mpv as a YouTube Client](https://www.youtube.com/watch?v=U31niad7bHY)
-*   [Some Highlights From My Dotfiles](https://www.youtube.com/watch?v=CZxo41Ao_Tc)
+*   There's [a short guide on Fontconfig](home/config/fontconfig/readme.md) and
+    [a short guide on X resources](home/xresources/readme.md) in here.
+*   I have a couple of relevant videos on YouTube:
+    *   [Email Workflow Demo (Neovim, NeoMutt, UltiSnips, Khard/omnifunc contact completion)](https://www.youtube.com/watch?v=9a2TJKQeVZc)
+    *   [Demo: Newsboat+mpv as a YouTube Client](https://www.youtube.com/watch?v=U31niad7bHY)
+    *   [Some Highlights From My Dotfiles](https://www.youtube.com/watch?v=CZxo41Ao_Tc)
 
 ## Structure
 
@@ -40,27 +42,27 @@ otherwise not portable.  That being said, you can specifically install the confi
 for individual programs without any extraneous changes being made.  Installation uses [GNU
 Make][].
 
-*   Clone this repository to `~/dotfiles`:
+Clone this repository to `~/dotfiles`:
 
-    ```bash
-    git clone https://github.com/meribold/dotfiles.git ~/dotfiles
-    ```
-*   Initialize and clone submodules:
+```bash
+git clone https://github.com/meribold/dotfiles.git ~/dotfiles
+```
+Initialize and clone submodules:
 
-    ```bash
-    git submodule update --init --jobs 32
-    ```
-*   Install the configuration for programs you're interested in by giving Make their
-    names.  The makefile generally doesn't replace conflicting files; move or remove them
-    manually.  For example:
+```bash
+git submodule update --init --jobs 32
+```
+Install the configuration for programs you're interested in by giving Make their
+names.  The makefile generally doesn't replace conflicting files; move or remove them
+manually.  For example:
 
-    ```bash
-    mv ~/.vim ~/.vim.backup
-    make vim
-    ```
+```bash
+mv ~/.vim ~/.vim.backup
+make vim
+```
 
-    The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `mutt`,
-    `xterm`, `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
+The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `mutt`,
+`xterm`, `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
 
 Make may consider targets to be up to date because of existing files that conflict with
 the links it should create.  The `-B` flag (e.g. `make -B vim`) forces remaking of all
