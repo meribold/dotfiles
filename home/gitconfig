@@ -6,6 +6,8 @@
 	excludesfile = ~/.gitignore
 	autocrlf = false
 	pager = diff-so-fancy | less --tabs=4 -RFX
+[commit]
+	status = false
 [merge]
 	; I used `vimdiff` and `nvim -d` before, but Vim is rubbish at 3-way diffs.  Meld
 	; doesn't seem too bad.  TODO: Could we make Vim work acceptably well somehow?
