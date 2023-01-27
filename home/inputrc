@@ -8,7 +8,7 @@ $include /etc/inputrc
 # From <https://superuser.com/q/342455/flashing-window-in-gnu-screen>.
 set bell-style none
 
-# From <https://wiki.archlinux.org/index.php/Readline#Faster_completion>.
+# From <https://wiki.archlinux.org/title/Readline#Faster_completion>.
 set show-all-if-ambiguous on
 
 # From <https://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.

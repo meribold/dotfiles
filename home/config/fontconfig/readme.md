@@ -275,9 +275,9 @@ naming scheme</a> in doing so: "generic aliases" should appear in files with num
     "Tuning Fontconfig"
 [*Beyond Linux From Scratch*]: https://linuxfromscratch.org/blfs/view/stable/index.html
 [`fonts.conf`]: fonts.conf
-[fonts-aw-ffo]: https://wiki.archlinux.org/index.php/Fonts#Fallback_font_order_with_X11
+[fonts-aw-ffo]: https://wiki.archlinux.org/title/Fonts#Fallback_font_order_with_X11
     "\"Fallback font order with X11\" (Fonts - ArchWiki)"
-[Fonts - ArchWiki]: https://wiki.archlinux.org/index.php/Fonts "Fonts - ArchWiki"
+[Fonts - ArchWiki]: https://wiki.archlinux.org/title/Fonts "Fonts - ArchWiki"
 [`30-infinality-aliases.conf`]: https://gist.githubusercontent.com/cryzed/4f64bb79e80d619866ee0b18ba2d32fc/raw/bd073b52365393f9f0718425271825fc27b218f7/local.conf
 [`fonts-meta-extended-lt`]: https://aur.archlinux.org/packages/fonts-meta-extended-lt
     "AUR (en) - fonts-meta-extended-lt"
@@ -295,9 +295,9 @@ naming scheme</a> in doing so: "generic aliases" should appear in files with num
 [Noto fonts]: https://en.wikipedia.org/wiki/Noto_fonts
     "Noto fonts - Wikipedia"
 [Unicode]: https://en.wikipedia.org/wiki/Unicode "Unicode - Wikipedia"
-[Font configuration - ArchWiki]: https://wiki.archlinux.org/index.php/Font_configuration
+[Font configuration - ArchWiki]: https://wiki.archlinux.org/title/Font_configuration
     "Font configuration - ArchWiki"
-[Font configuration/Examples - ArchWiki]: https://wiki.archlinux.org/index.php/Font_configuration/Examples
+[Font configuration/Examples - ArchWiki]: https://wiki.archlinux.org/title/Font_configuration/Examples
     "Font configuration/Examples - ArchWiki"
 [*Unicode HOWTO*]: https://docs.python.org/3/howto/unicode.html
     "Unicode HOWTO — Python 3 documentation"

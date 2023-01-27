@@ -15,7 +15,7 @@ tabbrowser tabpanels {
 
 /* Hide the scroll buttons at the left and right of the tab bar.  The code from the
  * [ArchWiki][1] doesn't work (TODO: fix it) so I adapted this [user style].
- * [1]: https://wiki.archlinux.org/index.php/Firefox_tweaks#Hiding_various_tab_buttons
+ * [1]: https://wiki.archlinux.org/title/Firefox_tweaks#Hiding_various_tab_buttons
  * [2]: https://userstyles.org/styles/59499 */
 tabbrowser toolbarbutton[class^="scrollbutton"] .toolbarbutton-icon,
 #TabsToolbar toolbarbutton[class^="scrollbutton"] .toolbarbutton-icon {

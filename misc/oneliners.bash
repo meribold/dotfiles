@@ -20,6 +20,7 @@ git mergetool --tool=meld
 git mergetool --tool=p4merge
 nx info
 nx info .
+nx info here
 nx status
 nx version
 paccache -rk1 # remove all but the most recent cached versions of ALL packages
@@ -43,7 +44,6 @@ git commit -m 'Update commits recorded by submodules'
 git config --list
 git fetch . WIP:master
 git pull --recurse-submodules && git submodule update
-git stash push -u && rm -rf _site && bundle exec jekyll build && git stash pop
 git submodule foreach git pull
 git submodule update # doesn't change what commits are recorded in the superproject
 git submodule update --remote --merge # merge upstream submodule changes, updates recorded commits
@@ -90,8 +90,7 @@ pip list --user --outdated # list outdated Python packages; use `pip install -U`
 python -c 'import cv2; print(cv2.getBuildInformation())' | less
 rclone mount dropbox: ~/dropbox
 rclone mount googledrive: ~/googledrive
-rm -rf _site && bundle exec jekyll build
-rm -rf _site && bundle exec jekyll serve --drafts
+rm -rf _serve && bundle exec jekyll serve --drafts --unpublished --future --destination _serve
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
 scp -i athrad:SRC DEST
@@ -120,6 +119,8 @@ xsel --clipboard | vipe | xsel --clipboard
 xsel --clipboard | wgetpaste --tee -C
 youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
 { checkupdates & auracle outdated; } | less -FX # check for updates to native and foreign (AUR) packages
+python -m http.server
+ping -bc6 192.168.1.255
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://3p8jLMz0lu8' # Taverns of Azeroth (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://7cy_RK04TUA' # Vanilla Winterspring (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://BV-v9bdMQp0' # Teldrassil (music & ambience)

@@ -4,7 +4,7 @@ set imap_user="$my_fastmail_user"
 set imap_pass="$my_fastmail_pass"
 # See <https://www.fastmail.com/help/technical/servernamesandports.html#email>.
 set folder='imaps://imap.fastmail.com:993/'
-# From <https://wiki.archlinux.org/index.php/Mutt#spoolfile>: "The spoolfile is the folder
+# From <https://wiki.archlinux.org/title/Mutt#spoolfile>: "The spoolfile is the folder
 # where your (unfiltered) e-mail arrives."  Setting this to "+Inbox" or "+INBOX" both
 # works.  I think the empty string works as well.  Not setting it at all doesn't.  The "+"
 # in something like "+Inbox" is expanded to the value of "$folder".  It's also possible to

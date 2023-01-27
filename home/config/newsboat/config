@@ -115,7 +115,7 @@ bind-key s toggle-show-read-feeds
 # hope Newsboat sanitizes `%u`.
 macro o set browser ~/.config/newsboat/mpv.sh ; open-in-browser ; set browser $BROWSER
 macro O set browser ~/.config/newsboat/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
-# [1]: https://wiki.archlinux.org/index.php/Newsbeuter#Pass_article_URL_to_external_command.
+# [1]: https://wiki.archlinux.org/title/Newsboat#Pass_article_URL_to_external_command
 # [2]: file:///usr/share/doc/newsboat/newsboat.html#_macro_support
 
 color background        white    black

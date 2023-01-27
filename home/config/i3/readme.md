@@ -14,5 +14,5 @@ i3 [here][2].
 
 [1]: https://github.com/meribold/i3/tree/meribold
 [i3-gaps]: https://github.com/Airblader/i3
-[PKGBUILD]: https://wiki.archlinux.org/index.php/PKGBUILD
+[PKGBUILD]: https://wiki.archlinux.org/title/PKGBUILD
 [2]: /misc/i3-gaps-meribold-git

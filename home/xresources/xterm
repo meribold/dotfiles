@@ -27,7 +27,7 @@
 ! Specify that the TERM environment variable should be "xterm-256color".
 XTerm.termName: xterm-256color
 
-! Taken from <https://wiki.archlinux.org/index.php/Xterm>:
+! Taken from <https://wiki.archlinux.org/title/Xterm>:
 ! This will "enable UTF-8 mode" (xterm(1)).
 XTerm*VT100.locale:    true
 XTerm*VT100.saveLines: 8192
@@ -68,7 +68,7 @@ XTerm*VT100.backarrowKey: false
 ! 2.  Use Control+Shift+C and Control+Shift+V to copy and paste to and from the
 !     `CLIPBOARD` selection, like in GNOME Terminal and [termite][1].  See [2] and [3].
 ! [1]: https://github.com/thestinger/termite
-! [2]: https://wiki.archlinux.org/index.php/Xterm#PRIMARY_and_CLIPBOARD
+! [2]: https://wiki.archlinux.org/title/Xterm#PRIMARY_and_CLIPBOARD
 ! [3]: https://unix.stackexchange.com/q/225062
 XTerm*VT100.translations: #override \
 Ctrl <Key>I: string("ÿ") \n\
@@ -124,7 +124,7 @@ XTerm*fontMenu.font7.Label: TODO
 ! [3]: https://bbs.archlinux.org/viewtopic.php?id=154512
 !      "Unicode support in xterm - Arch Linux Forums"
 ! [4]: https://en.wikipedia.org/wiki/Droid_fonts
-! [5]: https://wiki.archlinux.org/index.php/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
+! [5]: https://wiki.archlinux.org/title/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
 XTerm*VT100.faceNameDoublesize: Noto Sans Mono CJK TC
 
 XTerm*VT100.font: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1

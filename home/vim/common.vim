@@ -374,7 +374,7 @@ let g:dict_hosts = [
 
 " vim-gutentags
 " See `:helpgrep gutentags_cache_dir` and
-" <https://wiki.archlinux.org/index.php/XDG_Base_Directory>.
+" <https://wiki.archlinux.org/title/XDG_Base_Directory>.
 let g:gutentags_cache_dir = '~/.cache/gutentags'
 
 " ultisnips

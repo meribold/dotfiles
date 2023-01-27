@@ -3,7 +3,7 @@
 # This file is sourced by login shells and interactive non-login shells.  On at least
 # Debian and Arch Linux, Bash is compiled with the `-DSYS_BASHRC="/etc/bash.bashrc"`
 # option, which makes it source /etc/bash.bashrc first for interactive non-login shells.
-# See <https://wiki.archlinux.org/index.php/Bash#Configuration_files> and
+# See <https://wiki.archlinux.org/title/Bash#Configuration_files> and
 # <https://unix.stackexchange.com/q/187369>.
 
 # FIXME: ShellCheck warnings.
@@ -289,8 +289,8 @@ ps1() {
    local exit_code=$?
 
    # Using \[ and \] for surrounding non-printable characters doesn't work here.  See
-   # <https://wiki.archlinux.org/index.php/Bash/Prompt_customization>.  We have to use
-   # \001 and \002 instead.
+   # <https://wiki.archlinux.org/title/Bash/Prompt_customization>.  We have to use \001
+   # and \002 instead.
    local gray=$'\001\e[38;5;246m\002'
    local bold=$'\001\e[1m\002'
    local reset=$'\001\e[m\002'
@@ -326,7 +326,7 @@ ps1() {
    # a new (`whoami`, `logname`, or `id`) process.
    printf %s "${prompt@P}"
 }
-# [1]: https://wiki.archlinux.org/index.php/Bash/Prompt_customization
+# [1]: https://wiki.archlinux.org/title/Bash/Prompt_customization
 # [2]: https://en.wikipedia.org/wiki/ANSI_escape_code
 # [3]: https://commons.wikimedia.org/wiki/File:Xterm_color_chart.png
 # [4]: https://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
@@ -413,4 +413,4 @@ trap 'show_command_in_title 2>/dev/null' DEBUG
 # [2]: https://stackoverflow.com/q/16636007
 # [3]: https://stackoverflow.com/q/9268836
 # [4]: https://stackoverflow.com/q/3338030
-# [5]: https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output
+# [5]: https://wiki.archlinux.org/title/Color_Bash_Prompt#Different_colors_for_text_entry_and_console_output

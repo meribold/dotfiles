@@ -29,7 +29,7 @@ set my_fastmail_from="`gpg -dq ~/.config/neomutt/fastmail-from.gpg`"
 # <file:///usr/share/doc/neomutt/manual.html#neomuttrc-syntax>.
 set my_gmail_pass="`pass show google/lb.waym 2>/dev/null`"
 
-# See <https://wiki.archlinux.org/index.php/Mutt#Multiple_accounts> and
+# See <https://wiki.archlinux.org/title/Mutt#Multiple_accounts> and
 # <file:///usr/share/doc/neomutt/manual.html#account-hook>.
 source ~/.config/neomutt/gmail.muttrc
 folder-hook $folder 'source ~/.config/neomutt/gmail.muttrc'
@@ -101,7 +101,7 @@ set pager_stop
 set menu_scroll
 unset markers
 
-# From <https://wiki.archlinux.org/index.php/mutt#Speed_up_folders_switch>.  Don't pause
+# From <https://wiki.archlinux.org/title/mutt#Speed_up_folders_switch>.  Don't pause
 # to show info messages (for example when opening another folder).  See
 # <https://dev.mutt.org/doc/manual.html#sleep-time>.
 set sleep_time=0
@@ -136,7 +136,7 @@ set pgp_show_unusable=no
 #
 # [1]: https://www.archlinux.org/packages/extra/x86_64/mutt/files/
 # [2]: https://www.archlinux.org/packages/community/x86_64/neomutt/
-# [3]: https://wiki.archlinux.org/index.php/Mutt#Encrypt_and_sign_mail_.28GnuPG.29
+# [3]: https://wiki.archlinux.org/title/Mutt#Encrypt_and_sign_mail_.28GnuPG.29
 # [4]: https://dev.mutt.org/trac/wiki/ConfigTricks
 # [5]: https://dev.mutt.org/doc/manual.html#configuration-files
 source `for file in /etc/Muttrc.gpg.dist /etc/Muttrc.d/gpg.rc \
@@ -182,7 +182,7 @@ set query_command="khard email --parsable '%s'"
 # <file:///usr/share/doc/neomutt/manual.html#editor-map>.
 bind editor <Tab> complete-query
 
-# Based on <https://wiki.archlinux.org/index.php/Mutt#Viewing_HTML>.  TODO: add a keyboard
+# Based on <https://wiki.archlinux.org/title/Mutt#Viewing_HTML>.  TODO: add a keyboard
 # macro like the one in the ArchWiki article but for viewing HTML attachments with Lynx?
 set mailcap_path="~/.config/neomutt/mailcap"
 # When a message contains both plain text and HTML, prefer viewing plain text.

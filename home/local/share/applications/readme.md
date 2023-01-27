@@ -6,8 +6,8 @@ A couple notes about the [desktop entry files][1] (`.desktop` files) in this dir
     for reference.
 
 [1]: https://en.wikipedia.org/wiki/Shortcut_(computing)#Unix
-[2]: https://wiki.archlinux.org/index.php/Desktop_entries
-[3]: https://wiki.archlinux.org/index.php/Desktop_entries#Deprecation
+[2]: https://wiki.archlinux.org/title/Desktop_entries
+[3]: https://wiki.archlinux.org/title/Desktop_entries#Deprecation
 [4]: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
      ("Desktop Entry Specification" at freedesktop.org)
 [5]: https://specifications.freedesktop.org/menu-spec/menu-spec-latest.html

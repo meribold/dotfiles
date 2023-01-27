@@ -3,9 +3,9 @@
 # See [Xbindkeys][1], [Extra keyboard keys][1] and [Extra keyboard keys in Xorg][2] in the
 # ArchWiki.  `xbindkeys --defaults` prints a default configuration file.
 #
-# [1]: https://wiki.archlinux.org/index.php/Xbindkeys
-# [2]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys
-# [3]: https://wiki.archlinux.org/index.php/Extra_keyboard_keys_in_Xorg
+# [1]: https://wiki.archlinux.org/title/Xbindkeys
+# [2]: https://wiki.archlinux.org/title/Extra_keyboard_keys
+# [3]: https://wiki.archlinux.org/title/Keyboard_shortcuts#Xorg
 
 "i3-msg 'floating enable; move position 13 68; resize set 1248 1458'"
    Mod4 + Shift + h
@@ -130,7 +130,7 @@
 # matching.
 "~/dotfiles/misc/keybind-scripts/j4-fzf-desktop"
    Mod4 + Shift + semicolon
-# [1]: https://wiki.archlinux.org/index.php/Desktop_entries
+# [1]: https://wiki.archlinux.org/title/Desktop_entries
 
 "xterm -name 'floating xterm' -geometry 120x14 -e ~/dotfiles/misc/keybind-scripts/fzf-command-runner"
    Mod4 + semicolon

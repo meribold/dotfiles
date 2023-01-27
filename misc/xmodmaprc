@@ -1,4 +1,4 @@
-! Turn Caps Lock into Control.  See <https://wiki.archlinux.org/index.php/Xmodmap>.
+! Turn Caps Lock into Control.  See <https://wiki.archlinux.org/title/Xmodmap>.
 clear lock
 clear control
 keycode 66 = Control_L

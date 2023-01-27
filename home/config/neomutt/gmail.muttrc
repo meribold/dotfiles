@@ -1,7 +1,7 @@
 set ssl_force_tls
 
 # Configure native IMAP support.  See
-# <https://wiki.archlinux.org/index.php/Mutt#Native_IMAP_support>.
+# <https://wiki.archlinux.org/title/Mutt#Native_IMAP_support>.
 set imap_user=lb.waym@gmail.com
 set imap_pass="$my_gmail_pass"
 # See <https://gitlab.com/muttmua/mutt/wikis/MuttGuide/Folders>.
