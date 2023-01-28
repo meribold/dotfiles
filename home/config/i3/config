@@ -216,3 +216,5 @@ for_window [instance="^irssi$"] move right 640 px
 for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating enable, move position 1293 68, resize set 1248 1458
 
 bindsym $mod+t [class="^TelegramDesktop$" instance="^telegram-desktop$"] sticky toggle, focus, move container to workspace 3; [class="^TelegramDesktop$" instance="^telegram-desktop$" workspace=__focused__] focus
+
+for_window [class="^Signal$" instance="^signal$"] floating enable
