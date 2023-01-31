@@ -34,10 +34,6 @@ unclutter --fork
 # Start the dunst(1) notification daemon.
 dunst &
 
-# Start my script for creating desktop notifications when MPD's currently played song
-# changes.
-mpd-notify &
-
 case $1 in
    # The default is i3: start it when $1 is empty.
    i3 | '') exec i3;;
