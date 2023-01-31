@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+message=$(date -u +$'<small>%A, %B %-d</small>\n<b>%H:%M</b>')' UTC · '
+message+=$(TZ=Europe/Berlin date +'<b>%H:%M</b>')' Berlin · '
+message+=$(TZ=Asia/Taipei date +'<b>%H:%M</b>')' Taipei'
+message+=$'\n\n<small>Battery</small>\n'$(btry)
+
+readarray -tn 2 mpd_status < <(mpc)
+if [[ ${mpd_status[1]} == '[playing]'* ]]; then
+   message+=$'\n\n<small>MPD</small>\n'${mpd_status[0]}
+fi
+
+dunstify -b -u low -t 0 -a hzVgHJS3 -r 84873362 - "$message"

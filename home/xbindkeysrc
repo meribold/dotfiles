@@ -160,8 +160,7 @@
 "lock"
    XF86ScreenSaver
 
-# Show a "date and battery info" desktop notification.
-"flock -Fn /tmp/HAB1DQ4j dunstify -b -u low -t 0 -a hzVgHJS3 -r 84873362 - "$(date -u +$'%A, %B %-d\n<b>%H:%M</b>') UTC · $(TZ=Europe/Berlin date +'<b>%H:%M</b>') Berlin · $(TZ=Asia/Taipei date +'<b>%H:%M</b>') Taipei"$'\n\n'"$(btry)""
+"flock -Fn /tmp/HAB1DQ4j ~/dotfiles/misc/keybind-scripts/date-time-battery-song-notification"
    Mod4 + b
 
 # Look on my works, ye Mighty, and despair!
