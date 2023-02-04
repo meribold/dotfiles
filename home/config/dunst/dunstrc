@@ -128,17 +128,11 @@
     summary = "-"
     format = "%b"
 
-# Don't keep certain notifications in the history.  For example, those from my
-# `home/bin/mpd-notify` script and Super+B keybinding would just be noise when recalling
-# notifications.  We set the application name to hzVgHJS3 when sending notifications that
-# should be filtered here.
+# Don't keep certain notifications in the history.  For example, those from my Super+B
+# keybinding would just be noise when recalling notifications.  We set the application
+# name to hzVgHJS3 when sending notifications that should be filtered here.
 [hzVgHJS3]
     appname = hzVgHJS3
-    history_ignore = yes
-
-[mpd_notify]
-    appname = "mpd-notify"
-    format = "<small>MPD: now playing</small>\n%s"
     history_ignore = yes
 
 # vim: tw=90 sts=-1 sw=4 et ft=cfg cms=#%s
