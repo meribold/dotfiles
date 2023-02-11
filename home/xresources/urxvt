@@ -6,7 +6,9 @@
 URxvt.scrollBar: false
 URxvt.saveLines: 0
 URxvt.internalBorder: 0
-URxvt.font: -*-dina-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt.font: xft:Ubuntu Mono:pixelsize=25
+! This makes the line height match that of xterm.
+URxvt.lineSpace: 1
 
 URxvt.foreground: #dfdfdf
 URxvt.background: #000000
