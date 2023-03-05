@@ -247,6 +247,7 @@ set writebackup
 set spelllang=en_us
 
 set winminwidth=0 winminheight=0
+set winwidth=97
 
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

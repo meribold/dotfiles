@@ -15,10 +15,10 @@ trap cleanup EXIT
 cat <<EOF > "$f"
 {
    "rect": {
-      "height": 789,
-      "width": 2566,
-      "x": $x,
-      "y": $y
+      "height": 792,
+      "width": 2560,
+      "x": $((x + 3)),
+      "y": $((y +  3))
    },
    "type": "floating_con",
    "nodes": [

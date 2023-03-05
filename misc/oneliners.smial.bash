@@ -1,5 +1,4 @@
 ds compton -o 1 -i 0.85 --no-fading-openclose --unredir-if-possible
-feh --bg-center ~/images/1366x768/the-coming-darkness-noah-bradley.png
 fortune 50% meribold all | cowsay -W 72 -f dynamic-duo | lolcat
 git push esgaroth snapshots-meribold-smial
 i3-msg 'append_layout ~/.config/i3/scratchpad.json' && xterm -e 'stty -ixon && exec screen -S scratchpad -x -p 0' & sleep .3; i3-msg 'move scratchpad'

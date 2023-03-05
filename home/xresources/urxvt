@@ -6,11 +6,17 @@
 URxvt.scrollBar: false
 URxvt.saveLines: 0
 URxvt.internalBorder: 0
-URxvt.font: xft:Ubuntu Mono:pixelsize=25
-! This makes the line height match that of xterm.
-URxvt.lineSpace: 1
+URxvt.externalBorder: 0
+
+URxvt.font: -*-dina-medium-r-*-*-20-*-*-*-*-*-iso8859-*
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
 
 URxvt.foreground: #dfdfdf
 URxvt.background: #000000
+
+! This may conceivably result in urxvt's latency being on par with xterm's, but I didn't
+! test it (cf. <https://lwn.net/Articles/751763/>).
+URxvt.refreshRate: 0
 
 ! vim: ft=xdefaults tw=90 sts=-1 sw=3 et cms=!\ %s

@@ -89,30 +89,19 @@ XTerm*VT100.forceBoxChars: true
 
 ! These resources seem to do exactly the same on my system and are added to get the actual
 ! border width.  xterm(1) suggests that borderWidth is probably a legacy resource.
-! Setting both to 0 looks strange sometimes but is one of the points that give me an extra
-! row in terminals using the full screen height.  Neither resource defaults to 0.
 XTerm.borderWidth:          0
-XTerm*VT100.internalBorder: 0
+XTerm*VT100.internalBorder: 3
 
-XTerm*VT100.renderFont: true
+XTerm*VT100.renderFont: false
 
 XTerm*VT100.faceName: Ubuntu Mono
 XTerm*VT100.faceSize: 8.2
-XTerm*fontMenu.fontdefault.Label: Ubuntu Mono 8.2
 XTerm*VT100.faceSize1: 5.6
-XTerm*fontMenu.font1.Label: Ubuntu Mono 5.6
 XTerm*VT100.faceSize2: 5.8
-XTerm*fontMenu.font2.Label: Ubuntu Mono 5.8
 XTerm*VT100.faceSize3: 6.6
-XTerm*fontMenu.font3.Label: Ubuntu Mono 6.6
 XTerm*VT100.faceSize4: 7.5
-XTerm*fontMenu.font4.Label: Ubuntu Mono 7.5
 XTerm*VT100.faceSize5: 8
-XTerm*fontMenu.font5.Label: Ubuntu Mono 8
 XTerm*VT100.faceSize6: 12
-XTerm*fontMenu.font6.Label: Ubuntu Mono 12
-! It seems font 7 can't be a TrueType font.
-XTerm*fontMenu.font7.Label: TODO
 
 ! TrueType fallback font for CJK and other double-width characters from the [Noto Sans
 ! CJK][1] font family.  "Noto Sans CJK is a rebadged version of Source Han Sans, a
@@ -127,11 +116,21 @@ XTerm*fontMenu.font7.Label: TODO
 ! [5]: https://wiki.archlinux.org/title/Fonts#Chinese.2C_Japanese.2C_Korean.2C_Vietnamese
 XTerm*VT100.faceNameDoublesize: Noto Sans Mono CJK TC
 
-XTerm*VT100.font: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1
-XTerm*VT100.font1: -*-terminus-bold-*-*-*-24-*-*-*-*-*-iso10646-1
-XTerm*VT100.font2: -*-terminus-medium-*-*-*-28-*-*-*-*-*-iso10646-1
-XTerm*VT100.font3: -*-terminus-bold-*-*-*-28-*-*-*-*-*-iso10646-1
-XTerm*VT100.font4: -*-fixed-*-*-*-*-20-*-*-*-*-*-iso8859-*
+XTerm*fontMenu.fontdefault.Label: Dina 20
+XTerm*VT100.font: -*-dina-medium-r-*-*-20-*-*-*-*-*-iso8859-*
+XTerm*fontMenu.font1.Label: Terminus Medium 24
+XTerm*VT100.font1: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1
+XTerm*fontMenu.font2.Label: Terminus Bold 24
+XTerm*VT100.font2: -*-terminus-bold-*-*-*-24-*-*-*-*-*-iso10646-1
+XTerm*fontMenu.font3.Label: Terminus Medium 28
+XTerm*VT100.font3: -*-terminus-medium-*-*-*-28-*-*-*-*-*-iso10646-1
+XTerm*fontMenu.font4.Label: Terminus Bold 28
+XTerm*VT100.font4: -*-terminus-bold-*-*-*-28-*-*-*-*-*-iso10646-1
+XTerm*fontMenu.font5.Label: Dina 10
+XTerm*VT100.font5: -*-dina-medium-r-*-*-10-*-*-*-*-*-iso8859-*
+XTerm*fontMenu.font6.Label: TODO
+XTerm*VT100.font6: -*-fixed-*-*-*-*-20-*-*-*-*-*-iso8859-1
+XTerm*fontMenu.font7.Label: TODO
 
 ! Unset the resources for specifying UTF-8 fonts to force xterm to use the ISO-8859-1
 ! fonts.  FIXME: the "utf8Fonts" resource should take care of this.

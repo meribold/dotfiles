@@ -128,7 +128,7 @@ man::gitglossary::man gitglossary
 man::gitrevisions::man gitrevisions
 time cat
 background::sleep 0.1; maim | xclip -selection clipboard -t image/png::maim | xclip -selection clipboard -t image/png
-background::maim -s -b 2 -c .843,.373,.373 --nokeyboard | xclip -selection clipboard -t image/png
+background::maim -su -b 2 -c .843,.373,.373 --nokeyboard | xclip -selection clipboard -t image/png
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --geometry=25%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
@@ -173,10 +173,14 @@ arp
 curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 cat /sys/class/backlight/amdgpu_bl0/{,max_}brightness
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 0
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 64
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 96
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 128
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 192
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 255
-feh --no-fehbg --bg-fill ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
+feh --no-fehbg --bg-center ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
+xsetroot -solid black
 ulimit -a
 cat /etc/os-release
 cat /etc/passwd
@@ -185,6 +189,10 @@ xterm::systemctl status
 xterm::systemctl list-units
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
+cpupower frequency-info
+sudo cpupower frequency-set --governor schedutil # default mode
+sudo cpupower frequency-set --governor powersave # sloth mode
+sudo cpupower frequency-set --governor performance # speed mode
 EOF
 ) || exit $?
 

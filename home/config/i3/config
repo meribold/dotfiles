@@ -68,7 +68,6 @@ focus_on_window_activation urgent
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
 
-# Switch workspace.
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -121,7 +120,7 @@ workspace_layout stacking
 new_window pixel 1
 new_float pixel 1
 
-# Hide borders adjacent to screen edges.  Redundant.
+# Hide borders adjacent to screen edges.
 hide_edge_borders both
 
 # Class                 Border  Backgr. Text    Indicator
@@ -140,16 +139,11 @@ gaps inner 23
 # Remove any gaps at screen edges.  This is obviously achieved with -23 :P
 gaps outer -23
 
-# Disable all gaps whenever there's only one container on the current workspace.  This
-# should be redundant, though.
-smart_gaps on
-
 workspace 4 output DisplayPort-4 DisplayPort-5 DisplayPort-6
 
-# Always start Firefox on workspace 1 so I can switch to another workspace while waiting
-# for it to start.  See <https://i3wm.org/docs/userguide.html#assign_workspace>.
-assign [class="^firefox$"] 1
-assign [class="^firefoxdeveloperedition$"] 1
+# See <https://i3wm.org/docs/userguide.html#assign_workspace>.
+assign [class="^firefox$"] firefox
+assign [class="^firefoxdeveloperedition$"] firefox
 
 for_window [instance="^vimsel$"] floating enable
 for_window [instance="^floating xterm$"] floating enable
@@ -218,3 +212,8 @@ for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating en
 bindsym $mod+t [class="^TelegramDesktop$" instance="^telegram-desktop$"] sticky toggle, focus, move container to workspace 3; [class="^TelegramDesktop$" instance="^telegram-desktop$" workspace=__focused__] focus
 
 for_window [class="^Signal$" instance="^signal$"] floating enable
+
+workspace vim gaps inner 0
+workspace vim gaps horizontal 4
+workspace vim gaps vertical 2
+for_window [class="^URxvt$" instance="^nvim$"] move container to workspace vim, border none

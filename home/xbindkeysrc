@@ -111,7 +111,7 @@
    Mod4 + Shift + backslash
 
 # Switch to or start Neovim.
-"[[ $(i3-msg '[instance="^nvim$" class="^URxvt$"] focus') == '[{"success":true}]' ]] || urxvt -name nvim -e nvim -S"
+"[[ $(i3-msg '[instance="^nvim$" class="^URxvt$"] focus') == '[{"success":true}]' ]] || urxvt -geometry 195x61 -b 2 -name nvim -e nvim -S"
    Mod4 + v
 
 # Start or kill ncmpcpp.
@@ -180,7 +180,7 @@
 "xterm -name 'funny xterm'"
    Mod4 + x
 
-"xterm -name 'floating xterm' -geometry 180x36 -e htop"
+"xterm -name 'floating xterm' -geometry 178x28 -e htop"
    Mod4 + apostrophe
 
 "xterm -name 'floating xterm' -geometry 159x32 -e alsamixer"
