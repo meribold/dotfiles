@@ -94,7 +94,6 @@ background::exec firefox-developer-edition::Firefox Developer Edition
 background::exec firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
 background::LC_TIME=en_SE.UTF-8 exec telegram-desktop::Telegram
 background::exec signal-desktop --force-device-scale-factor=1.84::Signal
-background::exec gcolor2::gcolor2
 background::exec gcolor3::gcolor3
 pkill screenkey
 xterm::ssh bamfurlong
@@ -143,6 +142,8 @@ df -Th
 free -h
 sudo ip link set wlan0 down
 sudo ip link set wlan0 up
+mpc --quiet shuffle
+mpc --quiet seek 0
 mpc clear && mpc add / && mpc shuffle # make MPD queue all songs in random order
 mpc clear && mpc load favorites.m3u
 umount ~/t5a
@@ -174,6 +175,8 @@ curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 cat /sys/class/backlight/amdgpu_bl0/{,max_}brightness
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 0
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 32
+sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 48
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 64
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 96
 sudo tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null <<< 128
@@ -187,6 +190,9 @@ cat /etc/passwd
 mount
 xterm::systemctl status
 xterm::systemctl list-units
+xterm::coredumpctl list
+du -sh /var/lib/systemd/coredump
+crontab -l
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
 cpupower frequency-info

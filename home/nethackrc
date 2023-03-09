@@ -14,7 +14,7 @@ DOGNAME=Jacobi
 CATNAME=Leibniz
 OPTIONS=align:lawful, boulder:0
 OPTIONS=runmode:crawl, !splash_screen, standout, lit_corridor
-OPTIONS=pettype:cat, fruit:space brain
+OPTIONS=pettype:cat, fruit:pizza
 
 # Save much more than 20 messages.
 OPTIONS=msghistory:1000

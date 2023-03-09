@@ -120,8 +120,7 @@ workspace_layout stacking
 new_window pixel 1
 new_float pixel 1
 
-# Hide borders adjacent to screen edges.
-hide_edge_borders both
+smart_borders on
 
 # Class                 Border  Backgr. Text    Indicator
 client.focused          #000000 #c0c0c0 #c0c0c0 #2e9ef4
