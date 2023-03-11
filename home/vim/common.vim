@@ -854,3 +854,5 @@ function! s:RecollapsePreviousWindow()
    endif
 endfunction
 autocmd vimrc_common WinEnter * call s:RecollapsePreviousWindow()
+
+autocmd vimrc_common TabClosed * tabp
