@@ -92,6 +92,9 @@ XTerm*VT100.forceBoxChars: true
 XTerm.borderWidth:          0
 XTerm*VT100.internalBorder: 3
 
+newsboat*VT100.internalBorder: 0
+borderless floating xterm*VT100.internalBorder: 0
+
 XTerm*VT100.renderFont: false
 
 XTerm*VT100.faceName: Ubuntu Mono

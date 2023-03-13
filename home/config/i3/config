@@ -146,6 +146,7 @@ assign [class="^firefoxdeveloperedition$"] firefox
 
 for_window [instance="^vimsel$"] floating enable
 for_window [instance="^floating xterm$"] floating enable
+for_window [instance="^borderless floating xterm$"] floating enable
 
 for_window [instance="^gcolor2$"] sticky enable
 for_window [instance="^gcolor3$"] sticky enable

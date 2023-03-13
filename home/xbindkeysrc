@@ -180,10 +180,10 @@
 "xterm -name 'funny xterm'"
    Mod4 + x
 
-"xterm -name 'floating xterm' -geometry 178x28 -e htop"
+"xterm -name 'borderless floating xterm' -geometry 178x28 -e htop"
    Mod4 + apostrophe
 
-"xterm -name 'floating xterm' -geometry 159x32 -e alsamixer"
+"xterm -name 'borderless floating xterm' -geometry 159x32 -e alsamixer"
    Mod4 + Shift + apostrophe
 
 "i3-msg '[instance="^floating man$"] scratchpad show'"
