@@ -63,7 +63,7 @@ xmap <Leader>q <Plug>(operator-autoformat)
 call operator#user#define_ex_command('autoformat', 'Autoformat')
 
 " Format the entire buffer.
-nnoremap <silent> <Leader>Q :Autoformat<CR>
+nnoremap <silent> Q :Autoformat<CR>
 
 " [1]: https://github.com/Chiel92/vim-autoformat#default-formatprograms
 " [2]: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
