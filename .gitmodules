@@ -94,9 +94,6 @@
 [submodule "misc/muccadoro"]
 	path = misc/muccadoro
 	url = https://github.com/meribold/muccadoro.git
-[submodule "fzf-pass"]
-	path = misc/keybind-scripts/fzf-pass
-	url = https://github.com/meribold/fzf-pass.git
 [submodule "misc/AUR/freedict-tools"]
 	path = misc/aur/freedict-tools
 	url = https://aur.archlinux.org/freedict-tools.git

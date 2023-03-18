@@ -145,9 +145,7 @@
 "[[ $(i3-msg '[instance="^ipython$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ipython -geometry 61x34 -e ipython --no-banner"
    Mod4 + Shift + u
 
-# Run [fzf-pass](https://github.com/meribold/fzf-pass), an alternative to passmenu based
-# on [rofi-pass](https://github.com/carnager/rofi-pass).
-"PINENTRY_USER_DATA=spawn-xterm xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass/fzf-pass"
+"PINENTRY_USER_DATA=spawn-xterm xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass"
    Mod4 + y
 
 "~/dotfiles/misc/keybind-scripts/fzf-window-switcher"
