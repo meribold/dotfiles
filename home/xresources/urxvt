@@ -8,9 +8,13 @@ URxvt.saveLines: 0
 URxvt.internalBorder: 0
 URxvt.externalBorder: 0
 
-URxvt.font: -*-dina-medium-r-*-*-20-*-*-*-*-*-iso8859-*
-URxvt.letterSpace: -1
-URxvt.lineSpace: 0
+! URxvt.font: -*-dina-medium-r-*-*-20-*-*-*-*-*-iso8859-*
+! URxvt.letterSpace: -1
+! URxvt.lineSpace: 0
+
+URxvt.font: xft:Cascadia Code:pixelsize=21
+URxvt.letterSpace: 0
+URxvt.lineSpace: 1
 
 URxvt.foreground: #dfdfdf
 URxvt.background: #000000
