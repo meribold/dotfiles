@@ -17,6 +17,7 @@ autopep8
 awesome
 aws-cli
 base
+base-devel
 bash
 bash-completion
 bat
@@ -55,7 +56,6 @@ dhcpcd
 dictd
 diff-so-fancy
 diffutils
-dina-font
 discord
 dmenu
 docker
@@ -96,6 +96,7 @@ fontforge
 fortune-mod
 freeglut
 freetype2
+fwupd
 fzf
 gawk
 gcc
@@ -199,7 +200,9 @@ nano
 ncmpcpp
 neofetch
 neomutt
+neovide
 neovim
+neovim-qt
 net-tools
 newsboat
 nload
@@ -226,7 +229,7 @@ oxipng
 p7zip
 pacman
 pacman-contrib
-pandoc
+pandoc-cli
 pass
 pass-otp
 patch
@@ -288,7 +291,6 @@ ripgrep
 ripgrep-all
 rlwrap
 rofi
-rogue
 rsync
 ruby-bundler
 rustup
@@ -308,6 +310,7 @@ signal-desktop
 sl
 slock
 slop
+smartmontools
 snes9x
 speedtest-cli
 sshfs
@@ -354,12 +357,13 @@ translate-shell
 trash-cli
 ttf-caladea
 ttf-carlito
+ttf-cascadia-code
 ttf-dejavu
+ttf-hack
 ttf-liberation
 ttf-opensans
 twine
 unclutter
-units
 unrar
 unzip
 usbutils
@@ -403,9 +407,11 @@ xorg-xfontsel
 xorg-xinit
 xorg-xinput
 xorg-xkill
+xorg-xlsfonts
 xorg-xmodmap
 xorg-xrandr
 xorg-xrdb
+xorg-xsetroot
 xsel
 xterm
 yamllint

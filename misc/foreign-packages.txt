@@ -2,6 +2,7 @@ abook
 alock-git
 android-studio
 auracle-git
+bdfresize
 cli-visualizer
 conky-lua
 dict-foldoc
@@ -9,6 +10,7 @@ dict-freedict-deu-eng
 dict-freedict-eng-deu
 dict-gcide
 dict-wn
+dina-font
 dragon-drag-and-drop
 faience-icon-theme
 fonts-meta-base
@@ -34,8 +36,8 @@ proggyfonts
 python2-neovim
 qt5-webkit
 recutils
+rogue
 signal-cli
-skypeforlinux-stable-bin
 st
 surf
 tor-browser-en
@@ -50,6 +52,7 @@ ttf-oswald
 ttf-quintessential
 ttf-signika
 ttf-symbola
+units
 urlview
 vim-systemd
 wpa_actiond

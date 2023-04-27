@@ -79,6 +79,10 @@ browse::https://meribold.goatcounter.com::GoatCounter
 evalbrowse::wiki.meribold.org/$(date -I)
 background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
+background::xdotool type $phone_number
+background::xdotool type $phone_number_0
+background::echo -n $phone_number | xsel -b
+background::echo -n $phone_number_0 | xsel -b
 background::exec dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
 background::exec gimp::GIMP
@@ -201,6 +205,9 @@ sudo cpupower frequency-set --governor powersave # sloth mode
 sudo cpupower frequency-set --governor performance # speed mode
 EOF
 ) || exit $?
+
+phone_number=REDACTED
+phone_number_0=REDACTED
 
 gatewayip() {
    ip route | awk '/^def/{print $3}'

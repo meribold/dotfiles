@@ -2,10 +2,11 @@ Dotfiles for [Vim and Neovim](home/vim/), [i3-gaps](home/config/i3/),
 [NeoMutt](home/config/neomutt/),
 [Fontconfig](home/config/fontconfig/),
 [e](home/xresources)[t](home/xinitrc)[c](home/gitconfig)[.](home/config/ncmpcpp)
-[p](home/config/dunst/dunstrc)[p](home/config/newsboat)[.](home/mozilla/firefox/ctontcrf.default);
+[p](home/config/dunst/dunstrc)[p](home/config/newsboat)[.](home/mozilla/firefox/ctontcrf.default)
 Bash [functions and aliases](home/bashrc),
 [scripts](home/bin/), [keybindings](home/xbindkeysrc),
-[more scripts](misc/keybind-scripts), […](home/XCompose)
+[more scripts](misc/keybind-scripts), […](home/XCompose).
+Est. 2013.
 
 <img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection." width="523" height="327">
 
