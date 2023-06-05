@@ -17,7 +17,7 @@ readarray -t fzf_output < <(
    listPasswords 2>/dev/null |
    fzf --prompt='~/.password-store/' \
        --color='dark,hl:blue:regular,fg+:white:regular,hl+:blue:regular:reverse,query:white:regular,info:gray:regular,prompt:blue:regular,pointer:blue:bold' \
-       --expect='tab,[,],\')
+       --expect='tab,[,{,],},\')
 
 (( ${#fzf_output[@]} == 2 )) || exit $?
 
@@ -93,9 +93,15 @@ case $key in
       sleep 0.05
       xdotool type --clearmodifiers "${stuff[login]}"
       ;;
+   \{)
+      echo -n "${stuff[login]}" | xsel -b
+      ;;
    \])
       sleep 0.05
       xdotool type --clearmodifiers -- "$password"
+      ;;
+   \})
+      echo -n "$password" | xsel -b -t 10000
       ;;
    \\)
       sleep 0.05
