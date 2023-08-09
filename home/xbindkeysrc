@@ -110,8 +110,8 @@
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X chdir ~/dotfiles; screen -S scratchpad -X screen; screen -S scratchpad -X chdir; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then screen -S scratchpad -X chdir ~/dotfiles; screen -S scratchpad -X screen; screen -S scratchpad -X chdir; exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p 42'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad bash -c "cd ~/dotfiles && bash"'; fi; fi"
    Mod4 + Shift + backslash
 
-# Switch to or start Neovim.
-"[[ $(i3-msg '[instance="^nvim$" class="^URxvt$"] focus') == '[{"success":true}]' ]] || urxvt -geometry 195x61 -b 2 -name nvim -e nvim -S"
+# Switch to or start Vim.
+"[[ $(i3-msg '[instance="^vim$" class="^URxvt$"] focus') == '[{"success":true}]' ]] || urxvt -geometry 195x61 -b 2 -name vim -e vim -S"
    Mod4 + v
 
 # Start or kill ncmpcpp.

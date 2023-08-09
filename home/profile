@@ -1,5 +1,5 @@
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL=vim
+export EDITOR=vim
 export FIREFOX=firefox
 export BROWSER=$FIREFOX
 

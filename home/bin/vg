@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# Grep (actually ripgrep) for something and show the results in Vim (actually Neovim)
-# using the quickfix list.
+# Grep (actually ripgrep) for something and show the results in Vim using the quickfix
+# list.
 
 if [[ $1 ]]; then
-   nvim -q <(rg --vimgrep "$@")
+   vim -q <(rg --vimgrep "$@")
 else
-   # Have ripgrep show its error message but don't start Neovim.
+   # Have ripgrep show its error message but don't start Vim.
    rg --vimgrep
 fi

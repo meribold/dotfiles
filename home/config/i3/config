@@ -37,7 +37,7 @@ bindsym $mod+Shift+t sticky toggle
 
 # A vertical split in Vim is a horizontal split in i3.  I'm using vimish key bindings.
 bindsym $mod+s split v
-# FIXME: we use Super+V in `xbindkeysrc` to switch to or start Neovim, so we can't use it
+# FIXME: we use Super+V in `xbindkeysrc` to switch to or start Vim, so we can't use it
 # here.
 # bindsym $mod+v split h
 
@@ -216,4 +216,4 @@ for_window [class="^Signal$" instance="^signal$"] floating enable
 workspace vim gaps inner 0
 workspace vim gaps horizontal 4
 workspace vim gaps vertical 2
-for_window [class="^URxvt$" instance="^nvim$"] move container to workspace vim, border none
+for_window [class="^URxvt$" instance="^vim$"] move container to workspace vim, border none
