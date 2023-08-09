@@ -136,6 +136,9 @@ set dictionary+=spell
 
 set noshowcmd
 
+" Hide the tilde characters Vim displays in front of lines after the EOF.
+set fillchars=eob:\ 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the cursor line.
 " Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
@@ -400,7 +403,7 @@ nnoremap z= :Unite spell_suggest<CR>
 " Not-so-basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Draw a continuous line to separate vertical splits.
-if has('multi_byte') | :set fillchars=vert:│ | endif
+if has('multi_byte') | :set fillchars+=vert:│ | endif
 
 " [Open help in the current window](https://stackoverflow.com/a/26431632)
 " :h 'buftype'
