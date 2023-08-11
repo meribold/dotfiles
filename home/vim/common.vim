@@ -15,7 +15,7 @@ augroup vimrc_common
    autocmd!
 augroup END
 
-" Conditonally loaded plugins
+" Conditionally loaded plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins are loaded after vimrc files (:h initialization).
 
