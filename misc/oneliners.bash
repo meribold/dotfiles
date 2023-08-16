@@ -8,7 +8,7 @@ nx sync --no-resolvemerge --no-commit
 nx sync --no-resolvemerge --no-commit --no-pull
 nx copy --fast --all --to esgaroth
 nx copy --fast --all --to s3
-nx copy --fast --all --to t5a
+nx copy --fast --all --to s5g
 nx copy --fast --all -J4 --to esgaroth
 mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
 git check-attr --all
@@ -63,7 +63,7 @@ latexmk -pdf -shell-escape
 mbsync gmail && notmuch new
 mkcd $(date -I)
 mkdir -p delete-me && feh --action 'mv %N delete-me' .
-mount ~/t5a
+mount ~/s5g
 mount ~/v8x # mount my USB drive (this only works because of an entry in my fstab(5))
 mount ~/v8x && { git pull usb; umount ~/v8x; } # pull from my USB drive
 mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
@@ -76,7 +76,7 @@ neomutt -s 'Hi.' 'wise.text9686@fastmail.com' <<< ''
 nohup xdg-open file &>/dev/null <&1 &
 nx describe esgaroth Esgaroth
 nx describe s3 'Amazon S3'
-nx describe t5a 'Toshiba USB HDD'
+nx describe s5g 'Samsung T7 Shield'
 nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
 nx initremote foo type=S3 --whatelse
 nx move --unused --to esgaroth
@@ -107,7 +107,6 @@ sudo iw dev wlan0 scan | less
 sudo pacman -D --asdeps PACKAGE
 sudo pacman -Syu
 sudo sysctl kernel.sysrq=1
-sudo wpa_supplicant -i wlan0 -c ~/.wpa_supplicant.conf
 telnet mapscii.me
 trans :zh-TW -b - | s
 vim -u NONE

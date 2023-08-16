@@ -11,9 +11,13 @@ lock
 dates
 background::~/dotfiles/misc/keybind-scripts/wifail::wifail
 background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
-killall xbindkeys; xbindkeys
-xrdb -merge ~/.xresources/* && { killall xbindkeys; xbindkeys; }
+background::~/dotfiles/misc/keybind-scripts/dmesg::dmesg
 killall -HUP xbindkeys
+killall xbindkeys; xbindkeys
+killall xcape; xcape
+cat ~/.xresources/* | xrdb
+cat ~/.xresources/* | xrdb -merge
+cat ~/.xresources/* | xrdb -merge && { killall xbindkeys; xbindkeys; }
 $FIREFOX --new-tab $(gatewayip) # try to open a router's web interface
 cat /sys/class/power_supply/BAT0/{energy,charge}_{now,full} 2>/dev/null
 auracle outdated
@@ -58,8 +62,13 @@ browse::https://meribold.org::meribold.org
 browse::https://staging.meribold.org::staging.meribold.org
 browse::https://testing.meribold.org::testing.meribold.org
 browse::snapcraft.io/muccadoro/metrics
-browse::https://www.fastmail.com::fastmail.com
-browse::https://www.fastmail.com/contacts::fastmail.com/contacts
+browse::https://app.fastmail.com::fastmail.com
+browse::https://app.fastmail.com/contacts::fastmail.com/contacts
+browse::https://app.fastmail.com/calendar::fastmail.com/calendar
+browse::https://app.fastmail.com/settings/masked
+browse::https://app.fastmail.com/settings/masked/new
+browse::https://app.fastmail.com/mail/compose
+browse::https://console.aws.amazon.com::console.aws.amazon.com
 browse::file:///usr/share/doc/neomutt/manual.html
 browse::file:///usr/share/doc/arch-wiki/html/en/Network_configuration.html
 browse::moz-extension://bbd71618-3b7d-474d-94c7-2e062c6a5870/onetab.html::OneTab

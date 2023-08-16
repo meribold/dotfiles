@@ -30,7 +30,7 @@ XTerm.termName: xterm-256color
 ! Taken from <https://wiki.archlinux.org/title/Xterm>:
 ! This will "enable UTF-8 mode" (xterm(1)).
 XTerm*VT100.locale:    true
-XTerm*VT100.saveLines: 8192
+XTerm*VT100.saveLines: 16384
 
 ! See <https://www.leonerd.org.uk/hacks/hints/xterm-8bit.html>.  The values for `utf8`,
 ! `eightBitControl`, and `eightBitOutput` should be the defaults already.

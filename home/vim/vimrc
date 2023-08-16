@@ -26,6 +26,12 @@ set history=10000 " Vim's default: 50.  Neovim's default: 10000.
 set incsearch     " Search while typing the search command and...
 set hlsearch      " ...hightlight matches.
 
+set shortmess-=S
+set shortmess+=F
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 set maxmem=2000000    " Lots of memory for each buffer.
 set maxmemtot=2000000 " Lots of memory for all buffers together.
 

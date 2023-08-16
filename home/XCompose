@@ -16,5 +16,6 @@ include "%L"
 <Multi_key> <p> <e> <n> <g> <u> <i> <n> : "🐧"
 <Multi_key> <colon> <parenright> : "🙂"
 <Multi_key> <colon> <parenleft> : "🙁"
+<Multi_key> <parenleft> <colon> : "🙃"
 
 # vim: ft=conf

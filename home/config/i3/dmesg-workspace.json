@@ -1,0 +1,11 @@
+{
+  "layout": "splith",
+  "nodes": [
+    {
+      "swallows": [{ "title": "^dmesg$" }]
+    },
+    {
+      "swallows": [{ "title": "^journalctl$" }]
+    }
+  ]
+}

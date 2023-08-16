@@ -28,3 +28,5 @@ set colored-stats on
 set completion-ignore-case on
 set colored-completion-prefix
 set mark-symlinked-directories on
+
+set enable-bracketed-paste on
