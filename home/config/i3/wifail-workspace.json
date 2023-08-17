@@ -3,7 +3,7 @@
   "nodes": [
     {
       "layout": "splith",
-      "percent": 0.3,
+      "percent": 0.34,
       "nodes": [
         {
           "percent": 0.6,
@@ -17,45 +17,37 @@
     },
     {
       "layout": "splith",
-      "percent": 0.7,
+      "percent": 0.4,
       "nodes": [
         {
-          "layout": "splitv",
           "percent": 0.44,
-          "nodes": [
-            {
-              "percent": 0.6,
-              "swallows": [{ "title": "^iw wlan0 link$" }]
-            },
-            {
-              "percent": 0.4,
-              "swallows": [{ "title": "^ping gateway$" }]
-            }
-          ]
+          "swallows": [{ "title": "^iw wlan0 link$" }]
         },
         {
           "layout": "splitv",
           "percent": 0.56,
           "nodes": [
             {
-              "layout": "splitv",
-              "percent": 0.6,
-              "nodes": [
-                {
-                  "percent": 0.55,
-                  "swallows": [{ "title": "^ip address show wlan0$" }]
-                },
-                {
-                  "percent": 0.45,
-                  "swallows": [{ "title": "^route$" }]
-                }
-              ]
+              "percent": 0.55,
+              "swallows": [{ "title": "^ip address show wlan0$" }]
             },
             {
-              "percent": 0.4,
-              "swallows": [{ "title": "^ping google.com$" }]
+              "percent": 0.45,
+              "swallows": [{ "title": "^route$" }]
             }
           ]
+        }
+      ]
+    },
+    {
+      "layout": "splith",
+      "percent": 0.26,
+      "nodes": [
+        {
+          "swallows": [{ "title": "^ping gateway$" }]
+        },
+        {
+          "swallows": [{ "title": "^ping google.com$" }]
         }
       ]
     }
