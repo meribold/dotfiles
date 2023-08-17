@@ -22,7 +22,6 @@ grace
 i3-gaps-meribold-git
 imgur-screenshot-git
 imgurbash
-libsignal-client
 libzkgroup
 mime-editor
 minecraft-launcher
@@ -37,7 +36,7 @@ python2-neovim
 qt5-webkit
 recutils
 rogue
-signal-cli
+rtl8812au-dkms-git
 st
 surf
 tor-browser-en
