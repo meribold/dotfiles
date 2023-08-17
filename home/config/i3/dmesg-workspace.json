@@ -1,10 +1,12 @@
 {
-  "layout": "splith",
+  "layout": "splitv",
   "nodes": [
     {
+      "percent": 0.68,
       "swallows": [{ "title": "^dmesg$" }]
     },
     {
+      "percent": 0.32,
       "swallows": [{ "title": "^journalctl$" }]
     }
   ]

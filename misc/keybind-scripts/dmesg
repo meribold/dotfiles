@@ -7,4 +7,4 @@ i3-msg 'workspace dmesg'
 i3-msg -q 'append_layout ~/.config/i3/dmesg-workspace.json'
 
 xterm -title dmesg -e 'sudo dmesg --follow --human' &
-xterm -title journalctl -e 'journalctl --dmesg --follow -n 61 -o cat' &
+xterm -title journalctl -e 'journalctl --dmesg --follow -n 17 -o cat' &
