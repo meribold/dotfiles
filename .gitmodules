@@ -58,9 +58,6 @@
 [submodule "misc/aur/libzkgroup"]
 	path = misc/aur/libzkgroup
 	url = https://aur.archlinux.org/libzkgroup.git
-[submodule "signal-cli.bash"]
-	path = misc/signal-cli.bash
-	url = https://github.com/meribold/signal-cli.bash.git
 [submodule "AUR/fonts-meta-base"]
 	path = misc/aur/fonts-meta-base
 	url = https://aur.archlinux.org/fonts-meta-base.git
