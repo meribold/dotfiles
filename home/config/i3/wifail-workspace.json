@@ -21,7 +21,7 @@
       "nodes": [
         {
           "layout": "splitv",
-          "percent": 0.5,
+          "percent": 0.44,
           "nodes": [
             {
               "percent": 0.6,
@@ -35,18 +35,18 @@
         },
         {
           "layout": "splitv",
-          "percent": 0.5,
+          "percent": 0.56,
           "nodes": [
             {
               "layout": "splitv",
               "percent": 0.6,
               "nodes": [
                 {
-                  "percent": 0.5,
+                  "percent": 0.55,
                   "swallows": [{ "title": "^ip address show wlan0$" }]
                 },
                 {
-                  "percent": 0.5,
+                  "percent": 0.45,
                   "swallows": [{ "title": "^route$" }]
                 }
               ]
