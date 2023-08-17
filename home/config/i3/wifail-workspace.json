@@ -1,72 +1,59 @@
 {
   "layout": "splitv",
-  "type": "con",
   "nodes": [
     {
       "layout": "splith",
       "percent": 0.3,
-      "type": "con",
       "nodes": [
         {
           "percent": 0.6,
-          "swallows": [{ "title": "^wpa_supplicant$" }],
-          "type": "con"
+          "swallows": [{ "title": "^wpa_supplicant$" }]
         },
         {
           "percent": 0.4,
-          "swallows": [{ "title": "^dhcpcd$" }],
-          "type": "con"
+          "swallows": [{ "title": "^dhcpcd$" }]
         }
       ]
     },
     {
       "layout": "splith",
       "percent": 0.7,
-      "type": "con",
       "nodes": [
         {
           "layout": "splitv",
           "percent": 0.5,
-          "type": "con",
           "nodes": [
             {
               "percent": 0.6,
-              "swallows": [{ "title": "^iw wlan0 link$" }],
-              "type": "con"
+              "swallows": [{ "title": "^iw wlan0 link$" }]
             },
             {
               "percent": 0.4,
-              "swallows": [{ "title": "^ping gateway$" }],
-              "type": "con"
+              "swallows": [{ "title": "^ping gateway$" }]
             }
           ]
         },
         {
           "layout": "splitv",
           "percent": 0.5,
-          "type": "con",
           "nodes": [
             {
               "layout": "splitv",
               "percent": 0.6,
-              "type": "con",
               "nodes": [
                 {
                   "percent": 0.5,
-                  "swallows": [{ "title": "^ip address show wlan0$" }],
-                  "type": "con"
+                  "swallows": [{ "title": "^ip address show wlan0$" }]
                 },
                 {
                   "percent": 0.5,
-                  "swallows": [{ "title": "^route$" }],
-                  "type": "con"
+                  "swallows": [{ "title": "^route$" }]
                 }
               ]
             },
             {
               "percent": 0.4,
-              "swallows": [{ "title": "^ping google.com$" }],
-              "type": "con"
+              "swallows": [{ "title": "^ping google.com$" }]
             }
           ]
         }
