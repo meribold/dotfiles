@@ -175,6 +175,9 @@
 "xterm -name 'floating xterm' -geometry 100x25"
    Mod4 + o
 
+"xterm -name 'floating xterm' -geometry 100x25 fish"
+   Mod4 + Shift + o
+
 "xterm -name 'funny xterm'"
    Mod4 + x
 

@@ -20,11 +20,14 @@ abbr -ag lsd 'ls -d */'
 
 abbr -ag spinach 'trans >/dev/null -speak en:'
 
+abbr -ag - 'cd -'
+
 abbr -ag jd 'cd ~/dotfiles'
 abbr -ag jp 'cd ~/projects'
 abbr -ag jw 'cd ~/wiki'
 abbr -ag jr 'cd ~/projects/resume'
 abbr -ag jm 'cd ~/projects/meribold.org'
+abbr -ag js 'cd ~/screenshots'
 
 alias df 'df -h'
 alias du 'du -h'
