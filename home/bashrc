@@ -152,6 +152,15 @@ alias jw='cd ~/wiki'
 alias jr='cd ~/projects/resume'
 alias jm='cd ~/projects/meribold.org'
 
+xrn() {
+   if (( $? )); then
+      notify-send - 'Something went wrong…'
+   else
+      sleep 1
+      exit
+   fi
+}
+
 if [[ $TERM == screen* ]]; then
    k() {
       screen -X screen && screen -X stuff "j $*"$'\n'
@@ -242,6 +251,8 @@ alias tag='tig --all'
 alias nx='git-annex'
 
 alias pg='pass git'
+alias pgl='pass git log'
+alias pgs='pass git show'
 
 alias feh='feh -B black -.'
 alias msa='mpc search any'

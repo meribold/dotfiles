@@ -2,6 +2,8 @@
 
 set -o nounset -o pipefail
 
+export GPG_TTY=$(tty)
+
 # These commands are halfway between keybind and `oneliners.bash` material.  Plus, there's
 # only so many keys on a keyboard.
 readarray -t fzf_output < <(
@@ -88,10 +90,10 @@ browse::https://meribold.goatcounter.com::GoatCounter
 evalbrowse::wiki.meribold.org/$(date -I)
 background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
-background::xdotool type $phone_number
-background::xdotool type $phone_number_0
-background::echo -n $phone_number | xsel -b
-background::echo -n $phone_number_0 | xsel -b
+background::xdotool type REDACTED # my phone number
+background::xdotool type REDACTED # my phone number
+background::echo -n REDACTED | xsel -b # my phone number
+background::echo -n REDACTED | xsel -b # my phone number
 background::exec dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::NetHack
 background::exec gimp::GIMP
@@ -125,7 +127,8 @@ background::exec xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --
 checkupdates
 xwininfo
 cal -3
-cal -y
+cal -S -n5 -c5
+cal -y -c4
 xprop
 sensors
 ascii
@@ -158,8 +161,9 @@ sudo ip link set wlan0 up
 mpc --quiet shuffle
 mpc --quiet seek 0
 mpc clear && mpc add / && mpc shuffle # make MPD queue all songs in random order
-mpc clear && mpc load favorites.m3u
-umount ~/t5a
+{ mpc clear && mpc load favorites.m3u; } >/dev/null
+f() { mpc search any "$1" | mpc insert; }; f amsterdam
+umount ~/s5g
 umount ~/v8x
 sysctl kernel.sysrq
 rclone ls dropbox:
@@ -212,11 +216,12 @@ cpupower frequency-info
 sudo cpupower frequency-set --governor schedutil # default mode
 sudo cpupower frequency-set --governor powersave # sloth mode
 sudo cpupower frequency-set --governor performance # speed mode
+follow::pass git log
+follow::PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
+follow::vdirsyncer sync
+nostdout::gpg --sign --armor <<< mellon
 EOF
 ) || exit $?
-
-phone_number=REDACTED
-phone_number_0=REDACTED
 
 gatewayip() {
    ip route | awk '/^def/{print $3}'
@@ -291,6 +296,8 @@ fi
 
 if [[ $key == ctrl-e ]]; then
    read -rep '$ ' -i "$selected_command" selected_command
+else
+   printf '$ %s\n' "$selected_command"
 fi
 
 if [[ $command_type == background ]]; then
@@ -303,6 +310,14 @@ elif [[ $command_type == daemon ]]; then
    output=$(eval "$selected_command" 2>&1)
 elif [[ $command_type == '' ]]; then
    output=$(eval "$selected_command" 2>&1)
+elif [[ $command_type == follow ]]; then
+   eval "$selected_command"
+   status=$?
+   if (( status )); then
+      tput civis
+      printf '\e[31m%s\e[m\n' $status
+      read -rn1
+   fi
 elif [[ $command_type == browse ]]; then
    trap '' SIGHUP
    $BROWSER "$selected_command" &
@@ -317,7 +332,7 @@ elif [[ $command_type == xterm ]]; then
 elif [[ $command_type == man ]]; then
    trap '' SIGHUP
    # shellcheck disable=SC2086
-   xterm -sl 0 -name 'floating man' -geometry 100x58 -e man --nj --nh $selected_command &
+   xterm -sl 0 -name 'floating man' -geometry 88x56 -e man --nj --nh $selected_command &
 elif [[ $command_type == nostdout ]]; then
    output=$(eval "$selected_command" 2>&1 1>/dev/null)
 fi
@@ -327,9 +342,6 @@ if [[ $output ]]; then
       printf '$ %s\n%s' "$selected_command" "$output" | less -R
    else
       tput civis
-      if [[ $key != ctrl-e ]]; then
-         printf '$ %s\n' "$selected_command"
-      fi
       printf '%s' "$output"
       read -rn1
    fi

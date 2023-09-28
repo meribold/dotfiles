@@ -59,4 +59,6 @@ fi
 # can be used without specifying a path.  See cowsay(1).
 export COWPATH="/usr/local/share/cows:/usr/share/cows:$COWPATH"
 
+export PASSWORD_STORE_DIR=~/passwords
+
 # vim: ft=sh

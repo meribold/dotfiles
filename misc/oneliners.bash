@@ -34,10 +34,10 @@ chmod -R a=r,a+X,u+w
 clear && neofetch --uptime_shorthand tiny --ascii && read
 coredumpctl list
 f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add esgaroth esgaroth:"$1"; }; f
-f() { mpc search any "$1" | mpc insert; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
 f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
 find / -name '*.desktop' 2>/dev/null | less
+git commit --amend --date=now
 git commit -m 'Fix typo'
 git commit -m 'Initial commit'
 git commit -m 'Update commits recorded by submodules'
@@ -78,10 +78,12 @@ nx describe esgaroth Esgaroth
 nx describe s3 'Amazon S3'
 nx describe s5g 'Samsung T7 Shield'
 nx initremote esgaroth type=rsync rsyncurl=esgaroth:DIR encryption=none
+nx initremote foo type=rsync --whatelse
 nx initremote foo type=S3 --whatelse
 nx move --unused --to esgaroth
 nx vicfg
 nx whereis --unused
+nx whereis --all
 pacman -F FILENAME
 pacman -Qe | grep -v "$(pacman -Qqeg base-devel base)" # print explicitly installed packages not in base or base-devel
 pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
@@ -120,6 +122,7 @@ youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'
 { checkupdates & auracle outdated; } | less -FX # check for updates to native and foreign (AUR) packages
 python -m http.server
 ping -bc6 192.168.1.255
+vim .git/info/exclude
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://3p8jLMz0lu8' # Taverns of Azeroth (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://7cy_RK04TUA' # Vanilla Winterspring (music & ambience)
 mpv --input-file=/tmp/mpvfifo --ytdl-format bestaudio 'ytdl://BV-v9bdMQp0' # Teldrassil (music & ambience)

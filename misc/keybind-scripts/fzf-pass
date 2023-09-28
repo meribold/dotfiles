@@ -4,7 +4,7 @@
 # replacing Rofi with fzf, and removing everything that I personally don't need.
 
 listPasswords() {
-   find -L ~/.password-store -name '*.gpg' -printf '%P\n' | sed 's/.gpg$//' | sort
+   find -L ~/passwords -name '*.gpg' -printf '%P\n' | sed 's/.gpg$//' | sort
 }
 
 generateOtp() {
@@ -15,7 +15,7 @@ generateOtp() {
 
 readarray -t fzf_output < <(
    listPasswords 2>/dev/null |
-   fzf --prompt='~/.password-store/' \
+   fzf --prompt='~/passwords/' \
        --color='dark,hl:blue:regular,fg+:white:regular,hl+:blue:regular:reverse,query:white:regular,info:gray:regular,prompt:blue:regular,pointer:blue:bold' \
        --expect='tab,[,{,],},\')
 

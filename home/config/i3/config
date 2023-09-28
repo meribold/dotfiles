@@ -16,6 +16,9 @@ bindsym $mod+Return exec --no-startup-id xterm
 # Kill focused window.
 bindsym $mod+q kill
 
+# "Soft-quit" a terminal that's still busy.
+bindsym --release $mod+Shift+q exec --no-startup-id xdotool key --clearmodifiers --delay 0 x r n Return && i3-msg move scratchpad
+
 # Start an xterm and run muccadoro [1], a pomodoro [2] timer.  By the way, using `-class`
 # instead of `-title` would mean all my X resources aren't applied to the xterm.  We could
 # also use `xterm -name muccadoro ...` and `for_window [instance="muccadoro] ...`.  The

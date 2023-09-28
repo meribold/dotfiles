@@ -3,7 +3,7 @@ status_path = "~/.vdirsyncer/status/"
 
 [storage here]
 type = "filesystem"
-path = "~/.contacts/"
+path = "~/contacts/"
 fileext = ".vcf"
 
 # See <https://vdirsyncer.pimutils.org/en/stable/tutorials/fastmail.html> and
