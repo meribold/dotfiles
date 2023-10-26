@@ -126,9 +126,9 @@ background::exec xterm -name 'floating xterm' -geometry 100x25 -e dash -c 'cd ~/
 background::exec xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --silent --fail wttr.in | head -n -2'::curl wttr.in
 checkupdates
 xwininfo
-cal -3
-cal -S -n5 -c5
-cal -y -c4
+noless::resize 8 20; cal::cal
+noless::resize 8 64; cal -3::cal -3
+noless::resize 34 66; cal -y::cal -y
 xprop
 sensors
 ascii
@@ -220,6 +220,9 @@ follow::pass git log
 follow::PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
 follow::vdirsyncer sync
 nostdout::gpg --sign --armor <<< mellon
+rmdir ~/Downloads ~/Desktop
+background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/forge::forge
+background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/reforge::reforge
 EOF
 ) || exit $?
 
@@ -228,7 +231,9 @@ gatewayip() {
 }
 
 NetHack() {
-   exec xterm -xrm 'XTerm*VT100.renderFont:true' -fs 13 -e nethack
+   [[ $(i3-msg '[instance="^nethack$"] focus') == '[{"success":true}]' ]] && return
+   exec xterm -fa 'Cascadia Code' -fs 12.5 -xrm 'XTerm*VT100.renderFont: true' \
+      -b 15 -bw 0 -name nethack -e nethack
 }
 
 lock() {
@@ -266,12 +271,16 @@ cal() {
 }
 
 ssh_esgaroth_quota() {
-   i3-msg 'resize set 1599 189; move position center' &>/dev/null && ssh esgaroth quota
+   resize 7 123 && ssh esgaroth quota
 }
 
 xev() {
    i3-msg workspace xev
    xterm -e xev -rv
+}
+
+resize() {
+   i3-msg "resize set $(($2 * 14 + 12)) $(($1 * 26 + 12)); move position center" >/dev/null
 }
 
 key=${fzf_output[1]}
@@ -308,7 +317,7 @@ if [[ $command_type == background ]]; then
 elif [[ $command_type == daemon ]]; then
    trap '' SIGHUP
    output=$(eval "$selected_command" 2>&1)
-elif [[ $command_type == '' ]]; then
+elif [[ ! $command_type || $command_type == noless ]]; then
    output=$(eval "$selected_command" 2>&1)
 elif [[ $command_type == follow ]]; then
    eval "$selected_command"
@@ -338,7 +347,7 @@ elif [[ $command_type == nostdout ]]; then
 fi
 
 if [[ $output ]]; then
-   if (( $(wc -l <<< "$output") >= 14 )); then
+   if [[ $command_type != noless ]] && (( $(wc -l <<< "$output") >= $(tput lines) )); then
       printf '$ %s\n%s' "$selected_command" "$output" | less -R
    else
       tput civis

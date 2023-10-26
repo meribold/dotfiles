@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+while :; do
+   rsync --human-readable --archive -zz --hard-links --acls --xattrs --one-file-system \
+      -M--fake-super --delete --info=progress2 --exclude='/dev/*' --exclude='/proc/*' \
+      --exclude='/sys/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' \
+      --exclude='/media/*' --exclude='/lost+found' --exclude='/var/cache/pacman/pkg/*' \
+      --exclude='/home/meribold/vms/*' --exclude='/home/meribold/.local/share/Steam/*' \
+      --exclude='/home/meribold/.local/share/lutris/*' \
+      / esgaroth:smial/ && break
+   sleep 30
+done

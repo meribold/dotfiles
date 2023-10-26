@@ -220,3 +220,5 @@ workspace vim gaps inner 0
 workspace vim gaps horizontal 4
 workspace vim gaps vertical 2
 for_window [class="^URxvt$" instance="^vim$"] move container to workspace vim, border none
+
+for_window [class="^XTerm$" instance="^nethack$"] move container to workspace nethack, focus

@@ -97,14 +97,15 @@ borderless floating xterm*VT100.internalBorder: 0
 
 XTerm*VT100.renderFont: false
 
-XTerm*VT100.faceName: Ubuntu Mono
-XTerm*VT100.faceSize: 8.2
-XTerm*VT100.faceSize1: 5.6
-XTerm*VT100.faceSize2: 5.8
-XTerm*VT100.faceSize3: 6.6
-XTerm*VT100.faceSize4: 7.5
-XTerm*VT100.faceSize5: 8
+XTerm*VT100.faceName: Cascadia Code
+XTerm*VT100.faceSize: 6.8
+XTerm*VT100.faceSize1: 7.5
+XTerm*VT100.faceSize2: 8.2
+XTerm*VT100.faceSize3: 9.1
+XTerm*VT100.faceSize4: 10
+XTerm*VT100.faceSize5: 11
 XTerm*VT100.faceSize6: 12
+XTerm*VT100.faceSize7: 13.3
 
 ! TrueType fallback font for CJK and other double-width characters from the [Noto Sans
 ! CJK][1] font family.  "Noto Sans CJK is a rebadged version of Source Han Sans, a
