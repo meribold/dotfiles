@@ -59,3 +59,4 @@ xbanish
 xkcdpass
 xorg-utils
 yeganesh-cabal
+youtube-dl

@@ -35,6 +35,7 @@ bzip2
 cairo
 calc
 cantarell-fonts
+capnproto
 cgdb
 chromium
 clang
@@ -265,6 +266,7 @@ python-isort
 python-opencv
 python-pip
 python-pynvim
+python-sphinx
 python-wheel
 qemu-desktop
 qpdf
@@ -333,16 +335,22 @@ tex-gyre-fonts
 texinfo
 texlive-basic
 texlive-bibtexextra
+texlive-binextra
+texlive-context
 texlive-fontsextra
+texlive-fontutils
 texlive-formatsextra
 texlive-games
 texlive-humanities
 texlive-latexextra
+texlive-luatex
 texlive-mathscience
+texlive-metapost
 texlive-music
 texlive-pictures
 texlive-pstricks
 texlive-publishers
+texlive-xetex
 tig
 time
 tk
@@ -416,7 +424,6 @@ xsel
 xterm
 yamllint
 yapf
-youtube-dl
 z
 zathura
 zathura-pdf-mupdf
