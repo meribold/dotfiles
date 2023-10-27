@@ -16,7 +16,7 @@ background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
 background::~/dotfiles/misc/keybind-scripts/dmesg::dmesg
 killall -HUP xbindkeys
 killall xbindkeys; xbindkeys
-killall xcape; xcape
+killall xcape; xcape -e 'Control_L=Escape;Shift_L=Shift_L|9;Shift_R=Shift_L|0'
 cat ~/.xresources/* | xrdb
 cat ~/.xresources/* | xrdb -merge
 cat ~/.xresources/* | xrdb -merge && { killall xbindkeys; xbindkeys; }

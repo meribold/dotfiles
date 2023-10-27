@@ -10,7 +10,7 @@ nx copy --fast --all --to esgaroth
 nx copy --fast --all --to s3
 nx copy --fast --all --to s5g
 nx copy --fast --all -J4 --to esgaroth
-mirrorlist=$(reflector --age 1 --latest 200 --sort rate -n 10) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
+mirrorlist=$(reflector --protocol https --completion-percent 100 --age 1 --delay 1 --sort rate --number 10 --connection-timeout 1 --download-timeout 1) && sudo tee /etc/pacman.d/mirrorlist <<< "$mirrorlist" # generate new mirror list for pacman
 git check-attr --all
 gds --color-words
 gds --word-diff
