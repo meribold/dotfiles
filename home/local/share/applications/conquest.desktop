@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.1
-Type=Application
-Name=Conquest
-Exec=dosbox -conf ~/.dosbox/conquest.conf
-Icon=dosbox
-StartupNotify=false
-Categories=Game;StrategyGame;BoardGame;Emulator;

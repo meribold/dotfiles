@@ -10,7 +10,7 @@ readarray -t fzf_output < <(
    fzf --prompt='$ ' --color='dark,hl:green:regular,fg+:white:regular,hl+:green:regular:reverse,query:white:regular,info:gray:regular,prompt:white:regular,pointer:green:bold' \
        --with-nth -1 -d :: --print-query --expect=ctrl-e,alt-enter <<'EOF'
 lock
-dates
+noless::resize 7 35; dates::dates
 background::~/dotfiles/misc/keybind-scripts/wifail::wifail
 background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
 background::~/dotfiles/misc/keybind-scripts/dmesg::dmesg
@@ -95,6 +95,7 @@ background::xdotool type REDACTED # my phone number
 background::echo -n REDACTED | xsel -b # my phone number
 background::echo -n REDACTED | xsel -b # my phone number
 background::exec dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
+background::exec dosbox -conf ~/.dosbox/conquest.conf::Conquest
 background::NetHack
 background::exec gimp::GIMP
 background::exec emacs::Emacs
@@ -207,20 +208,21 @@ cat /etc/passwd
 mount
 xterm::systemctl status
 xterm::systemctl list-units
+follow::resize 56 80; systemctl list-unit-files::systemctl list-unit-files
+follow::resize 56 80; systemctl --global list-unit-files::systemctl --global list-unit-files
+follow::resize 56 80; systemctl --user list-unit-files::systemctl --user list-unit-files
 xterm::coredumpctl list
 du -sh /var/lib/systemd/coredump
 crontab -l
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
 cpupower frequency-info
-sudo cpupower frequency-set --governor schedutil # default mode
-sudo cpupower frequency-set --governor powersave # sloth mode
+sudo cpupower frequency-set --governor powersave # sloth/turtle mode
 sudo cpupower frequency-set --governor performance # speed mode
-follow::pass git log
-follow::PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
+follow::resize 42 76; pass git log::pass git log
+follow::resize 42 76; PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
 follow::vdirsyncer sync
 nostdout::gpg --sign --armor <<< mellon
-rmdir ~/Downloads ~/Desktop
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/forge::forge
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/reforge::reforge
 EOF

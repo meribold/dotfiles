@@ -3,7 +3,7 @@
 FZF_DEFAULT_OPTS='--prompt="~ " --no-sort --color dark,hl:red:regular
    --color fg+:white:regular,hl+:red:regular:reverse,query:white:regular
    --color info:gray:regular,prompt:red:bold,pointer:red:bold' \
-j4-dmenu-desktop --display-binary --no-generic --term=xterm \
+exec j4-dmenu-desktop --display-binary --no-generic --term=xterm \
    --usage-log ~/.j4-dmenu-desktop.log \
    --dmenu 'xterm -name "floating xterm" -geometry 73x14 -e \
       "fzf < /proc/$$/fd/0 > /proc/$$/fd/1"'

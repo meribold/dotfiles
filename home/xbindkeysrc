@@ -132,7 +132,7 @@
    Mod4 + Shift + semicolon
 # [1]: https://wiki.archlinux.org/title/Desktop_entries
 
-"xterm -name 'floating xterm' -geometry 120x14 -e ~/dotfiles/misc/keybind-scripts/fzf-command-runner"
+"xterm -name 'floating xterm' -geometry 80x8 -e ~/dotfiles/misc/keybind-scripts/fzf-command-runner"
    Mod4 + semicolon
 
 # I previously used IPython here, but it's a bit slow to start compared to pretty much

@@ -11,7 +11,7 @@ export GDK_SCALE=2 GDK_DPI_SCALE=0.5
 export CLICOLOR=
 
 # This causes searches in `less` to ignore case by default.
-export LESS=i
+export LESS=i~
 
 export FZF_DEFAULT_COMMAND='fd --strip-cwd-prefix --type file'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND

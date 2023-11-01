@@ -173,7 +173,6 @@ lm_sensors
 lolcat
 lostfiles
 lsof
-lutris
 lynx
 lz4
 m4
@@ -249,6 +248,7 @@ picom
 pipewire
 pipewire-alsa
 pkgconf
+pkgfile
 playerctl
 pngquant
 powertop
