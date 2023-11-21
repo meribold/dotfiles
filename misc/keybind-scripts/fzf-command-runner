@@ -74,10 +74,7 @@ browse::https://console.aws.amazon.com::console.aws.amazon.com
 browse::file:///usr/share/doc/neomutt/manual.html
 browse::file:///usr/share/doc/arch-wiki/html/en/Network_configuration.html
 browse::moz-extension://bbd71618-3b7d-474d-94c7-2e062c6a5870/onetab.html::OneTab
-browse::wiki.meribold.org
-browse::wiki.meribold.org/Lists
-browse::wiki.meribold.org/rec/Words
-browse::wiki.meribold.org/edit/rec/Words
+browse::https://wiki.meribold.eu::wiki.meribold.eu
 browse::github.com/meribold
 browse::github.com/meribold/dotfiles
 browse::github.com/meribold/dotfiles/commits
@@ -87,7 +84,7 @@ browse::youtube.com/playlist?list=WL
 browse::detectportal.firefox.com
 browse::https://www.computerbase.de::ComputerBase
 browse::https://meribold.goatcounter.com::GoatCounter
-evalbrowse::wiki.meribold.org/$(date -I)
+evalbrowse::wiki.meribold.eu/$(date -I)
 background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
 background::xdotool type REDACTED # my phone number

@@ -2,7 +2,7 @@
 
 set -o nounset
 
-export FZF_DEFAULT_OPTS='--prompt=wiki.meribold.org/ --color dark,hl:cyan:regular
+export FZF_DEFAULT_OPTS='--prompt=wiki.meribold.eu/ --color dark,hl:cyan:regular
    --color fg+:white:regular,hl+:cyan:regular:reverse,query:white:regular
    --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold'
 
@@ -12,5 +12,5 @@ page=$(fd '.(md|txt)$' ~/wiki | sed "s:$HOME/wiki/::; s/\.md$\|\.txt$//" | shuf 
    'fzf < /proc/$PPID/fd/0 > /proc/$PPID/fd/1') || exit
 
 if [[ $page ]]; then
-   $FIREFOX https://wiki.meribold.org/"$page" && i3-msg '[class="^firefox$"] focus'
+   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox$"] focus'
 fi
