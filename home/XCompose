@@ -20,5 +20,8 @@ include "%L"
 <Multi_key> <a> <e> : "ä"
 <Multi_key> <o> <e> : "ö"
 <Multi_key> <u> <e> : "ü"
+<Multi_key> <A> <E> : "Ä"
+<Multi_key> <O> <E> : "Ö"
+<Multi_key> <U> <E> : "Ü"
 
 # vim: ft=conf

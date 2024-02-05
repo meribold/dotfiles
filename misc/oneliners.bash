@@ -4,8 +4,9 @@ git push --force-with-lease
 cd $(mktemp -d)
 pacman -Qtdq # list (real) orphan packages
 sudo pacman -Rns $(pacman -Qtdq) # recursively remove (real) orphan packages
-nx sync --no-resolvemerge --no-commit
-nx sync --no-resolvemerge --no-commit --no-pull
+nx sync --no-content --no-resolvemerge --no-commit
+nx sync --no-content --no-resolvemerge --no-commit --no-pull
+nx sync --no-content --no-resolvemerge --no-commit --no-push
 nx copy --fast --all --to esgaroth
 nx copy --fast --all --to s3
 nx copy --fast --all --to s5g
@@ -84,6 +85,7 @@ nx move --unused --to esgaroth
 nx vicfg
 nx whereis --unused
 nx whereis --all
+nx fsck --all
 pacman -F FILENAME
 pacman -Qe | grep -v "$(pacman -Qqeg base-devel base)" # print explicitly installed packages not in base or base-devel
 pacman -Qii | awk '/^MODIFIED/ {print $2}' # list changed backup files
@@ -95,12 +97,10 @@ rclone mount googledrive: ~/googledrive
 rm -rf _serve && bundle exec jekyll serve --drafts --unpublished --future --destination _serve
 rsync -rh --info=progress2 SRC DEST
 sco() { git checkout --detach && git reset "$1" && git checkout "$1"; }; sco
-scp -i athrad:SRC DEST
 set -o
 sleep 1 && i3-msg border pixel 1
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border none # remove any border from a container
 slop -b 2 -c .843,.373,.373 -t 9999 --nokeyboard >/dev/null && i3-msg border pixel 1 # add a border to a container
-ssh -t athrad screen -Ux
 sshfs esgaroth: ~/esgaroth
 sudo dhcpcd -B wlan0
 sudo etckeeper commit

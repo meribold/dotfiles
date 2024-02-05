@@ -74,7 +74,7 @@ browse::https://console.aws.amazon.com::console.aws.amazon.com
 browse::file:///usr/share/doc/neomutt/manual.html
 browse::file:///usr/share/doc/arch-wiki/html/en/Network_configuration.html
 browse::moz-extension://bbd71618-3b7d-474d-94c7-2e062c6a5870/onetab.html::OneTab
-browse::https://wiki.meribold.eu::wiki.meribold.eu
+browse::https://wiki.meribold.eu/Home::wiki.meribold.eu
 browse::github.com/meribold
 browse::github.com/meribold/dotfiles
 browse::github.com/meribold/dotfiles/commits
@@ -111,9 +111,9 @@ background::exec gcolor3::gcolor3
 pkill screenkey
 xterm::ssh bamfurlong
 xterm::ssh -t bamfurlong screen -S default -DR
+xterm::ssh bamfurlong journalctl -fu gollum
 xterm::ssh -t buckland screen -S minecraft -DR
 background::exec xterm -name irssi -geometry 96x54 -e ssh -t bamfurlong screen -S irssi -x \|\| screen -S irssi irssi::Irssi
-xterm::ssh -t athrad screen -UDR
 xterm::ssh shirebourn # Ubiquiti UniFi AP
 xterm::ssh baranduin # Ubiquiti EdgeRouter X
 xterm::less /var/log/pacman.log
@@ -130,7 +130,7 @@ noless::resize 34 66; cal -y::cal -y
 xprop
 sensors
 ascii
-khard show lukas waymann
+noless::resize 18 63; cat ~/wiki/erm.txt::cat erm.txt
 nostdout::redshift -PO 3500
 nostdout::redshift -x
 killall -SIGUSR1 dunst # pause Dunst
@@ -142,6 +142,7 @@ man::gitrevisions::man gitrevisions
 time cat
 background::sleep 0.1; maim | xclip -selection clipboard -t image/png::maim | xclip -selection clipboard -t image/png
 background::maim -su -b 2 -c .843,.373,.373 --nokeyboard | xclip -selection clipboard -t image/png
+zbarimg <(maim)
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --geometry=25%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
@@ -210,6 +211,7 @@ follow::resize 56 80; systemctl --global list-unit-files::systemctl --global lis
 follow::resize 56 80; systemctl --user list-unit-files::systemctl --user list-unit-files
 xterm::coredumpctl list
 du -sh /var/lib/systemd/coredump
+journalctl --disk-usage
 crontab -l
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
@@ -237,7 +239,7 @@ NetHack() {
 
 lock() {
    nohup lock &>/dev/null &
-   sleep 0.001
+   sleep 0.002
    if [[ $(cat /sys/class/power_supply/BAT0/status) == 'Discharging' ]]; then
       xset dpms force off
    fi
