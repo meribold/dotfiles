@@ -318,6 +318,7 @@ if [[ $command_type == background ]]; then
    # I also tried using `disown` and `nohup`, but neither prevents programs from being
    # killed immediately when XBindKeys launches this script with `xterm -e`.
    trap '' SIGHUP
+   exec &>/dev/null
    eval "$selected_command" &
 elif [[ $command_type == daemon ]]; then
    trap '' SIGHUP
