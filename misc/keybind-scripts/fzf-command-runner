@@ -36,7 +36,7 @@ ip route
 ip route show dev wlan0
 iw wlan0 info
 iw wlan0 link
-sudo iw dev wlan0 scan
+::resize 56 88; sudo iw dev wlan0 scan::iw dev wlan0 scan
 systemctl suspend
 systemctl poweroff
 systemctl reboot
@@ -142,7 +142,7 @@ man::gitrevisions::man gitrevisions
 time cat
 background::sleep 0.1; maim | xclip -selection clipboard -t image/png::maim | xclip -selection clipboard -t image/png
 background::maim -su -b 2 -c .843,.373,.373 --nokeyboard | xclip -selection clipboard -t image/png
-zbarimg <(maim)
+zbarimg -q <(maim)
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --geometry=25%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
@@ -218,12 +218,16 @@ gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4B
 cpupower frequency-info
 sudo cpupower frequency-set --governor powersave # sloth/turtle mode
 sudo cpupower frequency-set --governor performance # speed mode
+::resize 56 80; pstree -G::pstree
+sudo -k # forget cached credentials
+sudo -v # extend the timeout
 follow::resize 42 76; pass git log::pass git log
 follow::resize 42 76; PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
 follow::vdirsyncer sync
 nostdout::gpg --sign --armor <<< mellon
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/forge::forge
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/reforge::reforge
+::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 EOF
 ) || exit $?
 
@@ -239,7 +243,7 @@ NetHack() {
 
 lock() {
    nohup lock &>/dev/null &
-   sleep 0.002
+   sleep 0.001
    if [[ $(cat /sys/class/power_supply/BAT0/status) == 'Discharging' ]]; then
       xset dpms force off
    fi
