@@ -289,7 +289,7 @@ HISTFILE=~/bash-history/current
 # XXX: when running e.g. `exec htop` Bash does not seem to run this.  The new history
 # isn't committed.  It is still appended, though.
 commit_history() {
-   cd ~/bash-history && git commit -m 'Update history' current &>/dev/null &
+   git -C ~/bash-history commit -m 'Update history' current &>/dev/null &
 }
 trap commit_history EXIT
 
