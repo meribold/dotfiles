@@ -289,7 +289,12 @@ HISTFILE=~/bash-history/current
 # XXX: when running e.g. `exec htop` Bash does not seem to run this.  The new history
 # isn't committed.  It is still appended, though.
 commit_history() {
-   git -C ~/bash-history commit -m 'Update history' current &>/dev/null &
+   if ! err=$(git -C ~/bash-history commit -qm 'Update history' current 2>&1); then
+      # If the reason for `git commit` failing is just that there's nothing to commit,
+      # don't log an error.
+      git -C ~/bash-history diff --quiet current && return
+      ts <<< "$err" >> ~/bash-history/error.txt
+   fi &
 }
 trap commit_history EXIT
 
