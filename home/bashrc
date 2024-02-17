@@ -121,7 +121,7 @@ mkcd() {
 # <https://github.com/junegunn/fzf/wiki/Examples#z>.
 j() {
    if [[ $# == 0 ]]; then
-      d=$(_z 2>&1 | sed 's/^[0-9.]* *//; '"s:$HOME:~:" | fzf --tac --no-sort) || return
+      d=$(_z |& sed 's/^[0-9.]* *//; '"s:$HOME:~:" | fzf --tac --no-sort) || return
       # shellcheck disable=SC2164
       cd "${d/#\~/$HOME}"
       return
