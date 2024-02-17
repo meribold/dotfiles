@@ -122,7 +122,7 @@ mkcd() {
 j() {
    if [[ $# == 0 ]]; then
       # shellcheck disable=SC2164
-      cd "$(_z 2>&1 | fzf --tac --no-sort | sed 's/^[0-9.]* *//')"
+      cd "$(_z 2>&1 | sed 's/^[0-9.]* *//' | fzf --tac --no-sort)"
       return
    fi
    case $1 in
