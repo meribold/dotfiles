@@ -13,7 +13,7 @@ export CLICOLOR=
 # This causes searches in `less` to ignore case by default.
 export LESS=i~
 
-export FZF_DEFAULT_COMMAND='fd --strip-cwd-prefix --type file'
+export FZF_DEFAULT_COMMAND='fd --follow --strip-cwd-prefix --type file'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 # Export an environment variable for executing the pgpewrap program bundled with
