@@ -101,7 +101,7 @@
 "urxvt -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
    Mod4 + Shift + m
 
-"xterm -name 'floating xterm' -geometry 100x25 -e bash --rcfile <(echo '. ~/.bashrc; . ~/dotfiles/misc/keybind-scripts/super-i')"
+"xterm -name 'floating xterm' -geometry 100x25 -e bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i"
    Mod4 + i
 
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"

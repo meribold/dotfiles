@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ~/.bashrc
+
 directory=$(sort -u <<EOF | fzf
 $(_z -l |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
