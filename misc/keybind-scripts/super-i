@@ -2,15 +2,19 @@
 
 source ~/.bashrc
 
-directory=$(sort -u <<EOF | fzf --layout reverse
+directory=$(sort -u <<EOF | sed '/^$/d' | fzf --layout reverse
 $(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
+$(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
 ~/dotfiles
 ~/dotfiles/misc/muccadoro
 ~/downloads
+~/screenshots
 ~/wiki
 /etc
 EOF
 ) && cd "${directory/#\~/$HOME}" || exit
 
-i3-msg "resize set $((100 * 14 + 12)) $((25 * 26 + 12)); move position center" >/dev/null
+if [[ $1 = resize ]]; then
+   i3-msg "resize set $((100 * 14 + 12)) $((25 * 26 + 12)); move position center" >/dev/null
+fi
