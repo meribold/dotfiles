@@ -224,6 +224,7 @@ sudo -v # extend the timeout
 follow::resize 42 76; pass git log::pass git log
 follow::resize 42 76; PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
 follow::resize 56 88; PINENTRY_USER_DATA=spawn-xterm tig -C ~/passwords::tig -C ~/passwords
+follow::resize 42 76; git -C ~/bash-history log -p || turn ${?/141/0}::git -C ~/bash-history log -p
 follow::resize 56 88; tig -C ~/bash-history::tig -C ~/bash-history
 follow::vdirsyncer sync
 nostdout::gpg --sign --armor <<< mellon
@@ -232,6 +233,10 @@ background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 EOF
 ) || exit $?
+
+turn() {
+   return "$1"
+}
 
 gatewayip() {
    ip route | awk '/^def/{print $3}'
