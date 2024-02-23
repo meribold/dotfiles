@@ -231,6 +231,7 @@ nostdout::gpg --sign --armor <<< mellon
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/forge::forge
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/reforge::reforge
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
+follow::git -C ~/wiki pull --ff-only
 EOF
 ) || exit $?
 
