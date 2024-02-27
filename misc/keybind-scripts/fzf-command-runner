@@ -224,7 +224,7 @@ sudo -v # extend the timeout
 follow::resize 42 76; pass git log::pass git log
 follow::resize 42 76; PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
 follow::resize 56 88; PINENTRY_USER_DATA=spawn-xterm tig -C ~/passwords::tig -C ~/passwords
-follow::resize 56 88; git -C ~/bash-history log --color=always --format='format:%ai (%ar)' -U0 --ws-error-highlight=none | sed -u '/^\x1b\[1m/d; /^\x1b\[36m@@/d; /^\x1b\[32m+#[0-9]\{10\}\x1b\[m$/d; s/^\(\x1b\[32m\)+/\1/' | less -RSX || turn ${?/141/0}::git -C ~/bash-history log -U0
+less::resize 56 88; git -C ~/bash-history log --color=always --format='format:%ai (%ar)' -U0 --ws-error-highlight=none | sed -u '/^\x1b\[1m/d; /^\x1b\[36m@@/d; /^\x1b\[32m+#[0-9]\{10\}\x1b\[m$/d; s/^\(\x1b\[32m\)+/\1/' | less -RSX || turn ${?/141/0}::git -C ~/bash-history log -U0
 follow::resize 56 88; tig -C ~/bash-history::tig -C ~/bash-history
 follow::vdirsyncer sync
 nostdout::gpg --sign --armor <<< mellon
@@ -318,7 +318,7 @@ fi
 
 if [[ $key == ctrl-e ]]; then
    read -rep '$ ' -i "$selected_command" selected_command
-else
+elif [[ $command_type != less ]]; then
    printf '$ %s\n' "$selected_command"
 fi
 
@@ -333,7 +333,7 @@ elif [[ $command_type == daemon ]]; then
    output=$(eval "$selected_command" 2>&1)
 elif [[ ! $command_type || $command_type == noless ]]; then
    output=$(eval "$selected_command" 2>&1)
-elif [[ $command_type == follow ]]; then
+elif [[ $command_type == follow || $command_type == less ]]; then
    eval "$selected_command"
    status=$?
    if (( status )); then
