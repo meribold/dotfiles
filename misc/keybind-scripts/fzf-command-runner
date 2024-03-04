@@ -212,13 +212,14 @@ follow::resize 56 80; systemctl --user list-unit-files::systemctl --user list-un
 xterm::coredumpctl list
 du -sh /var/lib/systemd/coredump
 journalctl --disk-usage
-crontab -l
+::resize 8 100; crontab -l::crontab -l
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
 cpupower frequency-info
 sudo cpupower frequency-set --governor powersave # sloth/turtle mode
 sudo cpupower frequency-set --governor performance # speed mode
-::resize 56 80; pstree -G::pstree
+::resize 56 80; exec pstree -GT::pstree
+follow::hide && cd ~/passwords && git remote | xargs -L1 -P0 git push || alert
 sudo -k # forget cached credentials
 sudo -v # extend the timeout
 follow::resize 42 76; pass git log::pass git log
@@ -290,6 +291,15 @@ ssh_esgaroth_quota() {
 xev() {
    i3-msg workspace xev
    xterm -e xev -rv
+}
+
+hide() {
+   i3-msg -q 'move scratchpad'
+}
+
+alert() {
+   notify-send - 'Something went wrong…'
+   return 1
 }
 
 resize() {

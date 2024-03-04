@@ -6,6 +6,7 @@ directory=$(sort -u <<EOF | sed '/^$/d' | fzf --layout reverse
 $(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
 $(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
+~/contacts
 ~/dotfiles
 ~/dotfiles/misc/muccadoro
 ~/downloads
