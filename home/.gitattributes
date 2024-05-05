@@ -7,3 +7,4 @@ vim/spell/en.utf-8.add filter=git-crypt diff=git-crypt
 irssi/config filter=git-crypt diff=git-crypt
 ssh/config filter=git-crypt diff=git-crypt
 local/share/TelegramDesktop/tdata/dictionaries/custom filter=git-crypt diff=git-crypt
+mozilla/firefox/ctontcrf.default/persdict.dat filter=git-crypt diff=git-crypt
