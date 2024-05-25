@@ -5,13 +5,13 @@ shopt -s extglob
 
 if [[ $0 != *reforge ]]; then
    IFS= read -r d < <(
-      find /tmp -maxdepth 1 -type d -name 'forge.??????????' -printf '%A@\t%p\n' |
+      find ~/wip -maxdepth 1 -type d -name 'forge.??????????' -printf '%A@\t%p\n' |
       sort -rn | cut -f2
    )
 fi
 
 if [[ ! -v d || ! -d $d ]]; then
-   d=$(mktemp --tmpdir -d forge.XXXXXXXXXX) || exit $?
+   d=$(mktemp -d ~/wip/forge.XXXXXXXXXX) || exit
    cat > "$d/main.cpp" <<'EOF'
 #include <iostream>
 
@@ -25,7 +25,7 @@ EOF
 main: main.cpp
 	g++ -Wall -Wextra -pedantic $< -o $@
 EOF
-   vim "$d/main.cpp" +'set aw' +'cd %:h' +6 +'startinsert!' || exit $?
+   vim "$d/main.cpp" +'set aw' +'cd %:h' +6 +'startinsert!' || exit
 else
-   vim "$d/main.cpp" +'set aw' +'cd %:h' || exit $?
+   vim "$d/main.cpp" +'set aw' +'cd %:h' || exit
 fi

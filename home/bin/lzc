@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -o nounset
+
+message=$(fzf <<'EOF'
+Multiple additions/changes
+Several additions/changes
+Various additions/changes
+Small tweaks
+Various small tweaks
+Various minor tweaks
+Various minor changes
+A few small tweaks and additions
+Some small tweaks
+Some small changes
+Assorted minor changes
+Assorted minor changes/updates
+Trivial tweaks
+Assorted tweaks
+Small tweaks here and there
+Tweaks and stuff
+Tweaks and experiments
+Some tweaks and stuff
+Batched changes
+Batched tweaks
+Batched updates
+Batched updates/tweaks/additions
+Somewhat self-explanatory stuff
+Sort of self-explanatory stuff
+New file
+Trivia
+Minutiae
+Stuff
+Something
+Whatever
+Whatever this is
+This is better than nothing
+Tweaks
+This commit is better than nothing
+This commit message is better than nothing
+Simplify
+Simplifications
+Minor things
+Experiments
+Experimental tweaks
+Some batched updates/tweaks/additions/experiments
+Not much
+EOF
+) && git commit -m "$message"

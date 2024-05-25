@@ -220,6 +220,11 @@ gatewayip() {
 
 alias gateip=gatewayip
 
+# The name is short for "persist history".
+ph() {
+   history -a && git -C ~/bash-history commit -m 'Update history' current
+}
+
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
 g() {
@@ -282,7 +287,7 @@ HISTFILESIZE=-1
 # Don't save lines starting with a space character in the history.
 HISTCONTROL=ignorespace
 
-HISTIGNORE='k:k *:dnks'
+HISTIGNORE='k:k *:dnks:ph'
 
 HISTFILE=~/bash-history/current
 
