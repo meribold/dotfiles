@@ -219,8 +219,6 @@ sudo cpupower frequency-set --governor powersave # sloth/turtle mode
 sudo cpupower frequency-set --governor performance # speed mode
 ::resize 56 80; exec pstree -GTC age::pstree
 follow::hide && cd ~/passwords && git remote | xargs -L1 -P0 git push || alert
-sudo -k # forget cached credentials
-sudo -v # extend the timeout
 follow::resize 42 76; pass git log::pass git log
 follow::resize 42 76; PINENTRY_USER_DATA=spawn-xterm pass git log -p::pass git log -p
 follow::resize 56 88; PINENTRY_USER_DATA=spawn-xterm tig -C ~/passwords::tig -C ~/passwords
