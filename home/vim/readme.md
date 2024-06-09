@@ -99,8 +99,8 @@ Maybe try some of these plugins:
     [vimtex](https://github.com/lervag/vimtex),
     [yankring.vim](https://github.com/vim-scripts/YankRing.vim)
 
-[`vimrc`]: vimrc
-[`init.vim`]: init.vim
+[`vimrc`]: /home/vim/vimrc
+[`init.vim`]: /home/config/nvim/init.vim
 [`common.vim`]: common.vim
 [1]: https://github.com/rhysd/clever-f.vim "It's *awesome*, by the way."
 [2]: https://github.com/meribold/dotfiles/commit/8fa5786f36cc3c65b7155f86596c246efed642e8
