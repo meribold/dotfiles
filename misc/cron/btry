@@ -7,7 +7,7 @@
 
 set -o nounset -o pipefail
 
-read -r status < /sys/class/power_supply/BAT0/status || exit $?
+read -r status < /sys/class/power_supply/BAT0/status || exit
 [[ $status != 'Discharging' ]] && exit
 
 btry_output=$(~/dotfiles/home/bin/btry)

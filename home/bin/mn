@@ -19,7 +19,7 @@ if [ -d "$target" ]; then
    # location inside that directory, not to the directory itself.
    target="${target%/}/${original##*/}"
 fi
-mv -- "$original" "$target" || exit $?
+mv -- "$original" "$target" || exit
 case "${original%/}" in
    */*) # If the link may be created outside of the current directory...
       case "$target" in

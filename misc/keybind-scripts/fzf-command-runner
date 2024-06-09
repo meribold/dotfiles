@@ -231,7 +231,7 @@ background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 follow::git -C ~/wiki pull --ff-only
 EOF
-) || exit $?
+) || exit
 
 turn() {
    return "$1"
@@ -312,7 +312,7 @@ else
    selection=${fzf_output[2]}
 fi
 
-[[ $selection ]] || exit $?
+[[ $selection ]] || exit
 
 if [[ $selection != *::* ]]; then
    command_type=

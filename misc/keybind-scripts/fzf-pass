@@ -19,12 +19,12 @@ readarray -t fzf_output < <(
        --color='dark,hl:blue:regular,fg+:white:regular,hl+:blue:regular:reverse,query:white:regular,info:gray:regular,prompt:blue:regular,pointer:blue:bold' \
        --expect='tab,[,{,],},\')
 
-(( ${#fzf_output[@]} == 2 )) || exit $?
+(( ${#fzf_output[@]} == 2 )) || exit
 
 key=${fzf_output[0]}
 selected_password=${fzf_output[1]}
 
-[[ $selected_password ]] || exit $?
+[[ $selected_password ]] || exit
 
 readPassFile() {
    readarray -t lines < <(pass show "$selected_password")
