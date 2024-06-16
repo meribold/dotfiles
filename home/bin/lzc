@@ -3,54 +3,54 @@
 set -o nounset
 
 message=$(fzf <<'EOF'
-Multiple additions/changes
-Several additions/changes
-Various additions/changes
-Small tweaks
-Various small tweaks
-Various minor tweaks
-Various minor changes
 A few small tweaks and additions
-Some small tweaks
-Some small changes
 Assorted minor changes
 Assorted minor changes/updates
-Trivial tweaks
 Assorted tweaks
-Small tweaks here and there
-Tweaks and stuff
-Tweaks and experiments
-Tweaks and simplifications
-Some tweaks and stuff
 Batched changes
 Batched tweaks
 Batched updates
 Batched updates/tweaks/additions
-Somewhat self-explanatory stuff
-Sort of self-explanatory stuff
-New file
-Trivia
-Minutiae
-Stuff
-Something
-Whatever
-Whatever this is
-This is better than nothing
-Tweaks
-This commit is better than nothing
-This commit message is better than nothing
-Simplify
-Simplifications
-Minor things
-Experiments
 Experimental tweaks
-Some batched updates/tweaks/additions/experiments
+Experiments
+Minor things
+Minutiae
+Multiple additions/changes
+New file
 Not much
 Refinements
-Tweaks/experiments
-Updates/tweaks/experiments
-Updates/tweaks/additions
+Several additions/changes
+Simplifications
+Simplify
+Small tweaks
+Small tweaks here and there
+Some batched updates/tweaks/additions/experiments
+Some small changes
+Some small tweaks
+Some tweaks and stuff
 Some updates/tweaks/experiments
+Something
+Somewhat self-explanatory stuff
+Sort of self-explanatory stuff
+Stuff
+This commit is better than nothing
+This commit message is better than nothing
+This is better than nothing
+Trivia
+Trivial tweaks
+Tweaks
+Tweaks and experiments
+Tweaks and simplifications
+Tweaks and stuff
+Tweaks/experiments
+Updates/tweaks/additions
+Updates/tweaks/experiments
+Various additions/changes
+Various minor changes
+Various minor tweaks
+Various small tweaks
 Various updates/tweaks/additions/experiments
+Whatever
+Whatever this is
 EOF
 ) && git commit -m "$message"
