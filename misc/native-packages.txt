@@ -74,10 +74,10 @@ editorconfig-core-c
 efibootmgr
 elvish
 emacs
-epiphany
 etckeeper
 expect
 fakeroot
+fbida
 fcitx-chewing
 fcitx-configtool
 fcitx-googlepinyin
@@ -134,6 +134,7 @@ guetzli
 gvim
 gzip
 helix
+hexyl
 htop
 httpie
 hunspell-de
@@ -242,6 +243,7 @@ perf
 perl
 perl-anyevent-i3
 perl-file-mimeinfo
+perl-image-exiftool
 perl-rename
 picard
 picom

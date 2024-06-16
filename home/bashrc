@@ -85,15 +85,19 @@ alias ......='cd ../../../../..'
 
 alias -- -='cd - >/dev/null'
 
-# Aliases for ls.
-alias ls='ls --color=auto'
-alias l='ls'
-alias la='ls -A'
-alias ll='ls -lh'
-alias thrl='ls -thrl'
+# See <https://wiki.archlinux.org/title/Sudo>.
+alias sudo='sudo '
+
+alias ls=elles
+alias l=elles
+alias la='elles -A'
+alias ll='elles -l'
+alias trl='elles -trl'
+
+alias thrl='\ls -thrl'
 
 # List subdirectories (https://stackoverflow.com/a/171938).
-alias lsd='ls -d */'
+alias lsd='\ls --color=auto -d */'
 
 alias spinach='>/dev/null trans -speak en:'
 

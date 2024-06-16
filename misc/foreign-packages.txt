@@ -12,6 +12,7 @@ dict-gcide
 dict-wn
 dina-font
 dragon-drag-and-drop
+elles-bin
 faience-icon-theme
 fonts-meta-base
 fonts-meta-extended-lt
@@ -36,7 +37,6 @@ python2-neovim
 qt5-webkit
 recutils
 rogue
-rtl8812au-dkms-git
 st
 surf
 tor-browser-en

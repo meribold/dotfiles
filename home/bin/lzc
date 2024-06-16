@@ -20,6 +20,7 @@ Assorted tweaks
 Small tweaks here and there
 Tweaks and stuff
 Tweaks and experiments
+Tweaks and simplifications
 Some tweaks and stuff
 Batched changes
 Batched tweaks
@@ -45,5 +46,11 @@ Experiments
 Experimental tweaks
 Some batched updates/tweaks/additions/experiments
 Not much
+Refinements
+Tweaks/experiments
+Updates/tweaks/experiments
+Updates/tweaks/additions
+Some updates/tweaks/experiments
+Various updates/tweaks/additions/experiments
 EOF
 ) && git commit -m "$message"

@@ -10,7 +10,7 @@ readarray -t fzf_output < <(
    fzf --prompt='$ ' --color='dark,hl:green:regular,fg+:white:regular,hl+:green:regular:reverse,query:white:regular,info:gray:regular,prompt:white:regular,pointer:green:bold' \
        --with-nth -1 -d :: --print-query --expect=ctrl-e,alt-enter <<'EOF'
 lock
-noless::resize 7 35; dates::dates
+noless::resize 7 36; dates::dates
 background::~/dotfiles/misc/keybind-scripts/wifail::wifail
 background::~/dotfiles/misc/keybind-scripts/ethinfo::ethinfo
 background::~/dotfiles/misc/keybind-scripts/dmesg::dmesg
@@ -85,7 +85,7 @@ browse::https://www.computerbase.de::ComputerBase
 browse::https://meribold.goatcounter.com::GoatCounter
 evalbrowse::wiki.meribold.eu/$(date -I)
 background::xdotool type "$(date -I)"
-background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +'%Y')]]"$'\r\r---\r\r'
+background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +%Y)]]"$'\r\r---\r\r'
 background::xdotool type REDACTED # my phone number
 background::xdotool type REDACTED # my phone number
 background::echo -n REDACTED | xsel -b # my phone number

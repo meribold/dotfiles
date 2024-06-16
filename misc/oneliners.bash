@@ -36,7 +36,7 @@ clear && neofetch --uptime_shorthand tiny --ascii && read
 coredumpctl list
 f() { [[ $1 ]] && ssh esgaroth "git init --bare $1" && git remote add esgaroth esgaroth:"$1"; }; f
 f=$(mktemp).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && imgur.sh "$f"; rm "$f"'
-f=~/screenshots/$(date "+%Y%m%dT%H%M%S").png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
+f=~/screenshots/$(date +%Y%m%dT%H%M%S).png bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f"'
 find / -name '*.desktop' 2>/dev/null | less
 git commit --amend --date=now
 git commit -m 'Fix typo'
