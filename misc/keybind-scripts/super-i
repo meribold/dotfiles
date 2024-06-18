@@ -3,6 +3,7 @@
 source ~/.bashrc
 
 directory=$(sort -u <<EOF | sed '/^$/d' | fzf --layout reverse
+\$(mktemp -d)
 $(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
 $(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
@@ -14,7 +15,13 @@ $(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
 ~/wiki
 /etc
 EOF
-) && cd "${directory/#\~/$HOME}" || exit
+) || exit
+
+if [[ $directory == '$(mktemp -d)' ]]; then
+   cd "$(mktemp -d)" || exit
+else
+   cd "${directory/#\~/$HOME}" || exit
+fi
 
 if [[ $1 = resize ]]; then
    i3-msg "resize set $((100 * 14 + 12)) $((25 * 26 + 12)); move position center" >/dev/null
