@@ -97,7 +97,7 @@ alias trl='elles -trl'
 alias thrl='\ls -thrl'
 
 # List subdirectories (https://stackoverflow.com/a/171938).
-alias lsd='\ls --color=auto -d */'
+alias lsd='elles -d */'
 
 alias spinach='>/dev/null trans -speak en:'
 
@@ -251,8 +251,8 @@ alias gap='git add -p'
 alias gau='git add -u'
 alias gds='git diff --staged'
 alias gcm='git commit -m'
-alias gin='git init'
-alias game='git commit --amend'
+alias gin='git init --quiet'
+alias game='git commit --amend --quiet'
 alias gish='git show'
 alias gist='git status'
 

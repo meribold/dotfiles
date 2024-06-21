@@ -3,6 +3,7 @@
 source ~/.bashrc
 
 directory=$(LC_ALL=C sort -u <<EOF | sed '/^$/d' | fzf --layout reverse
+\$(instagit)
 \$(mktemp -d)
 $(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
@@ -19,6 +20,9 @@ EOF
 
 if [[ $directory == '$(mktemp -d)' ]]; then
    cd "$(mktemp -d)" || exit
+elif [[ $directory == '$(instagit)' ]]; then
+   cd "$(mktemp -d)" || exit
+   git init --quiet
 else
    cd "${directory/#\~/$HOME}" || exit
 fi
