@@ -1,9 +1,10 @@
-" See the help for `defaults.vim`.  TODO: maybe only copy the "good" parts from
-" `defaults.vim`.
+" Load `defaults.vim` and then undo some stuff from it.  TODO: consider copying only the
+" good parts (TM) from `defaults.vim` instead.
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
-
-set nocompatible
+set scrolloff=0
+" See <https://github.com/vim/vim/blob/7b29cc97d6c1450865/runtime/defaults.vim#L120-L130>.
+autocmd! vimHints
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vim for editing in utf-8.

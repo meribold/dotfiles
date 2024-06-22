@@ -620,7 +620,7 @@ nnoremap <silent> <C-J> :normal <C-V><C-W>w<CR>
 nnoremap <silent> <C-K> :normal <C-V><C-W>W<CR>
 
 " Control+Q just does the same as Control+V by default; use it to close windows.
-nnoremap <C-Q> ZZ
+nnoremap <silent> <C-Q> :x<CR>
 inoremap <C-Q> <Esc>ZZ
 
 " Correct typos in insert mode.  Copied from <https://castel.dev/post/lecture-notes-1/>.
