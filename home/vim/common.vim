@@ -615,7 +615,7 @@ function! s:CycleFoldlevel()
 endfunction
 nnoremap <silent> <S-Tab> :call <SID>CycleFoldlevel()<CR>
 
-" Switch windows more easily.  TODO: map <C-H> to something.
+" Switch windows more easily.
 nnoremap <silent> <C-J> :normal <C-V><C-W>w<CR>
 nnoremap <silent> <C-K> :normal <C-V><C-W>W<CR>
 
@@ -777,6 +777,20 @@ nnoremap <silent> <expr> <CR> <SID>OnEnter()
 " This works around E481 caused by :noh not accepting a range (just try :noh in visual
 " mode).  TODO: it feels pretty inelegant, though.
 xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
+
+" This function expects that there are exactly two columns of windows.  Nothing too
+" strange happens when there's only one, but all bets are off when there are more than
+" two.
+function! s:ExperimentalWindowMove()
+   let l:direction = winnr() != winnr('l') ? 'l' : 'h'
+   let l:target = winnr(direction)
+   if target == winnr()
+      execute 'wincmd' toupper(direction)
+   else
+      call win_splitmove(winnr(), target)
+   endif
+endfunction
+nnoremap <silent> <C-H> :call <SID>ExperimentalWindowMove()<CR>
 
 " After entering a window (WinEnter event) and if the previous window has a height of only
 " a single line, change the previous window's height to 0.  This only makes sense when
