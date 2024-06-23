@@ -638,10 +638,8 @@ cnoremap <C-G> <C-U><BS>
 
 let g:qf_auto_open_quickfix = 0
 let g:qf_auto_open_loclist = 0
-" Mappings for toggling the quickfix and location windows.  I think the default Control+L
-" mapping isn't all that useful.
+" Toggle the quickfix window.
 nmap <C-F> <Plug>(qf_qf_toggle_stay)
-nmap <C-L> <Plug>(qf_loc_toggle_stay)
 
 " Search and highlight but don't jump.  See <https://stackoverflow.com/a/60583995>.
 nnoremap <silent> <C-B> :let @/ = '\<' . expand('<cword>') .'\>' \| set hlsearch<CR>
@@ -791,6 +789,21 @@ function! s:ExperimentalWindowMove()
    endif
 endfunction
 nnoremap <silent> <C-H> :call <SID>ExperimentalWindowMove()<CR>
+
+function! s:Dwmify()
+   let l:master_winnr = winnr() != 1 ? winnr() : winnr('$')
+   wincmd t
+   while winnr() != winnr('$')
+      if win_screenpos(0)[1] != 1
+         execute 'wincmd J | ' .. winnr() .. 'wincmd w'
+      else
+         wincmd w
+      endif
+   endwhile
+   execute master_winnr .. 'wincmd w'
+   wincmd H
+endfunction
+nnoremap <silent> <C-L> :call <SID>Dwmify()<CR>
 
 " After entering a window (WinEnter event) and if the previous window has a height of only
 " a single line, change the previous window's height to 0.  This only makes sense when
