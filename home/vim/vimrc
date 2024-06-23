@@ -1,28 +1,6 @@
-" Load `defaults.vim` and then undo some stuff from it.  TODO: consider copying only the
-" good parts (TM) from `defaults.vim` instead.
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
-set scrolloff=0
-" See <https://github.com/vim/vim/blob/7b29cc97d6c1450865/runtime/defaults.vim#L120-L130>.
-autocmd! vimHints
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup Vim for editing in utf-8.
-" https://stackoverflow.com/q/5477565
-" https://superuser.com/q/154491
-" https://stackoverflow.com/q/2438021
-if has('multi_byte')
-   " Better default than latin1.  Can't be changed after startup.
-   if has('vim_starting') | set encoding=utf-8 | endif
-   if &termencoding == ''
-      let &termencoding = &encoding
-   endif
-endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Some of the good parts (TM) from `$VIMRUNTIME/defaults.vim` are included here.
 
 set mouse=a       " Enable use of the mouse in all modes.
-set ruler         " Show the ruler.
-set showcmd       " Why does this default to off for Unix ONLY?
 set history=10000 " Vim's default: 50.  Neovim's default: 10000.
 set incsearch     " Search while typing the search command and...
 set hlsearch      " ...hightlight matches.
