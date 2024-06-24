@@ -791,9 +791,13 @@ endfunction
 nnoremap <silent> <C-H> :call <SID>ExperimentalWindowMove()<CR>
 
 function! s:Dwmify()
-   let l:master_winnr = winnr() != 1 ? winnr() : winnr('$')
+   let master_winnr = winnr()
+   if master_winnr == 1 && win_screenpos(2)[1] != 1
+      let master_winnr = winnr('$')
+   endif
    wincmd t
-   while winnr() != winnr('$')
+   wincmd w
+   while winnr() != 1
       if win_screenpos(0)[1] != 1
          execute 'wincmd J | ' .. winnr() .. 'wincmd w'
       else
