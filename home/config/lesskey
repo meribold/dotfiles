@@ -1,0 +1,11 @@
+#line-edit
+^A home
+^E end
+^F right
+^B left
+^P up
+^N down
+^D delete
+^W word-backspace
+\ed word-delete
+\ef word-right
