@@ -22,24 +22,24 @@ endif
 
 " TODO: explain.
 if has('unix')
-   let s:vimfiles = $HOME . '/.vim'
+   let s:vimfiles = $HOME .. '/.vim'
 elseif has('win32')
    " Use $HOME or $USERPROFILE?
-   let s:vimfiles = $HOME . '/vimfiles'
+   let s:vimfiles = $HOME .. '/vimfiles'
 endif
 if exists('s:vimfiles')
-   if !isdirectory(s:vimfiles . '/swp')
-      call mkdir(s:vimfiles . '/swp', 'p')
+   if !isdirectory(s:vimfiles .. '/swp')
+      call mkdir(s:vimfiles .. '/swp', 'p')
    endif
-   if !isdirectory(s:vimfiles . '/undo')
-      call mkdir(s:vimfiles . '/undo', 'p')
+   if !isdirectory(s:vimfiles .. '/undo')
+      call mkdir(s:vimfiles .. '/undo', 'p')
    endif
-   if !isdirectory(s:vimfiles . '/backup')
-      call mkdir(s:vimfiles . '/backup', 'p')
+   if !isdirectory(s:vimfiles .. '/backup')
+      call mkdir(s:vimfiles .. '/backup', 'p')
    endif
-   let &dir = s:vimfiles . '/swp//'
-   let &undodir = s:vimfiles . '/undo'
-   let &backupdir = s:vimfiles . '/backup'
+   let &dir = s:vimfiles .. '/swp//'
+   let &undodir = s:vimfiles .. '/undo'
+   let &backupdir = s:vimfiles .. '/backup'
 endif
 " https://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist
 " https://vim.wikia.com/wiki/Automatically_create_tmp_or_backup_directories
