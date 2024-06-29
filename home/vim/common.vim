@@ -776,20 +776,6 @@ nnoremap <silent> <expr> <CR> <SID>OnEnter()
 " mode).  TODO: it feels pretty inelegant, though.
 xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
 
-" This function expects that there are exactly two columns of windows.  Nothing too
-" strange happens when there's only one, but all bets are off when there are more than
-" two.
-function! s:ExperimentalWindowMove()
-   let l:direction = winnr() != winnr('l') ? 'l' : 'h'
-   let l:target = winnr(direction)
-   if target == winnr()
-      execute 'wincmd' toupper(direction)
-   else
-      call win_splitmove(winnr(), target)
-   endif
-endfunction
-nnoremap <silent> <C-H> :call <SID>ExperimentalWindowMove()<CR>
-
 function! s:Dwmify()
    let master_winnr = winnr()
    if master_winnr == 1 && win_screenpos(2)[1] != 1
