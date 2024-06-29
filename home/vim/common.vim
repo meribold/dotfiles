@@ -296,8 +296,8 @@ onoremap <silent> iB :call TextObjWordBasedColumn('iW')<CR>
 " <http://ryrych.pl/protips/2016-04-23-splitting-vim-config-into-modules-protip/>.  I used
 " to just use the `:source` command with an absolute path (~/.vim/...); that broke when I
 " symlinked to my Vim configuration from `~/vimfiles` on Windows.
-let s:vimrc_path = fnamemodify($MYVIMRC, ':h') . '/'
-exe 'so ' . s:vimrc_path . 'vim-autoformat.vim'
+let s:vimrc_path = fnamemodify($MYVIMRC, ':h') .. '/'
+exe 'so ' .. s:vimrc_path .. 'vim-autoformat.vim'
 
 " neomake
 let g:neomake_echo_current_error = 0
@@ -642,7 +642,7 @@ let g:qf_auto_open_loclist = 0
 nmap <C-F> <Plug>(qf_qf_toggle_stay)
 
 " Search and highlight but don't jump.  See <https://stackoverflow.com/a/60583995>.
-nnoremap <silent> <C-B> :let @/ = '\<' . expand('<cword>') .'\>' \| set hlsearch<CR>
+nnoremap <silent> <C-B> :let @/ = '\<' .. expand('<cword>') .'\>' \| set hlsearch<CR>
 
 " More convenient mappings for maximizing the width or height of the current window.  They
 " fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
@@ -677,7 +677,7 @@ function! s:UpdateOrEnableGitGutter()
       return ':GitGutter'
    end
 endfunction
-nnoremap <silent> <expr> <Leader>g <SID>UpdateOrEnableGitGutter() . '<CR>'
+nnoremap <silent> <expr> <Leader>g <SID>UpdateOrEnableGitGutter() .. '<CR>'
 nnoremap <silent> <Leader>G :GitGutterDisable<CR>
 nnoremap <silent> cog :GitGutterToggle<CR>
 
@@ -774,7 +774,7 @@ endfunction
 nnoremap <silent> <expr> <CR> <SID>OnEnter()
 " This works around E481 caused by :noh not accepting a range (just try :noh in visual
 " mode).  TODO: it feels pretty inelegant, though.
-xnoremap <silent> <expr> <CR> '<Esc>' . <SID>OnEnter() . 'gv'
+xnoremap <silent> <expr> <CR> '<Esc>' .. <SID>OnEnter() .. 'gv'
 
 function! s:Dwmify()
    let master_winnr = winnr()
@@ -848,7 +848,7 @@ function! s:RecollapsePreviousWindow()
    " window to 0 because doing so would just enlarge the window above again.
    for i in range(prevWindow, lastWinOfCol - 1)
       if winheight(i) == 1
-         execute i . 'resize 0'
+         execute i .. 'resize 0'
       elseif winheight(i) > 1
          return
       endif
@@ -867,7 +867,7 @@ function! s:RecollapsePreviousWindow()
    if winheight(lastWinOfCol) == 1
       for i in range(prevWindow - 1, firstWinOfCol, -1)
          if winheight(i) != 0
-            execute i . 'resize' (winheight(i) + 1)
+            execute i .. 'resize' (winheight(i) + 1)
             return
          endif
       endfor
