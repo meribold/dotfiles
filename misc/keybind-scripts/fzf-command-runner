@@ -214,9 +214,11 @@ journalctl --disk-usage
 ::resize 8 100; crontab -l::crontab -l
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
-cpupower frequency-info
-sudo cpupower frequency-set --governor powersave # sloth/turtle mode
-sudo cpupower frequency-set --governor performance # speed mode
+::resize 20 88; cpupower frequency-info::cpupower frequency-info
+sudo cpupower frequency-set --governor powersave >/dev/null
+sudo cpupower frequency-set --governor performance >/dev/null
+sudo cpupower frequency-set --governor powersave --max 400MHz >/dev/null # sloth/turtle mode
+sudo cpupower frequency-set --governor performance --max 9001MHz >/dev/null # speed mode
 ::resize 56 80; exec pstree -GTC age::pstree
 follow::hide && cd ~/passwords && git remote | xargs -L1 -P0 git push || alert
 follow::resize 42 76; pass git log::pass git log
