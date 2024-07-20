@@ -115,7 +115,6 @@ vim -u NONE
 watch -n 1 cat /proc/acpi/ibm/{thermal,fan} /sys/class/power_supply/BAT0/energy_{now,full}
 wgetpaste
 xdg-open file &>/dev/null <&1 & disown
-xdotool key Caps_Lock
 xsel --clipboard | vipe | xsel --clipboard
 xsel --clipboard | wgetpaste --tee -C
 youtube-dl -x --audio-format mp3 --audio-quality 0 'GmtTDvNcXcU'

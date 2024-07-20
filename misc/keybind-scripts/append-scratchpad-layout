@@ -16,8 +16,8 @@ cat <<EOF > "$f"
 {
    "rect": {
       "height": 792,
-      "width": 2560,
-      "x": $((x + 3)),
+      "width": 2252,
+      "x": $((x + 157)),
       "y": $((y +  3))
    },
    "type": "floating_con",

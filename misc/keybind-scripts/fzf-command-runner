@@ -88,6 +88,7 @@ background::xdotool type "$(date -I)"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +%Y)]]"$'\r\r---\r\r'
 background::xdotool type REDACTED # my phone number
 background::xdotool type REDACTED # my phone number
+xdotool key Caps_Lock # CAPS LOCK
 background::echo -n REDACTED | xsel -b # my phone number
 background::echo -n REDACTED | xsel -b # my phone number
 background::exec dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
@@ -122,11 +123,11 @@ background::exec xterm -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles
 background::exec xterm -name 'floating xterm' -geometry 100x25 -e dash -c 'cd ~/dotfiles && bash'::~/dotfiles (floating xterm)
 background::exec xterm -name 'floating xterm' -geometry 125x38 -hold -e 'curl --silent --fail wttr.in | head -n -2'::curl wttr.in
 checkupdates
-xwininfo
+::xwininfo; resize 28 80::xwininfo
 noless::resize 8 20; cal::cal
 noless::resize 8 64; cal -3::cal -3
 noless::resize 34 66; cal -y::cal -y
-xprop
+::xprop; resize 30 80::xprop
 sensors
 ascii
 noless::resize 18 63; cat ~/wiki/erm.txt::cat erm.txt
@@ -232,6 +233,8 @@ background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts
 background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/reforge::reforge
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 follow::git -C ~/wiki pull --ff-only
+::resize 28 98; xset q::xset q
+xset r rate 330
 EOF
 ) || exit
 

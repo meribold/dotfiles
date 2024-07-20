@@ -53,4 +53,4 @@ Various updates/tweaks/additions/experiments
 Whatever
 Whatever this is
 EOF
-) && git commit -qm "$message"
+) && git commit "$@" -qm "$message"
