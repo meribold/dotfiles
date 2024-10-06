@@ -2,19 +2,19 @@
 
 source ~/.bashrc
 
-directory=$(LC_ALL=C sort -u <<EOF | sed '/^$/d' | fzf --layout reverse
-\$(instagit)
-\$(mktemp -d)
-$(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
-$(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
-$(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
-~/contacts
+directory=$(awk '!seen[$0]++' <<EOF | sed '/^$/d' | fzf --layout reverse
 ~/dotfiles
-~/dotfiles/misc/muccadoro
-~/downloads
 ~/screenshots
+~/downloads
 ~/wiki
 /etc
+$(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
+$(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
+$(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
+~/dotfiles/misc/muccadoro
+~/contacts
+\$(mktemp -d)
+\$(instagit)
 EOF
 ) || exit
 
