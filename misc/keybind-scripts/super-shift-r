@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -o nounset
+
+cd ~/wiki || exit
+
+generate_search_command() {
+   printf '%s | %s | %s' \
+      "rg --count-matches --smart-case $1" \
+      "LC_ALL=C sort -t: -k2rn" \
+      "sed -E 's/\.(md|txt):/:/; s/:1$/ (1 match)/; s/:([0-9]+)$/ (\1 matches)/'"
+}
+
+FZF_DEFAULT_COMMAND=$(generate_search_command \'\')
+FZF_DEFAULT_OPTS='--prompt="~ " --color dark,hl:cyan:regular
+   --color fg+:white:regular,hl+:cyan:regular:reverse,query:white:regular
+   --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold,spinner:black:regular'
+
+export FZF_DEFAULT_COMMAND FZF_DEFAULT_OPTS
+
+# shellcheck disable=SC2016
+printf -v fzf_command '%s%q > %s' \
+   'fzf --disabled --bind change:reload:' "$(generate_search_command '{q}')" \
+   '/proc/$PPID/fd/1'
+
+selection=$(xterm -name 'floating xterm' -geometry 36x24 -e "$fzf_command")
+
+if [[ $selection ]]; then
+   page=${selection%% *}
+   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox$"] focus'
+fi
