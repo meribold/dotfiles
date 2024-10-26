@@ -223,9 +223,6 @@
 [submodule "home/vim/pack/meribold/opt/pastery.vim"]
 	path = home/vim/pack/meribold/opt/pastery.vim
 	url = https://github.com/skorokithakis/pastery.vim.git
-[submodule "home/vim/pack/meribold/opt/fzf"]
-	path = home/vim/pack/meribold/opt/fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule "home/vim/pack/meribold/opt/fzf.vim"]
 	path = home/vim/pack/meribold/opt/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git

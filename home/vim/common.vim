@@ -46,11 +46,7 @@ if has('unix')
    packadd! pastery.vim
 endif
 
-" I'm using the fzf package from Arch's community repository, but that doesn't include the
-" `fzf.vim` file.  Adding fzf as a Vim plugin here only serves to get that file.  TODO:
-" find a way to only sync the .vim file?
 if executable('fzf')
-   packadd! fzf
    packadd! fzf.vim
 endif
 
