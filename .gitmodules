@@ -313,3 +313,6 @@
 [submodule "home/vim/pack/meribold/start/python_match.vim"]
 	path = home/vim/pack/meribold/start/python_match.vim
 	url = https://github.com/vim-scripts/python_match.vim.git
+[submodule "home/vim/pack/meribold/start/vim-rhubarb"]
+	path = home/vim/pack/meribold/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
