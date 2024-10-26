@@ -356,11 +356,11 @@ elif [[ $command_type == follow || $command_type == less ]]; then
 elif [[ $command_type == browse ]]; then
    trap '' SIGHUP
    $BROWSER "$selected_command" &
-   i3-msg '[class="^firefox$"] focus'
+   i3-msg '[class="^firefox-esr$"] focus'
 elif [[ $command_type == evalbrowse ]]; then
    trap '' SIGHUP
    eval '$BROWSER' "$selected_command" &
-   i3-msg '[class="^firefox$"] focus'
+   i3-msg '[class="^firefox-esr$"] focus'
 elif [[ $command_type == xterm ]]; then
    trap '' SIGHUP
    eval 'exec xterm -e' "$selected_command" &

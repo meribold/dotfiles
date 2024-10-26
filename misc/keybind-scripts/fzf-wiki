@@ -12,5 +12,5 @@ page=$(fd '.(md|txt)$' ~/wiki | sed "s:$HOME/wiki/::; s/\.md$\|\.txt$//" | shuf 
    'fzf < /proc/$PPID/fd/0 > /proc/$PPID/fd/1') || exit
 
 if [[ $page ]]; then
-   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox$"] focus'
+   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox-esr$"] focus'
 fi

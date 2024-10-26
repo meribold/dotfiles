@@ -1,6 +1,6 @@
 export VISUAL=vim
 export EDITOR=vim
-export FIREFOX=firefox
+export FIREFOX=firefox-esr
 export BROWSER=$FIREFOX
 
 # This makes GTK 3 applications look better on the 2560x1600 display of my ThinkPad X13

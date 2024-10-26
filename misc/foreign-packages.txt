@@ -14,6 +14,7 @@ dina-font
 dragon-drag-and-drop
 elles-bin
 faience-icon-theme
+firefox-esr-bin
 fonts-meta-base
 fonts-meta-extended-lt
 freedict-tools

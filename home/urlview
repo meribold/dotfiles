@@ -1,1 +1,1 @@
-COMMAND firefox %s
+COMMAND firefox-esr %s

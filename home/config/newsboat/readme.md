@@ -14,7 +14,7 @@ My [`urls`](urls) file is encrypted with [git-crypt][].
 ## Highlights
 
 *   <kbd>o</kbd> opens the URL associated with the current article using `$BROWSER`.  I
-    have `$BROWSER` set to `firefox`, so articles are opened in Firefox instead of a
+    have `$BROWSER` set to `firefox-esr`, so articles are opened in Firefox instead of a
     text-based browser.
 *   <kbd>,</kbd> <kbd>o</kbd> passes the URL associated with the current article to
     [mpv][] using the [`mpv.sh`](mpv.sh) script in this directory.  A new `screen(1)`

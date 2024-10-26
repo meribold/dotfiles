@@ -27,5 +27,5 @@ selection=$(xterm -name 'floating xterm' -geometry 36x24 -e "$fzf_command")
 
 if [[ $selection ]]; then
    page=${selection%% *}
-   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox$"] focus'
+   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox-esr$"] focus'
 fi
