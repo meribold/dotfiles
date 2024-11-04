@@ -14,6 +14,7 @@ export CLICOLOR=
 export LESS=i~
 
 export FZF_DEFAULT_COMMAND='fd --follow --strip-cwd-prefix --type file'
+export FZF_DEFAULT_OPTS="--pointer='>' --marker='>'"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 # Export an environment variable for executing the pgpewrap program bundled with

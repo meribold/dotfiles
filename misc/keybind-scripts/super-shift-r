@@ -12,9 +12,10 @@ generate_search_command() {
 }
 
 FZF_DEFAULT_COMMAND=$(generate_search_command \'\')
-FZF_DEFAULT_OPTS='--prompt="~ " --color dark,hl:cyan:regular
+FZF_DEFAULT_OPTS="--prompt='~ ' --color dark,hl:cyan:regular
    --color fg+:white:regular,hl+:cyan:regular:reverse,query:white:regular
-   --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold,spinner:black:regular'
+   --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold,spinner:black:regular
+   ${FZF_DEFAULT_OPTS:-}"
 
 export FZF_DEFAULT_COMMAND FZF_DEFAULT_OPTS
 

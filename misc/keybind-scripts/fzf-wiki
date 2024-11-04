@@ -2,9 +2,9 @@
 
 set -o nounset
 
-export FZF_DEFAULT_OPTS='--prompt=wiki.meribold.eu/ --color dark,hl:cyan:regular
+export FZF_DEFAULT_OPTS="--prompt=wiki.meribold.eu/ --color dark,hl:cyan:regular
    --color fg+:white:regular,hl+:cyan:regular:reverse,query:white:regular
-   --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold'
+   --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold ${FZF_DEFAULT_OPTS:-}"
 
 # shellcheck disable=SC2016
 page=$(fd '.(md|txt)$' ~/wiki | sed "s:$HOME/wiki/::; s/\.md$\|\.txt$//" | shuf |

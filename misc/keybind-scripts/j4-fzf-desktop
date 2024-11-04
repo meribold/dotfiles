@@ -1,8 +1,8 @@
 #!/usr/bin/env dash
 
-FZF_DEFAULT_OPTS='--prompt="~ " --no-sort --color dark,hl:red:regular
+FZF_DEFAULT_OPTS="--prompt='~ ' --no-sort --color dark,hl:red:regular
    --color fg+:white:regular,hl+:red:regular:reverse,query:white:regular
-   --color info:gray:regular,prompt:red:bold,pointer:red:bold' \
+   --color info:gray:regular,prompt:red:bold,pointer:red:bold ${FZF_DEFAULT_OPTS:-}" \
 exec j4-dmenu-desktop --display-binary --no-generic --term=xterm \
    --usage-log ~/.j4-dmenu-desktop.log \
    --dmenu 'xterm -name "floating xterm" -geometry 73x14 -e \

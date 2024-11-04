@@ -6,9 +6,9 @@ if [[ ! -f /tmp/man$1.txt ]]; then
    man -kS "$1" . | awk '{ print $1, $2 }' > "/tmp/man$1.txt"
 fi
 
-export FZF_DEFAULT_OPTS='--prompt "? " --color dark,hl:yellow:regular,fg+:white:regular
+export FZF_DEFAULT_OPTS="--prompt '? ' --color dark,hl:yellow:regular,fg+:white:regular
    --color hl+:yellow:regular:reverse,query:white:regular,info:gray:regular
-   --color prompt:yellow:regular,pointer:yellow:bold'
+   --color prompt:yellow:regular,pointer:yellow:bold ${FZF_DEFAULT_OPTS:-}"
 
 # shellcheck disable=SC2016
 mapfile -t selection < <(xterm -name 'floating xterm' -geometry 36x24 -e '
