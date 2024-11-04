@@ -103,8 +103,6 @@ background::exec qutebrowser::qutebrowser
 background::exec chromium::Chromium
 background::exec $FIREFOX::Firefox
 background::exec $FIREFOX --ProfileManager::Firefox (profile manager)
-background::exec firefox-developer-edition::Firefox Developer Edition
-background::exec firefox-developer-edition --ProfileManager::Firefox Developer Edition (profile manager)
 background::LC_TIME=en_SE.UTF-8 exec telegram-desktop::Telegram
 background::exec signal-desktop --force-device-scale-factor=1.84::Signal
 background::exec gcolor3::gcolor3
