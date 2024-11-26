@@ -98,7 +98,7 @@
 "[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e 'GPG_TTY=$(tty) neomutt'"
    Mod4 + m
 
-"urxvt -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
+"xterm -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
    Mod4 + Shift + m
 
 "xterm -name 'floating xterm' -geometry 36x25 -e bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i -s resize"
@@ -114,7 +114,7 @@
    Mod4 + Shift + backslash
 
 # Switch to or start Vim.
-"[[ $(i3-msg '[instance="^vim$" class="^URxvt$"] focus') == '[{"success":true}]' ]] || urxvt -geometry 195x61 -b 2 -name vim -e vim -S"
+"[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -xrm 'XTerm*VT100.renderFont: true' -geometry 195x61 -b 2 -name vim -e vim -S"
    Mod4 + v
 
 # Start or kill ncmpcpp.
