@@ -229,9 +229,6 @@
 [submodule "home/vim/pack/meribold/start/vim-bbye"]
 	path = home/vim/pack/meribold/start/vim-bbye
 	url = https://github.com/moll/vim-bbye.git
-[submodule "home/vim/pack/meribold/start/vim-pasta"]
-	path = home/vim/pack/meribold/start/vim-pasta
-	url = https://github.com/sickill/vim-pasta.git
 [submodule "home/vim/pack/meribold/start/vim-unimpaired"]
 	path = home/vim/pack/meribold/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
