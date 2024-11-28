@@ -14,8 +14,6 @@ fi
 
 xset -b +fp /usr/local/share/fonts
 
-feh --no-fehbg --bg-center ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
-
 xbindkeys
 
 # Use Control as another Escape key without breaking its normal modifier key
