@@ -12,21 +12,25 @@ generate_search_command() {
 }
 
 FZF_DEFAULT_COMMAND=$(generate_search_command \'\')
-FZF_DEFAULT_OPTS="--prompt='~ ' --color dark,hl:cyan:regular
-   --color fg+:white:regular,hl+:cyan:regular:reverse,query:white:regular
-   --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold,spinner:black:regular
-   ${FZF_DEFAULT_OPTS:-}"
+printf -v FZF_DEFAULT_OPTS '%s%q %s %s %s' \
+   "--expect ctrl-/ --disabled --bind change:reload:" "$(generate_search_command '{q}')" \
+   "--color dark,hl:cyan:regular,fg+:white:regular,hl+:cyan:regular:reverse" \
+   "--color query:white:regular,info:gray:regular,prompt:cyan:regular,pointer:cyan:bold" \
+   "--color spinner:black:regular --prompt='~ ' ${FZF_DEFAULT_OPTS:-}"
 
 export FZF_DEFAULT_COMMAND FZF_DEFAULT_OPTS
 
 # shellcheck disable=SC2016
-printf -v fzf_command '%s%q > %s' \
-   'fzf --disabled --bind change:reload:' "$(generate_search_command '{q}')" \
-   '/proc/$PPID/fd/1'
+readarray -t fzf_output < <(
+   xterm -name 'floating xterm' -geometry 36x24 -e 'fzf > /proc/$PPID/fd/1')
 
-selection=$(xterm -name 'floating xterm' -geometry 36x24 -e "$fzf_command")
+(( ${#fzf_output[@]} == 2 )) || exit
 
-if [[ $selection ]]; then
-   page=${selection%% *}
-   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox-esr$"] focus'
-fi
+key=${fzf_output[0]}
+page=${fzf_output[1]%% *}
+
+url=https://wiki.meribold.eu/
+[[ $key == ctrl-/ ]] && url+=edit/
+url+=$page
+
+$FIREFOX "$url" && i3-msg '[class="^firefox-esr$"] focus'

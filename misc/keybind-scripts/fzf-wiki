@@ -6,11 +6,18 @@ export FZF_DEFAULT_OPTS="--prompt=wiki.meribold.eu/ --color dark,hl:cyan:regular
    --color fg+:white:regular,hl+:cyan:regular:reverse,query:white:regular
    --color info:gray:regular,prompt:cyan:regular,pointer:cyan:bold ${FZF_DEFAULT_OPTS:-}"
 
-# shellcheck disable=SC2016
-page=$(fd '.(md|txt)$' ~/wiki | sed "s:$HOME/wiki/::; s/\.md$\|\.txt$//" | shuf |
+readarray -t fzf_output < <(
+   fd '.(md|txt)$' ~/wiki | sed "s:$HOME/wiki/::; s/\.md$\|\.txt$//" | shuf |
    xterm -name 'floating xterm' -geometry 36x24 -e \
-   'fzf < /proc/$PPID/fd/0 > /proc/$PPID/fd/1') || exit
+   'fzf --expect=ctrl-/ < /proc/$PPID/fd/0 > /proc/$PPID/fd/1')
 
-if [[ $page ]]; then
-   $FIREFOX https://wiki.meribold.eu/"$page" && i3-msg '[class="^firefox-esr$"] focus'
-fi
+(( ${#fzf_output[@]} == 2 )) || exit
+
+key=${fzf_output[0]}
+page=${fzf_output[1]}
+
+url=https://wiki.meribold.eu/
+[[ $key == ctrl-/ ]] && url+=edit/
+url+=$page
+
+$FIREFOX "$url" && i3-msg '[class="^firefox-esr$"] focus'
