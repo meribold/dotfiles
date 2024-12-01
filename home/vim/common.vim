@@ -183,6 +183,12 @@ set hidden        " Only hide (don't unload) a buffer when abandoned.
 set laststatus=2  " Always show a status line.
 set showtabline=0 " Never display tab labels.
 
+" This only makes a difference when there's a popup window (used by fzf), I think.  If it
+" weren't for `/usr/share/vim/vimfiles/archlinux.vim`, 'ruler' would also be off by
+" default in Vim (although using `defaults.vim` would change that).  Neovim's default for
+" 'ruler' is to turn it on.
+set noruler
+
 " Required by delimitMate for delimitMate_expand_cr to work.  TODO: move this to vimrc:
 " this already is the Neovim default.
 set backspace=indent,eol,start
