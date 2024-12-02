@@ -232,7 +232,7 @@ background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 follow::git -C ~/wiki pull --ff-only
 ::resize 28 98; xset q::xset q
-xset r rate 330
+xset r rate 250
 cd /sys/class/backlight/amdgpu_bl1 && sudo chgrp video brightness && sudo chmod g+w brightness
 EOF
 ) || exit

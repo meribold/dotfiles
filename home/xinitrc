@@ -23,8 +23,8 @@ xcape -e 'Control_L=Escape;Shift_L=Shift_L|9;Shift_R=Shift_L|0'
 # Auto-hide the mouse cursor.  See <https://github.com/Airblader/unclutter-xfixes>.
 unclutter --jitter 1 --ignore-buttons 4,5,6,7 --start-hidden --fork
 
-# Reduce the autorepeat delay to half the default.
-xset r rate 330
+# Reduce the autorepeat delay.  The default is 660 (milliseconds).
+xset r rate 250
 
 # Start the dunst(1) notification daemon.
 dunst &
