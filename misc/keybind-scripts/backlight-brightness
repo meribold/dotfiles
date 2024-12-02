@@ -2,10 +2,14 @@
 
 cd /sys/class/backlight/amdgpu_bl1 || exit
 
-brightness=$(<brightness)
+brightness=$(<brightness) || exit
 
-[[ $1 == increment ]] && (( brightness < 255 )) && echo $((++brightness)) > brightness
-[[ $1 == decrement ]] && (( brightness > 0   )) && echo $((--brightness)) > brightness
+[[ $1 == increment ]] && (( brightness < 255 )) && {
+   echo $((++brightness)) > brightness || ((--brightness))
+}
+[[ $1 == decrement ]] && (( brightness > 0 )) && {
+   echo $((--brightness)) > brightness || ((++brightness))
+}
 
 dunstify -u low -t 2000 -a hzVgHJS3 -r 699814432 - \
    "<small>Screen brightness</small>\n$brightness"
