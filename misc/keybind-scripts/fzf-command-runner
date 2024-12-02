@@ -189,12 +189,7 @@ curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 cat /sys/class/backlight/amdgpu_bl1/{,max_}brightness
 sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 0
-sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 32
-sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 48
-sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 64
-sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 96
 sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 128
-sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 192
 sudo tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null <<< 255
 feh --no-fehbg --bg-center ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
 xsetroot -solid black
@@ -232,7 +227,6 @@ background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 follow::git -C ~/wiki pull --ff-only
 ::resize 28 98; xset q::xset q
-xset r rate 250
 cd /sys/class/backlight/amdgpu_bl1 && sudo chgrp video brightness && sudo chmod g+w brightness
 EOF
 ) || exit
