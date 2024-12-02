@@ -653,10 +653,10 @@ nnoremap <silent> <C-B> :let @/ = '\<' .. expand('<cword>') .'\>' \| set hlsearc
 " [1]: https://reddit.com/comments/4jyw8o//d3ayzox
 nnoremap <expr> \| !v:count ? '<C-W>\|' : '\|'
 nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
-" I find myself using <C-W>= regrettably much; hitting + is faster.  TODO: maybe I
-" shouldn't remap both + and <CR>?  XXX: this relies on 'equalalways' not being disabled;
-" see <https://stackoverflow.com/a/45591177>.
-nnoremap <silent> + :sp \| :q<CR>
+" This is a cursed variation of <https://stackoverflow.com/a/45591177> that I wrote
+" because I wanted to disable 'equalalways'.
+nnoremap <silent> + :set ead=hor ea ead=ver \| sp \| q \| set noea<CR>
+set noea
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
