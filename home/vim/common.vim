@@ -314,9 +314,23 @@ autocmd vimrc_common FileType markdown setlocal commentstring=<!--%s-->
 
 " lightline.vim
 let g:lightline = {
-   \ 'colorscheme': 'default',
+   \ 'component': {
+   \    'lines': '%L',
+   \    'modified': '%{&modified?"+":""}',
+   \ },
+   \ 'inactive': {
+   \    'left': [['filename']],
+   \    'right': [[], ['winnr']],
+   \ },
+   \ 'active': {
+   \    'left': [['mode', 'paste'], ['filename', 'modified']],
+   \    'right': [[], ['lines']],
+   \ },
+   \ 'component_visible_condition': {
+   \    'modified': '&modified',
+   \ },
+   \ 'colorscheme': 'jellyjam',
 \ }
-" :h line-continuation, :h dict
 
 " Based on the snippet from :h lightline-problem-13.  Also see issue #9 on Github:
 " ["Changing colorscheme on the fly"](https://github.com/itchyny/lightline.vim/issues/9).
