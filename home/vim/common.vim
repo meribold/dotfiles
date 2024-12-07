@@ -782,7 +782,7 @@ nnoremap <silent> <Leader>U :Gwrite<CR>
 function! s:OnEnter()
    let filetypes = [ 'man' ]
    if empty(&buftype) || &buftype ==# 'help' || index(filetypes, &filetype) != -1
-      return ':noh | echo'
+      return ':silent noh:echo'
    else
       return ''
    end
