@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 export VISUAL=vim
 export EDITOR=vim
 export FIREFOX=firefox-esr

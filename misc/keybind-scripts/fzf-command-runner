@@ -128,7 +128,7 @@ noless::resize 34 66; cal -y::cal -y
 ::xprop; resize 30 80::xprop
 sensors
 ascii
-noless::resize 18 63; cat ~/wiki/erm.txt::cat erm.txt
+noless::resize 23 63; cat ~/wiki/Erm.txt::cat Erm.txt
 nostdout::redshift -PO 3500
 nostdout::redshift -x
 killall -SIGUSR1 dunst # pause Dunst

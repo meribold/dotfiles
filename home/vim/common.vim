@@ -576,21 +576,31 @@ cnorea <expr> lgrep getcmdtype() == ':' && getcmdline() =~# '^lgrep' ? 'sil lgr'
 cnorea <expr> lgre  getcmdtype() == ':' && getcmdline() =~# '^lgre'  ? 'sil lgr' : 'lgre'
 cnorea <expr> lgr   getcmdtype() == ':' && getcmdline() =~# '^lgr'   ? 'sil lgr' : 'lgr'
 
-" Mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" By default, <Tab> and <C-I> perform the same command in Vim.  Remap <Tab> to toggle
-" folds without overriding <C-I> (it still goes forward in the jump list).  This is
-" accomplished by configuring xterm to send ÿ (just a random replacement character I
-" chose) when <C-I> is pressed, so we can distinguish <Tab> and <C-I>.  The reason this
-" has to be so awful is that we can't just remap <Tab> individually because terminals
-" normally send the same byte for <Tab> and <C-I>.
+" Normally, <Tab> and <C-I> always perform the same action in Vim, because terminals
+" normally send the same byte for <Tab> and <C-I>.  I like to remap <Tab> while keeping
+" <C-I> unchanged.  This is accomplished by configuring xterm to send "ÿ" when <C-I> is
+" pressed, so we can distinguish <Tab> and <C-I>.
 if !has('gui_running')
    nnoremap ÿ <C-I>
-   nnoremap <Tab> za
+   nnoremap <silent> <Tab> :<C-U>call <SID>CycleHorizontally()<CR>
 else
    " TODO?  I think this isn't straightforward in gvim either and I don't care too much
    " right now.
 endif
+
+function! s:CycleHorizontally()
+   if v:count > 0
+      execute 'normal!' v:count .. "\<C-W>w"
+   elseif win_screenpos(winnr('#'))[1] != win_screenpos(0)[1]
+      wincmd p
+   elseif win_screenpos(winnr('$'))[1] == 1
+      wincmd w
+   elseif winnr() == winnr('l')
+      while winnr() != winnr('h') | wincmd h | endwhile
+   else
+      wincmd l
+   endif
+endfunction
 
 nnoremap j gj
 nnoremap k gk
@@ -727,6 +737,9 @@ nnoremap <silent> <Leader>/ :History/<CR>
 nnoremap <silent> <Leader><Leader> :Snippets<CR>
 " nnoremap <silent> <Leader>c :Commits<CR>
 " nnoremap <silent> <Leader>C :BCommits<CR>
+
+let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.6, 'border': 'sharp'}}
+let g:fzf_vim = {'buffers_jump': 1, 'preview_window': []}
 
 nnoremap <silent> <Leader>m :Neomake<CR>
 nnoremap <silent> <Leader>M :Neomake!<CR>
