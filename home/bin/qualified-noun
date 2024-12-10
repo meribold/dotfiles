@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+adjectives=(
+   feasible refactored jubilant radiant fictional miniature cautious supreme elected
+   puzzled jaded jolly sturdy fuzzy redesigned urban potential blessed uncursed unpaid
+   epic legitimate vivid daring vindicated dispersed lawful holy chaotic feisty cunning
+   rational cosmic lunar noble somber arboreal perennial immortal educated customary
+   symmetric abstract canonical translucent gilded eminent cordial molecular mandatory
+   manifest discreet bouncy buoyant antagonistic contrarian unicellular aquatic coherent
+   royal median probable solar binary illegal critical eternal nameless mighty bilingual
+   plausible implied universal mechanical pristine literal platonic scientific prudent
+   hypersonic alleged ontological certified poetic musical prorated personal cheeky
+   complimentary busy inevitable unanimous absolute peerless penultimate lucid ancient
+   formidable correct tricentennial clandestine dissolved serendipitous enlightened
+   official luminescent instant victorious infallible authoritative orthodox glorious
+   vehicular gradual stationary relative eventual indefinite permanent continuous pivotal
+   indisputable liminal deliberate designated airborne encrypted compressed encoded
+   optimal optional severe utmost sovereign reasonable professional ascended irrevocable
+   unrelated comprehensible grand fortunate temporal verified established satisfactory
+   standard modular customized mutual reverse counterfactual psychic finite custom bespoke
+   precise veritable tireless abstruse profound arcane worthy fiduciary registered
+   bidirectional omniscient prescient concerned historical jurassic terminal proven
+   proverbial pending criminal uniform unironic expected sorted ideal definitive
+   comprehensive latent nocturnal informed eloquent portable kinetic decentralized
+   executive technicolor artisanal mindful exhaustive existential transitive
+)
+
+nouns=(
+   koala guacamole parakeet potato broccoli memory pancake couscous spoon toast kumquat
+   jabberwock jellyfish sock coffee wombat icicle yak jelly panini hat wave soup newt
+   pebble mushroom weed leaf manifold cat mouse platypus bubble duck caterpillar sponge
+   grape mug utensil wookiee twig belly paw tea nose rain button shrubbery paperclip pope
+   bowtie snowflake fractal badger llama shoelace brush orange slime gingerbread donut
+   banana cookie egg sauce noodle worm ukulele juice peanut pot porridge pants raisin bun
+   panda turtle penguin snowman salt plum kobold gremlin
+)
+
+ai=$((RANDOM % ${#adjectives[@]}))
+ni=$((RANDOM % ${#nouns[@]}))
+
+printf '%s-%s\n' "${adjectives[ai]}" "${nouns[ni]}"
