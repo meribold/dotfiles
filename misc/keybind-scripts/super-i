@@ -1,8 +1,12 @@
-#!/usr/bin/env bash
+# shellcheck shell=bash
 
 source ~/.bashrc
 
+# TODO: make sure there really is no file.
+latent_path=\~/tmp/$(qualified-noun)
+
 directory=$(awk '!seen[$0]++' <<EOF | sed '/^$/d' | fzf --layout reverse
+$latent_path
 ~/dotfiles
 ~/screenshots
 ~/downloads
@@ -13,19 +17,14 @@ $(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
 ~/dotfiles/misc/muccadoro
 ~/contacts
-\$(mktemp -d)
-\$(instagit)
 EOF
 ) || exit
 
-if [[ $directory == '$(mktemp -d)' ]]; then
-   cd "$(mktemp -d)" || exit
-elif [[ $directory == '$(instagit)' ]]; then
-   cd "$(mktemp -d)" || exit
-   git init --quiet
-else
-   cd "${directory/#\~/$HOME}" || exit
+if [[ $directory == "$latent_path" ]]; then
+   mkdir "${directory/#\~/$HOME}"
 fi
+
+cd "${directory/#\~/$HOME}" || exit
 
 if [[ $1 = resize ]]; then
    i3-msg "resize set $((100 * 14 + 12)) $((25 * 26 + 12)); move position center" >/dev/null
