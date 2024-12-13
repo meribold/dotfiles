@@ -22,7 +22,12 @@ adjectives=(
    bidirectional omniscient prescient concerned historical jurassic terminal proven
    proverbial pending criminal uniform unironic expected sorted ideal definitive
    comprehensive latent nocturnal informed eloquent portable kinetic decentralized
-   executive technicolor artisanal mindful exhaustive existential transitive
+   executive technicolor artisanal mindful exhaustive existential transitive refurbished
+   retired global epistemic worldly ephemeral corporeal cromulent perfect goldilocks
+   agnostic saltwater mental cosmopolitan saintly subterranean duplicate revolving
+   referential confirmed evident licensed artificial ambiguous allegorical legal sonic
+   stoic subconscious destined definite surprised approximate esteemed honorable
+   ambidextrous anonymous credible pseudonymous
 )
 
 nouns=(
@@ -32,7 +37,8 @@ nouns=(
    grape mug utensil wookiee twig belly paw tea nose rain button shrubbery paperclip pope
    bowtie snowflake fractal badger llama shoelace brush orange slime gingerbread donut
    banana cookie egg sauce noodle worm ukulele juice peanut pot porridge pants raisin bun
-   panda turtle penguin snowman salt plum kobold gremlin
+   panda turtle penguin snowman salt plum kobold gremlin corgi lobster flea frisbee
+   boomerang
 )
 
 ai=$((RANDOM % ${#adjectives[@]}))
