@@ -68,7 +68,7 @@
    XF86AudioPlay
 
 "mpc toggle"
-   Mod4 + Escape
+   Mod4 + space
 
 "mpc prev"
    XF86AudioPrev
@@ -158,7 +158,7 @@
    Mod4 + y
 
 "~/dotfiles/misc/keybind-scripts/fzf-window-switcher"
-   Mod4 + space
+   Mod4 + Escape
 
 "i3-msg [class=.] focus"
    Mod4 + Tab
