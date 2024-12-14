@@ -3,7 +3,7 @@
 # `/usr/share/doc/ncmpcpp/config`.
 
 # XXX: do NOT gf this!
-visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 # The name "vis" is used in `home/config/mpd/mpd.conf` for the FIFO output.
 visualizer_output_name = vis
 
