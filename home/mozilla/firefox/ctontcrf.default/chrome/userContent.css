@@ -6,7 +6,7 @@
   }
 }
 
-@-moz-document domain(wikipedia.org) {
+@-moz-document domain(wikipedia.org), domain(wiktionary.org) {
   h1, h2, .mw-page-title-main {
     font-family: 'Roboto Slab' !important;
   }
