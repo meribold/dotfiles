@@ -2,11 +2,7 @@
 
 source ~/.bashrc
 
-# TODO: make sure there really is no file.
-latent_path=\~/tmp/$(qualified-noun)
-
-directory=$(awk '!seen[$0]++' <<EOF | sed '/^$/d' | fzf --layout reverse
-$latent_path
+d=$(awk '!seen[$0]++' <<EOF | sed '/^$/d' | fzf --layout reverse
 ~/dotfiles
 ~/screenshots
 ~/downloads
@@ -17,18 +13,19 @@ $(ls -t1d /tmp/forge* 2>/dev/null | head -n1)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
 ~/dotfiles/misc/muccadoro
 ~/contacts
-\$(instagit)
+\$latent_dir
+\$latent_git_repo
 EOF
 ) || exit
 
-if [[ $directory == "$latent_path" ]]; then
-   mkdir "${directory/#\~/$HOME}"
-fi
-
-if [[ $directory == '$(instagit)' ]]; then
+if [[ $d == \$latent_dir ]]; then
+   cd ~/tmp || { mkdir ~/tmp && cd ~/tmp; } || exit
+   d=$(qualified-noun) && mkdir "$d" || { d=$(qualified-noun) && mkdir "$d"; } || exit
+   cd "$d" || exit
+elif [[ $d == \$latent_git_repo ]]; then
    instagit || exit
 else
-   cd "${directory/#\~/$HOME}" || exit
+   cd "${d/#\~/$HOME}" || exit
 fi
 
 if [[ $1 = resize ]]; then
