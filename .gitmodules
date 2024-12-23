@@ -187,9 +187,6 @@
 [submodule "home/vim/pack/meribold/start/vim-surround"]
 	path = home/vim/pack/meribold/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "home/vim/pack/meribold/start/visual-split.vim"]
-	path = home/vim/pack/meribold/start/visual-split.vim
-	url = https://github.com/wellle/visual-split.vim.git
 [submodule "home/vim/pack/meribold/start/vim-easy-align"]
 	path = home/vim/pack/meribold/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
