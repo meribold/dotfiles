@@ -27,7 +27,13 @@ adjectives=(
    agnostic saltwater mental cosmopolitan saintly subterranean duplicate revolving
    referential confirmed evident licensed artificial ambiguous allegorical legal sonic
    stoic subconscious destined definite surprised approximate esteemed honorable
-   ambidextrous anonymous credible pseudonymous
+   ambidextrous anonymous credible pseudonymous iconic tactical expert habitual contrived
+   secure safe intense spectral vocal unknown marginal downstream metric civil civilized
+   accomplished combined opinionated specialized perpetual complementary disguised valued
+   genuine magnificent attentive superior inverse lustrous illustrious final elder curious
+   recurring sincere eldritch sinister discerning archaic trivial extra ominous ambitious
+   sardonic turbo absurd cathartic scrambled bizarre centered chipped static limitless
+   spurious cardinal devious harmonic stateless wireless sufficient recursive necessary
 )
 
 nouns=(
@@ -38,7 +44,9 @@ nouns=(
    bowtie snowflake fractal badger llama shoelace brush orange slime gingerbread donut
    banana cookie egg sauce noodle worm ukulele juice peanut pot porridge pants raisin bun
    panda turtle penguin snowman salt plum kobold gremlin corgi lobster flea frisbee
-   boomerang
+   boomerang molehill hamster towel goat toothpaste cheese snake jam ostrich deity
+   porcupine eel cherry paladin pizza spaghetti loaf knob waffle fiend pudding mimic
+   quasit nargle toad frog coaster teapot
 )
 
 ai=$((RANDOM % ${#adjectives[@]}))
