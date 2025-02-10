@@ -7,10 +7,10 @@
 # [2]: https://wiki.archlinux.org/title/Extra_keyboard_keys
 # [3]: https://wiki.archlinux.org/title/Keyboard_shortcuts#Xorg
 
-"i3-msg 'floating enable; move position 13 68; resize set 1248 1458'"
+"i3-msg 'floating enable; move position 10 10; resize set 1244 1780'"
    Mod4 + Shift + h
 
-"i3-msg 'floating enable; move position 1293 68; resize set 1248 1458'"
+"i3-msg 'floating enable; move position 1626 10; resize set 1244 1780'"
    Mod4 + Shift + l
 
 "wmctrl -r :ACTIVE: -e 0,3,-1,2554,-1"

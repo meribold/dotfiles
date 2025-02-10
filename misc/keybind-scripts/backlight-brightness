@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-cd /sys/class/backlight/amdgpu_bl1 || exit
+cd /sys/class/backlight/intel_backlight || exit
 
 brightness=$(<brightness) || exit
 
-[[ $1 == increment ]] && (( brightness < 255 )) && {
+[[ $1 == increment ]] && (( brightness < 400 )) && {
    echo $((++brightness)) > brightness || ((--brightness))
 }
 [[ $1 == decrement ]] && (( brightness > 0 )) && {

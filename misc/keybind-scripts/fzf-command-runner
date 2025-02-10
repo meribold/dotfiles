@@ -35,7 +35,7 @@ ip route
 ip route show dev wlan0
 iw wlan0 info
 iw wlan0 link
-::resize 56 88; sudo iw dev wlan0 scan::iw dev wlan0 scan
+::resize 68 88; sudo iw dev wlan0 scan::iw dev wlan0 scan
 systemctl suspend
 systemctl poweroff
 systemctl reboot
@@ -187,10 +187,10 @@ route
 arp
 curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
-cat /sys/class/backlight/amdgpu_bl1/{,max_}brightness
-> /sys/class/backlight/amdgpu_bl1/brightness echo 0
-> /sys/class/backlight/amdgpu_bl1/brightness echo 128
-> /sys/class/backlight/amdgpu_bl1/brightness echo 255
+cat /sys/class/backlight/intel_backlight/{,max_}brightness
+> /sys/class/backlight/intel_backlight/brightness echo 0
+> /sys/class/backlight/intel_backlight/brightness echo 128
+> /sys/class/backlight/intel_backlight/brightness echo 255
 feh --no-fehbg --bg-center ~/images/wallpapers/2560x1600/the-coming-darkness-noah-bradley.jpg
 xsetroot -solid black
 ulimit -a
@@ -227,7 +227,7 @@ background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 follow::git -C ~/wiki pull --ff-only
 ::resize 28 98; xset q::xset q
-cd /sys/class/backlight/amdgpu_bl1 && sudo chgrp video brightness && sudo chmod g+w brightness
+cd /sys/class/backlight/intel_backlight && sudo chgrp video brightness && sudo chmod g+w brightness
 EOF
 ) || exit
 
@@ -360,7 +360,7 @@ elif [[ $command_type == xterm ]]; then
 elif [[ $command_type == man ]]; then
    trap '' SIGHUP
    # shellcheck disable=SC2086
-   xterm -sl 0 -name 'floating man' -geometry 88x56 -e man --nj --nh $selected_command &
+   xterm -sl 0 -name 'floating man' -geometry 88x68 -e man --nj --nh $selected_command &
 elif [[ $command_type == nostdout ]]; then
    output=$(eval "$selected_command" 2>&1 1>/dev/null)
 fi
