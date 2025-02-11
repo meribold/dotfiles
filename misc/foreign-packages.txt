@@ -1,6 +1,7 @@
 abook
 alock-git
 android-studio
+archey3
 auracle-git
 bdfresize
 cli-visualizer
@@ -14,7 +15,7 @@ dina-font
 dragon-drag-and-drop
 elles-bin
 faience-icon-theme
-firefox-esr-bin
+firefox-esr
 fonts-meta-base
 fonts-meta-extended-lt
 freedict-tools
@@ -41,6 +42,7 @@ rogue
 st
 surf
 tor-browser-en
+tpacpi-bat
 ttf-courier-prime
 ttf-gelasio-ib
 ttf-google-fonts-git
@@ -57,7 +59,6 @@ urlview
 vim-systemd
 wpa_actiond
 xbanish
-xkcdpass
 xorg-utils
 yeganesh-cabal
 youtube-dl

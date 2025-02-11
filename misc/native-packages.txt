@@ -2,12 +2,10 @@
 adobe-source-serif-fonts
 alacritty
 alsa-utils
-amd-ucode
 android-tools
 arandr
 arch-wiki-docs
 arch-wiki-lite
-archey3
 asciinema
 atool
 audacity
@@ -109,15 +107,17 @@ gettext
 ghostscript
 gimp
 git
+git-absorb
 git-annex
 git-crypt
 git-delta
-glfw-x11
+glfw
 glibc
 glm
 gnome-themes-extra
 gnu-netcat
 gnuplot
+go
 gparted
 grep
 groff
@@ -142,6 +142,7 @@ hyperfine
 imagemagick
 inetutils
 inkscape
+intel-ucode
 iputils
 ipython
 irssi
@@ -267,6 +268,7 @@ python-docs
 python-isort
 python-opencv
 python-pip
+python-pipx
 python-pynvim
 python-sphinx
 python-wheel
@@ -296,7 +298,7 @@ rlwrap
 rofi
 rsync
 ruby-bundler
-rustup
+rust
 rxvt-unicode
 s-nail
 s3cmd
@@ -315,6 +317,7 @@ slock
 slop
 smartmontools
 snes9x
+sof-firmware
 speedtest-cli
 sshfs
 sshuttle
@@ -360,7 +363,6 @@ tldr
 tlp
 tmux
 tokei
-tpacpi-bat
 traceroute
 translate-shell
 trash-cli
@@ -404,8 +406,8 @@ xcursor-vanilla-dmz
 xcursor-vanilla-dmz-aa
 xdotool
 xf86-input-synaptics
-xf86-video-amdgpu
 xfsprogs
+xkcdpass
 xlockmore
 xmonad
 xmonad-contrib
