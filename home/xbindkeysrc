@@ -68,7 +68,7 @@
    XF86AudioPlay
 
 "mpc toggle"
-   Mod4 + space
+   Mod4 + g
 
 "mpc prev"
    XF86AudioPrev
@@ -120,19 +120,15 @@
    Mod4 + Shift + backslash
 
 # Switch to or start Vim.
-"[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -xrm 'XTerm*VT100.renderFont: true' -geometry 195x61 -b 2 -name vim -e vim -S"
+"[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -geometry 97x69 -name vim -e vim -S"
    Mod4 + v
 
 # Start or kill ncmpcpp.
 "pkill -u $USER -x ncmpcpp || xterm -name ncmpcpp -e ncmpcpp"
    Mod4 + c
 
-# This is very similar to the "Mod4 + grave" keybind above.
-"if [[ $(i3-msg '[instance="^newsboat$"] scratchpad show') != '[{"success":true}]' ]]; then if screen -ls newsboat; then exec xterm -name newsboat -geometry 140x24 -e 'stty -ixon && exec screen -x newsboat'; else exec xterm -name newsboat -geometry 140x24 -e 'stty -ixon && exec screen -S newsboat newsboat'; fi; fi"
-   Mod4 + Shift + n
-
 "xterm -name 'floating xterm' -e p"
-   Mod4 + g
+   Mod4 + Shift + g
 
 # List [desktop entry files][1] using j4-dmenu-desktop and fzf and launch the selected
 # program.  I used Rofi instead of fzf before, but fzf is faster and has superior fuzzy

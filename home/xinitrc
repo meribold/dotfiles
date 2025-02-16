@@ -17,8 +17,8 @@ xset -b +fp /usr/local/share/fonts
 xbindkeys
 
 # Use Control as another Escape key without breaking its normal modifier key
-# functionality.  Use the Shift keys to enter parentheses.
-xcape -e 'Control_L=Escape;Shift_L=Shift_L|9;Shift_R=Shift_L|0'
+# functionality.
+xcape
 
 # Auto-hide the mouse cursor.  See <https://github.com/Airblader/unclutter-xfixes>.
 unclutter --jitter 1 --ignore-buttons 4,5,6,7 --start-hidden --fork

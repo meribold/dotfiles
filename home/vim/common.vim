@@ -746,8 +746,11 @@ silent! nunmap <Leader>ihn
 nnoremap <silent> <Leader>p :PasteFile<CR>
 vnoremap <silent> <Leader>p :PasteCode<CR>
 
-nnoremap <silent> <Leader>u :update<CR>
+nnoremap <silent> <Leader>u :silent update<CR>
 nnoremap <silent> <Leader>U :Gwrite<CR>
+
+nnoremap <silent> <C-S> :<C-U>silent update \| echo<CR>
+inoremap <silent> <C-S> <Esc>:silent update \| echo<CR>
 
 " Remap <CR>
 " nnoremap <CR> to stop 'hlsearch' highlighting and clear any message displayed on the

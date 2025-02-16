@@ -212,15 +212,15 @@ for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/feh_st
 for_window [instance="^irssi$"] floating enable
 for_window [instance="^irssi$"] move right 640 px
 
-for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating enable, move position 1626 10, resize set 1244 1780
+for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating enable, move position 1870 10, resize set 1000 1780
 
 bindsym $mod+t [class="^TelegramDesktop$" instance="^telegram-desktop$"] sticky toggle, focus, move container to workspace 3; [class="^TelegramDesktop$" instance="^telegram-desktop$" workspace=__focused__] focus
 
 for_window [class="^Signal$" instance="^signal$"] floating enable
 
 workspace vim gaps inner 0
-workspace vim gaps horizontal 4
-workspace vim gaps vertical 2
+workspace vim gaps horizontal 30
+workspace vim gaps vertical 0
 for_window [class="^XTerm$" instance="^vim$"] move container to workspace vim, border none
 
 for_window [class="^XTerm$" instance="^nethack$"] move container to workspace nethack, focus

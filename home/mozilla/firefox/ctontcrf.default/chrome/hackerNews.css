@@ -45,8 +45,9 @@
 
   #hnmain {
     width: auto !important;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
   }
 
   .itemlist {
@@ -71,18 +72,16 @@
   }
 
   td:last-child > .pagetop {
-    visibility: hidden;
-    font-size: 0 !important;
+    color: #fff !important;
+  }
+
+  #karma {
+    color: #000 !important;
   }
 
   td:last-child > .pagetop > #me, td:last-child > .pagetop > #logout {
     visibility: visible;
     font-size: .9167rem !important;
-  }
-
-  td:last-child > .pagetop > #me::after {
-    content: " | ";
-    color: #fff;
   }
 
   .pagetop > b.hnname {
@@ -120,6 +119,11 @@
     font-size: .8rem !important;
   }
 
+  #hnmain > tbody > tr:first-child > td:first-child {
+    padding: .25em !important;
+    border-radius: 0.5em;
+  }
+
   #hnmain > tbody > tr:last-child form {
     font-size: .9167rem !important;
   }
@@ -129,13 +133,8 @@
   }
 
   body > center > table {
-    background-color: #181818 !important;
-  }
-
-  input, textarea {
-    /* See <https://support.mozilla.org/en-US/questions/814083>. */
-    -moz-appearance: none !important;
-    background-color: #0e0e0e;
+    background-color: #121212 !important;
+    border-radius: 1em;
   }
 
   /* Bright text */
