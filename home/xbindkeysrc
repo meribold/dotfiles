@@ -140,6 +140,9 @@
 "xterm -name 'floating xterm' -geometry 80x8 -e ~/dotfiles/misc/keybind-scripts/fzf-command-runner"
    Mod4 + semicolon
 
+"xterm -sl 0 -name peek -geometry 97x68 -e ~/dotfiles/misc/keybind-scripts/peek"
+   Mod4 + space
+
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
 # every other potential option for doing some quick maths (`bc`, `calc`, `dc`, `lua`, just
 # `python`, ...).  Now I'm trying GHCi.  Also see <https://reddit.com/comments/5z5fwh>.

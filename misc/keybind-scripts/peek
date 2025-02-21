@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cd ~/projects && fzf_output=$(fzf) && [[ $fzf_output ]] && exec less "$fzf_output"
