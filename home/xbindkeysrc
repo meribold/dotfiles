@@ -8,16 +8,16 @@
 # [3]: https://wiki.archlinux.org/title/Keyboard_shortcuts#Xorg
 
 "i3-msg 'floating enable; move position 10 10; resize set 1244 1780'"
-   Mod4 + Shift + h
+   Mod4 + Control + h
 
 "i3-msg 'floating enable; move position 1626 10; resize set 1244 1780'"
-   Mod4 + Shift + l
+   Mod4 + Control + l
 
 "wmctrl -r :ACTIVE: -e 0,3,-1,2554,-1"
-   Mod4 + Shift + j
+   Mod4 + Control + j
 
 "wmctrl -r :ACTIVE: -e 0,-1,71,-1,1462"
-   Mod4 + Shift + k
+   Mod4 + Control + k
 
 "amixer -q set Master toggle"
    XF86AudioMute
@@ -43,10 +43,10 @@
    Mod4 + b:5
 
 "~/dotfiles/misc/keybind-scripts/backlight-brightness increment"
-   Mod4 + Shift + b:4
+   Mod4 + Control + b:4
 
 "~/dotfiles/misc/keybind-scripts/backlight-brightness decrement"
-   Mod4 + Shift + b:5
+   Mod4 + Control + b:5
 
 "mpc seek +5"
    XF86Forward
@@ -58,7 +58,7 @@
    XF86AudioNext
 
 "mpc next"
-   Mod4 + Shift + period
+   Mod4 + Control + period
 
 # Like ncmpcpp.
 "mpc seek 0"
@@ -74,7 +74,7 @@
    XF86AudioPrev
 
 "mpc prev"
-   Mod4 + Shift + comma
+   Mod4 + Control + comma
 
 # Take a screenshot using maim(1).
 "f="$HOME/screenshots/$(date '+%Y%m%dT%H%M%S').png" bash -c 'maim -s -b 2 -c .843,.373,.373 --nokeyboard "$f" || maim "$f" && notify-send -u low "Screenshot saved to file://$f"'"
@@ -105,19 +105,19 @@
    Mod4 + m
 
 "xterm -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
-   Mod4 + Shift + m
+   Mod4 + Control + m
 
 "xterm -name 'floating xterm' -geometry 36x25 -e bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i -s resize"
    Mod4 + i
 
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p 42'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i'; fi; fi"
-   Mod4 + Shift + i
+   Mod4 + Control + i
 
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + backslash
 
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X chdir ~/dotfiles; screen -S scratchpad -X screen; screen -S scratchpad -X chdir; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then screen -S scratchpad -X chdir ~/dotfiles; screen -S scratchpad -X screen; screen -S scratchpad -X chdir; exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p 42'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad bash -c "cd ~/dotfiles && bash"'; fi; fi"
-   Mod4 + Shift + backslash
+   Mod4 + Control + backslash
 
 # Switch to or start Vim.
 "[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -geometry 97x69 -name vim -e vim -S"
@@ -128,13 +128,13 @@
    Mod4 + c
 
 "xterm -name 'floating xterm' -e p"
-   Mod4 + Shift + g
+   Mod4 + Control + g
 
 # List [desktop entry files][1] using j4-dmenu-desktop and fzf and launch the selected
 # program.  I used Rofi instead of fzf before, but fzf is faster and has superior fuzzy
 # matching.
 "~/dotfiles/misc/keybind-scripts/j4-fzf-desktop"
-   Mod4 + Shift + semicolon
+   Mod4 + Control + semicolon
 # [1]: https://wiki.archlinux.org/title/Desktop_entries
 
 "xterm -name 'floating xterm' -geometry 80x8 -e ~/dotfiles/misc/keybind-scripts/fzf-command-runner"
@@ -151,7 +151,7 @@
 
 # Why not both?
 "[[ $(i3-msg '[instance="^ipython$"] scratchpad show') == '[{"success":true}]' ]] || xterm -name ipython -geometry 61x34 -e ipython --no-banner"
-   Mod4 + Shift + u
+   Mod4 + Control + u
 
 "PINENTRY_USER_DATA=spawn-xterm xterm -name 'floating xterm' -geometry 36x24 -e ~/dotfiles/misc/keybind-scripts/fzf-pass"
    Mod4 + y
@@ -180,14 +180,14 @@
    Mod4 + r
 
 "~/dotfiles/misc/keybind-scripts/super-shift-r"
-   Mod4 + Shift + r
+   Mod4 + Control + r
 
 # TODO: kill this xterm when it loses focus?
 "xterm -name 'floating xterm' -geometry 100x25"
    Mod4 + o
 
 "xterm -name 'floating xterm' -geometry 100x25 fish"
-   Mod4 + Shift + o
+   Mod4 + Control + o
 
 "xterm -name 'funny xterm'"
    Mod4 + x
@@ -196,7 +196,7 @@
    Mod4 + apostrophe
 
 "xterm -name 'borderless floating xterm' -geometry 159x32 -e alsamixer"
-   Mod4 + Shift + apostrophe
+   Mod4 + Control + apostrophe
 
 "i3-msg '[instance="^floating man$"] scratchpad show'"
    Mod4 + z

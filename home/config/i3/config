@@ -17,14 +17,14 @@ bindsym $mod+Return exec --no-startup-id xterm
 bindsym $mod+q kill
 
 # "Soft-quit" a terminal that's still busy.
-bindsym --release $mod+Shift+q exec --no-startup-id xdotool key --clearmodifiers --delay 0 x r n Return && i3-msg move scratchpad
+bindsym --release $mod+Control+q exec --no-startup-id xdotool key --clearmodifiers --delay 0 x r n Return && i3-msg move scratchpad
 
 # Start an xterm and run muccadoro [1], a pomodoro [2] timer.  By the way, using `-class`
 # instead of `-title` would mean all my X resources aren't applied to the xterm.  We could
 # also use `xterm -name muccadoro ...` and `for_window [instance="muccadoro] ...`.  The
 # "entire command must be quoted" because it "contains a ; (semicolon)" [3].
 #
-# bindsym $mod+Shift+p exec --no-startup-id "xterm -title muccadoro -geometry 28x13 -e 'muccadoro | tee -ai ~/pomodoros.txt; read -n 1'"
+# bindsym $mod+Control+p exec --no-startup-id "xterm -title muccadoro -geometry 28x13 -e 'muccadoro | tee -ai ~/pomodoros.txt; read -n 1'"
 for_window [title="muccadoro"] floating enable
 # [1]: https://github.com/meribold/muccadoro
 # [2]: https://en.wikipedia.org/wiki/Pomodoro_Technique
@@ -36,7 +36,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Shift+t sticky toggle
+bindsym $mod+Control+t sticky toggle
 
 # A vertical split in Vim is a horizontal split in i3.  I'm using vimish key bindings.
 bindsym $mod+s split v
@@ -45,12 +45,12 @@ bindsym $mod+s split v
 # bindsym $mod+v split h
 
 # Change container layout (stacked, tabbed, toggle split).
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
-bindsym $mod+Shift+e layout toggle split
+bindsym $mod+Control+s layout stacking
+bindsym $mod+Control+w layout tabbed
+bindsym $mod+Control+e layout toggle split
 
 # Toggle between tiling and floating.
-bindsym $mod+Shift+slash floating toggle
+bindsym $mod+Control+slash floating toggle
 
 # Change focus between tiling and floating windows.
 bindsym $mod+slash focus mode_toggle
@@ -83,26 +83,26 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # Move the focused container to another workspace.
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Control+1 move container to workspace 1
+bindsym $mod+Control+2 move container to workspace 2
+bindsym $mod+Control+3 move container to workspace 3
+bindsym $mod+Control+4 move container to workspace 4
+bindsym $mod+Control+5 move container to workspace 5
+bindsym $mod+Control+6 move container to workspace 6
+bindsym $mod+Control+7 move container to workspace 7
+bindsym $mod+Control+8 move container to workspace 8
+bindsym $mod+Control+9 move container to workspace 9
+bindsym $mod+Control+0 move container to workspace 10
 
 mode extra {
    bindsym h resize shrink width 10 px or 10 ppt
    bindsym j resize grow height 10 px or 10 ppt
    bindsym k resize shrink height 10 px or 10 ppt
    bindsym l resize grow width 10 px or 10 ppt
-   bindsym Shift+h move left
-   bindsym Shift+j move down
-   bindsym Shift+k move up
-   bindsym Shift+l move right
+   bindsym Control+h move left
+   bindsym Control+j move down
+   bindsym Control+k move up
+   bindsym Control+l move right
    bindsym Return move position center; mode default
    bindsym Escape mode default
    bindsym a exec --no-startup-id xrandr --output eDP --auto; mode default
