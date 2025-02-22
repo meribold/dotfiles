@@ -1,7 +1,7 @@
 " Some of the good parts (TM) from `$VIMRUNTIME/defaults.vim` are included here.
 
 set mouse=a       " Enable use of the mouse in all modes.
-set history=10000 " Vim's default: 50.  Neovim's default: 10000.
+set history=10000 " This is the maximum (and Neovim's default).
 set incsearch     " Search while typing the search command and...
 set hlsearch      " ...hightlight matches.
 

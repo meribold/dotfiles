@@ -27,14 +27,12 @@ sudo mandb -q && for i in 0:0p:1:1p:6:8 2 3:3p:3type {4..8}; do man -k -s "$i" .
 i3-msg exit
 i3-msg -q reload
 i3-msg restart
-ip link
-ip address
-ip address show eth0
-ip address show wlan0
-ip route
-ip route show dev wlan0
-iw wlan0 info
-iw wlan0 link
+autosize::ip link
+autosize::ip address
+autosize::ip address show wlan0
+autosize::ip route
+autosize::iw wlan0 info
+autosize::iw wlan0 link
 ::resize 68 88; sudo iw dev wlan0 scan::iw dev wlan0 scan
 systemctl suspend
 systemctl poweroff

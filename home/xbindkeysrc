@@ -182,7 +182,6 @@
 "~/dotfiles/misc/keybind-scripts/super-shift-r"
    Mod4 + Control + r
 
-# TODO: kill this xterm when it loses focus?
 "xterm -name 'floating xterm' -geometry 100x25"
    Mod4 + o
 

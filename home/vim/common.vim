@@ -135,6 +135,10 @@ set noshowcmd
 " Hide the tilde characters Vim displays in front of lines after the EOF.
 set fillchars=eob:\ 
 
+" The default is 4000.  The help file of <https://github.com/airblade/vim-gitgutter>
+" recommends 100.
+set updatetime=400
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the cursor line.
 " Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
