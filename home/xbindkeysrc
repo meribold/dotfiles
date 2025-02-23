@@ -42,11 +42,23 @@
 "dunstify -u low -t 2000 -a hzVgHJS3 -r 699814432 - "$(amixer set Master playback 1%- | sed -En '$s!.*\[(.*%)\].*!<small>ALSA master volume</small>\n\1!p')""
    Mod4 + b:5
 
+""
+   Mod4 + b:6
+
+""
+   Mod4 + b:7
+
 "~/dotfiles/misc/keybind-scripts/backlight-brightness increment"
    Mod4 + Control + b:4
 
 "~/dotfiles/misc/keybind-scripts/backlight-brightness decrement"
    Mod4 + Control + b:5
+
+""
+   Mod4 + Control + b:6
+
+""
+   Mod4 + Control + b:7
 
 "mpc seek +5"
    XF86Forward
