@@ -10,7 +10,7 @@ if [[ -d ~/.xresources ]]; then
    done
 fi
 
-[[ -f ~/dotfiles/misc/xmodmaprc ]] && xmodmap ~/dotfiles/misc/xmodmaprc
+[[ -f ~/dotfiles/misc/keymap.xkb ]] && xkbcomp ~/dotfiles/misc/keymap.xkb "$DISPLAY"
 
 xset -b +fp /usr/local/share/fonts
 
