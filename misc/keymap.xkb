@@ -1280,19 +1280,23 @@ xkb_symbols "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)" {
     };
     key <AC06> {
         type= "SUPERALPHABETIC",
-        symbols[Group1]= [               h,               H,            Left ]
+        symbols[Group1]= [               h,               H,            Left ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<LEFT>, clearMods=Mod4) ]
     };
     key <AC07> {
         type= "SUPERALPHABETIC",
-        symbols[Group1]= [               j,               J,            Down ]
+        symbols[Group1]= [               j,               J,            Down ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<DOWN>, clearMods=Mod4) ]
     };
     key <AC08> {
         type= "SUPERALPHABETIC",
-        symbols[Group1]= [               k,               K,              Up ]
+        symbols[Group1]= [               k,               K,              Up ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<UP>, clearMods=Mod4) ]
     };
     key <AC09> {
         type= "SUPERALPHABETIC",
-        symbols[Group1]= [               l,               L,           Right ]
+        symbols[Group1]= [               l,               L,           Right ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<RGHT>, clearMods=Mod4) ]
     };
     key <AC10> {         [       semicolon,           colon ] };
     key <AC11> {         [      apostrophe,        quotedbl ] };
