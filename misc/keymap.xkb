@@ -358,6 +358,15 @@ xkb_types "complete" {
         level_name[Level1]= "Base";
         level_name[Level2]= "Caps";
     };
+    type "SUPERALPHABETIC" {
+        modifiers= Shift+Lock+Mod4;
+        map[Shift]= Level2;
+        map[Lock]= Level2;
+        map[Mod4]= Level3;
+        level_name[Level1]= "Base";
+        level_name[Level2]= "Caps";
+        level_name[Level3]= "Super";
+    };
     type "KEYPAD" {
         modifiers= Shift+NumLock;
         map[NumLock]= Level2;
@@ -1270,20 +1279,20 @@ xkb_symbols "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)" {
         symbols[Group1]= [               g,               G ]
     };
     key <AC06> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               h,               H ]
+        type= "SUPERALPHABETIC",
+        symbols[Group1]= [               h,               H,            Left ]
     };
     key <AC07> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               j,               J ]
+        type= "SUPERALPHABETIC",
+        symbols[Group1]= [               j,               J,            Down ]
     };
     key <AC08> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               k,               K ]
+        type= "SUPERALPHABETIC",
+        symbols[Group1]= [               k,               K,              Up ]
     };
     key <AC09> {
-        type= "ALPHABETIC",
-        symbols[Group1]= [               l,               L ]
+        type= "SUPERALPHABETIC",
+        symbols[Group1]= [               l,               L,           Right ]
     };
     key <AC10> {         [       semicolon,           colon ] };
     key <AC11> {         [      apostrophe,        quotedbl ] };

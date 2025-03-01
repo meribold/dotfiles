@@ -30,11 +30,8 @@ for_window [title="muccadoro"] floating enable
 # [2]: https://en.wikipedia.org/wiki/Pomodoro_Technique
 # [3]: https://i3wm.org/docs/userguide.html#exec
 
-# Change focus.
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+n focus down
+bindsym $mod+p focus up
 
 bindsym $mod+Control+t sticky toggle
 
@@ -68,8 +65,8 @@ bindsym $mod+period move scratchpad
 # article's associated URL in Newsboat, for example, and it's annoying.
 focus_on_window_activation urgent
 
-bindsym $mod+p workspace prev
-bindsym $mod+n workspace next
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
