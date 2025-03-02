@@ -89,13 +89,11 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <LSGT> = 94;
     <FK11> = 95;
     <FK12> = 96;
-    <AB11> = 97;
     <KATA> = 98;
     <HIRA> = 99;
     <HENK> = 100;
     <HKTG> = 101;
     <MUHE> = 102;
-    <JPCM> = 103;
     <KPEN> = 104;
     <RCTL> = 105;
     <KPDV> = 106;
@@ -112,7 +110,6 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <PGDN> = 117;
      <INS> = 118;
     <DELE> = 119;
-    <I120> = 120;
     <MUTE> = 121;
     <VOL-> = 122;
     <VOL+> = 123;
@@ -124,7 +121,6 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <I129> = 129;
     <HNGL> = 130;
     <HJCV> = 131;
-    <AE13> = 132;
     <LWIN> = 133;
     <RWIN> = 134;
     <COMP> = 135;
@@ -141,12 +137,10 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <HELP> = 146;
     <I147> = 147;
     <I148> = 148;
-    <I149> = 149;
     <I150> = 150;
     <I151> = 151;
     <I152> = 152;
     <I153> = 153;
-    <I154> = 154;
     <I155> = 155;
     <I156> = 156;
     <I157> = 157;
@@ -160,7 +154,6 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <I165> = 165;
     <I166> = 166;
     <I167> = 167;
-    <I168> = 168;
     <I169> = 169;
     <I170> = 170;
     <I171> = 171;
@@ -170,13 +163,10 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <I175> = 175;
     <I176> = 176;
     <I177> = 177;
-    <I178> = 178;
     <I179> = 179;
     <I180> = 180;
     <I181> = 181;
     <I182> = 182;
-    <I183> = 183;
-    <I184> = 184;
     <I185> = 185;
     <I186> = 186;
     <I187> = 187;
@@ -189,12 +179,10 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <FK16> = 194;
     <FK17> = 195;
     <FK18> = 196;
-    <FK19> = 197;
     <FK20> = 198;
     <FK21> = 199;
     <FK22> = 200;
     <FK23> = 201;
-    <FK24> = 202;
     <LVL5> = 203;
      <ALT> = 204;
     <META> = 205;
@@ -209,12 +197,9 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <I214> = 214;
     <I215> = 215;
     <I216> = 216;
-    <I217> = 217;
     <I218> = 218;
-    <I219> = 219;
     <I220> = 220;
     <I221> = 221;
-    <I222> = 222;
     <I223> = 223;
     <I224> = 224;
     <I225> = 225;
@@ -222,7 +207,6 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <I227> = 227;
     <I228> = 228;
     <I229> = 229;
-    <I230> = 230;
     <I231> = 231;
     <I232> = 232;
     <I233> = 233;
@@ -240,7 +224,6 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <I245> = 245;
     <I246> = 246;
     <I247> = 247;
-    <I248> = 248;
     <I249> = 249;
     <I250> = 250;
     <I251> = 251;
@@ -280,7 +263,6 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     alias <I127> = <PAUS>;
     alias <I130> = <HNGL>;
     alias <I131> = <HJCV>;
-    alias <I132> = <AE13>;
     alias <I133> = <LWIN>;
     alias <I134> = <RWIN>;
     alias <I135> = <COMP>;
@@ -301,12 +283,10 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     alias <I194> = <FK16>;
     alias <I195> = <FK17>;
     alias <I196> = <FK18>;
-    alias <I197> = <FK19>;
     alias <I198> = <FK20>;
     alias <I199> = <FK21>;
     alias <I200> = <FK22>;
     alias <I201> = <FK23>;
-    alias <I202> = <FK24>;
     alias <MDSW> = <LVL5>;
     alias <KPPT> = <I129>;
     alias <LatQ> = <AD01>;
@@ -1583,349 +1563,6 @@ xkb_symbols "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)" {
     modifier_map Mod1 { <META> };
     modifier_map Mod4 { <SUPR> };
     modifier_map Mod3 { <HYPR> };
-};
-
-xkb_geometry "pc(pc104)" {
-
-    width=       470;
-    height=      180;
-
-    alias <AC00> = <CAPS>;
-    alias <AA00> = <LCTL>;
-
-    baseColor=   "white";
-    labelColor=  "black";
-    xfont=       "-*-helvetica-medium-r-normal--*-120-*-*-*-*-iso8859-1";
-    description= "Generic 104-key PC";
-
-    shape "NORM" {
-        corner= 1,
-        { [  18,  18 ] },
-        { [   2,   1 ], [  16,  16 ] }
-    };
-    shape "BKSP" {
-        corner= 1,
-        { [  38,  18 ] },
-        { [   2,   1 ], [  36,  16 ] }
-    };
-    shape "TABK" {
-        corner= 1,
-        { [  28,  18 ] },
-        { [   2,   1 ], [  26,  16 ] }
-    };
-    shape "BKSL" {
-        corner= 1,
-        { [  28,  18 ] },
-        { [   2,   1 ], [  26,  16 ] }
-    };
-    shape "RTRN" {
-        corner= 1,
-        { [  42,  18 ] },
-        { [   2,   1 ], [  40,  16 ] }
-    };
-    shape "CAPS" {
-        corner= 1,
-        { [  33,  18 ] },
-        { [   2,   1 ], [  31,  16 ] }
-    };
-    shape "LFSH" {
-        corner= 1,
-        { [  42,  18 ] },
-        { [   2,   1 ], [  40,  16 ] }
-    };
-    shape "RTSH" {
-        corner= 1,
-        { [  52,  18 ] },
-        { [   2,   1 ], [  50,  16 ] }
-    };
-    shape "MODK" {
-        corner= 1,
-        { [  27,  18 ] },
-        { [   2,   1 ], [  25,  16 ] }
-    };
-    shape "SMOD" {
-        corner= 1,
-        { [  23,  18 ] },
-        { [   2,   1 ], [  21,  16 ] }
-    };
-    shape "SPCE" {
-        corner= 1,
-        { [ 113,  18 ] },
-        { [   2,   1 ], [ 111,  16 ] }
-    };
-    shape "KP0" {
-        corner= 1,
-        { [  37,  18 ] },
-        { [   2,   1 ], [  35,  16 ] }
-    };
-    shape "KPAD" {
-        corner= 1,
-        { [  18,  37 ] },
-        { [   2,   1 ], [  16,  35 ] }
-    };
-    shape "LEDS" { { [  75,  20 ] } };
-    shape "LED" { { [   5,   1 ] } };
-    section "Function" {
-        key.color= "grey20";
-        priority=  7;
-        top=       22;
-        left=      19;
-        width=     351;
-        height=    19;
-        row {
-            top=  1;
-            left= 1;
-            keys {
-                {  <ESC>, "NORM",   1 },
-                { <FK01>, "NORM",  20, color="white" },
-                { <FK02>, "NORM",   1, color="white" },
-                { <FK03>, "NORM",   1, color="white" },
-                { <FK04>, "NORM",   1, color="white" },
-                { <FK05>, "NORM",  11, color="white" },
-                { <FK06>, "NORM",   1, color="white" },
-                { <FK07>, "NORM",   1, color="white" },
-                { <FK08>, "NORM",   1, color="white" },
-                { <FK09>, "NORM",  11, color="white" },
-                { <FK10>, "NORM",   1, color="white" },
-                { <FK11>, "NORM",   1, color="white" },
-                { <FK12>, "NORM",   1, color="white" },
-                { <PRSC>, "NORM",   8, color="white" },
-                { <SCLK>, "NORM",   1, color="white" },
-                { <PAUS>, "NORM",   1, color="white" }
-            };
-        };
-    }; // End of "Function" section
-
-    section "Alpha" {
-        key.color= "white";
-        priority=  8;
-        top=       61;
-        left=      19;
-        width=     287;
-        height=    95;
-        row {
-            top=  1;
-            left= 1;
-            keys {
-                { <TLDE>, "NORM",   1 }, { <AE01>, "NORM",   1 },
-                { <AE02>, "NORM",   1 }, { <AE03>, "NORM",   1 },
-                { <AE04>, "NORM",   1 }, { <AE05>, "NORM",   1 },
-                { <AE06>, "NORM",   1 }, { <AE07>, "NORM",   1 },
-                { <AE08>, "NORM",   1 }, { <AE09>, "NORM",   1 },
-                { <AE10>, "NORM",   1 }, { <AE11>, "NORM",   1 },
-                { <AE12>, "NORM",   1 },
-                { <BKSP>, "BKSP",   1, color="grey20" }
-            };
-        };
-        row {
-            top=  20;
-            left= 1;
-            keys {
-                {  <TAB>, "TABK",   1, color="grey20" },
-                { <AD01>, "NORM",   1 }, { <AD02>, "NORM",   1 },
-                { <AD03>, "NORM",   1 }, { <AD04>, "NORM",   1 },
-                { <AD05>, "NORM",   1 }, { <AD06>, "NORM",   1 },
-                { <AD07>, "NORM",   1 }, { <AD08>, "NORM",   1 },
-                { <AD09>, "NORM",   1 }, { <AD10>, "NORM",   1 },
-                { <AD11>, "NORM",   1 }, { <AD12>, "NORM",   1 },
-                { <BKSL>, "BKSL",   1 }
-            };
-        };
-        row {
-            top=  39;
-            left= 1;
-            keys {
-                { <CAPS>, "CAPS",   1, color="grey20" },
-                { <AC01>, "NORM",   1 }, { <AC02>, "NORM",   1 },
-                { <AC03>, "NORM",   1 }, { <AC04>, "NORM",   1 },
-                { <AC05>, "NORM",   1 }, { <AC06>, "NORM",   1 },
-                { <AC07>, "NORM",   1 }, { <AC08>, "NORM",   1 },
-                { <AC09>, "NORM",   1 }, { <AC10>, "NORM",   1 },
-                { <AC11>, "NORM",   1 },
-                { <RTRN>, "RTRN",   1, color="grey20" }
-            };
-        };
-        row {
-            top=  58;
-            left= 1;
-            keys {
-                { <LFSH>, "LFSH",   1, color="grey20" },
-                { <AB01>, "NORM",   1 }, { <AB02>, "NORM",   1 },
-                { <AB03>, "NORM",   1 }, { <AB04>, "NORM",   1 },
-                { <AB05>, "NORM",   1 }, { <AB06>, "NORM",   1 },
-                { <AB07>, "NORM",   1 }, { <AB08>, "NORM",   1 },
-                { <AB09>, "NORM",   1 }, { <AB10>, "NORM",   1 },
-                { <RTSH>, "RTSH",   1, color="grey20" }
-            };
-        };
-        row {
-            top=  77;
-            left= 1;
-            keys {
-                { <LCTL>, "MODK",   1, color="grey20" },
-                { <LWIN>, "SMOD",   1, color="grey20" },
-                { <LALT>, "SMOD",   1, color="grey20" },
-                { <SPCE>, "SPCE",   1 },
-                { <RALT>, "SMOD",   1, color="grey20" },
-                { <RWIN>, "SMOD",   1, color="grey20" },
-                { <MENU>, "SMOD",   1, color="grey20" },
-                { <RCTL>, "SMOD",   1, color="grey20" }
-            };
-        };
-    }; // End of "Alpha" section
-
-    section "Editing" {
-        key.color= "grey20";
-        priority=  9;
-        top=       61;
-        left=      312;
-        width=     58;
-        height=    95;
-        row {
-            top=  1;
-            left= 1;
-            keys {
-                {  <INS>, "NORM",   1 }, { <HOME>, "NORM",   1 },
-                { <PGUP>, "NORM",   1 }
-            };
-        };
-        row {
-            top=  20;
-            left= 1;
-            keys {
-                { <DELE>, "NORM",   1 }, {  <END>, "NORM",   1 },
-                { <PGDN>, "NORM",   1 }
-            };
-        };
-        row {
-            top=  58;
-            left= 20;
-            keys {
-                {   <UP>, "NORM",   1 }
-            };
-        };
-        row {
-            top=  77;
-            left= 1;
-            keys {
-                { <LEFT>, "NORM",   1 }, { <DOWN>, "NORM",   1 },
-                { <RGHT>, "NORM",   1 }
-            };
-        };
-    }; // End of "Editing" section
-
-    section "Keypad" {
-        key.color= "grey20";
-        priority=  10;
-        top=       61;
-        left=      376;
-        width=     77;
-        height=    95;
-        row {
-            top=  1;
-            left= 1;
-            keys {
-                { <NMLK>, "NORM",   1 }, { <KPDV>, "NORM",   1 },
-                { <KPMU>, "NORM",   1 }, { <KPSU>, "NORM",   1 }
-            };
-        };
-        row {
-            top=  20;
-            left= 1;
-            keys {
-                {  <KP7>, "NORM",   1, color="white" },
-                {  <KP8>, "NORM",   1, color="white" },
-                {  <KP9>, "NORM",   1, color="white" },
-                { <KPAD>, "KPAD",   1 }
-            };
-        };
-        row {
-            top=  39;
-            left= 1;
-            keys {
-                {  <KP4>, "NORM",   1, color="white" },
-                {  <KP5>, "NORM",   1, color="white" },
-                {  <KP6>, "NORM",   1, color="white" }
-            };
-        };
-        row {
-            top=  58;
-            left= 1;
-            keys {
-                {  <KP1>, "NORM",   1, color="white" },
-                {  <KP2>, "NORM",   1, color="white" },
-                {  <KP3>, "NORM",   1, color="white" },
-                { <KPEN>, "KPAD",   1 }
-            };
-        };
-        row {
-            top=  77;
-            left= 1;
-            keys {
-                {  <KP0>, "KP0",   1, color="white" },
-                { <KPDL>, "NORM",   1, color="white" }
-            };
-        };
-    }; // End of "Keypad" section
-
-    solid "LedPanel" {
-        top=      22;
-        left=     377;
-        priority= 0;
-        color= "grey10";
-        shape= "LEDS";
-    };
-    indicator "Num Lock" {
-        top=      37;
-        left=     382;
-        priority= 1;
-        onColor= "green";
-        offColor= "green30";
-        shape= "LED";
-    };
-    indicator "Caps Lock" {
-        top=      37;
-        left=     407;
-        priority= 2;
-        onColor= "green";
-        offColor= "green30";
-        shape= "LED";
-    };
-    indicator "Scroll Lock" {
-        top=      37;
-        left=     433;
-        priority= 3;
-        onColor= "green";
-        offColor= "green30";
-        shape= "LED";
-    };
-    text "NumLockLabel" {
-        top=      25;
-        left=     378;
-        priority= 4;
-        width=  19.8;
-        height=  10;
-        XFont= "-*-helvetica-medium-r-normal--*-120-*-*-*-*-iso8859-1";
-        text=  "Num\nLock";
-    };
-    text "CapsLockLabel" {
-        top=      25;
-        left=     403;
-        priority= 5;
-        width=  26.4;
-        height=  10;
-        XFont= "-*-helvetica-medium-r-normal--*-120-*-*-*-*-iso8859-1";
-        text=  "Caps\nLock";
-    };
-    text "ScrollLockLabel" {
-        top=      25;
-        left=     428;
-        priority= 6;
-        width=  39.6;
-        height=  10;
-        XFont= "-*-helvetica-medium-r-normal--*-120-*-*-*-*-iso8859-1";
-        text=  "Scroll\nLock";
-    };
 };
 
 };
