@@ -97,7 +97,7 @@
    Mod4 + equal
 
 # Show or create my "dropdown terminal" scratchpad.
-"if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
+"if [[ $(i3-msg '[instance="^scratchpad$"] scratchpad show') != '[{"success":true}]' ]]; then ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then exec xterm -wf -sl 0 -name scratchpad -e 'screen -x scratchpad'; else exec xterm -wf -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + grave
 
 "i3-msg '[class="^firefox-esr$"] focus'"
@@ -116,14 +116,11 @@
 "xterm -name 'floating xterm' -geometry 36x25 -e bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i -s resize"
    Mod4 + i
 
-"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p 42'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i'; fi; fi"
+"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p 42'; else exec xterm -wf -sl 0 -name scratchpad -e 'screen -S scratchpad bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i'; fi; fi"
    Mod4 + Control + i
 
-"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
+"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then xterm -wf -sl 0 -name scratchpad -e 'screen -x scratchpad -p +'; else xterm -wf -sl 0 -name scratchpad -e 'screen -S scratchpad'; fi; fi"
    Mod4 + backslash
-
-"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X chdir ~/dotfiles; screen -S scratchpad -X screen; screen -S scratchpad -X chdir; else ~/dotfiles/misc/keybind-scripts/append-scratchpad-layout; if screen -ls scratchpad; then screen -S scratchpad -X chdir ~/dotfiles; screen -S scratchpad -X screen; screen -S scratchpad -X chdir; exec xterm -sl 0 -name scratchpad -e 'screen -x scratchpad -p 42'; else exec xterm -sl 0 -name scratchpad -e 'screen -S scratchpad bash -c "cd ~/dotfiles && bash"'; fi; fi"
-   Mod4 + Control + backslash
 
 # Switch to or start Vim.
 "[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -geometry 97x69 -name vim -e vim -S"

@@ -149,7 +149,7 @@ killall fcitx
 xbindkeys -k
 background::xev
 ::ssh_esgaroth_quota::ssh 1791esgaroth quota
-df -Th
+autosize::df -Th
 free -h
 sudo ip link set wlan0 down
 sudo ip link set wlan0 up
