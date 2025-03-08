@@ -150,20 +150,16 @@ for_window [instance="^floating xterm$"] floating enable
 for_window [instance="^borderless floating xterm$"] floating enable
 
 for_window [instance="^gcolor2$"] sticky enable
-for_window [instance="^gcolor3$"] sticky enable
-for_window [instance="^gcolor3$"] floating enable
+for_window [instance="^gcolor3$"] sticky enable, floating enable
 
-for_window [instance="^funny xterm$"] floating enable
-for_window [instance="^funny xterm$"] move position mouse
+for_window [instance="^funny xterm$"] floating enable, move position mouse
 
-for_window [instance="^webcam feed$"] floating enable
-for_window [instance="^webcam feed$"] sticky enable
+for_window [instance="^webcam feed$"] floating enable, sticky enable
 
 # There appears to be no other property we could use...
 for_window [title="^Android Emulator - "] floating enable
 
-for_window [title="^Event Tester$"] floating enable
-for_window [title="^Event Tester$"] move position 2359 1399
+for_window [title="^Event Tester$"] floating enable, move position 2359 1399
 
 # Enable floating mode and add a border to the Firefox about dialog.
 for_window [class="^firefox$" window_role="^About$"] floating enable, border pixel 1
@@ -171,40 +167,21 @@ for_window [class="^firefoxdeveloperedition$" window_role="^About$"] floating en
 for_window [class="^firefox-esr$" window_role="^About$"] floating enable, border pixel 1
 
 # Use a sticky scratchpad window for Newsboat.
-for_window [instance="^newsboat$"] floating enable
-for_window [instance="^newsboat$"] move scratchpad
-for_window [instance="^newsboat$"] sticky enable
-for_window [instance="^newsboat$"] scratchpad show
+for_window [instance="^newsboat$"] floating enable, move scratchpad, sticky enable, scratchpad show
 
 # Use a sticky scratchpad window for GHCi (my current calculator of choice).
-for_window [instance="^ghci$"] floating enable
-for_window [instance="^ghci$"] move scratchpad
-for_window [instance="^ghci$"] sticky enable
-for_window [instance="^ghci$"] scratchpad show
+for_window [instance="^ghci$"] floating enable, move scratchpad, sticky enable, scratchpad show
 
 # Use a sticky scratchpad window for IPython (my other calculator of choice).
-for_window [instance="^ipython$"] floating enable
-for_window [instance="^ipython$"] move scratchpad
-for_window [instance="^ipython$"] sticky enable
-for_window [instance="^ipython$"] scratchpad show
+for_window [instance="^ipython$"] floating enable, move scratchpad, sticky enable, scratchpad show
 
-for_window [instance="^scratchpad$"] floating enable, move position 314 0
-for_window [instance="^scratchpad$"] move scratchpad
-for_window [instance="^scratchpad$"] scratchpad show
+for_window [instance="^scratchpad$"] floating enable, move position 314 0, move scratchpad, scratchpad show
 
-for_window [instance="^ncmpcpp$"] move scratchpad
-for_window [instance="^ncmpcpp$"] sticky enable
-for_window [instance="^ncmpcpp$"] scratchpad show
+for_window [instance="^ncmpcpp$"] move scratchpad, sticky enable, scratchpad show
 
-for_window [instance="^floating man$"] floating enable
-for_window [instance="^floating man$"] move right 808 px
-for_window [instance="^floating man$"] move scratchpad
-for_window [instance="^floating man$"] scratchpad show
+for_window [instance="^floating man$"] floating enable, move right 808 px, move scratchpad, scratchpad show
 
-for_window [class="^XTerm$" instance="^peek$"] floating enable
-for_window [class="^XTerm$" instance="^peek$"] move right 745 px
-for_window [class="^XTerm$" instance="^peek$"] move scratchpad
-for_window [class="^XTerm$" instance="^peek$"] scratchpad show
+for_window [class="^XTerm$" instance="^peek$"] floating enable, move right 745 px, move scratchpad, scratchpad show
 
 # This enhances a keybind defined in `home/xbindkeysrc`.  TODO: set the keybind up here
 # and don't use XBindKeys for this one?
@@ -212,8 +189,7 @@ for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/qrenco
 
 for_window [class= "^feh$" instance="^feh$" title="^feh \[1 of 1\] - /tmp/feh_stdin_"] floating enable
 
-for_window [instance="^irssi$"] floating enable
-for_window [instance="^irssi$"] move right 640 px
+for_window [instance="^irssi$"] floating enable, move right 640 px
 
 for_window [class="^TelegramDesktop$" instance="^telegram-desktop$"] floating enable, move position 1870 10, resize set 1000 1780
 
