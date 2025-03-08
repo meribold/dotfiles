@@ -1281,7 +1281,7 @@ xkb_symbols "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)" {
     key <AC10> {         [       semicolon,           colon ] };
     key <AC11> {         [      apostrophe,        quotedbl ] };
     key <TLDE> {         [           grave,      asciitilde ] };
-    key <LFSH> {         [         Shift_L ] };
+    key <LFSH> {         [         Shift_L,       parenleft ] };
     key <BKSL> {         [       backslash,             bar ] };
     key <AB01> {
         type= "ALPHABETIC",
@@ -1314,7 +1314,7 @@ xkb_symbols "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)" {
     key <AB08> {         [           comma,            less ] };
     key <AB09> {         [          period,         greater ] };
     key <AB10> {         [           slash,        question ] };
-    key <RTSH> {         [         Shift_R ] };
+    key <RTSH> {         [         Shift_R,      parenright ] };
     key <KPMU> {
         type= "CTRL+ALT",
         symbols[Group1]= [     KP_Multiply,     KP_Multiply,     KP_Multiply,     KP_Multiply,   XF86ClearGrab ]

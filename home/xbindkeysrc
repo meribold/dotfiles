@@ -119,7 +119,7 @@
 "if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; else if screen -ls scratchpad; then screen -S scratchpad -X screen bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i; exec xterm -sl 0 -name scratchpad -geometry 160x30 -e 'screen -x scratchpad -p 42'; else exec xterm -sl 0 -name scratchpad -geometry 160x30 -e 'screen -S scratchpad bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i'; fi; fi"
    Mod4 + Control + i
 
-"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else if screen -ls scratchpad; then xterm -sl 0 -name scratchpad -geometry 160x30 -e 'screen -x scratchpad -p +'; else xterm -sl 0 -name scratchpad -geometry 160x30 -e 'screen -S scratchpad'; fi; fi"
+"if [[ $(i3-msg '[instance="^scratchpad$"] focus') == '[{"success":true}]' ]]; then screen -S scratchpad -X screen; else if screen -ls scratchpad; then exec xterm -sl 0 -name scratchpad -geometry 160x30 -e 'screen -x scratchpad -p +'; else exec xterm -sl 0 -name scratchpad -geometry 160x30 -e 'screen -S scratchpad'; fi; fi"
    Mod4 + backslash
 
 # Switch to or start Vim.
