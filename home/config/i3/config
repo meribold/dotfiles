@@ -188,6 +188,7 @@ for_window [instance="^ipython$"] move scratchpad
 for_window [instance="^ipython$"] sticky enable
 for_window [instance="^ipython$"] scratchpad show
 
+for_window [instance="^scratchpad$"] floating enable, move position 314 0
 for_window [instance="^scratchpad$"] move scratchpad
 for_window [instance="^scratchpad$"] scratchpad show
 
