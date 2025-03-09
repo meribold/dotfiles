@@ -1,4 +1,4 @@
 /home/emacs.d/emacs-vim-modeline
-/home/vim/pack/meribold/opt
-/home/vim/pack/meribold/start
+/home/vim/pack/*/opt
+/home/vim/pack/*/start
 /misc/aur

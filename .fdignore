@@ -1,6 +1,6 @@
-/home/config/nvim/pack/meribold/opt
-/home/config/nvim/pack/meribold/start
+/home/config/nvim/pack/*/opt
+/home/config/nvim/pack/*/start
 /home/emacs.d/emacs-vim-modeline
-/home/vim/pack/meribold/opt
-/home/vim/pack/meribold/start
+/home/vim/pack/*/opt
+/home/vim/pack/*/start
 /misc/aur
