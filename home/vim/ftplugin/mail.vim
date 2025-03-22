@@ -44,7 +44,7 @@ function! s:SendMail()
    startinsert
 endfunction
 
-nnoremap <buffer> <silent> <C-H> :<C-U>call <SID>SendMail()<CR>
+nnoremap <buffer> <silent> <BS> :<C-U>call <SID>SendMail()<CR>
 
 nnoremap <buffer> <silent> <localleader>f gg/From:<CR>:nohlsearch<CR>4lC: 
 nnoremap <buffer> <silent> <localleader>t gg/To:<CR>:nohlsearch<CR>2lC: 

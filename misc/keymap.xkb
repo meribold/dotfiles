@@ -349,6 +349,19 @@ xkb_types "complete" {
         level_name[Level2]= "Caps";
         level_name[Level3]= "Super";
     };
+    type "AD_H" {
+        modifiers= Shift+Lock+Control+Mod4;
+        map[Shift]= Level2;
+        map[Lock]= Level2;
+        map[Mod4]= Level3;
+        map[Shift+Mod4]= Level3;
+        preserve[Shift+Mod4]= Shift;
+        map[Control]= Level4;
+        map[Shift+Control]= Level4;
+        map[Mod4+Control]= Level3;
+        map[Mod4+Shift+Control]= Level3;
+        level_name[Level1]= "";
+    };
     type "KEYPAD" {
         modifiers= Shift+NumLock;
         map[NumLock]= Level2;
@@ -1261,9 +1274,9 @@ xkb_symbols "pc+us+inet(evdev)+terminate(ctrl_alt_bksp)" {
         symbols[Group1]= [               g,               G ]
     };
     key <AC06> {
-        type= "SUPERALPHABETIC",
-        symbols[Group1]= [               h,               H,            Left ],
-        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<LEFT>, clearMods=Mod4) ]
+        type= "AD_H",
+        symbols[Group1]= [               h,               H,            Left,       BackSpace ],
+        actions[Group1]= [ NoAction(), NoAction(), RedirectKey(keycode=<LEFT>, clearMods=Mod4), RedirectKey(keycode=<BKSP>, clearMods=Control) ]
     };
     key <AC07> {
         type= "SUPERALPHABETIC",
