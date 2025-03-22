@@ -276,6 +276,8 @@ alias pgs='pass git show'
 alias feh='feh -B black -.'
 alias msa='mpc search any'
 
+alias man='LANG=en_US luit man -E latin1'
+
 d() { dict "$@" |& less -FX; }
 
 # Stuff concerning Bash's command history
