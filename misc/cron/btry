@@ -2,8 +2,8 @@
 
 # Send a desktop notification displaying the remaining amount of energy stored in `BAT0`
 # if (and only if) the battery is currently discharging.  This is what works on my
-# ThinkPad X13 Gen 2 and may not be portable to other laptops without changes.  TODO:
-# increase the urgency as the battery depletes?
+# ThinkPad and may not be portable to other laptops without changes.  TODO: increase the
+# urgency as the battery depletes?
 
 set -o nounset -o pipefail
 

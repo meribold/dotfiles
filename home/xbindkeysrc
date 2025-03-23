@@ -144,7 +144,7 @@
    Mod4 + semicolon
 
 "xterm -sl 0 -name peek -geometry 97x68 -e ~/dotfiles/misc/keybind-scripts/peek"
-   Mod4 + space
+   Mod4 + Control + f
 
 # I previously used IPython here, but it's a bit slow to start compared to pretty much
 # every other potential option for doing some quick maths (`bc`, `calc`, `dc`, `lua`, just

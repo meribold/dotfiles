@@ -5,8 +5,8 @@ export EDITOR=vim
 export FIREFOX=firefox-esr
 export BROWSER=$FIREFOX
 
-# This makes GTK 3 applications look better on the 2560x1600 display of my ThinkPad X13
-# Gen 2.  See <https://wiki.archlinux.org/title/HiDPI#GDK_3_(GTK_3)>.
+# This makes GTK 3 applications look better on the 2880x1800 display of my ThinkPad.  See
+# <https://wiki.archlinux.org/title/HiDPI#GDK_3_(GTK_3)>.
 export GDK_SCALE=2 GDK_DPI_SCALE=0.5
 
 # This makes `tree` use color.

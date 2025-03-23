@@ -248,6 +248,16 @@ g() {
    fi
 }
 
+gcm() {
+   if (( $# > 0 )); then
+      git commit -m "$@"
+   elif git rev-parse @ &> /dev/null; then
+      git commit -m Stuff
+   else
+      git commit -m 'Initial commit'
+   fi
+}
+
 alias c='git commit'
 alias ci='git commit'
 alias ff='git merge --ff-only'
@@ -259,7 +269,6 @@ alias gp='git push'
 alias gap='git add -p'
 alias gau='git add -u'
 alias gds='git diff --staged'
-alias gcm='git commit -m'
 alias gin='git init --quiet'
 alias game='git commit --amend --quiet'
 alias gish='git show'
@@ -277,6 +286,8 @@ alias feh='feh -B black -.'
 alias msa='mpc search any'
 
 alias man='LANG=en_US luit man -E latin1'
+
+alias qn='qualified-noun'
 
 d() { dict "$@" |& less -FX; }
 

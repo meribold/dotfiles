@@ -38,10 +38,9 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 ## Installation
 
 Be warned that my setup is personal, opinionated, and sometimes my own information is
-hard-coded.  Some configuration is specific to [Arch][], my ThinkPad X13 Gen 2, or
-otherwise not portable.  That being said, you can specifically install the configuration
-for individual programs without any extraneous changes being made.  Installation uses [GNU
-Make][].
+hard-coded.  Some configuration is specific to [Arch][], my ThinkPad, or otherwise not
+portable.  That being said, you can specifically install the configuration for individual
+programs without any extraneous changes being made.  Installation uses [GNU Make][].
 
 Clone this repository to `~/dotfiles`:
 
