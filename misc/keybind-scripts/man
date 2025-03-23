@@ -17,6 +17,6 @@ mapfile -t selection < <(xterm -name 'floating xterm' -geometry 36x24 -e '
 
 [[ ${selection[0]} && ${selection[1]} ]] || exit
 
-LANG=en_US exec xterm -sl 0 -name 'floating man' \
+LC_CTYPE=en_US exec xterm -sl 0 -name 'floating man' \
    -title "${selection[1]}(${selection[0]}) manual page" \
    -geometry 88x68 -e man -E latin1 --nj --nh "${selection[@]}"

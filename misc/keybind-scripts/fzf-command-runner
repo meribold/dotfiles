@@ -214,8 +214,8 @@ less::resize 56 88; git -C ~/bash-history log --color=always --format='format:%a
 follow::resize 56 88; tig -C ~/bash-history::tig -C ~/bash-history
 follow::vdirsyncer sync
 nostdout::gpg --sign --armor <<< mellon
-background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/forge::forge
-background::exec xterm -name 'floating xterm' -e ~/dotfiles/misc/keybind-scripts/reforge::reforge
+background::exec xterm -name 'floating xterm' -e forge::forge
+background::exec xterm -name 'floating xterm' -e reforge::reforge
 ::resize 22 80; cat /etc/pacman.d/mirrorlist::cat /etc/pacman.d/mirrorlist
 follow::git -C ~/wiki pull --ff-only
 ::resize 28 98; xset q::xset q

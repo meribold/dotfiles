@@ -158,6 +158,7 @@ alias jp='cd ~/projects'
 alias jw='cd ~/wiki'
 alias jr='cd ~/projects/resume'
 alias jm='cd ~/projects/meribold.org'
+alias jf='cd "$(forge --dir)"'
 
 xrn() {
    if (( $? )); then
@@ -285,7 +286,7 @@ alias pgs='pass git show'
 alias feh='feh -B black -.'
 alias msa='mpc search any'
 
-alias man='LANG=en_US luit man -E latin1'
+alias man='LC_CTYPE=en_US luit man -E latin1'
 
 alias qn='qualified-noun'
 

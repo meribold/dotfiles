@@ -11,7 +11,11 @@ if [[ $0 != *reforge ]]; then
 fi
 
 if [[ -v d && -d $d ]]; then
-   vim "$d/main.cpp" +'set aw' +'cd %:h'
+   if [[ ${1:-} == --dir ]]; then
+      printf '%s\n' "$d"
+   else
+      vim "$d/main.cpp" +'set aw' +'cd %:h'
+   fi
    exit
 fi
 
@@ -33,4 +37,8 @@ main: main.cpp
 	g++ -Wall -Wextra -pedantic $< -o $@
 EOF
 
-vim "$d/main.cpp" +'set aw' +'cd %:h' +6 +'startinsert!'
+if [[ ${1:-} == --dir ]]; then
+   printf '%s\n' "$d"
+else
+   vim "$d/main.cpp" +'set aw' +'cd %:h' +6 +'startinsert!'
+fi
