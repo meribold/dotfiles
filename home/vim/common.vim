@@ -904,3 +904,8 @@ endfunction
 autocmd vimrc_common WinEnter * call s:RecollapsePreviousWindow()
 
 autocmd vimrc_common TabClosed * tabp
+
+" This makes it so that delimitMate is loaded before vim-endwise, because it doesn't work
+" otherwise.  The loading order used to work out by default, but it changed when I grouped
+" Vim plugins into two directories (57613a3152319696e8dc73e2a793aa3c2e3a14e9).
+packadd! delimitMate

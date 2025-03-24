@@ -9,7 +9,7 @@ d=$(awk '!seen[$0]++' <<EOF | sed '/^$/d' | fzf --layout reverse
 ~/wiki
 /etc
 $(_z |& sed "s/^[0-9.]* *//; s:$HOME:~:" | tail -n 15)
-$(ls -t1d ~/tmp/forge* 2>/dev/null | head -n1)
+$(forge --dir)
 $(find ~/projects -maxdepth 1 -mindepth 1 -type d -printf '~/projects/%f\n')
 ~/dotfiles/misc/muccadoro
 ~/contacts

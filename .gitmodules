@@ -248,7 +248,7 @@
 	path = home/vim/pack/various-artists/start/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
 [submodule "home/vim/pack/meribold/start/delimitMate"]
-	path = home/vim/pack/various-artists/start/delimitMate
+	path = home/vim/pack/various-artists/opt/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
 [submodule "home/vim/pack/meribold/start/vim-endwise"]
 	path = home/vim/pack/tim-pope/start/vim-endwise
