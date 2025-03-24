@@ -5,7 +5,7 @@ shopt -s extglob
 
 if [[ $0 != *reforge ]]; then
    IFS= read -r d < <(
-      find ~/tmp/forge -mindepth 1 -maxdepth 1 -type d -printf '%A@\t%p\n' |
+      find ~/tmp/forge -mindepth 1 -maxdepth 1 -type d -printf '%T@\t%p\n' |
       sort -rn | cut -f2
    )
 fi
