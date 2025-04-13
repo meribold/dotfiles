@@ -594,7 +594,7 @@ endif
 
 function! s:CycleHorizontally()
    if v:count > 0
-      execute 'normal!' v:count .. "\<C-W>w"
+      execute 'normal!' v:count .. "\<C-W>w\<C-W>_"
    elseif win_screenpos(winnr('#'))[1] != win_screenpos(0)[1]
       wincmd p
    elseif win_screenpos(winnr('$'))[1] == 1

@@ -13,7 +13,7 @@
               "swallows": [{ "title": "^ip address show eth0$" }]
             },
             {
-              "swallows": [{ "title": "^route$" }]
+              "swallows": [{ "title": "^routes$" }]
             }
           ]
         },

@@ -30,7 +30,7 @@ i3-msg restart
 autosize::ip link
 autosize::ip address
 autosize::ip address show wlan0
-autosize::ip route
+autosize::ip route | column -t::ip route
 autosize::iw wlan0 info
 autosize::iw wlan0 link
 ::resize 68 88; sudo iw dev wlan0 scan::iw dev wlan0 scan

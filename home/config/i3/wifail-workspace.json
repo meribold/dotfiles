@@ -3,7 +3,7 @@
   "nodes": [
     {
       "layout": "splith",
-      "percent": 0.34,
+      "percent": 0.45,
       "nodes": [
         {
           "percent": 0.6,
@@ -17,7 +17,7 @@
     },
     {
       "layout": "splith",
-      "percent": 0.4,
+      "percent": 0.3,
       "nodes": [
         {
           "percent": 0.44,
@@ -33,7 +33,7 @@
             },
             {
               "percent": 0.45,
-              "swallows": [{ "title": "^route$" }]
+              "swallows": [{ "title": "^routes$" }]
             }
           ]
         }
@@ -41,7 +41,7 @@
     },
     {
       "layout": "splith",
-      "percent": 0.26,
+      "percent": 0.25,
       "nodes": [
         {
           "swallows": [{ "title": "^ping gateway$" }]

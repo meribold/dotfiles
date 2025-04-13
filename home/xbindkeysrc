@@ -123,7 +123,7 @@
    Mod4 + backslash
 
 # Switch to or start Vim.
-"[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -geometry 97x69 -name vim -e vim -S"
+"[[ $(i3-msg '[instance="^vim$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -geometry 97x69 -name vim -e 'stty -ixon; vim -S'"
    Mod4 + v
 
 # Start or kill ncmpcpp.

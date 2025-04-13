@@ -12,7 +12,7 @@
 
 f=$(mktemp) &&
 xsel -o > "$f" &&
-xterm -name vimsel -e vim +'set ft=markdown' "$f" &&
+xterm -name vimsel -e "stty -ixon; vim +'set ft=markdown' \"$f\"" &&
 xsel --clipboard < "$f"
 
 # [1]: https://github.com/cknadler/vim-anywhere
