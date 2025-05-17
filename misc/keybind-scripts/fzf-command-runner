@@ -239,10 +239,7 @@ NetHack() {
 
 lock() {
    nohup lock &>/dev/null &
-   sleep 0.001
-   if [[ $(cat /sys/class/power_supply/BAT0/status) == 'Discharging' ]]; then
-      xset dpms force off
-   fi
+   sleep 0.01
 }
 
 # A precondition of this function is $1 <= $2 (or $# == 0).

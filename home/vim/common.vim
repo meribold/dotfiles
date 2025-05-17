@@ -686,6 +686,9 @@ nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
 nnoremap <silent> + :set ead=hor ea ead=ver \| sp \| q \| set noea<CR>
 set noea
 
+nnoremap _ <C-W>_
+nnoremap <C-_> <C-W>_
+
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
 " <https://stackoverflow.com/q/18523150> and <https://vi.stackexchange.com/q/2365>.
@@ -821,7 +824,12 @@ function! s:Dwmify()
    execute master_winnr .. 'wincmd w'
    wincmd H
 endfunction
-nnoremap <silent> <C-L> :call <SID>Dwmify()<CR>
+nnoremap <silent> <C-W><Space> :call <SID>Dwmify()<CR>
+nnoremap <silent> <C-W><Nul> :call <SID>Dwmify()<CR>
+nnoremap <silent> <C-W><CR> :call <SID>Dwmify()<CR>
+
+nnoremap <silent> <BS> :set lz<Bar>exe "normal! <C-V><C-W>W<C-V><C-W>_"<Bar>set nolz<CR>
+nnoremap <silent> <C-L> :set lz<Bar>exe "normal! <C-V><C-W>w<C-V><C-W>_"<Bar>set nolz<CR>
 
 " After entering a window (WinEnter event) and if the previous window has a height of only
 " a single line, change the previous window's height to 0.  This only makes sense when

@@ -13,6 +13,13 @@ set shortmess+=F
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" This prevents XTerm's `modifyOtherKeys` feature being enabled automatically.  See `:h
+" modifyOtherKeys`.  The `modifyOtherKeys` feature facilitates Vim recognizing and
+" distinguishing more key combinations, but stuff like Alt+b and Alt+f in Vim's built-in
+" terminal breaks when the feature is enabled.  I added this on 2025-05-17.
+let &t_TI = ""
+let &t_TE = ""
+
 set maxmem=2000000    " Lots of memory for each buffer.
 set maxmemtot=2000000 " Lots of memory for all buffers together.
 
