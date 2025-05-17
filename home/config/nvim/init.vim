@@ -30,7 +30,7 @@ command! Mail call s:new_mail()
 
 " Do something with Alt.  Maybe just having some normal mode commands in insert mode would
 " be cool.
-inoremap <M-h> <Left>
-inoremap <M-j> <Down>
-inoremap <M-k> <Up>
-inoremap <M-l> <Right>
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>

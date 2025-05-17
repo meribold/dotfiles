@@ -133,7 +133,7 @@ man::gitrevisions::man gitrevisions
 time cat
 background::sleep 0.1; maim | xclip -selection clipboard -t image/png::maim | xclip -selection clipboard -t image/png
 background::maim -su -b 2 -c .843,.373,.373 --nokeyboard | xclip -selection clipboard -t image/png
-zbarimg -q <(maim)
+zbarimg -q <(maim) # decode QR codes
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --geometry=25%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-70 --geometry=32%-4-4 /dev/video0
 background::exec mpv --no-osc --vf=hflip --video-unscaled=yes -x11-name='webcam feed' --saturation=-100 --geometry=32%-4-4 /dev/video0
@@ -171,7 +171,9 @@ cat /proc/sys/kernel/sysrq
 cat /sys/module/usbcore/parameters/autosuspend
 cat /proc/cmdline # check what kernel parameters we booted with
 >/dev/null trans -speak en: spinach
+autosize::amixer get Master
 amixer set Master mute
+autosize::wpctl status # WirePlumber/PipeWire tool
 kill -l
 ipa
 iipa
@@ -200,7 +202,7 @@ journalctl --disk-usage
 ::resize 8 100; crontab -l::crontab -l
 background::gpg --export --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - | feh -; do :; done
 gpg --export-secret-subkeys --export-options export-minimal --armor '3A1A48ABF4BD4C6D60133CC3C4FDE68734E7F155!' | while dd bs=512 count=1 status=none | qrencode --size=9 -o - 2>/dev/null | feh - 2>/dev/null; do :; done
-::resize 20 88; cpupower frequency-info::cpupower frequency-info
+autosize::cpupower frequency-info
 sudo cpupower frequency-set --governor powersave >/dev/null
 sudo cpupower frequency-set --governor performance >/dev/null
 sudo cpupower frequency-set --governor powersave --max 400MHz >/dev/null # sloth/turtle mode

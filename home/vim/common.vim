@@ -674,13 +674,23 @@ nmap <C-F> <Plug>(qf_qf_toggle_stay)
 " Search and highlight but don't jump.  See <https://stackoverflow.com/a/60583995>.
 nnoremap <silent> <C-B> :let @/ = '\<' .. expand('<cword>') .'\>' \| set hlsearch<CR>
 
-" More convenient mappings for maximizing the width or height of the current window.  They
-" fall back to the default mappings of | and _ when no count is given (<C-W>| and <C-W>_
-" can still be used with a count -- I don't really do that, though, but I don't really use
-" | or _ either).  Based on the mappings from [this comment by justinmk][1].
-" [1]: https://reddit.com/comments/4jyw8o//d3ayzox
-nnoremap <expr> \| !v:count ? '<C-W>\|' : '\|'
-nnoremap <expr> _  !v:count ? '<C-W>_'  : '_'
+function! s:MaximizeWindow()
+   let curwin = winnr()
+   if win_screenpos(winnr('$'))[1] == 1
+      wincmd t
+      wincmd H
+   else
+      for _ in range(winnr('$'))
+         execute winnr('$') .. 'wincmd w'
+         wincmd K
+      endfor
+   endif
+   execute curwin .. 'wincmd w'
+   wincmd _
+endfunction
+nnoremap <silent> <Bar> :call <SID>MaximizeWindow()<CR>
+nnoremap <silent> <C-\> :call <SID>MaximizeWindow()<CR>
+
 " This is a cursed variation of <https://stackoverflow.com/a/45591177> that I wrote
 " because I wanted to disable 'equalalways'.
 nnoremap <silent> + :set ead=hor ea ead=ver \| sp \| q \| set noea<CR>

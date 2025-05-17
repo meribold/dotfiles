@@ -58,6 +58,8 @@ bindsym $mod+a focus parent
 # Focus the child container.
 bindsym $mod+d focus child
 
+bindsym $mod+comma scratchpad show
+
 # Make the currently focused window a scratchpad.
 bindsym $mod+period move scratchpad
 
