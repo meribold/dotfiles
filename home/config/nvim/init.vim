@@ -27,10 +27,3 @@ function! s:new_mail()
    0r ~/.vim/skeleton/skeleton.eml | w | $
 endfunction
 command! Mail call s:new_mail()
-
-" Do something with Alt.  Maybe just having some normal mode commands in insert mode would
-" be cool.
-inoremap <A-h> <Left>
-inoremap <A-j> <Down>
-inoremap <A-k> <Up>
-inoremap <A-l> <Right>

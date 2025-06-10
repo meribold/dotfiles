@@ -78,7 +78,7 @@ browse::https://www.computerbase.de::ComputerBase
 browse::https://meribold.goatcounter.com::GoatCounter
 evalbrowse::wiki.meribold.eu/$(date -I)
 background::xdotool type "$(date -I)"
-background::xdotool type "$(date +'%B %d, %Y')"
+background::xdotool type "$(date +'%B %-d, %Y')"
 background::xdotool type "# $(date -I)"$'\r\r'"[[$(date +%Y)]]"$'\r\r---\r\r'
 background::xdotool type REDACTED # my phone number
 background::xdotool type REDACTED # my phone number

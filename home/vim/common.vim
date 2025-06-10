@@ -127,6 +127,8 @@ set modeline
 " Don't automatically yank all visual selections into the "* register.
 set clipboard-=autoselect
 
+set clipboard^=unnamedplus
+
 " Make ^X^K work without having spell checking enabled (without `:set spell`).
 set dictionary+=spell
 
@@ -257,6 +259,8 @@ set spelllang=en_us
 
 set winminwidth=0 winminheight=0
 set winwidth=97
+
+set splitright
 
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -593,12 +597,21 @@ else
 endif
 
 function! s:CycleHorizontally()
-   if v:count > 0
+   if winnr('$') == 1
+      return
+   elseif v:count > 0
       execute 'normal!' v:count .. "\<C-W>w\<C-W>_"
    elseif win_screenpos(winnr('#'))[1] != win_screenpos(0)[1]
       wincmd p
    elseif win_screenpos(winnr('$'))[1] == 1
-      wincmd w
+      if winnr() == winnr('$')
+         let new_winnr = 2
+      else
+         let new_winnr = winnr() + 1
+      endif
+      wincmd H
+      execute new_winnr .. 'wincmd w'
+      wincmd _
    elseif winnr() == winnr('l')
       while winnr() != winnr('h') | wincmd h | endwhile
    else
@@ -688,16 +701,33 @@ function! s:MaximizeWindow()
    execute curwin .. 'wincmd w'
    wincmd _
 endfunction
-nnoremap <silent> <Bar> :call <SID>MaximizeWindow()<CR>
-nnoremap <silent> <C-\> :call <SID>MaximizeWindow()<CR>
+nnoremap <silent> <Bslash> :call <SID>MaximizeWindow()<CR>
 
 " This is a cursed variation of <https://stackoverflow.com/a/45591177> that I wrote
 " because I wanted to disable 'equalalways'.
 nnoremap <silent> + :set ead=hor ea ead=ver \| sp \| q \| set noea<CR>
 set noea
 
-nnoremap _ <C-W>_
-nnoremap <C-_> <C-W>_
+function! s:IsVerticallySplit()
+   let col = win_screenpos(0)[1]
+   return len(filter(range(1, winnr('$')), {_, nr -> win_screenpos(nr)[1] == col})) > 1
+endfunction
+
+function! s:ToggleHeight()
+   if v:count
+      execute v:count .. 'wincmd _'
+   else
+      let wh = winheight(0)
+      wincmd _
+      if winheight(0) == wh
+         if s:IsVerticallySplit()
+            set ead=hor ea ead=ver | sp | q | set noea
+         endif
+      endif
+   endif
+endfunction
+nnoremap <silent> _ :call <SID>ToggleHeight()<CR>
+nnoremap <silent> <C-_> :call <SID>ToggleHeight()<CR>
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
@@ -738,10 +768,11 @@ nnoremap <silent> U :Windows<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>F :Files ~/projects<CR>
 nnoremap <silent> <Leader>l :Buffers<CR>
-nnoremap <silent> <Leader>L :History<CR>
-nnoremap <silent> <Leader>a :Rg <C-R><C-W><CR>
-nnoremap <silent> <Leader>A :Rg <C-R><C-A><CR>
-nnoremap <silent> <Leader>: :History:<CR>
+nnoremap <silent> <Leader>a :Rg \b<C-R><C-W>\b<CR>
+nnoremap <silent> <Leader>A :RG <C-R><C-W><CR>
+nnoremap <silent> <Leader>r :Rg<CR>
+nnoremap <silent> <Leader>R :RG<CR>
+nnoremap <silent> <Leader>; :History:<CR>
 nnoremap <silent> <Leader>/ :History/<CR>
 nnoremap <silent> <Leader><Leader> :Snippets<CR>
 " nnoremap <silent> <Leader>c :Commits<CR>
@@ -758,10 +789,6 @@ nnoremap <silent> <Leader>M :Neomake!<CR>
 silent! nunmap <Leader>ih
 silent! nunmap <Leader>is
 silent! nunmap <Leader>ihn
-
-" Mappings for pastery.vim commands.
-nnoremap <silent> <Leader>p :PasteFile<CR>
-vnoremap <silent> <Leader>p :PasteCode<CR>
 
 nnoremap <silent> <Leader>u :silent update<CR>
 nnoremap <silent> <Leader>U :Gwrite<CR>
@@ -816,6 +843,18 @@ nnoremap <silent> <expr> <CR> <SID>OnEnter()
 " This works around E481 caused by :noh not accepting a range (just try :noh in visual
 " mode).  TODO: it feels pretty inelegant, though.
 xnoremap <silent> <expr> <CR> '<Esc>' .. <SID>OnEnter() .. 'gv'
+
+function! s:LeftRightWindowMove()
+   let l:direction = winnr() != winnr('l') ? 'l' : 'h'
+   let l:target = winnr(direction)
+   if target == winnr() || !s:IsVerticallySplit()
+      execute 'wincmd' toupper(direction)
+   else
+      call win_splitmove(winnr(), target)
+   endif
+endfunction
+nnoremap <silent> <Bar> :call <SID>LeftRightWindowMove()<CR>
+nnoremap <silent> <C-\> :call <SID>LeftRightWindowMove()<CR>
 
 function! s:Dwmify()
    let master_winnr = winnr()
@@ -920,6 +959,65 @@ function! s:RecollapsePreviousWindow()
    endif
 endfunction
 autocmd vimrc_common WinEnter * call s:RecollapsePreviousWindow()
+
+inoremap <Tab> <Esc>
+inoremap <Nul> <C-X><C-O>
+
+" Do something with Alt.  Maybe just having some normal mode commands in insert mode would
+" be cool.
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>
+
+function! s:LongJumpBackward()
+   let [jumps, jump_pos] = getjumplist()
+   for i in reverse(range(0, jump_pos - 1))
+      if !bufexists(jumps[i].bufnr)
+         continue
+      endif
+      if jumps[i].bufnr != bufnr()
+         execute 'normal!' (jump_pos - i) .. "\<C-O>"
+         return
+      endif
+   endfor
+endfunction
+nnoremap <silent> <A-o> :call <SID>LongJumpBackward()<CR>
+
+function! s:LongJumpForward()
+   let [jumps, jump_pos] = getjumplist()
+   if jump_pos >= len(jumps) - 1
+      return
+   endif
+   for i in range(jump_pos + 1, len(jumps) - 1)
+      if !bufexists(jumps[i].bufnr)
+         continue
+      endif
+      if jumps[i].bufnr != bufnr()
+         break
+      endif
+   endfor
+   let jump_count = i - jump_pos
+   let increment = 1
+   for j in range(i + 1, len(jumps) - 1)
+      if !bufexists(jumps[j].bufnr)
+         let increment += 1
+      elseif jumps[j].bufnr == jumps[i].bufnr
+         let jump_count += increment
+         let increment = 1
+      else
+         break
+      endif
+   endfor
+   execute 'normal!' jump_count .. "\<C-I>"
+endfunction
+nnoremap <silent> <A-i> :call <SID>LongJumpForward()<CR>
+
+nnoremap <A-h> gT
+nnoremap <A-l> gt
+
+nnoremap <silent> <A-j> :cbelow<CR>
+nnoremap <silent> <A-k> :cabove<CR>
 
 autocmd vimrc_common TabClosed * tabp
 

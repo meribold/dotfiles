@@ -81,3 +81,16 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 " [1]: https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 " [2]: https://github.com/neovim/neovim/issues/2676
+
+command! Mail new | set ft=mail
+
+" This makes stuff like `inoremap <A-h> <Left>` work.  But it breaks the default Readline
+" behavior in Vim's built-in terminal, which is why we're skipping a few letters.  In
+" Neovim, everything works out of the box.
+for i in range(65, 90) + range(97, 122)
+   let c = nr2char(i)
+   if c == "a" || c == "b" || c == "d" || c == "f"
+      continue
+   endif
+   exe "set <A-" .. c .. ">=\e" .. c
+endfor

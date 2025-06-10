@@ -46,6 +46,6 @@
 
 ! White (color 188); "Normal" highlighting group
 *color7:  #dfdfdf
-*color15: #dfdfdf
+*color15: #ffffff
 
 ! vim: ft=xdefaults

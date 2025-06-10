@@ -89,6 +89,7 @@ alias -- -='cd - >/dev/null'
 
 # See <https://wiki.archlinux.org/title/Sudo>.
 alias sudo='sudo '
+alias ds='ds '
 
 alias ls=elles
 alias l=elles
@@ -197,13 +198,9 @@ instagit() {
 # /usr/share/fzf/key-bindings.bash (as of fzf 0.16.8-1 from Arch's community repo,
 # <https://www.archlinux.org/packages/community/x86_64/fzf/>).
 __fzf_oneliners__() {
-   if [[ -e ~/dotfiles/misc/oneliners.$HOSTNAME.bash ]]; then
-      FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
-         < <(cat ~/dotfiles/misc/oneliners{,".$HOSTNAME"}.bash)
-   else
-      FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) \
-         < ~/dotfiles/misc/oneliners.bash
-   fi
+   FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS" $(__fzfcmd) < <(
+      cat ~/dotfiles/misc/oneliners{,".$HOSTNAME"}.bash 2> /dev/null
+   )
 }
 
 # Invoke __fzf_oneliners__ with Control+I (xterm is configured to send ÿ when Control+I is
@@ -260,7 +257,7 @@ gcm() {
 }
 
 alias c='git commit'
-alias ci='git commit'
+alias ci="git -c core.editor='vim +startinsert' commit --quiet"
 alias ff='git merge --ff-only'
 alias ga='git add'
 alias gd='git diff'
@@ -283,7 +280,7 @@ alias pg='pass git'
 alias pgl='pass git log'
 alias pgs='pass git show'
 
-alias feh='feh -B black -.'
+alias feh='feh -.Zg 1440x1080 -B black '
 alias msa='mpc search any'
 
 alias man='LC_CTYPE=en_US luit man -E latin1'

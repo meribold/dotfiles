@@ -27,7 +27,7 @@ def modeline(overrides = {}):
     options = " ".join(options)
     commentstring = vim.eval("&commentstring")
     if vim.eval("&ft") and commentstring:
-        if re.search("%s.*\S", commentstring): # We are using block comments: i.e., there
+        if re.search(r"%s.*\S", commentstring): # We are using block comments: i.e., there
             # are delimiters indicating the beginning and the end of the comment (like
             # C-style comments).  Only the second modeline form allows this.
             return re.sub(" ?%s ?", " vim: set %s: " % options, commentstring).strip()
@@ -39,5 +39,3 @@ def modeline(overrides = {}):
 # Vim checks the last 5 lines of files for modelines (by default) and will confuse some of
 # the code above for modelines and throw E518 when starting to edit this file.  Luckily,
 # this comment puts those lines out of that range.
-
-# vim: tw=90 sts=-1 sw=4 et
