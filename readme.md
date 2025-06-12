@@ -1,5 +1,4 @@
-Dotfiles for [Vim and Neovim](home/vim/), [i3-gaps](home/config/i3/),
-[NeoMutt](home/config/neomutt/),
+Dotfiles for [Vim and Neovim](home/vim/), [i3](home/config/i3/),
 [Fontconfig](home/config/fontconfig/),
 [e](home/xresources)[t](home/xinitrc)[c](home/gitconfig)[.](home/config/ncmpcpp)
 [p](home/config/dunst/dunstrc)[p](home/config/newsboat)[.](home/mozilla/firefox/ctontcrf.default)
