@@ -1016,8 +1016,31 @@ nnoremap <silent> <A-i> :call <SID>LongJumpForward()<CR>
 nnoremap <A-h> gT
 nnoremap <A-l> gt
 
-nnoremap <silent> <A-j> :cbelow<CR>
-nnoremap <silent> <A-k> :cabove<CR>
+function! s:QuickfixMoveOrCc(move_command)
+   try
+      execute v:count .. a:move_command
+   catch /^Vim\%((\a\+)\)\=:E42:/
+      " Ignore E42
+   catch /^Vim\%((\a\+)\)\=:E553:/
+      cc
+   endtry
+endfunction
+
+nnoremap <silent> <A-j> :<C-U>call <SID>QuickfixMoveOrCc('cbelow')<CR>
+nnoremap <silent> <A-k> :<C-U>call <SID>QuickfixMoveOrCc('cabove')<CR>
+
+function! s:RotateToEdge()
+   if v:count
+      execute v:count .. 'wincmd r'
+   elseif winnr() == winnr('k')
+      wincmd R
+   else
+      while winnr() != winnr('k')
+         wincmd R
+      endwhile
+   endif
+endfunction
+nnoremap <silent> <A-r> :<C-U>silent! call <SID>RotateToEdge()<CR>
 
 autocmd vimrc_common TabClosed * tabp
 

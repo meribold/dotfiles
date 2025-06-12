@@ -248,11 +248,11 @@ g() {
 
 gcm() {
    if (( $# > 0 )); then
-      git commit -m "$@"
+      git commit -qm "$@"
    elif git rev-parse @ &> /dev/null; then
-      git commit -m Stuff
+      git commit -qm Stuff
    else
-      git commit -m 'Initial commit'
+      git commit -qm 'Initial commit'
    fi
 }
 
