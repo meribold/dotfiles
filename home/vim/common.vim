@@ -847,8 +847,8 @@ nnoremap <silent> <expr> <CR> <SID>OnEnter()
 xnoremap <silent> <expr> <CR> '<Esc>' .. <SID>OnEnter() .. 'gv'
 
 function! s:LeftRightWindowMove()
-   let l:direction = winnr() != winnr('l') ? 'l' : 'h'
-   let l:target = winnr(direction)
+   let direction = winnr() != winnr('l') ? 'l' : 'h'
+   let target = winnr(direction)
    if target == winnr() || !s:IsVerticallySplit()
       execute 'wincmd' toupper(direction)
    else
@@ -859,10 +859,15 @@ nnoremap <silent> <Bar> :call <SID>LeftRightWindowMove()<CR>
 nnoremap <silent> <C-\> :call <SID>LeftRightWindowMove()<CR>
 
 function! s:Dwmify()
-   let old_winnr = winnr()
-   if win_screenpos(winnr('$'))[1] != 1
-      call s:MaximizeWindow()
+   if win_screenpos(winnr('$'))[1] == 1
+      wincmd H
+      return
    endif
+   if winnr() == 1 && win_screenpos(2)[1] != 1
+      call s:CycleHorizontally()
+   endif
+   let old_winnr = winnr()
+   call s:MaximizeWindow()
    1wincmd x
    wincmd t
    wincmd H
