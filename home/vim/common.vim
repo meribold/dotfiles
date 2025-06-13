@@ -638,6 +638,8 @@ noremap ; :
 nnoremap q; q:
 vnoremap q; q:
 
+nnoremap <silent> , :echo<CR>
+
 " Use . (`:h .`) in visual mode to repeat the last change for each selected line (see
 " `:h :normal-range`).  This often doesn't work as expected.  Try repeating `dd`.  The
 " mapping doesn't override anything though, so it's probably still worth keeping.  Picked
@@ -857,25 +859,17 @@ nnoremap <silent> <Bar> :call <SID>LeftRightWindowMove()<CR>
 nnoremap <silent> <C-\> :call <SID>LeftRightWindowMove()<CR>
 
 function! s:Dwmify()
-   let master_winnr = winnr()
-   if master_winnr == 1 && win_screenpos(2)[1] != 1
-      let master_winnr = winnr('$')
+   let old_winnr = winnr()
+   if win_screenpos(winnr('$'))[1] != 1
+      call s:MaximizeWindow()
    endif
+   1wincmd x
    wincmd t
-   wincmd w
-   while winnr() != 1
-      if win_screenpos(0)[1] != 1
-         execute 'wincmd J | ' .. winnr() .. 'wincmd w'
-      else
-         wincmd w
-      endif
-   endwhile
-   execute master_winnr .. 'wincmd w'
    wincmd H
+   execute old_winnr .. 'resize'
 endfunction
-nnoremap <silent> <C-W><Space> :call <SID>Dwmify()<CR>
-nnoremap <silent> <C-W><Nul> :call <SID>Dwmify()<CR>
-nnoremap <silent> <C-W><CR> :call <SID>Dwmify()<CR>
+nnoremap <silent> <Nul> :call <SID>Dwmify()<CR>
+nnoremap <silent> <A-CR> :call <SID>Dwmify()<CR>
 
 nnoremap <silent> <BS> :set lz<Bar>exe "normal! <C-V><C-W>W<C-V><C-W>_"<Bar>set nolz<CR>
 nnoremap <silent> <C-L> :set lz<Bar>exe "normal! <C-V><C-W>w<C-V><C-W>_"<Bar>set nolz<CR>

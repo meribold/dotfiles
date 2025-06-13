@@ -94,3 +94,4 @@ for i in range(97, 122)
    endif
    exe "set <A-" .. c .. ">=\e" .. c
 endfor
+exe "set <A-CR>=\e\r"
