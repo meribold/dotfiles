@@ -18,7 +18,7 @@ GIT_CRYPT ?= git-crypt
 
 # This is the default goal.
 help:
-	@echo Available targets: vim, nvim, git, bash, screen, mutt, xterm, \
+	@echo Available targets: vim, nvim, git, bash, screen, xterm, \
 	   gpg,$$'\n                  ' crontab, fortunes, irssi, readline
 
 # Explicitly initialize as simple variables as recursive ones are the default.  Some
@@ -170,13 +170,6 @@ links += $(xterm_links)
 .PHONY: xterm
 xterm: $(xterm_links)
 all: xterm
-
-mutt_link_targets := $(wildcard home/mutt/*) home/urlview
-mutt_links := $(patsubst home/%,$(HOME)/.%,$(mutt_link_targets))
-links += $(mutt_links)
-.PHONY: mutt
-mutt: $(mutt_links)
-all: mutt
 
 $(HOME)/.irssi/scripts/autorun/nickcolor.pl: | $(HOME)/.irssi/scripts/autorun
 	curl -fo $@ https://raw.githubusercontent.com/irssi/scripts.irssi.org/42abf11a3e36275d83c024a383f1d7ee09c65845/scripts/nickcolor.pl

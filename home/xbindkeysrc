@@ -103,13 +103,6 @@
 "i3-msg '[class="^firefox-esr$"] focus'"
    Mod4 + f
 
-# Switch to or start NeoMutt.  The `GPG_TTY=$(tty)` variable assignment makes sure that
-# the creation of the `pinentry-curses` dialog doesn't fail.  This dialog is indirectly
-# created by `pass` when my NeoMutt configuration invokes it to get passwords.  For more
-# details, search for `GPG_TTY` in `home/bashrc`.
-"[[ $(i3-msg '[instance="^neomutt$" class="^XTerm$"] focus') == '[{"success":true}]' ]] || xterm -name neomutt -e 'GPG_TTY=$(tty) neomutt'"
-   Mod4 + m
-
 "xterm -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
    Mod4 + Control + m
 

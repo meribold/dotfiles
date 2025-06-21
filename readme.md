@@ -60,8 +60,8 @@ mv ~/.vim ~/.vim.backup
 make vim
 ```
 
-The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `mutt`,
-`xterm`, `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
+The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `xterm`,
+`gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.
 
 Make may consider targets to be up to date because of existing files that conflict with
 the links it should create.  The `-B` flag (e.g. `make -B vim`) forces remaking of all

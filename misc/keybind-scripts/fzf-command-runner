@@ -63,7 +63,6 @@ browse::https://app.fastmail.com/settings/masked
 browse::https://app.fastmail.com/settings/masked/new
 browse::https://app.fastmail.com/mail/compose
 browse::https://console.aws.amazon.com::console.aws.amazon.com
-browse::file:///usr/share/doc/neomutt/manual.html
 browse::file:///usr/share/doc/arch-wiki/html/en/Network_configuration.html
 browse::moz-extension://bbd71618-3b7d-474d-94c7-2e062c6a5870/onetab.html::OneTab
 browse::https://wiki.meribold.eu/Home::wiki.meribold.eu

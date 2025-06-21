@@ -72,8 +72,6 @@ mount ~/v8x && { pass git pull; umount ~/v8x; } # pull to ~/.password-store
 mount ~/v8x && { pass git push; umount ~/v8x; } # push ~/.password-store
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
 mpv av://v4l2:/dev/video0
-mutt_pid=$(pgrep neomutt) && sudo strace -p "$mutt_pid"
-neomutt -s 'Hi.' 'wise.text9686@fastmail.com' <<< ''
 nohup xdg-open file &>/dev/null <&1 &
 nx describe esgaroth Esgaroth
 nx describe s3 'Amazon S3'
