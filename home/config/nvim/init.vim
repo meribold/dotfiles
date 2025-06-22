@@ -19,11 +19,3 @@ autocmd vimrc_init TermOpen * setlocal nonumber norelativenumber
 
 " See `:h :term`.
 autocmd vimrc_common TermOpen * startinsert
-
-function! s:new_mail()
-   let l:path = system('mktemp --tmpdir XXXXXXXXXX.eml')
-   execute 'sp' l:path
-   " See the help for `skeleton`.
-   0r ~/.vim/skeleton/skeleton.eml | w | $
-endfunction
-command! Mail call s:new_mail()

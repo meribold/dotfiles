@@ -103,9 +103,6 @@
 "i3-msg '[class="^firefox-esr$"] focus'"
    Mod4 + f
 
-"xterm -name 'floating xterm' -e nvim +'inoremap <C-Space> <Esc>:Snippets<CR>' +Mail +1bw +startinsert"
-   Mod4 + Control + m
-
 "xterm -name 'floating xterm' -geometry 36x25 -e bash --rcfile ~/dotfiles/misc/keybind-scripts/super-i -s resize"
    Mod4 + i
 

@@ -82,8 +82,6 @@ endif
 " [1]: https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 " [2]: https://github.com/neovim/neovim/issues/2676
 
-command! Mail new | set ft=mail
-
 " This makes stuff like `inoremap <A-h> <Left>` work.  But it breaks the default Readline
 " behavior in Vim's built-in terminal, which is why we're skipping a few letters.  In
 " Neovim, everything works out of the box.

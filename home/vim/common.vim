@@ -1041,6 +1041,8 @@ function! s:RotateToEdge()
 endfunction
 nnoremap <silent> <A-r> :<C-U>silent! call <SID>RotateToEdge()<CR>
 
+command! Mail new | set ft=mail
+
 autocmd vimrc_common TabClosed * tabp
 
 " This makes it so that delimitMate is loaded before vim-endwise, because it doesn't work
