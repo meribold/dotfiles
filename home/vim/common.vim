@@ -712,15 +712,15 @@ function! s:ToggleHeight()
 endfunction
 nnoremap <silent> ý :call <SID>ToggleHeight()<CR>
 
-nnoremap <silent> <Leader>1 :normal! 1<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>2 :normal! 2<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>3 :normal! 3<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>4 :normal! 4<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>5 :normal! 5<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>6 :normal! 6<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>7 :normal! 7<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>8 :normal! 8<C-V><C-W>w<C-V><C-W>_<CR>
-nnoremap <silent> <Leader>9 :normal! 9<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <Space>1 <Cmd>normal! 1<C-W>w<C-W>_<CR>
+nnoremap <Space>2 <Cmd>normal! 2<C-W>w<C-W>_<CR>
+nnoremap <Space>3 <Cmd>normal! 3<C-W>w<C-W>_<CR>
+nnoremap <Space>4 <Cmd>normal! 4<C-W>w<C-W>_<CR>
+nnoremap <Space>5 <Cmd>normal! 5<C-W>w<C-W>_<CR>
+nnoremap <Space>6 <Cmd>normal! 6<C-W>w<C-W>_<CR>
+nnoremap <Space>7 <Cmd>normal! 7<C-W>w<C-W>_<CR>
+nnoremap <Space>8 <Cmd>normal! 8<C-W>w<C-W>_<CR>
+nnoremap <Space>9 <Cmd>normal! 9<C-W>w<C-W>_<CR>
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
@@ -753,18 +753,18 @@ nnoremap <silent> <Leader>C :Git commit --amend<CR>
 " Mappings for commands from junegunn's fzf.vim plugin.  Most commands support CTRL-T,
 " CTRL-X, and CTRL-V key mappings to open in a new tab, a new split, or a new vertical
 " split respectively.
-nnoremap <silent> U :Windows<CR>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>F :Files ~/projects<CR>
-nnoremap <silent> <Leader>l :Buffers<CR>
+nnoremap U <Cmd>Windows<CR>
+nnoremap <Leader>f <Cmd>Files<CR>
+nnoremap <Leader>F <Cmd>Files ~/projects<CR>
+nnoremap <Leader>l <Cmd>Buffers<CR>
 nnoremap <silent> <Leader>a :Rg \b<C-R><C-W>\b<CR>
 nnoremap <silent> <Leader>A :RG <C-R><C-W><CR>
-nnoremap <silent> <Leader>r :Rg<CR>
-nnoremap <silent> <Leader>R :RG<CR>
-nnoremap <silent> <Leader>; :History:<CR>
-nnoremap <silent> <Leader>/ :History/<CR>
-nnoremap <silent> <Leader>s :Snippets<CR>
-nnoremap <silent> <Leader>d :GF?<CR>
+nnoremap <Leader>r <Cmd>Rg<CR>
+nnoremap <Leader>R <Cmd>RG<CR>
+nnoremap <Leader>; <Cmd>History:<CR>
+nnoremap <Leader>/ <Cmd>History/<CR>
+nnoremap <Leader>s <Cmd>Snippets<CR>
+nnoremap <Leader>d <Cmd>GF?<CR>
 " nnoremap <silent> <Leader>c :Commits<CR>
 " nnoremap <silent> <Leader>C :BCommits<CR>
 

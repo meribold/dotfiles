@@ -7,10 +7,10 @@ Bash [functions and aliases](home/bashrc),
 [more scripts](misc/keybind-scripts), […](home/XCompose).
 Est. 2013.
 
-<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection." width="523" height="327">
+<img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection.">
 
 I primarily use these dotfiles on Arch Linux, but a lot of what's in here also works on
-Ubuntu.
+Ubuntu.  Some of it even works on Windows or macOS.
 
 ## Highlights
 
