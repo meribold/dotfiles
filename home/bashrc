@@ -256,12 +256,10 @@ gcm() {
    fi
 }
 
-alias c='git commit'
 alias ci="git -c core.editor='vim +startinsert' commit --quiet"
 alias ff='git merge --ff-only'
 alias ga='git add'
 alias gd='git diff'
-alias gg='git graph'
 alias gl='git log'
 alias gp='git push'
 alias gap='git add -p'

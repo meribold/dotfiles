@@ -106,7 +106,7 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 " [e48a405]: https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff
 
-" Use <Space> as <Leader> and <BS> as <LocalLeader>.
+" Use <Space> as <Leader> and <Bslash> as <LocalLeader>.
 let mapleader = ' '
 let maplocalleader = '\'
 " Make sure <Space> doesn't do anything by itself.
@@ -123,9 +123,6 @@ set nofixeol
 
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
 set modeline
-
-" Don't automatically yank all visual selections into the "* register.
-set clipboard-=autoselect
 
 set clipboard^=unnamedplus
 
@@ -182,8 +179,6 @@ set wildignore+=*.bmp,*.gif,*.jpeg,*.jpg,*.pdf,*.png " more binary files
 
 set nowrap
 set sidescroll=1 " Scroll horizontally smoothly (one column at a time) instead of jumping.
-
-set title " Let vim set the terminal title.
 
 set hidden        " Only hide (don't unload) a buffer when abandoned.
 set laststatus=2  " Always show a status line.
@@ -287,8 +282,9 @@ let g:openbrowser_default_search = 'duckduckgo'
 " Don't automagically fix my shitty files: don't fix newlines, don't fix trailing
 " whitespace, and don't fix a file's last line lacking a newline.  Prevent noisy diffs.
 " These issues should be fixed in bulk with a single commit rather than piecemeal.
-let g:EditorConfig_disable_rules = ['end_of_line', 'trim_trailing_whitespace',
-   \ 'insert_final_newline']
+let g:EditorConfig_disable_rules = [
+   \ 'end_of_line', 'trim_trailing_whitespace', 'insert_final_newline'
+\ ]
 
 " textobj-word-column.vim
 " Skip the plugin's default mappings: they conflict with those of vim-textobj-comment.
@@ -396,9 +392,7 @@ let g:rooter_silent_chdir = 1
 " vim-dict
 " Use local DICT daemon for speed.  These are all databases I have installed.  They are
 " listed explicitly to change the order ['*'] would use.
-let g:dict_hosts = [
-   \ ['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']],
-\ ]
+let g:dict_hosts = [['localhost', ['gcide', 'eng-deu', 'deu-eng', 'foldoc', 'wn']]]
 
 " vim-gutentags
 " See `:helpgrep gutentags_cache_dir` and
@@ -646,19 +640,7 @@ nnoremap <silent> , :echo<CR>
 " up from <https://reddit.com/comments/3y2mgt//cya0x04>.
 vnoremap . :norm .<CR>
 
-" Cycle the 'foldlevel' ('fdl').  Kind of like Org-mode's org-shifttab.
-function! s:CycleFoldlevel()
-   " Remember the current 'foldlevel'.
-   let foldlevel = &foldlevel
-   " Open more folds (mnemonic: [r]educe folding).  That is, add v:count1 to 'foldlevel'.
-   norm zr
-   if foldlevel == &foldlevel
-      " Nothing happened, there were no more folds to open.  Close all folds (mnemonic:
-      " fold [M]ore).
-      norm zM
-   endif
-endfunction
-nnoremap <silent> <S-Tab> :call <SID>CycleFoldlevel()<CR>
+nnoremap <expr> <S-Tab> &foldlevel ? 'zm' : 'zR'
 
 " Switch windows more easily.
 nnoremap <silent> <C-J> :normal <C-V><C-W>w<CR>
@@ -728,8 +710,17 @@ function! s:ToggleHeight()
       endif
    endif
 endfunction
-nnoremap <silent> _ :call <SID>ToggleHeight()<CR>
-nnoremap <silent> <C-_> :call <SID>ToggleHeight()<CR>
+nnoremap <silent> ý :call <SID>ToggleHeight()<CR>
+
+nnoremap <silent> <Leader>1 :normal! 1<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>2 :normal! 2<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>3 :normal! 3<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>4 :normal! 4<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>5 :normal! 5<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>6 :normal! 6<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>7 :normal! 7<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>8 :normal! 8<C-V><C-W>w<C-V><C-W>_<CR>
+nnoremap <silent> <Leader>9 :normal! 9<C-V><C-W>w<C-V><C-W>_<CR>
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
@@ -756,10 +747,6 @@ nnoremap <silent> <expr> <Leader>g <SID>UpdateOrEnableGitGutter() .. '<CR>'
 nnoremap <silent> <Leader>G :GitGutterDisable<CR>
 nnoremap <silent> cog :GitGutterToggle<CR>
 
-" Fix the syntax highlighting.  See `:h :syn-sync-first` and
-" <https://vim.wikia.com/wiki/Fix_syntax_highlighting>.
-nnoremap <silent> <Leader>s :sy sync fromstart<CR>
-
 nnoremap <silent> <Leader>c :Git commit<CR>
 nnoremap <silent> <Leader>C :Git commit --amend<CR>
 
@@ -776,21 +763,23 @@ nnoremap <silent> <Leader>r :Rg<CR>
 nnoremap <silent> <Leader>R :RG<CR>
 nnoremap <silent> <Leader>; :History:<CR>
 nnoremap <silent> <Leader>/ :History/<CR>
-nnoremap <silent> <Leader><Leader> :Snippets<CR>
+nnoremap <silent> <Leader>s :Snippets<CR>
+nnoremap <silent> <Leader>d :GF?<CR>
 " nnoremap <silent> <Leader>c :Commits<CR>
 " nnoremap <silent> <Leader>C :BCommits<CR>
 
-let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.6, 'border': 'sharp'}}
+command! -bang Projects call fzf#run(fzf#wrap(
+   \ {'source': 'fd --strip-cwd-prefix --maxdepth 1', 'dir': '~/projects'}, <bang>0
+\ ))
+nnoremap <silent> <Leader>p :Projects<CR>
+
+let g:fzf_layout = {
+   \ 'window': {'width': 163, 'height': 31, 'yoffset': 0, 'border': 'sharp'}
+\ }
 let g:fzf_vim = {'buffers_jump': 1, 'preview_window': []}
 
 nnoremap <silent> <Leader>m :Neomake<CR>
 nnoremap <silent> <Leader>M :Neomake!<CR>
-
-" Remove mappings from a.vim.  TODO: add a mapping using <LocalLeader> that's only active
-" for C and C++ files?
-silent! nunmap <Leader>ih
-silent! nunmap <Leader>is
-silent! nunmap <Leader>ihn
 
 nnoremap <silent> <Leader>u :silent update<CR>
 nnoremap <silent> <Leader>U :Gwrite<CR>
@@ -1040,6 +1029,13 @@ function! s:RotateToEdge()
    endif
 endfunction
 nnoremap <silent> <A-r> :<C-U>silent! call <SID>RotateToEdge()<CR>
+
+function! s:Split() abort
+   if winnr('$') == 1 && &tw <= 90 && &columns >= 195 | vs | else | sp | endif
+   Dirvish %
+endfunction
+nnoremap <silent> _ :call <SID>Split()<CR>
+nnoremap <silent> <C-_> :call <SID>Split()<CR>
 
 command! Mail new | set ft=mail
 

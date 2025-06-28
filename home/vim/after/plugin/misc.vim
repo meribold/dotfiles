@@ -1,4 +1,7 @@
-" Disable some mappings defined by a.vim.  I find imaps irritating.
+" Remove key mappings defined by a.vim.
+nunmap <Leader>ih
+nunmap <Leader>is
+nunmap <Leader>ihn
 iunmap <Leader>ih
 iunmap <Leader>is
 iunmap <Leader>ihn
@@ -11,8 +14,8 @@ endif
 " yanked text.  For example, text that was just pasted can be indented with `=gp`.
 " [1]: https://github.com/kana/vim-textobj-user
 call textobj#user#plugin('', {
-\  'text': {
-\     'select-function': 'textobj#select_changed',
-\     'select': 'gp',
-\  },
+   \ 'text': {
+   \    'select-function': 'textobj#select_changed',
+   \    'select': 'gp',
+   \ },
 \ })

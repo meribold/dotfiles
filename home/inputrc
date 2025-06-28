@@ -16,11 +16,6 @@ set input-meta   on
 set output-meta  on
 set convert-meta off
 
-# From <https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/>.  Change Control+P and
-# Control+N to only bring up history items that match the already typed characters.
-"\C-P": history-search-backward
-"\C-N": history-search-forward
-
 # More stuff from <https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/>.  Except
 # for `colored-completion-prefix`, which I find even nicer than
 # `completion-prefix-display-length`.
@@ -30,3 +25,10 @@ set colored-completion-prefix
 set mark-symlinked-directories on
 
 set enable-bracketed-paste on
+
+# From <https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/>.  Change Control+P and
+# Control+N to only bring up history items that match the already typed characters.
+Control-P: history-search-backward
+Control-N: history-search-forward
+
+Control-O: "~/dotfiles/"

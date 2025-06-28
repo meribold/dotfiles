@@ -9,24 +9,29 @@ Est. 2013.
 
 <img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection." width="523" height="327">
 
+I primarily use these dotfiles on Arch Linux, but a lot of what's in here also works on
+Ubuntu.
+
 ## Highlights
 
-*   There's [a short guide on Fontconfig](home/config/fontconfig/readme.md) and
-    [a short guide on X resources](home/xresources/readme.md) in here.
-*   I have a couple of relevant videos on YouTube:
-    *   [Demo: Newsboat+mpv as a YouTube Client](https://www.youtube.com/watch?v=U31niad7bHY)
-    *   [Some Highlights From My Dotfiles](https://www.youtube.com/watch?v=CZxo41Ao_Tc)
+* There's [a short guide on Fontconfig](home/config/fontconfig/readme.md) and
+  [a short guide on X resources](home/xresources/readme.md) in here.
+* I have a couple of relevant videos on YouTube:
+  * [Demo: Newsboat+mpv as a YouTube Client](https://www.youtube.com/watch?v=U31niad7bHY)
+  * [Some Highlights From My Dotfiles](https://www.youtube.com/watch?v=CZxo41Ao_Tc)
+* Installation uses [GNU Make][].  The configuration for individual programs can be
+  installed without any extraneous changes being made.
 
 ## Structure
 
 There are three main directories: [`home`](home/), [`root`](root/), and [`misc`](misc/).
 
-*   The `home` directory contains files that should be linked to from `$HOME` and mirrors
-    its directory structure.
-*   The `root` directory contains files that should be linked to from *outside* `$HOME`.
-    Paths reflect where symlinks should be created relative to the filesystem root
-    directory.
-*   The `misc` directory contains files that don't require linking.
+* The `home` directory contains files that should be linked to from `$HOME` and mirrors
+  its directory structure.
+* The `root` directory contains files that should be linked to from *outside* `$HOME`.
+  Paths reflect where symlinks should be created relative to the filesystem root
+  directory.
+* The `misc` directory contains files that don't require linking.
 
 For example, [`home/vim/vimrc`](home/vim/vimrc) would be the target of a link at
 `~/.vim/vimrc` and
@@ -35,24 +40,23 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 
 ## Installation
 
-Be warned that my setup is personal, opinionated, and sometimes my own information is
-hard-coded.  Some configuration is specific to [Arch][], my ThinkPad, or otherwise not
-portable.  That being said, you can specifically install the configuration for individual
-programs without any extraneous changes being made.  Installation uses [GNU Make][].
+Don't proceed unless you are me.
 
 Clone this repository to `~/dotfiles`:
 
 ```bash
 git clone https://github.com/meribold/dotfiles.git ~/dotfiles
 ```
+
 Initialize and clone submodules:
 
 ```bash
 git submodule update --init --jobs 32
 ```
-Install the configuration for programs you're interested in by giving Make their
-names.  The makefile generally doesn't replace conflicting files; move or remove them
-manually.  For example:
+
+Install the configuration for programs you're interested in by giving Make their names.
+The makefile generally doesn't replace conflicting files; move or remove them manually.
+For example:
 
 ```bash
 mv ~/.vim ~/.vim.backup
@@ -70,4 +74,3 @@ regular files.
 Use the `-n` flag (e.g. `make -n vim`) to preview the commands Make would execute.
 
 [GNU Make]: https://www.gnu.org/software/make/
-[arch]: https://archlinux.org
