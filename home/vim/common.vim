@@ -632,7 +632,7 @@ noremap ; :
 nnoremap q; q:
 vnoremap q; q:
 
-nnoremap <silent> , :echo<CR>
+nnoremap , <Cmd>echo<CR>
 
 " Use . (`:h .`) in visual mode to repeat the last change for each selected line (see
 " `:h :normal-range`).  This often doesn't work as expected.  Try repeating `dd`.  The
@@ -643,11 +643,11 @@ vnoremap . :norm .<CR>
 nnoremap <expr> <S-Tab> &foldlevel ? 'zm' : 'zR'
 
 " Switch windows more easily.
-nnoremap <silent> <C-J> :normal <C-V><C-W>w<CR>
-nnoremap <silent> <C-K> :normal <C-V><C-W>W<CR>
+nnoremap <C-J> <C-W>w
+nnoremap <C-K> <C-W>W
 
 " Control+Q just does the same as Control+V by default; use it to close windows.
-nnoremap <silent> <C-Q> :x<CR>
+nnoremap <C-Q> <Cmd>x<CR>
 inoremap <C-Q> <Esc>ZZ
 
 " Correct typos in insert mode.  Copied from <https://castel.dev/post/lecture-notes-1/>.
@@ -685,7 +685,7 @@ function! s:MaximizeWindow()
    execute curwin .. 'wincmd w'
    wincmd _
 endfunction
-nnoremap <silent> <Bslash> :call <SID>MaximizeWindow()<CR>
+nnoremap <Bslash> <Cmd>call <SID>MaximizeWindow()<CR>
 
 " This is a cursed variation of <https://stackoverflow.com/a/45591177> that I wrote
 " because I wanted to disable 'equalalways'.
@@ -743,46 +743,46 @@ function! s:UpdateOrEnableGitGutter()
       return ':GitGutter'
    end
 endfunction
-nnoremap <silent> <expr> <Leader>g <SID>UpdateOrEnableGitGutter() .. '<CR>'
-nnoremap <silent> <Leader>G :GitGutterDisable<CR>
+nnoremap <silent> <expr> <Space>g <SID>UpdateOrEnableGitGutter() .. '<CR>'
+nnoremap <silent> <Space>G :GitGutterDisable<CR>
 nnoremap <silent> cog :GitGutterToggle<CR>
 
-nnoremap <silent> <Leader>c :Git commit<CR>
-nnoremap <silent> <Leader>C :Git commit --amend<CR>
+nnoremap <silent> <Space>c :Git commit<CR>
+nnoremap <silent> <Space>C :Git commit --amend<CR>
 
 " Mappings for commands from junegunn's fzf.vim plugin.  Most commands support CTRL-T,
 " CTRL-X, and CTRL-V key mappings to open in a new tab, a new split, or a new vertical
 " split respectively.
 nnoremap U <Cmd>Windows<CR>
-nnoremap <Leader>f <Cmd>Files<CR>
-nnoremap <Leader>F <Cmd>Files ~/projects<CR>
-nnoremap <Leader>l <Cmd>Buffers<CR>
-nnoremap <silent> <Leader>a :Rg \b<C-R><C-W>\b<CR>
-nnoremap <silent> <Leader>A :RG <C-R><C-W><CR>
-nnoremap <Leader>r <Cmd>Rg<CR>
-nnoremap <Leader>R <Cmd>RG<CR>
-nnoremap <Leader>; <Cmd>History:<CR>
-nnoremap <Leader>/ <Cmd>History/<CR>
-nnoremap <Leader>s <Cmd>Snippets<CR>
-nnoremap <Leader>d <Cmd>GF?<CR>
-" nnoremap <silent> <Leader>c :Commits<CR>
-" nnoremap <silent> <Leader>C :BCommits<CR>
+nnoremap <Space>f <Cmd>Files<CR>
+nnoremap <Space>F <Cmd>Files ~/projects<CR>
+nnoremap <Space>l <Cmd>Buffers<CR>
+nnoremap <silent> <Space>a :Rg \b<C-R><C-W>\b<CR>
+nnoremap <silent> <Space>A :RG <C-R><C-W><CR>
+nnoremap <Space>r <Cmd>Rg<CR>
+nnoremap <Space>R <Cmd>RG<CR>
+nnoremap <Space>; <Cmd>History:<CR>
+nnoremap <Space>/ <Cmd>History/<CR>
+nnoremap <Space>s <Cmd>Snippets<CR>
+nnoremap <Space>d <Cmd>GF?<CR>
+" nnoremap <silent> <Space>c :Commits<CR>
+" nnoremap <silent> <Space>C :BCommits<CR>
 
 command! -bang Projects call fzf#run(fzf#wrap(
    \ {'source': 'fd --strip-cwd-prefix --maxdepth 1', 'dir': '~/projects'}, <bang>0
 \ ))
-nnoremap <silent> <Leader>p :Projects<CR>
+nnoremap <silent> <Space>p :Projects<CR>
 
 let g:fzf_layout = {
    \ 'window': {'width': 163, 'height': 31, 'yoffset': 0, 'border': 'sharp'}
 \ }
 let g:fzf_vim = {'buffers_jump': 1, 'preview_window': []}
 
-nnoremap <silent> <Leader>m :Neomake<CR>
-nnoremap <silent> <Leader>M :Neomake!<CR>
+nnoremap <silent> <Space>m :Neomake<CR>
+nnoremap <silent> <Space>M :Neomake!<CR>
 
-nnoremap <silent> <Leader>u :silent update<CR>
-nnoremap <silent> <Leader>U :Gwrite<CR>
+nnoremap <silent> <Space>u :silent update<CR>
+nnoremap <silent> <Space>U :Gwrite<CR>
 
 nnoremap <silent> <C-S> :<C-U>silent update \| echo<CR>
 inoremap <silent> <C-S> <Esc>:silent update \| echo<CR>

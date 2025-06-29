@@ -9,8 +9,8 @@ Est. 2013.
 
 <img src="/../media/screenshot.png?raw=true" alt="Screenshot showing an xterm running Bash" title="Perfection.">
 
-I primarily use these dotfiles on Arch Linux, but a lot of what's in here also works on
-Ubuntu.  Some of it even works on Windows or macOS.
+I primarily use these dotfiles on Arch Linux, but most of what's in here also works on
+Ubuntu and other Linux distributions.  Some of it even works on Windows or macOS.
 
 ## Highlights
 
