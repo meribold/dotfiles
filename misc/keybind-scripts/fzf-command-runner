@@ -356,7 +356,8 @@ elif [[ $command_type == xterm ]]; then
 elif [[ $command_type == man ]]; then
    trap '' SIGHUP
    # shellcheck disable=SC2086
-   xterm -sl 0 -name 'floating man' -geometry 88x68 -e man --nj --nh $selected_command &
+   LC_CTYPE=en_US xterm -sl 0 -name 'floating man' -geometry 88x68 -e man -E latin1 \
+      --nj --nh $selected_command &
 elif [[ $command_type == nostdout ]]; then
    output=$(eval "$selected_command" 2>&1 1>/dev/null)
 fi
