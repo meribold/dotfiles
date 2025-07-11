@@ -257,6 +257,9 @@ set winwidth=97
 
 set splitright
 
+" This requires patch 9.1.0572 (https://github.com/vim/vim/commit/5247b0b92e191a046b0341).
+set tabclose=left
+
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " netrw, vim-dirvish, open-browser.vim
@@ -1038,8 +1041,6 @@ nnoremap <silent> _ :call <SID>Split()<CR>
 nnoremap <silent> <C-_> :call <SID>Split()<CR>
 
 command! Mail new | set ft=mail
-
-autocmd vimrc_common TabClosed * tabp
 
 " This makes it so that delimitMate is loaded before vim-endwise, because it doesn't work
 " otherwise.  The loading order used to work out by default, but it changed when I grouped
