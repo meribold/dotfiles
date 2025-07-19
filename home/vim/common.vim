@@ -138,6 +138,8 @@ set fillchars=eob:\
 " recommends 100.
 set updatetime=400
 
+setglobal signcolumn=yes
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display relative line numbers, but the absolute line number in front of the cursor line.
 " Useful when preceding vertical motion commands that support it with a count, e.g. d4j.
@@ -602,14 +604,7 @@ function! s:CycleHorizontally()
    elseif win_screenpos(winnr('#'))[1] != win_screenpos(0)[1]
       wincmd p
    elseif win_screenpos(winnr('$'))[1] == 1
-      if winnr() == winnr('$')
-         let new_winnr = 2
-      else
-         let new_winnr = winnr() + 1
-      endif
-      wincmd H
-      execute new_winnr .. 'wincmd w'
-      wincmd _
+      return
    elseif winnr() == winnr('l')
       while winnr() != winnr('h') | wincmd h | endwhile
    else
@@ -749,6 +744,9 @@ nnoremap <A-0> <Cmd>normal! 10<C-W>w<C-W>_<CR>
 noremap <silent> <expr> n 'Nn'[v:searchforward]
 noremap <silent> <expr> N 'nN'[v:searchforward]
 
+nnoremap <silent> * *
+nnoremap <silent> # #
+
 " vim-easy-align
 " Operator starting interactive EasyAlign.  Normal and visual mode.
 nmap gl <Plug>(EasyAlign)
@@ -764,8 +762,8 @@ function! s:UpdateOrEnableGitGutter()
    end
 endfunction
 nnoremap <silent> <expr> <Space>g <SID>UpdateOrEnableGitGutter() .. '<CR>'
-nnoremap <silent> <Space>G :GitGutterDisable<CR>
-nnoremap <silent> cog :GitGutterToggle<CR>
+nnoremap <Space>G <Cmd>GitGutterToggle<CR>
+nnoremap yog <Cmd>GitGutterToggle<CR>
 
 nnoremap <silent> <Space>c :Git commit<CR>
 nnoremap <silent> <Space>C :Git commit --amend<CR>
