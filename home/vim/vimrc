@@ -85,7 +85,7 @@ endif
 " This makes stuff like `inoremap <A-h> <Left>` work.  But it breaks the default Readline
 " behavior in Vim's built-in terminal, which is why we're skipping a few letters.  In
 " Neovim, everything works out of the box.
-for i in range(97, 122)
+for i in range(97, 122) + range(48, 57)
    let c = nr2char(i)
    if c == "a" || c == "b" || c == "d" || c == "f"
       continue

@@ -7,7 +7,7 @@
 }
 
 @-moz-document domain(wikipedia.org), domain(wiktionary.org) {
-  h1, h2, .mw-page-title-main {
+  h1, h2, .mw-page-title-main, .vector-sticky-header-context-bar-primary {
     font-family: 'Roboto Slab' !important;
   }
 }

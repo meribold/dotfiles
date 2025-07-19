@@ -255,6 +255,8 @@ set spelllang=en_us
 set winminwidth=0 winminheight=0
 set winwidth=97
 
+set splitkeep=screen
+
 set splitright
 
 " This requires patch 9.1.0572 (https://github.com/vim/vim/commit/5247b0b92e191a046b0341).
@@ -649,6 +651,9 @@ nnoremap <expr> <S-Tab> &foldlevel ? 'zm' : 'zR'
 nnoremap <C-J> <C-W>w
 nnoremap <C-K> <C-W>W
 
+nnoremap <A-j> <Cmd>normal <C-W>w<CR>
+nnoremap <A-k> <Cmd>normal <C-W>W<CR>
+
 " Control+Q just does the same as Control+V by default; use it to close windows.
 nnoremap <C-Q> <Cmd>x<CR>
 inoremap <C-Q> <Esc>ZZ
@@ -669,10 +674,11 @@ cnoremap <C-G> <C-U><BS>
 let g:qf_auto_open_quickfix = 0
 let g:qf_auto_open_loclist = 0
 " Toggle the quickfix window.
-nmap <C-F> <Plug>(qf_qf_toggle_stay)
+nmap <C-B> <Plug>(qf_qf_toggle_stay)
 
 " Search and highlight but don't jump.  See <https://stackoverflow.com/a/60583995>.
-nnoremap <silent> <C-B> :let @/ = '\<' .. expand('<cword>') .'\>' \| set hlsearch<CR>
+nnoremap <C-F> <Cmd>let @/ = '\<' .. expand('<cword>') .. '\>' \| set hlsearch<CR>
+nnoremap g<C-F> <Cmd>let @/ = expand('<cword>') \| set hlsearch<CR>
 
 function! s:MaximizeWindow()
    let curwin = winnr()
@@ -724,6 +730,18 @@ nnoremap <Space>6 <Cmd>normal! 6<C-W>w<C-W>_<CR>
 nnoremap <Space>7 <Cmd>normal! 7<C-W>w<C-W>_<CR>
 nnoremap <Space>8 <Cmd>normal! 8<C-W>w<C-W>_<CR>
 nnoremap <Space>9 <Cmd>normal! 9<C-W>w<C-W>_<CR>
+nnoremap <Space>0 <Cmd>normal! 10<C-W>w<C-W>_<CR>
+
+nnoremap <A-1> <Cmd>normal! 1<C-W>w<C-W>_<CR>
+nnoremap <A-2> <Cmd>normal! 2<C-W>w<C-W>_<CR>
+nnoremap <A-3> <Cmd>normal! 3<C-W>w<C-W>_<CR>
+nnoremap <A-4> <Cmd>normal! 4<C-W>w<C-W>_<CR>
+nnoremap <A-5> <Cmd>normal! 5<C-W>w<C-W>_<CR>
+nnoremap <A-6> <Cmd>normal! 6<C-W>w<C-W>_<CR>
+nnoremap <A-7> <Cmd>normal! 7<C-W>w<C-W>_<CR>
+nnoremap <A-8> <Cmd>normal! 8<C-W>w<C-W>_<CR>
+nnoremap <A-9> <Cmd>normal! 9<C-W>w<C-W>_<CR>
+nnoremap <A-0> <Cmd>normal! 10<C-W>w<C-W>_<CR>
 
 " Always go forward with n and backward with N.  Remove the cognitive dissonance after
 " forgetting whether the last search was done with '/' or '?'.  See
@@ -1017,8 +1035,8 @@ function! s:QuickfixMoveOrCc(move_command)
    endtry
 endfunction
 
-nnoremap <silent> <A-j> :<C-U>call <SID>QuickfixMoveOrCc('cbelow')<CR>
-nnoremap <silent> <A-k> :<C-U>call <SID>QuickfixMoveOrCc('cabove')<CR>
+nnoremap <A-n> <Cmd>call <SID>QuickfixMoveOrCc('cbelow')<CR>
+nnoremap <A-p> <Cmd>call <SID>QuickfixMoveOrCc('cabove')<CR>
 
 function! s:RotateToEdge()
    if v:count
