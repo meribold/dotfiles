@@ -106,9 +106,8 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 " [e48a405]: https://github.com/tpope/vim-sensible/commit/e48a40534c132e6dd88176b666a8b1ff
 
-" Use <Space> as <Leader> and <Bslash> as <LocalLeader>.
+" Use <Space> as <Leader>.
 let mapleader = ' '
-let maplocalleader = '\'
 " Make sure <Space> doesn't do anything by itself.
 map <Space> <Nop>
 
@@ -124,6 +123,7 @@ set nofixeol
 " Ubuntu 13.10 disables this by sourcing /usr/share/vim/vim74/debian.vim.
 set modeline
 
+set clipboard-=autoselect
 set clipboard^=unnamedplus
 
 " Make ^X^K work without having spell checking enabled (without `:set spell`).
@@ -255,8 +255,7 @@ set spelllang=en_us
 set winminwidth=0 winminheight=0
 set winwidth=97
 
-set splitkeep=screen
-
+set splitbelow
 set splitright
 
 " This requires patch 9.1.0572 (https://github.com/vim/vim/commit/5247b0b92e191a046b0341).
@@ -589,7 +588,7 @@ cnorea <expr> lgr   getcmdtype() == ':' && getcmdline() =~# '^lgr'   ? 'sil lgr'
 " pressed, so we can distinguish <Tab> and <C-I>.
 if !has('gui_running')
    nnoremap ÿ <C-I>
-   nnoremap <silent> <Tab> :<C-U>call <SID>CycleHorizontally()<CR>
+   nnoremap <Tab> <Cmd>call <SID>CycleHorizontally()<CR>
 else
    " TODO?  I think this isn't straightforward in gvim either and I don't care too much
    " right now.
@@ -747,8 +746,8 @@ nnoremap <A-0> <Cmd>normal! 10<C-W>w<C-W>_<CR>
 " forgetting whether the last search was done with '/' or '?'.  See
 " <https://stackoverflow.com/q/18523150> and <https://vi.stackexchange.com/q/2365>.
 " :noremap adds the mapping for normal, visual, select and operator-pending mode.
-noremap <expr> n 'Nn'[v:searchforward]
-noremap <expr> N 'nN'[v:searchforward]
+noremap <silent> <expr> n 'Nn'[v:searchforward]
+noremap <silent> <expr> N 'nN'[v:searchforward]
 
 " vim-easy-align
 " Operator starting interactive EasyAlign.  Normal and visual mode.
@@ -1052,7 +1051,7 @@ endfunction
 nnoremap <silent> <A-r> :<C-U>silent! call <SID>RotateToEdge()<CR>
 
 function! s:Split() abort
-   if winnr('$') == 1 && &tw <= 90 && &columns >= 195 | vs | else | sp | endif
+   if winnr('$') == 1 && &tw != 0 && &tw <= 90 && &columns >= 195 | vs | else | sp | endif
    Dirvish %
 endfunction
 nnoremap <silent> _ :call <SID>Split()<CR>
