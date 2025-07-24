@@ -71,7 +71,6 @@ mount ~/v8x && { git push usb; umount ~/v8x; } # push to my USB drive
 mount ~/v8x && { pass git pull; umount ~/v8x; } # pull to ~/.password-store
 mount ~/v8x && { pass git push; umount ~/v8x; } # push ~/.password-store
 mpc toggleoutput 2 # toggle whether MPD produces output for cli-visualizer
-mpv av://v4l2:/dev/video0
 nohup xdg-open file &>/dev/null <&1 &
 nx describe esgaroth Esgaroth
 nx describe s3 'Amazon S3'

@@ -596,6 +596,8 @@ else
    " right now.
 endif
 
+nnoremap <C-G> <Cmd>call <SID>CycleHorizontally()<CR>
+
 function! s:CycleHorizontally()
    if winnr('$') == 1
       return

@@ -40,28 +40,20 @@ should be linked to from `/usr/local/share/cows/dynamic-duo.cow`.
 
 ## Installation
 
-Don't proceed unless you are me.
+Don't proceed unless you are me.  If you are, clone this repository to `~/dotfiles`:
 
-Clone this repository to `~/dotfiles`:
-
-```bash
-git clone https://github.com/meribold/dotfiles.git ~/dotfiles
-```
+    git clone https://github.com/meribold/dotfiles.git ~/dotfiles
 
 Initialize and clone submodules:
 
-```bash
-git submodule update --init --jobs 32
-```
+    git submodule update --init --jobs 32
 
 Install the configuration for programs you're interested in by giving Make their names.
 The makefile generally doesn't replace conflicting files; move or remove them manually.
 For example:
 
-```bash
-mv ~/.vim ~/.vim.backup
-make vim
-```
+    mv ~/.vim ~/.vim.backup
+    make vim
 
 The currently implemented targets are: `vim`, `nvim`, `git`, `bash`, `screen`, `xterm`,
 `gpg`, `crontab`, `fortunes`, `irssi`, and `readline`.

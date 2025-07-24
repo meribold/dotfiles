@@ -182,9 +182,10 @@ arp
 curl -s ipinfo.io
 daemon::sshuttle -D -r bamfurlong 192.168.1.0/24
 cat /sys/class/backlight/intel_backlight/{,max_}brightness
-> /sys/class/backlight/intel_backlight/brightness echo 0
-> /sys/class/backlight/intel_backlight/brightness echo 128
-> /sys/class/backlight/intel_backlight/brightness echo 255
+> /sys/class/backlight/intel_backlight/brightness echo 10
+> /sys/class/backlight/intel_backlight/brightness echo 100
+> /sys/class/backlight/intel_backlight/brightness echo 200
+> /sys/class/backlight/intel_backlight/brightness echo 400
 xsetroot -solid black
 ulimit -a
 cat /etc/os-release
