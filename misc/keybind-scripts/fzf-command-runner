@@ -88,7 +88,6 @@ background::exec dosbox -conf ~/.dosbox/jill.conf::Jill of the Jungle
 background::exec dosbox -conf ~/.dosbox/conquest.conf::Conquest
 background::NetHack
 background::exec gimp::GIMP
-background::exec emacs::Emacs
 background::exec inkscape::Inkscape
 background::exec anki::Anki
 background::exec screenkey::screenkey

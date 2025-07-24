@@ -46,9 +46,6 @@
 [submodule "AUR/profile-cleaner"]
 	path = misc/aur/profile-cleaner
 	url = https://aur.archlinux.org/profile-cleaner.git
-[submodule "emacs.d/emacs-vim-modeline"]
-	path = home/emacs.d/emacs-vim-modeline
-	url = https://github.com/cinsk/emacs-vim-modeline
 [submodule "AUR/signal-cli"]
 	path = misc/aur/signal-cli
 	url = https://aur.archlinux.org/signal-cli.git
