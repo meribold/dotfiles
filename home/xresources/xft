@@ -6,9 +6,8 @@ Xft.dpi: 226.983
 Xft.antialias: 1
 Xft.autohint:  0
 Xft.hinting:   1
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcddefault
-Xft.rgba:      rgb
+Xft.lcdfilter: lcdnone
+Xft.rgba:      none
 
 ! [1]: https://wiki.archlinux.org/title/Font_configuration#Applications_without_fontconfig_support
 
