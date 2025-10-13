@@ -231,11 +231,6 @@ gatewayip() {
 
 alias gateip=gatewayip
 
-# The name is short for "persist history".
-ph() {
-   history -a && git -C ~/bash-history commit -m 'Update history' current
-}
-
 # Shortcut for `git.`  Runs `git status -s` when called with no arguments, otherwise acts
 # like `git`.  From https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g.
 g() {
@@ -309,22 +304,38 @@ HISTFILESIZE=-1
 # Don't save lines starting with a space character in the history.
 HISTCONTROL=ignorespace
 
-HISTIGNORE='k:k *:dnks:ph'
+HISTIGNORE='k:k *:dnks'
 
+# We initially use the main history file so that Bash can load the command history.
 HISTFILE=~/bash-history/current
 
-# Bash appears to append history before running this, so there's no need for `history -a`.
-# XXX: when running e.g. `exec htop` Bash does not seem to run this.  The new history
-# isn't committed.  It is still appended, though.
+persist_history() {
+   if [[ $HISTFILE == ~/bash-history/current ]]; then
+      HISTFILE=~/bash-history/$(date -u +%Y%m%dT%H%M%SZ)-$BASHPID-$RANDOM
+   else
+      history -a
+   fi
+}
+PROMPT_COMMAND=${PROMPT_COMMAND%;}
+PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }
+PROMPT_COMMAND+=persist_history
+
 commit_history() {
+   history -a
+   [[ $HISTFILE && -f $HISTFILE ]] || return
+   cat "$HISTFILE" >> ~/bash-history/current || return
+   rm "$HISTFILE"
    if ! err=$(git -C ~/bash-history commit -qm 'Update history' current 2>&1); then
       # If the reason for `git commit` failing is just that there's nothing to commit,
       # don't log an error.
       git -C ~/bash-history diff --quiet current && return
-      \ts <<< "$err" >> ~/bash-history/error.txt
+      TZ=UTC \ts '%Y%m%dT%H%M%SZ' <<< "$err" >> ~/bash-history/error.txt
    fi &
 }
 trap commit_history EXIT
+
+# Bash doesn't run the EXIT trap when `exec` is used, hence this alias.
+alias exec='commit_history &> /dev/null; command exec'
 
 # Using this function (`PS1='$(ps1)'`) results in a marginally nicer PS1 than `PS1='\$ '`.
 # The default PS1 is '[\u@\h \W]\$ ' (TODO: is this set by Bash or by Arch?).
