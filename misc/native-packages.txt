@@ -1,3 +1,4 @@
+7zip
 9base
 adobe-source-serif-fonts
 alacritty
@@ -163,6 +164,7 @@ kotlin
 less
 lftp
 lib32-pipewire
+lib32-vulkan-intel
 libnotify
 libreoffice-fresh
 libtool
@@ -175,6 +177,7 @@ lm_sensors
 lolcat
 lostfiles
 lsof
+luanti
 lynx
 lz4
 m4
@@ -186,7 +189,7 @@ meld
 mercurial
 mesa
 mesa-demos
-minetest
+mesa-utils
 monero
 monero-gui
 moreutils
@@ -212,7 +215,6 @@ net-tools
 newsboat
 nload
 nmap
-nodejs
 notion
 notmuch
 notmuch-vim
@@ -229,9 +231,7 @@ opencv-samples
 openmw
 openresolv
 openssh
-os-prober
 oxipng
-p7zip
 pacman
 pacman-contrib
 pandoc-cli
@@ -286,10 +286,10 @@ qt5-tools
 qt5-websockets
 qt5ct
 qutebrowser
+rbenv
 rclone
 redshift
 reflector
-reiserfsprogs
 renameutils
 reptyr
 ripgrep
@@ -297,6 +297,7 @@ ripgrep-all
 rlwrap
 rofi
 rsync
+ruby-build
 ruby-bundler
 rust
 rxvt-unicode
@@ -385,7 +386,8 @@ vimpager
 virt-manager
 vlc
 vpnc
-vulkan-radeon
+vulkan-intel
+vulkan-tools
 w3m
 weechat
 wget
@@ -429,8 +431,6 @@ xterm
 yamllint
 yapf
 z
-zathura
-zathura-pdf-mupdf
 zbar
 zip
 zsh

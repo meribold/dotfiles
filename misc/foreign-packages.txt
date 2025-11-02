@@ -38,6 +38,7 @@ proggyfonts
 python2-neovim
 qt5-webkit
 recutils
+reiserfsprogs
 rogue
 st
 surf
@@ -57,6 +58,7 @@ ttf-symbola
 units
 urlview
 vim-systemd
+vimv
 wpa_actiond
 xbanish
 xorg-utils
