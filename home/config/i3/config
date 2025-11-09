@@ -132,14 +132,6 @@ client.urgent           #000000 #900000 #900000 #900000
 client.placeholder      #000000 #000000 #000000 #000000
 client.background       #000000
 
-# 23 is a magic number.  Increasing it by one reduces the number of columns, that fit into
-# an xterm using exactly half of my screen width, by one.  This is only what works for my
-# screen width and font, of course.  My previous magic number is 9.
-gaps inner 23
-
-# Remove any gaps at screen edges.  This is obviously achieved with -23 :P
-gaps outer -23
-
 workspace 4 output DisplayPort-4 DisplayPort-5 DisplayPort-6
 
 # See <https://i3wm.org/docs/userguide.html#assign_workspace>.
@@ -199,9 +191,7 @@ bindsym $mod+t [class="^TelegramDesktop$" instance="^telegram-desktop$"] sticky 
 
 for_window [class="^Signal$" instance="^signal$"] floating enable
 
-workspace vim gaps inner 0
-workspace vim gaps horizontal 30
-workspace vim gaps vertical 0
+workspace vim gaps horizontal 28
 for_window [class="^XTerm$" instance="^vim$"] move container to workspace vim, border none
 
 for_window [class="^XTerm$" instance="^nethack$"] move container to workspace nethack, focus
