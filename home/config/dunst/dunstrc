@@ -4,8 +4,7 @@
 # [1]: https://github.com/dunst-project/dunst/blob/master/dunstrc
 
 [global]
-    # Two quite nice alternatives are `Source Code Pro 6` and `Source Code Pro Medium 6`.
-    font = Ubuntu Mono 8.2
+    font = Cascadia Mono 7
 
     # Allow a small subset of html markup tags message.  For a complete reference see
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
